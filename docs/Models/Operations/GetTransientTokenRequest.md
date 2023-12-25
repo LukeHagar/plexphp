@@ -1,0 +1,9 @@
+# GetTransientTokenRequest
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `type`                                                                                            | [\LukeHagar\Plex_API\Models\Operations\QueryParamType](../../Models/Operations/QueryParamType.md) | :heavy_check_mark:                                                                                | `delegation` - This is the only supported `type` parameter.                                       |
+| `scope`                                                                                           | [\LukeHagar\Plex_API\Models\Operations\Scope](../../Models/Operations/Scope.md)                   | :heavy_check_mark:                                                                                | `all` - This is the only supported `scope` parameter.                                             |
