@@ -20,8 +20,6 @@ class PlexAPI
 {
 	public const SERVERS = [
         /** The full address of your Plex Server */
-		'http://10.10.10.47:32400',
-        /** The full address of your Plex Server */
 		'{protocol}://{ip}:{port}',
 	];
   	
