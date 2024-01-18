@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 34d22936f2456c2c461abdfc773e3fc4
+  docChecksum: 45c73686e6dbe8c29b7e2857b6194ccf
   docVersion: 0.0.3
   speakeasyVersion: internal
-  generationVersion: 2.228.1
-  releaseVersion: 0.1.1
-  configChecksum: 150a7cbcf359400bd3f3c7af9f2a16fd
+  generationVersion: 2.237.2
+  releaseVersion: 0.1.2
+  configChecksum: 19b7e58967570872e67bde5e1327245d
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -14,7 +14,7 @@ features:
   php:
     core: 3.3.0
     flattening: 2.81.1
-    globalSecurity: 2.81.2
+    globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
     nameOverrides: 2.81.1
 generatedFiles:
@@ -192,6 +192,10 @@ generatedFiles:
   - src/Models/Operations/GetRecentlyAddedResponseBody.php
   - src/Models/Operations/GetRecentlyAddedResponse.php
   - src/Models/Operations/GetLibrariesErrors.php
+  - src/Models/Operations/GetLibrariesLibraryResponseBody.php
+  - src/Models/Operations/Location.php
+  - src/Models/Operations/GetLibrariesDirectory.php
+  - src/Models/Operations/GetLibrariesMediaContainer.php
   - src/Models/Operations/GetLibrariesResponseBody.php
   - src/Models/Operations/GetLibrariesResponse.php
   - src/Models/Operations/IncludeDetails.php
@@ -478,6 +482,10 @@ generatedFiles:
   - docs/Models/Operations/GetRecentlyAddedResponseBody.md
   - docs/Models/Operations/GetRecentlyAddedResponse.md
   - docs/Models/Operations/GetLibrariesErrors.md
+  - docs/Models/Operations/GetLibrariesLibraryResponseBody.md
+  - docs/Models/Operations/Location.md
+  - docs/Models/Operations/GetLibrariesDirectory.md
+  - docs/Models/Operations/GetLibrariesMediaContainer.md
   - docs/Models/Operations/GetLibrariesResponseBody.md
   - docs/Models/Operations/GetLibrariesResponse.md
   - docs/Models/Operations/IncludeDetails.md

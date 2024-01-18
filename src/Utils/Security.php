@@ -145,10 +145,10 @@ class Security
                 }
                 break;
             case 'openIdConnect':
-                $clientOptions['headers'][$fieldMetadata->name] = $value;
+                $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value;
                 break;
             case 'oauth2':
-                $clientOptions['headers'][$fieldMetadata->name] = $value;
+                $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value;
                 break;
             case 'http':
                 switch ($metadata->subtype) {

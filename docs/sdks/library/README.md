@@ -135,7 +135,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     $response = $sdk->library->getLibraries();
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {

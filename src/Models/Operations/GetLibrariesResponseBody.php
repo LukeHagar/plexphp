@@ -10,25 +10,20 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * GetLibrariesResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+ * GetLibrariesResponseBody - The libraries available on the Server
  * 
  * @package LukeHagar\Plex_API\Models\Operations
  * @access public
  */
 class GetLibrariesResponseBody
 {
-    /**
-     * $errors
-     * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibrariesErrors> $errors
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibrariesErrors>')]
+	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetLibrariesMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $errors = null;
+    public ?GetLibrariesMediaContainer $mediaContainer = null;
     
 	public function __construct()
 	{
-		$this->errors = null;
+		$this->mediaContainer = null;
 	}
 }
