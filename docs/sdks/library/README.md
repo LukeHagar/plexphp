@@ -194,7 +194,7 @@ try {
 
     $response = $sdk->library->getLibrary(1000, Operations\IncludeDetails::Zero);
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {

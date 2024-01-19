@@ -36,18 +36,27 @@ class GetLibraryResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * The details of the library
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetLibraryResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetLibraryResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?GetLibraryResponseBody $object = null;
+    public ?GetLibraryResponseBody $twoHundredApplicationJsonObject = null;
+    
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * 
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetLibraryLibraryResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+	
+    public ?GetLibraryLibraryResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

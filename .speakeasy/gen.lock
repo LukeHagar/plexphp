@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 45c73686e6dbe8c29b7e2857b6194ccf
+  docChecksum: a14d0ae27d4f5bd83b80747112f74352
   docVersion: 0.0.3
   speakeasyVersion: internal
   generationVersion: 2.237.2
-  releaseVersion: 0.1.2
-  configChecksum: 19b7e58967570872e67bde5e1327245d
+  releaseVersion: 0.1.3
+  configChecksum: ea1097dac6c5030a500119909dde2843
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -201,6 +201,9 @@ generatedFiles:
   - src/Models/Operations/IncludeDetails.php
   - src/Models/Operations/GetLibraryRequest.php
   - src/Models/Operations/GetLibraryErrors.php
+  - src/Models/Operations/GetLibraryLibraryResponseBody.php
+  - src/Models/Operations/GetLibraryDirectory.php
+  - src/Models/Operations/GetLibraryMediaContainer.php
   - src/Models/Operations/GetLibraryResponseBody.php
   - src/Models/Operations/GetLibraryResponse.php
   - src/Models/Operations/DeleteLibraryRequest.php
@@ -491,6 +494,9 @@ generatedFiles:
   - docs/Models/Operations/IncludeDetails.md
   - docs/Models/Operations/GetLibraryRequest.md
   - docs/Models/Operations/GetLibraryErrors.md
+  - docs/Models/Operations/GetLibraryLibraryResponseBody.md
+  - docs/Models/Operations/GetLibraryDirectory.md
+  - docs/Models/Operations/GetLibraryMediaContainer.md
   - docs/Models/Operations/GetLibraryResponseBody.md
   - docs/Models/Operations/GetLibraryResponse.md
   - docs/Models/Operations/DeleteLibraryRequest.md
