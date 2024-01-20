@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-class GetLibraryDirectory
+class Field
 {
 	#[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -21,27 +21,21 @@ class GetLibraryDirectory
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
     
-	#[\JMS\Serializer\Annotation\SerializedName('secondary')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?bool $secondary = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('prompt')]
+	#[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $prompt = null;
+    public ?string $type = null;
     
-	#[\JMS\Serializer\Annotation\SerializedName('search')]
-    #[\JMS\Serializer\Annotation\Type('bool')]
+	#[\JMS\Serializer\Annotation\SerializedName('subType')]
+    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?bool $search = null;
+    public ?string $subType = null;
     
 	public function __construct()
 	{
 		$this->key = null;
 		$this->title = null;
-		$this->secondary = null;
-		$this->prompt = null;
-		$this->search = null;
+		$this->type = null;
+		$this->subType = null;
 	}
 }

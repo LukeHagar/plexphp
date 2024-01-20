@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: a14d0ae27d4f5bd83b80747112f74352
+  docChecksum: 1e8e82037a237e1d1467721fbd2c7ab0
   docVersion: 0.0.3
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 0.1.3
-  configChecksum: ea1097dac6c5030a500119909dde2843
+  generationVersion: 2.237.3
+  releaseVersion: 0.1.4
+  configChecksum: 2f15e997f6c8f65632a5d44d8f976acb
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -60,6 +60,8 @@ generatedFiles:
   - src/Models/Operations/GetServerCapabilitiesResponseBody.php
   - src/Models/Operations/GetServerCapabilitiesResponse.php
   - src/Models/Operations/GetServerPreferencesErrors.php
+  - src/Models/Operations/GetServerPreferencesServerResponseBody.php
+  - src/Models/Operations/GetServerPreferencesMediaContainer.php
   - src/Models/Operations/GetServerPreferencesResponseBody.php
   - src/Models/Operations/GetServerPreferencesResponse.php
   - src/Models/Operations/GetAvailableClientsErrors.php
@@ -203,6 +205,12 @@ generatedFiles:
   - src/Models/Operations/GetLibraryErrors.php
   - src/Models/Operations/GetLibraryLibraryResponseBody.php
   - src/Models/Operations/GetLibraryDirectory.php
+  - src/Models/Operations/Filter.php
+  - src/Models/Operations/Sort.php
+  - src/Models/Operations/Field.php
+  - src/Models/Operations/GetLibraryType.php
+  - src/Models/Operations/Operator.php
+  - src/Models/Operations/FieldType.php
   - src/Models/Operations/GetLibraryMediaContainer.php
   - src/Models/Operations/GetLibraryResponseBody.php
   - src/Models/Operations/GetLibraryResponse.php
@@ -353,6 +361,8 @@ generatedFiles:
   - docs/Models/Operations/GetServerCapabilitiesResponseBody.md
   - docs/Models/Operations/GetServerCapabilitiesResponse.md
   - docs/Models/Operations/GetServerPreferencesErrors.md
+  - docs/Models/Operations/GetServerPreferencesServerResponseBody.md
+  - docs/Models/Operations/GetServerPreferencesMediaContainer.md
   - docs/Models/Operations/GetServerPreferencesResponseBody.md
   - docs/Models/Operations/GetServerPreferencesResponse.md
   - docs/Models/Operations/GetAvailableClientsErrors.md
@@ -496,6 +506,12 @@ generatedFiles:
   - docs/Models/Operations/GetLibraryErrors.md
   - docs/Models/Operations/GetLibraryLibraryResponseBody.md
   - docs/Models/Operations/GetLibraryDirectory.md
+  - docs/Models/Operations/Filter.md
+  - docs/Models/Operations/Sort.md
+  - docs/Models/Operations/Field.md
+  - docs/Models/Operations/GetLibraryType.md
+  - docs/Models/Operations/Operator.md
+  - docs/Models/Operations/FieldType.md
   - docs/Models/Operations/GetLibraryMediaContainer.md
   - docs/Models/Operations/GetLibraryResponseBody.md
   - docs/Models/Operations/GetLibraryResponse.md

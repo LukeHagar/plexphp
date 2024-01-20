@@ -10,25 +10,20 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * GetServerPreferencesResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+ * GetServerPreferencesResponseBody - Server Preferences
  * 
  * @package LukeHagar\Plex_API\Models\Operations
  * @access public
  */
 class GetServerPreferencesResponseBody
 {
-    /**
-     * $errors
-     * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetServerPreferencesErrors> $errors
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetServerPreferencesErrors>')]
+	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetServerPreferencesMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $errors = null;
+    public ?GetServerPreferencesMediaContainer $mediaContainer = null;
     
 	public function __construct()
 	{
-		$this->errors = null;
+		$this->mediaContainer = null;
 	}
 }

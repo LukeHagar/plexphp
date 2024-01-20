@@ -77,7 +77,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     $response = $sdk->server->getServerPreferences();
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {

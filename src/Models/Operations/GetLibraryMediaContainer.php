@@ -81,6 +81,26 @@ class GetLibraryMediaContainer
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $directory = null;
     
+    /**
+     * $type
+     * 
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryType> $type
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('Type')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryType>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?array $type = null;
+    
+    /**
+     * $fieldType
+     * 
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\FieldType> $fieldType
+     */
+	#[\JMS\Serializer\Annotation\SerializedName('FieldType')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\FieldType>')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?array $fieldType = null;
+    
 	public function __construct()
 	{
 		$this->size = null;
@@ -96,5 +116,7 @@ class GetLibraryMediaContainer
 		$this->viewGroup = null;
 		$this->viewMode = null;
 		$this->directory = null;
+		$this->type = null;
+		$this->fieldType = null;
 	}
 }
