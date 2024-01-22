@@ -10,25 +10,20 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * GetPlaylistContentsResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+ * GetPlaylistContentsResponseBody - The playlist contents
  * 
  * @package LukeHagar\Plex_API\Models\Operations
  * @access public
  */
 class GetPlaylistContentsResponseBody
 {
-    /**
-     * $errors
-     * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsErrors> $errors
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsErrors>')]
+	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $errors = null;
+    public ?GetPlaylistContentsMediaContainer $mediaContainer = null;
     
 	public function __construct()
 	{
-		$this->errors = null;
+		$this->mediaContainer = null;
 	}
 }

@@ -24,7 +24,7 @@ This may cause the duration and number of items to change.
 ## createPlaylist
 
 Create a new playlist. By default the playlist is blank. To create a playlist along with a first item, pass:
-- `uri` - The content URI for what we're playing (e.g. `library://...`).
+- `uri` - The content URI for what we're playing (e.g. `server://1234/com.plexapp.plugins.library/library/metadata/1`).
 - `playQueueID` - To create a playlist from an existing play queue.
 
 
@@ -55,7 +55,7 @@ try {
 
     $response = $sdk->playlists->createPlaylist($request);
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -101,7 +101,7 @@ try {
 
     $response = $sdk->playlists->getPlaylists(Operations\PlaylistType::Audio, Operations\QueryParamSmart::Zero);
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -150,7 +150,7 @@ try {
 
     $response = $sdk->playlists->getPlaylist(4109.48);
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -242,7 +242,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->playlists->updatePlaylist(3915);
+    $response = $sdk->playlists->updatePlaylist(3915, 'string', 'string');
 
     if ($response->statusCode === 200) {
         // handle response
@@ -254,9 +254,11 @@ try {
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `playlistID`           | *float*                | :heavy_check_mark:     | the ID of the playlist |
+| Parameter                           | Type                                | Required                            | Description                         |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| `playlistID`                        | *float*                             | :heavy_check_mark:                  | the ID of the playlist              |
+| `title`                             | *string*                            | :heavy_minus_sign:                  | name of the playlist                |
+| `summary`                           | *string*                            | :heavy_minus_sign:                  | summary description of the playlist |
 
 
 ### Response
@@ -294,7 +296,7 @@ try {
 
     $response = $sdk->playlists->getPlaylistContents(5004.46, 9403.59);
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -364,7 +366,7 @@ try {
 
 ## addPlaylistContents
 
-Adds a generator to a playlist, same parameters as the POST above. With a dumb playlist, this adds the specified items to the playlist. 
+Adds a generator to a playlist, same parameters as the POST to create. With a dumb playlist, this adds the specified items to the playlist.
 With a smart playlist, passing a new `uri` parameter replaces the rules for the playlist. Returns the playlist.
 
 
@@ -388,9 +390,9 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->playlists->addPlaylistContents(8502.01, 'library://..', 123);
+    $response = $sdk->playlists->addPlaylistContents(8502.01, 'server://12345/com.plexapp.plugins.library/library/metadata/1', 123);
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -400,11 +402,11 @@ try {
 
 ### Parameters
 
-| Parameter                           | Type                                | Required                            | Description                         | Example                             |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| `playlistID`                        | *float*                             | :heavy_check_mark:                  | the ID of the playlist              |                                     |
-| `uri`                               | *string*                            | :heavy_check_mark:                  | the content URI for the playlist    | library://..                        |
-| `playQueueID`                       | *float*                             | :heavy_check_mark:                  | the play queue to add to a playlist | 123                                 |
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `playlistID`                                                  | *float*                                                       | :heavy_check_mark:                                            | the ID of the playlist                                        |                                                               |
+| `uri`                                                         | *string*                                                      | :heavy_check_mark:                                            | the content URI for the playlist                              | server://12345/com.plexapp.plugins.library/library/metadata/1 |
+| `playQueueID`                                                 | *float*                                                       | :heavy_minus_sign:                                            | the play queue to add to a playlist                           | 123                                                           |
 
 
 ### Response
@@ -452,7 +454,7 @@ try {
 | Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `path`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | *string*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | absolute path to a directory on the server where m3u files are stored, or the absolute path to a playlist file on the server. <br/>If the `path` argument is a directory, that path will be scanned for playlist files to be processed. <br/>Each file in that directory creates a separate playlist, with a name based on the filename of the file that created it. <br/>The GUID of each playlist is based on the filename. <br/>If the `path` argument is a file, that file will be used to create a new playlist, with the name based on the filename of the file that created it. <br/>The GUID of each playlist is based on the filename.<br/> | /home/barkley/playlist.m3u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `force`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [\LukeHagar\Plex_API\Models\Operations\Force](../../Models/Operations/Force.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | force overwriting of duplicate playlists. By default, a playlist file uploaded with the same path will overwrite the existing playlist. <br/>The `force` argument is used to disable overwriting. If the `force` argument is set to 0, a new playlist will be created suffixed with the date and time that the duplicate was uploaded.<br/>                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `force`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [\LukeHagar\Plex_API\Models\Operations\Force](../../Models/Operations/Force.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Force overwriting of duplicate playlists.  <br/>By default, a playlist file uploaded with the same path will overwrite the existing playlist. <br/>The `force` argument is used to disable overwriting.  <br/>If the `force` argument is set to 0, a new playlist will be created suffixed with the date and time that the duplicate was uploaded.<br/>                                                                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 
 ### Response

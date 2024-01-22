@@ -38,10 +38,10 @@ class CreatePlaylistRequest
     /**
      * the content URI for the playlist
      * 
-     * @var ?string $uri
+     * @var string $uri
      */
 	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=uri')]
-    public ?string $uri = null;
+    public string $uri;
     
     /**
      * the play queue to copy to a playlist
@@ -56,7 +56,7 @@ class CreatePlaylistRequest
 		$this->title = "";
 		$this->type = \LukeHagar\Plex_API\Models\Operations\Type::Audio;
 		$this->smart = \LukeHagar\Plex_API\Models\Operations\Smart::Zero;
-		$this->uri = null;
+		$this->uri = "";
 		$this->playQueueID = null;
 	}
 }

@@ -10,25 +10,20 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * GetSessionsResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+ * GetSessionsResponseBody - List of Active Plex Sessions
  * 
  * @package LukeHagar\Plex_API\Models\Operations
  * @access public
  */
 class GetSessionsResponseBody
 {
-    /**
-     * $errors
-     * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetSessionsErrors> $errors
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetSessionsErrors>')]
+	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetSessionsMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $errors = null;
+    public ?GetSessionsMediaContainer $mediaContainer = null;
     
 	public function __construct()
 	{
-		$this->errors = null;
+		$this->mediaContainer = null;
 	}
 }

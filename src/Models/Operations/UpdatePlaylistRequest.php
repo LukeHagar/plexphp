@@ -19,8 +19,26 @@ class UpdatePlaylistRequest
 	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=playlistID')]
     public float $playlistID;
     
+    /**
+     * name of the playlist
+     * 
+     * @var ?string $title
+     */
+	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=title')]
+    public ?string $title = null;
+    
+    /**
+     * summary description of the playlist
+     * 
+     * @var ?string $summary
+     */
+	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=summary')]
+    public ?string $summary = null;
+    
 	public function __construct()
 	{
 		$this->playlistID = 0;
+		$this->title = null;
+		$this->summary = null;
 	}
 }

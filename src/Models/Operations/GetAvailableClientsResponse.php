@@ -38,25 +38,25 @@ class GetAvailableClientsResponse
     /**
      * Available Clients
      * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\ResponseBody> $responseBodies
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetAvailableClientsResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?array $responseBodies = null;
+    public ?GetAvailableClientsResponseBody $twoHundredApplicationJsonObject = null;
     
     /**
      * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetAvailableClientsResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetAvailableClientsServerResponseBody $fourHundredAndOneApplicationJsonObject
      */
 	
-    public ?GetAvailableClientsResponseBody $object = null;
+    public ?GetAvailableClientsServerResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->responseBodies = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

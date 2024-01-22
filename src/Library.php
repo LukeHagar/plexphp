@@ -172,25 +172,45 @@ class Library
     /**
      * Get Library Details
      * 
-     * Returns details for the library. This can be thought of as an interstitial endpoint because it contains information about the library, rather than content itself. These details are:
+     * ## Library Details Endpoint
      * 
-     * - A list of `Directory` objects: These used to be used by clients to build a menuing system. There are four flavors of directory found here:
-     *   - Primary: (e.g. all, On Deck) These are still used in some clients to provide "shortcuts" to subsets of media. However, with the exception of On Deck, all of them can be created by media queries, and the desire is to allow these to be customized by users.
-     *   - Secondary: These are marked with `secondary="1"` and were used by old clients to provide nested menus allowing for primative (but structured) navigation.
-     *   - Special: There is a By Folder entry which allows browsing the media by the underlying filesystem structure, and there's a completely obsolete entry marked `search="1"` which used to be used to allow clients to build search dialogs on the fly.
-     * - A list of `Type` objects: These represent the types of things found in this library, and for each one, a list of `Filter` and `Sort` objects. These can be used to build rich controls around a grid of media to allow filtering and organizing. Note that these filters and sorts are optional, and without them, the client won't render any filtering controls. The `Type` object contains:
-     *   - `key`: This provides the root endpoint returning the actual media list for the type.
-     *   - `type`: This is the metadata type for the type (if a standard Plex type).
-     *   - `title`: The title for for the content of this type (e.g. "Movies").
-     * - Each `Filter` object contains a description of the filter. Note that it is not an exhaustive list of the full media query language, but an inportant subset useful for top-level API.
-     *   - `filter`: This represents the filter name used for the filter, which can be used to construct complex media queries with.
-     *   - `filterType`: This is either `string`, `integer`, or `boolean`, and describes the type of values used for the filter.
-     *   - `key`: This provides the endpoint where the possible range of values for the filter can be retrieved (e.g. for a "Genre" filter, it returns a list of all the genres in the library). This will include a `type` argument that matches the metadata type of the Type element.
-     *   - `title`: The title for the filter.
-     * - Each `Sort` object contains a description of the sort field.
-     *   - `defaultDirection`: Can be either `asc` or `desc`, and specifies the default direction for the sort field (e.g. titles default to alphabetically ascending).
-     *   - `descKey` and `key`: Contains the parameters passed to the `sort=...` media query for each direction of the sort.
-     *   - `title`: The title of the field.
+     * This endpoint provides comprehensive details about the library, focusing on organizational aspects rather than the content itself.   
+     * 
+     * The details include:
+     * 
+     * ### Directories
+     * Organized into three categories:
+     * 
+     * - **Primary Directories**: 
+     *   - Used in some clients for quick access to media subsets (e.g., "All", "On Deck").
+     *   - Most can be replicated via media queries.
+     *   - Customizable by users.
+     * 
+     * - **Secondary Directories**:
+     *   - Marked with `secondary="1"`.
+     *   - Used in older clients for structured navigation.
+     * 
+     * - **Special Directories**:
+     *   - Includes a "By Folder" entry for filesystem-based browsing.
+     *   - Contains an obsolete `search="1"` entry for on-the-fly search dialog creation.
+     * 
+     * ### Types
+     * Each type in the library comes with a set of filters and sorts, aiding in building dynamic media controls:
+     * 
+     * - **Type Object Attributes**:
+     *   - `key`: Endpoint for the media list of this type.
+     *   - `type`: Metadata type (if standard Plex type).
+     *   - `title`: Title for this content type (e.g., "Movies").
+     * 
+     * - **Filter Objects**:
+     *   - Subset of the media query language.
+     *   - Attributes include `filter` (name), `filterType` (data type), `key` (endpoint for value range), and `title`.
+     * 
+     * - **Sort Objects**:
+     *   - Description of sort fields.
+     *   - Attributes include `defaultDirection` (asc/desc), `descKey` and `key` (sort parameters), and `title`.
+     * 
+     * > **Note**: Filters and sorts are optional; without them, no filtering controls are rendered.
      * 
      * 
      * @param float $sectionId
@@ -291,30 +311,46 @@ class Library
     /**
      * Get Library Items
      * 
-     * This endpoint will return a list of library items filtered by the filter and type provided
+     * Fetches details from a specific section of the library identified by a section key and a tag. The tag parameter accepts the following values:
+     * - `all`: All items in the section.
+     * - `unwatched`: Items that have not been played.
+     * - `newest`: Items that are recently released.
+     * - `recentlyAdded`: Items that are recently added to the library.
+     * - `recentlyViewed`: Items that were recently viewed.
+     * - `onDeck`: Items to continue watching.
+     * - `collection`: Items categorized by collection.
+     * - `edition`: Items categorized by edition.
+     * - `genre`: Items categorized by genre.
+     * - `year`: Items categorized by year of release.
+     * - `decade`: Items categorized by decade.
+     * - `director`: Items categorized by director.
+     * - `actor`: Items categorized by starring actor.
+     * - `country`: Items categorized by country of origin.
+     * - `contentRating`: Items categorized by content rating.
+     * - `rating`: Items categorized by rating.
+     * - `resolution`: Items categorized by resolution.
+     * - `firstCharacter`: Items categorized by the first letter.
+     * - `folder`: Items categorized by folder.
+     * - `search?type=1`: Search functionality within the section.
      * 
      * 
-     * @param float $sectionId
-     * @param ?float $type
-     * @param ?string $filter
+     * @param int $sectionId
+     * @param \LukeHagar\Plex_API\Models\Operations\Tag $tag
      * @return \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponse
      */
 	public function getLibraryItems(
-        float $sectionId,
-        ?float $type = null,
-        ?string $filter = null,
+        int $sectionId,
+        \LukeHagar\Plex_API\Models\Operations\Tag $tag,
     ): \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponse
     {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest();
         $request->sectionId = $sectionId;
-        $request->type = $type;
-        $request->filter = $filter;
+        $request->tag = $tag;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/all', \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/{tag}', \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest::class, $request);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest::class, $request, null));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -329,9 +365,7 @@ class Library
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponseBody', 'json');
@@ -388,112 +422,6 @@ class Library
     }
 	
     /**
-     * Get Latest Library Items
-     * 
-     * This endpoint will return a list of the latest library items filtered by the filter and type provided
-     * 
-     * 
-     * @param float $sectionId
-     * @param float $type
-     * @param ?string $filter
-     * @return \LukeHagar\Plex_API\Models\Operations\GetLatestLibraryItemsResponse
-     */
-	public function getLatestLibraryItems(
-        float $sectionId,
-        float $type,
-        ?string $filter = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetLatestLibraryItemsResponse
-    {
-        $request = new \LukeHagar\Plex_API\Models\Operations\GetLatestLibraryItemsRequest();
-        $request->sectionId = $sectionId;
-        $request->type = $type;
-        $request->filter = $filter;
-        
-        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/latest', \LukeHagar\Plex_API\Models\Operations\GetLatestLibraryItemsRequest::class, $request);
-        
-        $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLatestLibraryItemsRequest::class, $request, null));
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \LukeHagar\Plex_API\Models\Operations\GetLatestLibraryItemsResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetLatestLibraryItemsResponseBody', 'json');
-            }
-        }
-
-        return $response;
-    }
-	
-    /**
-     * Get Common Library Items
-     * 
-     * Represents a "Common" item. It contains only the common attributes of the items selected by the provided filter
-     * 
-     * 
-     * @param float $sectionId
-     * @param float $type
-     * @param ?string $filter
-     * @return \LukeHagar\Plex_API\Models\Operations\GetCommonLibraryItemsResponse
-     */
-	public function getCommonLibraryItems(
-        float $sectionId,
-        float $type,
-        ?string $filter = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetCommonLibraryItemsResponse
-    {
-        $request = new \LukeHagar\Plex_API\Models\Operations\GetCommonLibraryItemsRequest();
-        $request->sectionId = $sectionId;
-        $request->type = $type;
-        $request->filter = $filter;
-        
-        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/common', \LukeHagar\Plex_API\Models\Operations\GetCommonLibraryItemsRequest::class, $request);
-        
-        $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetCommonLibraryItemsRequest::class, $request, null));
-        $options['headers']['Accept'] = 'application/json';
-        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
-        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
-        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
-
-        $statusCode = $httpResponse->getStatusCode();
-
-        $response = new \LukeHagar\Plex_API\Models\Operations\GetCommonLibraryItemsResponse();
-        $response->statusCode = $statusCode;
-        $response->contentType = $contentType;
-        $response->rawResponse = $httpResponse;
-        
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400 or $httpResponse->getStatusCode() === 404) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
-            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
-                $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetCommonLibraryItemsResponseBody', 'json');
-            }
-        }
-
-        return $response;
-    }
-	
-    /**
      * Get Items Metadata
      * 
      * This endpoint will return the metadata of a library item specified with the ratingKey.
@@ -527,12 +455,18 @@ class Library
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetMetadataResponseBody', 'json');
+            }
+        }
+        else if ($httpResponse->getStatusCode() === 400) {
         }
         else if ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetMetadataResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetMetadataLibraryResponseBody', 'json');
             }
         }
 
@@ -573,12 +507,18 @@ class Library
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponseBody', 'json');
+            }
+        }
+        else if ($httpResponse->getStatusCode() === 400) {
         }
         else if ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenLibraryResponseBody', 'json');
             }
         }
 

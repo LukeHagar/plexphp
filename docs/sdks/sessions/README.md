@@ -36,7 +36,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     $response = $sdk->sessions->getSessions();
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {
@@ -73,7 +73,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     $response = $sdk->sessions->getSessionHistory();
 
-    if ($response->statusCode === 200) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Exception $e) {

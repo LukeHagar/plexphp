@@ -36,18 +36,27 @@ class GetUpdateStatusResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * The Server Updates
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetUpdateStatusResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetUpdateStatusResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?GetUpdateStatusResponseBody $object = null;
+    public ?GetUpdateStatusResponseBody $twoHundredApplicationJsonObject = null;
+    
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * 
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetUpdateStatusUpdaterResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+	
+    public ?GetUpdateStatusUpdaterResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

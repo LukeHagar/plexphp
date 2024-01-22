@@ -36,18 +36,27 @@ class GetSessionsResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * List of Active Plex Sessions
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetSessionsResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetSessionsResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?GetSessionsResponseBody $object = null;
+    public ?GetSessionsResponseBody $twoHundredApplicationJsonObject = null;
+    
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * 
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetSessionsSessionsResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+	
+    public ?GetSessionsSessionsResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

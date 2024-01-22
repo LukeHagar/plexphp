@@ -54,10 +54,10 @@ class GetOnDeckPart
     /**
      * $stream
      * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\Stream> $stream
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckStream> $stream
      */
 	#[\JMS\Serializer\Annotation\SerializedName('Stream')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Stream>')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetOnDeckStream>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $stream = null;
     

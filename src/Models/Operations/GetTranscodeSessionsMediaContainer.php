@@ -12,9 +12,9 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetTranscodeSessionsMediaContainer
 {
 	#[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $size = null;
+    public ?int $size = null;
     
     /**
      * $transcodeSession

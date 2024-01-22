@@ -10,25 +10,20 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * GetMetadataResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+ * GetMetadataResponseBody - The metadata of the library item.
  * 
  * @package LukeHagar\Plex_API\Models\Operations
  * @access public
  */
 class GetMetadataResponseBody
 {
-    /**
-     * $errors
-     * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetMetadataErrors> $errors
-     */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetMetadataErrors>')]
+	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetMetadataMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $errors = null;
+    public ?GetMetadataMediaContainer $mediaContainer = null;
     
 	public function __construct()
 	{
-		$this->errors = null;
+		$this->mediaContainer = null;
 	}
 }

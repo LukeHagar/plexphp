@@ -32,9 +32,9 @@ class TranscodeSession
     public ?float $progress = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $size = null;
+    public ?int $size = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('speed')]
     #[\JMS\Serializer\Annotation\Type('float')]
@@ -47,9 +47,14 @@ class TranscodeSession
     public ?bool $error = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $duration = null;
+    public ?int $duration = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('remaining')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $remaining = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('context')]
     #[\JMS\Serializer\Annotation\Type('string')]
@@ -76,6 +81,11 @@ class TranscodeSession
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $audioDecision = null;
     
+	#[\JMS\Serializer\Annotation\SerializedName('subtitleDecision')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $subtitleDecision = null;
+    
 	#[\JMS\Serializer\Annotation\SerializedName('protocol')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
@@ -97,9 +107,9 @@ class TranscodeSession
     public ?string $audioCodec = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $audioChannels = null;
+    public ?int $audioChannels = null;
     
 	#[\JMS\Serializer\Annotation\SerializedName('transcodeHwRequested')]
     #[\JMS\Serializer\Annotation\Type('bool')]
@@ -131,11 +141,13 @@ class TranscodeSession
 		$this->speed = null;
 		$this->error = null;
 		$this->duration = null;
+		$this->remaining = null;
 		$this->context = null;
 		$this->sourceVideoCodec = null;
 		$this->sourceAudioCodec = null;
 		$this->videoDecision = null;
 		$this->audioDecision = null;
+		$this->subtitleDecision = null;
 		$this->protocol = null;
 		$this->container = null;
 		$this->videoCodec = null;

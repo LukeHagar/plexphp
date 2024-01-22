@@ -194,10 +194,10 @@ class GetOnDeckMetadata
     /**
      * $guids
      * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\Guids> $guids
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckGuids> $guids
      */
 	#[\JMS\Serializer\Annotation\SerializedName('Guid')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Guids>')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetOnDeckGuids>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $guids = null;
     

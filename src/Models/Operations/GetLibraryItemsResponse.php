@@ -36,7 +36,7 @@ class GetLibraryItemsResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * The contents of the library by section and tag
      * 
      * @var ?\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponseBody $object
      */

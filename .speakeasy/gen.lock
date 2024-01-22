@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 1e8e82037a237e1d1467721fbd2c7ab0
+  docChecksum: 7aba498c024534142941d65a7c2e649c
   docVersion: 0.0.3
   speakeasyVersion: internal
   generationVersion: 2.237.3
-  releaseVersion: 0.1.4
-  configChecksum: 2f15e997f6c8f65632a5d44d8f976acb
+  releaseVersion: 0.1.5
+  configChecksum: d1a80abb6909ae5574949ec03fa95fb9
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -65,10 +65,10 @@ generatedFiles:
   - src/Models/Operations/GetServerPreferencesResponseBody.php
   - src/Models/Operations/GetServerPreferencesResponse.php
   - src/Models/Operations/GetAvailableClientsErrors.php
-  - src/Models/Operations/GetAvailableClientsResponseBody.php
+  - src/Models/Operations/GetAvailableClientsServerResponseBody.php
   - src/Models/Operations/Server.php
   - src/Models/Operations/GetAvailableClientsMediaContainer.php
-  - src/Models/Operations/ResponseBody.php
+  - src/Models/Operations/GetAvailableClientsResponseBody.php
   - src/Models/Operations/GetAvailableClientsResponse.php
   - src/Models/Operations/GetDevicesErrors.php
   - src/Models/Operations/GetDevicesServerResponseBody.php
@@ -146,11 +146,26 @@ generatedFiles:
   - src/Models/Operations/OnlyTransient.php
   - src/Models/Operations/GetGlobalHubsRequest.php
   - src/Models/Operations/GetGlobalHubsErrors.php
+  - src/Models/Operations/GetGlobalHubsHubsResponseBody.php
+  - src/Models/Operations/GetGlobalHubsMetadata.php
+  - src/Models/Operations/Hub.php
+  - src/Models/Operations/GetGlobalHubsMediaContainer.php
   - src/Models/Operations/GetGlobalHubsResponseBody.php
   - src/Models/Operations/GetGlobalHubsResponse.php
   - src/Models/Operations/QueryParamOnlyTransient.php
   - src/Models/Operations/GetLibraryHubsRequest.php
   - src/Models/Operations/GetLibraryHubsErrors.php
+  - src/Models/Operations/GetLibraryHubsHubsResponseBody.php
+  - src/Models/Operations/GetLibraryHubsPart.php
+  - src/Models/Operations/GetLibraryHubsMedia.php
+  - src/Models/Operations/GetLibraryHubsGenre.php
+  - src/Models/Operations/GetLibraryHubsCountry.php
+  - src/Models/Operations/GetLibraryHubsDirector.php
+  - src/Models/Operations/GetLibraryHubsRole.php
+  - src/Models/Operations/GetLibraryHubsWriter.php
+  - src/Models/Operations/GetLibraryHubsMetadata.php
+  - src/Models/Operations/GetLibraryHubsHub.php
+  - src/Models/Operations/GetLibraryHubsMediaContainer.php
   - src/Models/Operations/GetLibraryHubsResponseBody.php
   - src/Models/Operations/GetLibraryHubsResponse.php
   - src/Models/Operations/PerformSearchRequest.php
@@ -218,36 +233,55 @@ generatedFiles:
   - src/Models/Operations/DeleteLibraryErrors.php
   - src/Models/Operations/DeleteLibraryResponseBody.php
   - src/Models/Operations/DeleteLibraryResponse.php
+  - src/Models/Operations/Tag.php
   - src/Models/Operations/GetLibraryItemsRequest.php
-  - src/Models/Operations/GetLibraryItemsErrors.php
+  - src/Models/Operations/GetLibraryItemsPart.php
+  - src/Models/Operations/GetLibraryItemsMedia.php
+  - src/Models/Operations/GetLibraryItemsGenre.php
+  - src/Models/Operations/GetLibraryItemsCountry.php
+  - src/Models/Operations/GetLibraryItemsDirector.php
+  - src/Models/Operations/GetLibraryItemsWriter.php
+  - src/Models/Operations/GetLibraryItemsRole.php
+  - src/Models/Operations/GetLibraryItemsMetadata.php
+  - src/Models/Operations/GetLibraryItemsMediaContainer.php
   - src/Models/Operations/GetLibraryItemsResponseBody.php
   - src/Models/Operations/GetLibraryItemsResponse.php
   - src/Models/Operations/RefreshLibraryRequest.php
   - src/Models/Operations/RefreshLibraryErrors.php
   - src/Models/Operations/RefreshLibraryResponseBody.php
   - src/Models/Operations/RefreshLibraryResponse.php
-  - src/Models/Operations/GetLatestLibraryItemsRequest.php
-  - src/Models/Operations/GetLatestLibraryItemsErrors.php
-  - src/Models/Operations/GetLatestLibraryItemsResponseBody.php
-  - src/Models/Operations/GetLatestLibraryItemsResponse.php
-  - src/Models/Operations/GetCommonLibraryItemsRequest.php
-  - src/Models/Operations/GetCommonLibraryItemsErrors.php
-  - src/Models/Operations/GetCommonLibraryItemsResponseBody.php
-  - src/Models/Operations/GetCommonLibraryItemsResponse.php
   - src/Models/Operations/GetMetadataRequest.php
   - src/Models/Operations/GetMetadataErrors.php
+  - src/Models/Operations/GetMetadataLibraryResponseBody.php
+  - src/Models/Operations/Stream.php
+  - src/Models/Operations/GetMetadataPart.php
+  - src/Models/Operations/GetMetadataMedia.php
+  - src/Models/Operations/GetMetadataGenre.php
+  - src/Models/Operations/GetMetadataCountry.php
+  - src/Models/Operations/Guids.php
+  - src/Models/Operations/Ratings.php
+  - src/Models/Operations/GetMetadataDirector.php
+  - src/Models/Operations/GetMetadataWriter.php
+  - src/Models/Operations/GetMetadataRole.php
+  - src/Models/Operations/Producer.php
+  - src/Models/Operations/GetMetadataMetadata.php
+  - src/Models/Operations/GetMetadataMediaContainer.php
   - src/Models/Operations/GetMetadataResponseBody.php
   - src/Models/Operations/GetMetadataResponse.php
   - src/Models/Operations/GetMetadataChildrenRequest.php
   - src/Models/Operations/GetMetadataChildrenErrors.php
+  - src/Models/Operations/GetMetadataChildrenLibraryResponseBody.php
+  - src/Models/Operations/GetMetadataChildrenDirectory.php
+  - src/Models/Operations/GetMetadataChildrenMetadata.php
+  - src/Models/Operations/GetMetadataChildrenMediaContainer.php
   - src/Models/Operations/GetMetadataChildrenResponseBody.php
   - src/Models/Operations/GetMetadataChildrenResponse.php
   - src/Models/Operations/GetOnDeckErrors.php
   - src/Models/Operations/GetOnDeckLibraryResponseBody.php
-  - src/Models/Operations/Stream.php
+  - src/Models/Operations/GetOnDeckStream.php
   - src/Models/Operations/GetOnDeckPart.php
   - src/Models/Operations/GetOnDeckMedia.php
-  - src/Models/Operations/Guids.php
+  - src/Models/Operations/GetOnDeckGuids.php
   - src/Models/Operations/GetOnDeckMetadata.php
   - src/Models/Operations/GetOnDeckMediaContainer.php
   - src/Models/Operations/GetOnDeckResponseBody.php
@@ -267,16 +301,25 @@ generatedFiles:
   - src/Models/Operations/Smart.php
   - src/Models/Operations/CreatePlaylistRequest.php
   - src/Models/Operations/CreatePlaylistErrors.php
+  - src/Models/Operations/CreatePlaylistPlaylistsResponseBody.php
+  - src/Models/Operations/CreatePlaylistMetadata.php
+  - src/Models/Operations/CreatePlaylistMediaContainer.php
   - src/Models/Operations/CreatePlaylistResponseBody.php
   - src/Models/Operations/CreatePlaylistResponse.php
   - src/Models/Operations/PlaylistType.php
   - src/Models/Operations/QueryParamSmart.php
   - src/Models/Operations/GetPlaylistsRequest.php
   - src/Models/Operations/GetPlaylistsErrors.php
+  - src/Models/Operations/GetPlaylistsPlaylistsResponseBody.php
+  - src/Models/Operations/GetPlaylistsMetadata.php
+  - src/Models/Operations/GetPlaylistsMediaContainer.php
   - src/Models/Operations/GetPlaylistsResponseBody.php
   - src/Models/Operations/GetPlaylistsResponse.php
   - src/Models/Operations/GetPlaylistRequest.php
   - src/Models/Operations/GetPlaylistErrors.php
+  - src/Models/Operations/GetPlaylistPlaylistsResponseBody.php
+  - src/Models/Operations/GetPlaylistMetadata.php
+  - src/Models/Operations/GetPlaylistMediaContainer.php
   - src/Models/Operations/GetPlaylistResponseBody.php
   - src/Models/Operations/GetPlaylistResponse.php
   - src/Models/Operations/DeletePlaylistRequest.php
@@ -289,6 +332,16 @@ generatedFiles:
   - src/Models/Operations/UpdatePlaylistResponse.php
   - src/Models/Operations/GetPlaylistContentsRequest.php
   - src/Models/Operations/GetPlaylistContentsErrors.php
+  - src/Models/Operations/GetPlaylistContentsPlaylistsResponseBody.php
+  - src/Models/Operations/GetPlaylistContentsPart.php
+  - src/Models/Operations/GetPlaylistContentsMedia.php
+  - src/Models/Operations/GetPlaylistContentsGenre.php
+  - src/Models/Operations/GetPlaylistContentsCountry.php
+  - src/Models/Operations/GetPlaylistContentsDirector.php
+  - src/Models/Operations/GetPlaylistContentsWriter.php
+  - src/Models/Operations/GetPlaylistContentsRole.php
+  - src/Models/Operations/GetPlaylistContentsMetadata.php
+  - src/Models/Operations/GetPlaylistContentsMediaContainer.php
   - src/Models/Operations/GetPlaylistContentsResponseBody.php
   - src/Models/Operations/GetPlaylistContentsResponse.php
   - src/Models/Operations/ClearPlaylistContentsRequest.php
@@ -297,6 +350,9 @@ generatedFiles:
   - src/Models/Operations/ClearPlaylistContentsResponse.php
   - src/Models/Operations/AddPlaylistContentsRequest.php
   - src/Models/Operations/AddPlaylistContentsErrors.php
+  - src/Models/Operations/AddPlaylistContentsPlaylistsResponseBody.php
+  - src/Models/Operations/AddPlaylistContentsMetadata.php
+  - src/Models/Operations/AddPlaylistContentsMediaContainer.php
   - src/Models/Operations/AddPlaylistContentsResponseBody.php
   - src/Models/Operations/AddPlaylistContentsResponse.php
   - src/Models/Operations/Force.php
@@ -315,9 +371,21 @@ generatedFiles:
   - src/Models/Operations/GetSourceConnectionInformationResponseBody.php
   - src/Models/Operations/GetSourceConnectionInformationResponse.php
   - src/Models/Operations/GetSessionsErrors.php
+  - src/Models/Operations/GetSessionsSessionsResponseBody.php
+  - src/Models/Operations/GetSessionsStream.php
+  - src/Models/Operations/GetSessionsPart.php
+  - src/Models/Operations/GetSessionsMedia.php
+  - src/Models/Operations/User.php
+  - src/Models/Operations/Player.php
+  - src/Models/Operations/Session.php
+  - src/Models/Operations/GetSessionsMetadata.php
+  - src/Models/Operations/GetSessionsMediaContainer.php
   - src/Models/Operations/GetSessionsResponseBody.php
   - src/Models/Operations/GetSessionsResponse.php
   - src/Models/Operations/GetSessionHistoryErrors.php
+  - src/Models/Operations/GetSessionHistorySessionsResponseBody.php
+  - src/Models/Operations/GetSessionHistoryMetadata.php
+  - src/Models/Operations/GetSessionHistoryMediaContainer.php
   - src/Models/Operations/GetSessionHistoryResponseBody.php
   - src/Models/Operations/GetSessionHistoryResponse.php
   - src/Models/Operations/GetTranscodeSessionsErrors.php
@@ -331,6 +399,9 @@ generatedFiles:
   - src/Models/Operations/StopTranscodeSessionResponseBody.php
   - src/Models/Operations/StopTranscodeSessionResponse.php
   - src/Models/Operations/GetUpdateStatusErrors.php
+  - src/Models/Operations/GetUpdateStatusUpdaterResponseBody.php
+  - src/Models/Operations/Release.php
+  - src/Models/Operations/GetUpdateStatusMediaContainer.php
   - src/Models/Operations/GetUpdateStatusResponseBody.php
   - src/Models/Operations/GetUpdateStatusResponse.php
   - src/Models/Operations/Download.php
@@ -366,10 +437,10 @@ generatedFiles:
   - docs/Models/Operations/GetServerPreferencesResponseBody.md
   - docs/Models/Operations/GetServerPreferencesResponse.md
   - docs/Models/Operations/GetAvailableClientsErrors.md
-  - docs/Models/Operations/GetAvailableClientsResponseBody.md
+  - docs/Models/Operations/GetAvailableClientsServerResponseBody.md
   - docs/Models/Operations/Server.md
   - docs/Models/Operations/GetAvailableClientsMediaContainer.md
-  - docs/Models/Operations/ResponseBody.md
+  - docs/Models/Operations/GetAvailableClientsResponseBody.md
   - docs/Models/Operations/GetAvailableClientsResponse.md
   - docs/Models/Operations/GetDevicesErrors.md
   - docs/Models/Operations/GetDevicesServerResponseBody.md
@@ -447,11 +518,26 @@ generatedFiles:
   - docs/Models/Operations/OnlyTransient.md
   - docs/Models/Operations/GetGlobalHubsRequest.md
   - docs/Models/Operations/GetGlobalHubsErrors.md
+  - docs/Models/Operations/GetGlobalHubsHubsResponseBody.md
+  - docs/Models/Operations/GetGlobalHubsMetadata.md
+  - docs/Models/Operations/Hub.md
+  - docs/Models/Operations/GetGlobalHubsMediaContainer.md
   - docs/Models/Operations/GetGlobalHubsResponseBody.md
   - docs/Models/Operations/GetGlobalHubsResponse.md
   - docs/Models/Operations/QueryParamOnlyTransient.md
   - docs/Models/Operations/GetLibraryHubsRequest.md
   - docs/Models/Operations/GetLibraryHubsErrors.md
+  - docs/Models/Operations/GetLibraryHubsHubsResponseBody.md
+  - docs/Models/Operations/GetLibraryHubsPart.md
+  - docs/Models/Operations/GetLibraryHubsMedia.md
+  - docs/Models/Operations/GetLibraryHubsGenre.md
+  - docs/Models/Operations/GetLibraryHubsCountry.md
+  - docs/Models/Operations/GetLibraryHubsDirector.md
+  - docs/Models/Operations/GetLibraryHubsRole.md
+  - docs/Models/Operations/GetLibraryHubsWriter.md
+  - docs/Models/Operations/GetLibraryHubsMetadata.md
+  - docs/Models/Operations/GetLibraryHubsHub.md
+  - docs/Models/Operations/GetLibraryHubsMediaContainer.md
   - docs/Models/Operations/GetLibraryHubsResponseBody.md
   - docs/Models/Operations/GetLibraryHubsResponse.md
   - docs/Models/Operations/PerformSearchRequest.md
@@ -519,36 +605,55 @@ generatedFiles:
   - docs/Models/Operations/DeleteLibraryErrors.md
   - docs/Models/Operations/DeleteLibraryResponseBody.md
   - docs/Models/Operations/DeleteLibraryResponse.md
+  - docs/Models/Operations/Tag.md
   - docs/Models/Operations/GetLibraryItemsRequest.md
-  - docs/Models/Operations/GetLibraryItemsErrors.md
+  - docs/Models/Operations/GetLibraryItemsPart.md
+  - docs/Models/Operations/GetLibraryItemsMedia.md
+  - docs/Models/Operations/GetLibraryItemsGenre.md
+  - docs/Models/Operations/GetLibraryItemsCountry.md
+  - docs/Models/Operations/GetLibraryItemsDirector.md
+  - docs/Models/Operations/GetLibraryItemsWriter.md
+  - docs/Models/Operations/GetLibraryItemsRole.md
+  - docs/Models/Operations/GetLibraryItemsMetadata.md
+  - docs/Models/Operations/GetLibraryItemsMediaContainer.md
   - docs/Models/Operations/GetLibraryItemsResponseBody.md
   - docs/Models/Operations/GetLibraryItemsResponse.md
   - docs/Models/Operations/RefreshLibraryRequest.md
   - docs/Models/Operations/RefreshLibraryErrors.md
   - docs/Models/Operations/RefreshLibraryResponseBody.md
   - docs/Models/Operations/RefreshLibraryResponse.md
-  - docs/Models/Operations/GetLatestLibraryItemsRequest.md
-  - docs/Models/Operations/GetLatestLibraryItemsErrors.md
-  - docs/Models/Operations/GetLatestLibraryItemsResponseBody.md
-  - docs/Models/Operations/GetLatestLibraryItemsResponse.md
-  - docs/Models/Operations/GetCommonLibraryItemsRequest.md
-  - docs/Models/Operations/GetCommonLibraryItemsErrors.md
-  - docs/Models/Operations/GetCommonLibraryItemsResponseBody.md
-  - docs/Models/Operations/GetCommonLibraryItemsResponse.md
   - docs/Models/Operations/GetMetadataRequest.md
   - docs/Models/Operations/GetMetadataErrors.md
+  - docs/Models/Operations/GetMetadataLibraryResponseBody.md
+  - docs/Models/Operations/Stream.md
+  - docs/Models/Operations/GetMetadataPart.md
+  - docs/Models/Operations/GetMetadataMedia.md
+  - docs/Models/Operations/GetMetadataGenre.md
+  - docs/Models/Operations/GetMetadataCountry.md
+  - docs/Models/Operations/Guids.md
+  - docs/Models/Operations/Ratings.md
+  - docs/Models/Operations/GetMetadataDirector.md
+  - docs/Models/Operations/GetMetadataWriter.md
+  - docs/Models/Operations/GetMetadataRole.md
+  - docs/Models/Operations/Producer.md
+  - docs/Models/Operations/GetMetadataMetadata.md
+  - docs/Models/Operations/GetMetadataMediaContainer.md
   - docs/Models/Operations/GetMetadataResponseBody.md
   - docs/Models/Operations/GetMetadataResponse.md
   - docs/Models/Operations/GetMetadataChildrenRequest.md
   - docs/Models/Operations/GetMetadataChildrenErrors.md
+  - docs/Models/Operations/GetMetadataChildrenLibraryResponseBody.md
+  - docs/Models/Operations/GetMetadataChildrenDirectory.md
+  - docs/Models/Operations/GetMetadataChildrenMetadata.md
+  - docs/Models/Operations/GetMetadataChildrenMediaContainer.md
   - docs/Models/Operations/GetMetadataChildrenResponseBody.md
   - docs/Models/Operations/GetMetadataChildrenResponse.md
   - docs/Models/Operations/GetOnDeckErrors.md
   - docs/Models/Operations/GetOnDeckLibraryResponseBody.md
-  - docs/Models/Operations/Stream.md
+  - docs/Models/Operations/GetOnDeckStream.md
   - docs/Models/Operations/GetOnDeckPart.md
   - docs/Models/Operations/GetOnDeckMedia.md
-  - docs/Models/Operations/Guids.md
+  - docs/Models/Operations/GetOnDeckGuids.md
   - docs/Models/Operations/GetOnDeckMetadata.md
   - docs/Models/Operations/GetOnDeckMediaContainer.md
   - docs/Models/Operations/GetOnDeckResponseBody.md
@@ -568,16 +673,25 @@ generatedFiles:
   - docs/Models/Operations/Smart.md
   - docs/Models/Operations/CreatePlaylistRequest.md
   - docs/Models/Operations/CreatePlaylistErrors.md
+  - docs/Models/Operations/CreatePlaylistPlaylistsResponseBody.md
+  - docs/Models/Operations/CreatePlaylistMetadata.md
+  - docs/Models/Operations/CreatePlaylistMediaContainer.md
   - docs/Models/Operations/CreatePlaylistResponseBody.md
   - docs/Models/Operations/CreatePlaylistResponse.md
   - docs/Models/Operations/PlaylistType.md
   - docs/Models/Operations/QueryParamSmart.md
   - docs/Models/Operations/GetPlaylistsRequest.md
   - docs/Models/Operations/GetPlaylistsErrors.md
+  - docs/Models/Operations/GetPlaylistsPlaylistsResponseBody.md
+  - docs/Models/Operations/GetPlaylistsMetadata.md
+  - docs/Models/Operations/GetPlaylistsMediaContainer.md
   - docs/Models/Operations/GetPlaylistsResponseBody.md
   - docs/Models/Operations/GetPlaylistsResponse.md
   - docs/Models/Operations/GetPlaylistRequest.md
   - docs/Models/Operations/GetPlaylistErrors.md
+  - docs/Models/Operations/GetPlaylistPlaylistsResponseBody.md
+  - docs/Models/Operations/GetPlaylistMetadata.md
+  - docs/Models/Operations/GetPlaylistMediaContainer.md
   - docs/Models/Operations/GetPlaylistResponseBody.md
   - docs/Models/Operations/GetPlaylistResponse.md
   - docs/Models/Operations/DeletePlaylistRequest.md
@@ -590,6 +704,16 @@ generatedFiles:
   - docs/Models/Operations/UpdatePlaylistResponse.md
   - docs/Models/Operations/GetPlaylistContentsRequest.md
   - docs/Models/Operations/GetPlaylistContentsErrors.md
+  - docs/Models/Operations/GetPlaylistContentsPlaylistsResponseBody.md
+  - docs/Models/Operations/GetPlaylistContentsPart.md
+  - docs/Models/Operations/GetPlaylistContentsMedia.md
+  - docs/Models/Operations/GetPlaylistContentsGenre.md
+  - docs/Models/Operations/GetPlaylistContentsCountry.md
+  - docs/Models/Operations/GetPlaylistContentsDirector.md
+  - docs/Models/Operations/GetPlaylistContentsWriter.md
+  - docs/Models/Operations/GetPlaylistContentsRole.md
+  - docs/Models/Operations/GetPlaylistContentsMetadata.md
+  - docs/Models/Operations/GetPlaylistContentsMediaContainer.md
   - docs/Models/Operations/GetPlaylistContentsResponseBody.md
   - docs/Models/Operations/GetPlaylistContentsResponse.md
   - docs/Models/Operations/ClearPlaylistContentsRequest.md
@@ -598,6 +722,9 @@ generatedFiles:
   - docs/Models/Operations/ClearPlaylistContentsResponse.md
   - docs/Models/Operations/AddPlaylistContentsRequest.md
   - docs/Models/Operations/AddPlaylistContentsErrors.md
+  - docs/Models/Operations/AddPlaylistContentsPlaylistsResponseBody.md
+  - docs/Models/Operations/AddPlaylistContentsMetadata.md
+  - docs/Models/Operations/AddPlaylistContentsMediaContainer.md
   - docs/Models/Operations/AddPlaylistContentsResponseBody.md
   - docs/Models/Operations/AddPlaylistContentsResponse.md
   - docs/Models/Operations/Force.md
@@ -616,9 +743,21 @@ generatedFiles:
   - docs/Models/Operations/GetSourceConnectionInformationResponseBody.md
   - docs/Models/Operations/GetSourceConnectionInformationResponse.md
   - docs/Models/Operations/GetSessionsErrors.md
+  - docs/Models/Operations/GetSessionsSessionsResponseBody.md
+  - docs/Models/Operations/GetSessionsStream.md
+  - docs/Models/Operations/GetSessionsPart.md
+  - docs/Models/Operations/GetSessionsMedia.md
+  - docs/Models/Operations/User.md
+  - docs/Models/Operations/Player.md
+  - docs/Models/Operations/Session.md
+  - docs/Models/Operations/GetSessionsMetadata.md
+  - docs/Models/Operations/GetSessionsMediaContainer.md
   - docs/Models/Operations/GetSessionsResponseBody.md
   - docs/Models/Operations/GetSessionsResponse.md
   - docs/Models/Operations/GetSessionHistoryErrors.md
+  - docs/Models/Operations/GetSessionHistorySessionsResponseBody.md
+  - docs/Models/Operations/GetSessionHistoryMetadata.md
+  - docs/Models/Operations/GetSessionHistoryMediaContainer.md
   - docs/Models/Operations/GetSessionHistoryResponseBody.md
   - docs/Models/Operations/GetSessionHistoryResponse.md
   - docs/Models/Operations/GetTranscodeSessionsErrors.md
@@ -632,6 +771,9 @@ generatedFiles:
   - docs/Models/Operations/StopTranscodeSessionResponseBody.md
   - docs/Models/Operations/StopTranscodeSessionResponse.md
   - docs/Models/Operations/GetUpdateStatusErrors.md
+  - docs/Models/Operations/GetUpdateStatusUpdaterResponseBody.md
+  - docs/Models/Operations/Release.md
+  - docs/Models/Operations/GetUpdateStatusMediaContainer.md
   - docs/Models/Operations/GetUpdateStatusResponseBody.md
   - docs/Models/Operations/GetUpdateStatusResponse.md
   - docs/Models/Operations/Download.md

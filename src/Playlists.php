@@ -25,7 +25,7 @@ class Playlists
      * Create a Playlist
      * 
      * Create a new playlist. By default the playlist is blank. To create a playlist along with a first item, pass:
-     * - `uri` - The content URI for what we're playing (e.g. `library://...`).
+     * - `uri` - The content URI for what we're playing (e.g. `server://1234/com.plexapp.plugins.library/library/metadata/1`).
      * - `playQueueID` - To create a playlist from an existing play queue.
      * 
      * 
@@ -55,12 +55,18 @@ class Playlists
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\CreatePlaylistResponseBody', 'json');
+            }
+        }
+        else if ($httpResponse->getStatusCode() === 400) {
         }
         else if ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\CreatePlaylistResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\CreatePlaylistPlaylistsResponseBody', 'json');
             }
         }
 
@@ -86,7 +92,7 @@ class Playlists
         $request->smart = $smart;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/all');
+        $url = Utils\Utils::generateUrl($baseUrl, '/playlists');
         
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPlaylistsRequest::class, $request, null));
@@ -104,12 +110,18 @@ class Playlists
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistsResponseBody', 'json');
+            }
+        }
+        else if ($httpResponse->getStatusCode() === 400) {
         }
         else if ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistsPlaylistsResponseBody', 'json');
             }
         }
 
@@ -151,12 +163,18 @@ class Playlists
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistResponseBody', 'json');
+            }
+        }
+        else if ($httpResponse->getStatusCode() === 400) {
         }
         else if ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistPlaylistsResponseBody', 'json');
             }
         }
 
@@ -216,19 +234,26 @@ class Playlists
      * 
      * 
      * @param float $playlistID
+     * @param ?string $title
+     * @param ?string $summary
      * @return \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistResponse
      */
 	public function updatePlaylist(
         float $playlistID,
+        ?string $title = null,
+        ?string $summary = null,
     ): \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistResponse
     {
         $request = new \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest();
         $request->playlistID = $playlistID;
+        $request->title = $title;
+        $request->summary = $summary;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request);
         
         $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request, null));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -296,12 +321,18 @@ class Playlists
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponseBody', 'json');
+            }
+        }
+        else if ($httpResponse->getStatusCode() === 400) {
         }
         else if ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsPlaylistsResponseBody', 'json');
             }
         }
 
@@ -357,19 +388,19 @@ class Playlists
     /**
      * Adding to a Playlist
      * 
-     * Adds a generator to a playlist, same parameters as the POST above. With a dumb playlist, this adds the specified items to the playlist. 
+     * Adds a generator to a playlist, same parameters as the POST to create. With a dumb playlist, this adds the specified items to the playlist.
      * With a smart playlist, passing a new `uri` parameter replaces the rules for the playlist. Returns the playlist.
      * 
      * 
      * @param float $playlistID
      * @param string $uri
-     * @param float $playQueueID
+     * @param ?float $playQueueID
      * @return \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponse
      */
 	public function addPlaylistContents(
         float $playlistID,
         string $uri,
-        float $playQueueID,
+        ?float $playQueueID = null,
     ): \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponse
     {
         $request = new \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest();
@@ -396,12 +427,18 @@ class Playlists
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponseBody', 'json');
+            }
+        }
+        else if ($httpResponse->getStatusCode() === 400) {
         }
         else if ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsPlaylistsResponseBody', 'json');
             }
         }
 

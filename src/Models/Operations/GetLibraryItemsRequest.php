@@ -14,31 +14,22 @@ class GetLibraryItemsRequest
     /**
      * the Id of the library to query
      * 
-     * @var float $sectionId
+     * @var int $sectionId
      */
 	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
-    public float $sectionId;
+    public int $sectionId;
     
     /**
-     * item type
+     * A key representing a specific tag within the section.
      * 
-     * @var ?float $type
+     * @var \LukeHagar\Plex_API\Models\Operations\Tag $tag
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public ?float $type = null;
-    
-    /**
-     * the filter parameter
-     * 
-     * @var ?string $filter
-     */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=filter')]
-    public ?string $filter = null;
+	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=tag')]
+    public Tag $tag;
     
 	public function __construct()
 	{
 		$this->sectionId = 0;
-		$this->type = null;
-		$this->filter = null;
+		$this->tag = \LukeHagar\Plex_API\Models\Operations\Tag::All;
 	}
 }

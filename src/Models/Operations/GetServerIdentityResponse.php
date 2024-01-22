@@ -36,7 +36,7 @@ class GetServerIdentityResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * The Transcode Sessions
+     * The Server Identity information
      * 
      * @var ?\LukeHagar\Plex_API\Models\Operations\GetServerIdentityResponseBody $twoHundredApplicationJsonObject
      */

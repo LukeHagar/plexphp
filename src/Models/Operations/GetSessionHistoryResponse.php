@@ -36,18 +36,27 @@ class GetSessionHistoryResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * List of Plex Sessions
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetSessionHistoryResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetSessionHistoryResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?GetSessionHistoryResponseBody $object = null;
+    public ?GetSessionHistoryResponseBody $twoHundredApplicationJsonObject = null;
+    
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * 
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetSessionHistorySessionsResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+	
+    public ?GetSessionHistorySessionsResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

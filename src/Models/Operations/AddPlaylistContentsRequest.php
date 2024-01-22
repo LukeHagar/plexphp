@@ -30,15 +30,15 @@ class AddPlaylistContentsRequest
     /**
      * the play queue to add to a playlist
      * 
-     * @var float $playQueueID
+     * @var ?float $playQueueID
      */
 	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=playQueueID')]
-    public float $playQueueID;
+    public ?float $playQueueID = null;
     
 	public function __construct()
 	{
 		$this->playlistID = 0;
 		$this->uri = "";
-		$this->playQueueID = 0;
+		$this->playQueueID = null;
 	}
 }

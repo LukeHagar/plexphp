@@ -36,18 +36,27 @@ class GetMetadataChildrenResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * The children of the library item.
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?GetMetadataChildrenResponseBody $object = null;
+    public ?GetMetadataChildrenResponseBody $twoHundredApplicationJsonObject = null;
+    
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * 
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenLibraryResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+	
+    public ?GetMetadataChildrenLibraryResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

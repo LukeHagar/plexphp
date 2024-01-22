@@ -36,18 +36,27 @@ class GetGlobalHubsResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * returns global hubs
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?GetGlobalHubsResponseBody $object = null;
+    public ?GetGlobalHubsResponseBody $twoHundredApplicationJsonObject = null;
+    
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * 
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsHubsResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+	
+    public ?GetGlobalHubsHubsResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

@@ -36,18 +36,27 @@ class GetPlaylistContentsResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
     
     /**
-     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * The playlist contents
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponseBody $twoHundredApplicationJsonObject
      */
 	
-    public ?GetPlaylistContentsResponseBody $object = null;
+    public ?GetPlaylistContentsResponseBody $twoHundredApplicationJsonObject = null;
+    
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     * 
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsPlaylistsResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+	
+    public ?GetPlaylistContentsPlaylistsResponseBody $fourHundredAndOneApplicationJsonObject = null;
     
 	public function __construct()
 	{
 		$this->contentType = "";
 		$this->statusCode = 0;
 		$this->rawResponse = null;
-		$this->object = null;
+		$this->twoHundredApplicationJsonObject = null;
+		$this->fourHundredAndOneApplicationJsonObject = null;
 	}
 }

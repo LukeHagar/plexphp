@@ -27,9 +27,11 @@ class UploadPlaylistRequest
     public string $path;
     
     /**
-     * force overwriting of duplicate playlists. By default, a playlist file uploaded with the same path will overwrite the existing playlist. 
+     * Force overwriting of duplicate playlists.  
      * 
-     * The `force` argument is used to disable overwriting. If the `force` argument is set to 0, a new playlist will be created suffixed with the date and time that the duplicate was uploaded.
+     * By default, a playlist file uploaded with the same path will overwrite the existing playlist. 
+     * The `force` argument is used to disable overwriting.  
+     * If the `force` argument is set to 0, a new playlist will be created suffixed with the date and time that the duplicate was uploaded.
      * 
      * 
      * @var \LukeHagar\Plex_API\Models\Operations\Force $force

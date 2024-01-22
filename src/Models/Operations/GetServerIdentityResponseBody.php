@@ -10,7 +10,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * GetServerIdentityResponseBody - The Transcode Sessions
+ * GetServerIdentityResponseBody - The Server Identity information
  * 
  * @package LukeHagar\Plex_API\Models\Operations
  * @access public
