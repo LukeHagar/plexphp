@@ -81,6 +81,11 @@ class GetLibraryItemsMediaContainer
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $viewMode = null;
     
+	#[\JMS\Serializer\Annotation\SerializedName('mixedParents')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $mixedParents = null;
+    
     /**
      * $metadata
      * 
@@ -107,6 +112,7 @@ class GetLibraryItemsMediaContainer
 		$this->title2 = null;
 		$this->viewGroup = null;
 		$this->viewMode = null;
+		$this->mixedParents = null;
 		$this->metadata = null;
 	}
 }

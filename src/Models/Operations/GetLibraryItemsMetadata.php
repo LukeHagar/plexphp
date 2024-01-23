@@ -121,6 +121,41 @@ class GetLibraryItemsMetadata
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ratingImage = null;
     
+	#[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $grandparentRatingKey = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $grandparentGuid = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $grandparentKey = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $grandparentTitle = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $grandparentThumb = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $grandparentArt = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('grandparentTheme')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $grandparentTheme = null;
+    
     /**
      * $media
      * 
@@ -211,6 +246,86 @@ class GetLibraryItemsMetadata
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $skipCount = null;
     
+	#[\JMS\Serializer\Annotation\SerializedName('index')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $index = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('theme')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $theme = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('leafCount')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $leafCount = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $viewedLeafCount = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('childCount')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $childCount = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('hasPremiumExtras')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $hasPremiumExtras = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('hasPremiumPrimaryExtra')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $hasPremiumPrimaryExtra = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $parentRatingKey = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $parentGuid = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $parentStudio = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentKey')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $parentKey = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $parentTitle = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $parentIndex = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentYear')]
+    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?int $parentYear = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $parentThumb = null;
+    
+	#[\JMS\Serializer\Annotation\SerializedName('parentTheme')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $parentTheme = null;
+    
 	public function __construct()
 	{
 		$this->ratingKey = null;
@@ -235,6 +350,13 @@ class GetLibraryItemsMetadata
 		$this->chapterSource = null;
 		$this->primaryExtraKey = null;
 		$this->ratingImage = null;
+		$this->grandparentRatingKey = null;
+		$this->grandparentGuid = null;
+		$this->grandparentKey = null;
+		$this->grandparentTitle = null;
+		$this->grandparentThumb = null;
+		$this->grandparentArt = null;
+		$this->grandparentTheme = null;
 		$this->media = null;
 		$this->genre = null;
 		$this->country = null;
@@ -247,5 +369,21 @@ class GetLibraryItemsMetadata
 		$this->originalTitle = null;
 		$this->viewOffset = null;
 		$this->skipCount = null;
+		$this->index = null;
+		$this->theme = null;
+		$this->leafCount = null;
+		$this->viewedLeafCount = null;
+		$this->childCount = null;
+		$this->hasPremiumExtras = null;
+		$this->hasPremiumPrimaryExtra = null;
+		$this->parentRatingKey = null;
+		$this->parentGuid = null;
+		$this->parentStudio = null;
+		$this->parentKey = null;
+		$this->parentTitle = null;
+		$this->parentIndex = null;
+		$this->parentYear = null;
+		$this->parentThumb = null;
+		$this->parentTheme = null;
 	}
 }
