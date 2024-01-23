@@ -9,11 +9,8 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Plex content type to search for */
-enum Type: int
+/** `delegation` - This is the only supported `type` parameter. */
+enum GetTransientTokenQueryParamType: string
 {
-    case One = 1;
-    case Two = 2;
-    case Three = 3;
-    case Four = 4;
+    case Delegation = 'delegation';
 }

@@ -9,8 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** `delegation` - This is the only supported `type` parameter. */
+/** type of playlist to create */
 enum QueryParamType: string
 {
-    case Delegation = 'delegation';
+    case Audio = 'audio';
+    case Video = 'video';
+    case Photo = 'photo';
 }

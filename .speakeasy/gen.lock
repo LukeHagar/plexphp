@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 7aba498c024534142941d65a7c2e649c
+  docChecksum: 49e77b550f057eb568502dc74fee7cce
   docVersion: 0.0.3
   speakeasyVersion: internal
   generationVersion: 2.237.3
-  releaseVersion: 0.1.5
-  configChecksum: d1a80abb6909ae5574949ec03fa95fb9
+  releaseVersion: 0.1.6
+  configChecksum: b9566d846ca2859cb3952c40928e9e1b
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -250,6 +250,12 @@ generatedFiles:
   - src/Models/Operations/RefreshLibraryErrors.php
   - src/Models/Operations/RefreshLibraryResponseBody.php
   - src/Models/Operations/RefreshLibraryResponse.php
+  - src/Models/Operations/Type.php
+  - src/Models/Operations/SearchLibraryRequest.php
+  - src/Models/Operations/SearchLibraryMetadata.php
+  - src/Models/Operations/SearchLibraryMediaContainer.php
+  - src/Models/Operations/SearchLibraryResponseBody.php
+  - src/Models/Operations/SearchLibraryResponse.php
   - src/Models/Operations/GetMetadataRequest.php
   - src/Models/Operations/GetMetadataErrors.php
   - src/Models/Operations/GetMetadataLibraryResponseBody.php
@@ -297,7 +303,7 @@ generatedFiles:
   - src/Models/Operations/EnablePaperTrailErrors.php
   - src/Models/Operations/EnablePaperTrailResponseBody.php
   - src/Models/Operations/EnablePaperTrailResponse.php
-  - src/Models/Operations/Type.php
+  - src/Models/Operations/QueryParamType.php
   - src/Models/Operations/Smart.php
   - src/Models/Operations/CreatePlaylistRequest.php
   - src/Models/Operations/CreatePlaylistErrors.php
@@ -360,7 +366,7 @@ generatedFiles:
   - src/Models/Operations/UploadPlaylistErrors.php
   - src/Models/Operations/UploadPlaylistResponseBody.php
   - src/Models/Operations/UploadPlaylistResponse.php
-  - src/Models/Operations/QueryParamType.php
+  - src/Models/Operations/GetTransientTokenQueryParamType.php
   - src/Models/Operations/Scope.php
   - src/Models/Operations/GetTransientTokenRequest.php
   - src/Models/Operations/GetTransientTokenErrors.php
@@ -622,6 +628,12 @@ generatedFiles:
   - docs/Models/Operations/RefreshLibraryErrors.md
   - docs/Models/Operations/RefreshLibraryResponseBody.md
   - docs/Models/Operations/RefreshLibraryResponse.md
+  - docs/Models/Operations/Type.md
+  - docs/Models/Operations/SearchLibraryRequest.md
+  - docs/Models/Operations/SearchLibraryMetadata.md
+  - docs/Models/Operations/SearchLibraryMediaContainer.md
+  - docs/Models/Operations/SearchLibraryResponseBody.md
+  - docs/Models/Operations/SearchLibraryResponse.md
   - docs/Models/Operations/GetMetadataRequest.md
   - docs/Models/Operations/GetMetadataErrors.md
   - docs/Models/Operations/GetMetadataLibraryResponseBody.md
@@ -669,7 +681,7 @@ generatedFiles:
   - docs/Models/Operations/EnablePaperTrailErrors.md
   - docs/Models/Operations/EnablePaperTrailResponseBody.md
   - docs/Models/Operations/EnablePaperTrailResponse.md
-  - docs/Models/Operations/Type.md
+  - docs/Models/Operations/QueryParamType.md
   - docs/Models/Operations/Smart.md
   - docs/Models/Operations/CreatePlaylistRequest.md
   - docs/Models/Operations/CreatePlaylistErrors.md
@@ -732,7 +744,7 @@ generatedFiles:
   - docs/Models/Operations/UploadPlaylistErrors.md
   - docs/Models/Operations/UploadPlaylistResponseBody.md
   - docs/Models/Operations/UploadPlaylistResponse.md
-  - docs/Models/Operations/QueryParamType.md
+  - docs/Models/Operations/GetTransientTokenQueryParamType.md
   - docs/Models/Operations/Scope.md
   - docs/Models/Operations/GetTransientTokenRequest.md
   - docs/Models/Operations/GetTransientTokenErrors.md

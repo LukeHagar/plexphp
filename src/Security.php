@@ -27,12 +27,12 @@ class Security
      * This endpoint provides the caller with a temporary token with the same access level as the caller's token. These tokens are valid for up to 48 hours and are destroyed if the server instance is restarted.
      * 
      * 
-     * @param \LukeHagar\Plex_API\Models\Operations\QueryParamType $type
+     * @param \LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType $type
      * @param \LukeHagar\Plex_API\Models\Operations\Scope $scope
      * @return \LukeHagar\Plex_API\Models\Operations\GetTransientTokenResponse
      */
 	public function getTransientToken(
-        \LukeHagar\Plex_API\Models\Operations\QueryParamType $type,
+        \LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType $type,
         \LukeHagar\Plex_API\Models\Operations\Scope $scope,
     ): \LukeHagar\Plex_API\Models\Operations\GetTransientTokenResponse
     {

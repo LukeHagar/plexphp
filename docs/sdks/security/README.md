@@ -36,7 +36,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->security->getTransientToken(Operations\QueryParamType::Delegation, Operations\Scope::All);
+    $response = $sdk->security->getTransientToken(Operations\GetTransientTokenQueryParamType::Delegation, Operations\Scope::All);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -48,10 +48,10 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `type`                                                                                            | [\LukeHagar\Plex_API\Models\Operations\QueryParamType](../../Models/Operations/QueryParamType.md) | :heavy_check_mark:                                                                                | `delegation` - This is the only supported `type` parameter.                                       |
-| `scope`                                                                                           | [\LukeHagar\Plex_API\Models\Operations\Scope](../../Models/Operations/Scope.md)                   | :heavy_check_mark:                                                                                | `all` - This is the only supported `scope` parameter.                                             |
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                              | [\LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType](../../Models/Operations/GetTransientTokenQueryParamType.md) | :heavy_check_mark:                                                                                                                  | `delegation` - This is the only supported `type` parameter.                                                                         |
+| `scope`                                                                                                                             | [\LukeHagar\Plex_API\Models\Operations\Scope](../../Models/Operations/Scope.md)                                                     | :heavy_check_mark:                                                                                                                  | `all` - This is the only supported `scope` parameter.                                                                               |
 
 
 ### Response

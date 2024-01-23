@@ -15,6 +15,7 @@ API Calls interacting with Plex Media Server Libraries
 * [deleteLibrary](#deletelibrary) - Delete Library Section
 * [getLibraryItems](#getlibraryitems) - Get Library Items
 * [refreshLibrary](#refreshlibrary) - Refresh Library
+* [searchLibrary](#searchlibrary) - Search Library
 * [getMetadata](#getmetadata) - Get Items Metadata
 * [getMetadataChildren](#getmetadatachildren) - Get Items Children
 * [getOnDeck](#getondeck) - Get On Deck
@@ -301,7 +302,6 @@ Fetches details from a specific section of the library identified by a section k
 - `resolution`: Items categorized by resolution.
 - `firstCharacter`: Items categorized by the first letter.
 - `folder`: Items categorized by folder.
-- `search?type=1`: Search functionality within the section.
 
 
 ### Example Usage
@@ -392,6 +392,71 @@ try {
 ### Response
 
 **[?\LukeHagar\Plex_API\Models\Operations\RefreshLibraryResponse](../../Models/Operations/RefreshLibraryResponse.md)**
+
+
+## searchLibrary
+
+Search for content within a specific section of the library.
+
+### Types
+Each type in the library comes with a set of filters and sorts, aiding in building dynamic media controls:
+
+- **Type Object Attributes**:
+  - `type`: Metadata type (if standard Plex type).  
+  - `title`: Title for this content type (e.g., "Movies").
+
+- **Filter Objects**:
+  - Subset of the media query language.
+  - Attributes include `filter` (name), `filterType` (data type), `key` (endpoint for value range), and `title`.
+
+- **Sort Objects**:
+  - Description of sort fields.
+  - Attributes include `defaultDirection` (asc/desc), `descKey` and `key` (sort parameters), and `title`.
+
+> **Note**: Filters and sorts are optional; without them, no filtering controls are rendered.
+
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use \LukeHagar\Plex_API;
+use \LukeHagar\Plex_API\Models\Components;
+use \LukeHagar\Plex_API\Models\Operations;
+
+$security = new Components\Security();
+$security->accessToken = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+try {
+    
+
+    $response = $sdk->library->searchLibrary(933505, Operations\Type::Four);
+
+    if ($response->object !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `sectionId`                                                                   | *int*                                                                         | :heavy_check_mark:                                                            | the Id of the library to query                                                |
+| `type`                                                                        | [\LukeHagar\Plex_API\Models\Operations\Type](../../Models/Operations/Type.md) | :heavy_check_mark:                                                            | Plex content type to search for                                               |
+
+
+### Response
+
+**[?\LukeHagar\Plex_API\Models\Operations\SearchLibraryResponse](../../Models/Operations/SearchLibraryResponse.md)**
 
 
 ## getMetadata

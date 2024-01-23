@@ -22,10 +22,10 @@ class CreatePlaylistRequest
     /**
      * type of playlist to create
      * 
-     * @var \LukeHagar\Plex_API\Models\Operations\Type $type
+     * @var \LukeHagar\Plex_API\Models\Operations\QueryParamType $type
      */
 	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public Type $type;
+    public QueryParamType $type;
     
     /**
      * whether the playlist is smart or not
@@ -54,7 +54,7 @@ class CreatePlaylistRequest
 	public function __construct()
 	{
 		$this->title = "";
-		$this->type = \LukeHagar\Plex_API\Models\Operations\Type::Audio;
+		$this->type = \LukeHagar\Plex_API\Models\Operations\QueryParamType::Audio;
 		$this->smart = \LukeHagar\Plex_API\Models\Operations\Smart::Zero;
 		$this->uri = "";
 		$this->playQueueID = null;

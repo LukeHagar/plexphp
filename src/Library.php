@@ -331,7 +331,6 @@ class Library
      * - `resolution`: Items categorized by resolution.
      * - `firstCharacter`: Items categorized by the first letter.
      * - `folder`: Items categorized by folder.
-     * - `search?type=1`: Search functionality within the section.
      * 
      * 
      * @param int $sectionId
@@ -415,6 +414,71 @@ class Library
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\RefreshLibraryResponseBody', 'json');
+            }
+        }
+
+        return $response;
+    }
+	
+    /**
+     * Search Library
+     * 
+     * Search for content within a specific section of the library.
+     * 
+     * ### Types
+     * Each type in the library comes with a set of filters and sorts, aiding in building dynamic media controls:
+     * 
+     * - **Type Object Attributes**:
+     *   - `type`: Metadata type (if standard Plex type).  
+     *   - `title`: Title for this content type (e.g., "Movies").
+     * 
+     * - **Filter Objects**:
+     *   - Subset of the media query language.
+     *   - Attributes include `filter` (name), `filterType` (data type), `key` (endpoint for value range), and `title`.
+     * 
+     * - **Sort Objects**:
+     *   - Description of sort fields.
+     *   - Attributes include `defaultDirection` (asc/desc), `descKey` and `key` (sort parameters), and `title`.
+     * 
+     * > **Note**: Filters and sorts are optional; without them, no filtering controls are rendered.
+     * 
+     * 
+     * @param int $sectionId
+     * @param \LukeHagar\Plex_API\Models\Operations\Type $type
+     * @return \LukeHagar\Plex_API\Models\Operations\SearchLibraryResponse
+     */
+	public function searchLibrary(
+        int $sectionId,
+        \LukeHagar\Plex_API\Models\Operations\Type $type,
+    ): \LukeHagar\Plex_API\Models\Operations\SearchLibraryResponse
+    {
+        $request = new \LukeHagar\Plex_API\Models\Operations\SearchLibraryRequest();
+        $request->sectionId = $sectionId;
+        $request->type = $type;
+        
+        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/search', \LukeHagar\Plex_API\Models\Operations\SearchLibraryRequest::class, $request);
+        
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\SearchLibraryRequest::class, $request, null));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \LukeHagar\Plex_API\Models\Operations\SearchLibraryResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\SearchLibraryResponseBody', 'json');
             }
         }
 

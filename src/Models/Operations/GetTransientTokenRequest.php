@@ -14,10 +14,10 @@ class GetTransientTokenRequest
     /**
      * `delegation` - This is the only supported `type` parameter.
      * 
-     * @var \LukeHagar\Plex_API\Models\Operations\QueryParamType $type
+     * @var \LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType $type
      */
 	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public QueryParamType $type;
+    public GetTransientTokenQueryParamType $type;
     
     /**
      * `all` - This is the only supported `scope` parameter.
@@ -29,7 +29,7 @@ class GetTransientTokenRequest
     
 	public function __construct()
 	{
-		$this->type = \LukeHagar\Plex_API\Models\Operations\QueryParamType::Delegation;
+		$this->type = \LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType::Delegation;
 		$this->scope = \LukeHagar\Plex_API\Models\Operations\Scope::All;
 	}
 }

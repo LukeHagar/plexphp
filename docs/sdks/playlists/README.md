@@ -48,7 +48,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
         $request = new Operations\CreatePlaylistRequest();
     $request->title = 'string';
-    $request->type = Operations\Type::Photo;
+    $request->type = Operations\QueryParamType::Photo;
     $request->smart = Operations\Smart::One;
     $request->uri = 'https://inborn-brochure.biz';
     $request->playQueueID = 3686.33;;

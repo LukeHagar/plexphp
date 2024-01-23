@@ -31,5 +31,4 @@ enum Tag: string
     case Resolution = 'resolution';
     case FirstCharacter = 'firstCharacter';
     case Folder = 'folder';
-    case SearchTypeEqual1 = 'search?type=1';
 }
