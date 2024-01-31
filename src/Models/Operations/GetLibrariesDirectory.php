@@ -114,10 +114,10 @@ class GetLibrariesDirectory
     /**
      * $location
      * 
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\Location> $location
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibrariesLocation> $location
      */
 	#[\JMS\Serializer\Annotation\SerializedName('Location')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Location>')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibrariesLocation>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $location = null;
     

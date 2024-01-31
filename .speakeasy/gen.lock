@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 95d4ac4070b7f9db42126fc81b258e02
+  docChecksum: 94439465ae5d544f0e52b00719af05ee
   docVersion: 0.0.3
   speakeasyVersion: internal
-  generationVersion: 2.237.3
-  releaseVersion: 0.1.7
-  configChecksum: 55d2fecef629d747f44aa52b1f19b5e7
+  generationVersion: 2.239.4
+  releaseVersion: 0.2.0
+  configChecksum: 2152a875267760fe36d5b306ee7366ad
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -16,6 +16,7 @@ features:
     flattening: 2.81.1
     globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
+    methodServerURLs: 2.82.1
     nameOverrides: 2.81.1
 generatedFiles:
   - src/SDKConfiguration.php
@@ -27,6 +28,7 @@ generatedFiles:
   - src/Search.php
   - src/Library.php
   - src/Log.php
+  - src/PlexTv.php
   - src/Playlists.php
   - src/Security.php
   - src/Sessions.php
@@ -210,7 +212,7 @@ generatedFiles:
   - src/Models/Operations/GetRecentlyAddedResponse.php
   - src/Models/Operations/GetLibrariesErrors.php
   - src/Models/Operations/GetLibrariesLibraryResponseBody.php
-  - src/Models/Operations/Location.php
+  - src/Models/Operations/GetLibrariesLocation.php
   - src/Models/Operations/GetLibrariesDirectory.php
   - src/Models/Operations/GetLibrariesMediaContainer.php
   - src/Models/Operations/GetLibrariesResponseBody.php
@@ -303,6 +305,16 @@ generatedFiles:
   - src/Models/Operations/EnablePaperTrailErrors.php
   - src/Models/Operations/EnablePaperTrailResponseBody.php
   - src/Models/Operations/EnablePaperTrailResponse.php
+  - src/Models/Operations/GetPinRequest.php
+  - src/Models/Operations/GetPinErrors.php
+  - src/Models/Operations/GetPinPlexTvResponseBody.php
+  - src/Models/Operations/Location.php
+  - src/Models/Operations/GetPinResponseBody.php
+  - src/Models/Operations/GetPinResponse.php
+  - src/Models/Operations/GetTokenRequest.php
+  - src/Models/Operations/GetTokenErrors.php
+  - src/Models/Operations/GetTokenResponseBody.php
+  - src/Models/Operations/GetTokenResponse.php
   - src/Models/Operations/QueryParamType.php
   - src/Models/Operations/Smart.php
   - src/Models/Operations/CreatePlaylistRequest.php
@@ -588,7 +600,7 @@ generatedFiles:
   - docs/Models/Operations/GetRecentlyAddedResponse.md
   - docs/Models/Operations/GetLibrariesErrors.md
   - docs/Models/Operations/GetLibrariesLibraryResponseBody.md
-  - docs/Models/Operations/Location.md
+  - docs/Models/Operations/GetLibrariesLocation.md
   - docs/Models/Operations/GetLibrariesDirectory.md
   - docs/Models/Operations/GetLibrariesMediaContainer.md
   - docs/Models/Operations/GetLibrariesResponseBody.md
@@ -681,6 +693,16 @@ generatedFiles:
   - docs/Models/Operations/EnablePaperTrailErrors.md
   - docs/Models/Operations/EnablePaperTrailResponseBody.md
   - docs/Models/Operations/EnablePaperTrailResponse.md
+  - docs/Models/Operations/GetPinRequest.md
+  - docs/Models/Operations/GetPinErrors.md
+  - docs/Models/Operations/GetPinPlexTvResponseBody.md
+  - docs/Models/Operations/Location.md
+  - docs/Models/Operations/GetPinResponseBody.md
+  - docs/Models/Operations/GetPinResponse.md
+  - docs/Models/Operations/GetTokenRequest.md
+  - docs/Models/Operations/GetTokenErrors.md
+  - docs/Models/Operations/GetTokenResponseBody.md
+  - docs/Models/Operations/GetTokenResponse.md
   - docs/Models/Operations/QueryParamType.md
   - docs/Models/Operations/Smart.md
   - docs/Models/Operations/CreatePlaylistRequest.md
@@ -818,6 +840,7 @@ generatedFiles:
   - docs/sdks/search/README.md
   - docs/sdks/library/README.md
   - docs/sdks/log/README.md
+  - docs/sdks/plextv/README.md
   - docs/sdks/playlists/README.md
   - docs/sdks/security/README.md
   - docs/sdks/sessions/README.md

@@ -133,6 +133,11 @@ try {
 * [logMultiLine](docs/sdks/log/README.md#logmultiline) - Logging a multi-line message
 * [enablePaperTrail](docs/sdks/log/README.md#enablepapertrail) - Enabling Papertrail
 
+### [PlexTv](docs/sdks/plextv/README.md)
+
+* [getPin](docs/sdks/plextv/README.md#getpin) - Get a Pin
+* [getToken](docs/sdks/plextv/README.md#gettoken) - Get Access Token
+
 ### [Playlists](docs/sdks/playlists/README.md)
 
 * [createPlaylist](docs/sdks/playlists/README.md#createplaylist) - Create a Playlist
@@ -194,6 +199,39 @@ Some of the server options above contain variables. If you want to set the value
 ### Override Server URL Per-Client
 
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+
+
+### Override Server URL Per-Operation
+
+The server URL can also be overridden on a per-operation basis, provided a server list was specified for the operation. For example:
+```php
+<?php
+
+declare(strict_types=1);
+require_once 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = new Components\Security();
+$security->accessToken = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity($security)
+    ->build();
+
+try {
+    $response = $sdk->plexTv->getPin('https://plex.tv/api/v2', 'string', false);
+
+    if ($response->twoHundredApplicationJsonObject !== null) {
+        // handle response
+    }
+} catch (Exception $e) {
+    // handle exception
+}
+
+```
 <!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

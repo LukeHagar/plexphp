@@ -101,6 +101,8 @@ class PlexAPI
      */
 	public Log $log;
 	
+	public PlexTv $plexTv;
+	
     /**
      * Playlists are ordered collections of media. They can be dumb (just a list of media) or smart (based on a media query, such as "all albums from 2017"). 
      * 
@@ -184,6 +186,8 @@ class PlexAPI
 		$this->library = new Library($this->sdkConfiguration);
 		
 		$this->log = new Log($this->sdkConfiguration);
+		
+		$this->plexTv = new PlexTv($this->sdkConfiguration);
 		
 		$this->playlists = new Playlists($this->sdkConfiguration);
 		
