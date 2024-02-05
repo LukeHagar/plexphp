@@ -46,10 +46,10 @@ class GetPinResponse
     /**
      * X-Plex-Client-Identifier is missing
      * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetPinPlexTvResponseBody $fourHundredApplicationJsonObject
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetPinPlexResponseBody $fourHundredApplicationJsonObject
      */
 	
-    public ?GetPinPlexTvResponseBody $fourHundredApplicationJsonObject = null;
+    public ?GetPinPlexResponseBody $fourHundredApplicationJsonObject = null;
     
 	public function __construct()
 	{

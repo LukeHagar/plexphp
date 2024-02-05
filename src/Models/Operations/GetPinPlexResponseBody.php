@@ -10,12 +10,12 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * GetPinPlexTvResponseBody - X-Plex-Client-Identifier is missing
+ * GetPinPlexResponseBody - X-Plex-Client-Identifier is missing
  * 
  * @package LukeHagar\Plex_API\Models\Operations
  * @access public
  */
-class GetPinPlexTvResponseBody
+class GetPinPlexResponseBody
 {
     /**
      * $errors

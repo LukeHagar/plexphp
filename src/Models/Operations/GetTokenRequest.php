@@ -20,7 +20,11 @@ class GetTokenRequest
     public string $pinID;
     
     /**
-     * Plex Authentication Token
+     * The unique identifier for the client application
+     * 
+     * This is used to track the client application and its usage
+     * (UUID, serial number, or other number unique per device)
+     * 
      * 
      * @var string $xPlexClientIdentifier
      */

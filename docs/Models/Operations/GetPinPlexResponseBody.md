@@ -1,4 +1,4 @@
-# GetPinPlexTvResponseBody
+# GetPinPlexResponseBody
 
 X-Plex-Client-Identifier is missing
 

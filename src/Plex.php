@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class PlexTv 
+class Plex 
 {
 	
 	public const GET_PIN_SERVERS = [
@@ -49,7 +49,7 @@ class PlexTv
         $request->xPlexClientIdentifier = $xPlexClientIdentifier;
         $request->strong = $strong;
         
-        $baseUrl = Utils\Utils::templateUrl(PlexTv::GET_PIN_SERVERS[0], array(
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], array(
         ));
         if (!empty($serverURL)) {
             $baseUrl = $serverURL;
@@ -86,7 +86,7 @@ class PlexTv
         else if ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinPlexTvResponseBody', 'json');
+                $response->fourHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinPlexResponseBody', 'json');
             }
         }
 
@@ -113,7 +113,7 @@ class PlexTv
         $request->pinID = $pinID;
         $request->xPlexClientIdentifier = $xPlexClientIdentifier;
         
-        $baseUrl = Utils\Utils::templateUrl(PlexTv::GET_TOKEN_SERVERS[0], array(
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_SERVERS[0], array(
         ));
         if (!empty($serverURL)) {
             $baseUrl = $serverURL;

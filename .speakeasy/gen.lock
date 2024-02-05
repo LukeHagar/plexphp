@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 94439465ae5d544f0e52b00719af05ee
+  docChecksum: 099fc5bbb987ae7e391f7f07b4212860
   docVersion: 0.0.3
   speakeasyVersion: internal
-  generationVersion: 2.239.4
-  releaseVersion: 0.2.0
-  configChecksum: 2152a875267760fe36d5b306ee7366ad
+  generationVersion: 2.249.1
+  releaseVersion: 0.3.0
+  configChecksum: 73678e6800bc86c17da7081b9d5a1b97
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -28,7 +28,7 @@ generatedFiles:
   - src/Search.php
   - src/Library.php
   - src/Log.php
-  - src/PlexTv.php
+  - src/Plex.php
   - src/Playlists.php
   - src/Security.php
   - src/Sessions.php
@@ -307,7 +307,7 @@ generatedFiles:
   - src/Models/Operations/EnablePaperTrailResponse.php
   - src/Models/Operations/GetPinRequest.php
   - src/Models/Operations/GetPinErrors.php
-  - src/Models/Operations/GetPinPlexTvResponseBody.php
+  - src/Models/Operations/GetPinPlexResponseBody.php
   - src/Models/Operations/Location.php
   - src/Models/Operations/GetPinResponseBody.php
   - src/Models/Operations/GetPinResponse.php
@@ -695,7 +695,7 @@ generatedFiles:
   - docs/Models/Operations/EnablePaperTrailResponse.md
   - docs/Models/Operations/GetPinRequest.md
   - docs/Models/Operations/GetPinErrors.md
-  - docs/Models/Operations/GetPinPlexTvResponseBody.md
+  - docs/Models/Operations/GetPinPlexResponseBody.md
   - docs/Models/Operations/Location.md
   - docs/Models/Operations/GetPinResponseBody.md
   - docs/Models/Operations/GetPinResponse.md
@@ -840,7 +840,7 @@ generatedFiles:
   - docs/sdks/search/README.md
   - docs/sdks/library/README.md
   - docs/sdks/log/README.md
-  - docs/sdks/plextv/README.md
+  - docs/sdks/plex/README.md
   - docs/sdks/playlists/README.md
   - docs/sdks/security/README.md
   - docs/sdks/sessions/README.md

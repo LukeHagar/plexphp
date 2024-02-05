@@ -101,7 +101,14 @@ class PlexAPI
      */
 	public Log $log;
 	
-	public PlexTv $plexTv;
+    /**
+     * API Calls that perform operations directly against https://Plex.tv
+     * 
+     * 
+     * 
+     * @var Plex $$plex
+     */
+	public Plex $plex;
 	
     /**
      * Playlists are ordered collections of media. They can be dumb (just a list of media) or smart (based on a media query, such as "all albums from 2017"). 
@@ -187,7 +194,7 @@ class PlexAPI
 		
 		$this->log = new Log($this->sdkConfiguration);
 		
-		$this->plexTv = new PlexTv($this->sdkConfiguration);
+		$this->plex = new Plex($this->sdkConfiguration);
 		
 		$this->playlists = new Playlists($this->sdkConfiguration);
 		

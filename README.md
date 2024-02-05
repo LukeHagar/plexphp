@@ -133,10 +133,10 @@ try {
 * [logMultiLine](docs/sdks/log/README.md#logmultiline) - Logging a multi-line message
 * [enablePaperTrail](docs/sdks/log/README.md#enablepapertrail) - Enabling Papertrail
 
-### [PlexTv](docs/sdks/plextv/README.md)
+### [Plex](docs/sdks/plex/README.md)
 
-* [getPin](docs/sdks/plextv/README.md#getpin) - Get a Pin
-* [getToken](docs/sdks/plextv/README.md#gettoken) - Get Access Token
+* [getPin](docs/sdks/plex/README.md#getpin) - Get a Pin
+* [getToken](docs/sdks/plex/README.md#gettoken) - Get Access Token
 
 ### [Playlists](docs/sdks/playlists/README.md)
 
@@ -222,7 +222,7 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 try {
-    $response = $sdk->plexTv->getPin('https://plex.tv/api/v2', 'string', false);
+    $response = $sdk->plex->getPin('https://plex.tv/api/v2', 'string', false);
 
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response

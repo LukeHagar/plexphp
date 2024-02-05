@@ -7,8 +7,9 @@ generation:
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
 php:
-  version: 0.2.0
+  version: 0.3.0
   imports:
     option: openapi
     paths:
