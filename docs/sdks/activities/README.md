@@ -43,7 +43,7 @@ try {
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -78,12 +78,12 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->activities->cancelServerActivities('string');
+    $response = $sdk->activities->cancelServerActivities('<value>');
 
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```

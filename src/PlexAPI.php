@@ -42,6 +42,15 @@ class PlexAPI
 	public Media $media;
 	
     /**
+     * API Calls that perform operations with Plex Media Server Videos
+     * 
+     * 
+     * 
+     * @var Video $$video
+     */
+	public Video $video;
+	
+    /**
      * Activities are awesome. They provide a way to monitor and control asynchronous operations on the server. In order to receive real-time updates for activities, a client would normally subscribe via either EventSource or Websocket endpoints.
      * 
      * Activities are associated with HTTP replies via a special `X-Plex-Activity` header which contains the UUID of the activity.
@@ -132,6 +141,15 @@ class PlexAPI
 	public Security $security;
 	
     /**
+     * API Calls that perform operations with Plex Media Server Statistics
+     * 
+     * 
+     * 
+     * @var Statistics $$statistics
+     */
+	public Statistics $statistics;
+	
+    /**
      * API Calls that perform search operations with Plex Media Server Sessions
      * 
      * 
@@ -149,15 +167,6 @@ class PlexAPI
      * @var Updater $$updater
      */
 	public Updater $updater;
-	
-    /**
-     * API Calls that perform operations with Plex Media Server Videos
-     * 
-     * 
-     * 
-     * @var Video $$video
-     */
-	public Video $video;
 		
 	private SDKConfiguration $sdkConfiguration;
 
@@ -182,6 +191,8 @@ class PlexAPI
 		
 		$this->media = new Media($this->sdkConfiguration);
 		
+		$this->video = new Video($this->sdkConfiguration);
+		
 		$this->activities = new Activities($this->sdkConfiguration);
 		
 		$this->butler = new Butler($this->sdkConfiguration);
@@ -200,10 +211,10 @@ class PlexAPI
 		
 		$this->security = new Security($this->sdkConfiguration);
 		
+		$this->statistics = new Statistics($this->sdkConfiguration);
+		
 		$this->sessions = new Sessions($this->sdkConfiguration);
 		
 		$this->updater = new Updater($this->sdkConfiguration);
-		
-		$this->video = new Video($this->sdkConfiguration);
 	}
 }

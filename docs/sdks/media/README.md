@@ -41,7 +41,7 @@ try {
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -87,7 +87,7 @@ try {
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -129,12 +129,12 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->media->updatePlayProgress('string', 6900.91, 'string');
+    $response = $sdk->media->updatePlayProgress('<value>', 6900.91, '<value>');
 
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```

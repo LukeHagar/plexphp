@@ -8,12 +8,33 @@
   },
   "license": "MIT",
   "require": {
-    "php": ">=8.1.0",
+    "php": "^8.1",
     "guzzlehttp/guzzle": "^7.0",
     "jms/serializer": "^3.22"
   },
   "require-dev": {
     "phpstan/phpstan": "^1.9",
-    "phpunit/phpunit": "^10"
+    "phpunit/phpunit": "^10",
+    "rector/rector": "^0.18.13",
+    "roave/security-advisories": "dev-latest"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "classmap-authoritative": true,
+    "sort-packages": true
+  },
+  "scripts": {
+    "test": [
+      "./vendor/bin/phpunit --testdox"
+    ],
+    "stan": [
+      "./vendor/bin/phpstan analyse --memory-limit=2g"
+    ]
+  },
+  "script-descriptions": {
+    "test": "Run PhpUnit test scripts.",
+    "stan": "Run PhpStan static analysis."
   }
 }

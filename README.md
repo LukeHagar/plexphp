@@ -62,7 +62,7 @@ try {
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 
@@ -88,6 +88,11 @@ try {
 * [markPlayed](docs/sdks/media/README.md#markplayed) - Mark Media Played
 * [markUnplayed](docs/sdks/media/README.md#markunplayed) - Mark Media Unplayed
 * [updatePlayProgress](docs/sdks/media/README.md#updateplayprogress) - Update Media Play Progress
+
+### [Video](docs/sdks/video/README.md)
+
+* [getTimeline](docs/sdks/video/README.md#gettimeline) - Get the timeline for a media item
+* [startUniversalTranscode](docs/sdks/video/README.md#startuniversaltranscode) - Start Universal Transcode
 
 ### [Activities](docs/sdks/activities/README.md)
 
@@ -155,6 +160,10 @@ try {
 * [getTransientToken](docs/sdks/security/README.md#gettransienttoken) - Get a Transient Token.
 * [getSourceConnectionInformation](docs/sdks/security/README.md#getsourceconnectioninformation) - Get Source Connection Information
 
+### [Statistics](docs/sdks/statistics/README.md)
+
+* [getStatistics](docs/sdks/statistics/README.md#getstatistics) - Get Media Statistics
+
 ### [Sessions](docs/sdks/sessions/README.md)
 
 * [getSessions](docs/sdks/sessions/README.md#getsessions) - Get Active Sessions
@@ -167,11 +176,6 @@ try {
 * [getUpdateStatus](docs/sdks/updater/README.md#getupdatestatus) - Querying status of updates
 * [checkForUpdates](docs/sdks/updater/README.md#checkforupdates) - Checking for updates
 * [applyUpdates](docs/sdks/updater/README.md#applyupdates) - Apply Updates
-
-### [Video](docs/sdks/video/README.md)
-
-* [startUniversalTranscode](docs/sdks/video/README.md#startuniversaltranscode) - Start Universal Transcode
-* [getTimeline](docs/sdks/video/README.md#gettimeline) - Get the timeline for a media item
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Server Selection [server] -->
@@ -222,12 +226,12 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 try {
-    $response = $sdk->plex->getPin('https://plex.tv/api/v2', 'string', false);
+    $response = $sdk->plex->getPin('https://plex.tv/api/v2', '<value>', false);
 
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 

@@ -19,10 +19,10 @@ class GetServerPreferencesMediaContainer
     /**
      * $setting
      * 
-     * @var ?array<mixed> $setting
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\Setting> $setting
      */
 	#[\JMS\Serializer\Annotation\SerializedName('Setting')]
-    #[\JMS\Serializer\Annotation\Type('array<mixed>')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Setting>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $setting = null;
     

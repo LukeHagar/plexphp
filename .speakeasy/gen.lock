@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 099fc5bbb987ae7e391f7f07b4212860
+  docChecksum: 278d186496d83d5830ba4870f8cad39d
   docVersion: 0.0.3
   speakeasyVersion: internal
-  generationVersion: 2.249.1
-  releaseVersion: 0.3.0
-  configChecksum: 73678e6800bc86c17da7081b9d5a1b97
+  generationVersion: 2.269.0
+  releaseVersion: 0.3.1
+  configChecksum: 114512b0b3bdc6ff6cb307b1ac592df2
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
 features:
   php:
-    core: 3.3.0
+    core: 3.3.2
     flattening: 2.81.1
     globalSecurity: 2.81.3
     globalServerURLs: 2.82.1
@@ -22,6 +22,7 @@ generatedFiles:
   - src/SDKConfiguration.php
   - src/Server.php
   - src/Media.php
+  - src/Video.php
   - src/Activities.php
   - src/Butler.php
   - src/Hubs.php
@@ -31,14 +32,15 @@ generatedFiles:
   - src/Plex.php
   - src/Playlists.php
   - src/Security.php
+  - src/Statistics.php
   - src/Sessions.php
   - src/Updater.php
-  - src/Video.php
   - src/PlexAPI.php
   - src/ServerProtocol.php
   - src/PlexAPIBuilder.php
   - composer.json
   - phpstan.neon
+  - rector.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
@@ -63,6 +65,7 @@ generatedFiles:
   - src/Models/Operations/GetServerCapabilitiesResponse.php
   - src/Models/Operations/GetServerPreferencesErrors.php
   - src/Models/Operations/GetServerPreferencesServerResponseBody.php
+  - src/Models/Operations/Setting.php
   - src/Models/Operations/GetServerPreferencesMediaContainer.php
   - src/Models/Operations/GetServerPreferencesResponseBody.php
   - src/Models/Operations/GetServerPreferencesResponse.php
@@ -112,6 +115,15 @@ generatedFiles:
   - src/Models/Operations/UpdatePlayProgressErrors.php
   - src/Models/Operations/UpdatePlayProgressResponseBody.php
   - src/Models/Operations/UpdatePlayProgressResponse.php
+  - src/Models/Operations/State.php
+  - src/Models/Operations/GetTimelineRequest.php
+  - src/Models/Operations/GetTimelineErrors.php
+  - src/Models/Operations/GetTimelineResponseBody.php
+  - src/Models/Operations/GetTimelineResponse.php
+  - src/Models/Operations/StartUniversalTranscodeRequest.php
+  - src/Models/Operations/StartUniversalTranscodeErrors.php
+  - src/Models/Operations/StartUniversalTranscodeResponseBody.php
+  - src/Models/Operations/StartUniversalTranscodeResponse.php
   - src/Models/Operations/GetServerActivitiesErrors.php
   - src/Models/Operations/GetServerActivitiesActivitiesResponseBody.php
   - src/Models/Operations/Context.php
@@ -388,6 +400,15 @@ generatedFiles:
   - src/Models/Operations/GetSourceConnectionInformationErrors.php
   - src/Models/Operations/GetSourceConnectionInformationResponseBody.php
   - src/Models/Operations/GetSourceConnectionInformationResponse.php
+  - src/Models/Operations/GetStatisticsRequest.php
+  - src/Models/Operations/GetStatisticsErrors.php
+  - src/Models/Operations/GetStatisticsStatisticsResponseBody.php
+  - src/Models/Operations/GetStatisticsDevice.php
+  - src/Models/Operations/Account.php
+  - src/Models/Operations/StatisticsMedia.php
+  - src/Models/Operations/GetStatisticsMediaContainer.php
+  - src/Models/Operations/GetStatisticsResponseBody.php
+  - src/Models/Operations/GetStatisticsResponse.php
   - src/Models/Operations/GetSessionsErrors.php
   - src/Models/Operations/GetSessionsSessionsResponseBody.php
   - src/Models/Operations/GetSessionsStream.php
@@ -433,15 +454,6 @@ generatedFiles:
   - src/Models/Operations/ApplyUpdatesErrors.php
   - src/Models/Operations/ApplyUpdatesResponseBody.php
   - src/Models/Operations/ApplyUpdatesResponse.php
-  - src/Models/Operations/StartUniversalTranscodeRequest.php
-  - src/Models/Operations/StartUniversalTranscodeErrors.php
-  - src/Models/Operations/StartUniversalTranscodeResponseBody.php
-  - src/Models/Operations/StartUniversalTranscodeResponse.php
-  - src/Models/Operations/State.php
-  - src/Models/Operations/GetTimelineRequest.php
-  - src/Models/Operations/GetTimelineErrors.php
-  - src/Models/Operations/GetTimelineResponseBody.php
-  - src/Models/Operations/GetTimelineResponse.php
   - src/Models/Components/Security.php
   - docs/Models/Operations/Errors.md
   - docs/Models/Operations/GetServerCapabilitiesServerResponseBody.md
@@ -451,6 +463,7 @@ generatedFiles:
   - docs/Models/Operations/GetServerCapabilitiesResponse.md
   - docs/Models/Operations/GetServerPreferencesErrors.md
   - docs/Models/Operations/GetServerPreferencesServerResponseBody.md
+  - docs/Models/Operations/Setting.md
   - docs/Models/Operations/GetServerPreferencesMediaContainer.md
   - docs/Models/Operations/GetServerPreferencesResponseBody.md
   - docs/Models/Operations/GetServerPreferencesResponse.md
@@ -500,6 +513,15 @@ generatedFiles:
   - docs/Models/Operations/UpdatePlayProgressErrors.md
   - docs/Models/Operations/UpdatePlayProgressResponseBody.md
   - docs/Models/Operations/UpdatePlayProgressResponse.md
+  - docs/Models/Operations/State.md
+  - docs/Models/Operations/GetTimelineRequest.md
+  - docs/Models/Operations/GetTimelineErrors.md
+  - docs/Models/Operations/GetTimelineResponseBody.md
+  - docs/Models/Operations/GetTimelineResponse.md
+  - docs/Models/Operations/StartUniversalTranscodeRequest.md
+  - docs/Models/Operations/StartUniversalTranscodeErrors.md
+  - docs/Models/Operations/StartUniversalTranscodeResponseBody.md
+  - docs/Models/Operations/StartUniversalTranscodeResponse.md
   - docs/Models/Operations/GetServerActivitiesErrors.md
   - docs/Models/Operations/GetServerActivitiesActivitiesResponseBody.md
   - docs/Models/Operations/Context.md
@@ -776,6 +798,15 @@ generatedFiles:
   - docs/Models/Operations/GetSourceConnectionInformationErrors.md
   - docs/Models/Operations/GetSourceConnectionInformationResponseBody.md
   - docs/Models/Operations/GetSourceConnectionInformationResponse.md
+  - docs/Models/Operations/GetStatisticsRequest.md
+  - docs/Models/Operations/GetStatisticsErrors.md
+  - docs/Models/Operations/GetStatisticsStatisticsResponseBody.md
+  - docs/Models/Operations/GetStatisticsDevice.md
+  - docs/Models/Operations/Account.md
+  - docs/Models/Operations/StatisticsMedia.md
+  - docs/Models/Operations/GetStatisticsMediaContainer.md
+  - docs/Models/Operations/GetStatisticsResponseBody.md
+  - docs/Models/Operations/GetStatisticsResponse.md
   - docs/Models/Operations/GetSessionsErrors.md
   - docs/Models/Operations/GetSessionsSessionsResponseBody.md
   - docs/Models/Operations/GetSessionsStream.md
@@ -821,19 +852,11 @@ generatedFiles:
   - docs/Models/Operations/ApplyUpdatesErrors.md
   - docs/Models/Operations/ApplyUpdatesResponseBody.md
   - docs/Models/Operations/ApplyUpdatesResponse.md
-  - docs/Models/Operations/StartUniversalTranscodeRequest.md
-  - docs/Models/Operations/StartUniversalTranscodeErrors.md
-  - docs/Models/Operations/StartUniversalTranscodeResponseBody.md
-  - docs/Models/Operations/StartUniversalTranscodeResponse.md
-  - docs/Models/Operations/State.md
-  - docs/Models/Operations/GetTimelineRequest.md
-  - docs/Models/Operations/GetTimelineErrors.md
-  - docs/Models/Operations/GetTimelineResponseBody.md
-  - docs/Models/Operations/GetTimelineResponse.md
   - docs/Models/Components/Security.md
   - docs/sdks/plexapi/README.md
   - docs/sdks/server/README.md
   - docs/sdks/media/README.md
+  - docs/sdks/video/README.md
   - docs/sdks/activities/README.md
   - docs/sdks/butler/README.md
   - docs/sdks/hubs/README.md
@@ -843,8 +866,8 @@ generatedFiles:
   - docs/sdks/plex/README.md
   - docs/sdks/playlists/README.md
   - docs/sdks/security/README.md
+  - docs/sdks/statistics/README.md
   - docs/sdks/sessions/README.md
   - docs/sdks/updater/README.md
-  - docs/sdks/video/README.md
   - USAGE.md
   - .gitattributes

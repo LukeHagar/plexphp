@@ -35,12 +35,12 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->plex->getPin('string', false);
+    $response = $sdk->plex->getPin('<value>', false);
 
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -83,12 +83,12 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->plex->getToken('string', 'string');
+    $response = $sdk->plex->getToken('<value>', '<value>');
 
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```

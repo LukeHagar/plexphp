@@ -47,7 +47,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 try {
         $request = new Operations\CreatePlaylistRequest();
-    $request->title = 'string';
+    $request->title = '<value>';
     $request->type = Operations\QueryParamType::Photo;
     $request->smart = Operations\Smart::One;
     $request->uri = 'https://inborn-brochure.biz';
@@ -58,7 +58,7 @@ try {
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -104,7 +104,7 @@ try {
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -153,7 +153,7 @@ try {
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -200,7 +200,7 @@ try {
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -242,12 +242,12 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->playlists->updatePlaylist(3915, 'string', 'string');
+    $response = $sdk->playlists->updatePlaylist(3915, '<value>', '<value>');
 
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -299,7 +299,7 @@ try {
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -347,7 +347,7 @@ try {
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -395,7 +395,7 @@ try {
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
@@ -444,7 +444,7 @@ try {
     if ($response->statusCode === 200) {
         // handle response
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // handle exception
 }
 ```
