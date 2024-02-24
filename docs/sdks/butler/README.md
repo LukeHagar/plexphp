@@ -24,7 +24,8 @@ Returns a list of butler tasks
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -66,7 +67,8 @@ This endpoint will attempt to start all Butler tasks that are enabled in the set
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -104,7 +106,8 @@ This endpoint will stop all currently running tasks and remove any scheduled tas
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -146,7 +149,8 @@ This endpoint will attempt to start a single Butler task that is enabled in the 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -193,7 +197,8 @@ This endpoint will stop a currently running task by name, or remove it from the 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;

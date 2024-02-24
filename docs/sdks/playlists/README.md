@@ -34,7 +34,8 @@ Create a new playlist. By default the playlist is blank. To create a playlist al
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -85,7 +86,8 @@ Get All Playlists given the specified filters.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -134,7 +136,8 @@ Smart playlist details contain the `content` attribute. This is the content URI 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -181,7 +184,8 @@ This endpoint will delete a playlist
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -228,7 +232,8 @@ From PMS version 1.9.1 clients can also edit playlist metadata using this endpoi
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -280,7 +285,8 @@ Note that for dumb playlists, items have a `playlistItemID` attribute which is u
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -328,7 +334,8 @@ Clears a playlist, only works with dumb playlists. Returns the playlist.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -376,7 +383,8 @@ With a smart playlist, passing a new `uri` parameter replaces the rules for the 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -425,7 +433,8 @@ Imports m3u playlists by passing a path on the server to scan for m3u-formatted 
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;

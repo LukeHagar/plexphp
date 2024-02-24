@@ -15,10 +15,10 @@ class QueryParameters
     /**
      * @param string $type
      * @param mixed $queryParams
-     * @param array<string, array<string, array<string, string>>> $globals
+     * @param array<string,array<string,array<string,string>>> $globals
      * @return string
      */
-    public function parseQueryParams(string $type, mixed $queryParams, array $globals): string | null
+    public function parseQueryParams(string $type, mixed $queryParams, array $globals): string|null
     {
         $parts = [];
 
@@ -45,23 +45,16 @@ class QueryParameters
             if (!empty($metadata->serialization)) {
                 $parts[] = $this->parseSerializationParams($metadata, $value);
             } else {
-                switch ($metadata->style) {
-                    case "deepObject":
-                        $parts[] = $this->parseDeepObjectParams($metadata, $value);
-                        break;
-                    case "form":
-                        $parts[] = $this->parseDelimitedParams($metadata, $value, ",");
-                        break;
-                    case "pipeDelimited":
-                        $parts[] = $this->parseDelimitedParams($metadata, $value, "|");
-                        break;
-                    default:
-                        throw new \Exception("Unsupported style: " . $metadata->style);
-                }
+                match ($metadata->style) {
+                    'deepObject' => $parts[] = $this->parseDeepObjectParams($metadata, $value),
+                    'form' => $parts[] = $this->parseDelimitedParams($metadata, $value, ","),
+                    'pipeDelimited' => $parts[] = $this->parseDelimitedParams($metadata, $value, "|"),
+                    default => throw new \RuntimeException('Unsupported style ' . $metadata->style),
+                };
             }
         }
 
-        return empty($parts) ? null : implode("&", $parts);
+        return empty($parts) ? null : implode('&', $parts);
     }
 
     /**
@@ -74,12 +67,12 @@ class QueryParameters
         $queryParams = [];
 
         switch ($metadata->serialization) {
-            case "json":
+            case 'json':
                 $serializer = JSON::createSerializer();
                 $queryParams[$metadata->name] = $serializer->serialize($value, 'json');
                 break;
             default:
-                throw new \Exception("Unsupported serialization: " . $metadata->serialization);
+                throw new \Exception('Unsupported serialization: ' . $metadata->serialization);
         }
 
         return http_build_query($queryParams);
@@ -97,13 +90,13 @@ class QueryParameters
         $dateTimeFormat = $metadata->dateTimeFormat;
 
         switch (gettype($value)) {
-            case "object":
+            case 'object':
                 foreach ($value as $field => $val) { /** @phpstan-ignore-line */
                     if ($val === null) {
                         continue;
                     }
 
-                    $fieldMetaData = $this->parseQueryParamsMetadata(new ReflectionProperty(get_class($value), $field));
+                    $fieldMetaData = $this->parseQueryParamsMetadata(new ReflectionProperty($value::class, $field));
                     if ($fieldMetaData === null) {
                         continue;
                     }
@@ -112,21 +105,21 @@ class QueryParameters
 
                     $items = [];
 
-                    if (gettype($val) == "array" && array_is_list($val)) {
+                    if (is_array($val) && array_is_list($val)) {
                         foreach ($val as $item) {
                             $items[] = valToString($item, $dateTimeFormat);
                         }
                     } else {
-                        $queryParams[$metadata->name . "[" . $fieldMetaData->name . "]"] = valToString($val, $dateTimeFormat);
+                        $queryParams[$metadata->name . '[' . $fieldMetaData->name . ']'] = valToString($val, $dateTimeFormat);
                     }
 
                     if (count($items) > 0) {
-                        $queryParams[$metadata->name . "[" . $fieldMetaData->name . "]"] = $items;
+                        $queryParams[$metadata->name . '[' . $fieldMetaData->name . ']'] = $items;
                     }
                 }
                 break;
-            case "array":
-                if (!array_is_list($value)) {
+            case 'array':
+                if ( ! array_is_list($value)) {
                     foreach ($value as $key => $val) {
                         if ($val === null) {
                             continue;
@@ -134,16 +127,16 @@ class QueryParameters
 
                         $items = [];
 
-                        if (gettype($val) == "array" && array_is_list($val)) {
+                        if (is_array($val) && array_is_list($val)) {
                             foreach ($val as $item) {
                                 $items[] = valToString($item, $dateTimeFormat);
                             }
                         } else {
-                            $queryParams[$metadata->name . "[" . $key . "]"] = valToString($val, $dateTimeFormat);
+                            $queryParams[$metadata->name . '[' . $key . ']'] = valToString($val, $dateTimeFormat);
                         }
 
                         if (count($items) > 0) {
-                            $queryParams[$metadata->name . "[" . $key . "]"] = $items;
+                            $queryParams[$metadata->name . '[' . $key . ']'] = $items;
                         }
                     }
                 }
@@ -166,7 +159,7 @@ class QueryParameters
         $dateTimeFormat = $metadata->dateTimeFormat;
 
         switch (gettype($value)) {
-            case "object":
+            case 'object':
                 $items = [];
 
                 foreach ($value as $field => $val) { /** @phpstan-ignore-line */
@@ -174,7 +167,7 @@ class QueryParameters
                         continue;
                     }
 
-                    $fieldMetaData = $this->parseQueryParamsMetadata(new ReflectionProperty(get_class($value), $field));
+                    $fieldMetaData = $this->parseQueryParamsMetadata(new ReflectionProperty($value::class, $field));
                     if ($fieldMetaData === null) {
                         continue;
                     }
@@ -192,7 +185,7 @@ class QueryParameters
                     $queryParams[$metadata->name] = implode($delimiter, $items);
                 }
                 break;
-            case "array":
+            case 'array':
                 if (array_is_list($value)) {
                     $values = [];
                     $items = [];
@@ -248,19 +241,19 @@ class QueryParameters
         foreach ($queryParams as $key => $value) {
             if (is_array($value)) {
                 foreach ($value as $item) {
-                    $parts[] = urlencode($key) . "=" . urlencode($item);
+                    $parts[] = urlencode($key) . '=' . urlencode($item);
                 }
             } else {
-                $parts[] = urlencode($key) . "=" . urlencode($value);
+                $parts[] = urlencode($key) . '=' . urlencode($value);
             }
         }
 
-        return implode("&", $parts);
+        return implode('&', $parts);
     }
 
-    private function parseQueryParamsMetadata(ReflectionProperty $property): ParamsMetadata | null
+    private function parseQueryParamsMetadata(ReflectionProperty $property): ParamsMetadata|null
     {
-        $metadataStr = SpeakeasyMetadata::find($property->getAttributes(SpeakeasyMetadata::class), "queryParam");
+        $metadataStr = SpeakeasyMetadata::find($property->getAttributes(SpeakeasyMetadata::class), 'queryParam');
         if ($metadataStr === null) {
             return null;
         }

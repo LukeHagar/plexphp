@@ -21,16 +21,14 @@ Retrieve a Pin from Plex.tv for authentication flows
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
 use \LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->build();
 
 try {
     
@@ -69,16 +67,14 @@ Retrieve an Access Token from Plex.tv after the Pin has already been authenticat
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
 use \LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->build();
 
 try {
     

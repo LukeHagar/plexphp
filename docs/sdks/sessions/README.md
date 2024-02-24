@@ -23,7 +23,8 @@ This will retrieve the "Now Playing" Information of the PMS.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -60,7 +61,8 @@ This will Retrieve a listing of all history views.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -97,7 +99,8 @@ Get Transcode Sessions
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -134,7 +137,8 @@ Stop a Transcode Session
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;

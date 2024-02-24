@@ -16,11 +16,9 @@ namespace LukeHagar\Plex_API;
  */
 class PlexAPIBuilder
 {
-    private SDKConfiguration $sdkConfig;
-
-    public function __construct() {
-        $this->sdkConfig = new SDKConfiguration();
-    }
+    public function __construct(
+        private SDKConfiguration $sdkConfig = new SDKConfiguration(),
+    ) {}
 
     /**
      * setClient allows setting a custom Guzzle client for the SDK to make requests with.
@@ -31,6 +29,7 @@ class PlexAPIBuilder
     public function setClient(\GuzzleHttp\ClientInterface $client): PlexAPIBuilder
     {
         $this->sdkConfig->defaultClient = $client;
+
         return $this;
     }
     
@@ -43,6 +42,7 @@ class PlexAPIBuilder
     public function setSecurity(Models\Components\Security $security): PlexAPIBuilder
     {
         $this->sdkConfig->security = $security;
+
         return $this;
     }
     
@@ -56,6 +56,7 @@ class PlexAPIBuilder
     public function setServerUrl(string $serverUrl, ?array $params = null): PlexAPIBuilder
     {
         $this->sdkConfig->serverUrl = Utils\Utils::templateUrl($serverUrl, $params);
+
         return $this;
     }
     
@@ -68,6 +69,7 @@ class PlexAPIBuilder
     public function setServerIndex(int $serverIdx): PlexAPIBuilder
     {
         $this->sdkConfig->serverIndex = $serverIdx;
+
         return $this;
     }
     

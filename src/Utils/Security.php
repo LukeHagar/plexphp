@@ -14,7 +14,7 @@ class Security
 {
     /**
      * @param mixed $security
-     * @return array<string, array<string, string>>
+     * @return array<string,array<string,string>>
      */
     public function parseSecurity(mixed $security): array
     {
@@ -28,7 +28,7 @@ class Security
                 continue;
             }
 
-            $metadata = $this->parseSecurityMetadata(new ReflectionProperty(get_class($security), $field));
+            $metadata = $this->parseSecurityMetadata(new ReflectionProperty($security::class, $field));
             if ($metadata === null) {
                 continue;
             }
@@ -52,7 +52,7 @@ class Security
 
     /**
      * @param mixed $option
-     * @return array<string, array<string, string>>
+     * @return array<string,array<string,string>>
      */
     private function parseSecurityOption(mixed $option): array
     {
@@ -66,7 +66,7 @@ class Security
                 continue;
             }
 
-            $metadata = $this->parseSecurityMetadata(new ReflectionProperty(get_class($option), $field));
+            $metadata = $this->parseSecurityMetadata(new ReflectionProperty($option::class, $field));
             if ($metadata === null) {
                 continue;
             }
@@ -82,7 +82,7 @@ class Security
     /**
      * @param mixed $scheme
      * @param SecurityMetadata $metadata
-     * @return array<string, array<string, string>>
+     * @return array<string,array<string,string>>
      */
     private function parseSecurityScheme(mixed $scheme, SecurityMetadata $metadata): array
     {
@@ -101,7 +101,7 @@ class Security
                     continue;
                 }
 
-                $fieldMetadata = $this->parseSecurityMetadata(new ReflectionProperty(get_class($scheme), $field));
+                $fieldMetadata = $this->parseSecurityMetadata(new ReflectionProperty($scheme::class, $field));
                 if ($fieldMetadata === null || empty($fieldMetadata->name)) {
                     continue;
                 }
@@ -119,7 +119,7 @@ class Security
      * @param mixed $value
      * @param SecurityMetadata $metadata
      * @param SecurityMetadata $fieldMetadata
-     * @return array<string, array<string, string>>
+     * @return array<string,array<string,string>>
      */
     private function parseSecuritySchemeValue(mixed $value, SecurityMetadata $metadata, SecurityMetadata $fieldMetadata): array
     {
@@ -130,19 +130,13 @@ class Security
 
         switch ($metadata->type) {
             case 'apiKey':
-                switch ($metadata->subtype) {
-                    case 'header':
-                        $clientOptions['headers'][$fieldMetadata->name] = $value;
-                        break;
-                    case 'query':
-                        $clientOptions['query'][$fieldMetadata->name] = $value;
-                        break;
-                    case 'cookie':
-                        $clientOptions['headers']['Cookie'] = sprintf('%s=%s', $fieldMetadata->name, $value);
-                        break;
-                    default:
-                        throw new \Exception('Unknown apiKey security scheme subtype: ' . $metadata->subtype);
-                }
+                match ($metadata->subtype) {
+                    'header' => $clientOptions['headers'][$fieldMetadata->name] = $value,
+                    'query' => $clientOptions['query'][$fieldMetadata->name] = $value,
+                    'cookie' => $clientOptions['headers']['Cookie'] = sprintf('%s=%s', $fieldMetadata->name, $value),
+                    default => throw new \RuntimeException('Unknown apiKey security scheme subtype: ' . $metadata->subtype),
+                };
+
                 break;
             case 'openIdConnect':
                 $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value;
@@ -151,13 +145,11 @@ class Security
                 $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value;
                 break;
             case 'http':
-                switch ($metadata->subtype) {
-                    case 'bearer':
-                        $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value;
-                        break;
-                    default:
-                        throw new \Exception('Unknown http security scheme subtype: ' . $metadata->subtype);
-                }
+                match ($metadata->subtype) {
+                    'bearer' => $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value,
+                    default => throw new \RuntimeException('Unknown http security scheme subtype: ' . $metadata->subtype)
+                };
+
                 break;
             default:
                 throw new \Exception('Unknown security scheme type: ' . $metadata->type);
@@ -168,7 +160,7 @@ class Security
 
     /**
      * @param mixed $scheme
-     * @return array<string, array<string, string>>
+     * @return array<string,array<string,string>>
      */
     private function parseBasicAuthScheme(mixed $scheme): array
     {
@@ -180,19 +172,16 @@ class Security
                 continue;
             }
 
-            $fieldMetadata = $this->parseSecurityMetadata(new ReflectionProperty(get_class($scheme), $field));
+            $fieldMetadata = $this->parseSecurityMetadata(new ReflectionProperty($scheme::class, $field));
             if ($fieldMetadata === null || empty($fieldMetadata->name)) {
                 continue;
             }
 
-            switch ($fieldMetadata->name) {
-                case 'username':
-                    $username = $value;
-                    break;
-                case 'password':
-                    $password = $value;
-                    break;
-            }
+            match ($fieldMetadata->name) {
+                'username' => $username = $value,
+                'password' => $password = $value,
+                default => throw new \RuntimeException('Unsupported property passed for schema'),
+            };
         }
 
         return [

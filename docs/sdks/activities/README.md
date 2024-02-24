@@ -27,7 +27,8 @@ Get Server Activities
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -64,7 +65,8 @@ Cancel Server Activities
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;

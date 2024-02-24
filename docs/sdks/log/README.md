@@ -23,7 +23,8 @@ This endpoint will write a single-line log message, including a level and source
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -92,7 +93,8 @@ Ensure each parameter is properly URL-encoded to avoid interpretation issues.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -140,7 +142,8 @@ This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;

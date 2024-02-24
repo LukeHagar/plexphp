@@ -8,21 +8,26 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Utils;
 
+use GuzzleHttp\ClientInterface;
+
 class Utils
 {
     /**
      * configureClient configures the client with the given security.
      *
-     * @param \GuzzleHttp\ClientInterface $client
+     * @param ClientInterface $client
      * @param mixed $security
-     * @return \GuzzleHttp\ClientInterface
+     * @return ClientInterface
      */
-    public static function configureSecurityClient(\GuzzleHttp\ClientInterface $client, mixed $security): \GuzzleHttp\ClientInterface
+    public static function configureSecurityClient(ClientInterface $client, mixed $security): ClientInterface
     {
         $sec = new Security();
         $clientOptions = $sec->parseSecurity($security);
 
-        return new SecurityClient($client, $clientOptions);
+        return new SecurityClient(
+            client: $client,
+            clientOptions: $clientOptions,
+        );
     }
 
     /**
@@ -53,7 +58,7 @@ class Utils
      * @param string $path
      * @param string|null $type
      * @param mixed|null $pathParams
-     * @param array<string, array<string, array<string, string>>>|null $globals
+     * @param array<string,array<string,array<string,string>>>|null $globals
      * @return string
      */
     public static function generateUrl(string $url, string $path, string $type = null, mixed $pathParams = null, array $globals = null): string
@@ -91,7 +96,7 @@ class Utils
             $type = $parts[0];
             $subtype = $parts[1];
 
-            if ($pattern === "$type/*" || $pattern === "*/$subtype") {
+            if ($pattern === '$type/*' || $pattern === '*/$subtype') {
                 return true;
             }
         }
@@ -105,9 +110,9 @@ class Utils
      * @param mixed $request
      * @param string $requestFieldName
      * @param string $serializationMethod
-     * @return array<string, mixed>|null
+     * @return array<string,mixed>|null
      */
-    public static function serializeRequestBody(mixed $request, string $requestFieldName, string $serializationMethod): array | null
+    public static function serializeRequestBody(mixed $request, string $requestFieldName, string $serializationMethod): array|null
     {
         $rb = new RequestBodies();
         return $rb->serializeRequestBody($request, $requestFieldName, $serializationMethod);
@@ -118,8 +123,8 @@ class Utils
      *
      * @param string $type
      * @param mixed $queryParams
-     * @param array<string, array<string, array<string, string>>>|null $globals
-     * @return array<string, mixed>
+     * @param array<string,array<string,array<string,string>>>|null $globals
+     * @return array<string,mixed>
      */
     public static function getQueryParams(string $type, mixed $queryParams, array $globals = null): array
     {
@@ -141,7 +146,7 @@ class Utils
      * getHeaders will return serialized headers for the given type.
      *
      * @param mixed $headers
-     * @return array<string, mixed>
+     * @return array<string,mixed>
      */
     public static function getHeaders(mixed $headers): array
     {
@@ -157,8 +162,10 @@ class Utils
 
 function removePrefix(string $text, string $prefix): string
 {
-    if (0 === strpos($text, $prefix))
+    if (0 === strpos($text, $prefix)) {
         $text = substr($text, strlen($prefix));
+    }
+
     return $text;
 }
 
@@ -205,7 +212,7 @@ function valToString(mixed $val, string $dateTimeFormat = ''): string
  * @param mixed $value
  * @param string $type
  * @param string $field
- * @param array<string, array<string, array<string, string>>> $globals
+ * @param array<string,array<string,array<string,string>>> $globals
  * @return mixed
  */
 function populateGlobal(mixed $value, string $type, string $field, array $globals): mixed

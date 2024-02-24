@@ -132,13 +132,13 @@ class PlexAPI
 	public Playlists $playlists;
 	
     /**
-     * API Calls against Security for Plex Media Server
+     * API Calls regarding authentication for Plex Media Server
      * 
      * 
      * 
-     * @var Security $$security
+     * @var Authentication $$authentication
      */
-	public Security $security;
+	public Authentication $authentication;
 	
     /**
      * API Calls that perform operations with Plex Media Server Statistics
@@ -167,8 +167,7 @@ class PlexAPI
      * @var Updater $$updater
      */
 	public Updater $updater;
-		
-	private SDKConfiguration $sdkConfiguration;
+	
 
 	/**
 	 * Returns a new instance of the SDK builder used to configure and create the SDK instance.
@@ -183,9 +182,9 @@ class PlexAPI
 	/**
 	 * @param SDKConfiguration $sdkConfiguration
 	 */
-	public function __construct(SDKConfiguration $sdkConfiguration)
-	{
-		$this->sdkConfiguration = $sdkConfiguration;
+	public function __construct(
+		private SDKConfiguration $sdkConfiguration,
+	) {
 		
 		$this->server = new Server($this->sdkConfiguration);
 		
@@ -209,7 +208,7 @@ class PlexAPI
 		
 		$this->playlists = new Playlists($this->sdkConfiguration);
 		
-		$this->security = new Security($this->sdkConfiguration);
+		$this->authentication = new Authentication($this->sdkConfiguration);
 		
 		$this->statistics = new Statistics($this->sdkConfiguration);
 		

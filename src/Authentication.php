@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Security 
+class Authentication 
 {
 
 	private SDKConfiguration $sdkConfiguration;

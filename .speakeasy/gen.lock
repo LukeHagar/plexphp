@@ -1,20 +1,20 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 278d186496d83d5830ba4870f8cad39d
+  docChecksum: e34dac84738ebf2d447ea2b9055a6eeb
   docVersion: 0.0.3
   speakeasyVersion: internal
-  generationVersion: 2.269.0
-  releaseVersion: 0.3.1
-  configChecksum: 114512b0b3bdc6ff6cb307b1ac592df2
+  generationVersion: 2.272.4
+  releaseVersion: 0.3.2
+  configChecksum: 78e421e52c2332ed1fd9b66d9e088380
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
 features:
   php:
-    core: 3.3.2
+    core: 3.3.3
     flattening: 2.81.1
-    globalSecurity: 2.81.3
+    globalSecurity: 2.81.4
     globalServerURLs: 2.82.1
     methodServerURLs: 2.82.1
     nameOverrides: 2.81.1
@@ -31,7 +31,7 @@ generatedFiles:
   - src/Log.php
   - src/Plex.php
   - src/Playlists.php
-  - src/Security.php
+  - src/Authentication.php
   - src/Statistics.php
   - src/Sessions.php
   - src/Updater.php
@@ -865,7 +865,7 @@ generatedFiles:
   - docs/sdks/log/README.md
   - docs/sdks/plex/README.md
   - docs/sdks/playlists/README.md
-  - docs/sdks/security/README.md
+  - docs/sdks/authentication/README.md
   - docs/sdks/statistics/README.md
   - docs/sdks/sessions/README.md
   - docs/sdks/updater/README.md

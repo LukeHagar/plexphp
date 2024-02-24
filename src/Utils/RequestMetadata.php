@@ -10,38 +10,36 @@ namespace LukeHagar\Plex_API\Utils;
 
 class RequestMetadata
 {
-    public string $mediaType;
+    private function __construct(
+        public string $mediaType,
+    ) {}
 
-    public static function parse(string $metadata): RequestMetadata | null
+    public static function parse(string $metadata): RequestMetadata|null
     {
-        if (!str_starts_with($metadata, "request:")) {
+        if (!str_starts_with($metadata, 'request:')) {
             return null;
         }
 
-        $metadata = removePrefix($metadata, "request:");
+        $metadata = removePrefix($metadata, 'request:');
 
-        $mediaType = "";
+        $mediaType = '';
 
-        $options = explode(",", $metadata);
+        $options = explode(',', $metadata);
 
         foreach ($options as $opt) {
-            $parts = explode("=", $opt); 
+            $parts = explode('=', $opt); 
             if (count($parts) < 1 || count($parts) > 2) { /** @phpstan-ignore-line */
                 continue;
             }
 
-            switch ($parts[0]) {
-                case "mediaType":
-                    $mediaType = $parts[1];
-                    break;
-            }
+            match ($parts[0]) {
+                'mediaType' => $mediaType = $parts[1],
+                default => throw new \RuntimeException('Invalid media type sent'),
+            };
         }
 
-        return new RequestMetadata($mediaType);
-    }
-
-    private function __construct(string $mediaType)
-    {
-        $this->mediaType = $mediaType;
+        return new RequestMetadata(
+            mediaType: $mediaType,
+        );
     }
 }

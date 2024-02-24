@@ -49,7 +49,7 @@ class MixedJSONHandler implements SubscribingHandlerInterface
     /** @phpstan-ignore-next-line */
     public function deserializeMixedToJson(JsonDeserializationVisitor $visitor, mixed $data, array $type, Context $context): mixed
     {
-        if (!is_string($data)) {
+        if ( ! is_string($data)) {
             return $data;
         }
 

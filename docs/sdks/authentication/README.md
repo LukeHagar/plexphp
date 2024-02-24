@@ -1,9 +1,9 @@
-# Security
+# Authentication
 
 
 ## Overview
 
-API Calls against Security for Plex Media Server
+API Calls regarding authentication for Plex Media Server
 
 
 ### Available Operations
@@ -22,7 +22,8 @@ This endpoint provides the caller with a temporary token with the same access le
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -36,7 +37,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->security->getTransientToken(Operations\GetTransientTokenQueryParamType::Delegation, Operations\Scope::All);
+    $response = $sdk->authentication->getTransientToken(Operations\GetTransientTokenQueryParamType::Delegation, Operations\Scope::All);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -71,7 +72,8 @@ Note: requires Plex Media Server >= 1.15.4.
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
@@ -85,7 +87,7 @@ $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 try {
     
 
-    $response = $sdk->security->getSourceConnectionInformation('server://client-identifier');
+    $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');
 
     if ($response->statusCode === 200) {
         // handle response

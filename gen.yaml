@@ -9,8 +9,10 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 php:
-  version: 0.3.1
+  version: 0.3.2
   imports:
     option: openapi
     paths:

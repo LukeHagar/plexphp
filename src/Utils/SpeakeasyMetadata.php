@@ -9,22 +9,20 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Utils;
 
 use Attribute;
+use ReflectionAttribute;
 
 #[Attribute(Attribute::TARGET_PROPERTY|Attribute::IS_REPEATABLE)]
 class SpeakeasyMetadata
 {
-    public string $value;
-
-    public function __construct(string $value)
-    {
-        $this->value = $value;
-    }
+    public function __construct(
+        public string $value,
+    ) {}
 
     /**
-     * @param array<\ReflectionAttribute<SpeakeasyMetadata>> $attributes
-     * @return string | null
+     * @param array<ReflectionAttribute<SpeakeasyMetadata>> $attributes
+     * @return string|null
      */
-    public static function find(array $attributes, string $type): string | null
+    public static function find(array $attributes, string $type): string|null
     {
         foreach ($attributes as $attr) {
             $arguments = $attr->getArguments();
@@ -32,7 +30,7 @@ class SpeakeasyMetadata
                 return null;
             }
 
-            $prefix = explode(":", $arguments[0], 2);
+            $prefix = explode(':', $arguments[0], 2);
             if (count($prefix) !== 2) {
                 return null;
             }

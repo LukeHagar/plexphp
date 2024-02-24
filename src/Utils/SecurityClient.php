@@ -8,84 +8,94 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Utils;
 
-class SecurityClient implements \GuzzleHttp\ClientInterface
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Promise\PromiseInterface;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UriInterface;
+
+class SecurityClient implements ClientInterface
 {
-    private \GuzzleHttp\ClientInterface $client;
-    /** @var array<string, array<string, string>> */
-    private array $clientOptions;
+    /**
+     * @param ClientInterface $client
+     * @param array<string,array<string,string>> $clientOptions
+     */
+    public function __construct(
+        private readonly ClientInterface $client,
+        private readonly array $clientOptions,
+    ) {}
 
     /**
-     * @param array<string, array<string, string>> $clientOptions
+     * @param RequestInterface $request
+     * @param array<string,mixed> $options
+     * @return ResponseInterface
      */
-    public function __construct(\GuzzleHttp\ClientInterface $client, array $clientOptions)
-    {
-        $this->client = $client;
-        $this->clientOptions = $clientOptions;
-    }
-
-    /**
-     * @param \Psr\Http\Message\RequestInterface $request
-     * @param array<string, mixed> $options
-     */
-    public function send(\Psr\Http\Message\RequestInterface $request, array $options = []): \Psr\Http\Message\ResponseInterface
+    public function send(RequestInterface $request, array $options = []): ResponseInterface
     {
         return $this->client->send($request, $this->addClientOptions($options));
     }
 
     /**
-     * @param \Psr\Http\Message\RequestInterface $request
-     * @param array<string, mixed> $options
+     * @param RequestInterface $request
+     * @param array<string,mixed> $options
+     * @return PromiseInterface
      */
-    public function sendAsync(\Psr\Http\Message\RequestInterface $request, array $options = []): \GuzzleHttp\Promise\PromiseInterface
+    public function sendAsync(RequestInterface $request, array $options = []): PromiseInterface
     {
         return $this->client->sendAsync($request, $this->addClientOptions($options));
     }
 
     /**
      * @param string $method
-     * @param string|\Psr\Http\Message\UriInterface $uri
-     * @param array<string, mixed> $options
+     * @param string|UriInterface $uri
+     * @param array<string,mixed> $options
+     * @return ResponseInterface
      */
-    public function request(string $method, $uri, array $options = []): \Psr\Http\Message\ResponseInterface
+    public function request(string $method, $uri, array $options = []): ResponseInterface
     {
         return $this->client->request($method, $uri, $this->addClientOptions($options));
     }
 
     /**
      * @param string $method
-     * @param string|\Psr\Http\Message\UriInterface $uri
-     * @param array<string, mixed> $options
+     * @param string|UriInterface $uri
+     * @param array<string,mixed> $options
+     * @return PromiseInterface
      */
-    public function requestAsync(string $method, $uri, array $options = []): \GuzzleHttp\Promise\PromiseInterface
+    public function requestAsync(string $method, $uri, array $options = []): PromiseInterface
     {
         return $this->client->requestAsync($method, $uri, $this->addClientOptions($options));
     }
 
-    public function getConfig(?string $option = null)
+    /**
+     * @param null|string $option
+     * @return mixed
+     */
+    public function getConfig(?string $option = null): mixed
     {
         return $this->client->getConfig($option);
     }
 
     /**
-     * @param array<string, mixed> $options
-     * @return array<string, mixed>
+     * @param array<string,mixed> $options
+     * @return array<string,mixed>
      */
     private function addClientOptions(array $options): array
     {
-        if (!isset($options["headers"])) {
-            $options["headers"] = [];
+        if (!isset($options['headers'])) {
+            $options['headers'] = [];
         }
 
-        if (!isset($options["query"])) {
-            $options["query"] = [];
+        if (!isset($options['query'])) {
+            $options['query'] = [];
         }
 
-        if (count($this->clientOptions["headers"]) > 0) {
-            $options["headers"] = array_merge_recursive($options["headers"], $this->clientOptions["headers"]);
+        if (count($this->clientOptions['headers']) > 0) {
+            $options['headers'] = array_merge_recursive($options['headers'], $this->clientOptions['headers']);
         }
 
-        if (count($this->clientOptions["query"]) > 0) {
-            $options["query"] = array_merge_recursive($options["query"], $this->clientOptions["query"]);
+        if (count($this->clientOptions['query']) > 0) {
+            $options['query'] = array_merge_recursive($options['query'], $this->clientOptions['query']);
         }
 
         return $options;

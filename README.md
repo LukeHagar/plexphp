@@ -44,7 +44,8 @@ composer update
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
@@ -155,10 +156,10 @@ try {
 * [addPlaylistContents](docs/sdks/playlists/README.md#addplaylistcontents) - Adding to a Playlist
 * [uploadPlaylist](docs/sdks/playlists/README.md#uploadplaylist) - Upload Playlist
 
-### [Security](docs/sdks/security/README.md)
+### [Authentication](docs/sdks/authentication/README.md)
 
-* [getTransientToken](docs/sdks/security/README.md#gettransienttoken) - Get a Transient Token.
-* [getSourceConnectionInformation](docs/sdks/security/README.md#getsourceconnectioninformation) - Get Source Connection Information
+* [getTransientToken](docs/sdks/authentication/README.md#gettransienttoken) - Get a Transient Token.
+* [getSourceConnectionInformation](docs/sdks/authentication/README.md#getsourceconnectioninformation) - Get Source Connection Information
 
 ### [Statistics](docs/sdks/statistics/README.md)
 
@@ -212,18 +213,14 @@ The server URL can also be overridden on a per-operation basis, provided a serve
 <?php
 
 declare(strict_types=1);
-require_once 'vendor/autoload.php';
+
+require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity($security)
-    ->build();
+$sdk = Plex_API\PlexAPI::builder()->build();
 
 try {
     $response = $sdk->plex->getPin('https://plex.tv/api/v2', '<value>', false);

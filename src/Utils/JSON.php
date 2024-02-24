@@ -8,15 +8,18 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Utils;
 
+use JMS\Serializer\Handler\HandlerRegistry;
+use JMS\Serializer\SerializerBuilder;
+
 class JSON
 {
     public static function createSerializer(): \JMS\Serializer\Serializer
     {
-        return \JMS\Serializer\SerializerBuilder::create()
-            ->configureHandlers(function (\JMS\Serializer\Handler\HandlerRegistry $registry) {
+        return SerializerBuilder::create()->configureHandlers(
+            static function (HandlerRegistry $registry): void {
                 $registry->registerSubscribingHandler(new MixedJSONHandler());
                 $registry->registerSubscribingHandler(new EnumHandler());
-            })
-            ->addDefaultHandlers()->build();
+            },
+        )->addDefaultHandlers()->build();
     }
 }

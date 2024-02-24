@@ -10,62 +10,52 @@ namespace LukeHagar\Plex_API\Utils;
 
 class MultipartMetadata
 {
-    public string $name;
-    public bool $file;
-    public bool $content;
-    public bool $json;
-    public string $dateTimeFormat;
+    private function __construct(
+        public string $name,
+        public bool $file,
+        public bool $content,
+        public bool $json,
+        public string $dateTimeFormat,
+    ) {}
 
-    public static function parse(string $metadata): MultipartMetadata | null
+    public static function parse(string $metadata): MultipartMetadata|null
     {
-        if (!str_starts_with($metadata, "multipartForm:")) {
+        if ( ! str_starts_with($metadata, 'multipartForm:')) {
             return null;
         }
 
-        $metadata = removePrefix($metadata, "multipartForm:");
+        $metadata = removePrefix($metadata, 'multipartForm:');
 
-        $name = "";
+        $name = '';
         $file = false;
         $content = false;
         $json = false;
-        $dateTimeFormat = "";
+        $dateTimeFormat = '';
 
-        $options = explode(",", $metadata);
+        $options = explode(',', $metadata);
 
         foreach ($options as $opt) {
-            $parts = explode("=", $opt);
+            $parts = explode('=', $opt);
             if (count($parts) < 1 || count($parts) > 2) { /** @phpstan-ignore-line */
                 continue;
             }
 
-            switch ($parts[0]) {
-                case "name":
-                    $name = $parts[1];
-                    break;
-                case "file":
-                    $file = $parts[1] === "true";
-                    break;
-                case "content":
-                    $content = $parts[1] === "true";
-                    break;
-                case "json":
-                    $json = $parts[1] === "true";
-                    break;
-                case "dateTimeFormat":
-                    $dateTimeFormat = $parts[1];
-                    break;
-            }
+            match ($parts[0]) {
+                'name' => $name = $parts[1],
+                'file' => $file = $parts[1] === 'true',
+                'content' => $content = $parts[1] === 'true',
+                'json' => $json = $parts[1] === 'true',
+                'dateTimeFormat' => $dateTimeFormat = $parts[1],
+                default => throw new \RuntimeException('Failed to parse options.'),
+            };
         }
 
-        return new MultipartMetadata($name, $file, $content, $json, $dateTimeFormat);
-    }
-
-    private function __construct(string $name, bool $file, bool $content, bool $json, string $dateTimeFormat)
-    {
-        $this->name = $name;
-        $this->file = $file;
-        $this->content = $content;
-        $this->json = $json;
-        $this->dateTimeFormat = $dateTimeFormat;
+        return new MultipartMetadata(
+            name: $name,
+            file: $file,
+            content: $content,
+            json: $json,
+            dateTimeFormat: $dateTimeFormat,
+        );
     }
 }
