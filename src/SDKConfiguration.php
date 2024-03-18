@@ -25,9 +25,9 @@ class SDKConfiguration
 	];
 	public string $language = 'php';
 	public string $openapiDocVersion = '0.0.3';
-	public string $sdkVersion = '0.3.2';
-	public string $genVersion = '2.272.4';
-	public string $userAgent = 'speakeasy-sdk/php 0.3.2 2.272.4 0.0.3 lukehagar/plex-api';
+	public string $sdkVersion = '0.3.4';
+	public string $genVersion = '2.281.2';
+	public string $userAgent = 'speakeasy-sdk/php 0.3.4 2.281.2 0.0.3 lukehagar/plex-api';
 	
 
 	public function getServerUrl(): string
