@@ -146,13 +146,14 @@ class Utils
      * getHeaders will return serialized headers for the given type.
      *
      * @param mixed $headers
+     * @param array<string,array<string,array<string,string>>>|null $globals
      * @return array<string,mixed>
      */
-    public static function getHeaders(mixed $headers): array
+    public static function getHeaders(mixed $headers, array $globals = null): array
     {
         $h = new Headers();
 
-        $headers = $h->parseHeaders($headers);
+        $headers = $h->parseHeaders($headers, $globals);
 
         return [
             'headers' => $headers,

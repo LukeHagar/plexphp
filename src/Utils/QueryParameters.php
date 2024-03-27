@@ -24,7 +24,7 @@ class QueryParameters
 
         $fields = array_keys(get_class_vars($type));
 
-        foreach ($fields as $field ) {
+        foreach ($fields as $field) {
             $value = $queryParams !== null ? $queryParams->{$field} : null;
             $value = populateGlobal($value, 'queryParam', $field, $globals);
 
