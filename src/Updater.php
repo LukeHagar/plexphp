@@ -86,7 +86,7 @@ class Updater
         $url = Utils\Utils::generateUrl($baseUrl, '/updater/check');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\CheckForUpdatesRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\CheckForUpdatesRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -136,7 +136,7 @@ class Updater
         $url = Utils\Utils::generateUrl($baseUrl, '/updater/apply');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\ApplyUpdatesRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\ApplyUpdatesRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         

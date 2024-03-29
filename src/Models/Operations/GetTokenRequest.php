@@ -26,14 +26,14 @@ class GetTokenRequest
      * (UUID, serial number, or other number unique per device)
      * 
      * 
-     * @var string $xPlexClientIdentifier
+     * @var ?string $xPlexClientIdentifier
      */
 	#[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
-    public string $xPlexClientIdentifier;
+    public ?string $xPlexClientIdentifier = null;
     
 	public function __construct()
 	{
 		$this->pinID = "";
-		$this->xPlexClientIdentifier = "";
+		$this->xPlexClientIdentifier = null;
 	}
 }

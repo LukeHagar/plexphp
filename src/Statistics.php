@@ -40,7 +40,7 @@ class Statistics
         $url = Utils\Utils::generateUrl($baseUrl, '/statistics/media');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetStatisticsRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetStatisticsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         

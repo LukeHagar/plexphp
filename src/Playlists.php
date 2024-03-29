@@ -40,7 +40,7 @@ class Playlists
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\CreatePlaylistRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\CreatePlaylistRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -95,7 +95,7 @@ class Playlists
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPlaylistsRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPlaylistsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -146,7 +146,7 @@ class Playlists
         $request->playlistID = $playlistID;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\GetPlaylistRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\GetPlaylistRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -198,7 +198,7 @@ class Playlists
         $request->playlistID = $playlistID;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\DeletePlaylistRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\DeletePlaylistRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -250,10 +250,10 @@ class Playlists
         $request->summary = $summary;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -303,10 +303,10 @@ class Playlists
         $request->type = $type;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -356,7 +356,7 @@ class Playlists
         $request->playlistID = $playlistID;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -409,10 +409,10 @@ class Playlists
         $request->playQueueID = $playQueueID;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -468,7 +468,7 @@ class Playlists
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/upload');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UploadPlaylistRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UploadPlaylistRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         

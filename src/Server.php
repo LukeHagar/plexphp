@@ -314,7 +314,7 @@ class Server
         $url = Utils\Utils::generateUrl($baseUrl, '/photo/:/transcode');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetResizedPhotoRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetResizedPhotoRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         

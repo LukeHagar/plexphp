@@ -131,6 +131,24 @@ class PlexAPIBuilder
     }
     
     /**
+     * setXPlexClientIdentifier is used to configure the X-Plex-Client-Identifier parameter for the SDK.
+     *
+     * @param string $xPlexClientIdentifier
+     * @return PlexAPIBuilder
+     */
+    public function setXPlexClientIdentifier(string $xPlexClientIdentifier): PlexAPIBuilder
+    {
+        if (!array_key_exists('header', $this->sdkConfig->globals['parameters']))
+        {
+            $this->sdkConfig->globals['parameters']['header'] = [];
+        }
+
+        $this->sdkConfig->globals['parameters']['header']['xPlexClientIdentifier'] = $xPlexClientIdentifier;
+
+        return $this;
+    }
+    
+    /**
      * build is used to build the SDK with any of the configured options.
      *
      * @return PlexAPI

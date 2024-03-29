@@ -34,20 +34,20 @@ class Plex
      * 
      * Retrieve a Pin from Plex.tv for authentication flows
      * 
-     * @param string $xPlexClientIdentifier
      * @param ?bool $strong
+     * @param ?string $xPlexClientIdentifier
      * @param string $serverURL
      * @return \LukeHagar\Plex_API\Models\Operations\GetPinResponse
      */
 	public function getPin(
-        string $xPlexClientIdentifier,
         ?bool $strong = null,
+        ?string $xPlexClientIdentifier = null,
         ?string $serverURL = null,
     ): \LukeHagar\Plex_API\Models\Operations\GetPinResponse
     {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetPinRequest();
-        $request->xPlexClientIdentifier = $xPlexClientIdentifier;
         $request->strong = $strong;
+        $request->xPlexClientIdentifier = $xPlexClientIdentifier;
         
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], array(
         ));
@@ -58,8 +58,8 @@ class Plex
         $url = Utils\Utils::generateUrl($baseUrl, '/pins');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPinRequest::class, $request, null));
-        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPinRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (!array_key_exists('headers', $options)) {
             $options['headers'] = [];
         }
@@ -99,13 +99,13 @@ class Plex
      * Retrieve an Access Token from Plex.tv after the Pin has already been authenticated
      * 
      * @param string $pinID
-     * @param string $xPlexClientIdentifier
+     * @param ?string $xPlexClientIdentifier
      * @param string $serverURL
      * @return \LukeHagar\Plex_API\Models\Operations\GetTokenResponse
      */
 	public function getToken(
         string $pinID,
-        string $xPlexClientIdentifier,
+        ?string $xPlexClientIdentifier = null,
         ?string $serverURL = null,
     ): \LukeHagar\Plex_API\Models\Operations\GetTokenResponse
     {
@@ -119,10 +119,10 @@ class Plex
             $baseUrl = $serverURL;
         }
         
-        $url = Utils\Utils::generateUrl($baseUrl, '/pins/{pinID}', \LukeHagar\Plex_API\Models\Operations\GetTokenRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/pins/{pinID}', \LukeHagar\Plex_API\Models\Operations\GetTokenRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request));
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
         if (!array_key_exists('headers', $options)) {
             $options['headers'] = [];
         }

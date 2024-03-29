@@ -12,18 +12,6 @@ use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetPinRequest
 {
     /**
-     * The unique identifier for the client application
-     * 
-     * This is used to track the client application and its usage
-     * (UUID, serial number, or other number unique per device)
-     * 
-     * 
-     * @var string $xPlexClientIdentifier
-     */
-	#[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
-    public string $xPlexClientIdentifier;
-    
-    /**
      * Determines the kind of code returned by the API call
      * 
      * Strong codes are used for Pin authentication flows
@@ -35,9 +23,21 @@ class GetPinRequest
 	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=strong')]
     public ?bool $strong = null;
     
+    /**
+     * The unique identifier for the client application
+     * 
+     * This is used to track the client application and its usage
+     * (UUID, serial number, or other number unique per device)
+     * 
+     * 
+     * @var ?string $xPlexClientIdentifier
+     */
+	#[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
+    public ?string $xPlexClientIdentifier = null;
+    
 	public function __construct()
 	{
-		$this->xPlexClientIdentifier = "";
 		$this->strong = null;
+		$this->xPlexClientIdentifier = null;
 	}
 }

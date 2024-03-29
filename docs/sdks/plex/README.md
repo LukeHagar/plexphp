@@ -28,12 +28,14 @@ use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
 use \LukeHagar\Plex_API\Models\Operations;
 
-$sdk = Plex_API\PlexAPI::builder()->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('<value>')
+    ->build();
 
 try {
     
 
-    $response = $sdk->plex->getPin('<value>', false);
+    $response = $sdk->plex->getPin(false, '<value>');
 
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
@@ -47,8 +49,8 @@ try {
 
 | Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> |
 | `strong`                                                                                                                                                              | *bool*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                    | Determines the kind of code returned by the API call<br/>Strong codes are used for Pin authentication flows<br/>Non-Strong codes are used for `Plex.tv/link`<br/>     |
+| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> |
 | `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        |
 
 
@@ -74,7 +76,9 @@ use \LukeHagar\Plex_API;
 use \LukeHagar\Plex_API\Models\Components;
 use \LukeHagar\Plex_API\Models\Operations;
 
-$sdk = Plex_API\PlexAPI::builder()->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('<value>')
+    ->build();
 
 try {
     
@@ -94,7 +98,7 @@ try {
 | Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pinID`                                                                                                                                                               | *string*                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                    | The PinID to retrieve an access token for                                                                                                                             |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> |
+| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> |
 | `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        |
 
 

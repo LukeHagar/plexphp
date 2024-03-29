@@ -83,7 +83,7 @@ class Activities
         $request->activityUUID = $activityUUID;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/activities/{activityUUID}', \LukeHagar\Plex_API\Models\Operations\CancelServerActivitiesRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/activities/{activityUUID}', \LukeHagar\Plex_API\Models\Operations\CancelServerActivitiesRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';

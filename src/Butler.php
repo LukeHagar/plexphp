@@ -174,7 +174,7 @@ class Butler
         $request->taskName = $taskName;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/butler/{taskName}', \LukeHagar\Plex_API\Models\Operations\StartTaskRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/butler/{taskName}', \LukeHagar\Plex_API\Models\Operations\StartTaskRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -220,7 +220,7 @@ class Butler
         $request->taskName = $taskName;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/butler/{taskName}', \LukeHagar\Plex_API\Models\Operations\StopTaskRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/butler/{taskName}', \LukeHagar\Plex_API\Models\Operations\StopTaskRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';

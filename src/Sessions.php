@@ -175,7 +175,7 @@ class Sessions
         $request->sessionKey = $sessionKey;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/transcode/sessions/{sessionKey}', \LukeHagar\Plex_API\Models\Operations\StopTranscodeSessionRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/transcode/sessions/{sessionKey}', \LukeHagar\Plex_API\Models\Operations\StopTranscodeSessionRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';

@@ -43,7 +43,7 @@ class Library
         $url = Utils\Utils::generateUrl($baseUrl, '/library/hashes');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetFileHashRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetFileHashRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -227,10 +227,10 @@ class Library
         $request->includeDetails = $includeDetails;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}', \LukeHagar\Plex_API\Models\Operations\GetLibraryRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}', \LukeHagar\Plex_API\Models\Operations\GetLibraryRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLibraryRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLibraryRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -279,7 +279,7 @@ class Library
         $request->sectionId = $sectionId;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}', \LukeHagar\Plex_API\Models\Operations\DeleteLibraryRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}', \LukeHagar\Plex_API\Models\Operations\DeleteLibraryRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -347,7 +347,7 @@ class Library
         $request->tag = $tag;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/{tag}', \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/{tag}', \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -391,7 +391,7 @@ class Library
         $request->sectionId = $sectionId;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/refresh', \LukeHagar\Plex_API\Models\Operations\RefreshLibraryRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/refresh', \LukeHagar\Plex_API\Models\Operations\RefreshLibraryRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -457,10 +457,10 @@ class Library
         $request->type = $type;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/search', \LukeHagar\Plex_API\Models\Operations\SearchLibraryRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/search', \LukeHagar\Plex_API\Models\Operations\SearchLibraryRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\SearchLibraryRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\SearchLibraryRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -502,7 +502,7 @@ class Library
         $request->ratingKey = $ratingKey;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}', \LukeHagar\Plex_API\Models\Operations\GetMetadataRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}', \LukeHagar\Plex_API\Models\Operations\GetMetadataRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
@@ -554,7 +554,7 @@ class Library
         $request->ratingKey = $ratingKey;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}/children', \LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}/children', \LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';

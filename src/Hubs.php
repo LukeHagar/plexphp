@@ -43,7 +43,7 @@ class Hubs
         $url = Utils\Utils::generateUrl($baseUrl, '/hubs');
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
@@ -99,10 +99,10 @@ class Hubs
         $request->onlyTransient = $onlyTransient;
         
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
-        $url = Utils\Utils::generateUrl($baseUrl, '/hubs/sections/{sectionId}', \LukeHagar\Plex_API\Models\Operations\GetLibraryHubsRequest::class, $request);
+        $url = Utils\Utils::generateUrl($baseUrl, '/hubs/sections/{sectionId}', \LukeHagar\Plex_API\Models\Operations\GetLibraryHubsRequest::class, $request, $this->sdkConfiguration->globals);
         
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLibraryHubsRequest::class, $request, null));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLibraryHubsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         
