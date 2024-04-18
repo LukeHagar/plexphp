@@ -3,10 +3,10 @@ id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
   docChecksum: a91eaf9ec1e6a3a6f4bf0571f5b18bae
   docVersion: 0.0.3
-  speakeasyVersion: 1.228.1
-  generationVersion: 2.292.0
-  releaseVersion: 0.4.0
-  configChecksum: 26b18017f71e11721ba0604c741dc08c
+  speakeasyVersion: 1.257.1
+  generationVersion: 2.308.2
+  releaseVersion: 0.4.1
+  configChecksum: cfb95ef489f6ef2529809593e458e410
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -18,7 +18,7 @@ features:
     globalServerURLs: 2.82.1
     globals: 2.82.1
     methodServerURLs: 2.82.1
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
 generatedFiles:
   - src/SDKConfiguration.php
   - src/Server.php
