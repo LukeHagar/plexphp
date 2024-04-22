@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: a91eaf9ec1e6a3a6f4bf0571f5b18bae
+  docChecksum: 7a43cd3413d535205cfaee20a4b6a250
   docVersion: 0.0.3
-  speakeasyVersion: 1.257.1
-  generationVersion: 2.308.2
-  releaseVersion: 0.4.1
-  configChecksum: cfb95ef489f6ef2529809593e458e410
+  speakeasyVersion: 1.267.2
+  generationVersion: 2.312.1
+  releaseVersion: 0.4.2
+  configChecksum: 6e2b8f25832e186ecade9d4cbadba1d7
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp

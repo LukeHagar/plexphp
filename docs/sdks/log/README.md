@@ -34,7 +34,7 @@ $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('<value>')
+    ->setXPlexClientIdentifier('Postman')
     ->setSecurity($security)->build();
 
 try {
@@ -105,7 +105,7 @@ $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('<value>')
+    ->setXPlexClientIdentifier('Postman')
     ->setSecurity($security)->build();
 
 try {
@@ -156,7 +156,7 @@ $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('<value>')
+    ->setXPlexClientIdentifier('Postman')
     ->setSecurity($security)->build();
 
 try {
