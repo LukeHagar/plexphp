@@ -191,3 +191,11 @@ Based on:
 - Speakeasy CLI 1.276.0 (2.314.0) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [php v0.4.2] .
+
+## 2024-04-28 00:58:22
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.276.0 (2.314.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.4.2] .
