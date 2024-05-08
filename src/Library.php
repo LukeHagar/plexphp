@@ -333,12 +333,12 @@ class Library
      * - `folder`: Items categorized by folder.
      * 
      * 
-     * @param int $sectionId
+     * @param mixed $sectionId
      * @param \LukeHagar\Plex_API\Models\Operations\Tag $tag
      * @return \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponse
      */
 	public function getLibraryItems(
-        int $sectionId,
+        mixed $sectionId,
         \LukeHagar\Plex_API\Models\Operations\Tag $tag,
     ): \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponse
     {

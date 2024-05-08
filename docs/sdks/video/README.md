@@ -37,16 +37,16 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
         $request = new Operations\GetTimelineRequest();
-    $request->ratingKey = 716.56;
-    $request->key = '<key>';
-    $request->state = Operations\State::Paused;
-    $request->hasMDE = 7574.33;
-    $request->time = 3327.51;
-    $request->duration = 7585.39;
-    $request->context = '<value>';
-    $request->playQueueItemID = 1406.21;
-    $request->playBackTime = 2699.34;
-    $request->row = 3536.42;;
+    $request->ratingKey = 23409;
+    $request->key = '/library/metadata/23409';
+    $request->state = Operations\State::Playing;
+    $request->hasMDE = 1;
+    $request->time = 2000;
+    $request->duration = 10000;
+    $request->context = 'home:hub.continueWatching';
+    $request->playQueueItemID = 1;
+    $request->playBackTime = 2000;
+    $request->row = 1;;
 
     $response = $sdk->video->getTimeline($request);
 
@@ -96,22 +96,22 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
         $request = new Operations\StartUniversalTranscodeRequest();
-    $request->hasMDE = 8924.99;
-    $request->path = '/etc/mail';
-    $request->mediaIndex = 9962.95;
-    $request->partIndex = 1232.82;
-    $request->protocol = '<value>';
-    $request->fastSeek = 1630.75;
-    $request->directPlay = 4531.53;
-    $request->directStream = 4877.48;
-    $request->subtitleSize = 3383.01;
-    $request->subtites = '<value>';
-    $request->audioBoost = 7970.18;
-    $request->location = '<value>';
-    $request->mediaBufferSize = 2664.33;
-    $request->session = '<value>';
-    $request->addDebugOverlay = 4930.91;
-    $request->autoAdjustQuality = 2087.17;;
+    $request->hasMDE = 1;
+    $request->path = '/library/metadata/23409';
+    $request->mediaIndex = 0;
+    $request->partIndex = 0;
+    $request->protocol = 'hls';
+    $request->fastSeek = 0;
+    $request->directPlay = 0;
+    $request->directStream = 0;
+    $request->subtitleSize = 100;
+    $request->subtites = 'burn';
+    $request->audioBoost = 100;
+    $request->location = 'lan';
+    $request->mediaBufferSize = 102400;
+    $request->session = 'zvcage8b7rkioqcm8f4uns4c';
+    $request->addDebugOverlay = 0;
+    $request->autoAdjustQuality = 0;;
 
     $response = $sdk->video->startUniversalTranscode($request);
 

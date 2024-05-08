@@ -14,10 +14,10 @@ class GetLibraryItemsRequest
     /**
      * the Id of the library to query
      * 
-     * @var int $sectionId
+     * @var mixed $sectionId
      */
 	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
-    public int $sectionId;
+    public mixed $sectionId;
     
     /**
      * A key representing a specific tag within the section.
@@ -29,7 +29,7 @@ class GetLibraryItemsRequest
     
 	public function __construct()
 	{
-		$this->sectionId = 0;
+		$this->sectionId = null;
 		$this->tag = \LukeHagar\Plex_API\Models\Operations\Tag::All;
 	}
 }

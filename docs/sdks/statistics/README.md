@@ -37,7 +37,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     
 
-    $response = $sdk->statistics->getStatistics(411769);
+    $response = $sdk->statistics->getStatistics(4);
 
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
@@ -49,9 +49,9 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `timespan`                                                                                | *int*                                                                                     | :heavy_minus_sign:                                                                        | The timespan to retrieve statistics for<br/>the exact meaning of this parameter is not known<br/> |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `timespan`                                                                                | *int*                                                                                     | :heavy_minus_sign:                                                                        | The timespan to retrieve statistics for<br/>the exact meaning of this parameter is not known<br/> | 4                                                                                         |
 
 
 ### Response

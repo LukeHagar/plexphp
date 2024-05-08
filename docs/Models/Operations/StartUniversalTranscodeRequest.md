@@ -3,21 +3,21 @@
 
 ## Fields
 
-| Field                                         | Type                                          | Required                                      | Description                                   |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| `hasMDE`                                      | *float*                                       | :heavy_check_mark:                            | Whether the media item has MDE                |
-| `path`                                        | *string*                                      | :heavy_check_mark:                            | The path to the media item to transcode       |
-| `mediaIndex`                                  | *float*                                       | :heavy_check_mark:                            | The index of the media item to transcode      |
-| `partIndex`                                   | *float*                                       | :heavy_check_mark:                            | The index of the part to transcode            |
-| `protocol`                                    | *string*                                      | :heavy_check_mark:                            | The protocol to use for the transcode session |
-| `fastSeek`                                    | *?float*                                      | :heavy_minus_sign:                            | Whether to use fast seek or not               |
-| `directPlay`                                  | *?float*                                      | :heavy_minus_sign:                            | Whether to use direct play or not             |
-| `directStream`                                | *?float*                                      | :heavy_minus_sign:                            | Whether to use direct stream or not           |
-| `subtitleSize`                                | *?float*                                      | :heavy_minus_sign:                            | The size of the subtitles                     |
-| `subtites`                                    | *?string*                                     | :heavy_minus_sign:                            | The subtitles                                 |
-| `audioBoost`                                  | *?float*                                      | :heavy_minus_sign:                            | The audio boost                               |
-| `location`                                    | *?string*                                     | :heavy_minus_sign:                            | The location of the transcode session         |
-| `mediaBufferSize`                             | *?float*                                      | :heavy_minus_sign:                            | The size of the media buffer                  |
-| `session`                                     | *?string*                                     | :heavy_minus_sign:                            | The session ID                                |
-| `addDebugOverlay`                             | *?float*                                      | :heavy_minus_sign:                            | Whether to add a debug overlay or not         |
-| `autoAdjustQuality`                           | *?float*                                      | :heavy_minus_sign:                            | Whether to auto adjust quality or not         |
+| Field                                         | Type                                          | Required                                      | Description                                   | Example                                       |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| `hasMDE`                                      | *float*                                       | :heavy_check_mark:                            | Whether the media item has MDE                | 1                                             |
+| `path`                                        | *string*                                      | :heavy_check_mark:                            | The path to the media item to transcode       | /library/metadata/23409                       |
+| `mediaIndex`                                  | *float*                                       | :heavy_check_mark:                            | The index of the media item to transcode      | 0                                             |
+| `partIndex`                                   | *float*                                       | :heavy_check_mark:                            | The index of the part to transcode            | 0                                             |
+| `protocol`                                    | *string*                                      | :heavy_check_mark:                            | The protocol to use for the transcode session | hls                                           |
+| `fastSeek`                                    | *?float*                                      | :heavy_minus_sign:                            | Whether to use fast seek or not               | 0                                             |
+| `directPlay`                                  | *?float*                                      | :heavy_minus_sign:                            | Whether to use direct play or not             | 0                                             |
+| `directStream`                                | *?float*                                      | :heavy_minus_sign:                            | Whether to use direct stream or not           | 0                                             |
+| `subtitleSize`                                | *?float*                                      | :heavy_minus_sign:                            | The size of the subtitles                     | 100                                           |
+| `subtites`                                    | *?string*                                     | :heavy_minus_sign:                            | The subtitles                                 | burn                                          |
+| `audioBoost`                                  | *?float*                                      | :heavy_minus_sign:                            | The audio boost                               | 100                                           |
+| `location`                                    | *?string*                                     | :heavy_minus_sign:                            | The location of the transcode session         | lan                                           |
+| `mediaBufferSize`                             | *?float*                                      | :heavy_minus_sign:                            | The size of the media buffer                  | 102400                                        |
+| `session`                                     | *?string*                                     | :heavy_minus_sign:                            | The session ID                                | zvcage8b7rkioqcm8f4uns4c                      |
+| `addDebugOverlay`                             | *?float*                                      | :heavy_minus_sign:                            | Whether to add a debug overlay or not         | 0                                             |
+| `autoAdjustQuality`                           | *?float*                                      | :heavy_minus_sign:                            | Whether to auto adjust quality or not         | 0                                             |

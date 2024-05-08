@@ -342,7 +342,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     
 
-    $response = $sdk->library->getLibraryItems(451092, Operations\Tag::Unwatched);
+    $response = $sdk->library->getLibraryItems('<value>', Operations\Tag::Genre);
 
     if ($response->object !== null) {
         // handle response
@@ -356,7 +356,7 @@ try {
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `sectionId`                                                                 | *int*                                                                       | :heavy_check_mark:                                                          | the Id of the library to query                                              |
+| `sectionId`                                                                 | *mixed*                                                                     | :heavy_check_mark:                                                          | the Id of the library to query                                              |
 | `tag`                                                                       | [\LukeHagar\Plex_API\Models\Operations\Tag](../../Models/Operations/Tag.md) | :heavy_check_mark:                                                          | A key representing a specific tag within the section.                       |
 
 
