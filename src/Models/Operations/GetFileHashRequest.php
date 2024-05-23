@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetFileHashRequest
 {
     /**
      * This is the path to the local file, must be prefixed by `file://`
-     * 
+     *
      * @var string $url
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=url')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=url')]
     public string $url;
-    
+
     /**
      * Item type
-     * 
+     *
      * @var ?float $type
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
     public ?float $type = null;
-    
-	public function __construct()
-	{
-		$this->url = "";
-		$this->type = null;
-	}
+
+    public function __construct()
+    {
+        $this->url = '';
+        $this->type = null;
+    }
 }

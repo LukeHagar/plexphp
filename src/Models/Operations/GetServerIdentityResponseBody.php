@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetServerIdentityResponseBody - The Server Identity information
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** GetServerIdentityResponseBody - The Server Identity information */
 class GetServerIdentityResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetServerIdentityMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?GetServerIdentityMediaContainer $mediaContainer = null;
-    
-	public function __construct()
-	{
-		$this->mediaContainer = null;
-	}
+
+    public function __construct()
+    {
+        $this->mediaContainer = null;
+    }
 }

@@ -11,55 +11,55 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Account
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('name')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $name = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('defaultAudioLanguage')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('defaultAudioLanguage')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $defaultAudioLanguage = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('autoSelectAudio')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('autoSelectAudio')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $autoSelectAudio = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $defaultSubtitleLanguage = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('subtitleMode')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('subtitleMode')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $subtitleMode = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('thumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $thumb = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->key = null;
-		$this->name = null;
-		$this->defaultAudioLanguage = null;
-		$this->autoSelectAudio = null;
-		$this->defaultSubtitleLanguage = null;
-		$this->subtitleMode = null;
-		$this->thumb = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->key = null;
+        $this->name = null;
+        $this->defaultAudioLanguage = null;
+        $this->autoSelectAudio = null;
+        $this->defaultSubtitleLanguage = null;
+        $this->subtitleMode = null;
+        $this->thumb = null;
+    }
 }

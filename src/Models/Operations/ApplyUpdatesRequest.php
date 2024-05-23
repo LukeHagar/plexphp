@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class ApplyUpdatesRequest
 {
     /**
      * Indicate that you want the update to run during the next Butler execution. Omitting this or setting it to false indicates that the update should install
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\Tonight $tonight
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=tonight')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=tonight')]
     public ?Tonight $tonight = null;
-    
+
     /**
      * Indicate that the latest version should be marked as skipped. The <Release> entry for this version will have the `state` set to `skipped`.
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\Skip $skip
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=skip')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=skip')]
     public ?Skip $skip = null;
-    
-	public function __construct()
-	{
-		$this->tonight = null;
-		$this->skip = null;
-	}
+
+    public function __construct()
+    {
+        $this->tonight = null;
+        $this->skip = null;
+    }
 }

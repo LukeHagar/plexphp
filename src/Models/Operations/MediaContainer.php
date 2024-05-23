@@ -11,318 +11,318 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class MediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowCameraUpload')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowCameraUpload')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowCameraUpload = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowChannelAccess')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowChannelAccess')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowChannelAccess = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowMediaDeletion')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowMediaDeletion')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowMediaDeletion = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowSharing')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowSharing')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowSharing = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowSync = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowTuners')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowTuners')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowTuners = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('backgroundProcessing')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('backgroundProcessing')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $backgroundProcessing = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('certificate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('certificate')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $certificate = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('companionProxy')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('companionProxy')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $companionProxy = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('countryCode')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('countryCode')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $countryCode = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('diagnostics')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('diagnostics')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $diagnostics = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('eventStream')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('eventStream')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $eventStream = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('friendlyName')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('friendlyName')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $friendlyName = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('hubSearch')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('hubSearch')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $hubSearch = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('itemClusters')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('itemClusters')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $itemClusters = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('livetv')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('livetv')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $livetv = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $machineIdentifier = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('mediaProviders')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('mediaProviders')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $mediaProviders = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('multiuser')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('multiuser')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $multiuser = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('musicAnalysis')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('musicAnalysis')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $musicAnalysis = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('myPlex')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('myPlex')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $myPlex = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('myPlexMappingState')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('myPlexMappingState')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $myPlexMappingState = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('myPlexSigninState')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('myPlexSigninState')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $myPlexSigninState = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('myPlexSubscription')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('myPlexSubscription')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $myPlexSubscription = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('myPlexUsername')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('myPlexUsername')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $myPlexUsername = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('offlineTranscode')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('offlineTranscode')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $offlineTranscode = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('ownerFeatures')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('ownerFeatures')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ownerFeatures = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('photoAutoTag')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('photoAutoTag')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $photoAutoTag = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('platform')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('platform')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $platform = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $platformVersion = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('pluginHost')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('pluginHost')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $pluginHost = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('pushNotifications')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('pushNotifications')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $pushNotifications = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('readOnlyLibraries')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('readOnlyLibraries')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $readOnlyLibraries = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('streamingBrainABRVersion')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('streamingBrainABRVersion')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $streamingBrainABRVersion = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('streamingBrainVersion')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('streamingBrainVersion')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $streamingBrainVersion = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('sync')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('sync')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $sync = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderActiveVideoSessions')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderActiveVideoSessions')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $transcoderActiveVideoSessions = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderAudio')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderAudio')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $transcoderAudio = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderLyrics')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderLyrics')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $transcoderLyrics = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderPhoto')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderPhoto')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $transcoderPhoto = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderSubtitles')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderSubtitles')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $transcoderSubtitles = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderVideo')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideo')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $transcoderVideo = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderVideoBitrates')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoBitrates')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $transcoderVideoBitrates = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderVideoQualities')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoQualities')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $transcoderVideoQualities = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcoderVideoResolutions')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoResolutions')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $transcoderVideoResolutions = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $updatedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updater')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updater')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $updater = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('version')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('version')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $version = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('voiceSearch')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('voiceSearch')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $voiceSearch = null;
-    
+
     /**
      * $directory
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\Directory> $directory
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Directory')]
+    #[\JMS\Serializer\Annotation\SerializedName('Directory')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Directory>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $directory = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->allowCameraUpload = null;
-		$this->allowChannelAccess = null;
-		$this->allowMediaDeletion = null;
-		$this->allowSharing = null;
-		$this->allowSync = null;
-		$this->allowTuners = null;
-		$this->backgroundProcessing = null;
-		$this->certificate = null;
-		$this->companionProxy = null;
-		$this->countryCode = null;
-		$this->diagnostics = null;
-		$this->eventStream = null;
-		$this->friendlyName = null;
-		$this->hubSearch = null;
-		$this->itemClusters = null;
-		$this->livetv = null;
-		$this->machineIdentifier = null;
-		$this->mediaProviders = null;
-		$this->multiuser = null;
-		$this->musicAnalysis = null;
-		$this->myPlex = null;
-		$this->myPlexMappingState = null;
-		$this->myPlexSigninState = null;
-		$this->myPlexSubscription = null;
-		$this->myPlexUsername = null;
-		$this->offlineTranscode = null;
-		$this->ownerFeatures = null;
-		$this->photoAutoTag = null;
-		$this->platform = null;
-		$this->platformVersion = null;
-		$this->pluginHost = null;
-		$this->pushNotifications = null;
-		$this->readOnlyLibraries = null;
-		$this->streamingBrainABRVersion = null;
-		$this->streamingBrainVersion = null;
-		$this->sync = null;
-		$this->transcoderActiveVideoSessions = null;
-		$this->transcoderAudio = null;
-		$this->transcoderLyrics = null;
-		$this->transcoderPhoto = null;
-		$this->transcoderSubtitles = null;
-		$this->transcoderVideo = null;
-		$this->transcoderVideoBitrates = null;
-		$this->transcoderVideoQualities = null;
-		$this->transcoderVideoResolutions = null;
-		$this->updatedAt = null;
-		$this->updater = null;
-		$this->version = null;
-		$this->voiceSearch = null;
-		$this->directory = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->allowCameraUpload = null;
+        $this->allowChannelAccess = null;
+        $this->allowMediaDeletion = null;
+        $this->allowSharing = null;
+        $this->allowSync = null;
+        $this->allowTuners = null;
+        $this->backgroundProcessing = null;
+        $this->certificate = null;
+        $this->companionProxy = null;
+        $this->countryCode = null;
+        $this->diagnostics = null;
+        $this->eventStream = null;
+        $this->friendlyName = null;
+        $this->hubSearch = null;
+        $this->itemClusters = null;
+        $this->livetv = null;
+        $this->machineIdentifier = null;
+        $this->mediaProviders = null;
+        $this->multiuser = null;
+        $this->musicAnalysis = null;
+        $this->myPlex = null;
+        $this->myPlexMappingState = null;
+        $this->myPlexSigninState = null;
+        $this->myPlexSubscription = null;
+        $this->myPlexUsername = null;
+        $this->offlineTranscode = null;
+        $this->ownerFeatures = null;
+        $this->photoAutoTag = null;
+        $this->platform = null;
+        $this->platformVersion = null;
+        $this->pluginHost = null;
+        $this->pushNotifications = null;
+        $this->readOnlyLibraries = null;
+        $this->streamingBrainABRVersion = null;
+        $this->streamingBrainVersion = null;
+        $this->sync = null;
+        $this->transcoderActiveVideoSessions = null;
+        $this->transcoderAudio = null;
+        $this->transcoderLyrics = null;
+        $this->transcoderPhoto = null;
+        $this->transcoderSubtitles = null;
+        $this->transcoderVideo = null;
+        $this->transcoderVideoBitrates = null;
+        $this->transcoderVideoQualities = null;
+        $this->transcoderVideoResolutions = null;
+        $this->updatedAt = null;
+        $this->updater = null;
+        $this->version = null;
+        $this->voiceSearch = null;
+        $this->directory = null;
+    }
 }

@@ -9,26 +9,21 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetPinPlexResponseBody - X-Plex-Client-Identifier is missing
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** GetPinPlexResponseBody - X-Plex-Client-Identifier is missing */
 class GetPinPlexResponseBody
 {
     /**
      * $errors
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetPinErrors> $errors
      */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
+    #[\JMS\Serializer\Annotation\SerializedName('errors')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetPinErrors>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $errors = null;
-    
-	public function __construct()
-	{
-		$this->errors = null;
-	}
+
+    public function __construct()
+    {
+        $this->errors = null;
+    }
 }

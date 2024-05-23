@@ -11,67 +11,67 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Location
 {
-	#[\JMS\Serializer\Annotation\SerializedName('code')]
+    #[\JMS\Serializer\Annotation\SerializedName('code')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $code = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('european_union_member')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('european_union_member')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $europeanUnionMember = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('continent_code')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('continent_code')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $continentCode = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('country')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('country')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $country = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('city')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('city')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $city = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('time_zone')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('time_zone')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $timeZone = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('postal_code')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('postal_code')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $postalCode = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('in_privacy_restricted_country')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('in_privacy_restricted_country')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $inPrivacyRestrictedCountry = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('subdivisions')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('subdivisions')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $subdivisions = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('coordinates')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('coordinates')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $coordinates = null;
-    
-	public function __construct()
-	{
-		$this->code = null;
-		$this->europeanUnionMember = null;
-		$this->continentCode = null;
-		$this->country = null;
-		$this->city = null;
-		$this->timeZone = null;
-		$this->postalCode = null;
-		$this->inPrivacyRestrictedCountry = null;
-		$this->subdivisions = null;
-		$this->coordinates = null;
-	}
+
+    public function __construct()
+    {
+        $this->code = null;
+        $this->europeanUnionMember = null;
+        $this->continentCode = null;
+        $this->country = null;
+        $this->city = null;
+        $this->timeZone = null;
+        $this->postalCode = null;
+        $this->inPrivacyRestrictedCountry = null;
+        $this->subdivisions = null;
+        $this->coordinates = null;
+    }
 }

@@ -9,26 +9,21 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * CreatePlaylistPlaylistsResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** CreatePlaylistPlaylistsResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query. */
 class CreatePlaylistPlaylistsResponseBody
 {
     /**
      * $errors
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\CreatePlaylistErrors> $errors
      */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
+    #[\JMS\Serializer\Annotation\SerializedName('errors')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\CreatePlaylistErrors>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $errors = null;
-    
-	public function __construct()
-	{
-		$this->errors = null;
-	}
+
+    public function __construct()
+    {
+        $this->errors = null;
+    }
 }

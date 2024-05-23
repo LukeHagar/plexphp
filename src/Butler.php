@@ -8,38 +8,34 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Butler 
+class Butler
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Get Butler tasks
-     * 
+     *
      * Returns a list of butler tasks
-     * 
+     *
      * @return \LukeHagar\Plex_API\Models\Operations\GetButlerTasksResponse
      */
-	public function getButlerTasks(
-    ): \LukeHagar\Plex_API\Models\Operations\GetButlerTasksResponse
-    {
+    public function getButlerTasks(
+    ): \LukeHagar\Plex_API\Models\Operations\GetButlerTasksResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler');
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -48,49 +44,43 @@ class Butler
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetButlerTasksResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetButlerTasksResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetButlerTasksButlerResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetButlerTasksButlerResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Start all Butler tasks
-     * 
+     *
      * This endpoint will attempt to start all Butler tasks that are enabled in the settings. Butler tasks normally run automatically during a time window configured on the server's Settings page but can be manually started using this endpoint. Tasks will run with the following criteria:
      * 1. Any tasks not scheduled to run on the current day will be skipped.
      * 2. If a task is configured to run at a random time during the configured window and we are outside that window, the task will start immediately.
      * 3. If a task is configured to run at a random time during the configured window and we are within that window, the task will be scheduled at a random time within the window.
      * 4. If we are outside the configured window, the task will start immediately.
-     * 
-     * 
+     *
+     *
      * @return \LukeHagar\Plex_API\Models\Operations\StartAllTasksResponse
      */
-	public function startAllTasks(
-    ): \LukeHagar\Plex_API\Models\Operations\StartAllTasksResponse
-    {
+    public function startAllTasks(
+    ): \LukeHagar\Plex_API\Models\Operations\StartAllTasksResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler');
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -99,39 +89,34 @@ class Butler
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StartAllTasksResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StartAllTasksResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Stop all Butler tasks
-     * 
+     *
      * This endpoint will stop all currently running tasks and remove any scheduled tasks from the queue.
-     * 
-     * 
+     *
+     *
      * @return \LukeHagar\Plex_API\Models\Operations\StopAllTasksResponse
      */
-	public function stopAllTasks(
-    ): \LukeHagar\Plex_API\Models\Operations\StopAllTasksResponse
-    {
+    public function stopAllTasks(
+    ): \LukeHagar\Plex_API\Models\Operations\StopAllTasksResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler');
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('DELETE', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -140,48 +125,42 @@ class Butler
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StopAllTasksResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StopAllTasksResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Start a single Butler task
-     * 
+     *
      * This endpoint will attempt to start a single Butler task that is enabled in the settings. Butler tasks normally run automatically during a time window configured on the server's Settings page but can be manually started using this endpoint. Tasks will run with the following criteria:
      * 1. Any tasks not scheduled to run on the current day will be skipped.
      * 2. If a task is configured to run at a random time during the configured window and we are outside that window, the task will start immediately.
      * 3. If a task is configured to run at a random time during the configured window and we are within that window, the task will be scheduled at a random time within the window.
      * 4. If we are outside the configured window, the task will start immediately.
-     * 
-     * 
-     * @param \LukeHagar\Plex_API\Models\Operations\TaskName $taskName
+     *
+     *
+     * @param  \LukeHagar\Plex_API\Models\Operations\TaskName  $taskName
      * @return \LukeHagar\Plex_API\Models\Operations\StartTaskResponse
      */
-	public function startTask(
+    public function startTask(
         \LukeHagar\Plex_API\Models\Operations\TaskName $taskName,
-    ): \LukeHagar\Plex_API\Models\Operations\StartTaskResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\StartTaskResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\StartTaskRequest();
         $request->taskName = $taskName;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler/{taskName}', \LukeHagar\Plex_API\Models\Operations\StartTaskRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -190,44 +169,38 @@ class Butler
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 202 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StartTaskResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StartTaskResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Stop a single Butler task
-     * 
+     *
      * This endpoint will stop a currently running task by name, or remove it from the list of scheduled tasks if it exists. See the section above for a list of task names for this endpoint.
-     * 
-     * 
-     * @param \LukeHagar\Plex_API\Models\Operations\PathParamTaskName $taskName
+     *
+     *
+     * @param  \LukeHagar\Plex_API\Models\Operations\PathParamTaskName  $taskName
      * @return \LukeHagar\Plex_API\Models\Operations\StopTaskResponse
      */
-	public function stopTask(
+    public function stopTask(
         \LukeHagar\Plex_API\Models\Operations\PathParamTaskName $taskName,
-    ): \LukeHagar\Plex_API\Models\Operations\StopTaskResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\StopTaskResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\StopTaskRequest();
         $request->taskName = $taskName;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler/{taskName}', \LukeHagar\Plex_API\Models\Operations\StopTaskRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('DELETE', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -236,13 +209,11 @@ class Butler
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400 or $httpResponse->getStatusCode() === 404) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StopTaskResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StopTaskResponseBody', 'json');
             }
         }
 

@@ -11,37 +11,37 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetStatisticsDevice
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('name')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $name = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('platform')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('platform')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $platform = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('clientIdentifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('clientIdentifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $clientIdentifier = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('createdAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $createdAt = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->name = null;
-		$this->platform = null;
-		$this->clientIdentifier = null;
-		$this->createdAt = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->name = null;
+        $this->platform = null;
+        $this->clientIdentifier = null;
+        $this->createdAt = null;
+    }
 }

@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetGlobalHubsResponseBody - returns global hubs
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** GetGlobalHubsResponseBody - returns global hubs */
 class GetGlobalHubsResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetGlobalHubsMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?GetGlobalHubsMediaContainer $mediaContainer = null;
-    
-	public function __construct()
-	{
-		$this->mediaContainer = null;
-	}
+
+    public function __construct()
+    {
+        $this->mediaContainer = null;
+    }
 }

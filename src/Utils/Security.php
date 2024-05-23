@@ -13,7 +13,7 @@ use ReflectionProperty;
 class Security
 {
     /**
-     * @param mixed $security
+     * @param  mixed  $security
      * @return array<string,array<string,string>>
      */
     public function parseSecurity(mixed $security): array
@@ -35,11 +35,13 @@ class Security
 
             if ($metadata->option) {
                 $clientOptions = array_merge_recursive($clientOptions, $this->parseSecurityOption($value));
+
                 return $clientOptions;
-            } else if ($metadata->scheme) {
+            } elseif ($metadata->scheme) {
                 // Special case for basic auth which could be a flattened struct
                 if ($metadata->subtype === 'basic' && gettype($value) !== 'object') {
                     $clientOptions = array_merge_recursive($clientOptions, $this->parseSecurityScheme($security, $metadata));
+
                     return $clientOptions;
                 } else {
                     $clientOptions = array_merge_recursive($clientOptions, $this->parseSecurityScheme($value, $metadata));
@@ -51,7 +53,7 @@ class Security
     }
 
     /**
-     * @param mixed $option
+     * @param  mixed  $option
      * @return array<string,array<string,string>>
      */
     private function parseSecurityOption(mixed $option): array
@@ -80,8 +82,8 @@ class Security
     }
 
     /**
-     * @param mixed $scheme
-     * @param SecurityMetadata $metadata
+     * @param  mixed  $scheme
+     * @param  SecurityMetadata  $metadata
      * @return array<string,array<string,string>>
      */
     private function parseSecurityScheme(mixed $scheme, SecurityMetadata $metadata): array
@@ -116,9 +118,9 @@ class Security
     }
 
     /**
-     * @param mixed $value
-     * @param SecurityMetadata $metadata
-     * @param SecurityMetadata $fieldMetadata
+     * @param  mixed  $value
+     * @param  SecurityMetadata  $metadata
+     * @param  SecurityMetadata  $fieldMetadata
      * @return array<string,array<string,string>>
      */
     private function parseSecuritySchemeValue(mixed $value, SecurityMetadata $metadata, SecurityMetadata $fieldMetadata): array
@@ -134,32 +136,32 @@ class Security
                     'header' => $clientOptions['headers'][$fieldMetadata->name] = $value,
                     'query' => $clientOptions['query'][$fieldMetadata->name] = $value,
                     'cookie' => $clientOptions['headers']['Cookie'] = sprintf('%s=%s', $fieldMetadata->name, $value),
-                    default => throw new \RuntimeException('Unknown apiKey security scheme subtype: ' . $metadata->subtype),
+                    default => throw new \RuntimeException('Unknown apiKey security scheme subtype: '.$metadata->subtype),
                 };
 
                 break;
             case 'openIdConnect':
-                $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value;
+                $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer '.$value;
                 break;
             case 'oauth2':
-                $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value;
+                $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer '.$value;
                 break;
             case 'http':
                 match ($metadata->subtype) {
-                    'bearer' => $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer ' . $value,
-                    default => throw new \RuntimeException('Unknown http security scheme subtype: ' . $metadata->subtype)
+                    'bearer' => $clientOptions['headers'][$fieldMetadata->name] = preg_match('/^Bearer /i', $value) ? $value : 'Bearer '.$value,
+                    default => throw new \RuntimeException('Unknown http security scheme subtype: '.$metadata->subtype)
                 };
 
                 break;
             default:
-                throw new \Exception('Unknown security scheme type: ' . $metadata->type);
+                throw new \Exception('Unknown security scheme type: '.$metadata->type);
         }
 
         return $clientOptions;
     }
 
     /**
-     * @param mixed $scheme
+     * @param  mixed  $scheme
      * @return array<string,array<string,string>>
      */
     private function parseBasicAuthScheme(mixed $scheme): array
@@ -192,7 +194,7 @@ class Security
         ];
     }
 
-    private function parseSecurityMetadata(ReflectionProperty $property): SecurityMetadata | null
+    private function parseSecurityMetadata(ReflectionProperty $property): ?SecurityMetadata
     {
         $metadataStr = SpeakeasyMetadata::find($property->getAttributes(SpeakeasyMetadata::class), 'security');
         if ($metadataStr === null) {

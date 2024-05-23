@@ -1,0 +1,16 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "no_superfluous_phpdoc_tags": false,
+        "phpdoc_separation": false,
+        "phpdoc_trim": false,
+        "phpdoc_var_without_name": false,
+        "class_attributes_separation": false,
+        "single_blank_line_at_eof": false,
+        "blank_line_after_namespace": false,
+        "no_extra_blank_lines": false,
+        "no_blank_lines_after_class_opening": false,
+        "single_line_after_imports": false,
+        "no_trailing_whitespace_in_comment": false
+    }
+}

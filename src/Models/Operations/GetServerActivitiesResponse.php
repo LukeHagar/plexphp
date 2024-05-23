@@ -13,50 +13,45 @@ class GetServerActivitiesResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
+
     /**
      * The Server Activities
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\GetServerActivitiesResponseBody $twoHundredApplicationJsonObject
      */
-	
     public ?GetServerActivitiesResponseBody $twoHundredApplicationJsonObject = null;
-    
+
     /**
      * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\GetServerActivitiesActivitiesResponseBody $fourHundredAndOneApplicationJsonObject
      */
-	
     public ?GetServerActivitiesActivitiesResponseBody $fourHundredAndOneApplicationJsonObject = null;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-		$this->twoHundredApplicationJsonObject = null;
-		$this->fourHundredAndOneApplicationJsonObject = null;
-	}
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+        $this->twoHundredApplicationJsonObject = null;
+        $this->fourHundredAndOneApplicationJsonObject = null;
+    }
 }

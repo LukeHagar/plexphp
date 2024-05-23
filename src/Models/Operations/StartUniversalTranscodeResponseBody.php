@@ -9,26 +9,21 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * StartUniversalTranscodeResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** StartUniversalTranscodeResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query. */
 class StartUniversalTranscodeResponseBody
 {
     /**
      * $errors
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeErrors> $errors
      */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
+    #[\JMS\Serializer\Annotation\SerializedName('errors')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeErrors>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $errors = null;
-    
-	public function __construct()
-	{
-		$this->errors = null;
-	}
+
+    public function __construct()
+    {
+        $this->errors = null;
+    }
 }

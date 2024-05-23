@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetStatisticsResponseBody - Media Statistics
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** GetStatisticsResponseBody - Media Statistics */
 class GetStatisticsResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetStatisticsMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?GetStatisticsMediaContainer $mediaContainer = null;
-    
-	public function __construct()
-	{
-		$this->mediaContainer = null;
-	}
+
+    public function __construct()
+    {
+        $this->mediaContainer = null;
+    }
 }

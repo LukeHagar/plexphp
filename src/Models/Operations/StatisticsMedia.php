@@ -11,49 +11,49 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class StatisticsMedia
 {
-	#[\JMS\Serializer\Annotation\SerializedName('accountID')]
+    #[\JMS\Serializer\Annotation\SerializedName('accountID')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $accountID = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('deviceID')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('deviceID')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $deviceID = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('timespan')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('timespan')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $timespan = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('at')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('at')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $at = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('metadataType')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('metadataType')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $metadataType = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('count')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('count')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $count = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('duration')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $duration = null;
-    
-	public function __construct()
-	{
-		$this->accountID = null;
-		$this->deviceID = null;
-		$this->timespan = null;
-		$this->at = null;
-		$this->metadataType = null;
-		$this->count = null;
-		$this->duration = null;
-	}
+
+    public function __construct()
+    {
+        $this->accountID = null;
+        $this->deviceID = null;
+        $this->timespan = null;
+        $this->at = null;
+        $this->metadataType = null;
+        $this->count = null;
+        $this->duration = null;
+    }
 }

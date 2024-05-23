@@ -9,26 +9,21 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * DeleteLibraryResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** DeleteLibraryResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query. */
 class DeleteLibraryResponseBody
 {
     /**
      * $errors
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\DeleteLibraryErrors> $errors
      */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
+    #[\JMS\Serializer\Annotation\SerializedName('errors')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\DeleteLibraryErrors>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $errors = null;
-    
-	public function __construct()
-	{
-		$this->errors = null;
-	}
+
+    public function __construct()
+    {
+        $this->errors = null;
+    }
 }

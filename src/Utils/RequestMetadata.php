@@ -12,11 +12,12 @@ class RequestMetadata
 {
     private function __construct(
         public string $mediaType,
-    ) {}
+    ) {
+    }
 
-    public static function parse(string $metadata): RequestMetadata|null
+    public static function parse(string $metadata): ?RequestMetadata
     {
-        if (!str_starts_with($metadata, 'request:')) {
+        if (! str_starts_with($metadata, 'request:')) {
             return null;
         }
 
@@ -27,7 +28,7 @@ class RequestMetadata
         $options = explode(',', $metadata);
 
         foreach ($options as $opt) {
-            $parts = explode('=', $opt); 
+            $parts = explode('=', $opt);
             if (count($parts) < 1 || count($parts) > 2) { /** @phpstan-ignore-line */
                 continue;
             }

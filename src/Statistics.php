@@ -8,44 +8,39 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Statistics 
+class Statistics
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Get Media Statistics
-     * 
+     *
      * This will return the media statistics for the server
-     * 
-     * @param ?int $timespan
+     *
+     * @param  ?int  $timespan
      * @return \LukeHagar\Plex_API\Models\Operations\GetStatisticsResponse
      */
-	public function getStatistics(
+    public function getStatistics(
         ?int $timespan = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetStatisticsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetStatisticsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetStatisticsRequest();
         $request->timespan = $timespan;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/statistics/media');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetStatisticsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -54,19 +49,16 @@ class Statistics
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetStatisticsResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetStatisticsResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetStatisticsStatisticsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetStatisticsStatisticsResponseBody', 'json');
             }
         }
 

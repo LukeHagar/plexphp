@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetOnDeckResponseBody - The on Deck content
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** GetOnDeckResponseBody - The on Deck content */
 class GetOnDeckResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetOnDeckMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?GetOnDeckMediaContainer $mediaContainer = null;
-    
-	public function __construct()
-	{
-		$this->mediaContainer = null;
-	}
+
+    public function __construct()
+    {
+        $this->mediaContainer = null;
+    }
 }

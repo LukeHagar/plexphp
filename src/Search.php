@@ -8,62 +8,57 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Search 
+class Search
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Perform a search
-     * 
+     *
      * This endpoint performs a search across all library sections, or a single section, and returns matches as hubs, split up by type. It performs spell checking, looks for partial matches, and orders the hubs based on quality of results. In addition, based on matches, it will return other related matches (e.g. for a genre match, it may return movies in that genre, or for an actor match, movies with that actor).
-     * 
+     *
      * In the response's items, the following extra attributes are returned to further describe or disambiguate the result:
-     * 
+     *
      * - `reason`: The reason for the result, if not because of a direct search term match; can be either:
      *   - `section`: There are multiple identical results from different sections.
      *   - `originalTitle`: There was a search term match from the original title field (sometimes those can be very different or in a foreign language).
      *   - `<hub identifier>`: If the reason for the result is due to a result in another hub, the source hub identifier is returned. For example, if the search is for "dylan" then Bob Dylan may be returned as an artist result, an a few of his albums returned as album results with a reason code of `artist` (the identifier of that particular hub). Or if the search is for "arnold", there might be movie results returned with a reason of `actor`
      * - `reasonTitle`: The string associated with the reason code. For a section reason, it'll be the section name; For a hub identifier, it'll be a string associated with the match (e.g. `Arnold Schwarzenegger` for movies which were returned because the search was for "arnold").
      * - `reasonID`: The ID of the item associated with the reason for the result. This might be a section ID, a tag ID, an artist ID, or a show ID.
-     * 
+     *
      * This request is intended to be very fast, and called as the user types.
-     * 
-     * 
-     * @param string $query
-     * @param ?float $sectionId
-     * @param ?float $limit
+     *
+     *
+     * @param  string  $query
+     * @param  ?float  $sectionId
+     * @param  ?float  $limit
      * @return \LukeHagar\Plex_API\Models\Operations\PerformSearchResponse
      */
-	public function performSearch(
+    public function performSearch(
         string $query,
         ?float $sectionId = null,
         ?float $limit = null,
-    ): \LukeHagar\Plex_API\Models\Operations\PerformSearchResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\PerformSearchResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\PerformSearchRequest();
         $request->query = $query;
         $request->sectionId = $sectionId;
         $request->limit = $limit;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/hubs/search');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\PerformSearchRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -72,54 +67,48 @@ class Search
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\PerformSearchResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\PerformSearchResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Perform a voice search
-     * 
+     *
      * This endpoint performs a search specifically tailored towards voice or other imprecise input which may work badly with the substring and spell-checking heuristics used by the `/hubs/search` endpoint. 
      * It uses a [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) heuristic to search titles, and as such is much slower than the other search endpoint. 
      * Whenever possible, clients should limit the search to the appropriate type. 
      * Results, as well as their containing per-type hubs, contain a `distance` attribute which can be used to judge result quality.
-     * 
-     * 
-     * @param string $query
-     * @param ?float $sectionId
-     * @param ?float $limit
+     *
+     *
+     * @param  string  $query
+     * @param  ?float  $sectionId
+     * @param  ?float  $limit
      * @return \LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchResponse
      */
-	public function performVoiceSearch(
+    public function performVoiceSearch(
         string $query,
         ?float $sectionId = null,
         ?float $limit = null,
-    ): \LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchRequest();
         $request->query = $query;
         $request->sectionId = $sectionId;
         $request->limit = $limit;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/hubs/search/voice');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -128,44 +117,38 @@ class Search
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Get Search Results
-     * 
+     *
      * This will search the database for the string provided.
-     * 
-     * @param string $query
+     *
+     * @param  string  $query
      * @return \LukeHagar\Plex_API\Models\Operations\GetSearchResultsResponse
      */
-	public function getSearchResults(
+    public function getSearchResults(
         string $query,
-    ): \LukeHagar\Plex_API\Models\Operations\GetSearchResultsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetSearchResultsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetSearchResultsRequest();
         $request->query = $query;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/search');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetSearchResultsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -174,19 +157,16 @@ class Search
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetSearchResultsResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetSearchResultsResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetSearchResultsSearchResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetSearchResultsSearchResponseBody', 'json');
             }
         }
 

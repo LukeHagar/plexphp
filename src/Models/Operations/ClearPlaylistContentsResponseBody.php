@@ -9,26 +9,21 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * ClearPlaylistContentsResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** ClearPlaylistContentsResponseBody - Unauthorized - Returned if the X-Plex-Token is missing from the header or query. */
 class ClearPlaylistContentsResponseBody
 {
     /**
      * $errors
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsErrors> $errors
      */
-	#[\JMS\Serializer\Annotation\SerializedName('errors')]
+    #[\JMS\Serializer\Annotation\SerializedName('errors')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsErrors>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $errors = null;
-    
-	public function __construct()
-	{
-		$this->errors = null;
-	}
+
+    public function __construct()
+    {
+        $this->errors = null;
+    }
 }

@@ -11,24 +11,24 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class CreatePlaylistMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
+
     /**
      * $metadata
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\CreatePlaylistMetadata> $metadata
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Metadata')]
+    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\CreatePlaylistMetadata>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $metadata = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->metadata = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->metadata = null;
+    }
 }

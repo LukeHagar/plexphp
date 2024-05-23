@@ -1,12 +1,12 @@
 parameters:
 
-	paths:
-		- src/
+    paths:
+        - src/
 
-	reportUnmatchedIgnoredErrors: false
-	
-	checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false
+    
+    checkGenericClassInNonGenericObjectType: false
 
-	ignoreErrors:
-		- '#.*?class ReflectionProperty constructor expects object\|string.*?#'
-		- '#^Strict comparison using === between .*? will always evaluate to false\.$#'
+    ignoreErrors:
+        - '#.*?class ReflectionProperty constructor expects object\|string.*?#'
+        - '#^Strict comparison using === between .*? will always evaluate to false\.$#'

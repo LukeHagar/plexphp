@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class CheckForUpdatesRequest
 {
     /**
      * Indicate that you want to start download any updates found.
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\Download $download
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=download')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=download')]
     public ?Download $download = null;
-    
-	public function __construct()
-	{
-		$this->download = null;
-	}
+
+    public function __construct()
+    {
+        $this->download = null;
+    }
 }

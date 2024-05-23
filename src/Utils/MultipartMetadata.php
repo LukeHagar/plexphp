@@ -16,11 +16,12 @@ class MultipartMetadata
         public bool $content,
         public bool $json,
         public string $dateTimeFormat,
-    ) {}
+    ) {
+    }
 
-    public static function parse(string $metadata): MultipartMetadata|null
+    public static function parse(string $metadata): ?MultipartMetadata
     {
-        if ( ! str_starts_with($metadata, 'multipartForm:')) {
+        if (! str_starts_with($metadata, 'multipartForm:')) {
             return null;
         }
 

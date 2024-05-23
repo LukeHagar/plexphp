@@ -11,24 +11,24 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetTranscodeSessionsMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
+
     /**
      * $transcodeSession
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\TranscodeSession> $transcodeSession
      */
-	#[\JMS\Serializer\Annotation\SerializedName('TranscodeSession')]
+    #[\JMS\Serializer\Annotation\SerializedName('TranscodeSession')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\TranscodeSession>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $transcodeSession = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->transcodeSession = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->transcodeSession = null;
+    }
 }

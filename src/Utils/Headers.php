@@ -13,8 +13,8 @@ use ReflectionProperty;
 class Headers
 {
     /**
-     * @param mixed $headers
-     * @param array<string,array<string,array<string,string>>> $globals
+     * @param  mixed  $headers
+     * @param  array<string,array<string,array<string,string>>>  $globals
      * @return array<string,string>
      */
     public function parseHeaders(mixed $headers, array $globals): array
@@ -65,7 +65,7 @@ class Headers
                     }
 
                     if ($metadata->explode) {
-                        $items[] = $fieldMetadata->name . '=' . valToString($fieldValue);
+                        $items[] = $fieldMetadata->name.'='.valToString($fieldValue);
                     } else {
                         $items[] = $fieldMetadata->name;
                         $items[] = valToString($fieldValue);
@@ -85,7 +85,7 @@ class Headers
                         }
 
                         if ($metadata->explode) {
-                            $items[] = $field . '=' . valToString($fieldValue);
+                            $items[] = $field.'='.valToString($fieldValue);
                         } else {
                             $items[] = $field;
                             $items[] = valToString($fieldValue);
@@ -99,7 +99,7 @@ class Headers
         }
     }
 
-    private function parseHeaderMetadata(ReflectionProperty $property): ParamsMetadata|null
+    private function parseHeaderMetadata(ReflectionProperty $property): ?ParamsMetadata
     {
         $metadataStr = SpeakeasyMetadata::find($property->getAttributes(SpeakeasyMetadata::class), 'header');
         if ($metadataStr === null) {

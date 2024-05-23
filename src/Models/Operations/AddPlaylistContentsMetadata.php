@@ -11,85 +11,85 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class AddPlaylistContentsMetadata
 {
-	#[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
+    #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ratingKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('guid')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('guid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $guid = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('type')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $type = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('summary')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('summary')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $summary = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('smart')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('smart')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $smart = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('playlistType')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('playlistType')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $playlistType = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('composite')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('composite')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $composite = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('duration')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $duration = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('leafCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $leafCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('addedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $addedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $updatedAt = null;
-    
-	public function __construct()
-	{
-		$this->ratingKey = null;
-		$this->key = null;
-		$this->guid = null;
-		$this->type = null;
-		$this->title = null;
-		$this->summary = null;
-		$this->smart = null;
-		$this->playlistType = null;
-		$this->composite = null;
-		$this->duration = null;
-		$this->leafCount = null;
-		$this->addedAt = null;
-		$this->updatedAt = null;
-	}
+
+    public function __construct()
+    {
+        $this->ratingKey = null;
+        $this->key = null;
+        $this->guid = null;
+        $this->type = null;
+        $this->title = null;
+        $this->summary = null;
+        $this->smart = null;
+        $this->playlistType = null;
+        $this->composite = null;
+        $this->duration = null;
+        $this->leafCount = null;
+        $this->addedAt = null;
+        $this->updatedAt = null;
+    }
 }

@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetLibraryItemsRequest
 {
     /**
      * the Id of the library to query
-     * 
-     * @var mixed $sectionId
+     *
+     * @var int $sectionId
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
-    public mixed $sectionId;
-    
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
+    public int $sectionId;
+
     /**
      * A key representing a specific tag within the section.
-     * 
+     *
      * @var \LukeHagar\Plex_API\Models\Operations\Tag $tag
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=tag')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=tag')]
     public Tag $tag;
-    
-	public function __construct()
-	{
-		$this->sectionId = null;
-		$this->tag = \LukeHagar\Plex_API\Models\Operations\Tag::All;
-	}
+
+    public function __construct()
+    {
+        $this->sectionId = 0;
+        $this->tag = \LukeHagar\Plex_API\Models\Operations\Tag::All;
+    }
 }

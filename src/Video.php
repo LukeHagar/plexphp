@@ -8,41 +8,37 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Video 
+class Video
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Get the timeline for a media item
-     * 
+     *
      * Get the timeline for a media item
-     * 
-     * @param \LukeHagar\Plex_API\Models\Operations\GetTimelineRequest $request
+     *
+     * @param  \LukeHagar\Plex_API\Models\Operations\GetTimelineRequest  $request
      * @return \LukeHagar\Plex_API\Models\Operations\GetTimelineResponse
      */
-	public function getTimeline(
+    public function getTimeline(
         ?\LukeHagar\Plex_API\Models\Operations\GetTimelineRequest $request,
-    ): \LukeHagar\Plex_API\Models\Operations\GetTimelineResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetTimelineResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/:/timeline');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetTimelineRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -51,41 +47,36 @@ class Video
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTimelineResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTimelineResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Start Universal Transcode
-     * 
+     *
      * Begin a Universal Transcode Session
-     * 
-     * @param \LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeRequest $request
+     *
+     * @param  \LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeRequest  $request
      * @return \LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeResponse
      */
-	public function startUniversalTranscode(
+    public function startUniversalTranscode(
         ?\LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeRequest $request,
-    ): \LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/video/:/transcode/universal/start.mpd');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -94,13 +85,11 @@ class Video
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeResponseBody', 'json');
             }
         }
 

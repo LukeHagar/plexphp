@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class SearchLibraryRequest
 {
     /**
      * the Id of the library to query
-     * 
+     *
      * @var int $sectionId
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
     public int $sectionId;
-    
+
     /**
      * Plex content type to search for
-     * 
+     *
      * @var \LukeHagar\Plex_API\Models\Operations\Type $type
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
     public Type $type;
-    
-	public function __construct()
-	{
-		$this->sectionId = 0;
-		$this->type = \LukeHagar\Plex_API\Models\Operations\Type::One;
-	}
+
+    public function __construct()
+    {
+        $this->sectionId = 0;
+        $this->type = \LukeHagar\Plex_API\Models\Operations\Type::One;
+    }
 }

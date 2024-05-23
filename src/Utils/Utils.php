@@ -15,8 +15,8 @@ class Utils
     /**
      * configureClient configures the client with the given security.
      *
-     * @param ClientInterface $client
-     * @param mixed $security
+     * @param  ClientInterface  $client
+     * @param  mixed  $security
      * @return ClientInterface
      */
     public static function configureSecurityClient(ClientInterface $client, mixed $security): ClientInterface
@@ -33,8 +33,8 @@ class Utils
     /**
      * templateUrl will replace the path parameters in the given URL with the given values.
      *
-     * @param string $url
-     * @param mixed $params
+     * @param  string  $url
+     * @param  mixed  $params
      * @return string
      */
     public static function templateUrl(string $url, mixed $params): string
@@ -54,16 +54,16 @@ class Utils
     /**
      * generateUrl generates a URL from the given path and path parameters.
      *
-     * @param string $url
-     * @param string $path
-     * @param string|null $type
-     * @param mixed|null $pathParams
-     * @param array<string,array<string,array<string,string>>>|null $globals
+     * @param  string  $url
+     * @param  string  $path
+     * @param  string|null  $type
+     * @param  mixed|null  $pathParams
+     * @param  array<string,array<string,array<string,string>>>|null  $globals
      * @return string
      */
-    public static function generateUrl(string $url, string $path, string $type = null, mixed $pathParams = null, array $globals = null): string
+    public static function generateUrl(string $url, string $path, ?string $type = null, mixed $pathParams = null, ?array $globals = null): string
     {
-        $url = removeSuffix($url, '/') . $path;
+        $url = removeSuffix($url, '/').$path;
         $globals ??= [];
 
         $pp = new PathParameters();
@@ -75,8 +75,8 @@ class Utils
     /**
      * matchContentType will return true if the given content type matches the given pattern.
      *
-     * @param string $contentType
-     * @param string $pattern
+     * @param  string  $contentType
+     * @param  string  $pattern
      * @return bool
      */
     public static function matchContentType(string $contentType, string $pattern): bool
@@ -107,26 +107,27 @@ class Utils
     /**
      * serializeRequestBody will serialize the given request body.
      *
-     * @param mixed $request
-     * @param string $requestFieldName
-     * @param string $serializationMethod
+     * @param  mixed  $request
+     * @param  string  $requestFieldName
+     * @param  string  $serializationMethod
      * @return array<string,mixed>|null
      */
-    public static function serializeRequestBody(mixed $request, string $requestFieldName, string $serializationMethod): array|null
+    public static function serializeRequestBody(mixed $request, string $requestFieldName, string $serializationMethod): ?array
     {
         $rb = new RequestBodies();
+
         return $rb->serializeRequestBody($request, $requestFieldName, $serializationMethod);
     }
 
     /**
      * getQueryParams will return serialized query parameters for the given type.
      *
-     * @param string $type
-     * @param mixed $queryParams
-     * @param array<string,array<string,array<string,string>>>|null $globals
+     * @param  string  $type
+     * @param  mixed  $queryParams
+     * @param  array<string,array<string,array<string,string>>>|null  $globals
      * @return array<string,mixed>
      */
-    public static function getQueryParams(string $type, mixed $queryParams, array $globals = null): array
+    public static function getQueryParams(string $type, mixed $queryParams, ?array $globals = null): array
     {
         $qp = new QueryParameters();
         $globals ??= [];
@@ -145,11 +146,11 @@ class Utils
     /**
      * getHeaders will return serialized headers for the given type.
      *
-     * @param mixed $headers
-     * @param array<string,array<string,array<string,string>>>|null $globals
+     * @param  mixed  $headers
+     * @param  array<string,array<string,array<string,string>>>|null  $globals
      * @return array<string,mixed>
      */
-    public static function getHeaders(mixed $headers, array $globals = null): array
+    public static function getHeaders(mixed $headers, ?array $globals = null): array
     {
         $h = new Headers();
 
@@ -163,7 +164,7 @@ class Utils
 
 function removePrefix(string $text, string $prefix): string
 {
-    if (0 === strpos($text, $prefix)) {
+    if (strpos($text, $prefix) === 0) {
         $text = substr($text, strlen($prefix));
     }
 
@@ -176,6 +177,7 @@ function removeSuffix(string $text, string $suffix): string
     if (substr($text, -$suffix_length) === $suffix) {
         return substr($text, 0, -$suffix_length);
     }
+
     return $text;
 }
 
@@ -210,10 +212,10 @@ function valToString(mixed $val, string $dateTimeFormat = ''): string
 }
 
 /**
- * @param mixed $value
- * @param string $type
- * @param string $field
- * @param array<string,array<string,array<string,string>>> $globals
+ * @param  mixed  $value
+ * @param  string  $type
+ * @param  string  $field
+ * @param  array<string,array<string,array<string,string>>>  $globals
  * @return mixed
  */
 function populateGlobal(mixed $value, string $type, string $field, array $globals): mixed

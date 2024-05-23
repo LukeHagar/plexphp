@@ -10,210 +10,191 @@ namespace LukeHagar\Plex_API;
 
 /**
  * PlexAPI - Plex-API: A Plex Media Server API Map
- * 
+ *
  * An Open API Spec for interacting with Plex.tv and Plex Servers
- * 
- * @package LukeHagar\Plex_API
- * @access public
  */
 class PlexAPI
 {
-	public const SERVERS = [
+    public const SERVERS = [
         /** The full address of your Plex Server */
-		'{protocol}://{ip}:{port}',
-	];
-  	
+        '{protocol}://{ip}:{port}',
+    ];
+
     /**
      * Operations against the Plex Media Server System.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Server $$server
      */
-	public Server $server;
-	
+    public Server $server;
+
     /**
      * API Calls interacting with Plex Media Server Media
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Media $$media
      */
-	public Media $media;
-	
+    public Media $media;
+
     /**
      * API Calls that perform operations with Plex Media Server Videos
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Video $$video
      */
-	public Video $video;
-	
+    public Video $video;
+
     /**
      * Activities are awesome. They provide a way to monitor and control asynchronous operations on the server. In order to receive real-time updates for activities, a client would normally subscribe via either EventSource or Websocket endpoints.
-     * 
+     *
      * Activities are associated with HTTP replies via a special `X-Plex-Activity` header which contains the UUID of the activity.
      * Activities are optional cancellable. If cancellable, they may be cancelled via the `DELETE` endpoint. Other details:
      * - They can contain a `progress` (from 0 to 100) marking the percent completion of the activity.
      * - They must contain an `type` which is used by clients to distinguish the specific activity.
      * - They may contain a `Context` object with attributes which associate the activity with various specific entities (items, libraries, etc.)
      * - The may contain a `Response` object which attributes which represent the result of the asynchronous operation.
-     * 
-     * 
+     *
+     *
      * @var Activities $$activities
      */
-	public Activities $activities;
-	
+    public Activities $activities;
+
     /**
      * Butler is the task manager of the Plex Media Server Ecosystem.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Butler $$butler
      */
-	public Butler $butler;
-	
+    public Butler $butler;
+
     /**
      * Hubs are a structured two-dimensional container for media, generally represented by multiple horizontal rows.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Hubs $$hubs
      */
-	public Hubs $hubs;
-	
+    public Hubs $hubs;
+
     /**
      * API Calls that perform search operations with Plex Media Server
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Search $$search
      */
-	public Search $search;
-	
+    public Search $search;
+
     /**
      * API Calls interacting with Plex Media Server Libraries
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Library $$library
      */
-	public Library $library;
-	
+    public Library $library;
+
     /**
      * Submit logs to the Log Handler for Plex Media Server
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Log $$log
      */
-	public Log $log;
-	
+    public Log $log;
+
     /**
      * API Calls that perform operations directly against https://Plex.tv
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Plex $$plex
      */
-	public Plex $plex;
-	
+    public Plex $plex;
+
     /**
      * Playlists are ordered collections of media. They can be dumb (just a list of media) or smart (based on a media query, such as "all albums from 2017"). 
-     * 
+     *
      * They can be organized in (optionally nesting) folders.
      * Retrieving a playlist, or its items, will trigger a refresh of its metadata. 
      * This may cause the duration and number of items to change.
-     * 
-     * 
+     *
+     *
      * @var Playlists $$playlists
      */
-	public Playlists $playlists;
-	
+    public Playlists $playlists;
+
     /**
      * API Calls regarding authentication for Plex Media Server
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Authentication $$authentication
      */
-	public Authentication $authentication;
-	
+    public Authentication $authentication;
+
     /**
      * API Calls that perform operations with Plex Media Server Statistics
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Statistics $$statistics
      */
-	public Statistics $statistics;
-	
+    public Statistics $statistics;
+
     /**
      * API Calls that perform search operations with Plex Media Server Sessions
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @var Sessions $$sessions
      */
-	public Sessions $sessions;
-	
+    public Sessions $sessions;
+
     /**
      * This describes the API for searching and applying updates to the Plex Media Server.
-     * 
+     *
      * Updates to the status can be observed via the Event API.
-     * 
-     * 
+     *
+     *
      * @var Updater $$updater
      */
-	public Updater $updater;
-	
+    public Updater $updater;
 
-	/**
-	 * Returns a new instance of the SDK builder used to configure and create the SDK instance.
-	 * 
-	 * @return PlexAPIBuilder
-	 */
-	public static function builder(): PlexAPIBuilder
-	{
-		return new PlexAPIBuilder();
-	}
+    /**
+     * Returns a new instance of the SDK builder used to configure and create the SDK instance.
+     *
+     * @return PlexAPIBuilder
+     */
+    public static function builder(): PlexAPIBuilder
+    {
+        return new PlexAPIBuilder();
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfiguration
-	 */
-	public function __construct(
-		private SDKConfiguration $sdkConfiguration,
-	) {
-		
-		$this->server = new Server($this->sdkConfiguration);
-		
-		$this->media = new Media($this->sdkConfiguration);
-		
-		$this->video = new Video($this->sdkConfiguration);
-		
-		$this->activities = new Activities($this->sdkConfiguration);
-		
-		$this->butler = new Butler($this->sdkConfiguration);
-		
-		$this->hubs = new Hubs($this->sdkConfiguration);
-		
-		$this->search = new Search($this->sdkConfiguration);
-		
-		$this->library = new Library($this->sdkConfiguration);
-		
-		$this->log = new Log($this->sdkConfiguration);
-		
-		$this->plex = new Plex($this->sdkConfiguration);
-		
-		$this->playlists = new Playlists($this->sdkConfiguration);
-		
-		$this->authentication = new Authentication($this->sdkConfiguration);
-		
-		$this->statistics = new Statistics($this->sdkConfiguration);
-		
-		$this->sessions = new Sessions($this->sdkConfiguration);
-		
-		$this->updater = new Updater($this->sdkConfiguration);
-	}
+    /**
+     * @param  SDKConfiguration  $sdkConfiguration
+     */
+    public function __construct(
+        private SDKConfiguration $sdkConfiguration,
+    ) {
+        $this->server = new Server($this->sdkConfiguration);
+        $this->media = new Media($this->sdkConfiguration);
+        $this->video = new Video($this->sdkConfiguration);
+        $this->activities = new Activities($this->sdkConfiguration);
+        $this->butler = new Butler($this->sdkConfiguration);
+        $this->hubs = new Hubs($this->sdkConfiguration);
+        $this->search = new Search($this->sdkConfiguration);
+        $this->library = new Library($this->sdkConfiguration);
+        $this->log = new Log($this->sdkConfiguration);
+        $this->plex = new Plex($this->sdkConfiguration);
+        $this->playlists = new Playlists($this->sdkConfiguration);
+        $this->authentication = new Authentication($this->sdkConfiguration);
+        $this->statistics = new Statistics($this->sdkConfiguration);
+        $this->sessions = new Sessions($this->sdkConfiguration);
+        $this->updater = new Updater($this->sdkConfiguration);
+    }
 }

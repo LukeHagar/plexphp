@@ -11,24 +11,24 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetServerPreferencesMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
+
     /**
      * $setting
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\Setting> $setting
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Setting')]
+    #[\JMS\Serializer\Annotation\SerializedName('Setting')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Setting>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $setting = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->setting = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->setting = null;
+    }
 }

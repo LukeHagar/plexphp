@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class StopTaskRequest
 {
     /**
      * The name of the task to be started.
-     * 
+     *
      * @var \LukeHagar\Plex_API\Models\Operations\PathParamTaskName $taskName
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=taskName')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=taskName')]
     public PathParamTaskName $taskName;
-    
-	public function __construct()
-	{
-		$this->taskName = \LukeHagar\Plex_API\Models\Operations\PathParamTaskName::BackupDatabase;
-	}
+
+    public function __construct()
+    {
+        $this->taskName = \LukeHagar\Plex_API\Models\Operations\PathParamTaskName::BackupDatabase;
+    }
 }

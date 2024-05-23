@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetSourceConnectionInformationRequest
 {
     /**
      * The source identifier with an included prefix.
-     * 
+     *
      * @var string $source
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=source')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=source')]
     public string $source;
-    
-	public function __construct()
-	{
-		$this->source = "";
-	}
+
+    public function __construct()
+    {
+        $this->source = '';
+    }
 }

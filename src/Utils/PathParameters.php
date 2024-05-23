@@ -13,9 +13,9 @@ use ReflectionProperty;
 class PathParameters
 {
     /**
-     * @param string $type
-     * @param mixed $pathParams
-     * @param array<string,array<string,array<string,string>>> $globals
+     * @param  string  $type
+     * @param  mixed  $pathParams
+     * @param  array<string,array<string,array<string,string>>>  $globals
      * @return array<string,string>
      */
     public function parsePathParams(string $type, mixed $pathParams, array $globals): array
@@ -42,12 +42,12 @@ class PathParameters
                 continue;
             }
 
-            if (!empty($metadata->serialization)) {
+            if (! empty($metadata->serialization)) {
                 $parsed = array_merge_recursive($parsed, $this->parseSerializationParams($metadata, $value));
             } else {
                 match ($metadata->style) {
                     'simple' => $parsed = array_merge_recursive($parsed, $this->parseSimplePathParams($metadata, $value)),
-                    default => throw new \RuntimeException('Unsupported style: ' . $metadata->style),
+                    default => throw new \RuntimeException('Unsupported style: '.$metadata->style),
                 };
             }
         }
@@ -56,8 +56,8 @@ class PathParameters
     }
 
     /**
-     * @param ParamsMetadata $metadata
-     * @param mixed $value
+     * @param  ParamsMetadata  $metadata
+     * @param  mixed  $value
      * @return array<string,string>
      */
     private function parseSimplePathParams(ParamsMetadata $metadata, mixed $value): array
@@ -114,7 +114,7 @@ class PathParameters
         return $pathParams;
     }
 
-    private function parsePathParamsMetadata(ReflectionProperty $property): ParamsMetadata|null
+    private function parsePathParamsMetadata(ReflectionProperty $property): ?ParamsMetadata
     {
         $metadataStr = SpeakeasyMetadata::find($property->getAttributes(SpeakeasyMetadata::class), 'pathParam');
         if ($metadataStr === null) {
@@ -130,8 +130,8 @@ class PathParameters
     }
 
     /**
-     * @param ParamsMetadata $metadata
-     * @param mixed $value
+     * @param  ParamsMetadata  $metadata
+     * @param  mixed  $value
      * @return array<string,string>
      */
     private function parseSerializationParams(ParamsMetadata $metadata, mixed $value): array
@@ -144,7 +144,7 @@ class PathParameters
                 $params[$metadata->name] = urlencode($serializer->serialize($value, 'json'));
                 break;
             default:
-                throw new \Exception('Unsupported serialization: ' . $metadata->serialization);
+                throw new \Exception('Unsupported serialization: '.$metadata->serialization);
         }
 
         return $params;

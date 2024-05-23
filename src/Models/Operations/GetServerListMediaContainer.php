@@ -11,24 +11,24 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetServerListMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $size = null;
-    
+
     /**
      * $server
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetServerListServer> $server
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Server')]
+    #[\JMS\Serializer\Annotation\SerializedName('Server')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetServerListServer>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $server = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->server = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->server = null;
+    }
 }

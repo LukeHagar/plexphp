@@ -11,108 +11,108 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Media
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('duration')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $duration = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('bitrate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $bitrate = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('width')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('width')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $width = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('height')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('height')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $height = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('aspectRatio')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('aspectRatio')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $aspectRatio = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $audioChannels = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $audioCodec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $videoCodec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('videoResolution')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('videoResolution')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $videoResolution = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('container')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('container')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $container = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('videoFrameRate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('videoFrameRate')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $videoFrameRate = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $optimizedForStreaming = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $has64bitOffsets = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $videoProfile = null;
-    
+
     /**
      * $part
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\Part> $part
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Part')]
+    #[\JMS\Serializer\Annotation\SerializedName('Part')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Part>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $part = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->duration = null;
-		$this->bitrate = null;
-		$this->width = null;
-		$this->height = null;
-		$this->aspectRatio = null;
-		$this->audioChannels = null;
-		$this->audioCodec = null;
-		$this->videoCodec = null;
-		$this->videoResolution = null;
-		$this->container = null;
-		$this->videoFrameRate = null;
-		$this->optimizedForStreaming = null;
-		$this->has64bitOffsets = null;
-		$this->videoProfile = null;
-		$this->part = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->duration = null;
+        $this->bitrate = null;
+        $this->width = null;
+        $this->height = null;
+        $this->aspectRatio = null;
+        $this->audioChannels = null;
+        $this->audioCodec = null;
+        $this->videoCodec = null;
+        $this->videoResolution = null;
+        $this->container = null;
+        $this->videoFrameRate = null;
+        $this->optimizedForStreaming = null;
+        $this->has64bitOffsets = null;
+        $this->videoProfile = null;
+        $this->part = null;
+    }
 }

@@ -45,7 +45,7 @@ class EnumHandler implements SubscribingHandlerInterface
     public function deserializeEnumFromJson(JsonDeserializationVisitor $visitor, mixed $data, array $type, Context $context): mixed
     {
         $type = $type['params'][0]['name'] ?? null;
-        if (null === $type || !is_a($type, \BackedEnum::class, true)) {
+        if ($type === null || ! is_a($type, \BackedEnum::class, true)) {
             throw new \LogicException();
         }
 

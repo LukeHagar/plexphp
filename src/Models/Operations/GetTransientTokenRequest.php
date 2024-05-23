@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetTransientTokenRequest
 {
     /**
      * `delegation` - This is the only supported `type` parameter.
-     * 
+     *
      * @var \LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType $type
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
     public GetTransientTokenQueryParamType $type;
-    
+
     /**
      * `all` - This is the only supported `scope` parameter.
-     * 
+     *
      * @var \LukeHagar\Plex_API\Models\Operations\Scope $scope
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=scope')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=scope')]
     public Scope $scope;
-    
-	public function __construct()
-	{
-		$this->type = \LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType::Delegation;
-		$this->scope = \LukeHagar\Plex_API\Models\Operations\Scope::All;
-	}
+
+    public function __construct()
+    {
+        $this->type = \LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType::Delegation;
+        $this->scope = \LukeHagar\Plex_API\Models\Operations\Scope::All;
+    }
 }

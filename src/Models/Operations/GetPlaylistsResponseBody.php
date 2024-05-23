@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetPlaylistsResponseBody - returns all playlists
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** GetPlaylistsResponseBody - returns all playlists */
 class GetPlaylistsResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetPlaylistsMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?GetPlaylistsMediaContainer $mediaContainer = null;
-    
-	public function __construct()
-	{
-		$this->mediaContainer = null;
-	}
+
+    public function __construct()
+    {
+        $this->mediaContainer = null;
+    }
 }

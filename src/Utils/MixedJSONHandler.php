@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Utils;
 
-use JMS\Serializer\Handler\SubscribingHandlerInterface;
-use JMS\Serializer\GraphNavigator;
-use JMS\Serializer\JsonSerializationVisitor;
-use JMS\Serializer\JsonDeserializationVisitor;
 use JMS\Serializer\Context;
-use JMS\Serializer\Exception\SkipHandlerException;
+use JMS\Serializer\GraphNavigator;
+use JMS\Serializer\Handler\SubscribingHandlerInterface;
+use JMS\Serializer\JsonDeserializationVisitor;
+use JMS\Serializer\JsonSerializationVisitor;
 
 class MixedJSONHandler implements SubscribingHandlerInterface
 {
@@ -43,13 +42,14 @@ class MixedJSONHandler implements SubscribingHandlerInterface
         $s = $serializer->serialize($any, 'json');
         $s = ltrim($s, '"');
         $s = rtrim($s, '"');
+
         return $s;
     }
 
     /** @phpstan-ignore-next-line */
     public function deserializeMixedToJson(JsonDeserializationVisitor $visitor, mixed $data, array $type, Context $context): mixed
     {
-        if ( ! is_string($data)) {
+        if (! is_string($data)) {
             return $data;
         }
 

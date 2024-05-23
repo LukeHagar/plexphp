@@ -11,37 +11,37 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Filter
 {
-	#[\JMS\Serializer\Annotation\SerializedName('filter')]
+    #[\JMS\Serializer\Annotation\SerializedName('filter')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $filter = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('filterType')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('filterType')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $filterType = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('type')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $type = null;
-    
-	public function __construct()
-	{
-		$this->filter = null;
-		$this->filterType = null;
-		$this->key = null;
-		$this->title = null;
-		$this->type = null;
-	}
+
+    public function __construct()
+    {
+        $this->filter = null;
+        $this->filterType = null;
+        $this->key = null;
+        $this->title = null;
+        $this->type = null;
+    }
 }

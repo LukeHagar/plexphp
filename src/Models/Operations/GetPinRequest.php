@@ -8,36 +8,36 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetPinRequest
 {
     /**
      * Determines the kind of code returned by the API call
-     * 
+     *
      * Strong codes are used for Pin authentication flows
      * Non-Strong codes are used for `Plex.tv/link`
-     * 
-     * 
+     *
+     *
      * @var ?bool $strong
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=strong')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=strong')]
     public ?bool $strong = null;
-    
+
     /**
      * The unique identifier for the client application
-     * 
+     *
      * This is used to track the client application and its usage
      * (UUID, serial number, or other number unique per device)
-     * 
-     * 
+     *
+     *
      * @var ?string $xPlexClientIdentifier
      */
-	#[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
     public ?string $xPlexClientIdentifier = null;
-    
-	public function __construct()
-	{
-		$this->strong = null;
-		$this->xPlexClientIdentifier = null;
-	}
+
+    public function __construct()
+    {
+        $this->strong = null;
+        $this->xPlexClientIdentifier = null;
+    }
 }

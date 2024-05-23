@@ -11,155 +11,155 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetMetadataChildrenMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowSync = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('art')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('art')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $art = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('identifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $identifier = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $librarySectionID = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $librarySectionTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $librarySectionUUID = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $mediaTagPrefix = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $mediaTagVersion = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('nocache')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('nocache')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $nocache = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $parentIndex = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentYear')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentYear')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $parentYear = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('summary')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('summary')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $summary = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('theme')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('theme')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $theme = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('thumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $thumb = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title1')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title1')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title1 = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title2')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title2')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title2 = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('viewGroup')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('viewGroup')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $viewGroup = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('viewMode')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('viewMode')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $viewMode = null;
-    
+
     /**
      * $directory
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenDirectory> $directory
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Directory')]
+    #[\JMS\Serializer\Annotation\SerializedName('Directory')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenDirectory>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $directory = null;
-    
+
     /**
      * $metadata
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenMetadata> $metadata
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Metadata')]
+    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenMetadata>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $metadata = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->allowSync = null;
-		$this->art = null;
-		$this->identifier = null;
-		$this->key = null;
-		$this->librarySectionID = null;
-		$this->librarySectionTitle = null;
-		$this->librarySectionUUID = null;
-		$this->mediaTagPrefix = null;
-		$this->mediaTagVersion = null;
-		$this->nocache = null;
-		$this->parentIndex = null;
-		$this->parentTitle = null;
-		$this->parentYear = null;
-		$this->summary = null;
-		$this->theme = null;
-		$this->thumb = null;
-		$this->title1 = null;
-		$this->title2 = null;
-		$this->viewGroup = null;
-		$this->viewMode = null;
-		$this->directory = null;
-		$this->metadata = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->allowSync = null;
+        $this->art = null;
+        $this->identifier = null;
+        $this->key = null;
+        $this->librarySectionID = null;
+        $this->librarySectionTitle = null;
+        $this->librarySectionUUID = null;
+        $this->mediaTagPrefix = null;
+        $this->mediaTagVersion = null;
+        $this->nocache = null;
+        $this->parentIndex = null;
+        $this->parentTitle = null;
+        $this->parentYear = null;
+        $this->summary = null;
+        $this->theme = null;
+        $this->thumb = null;
+        $this->title1 = null;
+        $this->title2 = null;
+        $this->viewGroup = null;
+        $this->viewMode = null;
+        $this->directory = null;
+        $this->metadata = null;
+    }
 }

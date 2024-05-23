@@ -11,37 +11,37 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetMetadataChildrenDirectory
 {
-	#[\JMS\Serializer\Annotation\SerializedName('leafCount')]
+    #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $leafCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('thumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $thumb = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $viewedLeafCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	public function __construct()
-	{
-		$this->leafCount = null;
-		$this->thumb = null;
-		$this->viewedLeafCount = null;
-		$this->key = null;
-		$this->title = null;
-	}
+
+    public function __construct()
+    {
+        $this->leafCount = null;
+        $this->thumb = null;
+        $this->viewedLeafCount = null;
+        $this->key = null;
+        $this->title = null;
+    }
 }

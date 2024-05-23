@@ -8,51 +8,46 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Log 
+class Log
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Logging a single line message.
-     * 
+     *
      * This endpoint will write a single-line log message, including a level and source to the main Plex Media Server log.
-     * 
-     * 
-     * @param \LukeHagar\Plex_API\Models\Operations\Level $level
-     * @param string $message
-     * @param string $source
+     *
+     *
+     * @param  \LukeHagar\Plex_API\Models\Operations\Level  $level
+     * @param  string  $message
+     * @param  string  $source
      * @return \LukeHagar\Plex_API\Models\Operations\LogLineResponse
      */
-	public function logLine(
+    public function logLine(
         \LukeHagar\Plex_API\Models\Operations\Level $level,
         string $message,
         string $source,
-    ): \LukeHagar\Plex_API\Models\Operations\LogLineResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\LogLineResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\LogLineRequest();
         $request->level = $level;
         $request->message = $message;
         $request->source = $source;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/log');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\LogLineRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -61,66 +56,61 @@ class Log
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\LogLineResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\LogLineResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Logging a multi-line message
-     * 
+     *
      * This endpoint allows for the batch addition of log entries to the main Plex Media Server log.  
      * It accepts a text/plain request body, where each line represents a distinct log entry.  
      * Each log entry consists of URL-encoded key-value pairs, specifying log attributes such as 'level', 'message', and 'source'.  
-     * 
+     *
      * Log entries are separated by a newline character (`\n`).  
      * Each entry's parameters should be URL-encoded to ensure accurate parsing and handling of special characters.  
      * This method is efficient for logging multiple entries in a single API call, reducing the overhead of multiple individual requests.  
-     * 
+     *
      * The 'level' parameter specifies the log entry's severity or importance, with the following integer values:
      * - `0`: Error - Critical issues that require immediate attention.
      * - `1`: Warning - Important events that are not critical but may indicate potential issues.
      * - `2`: Info - General informational messages about system operation.
      * - `3`: Debug - Detailed information useful for debugging purposes.
      * - `4`: Verbose - Highly detailed diagnostic information for in-depth analysis.
-     * 
+     *
      * The 'message' parameter contains the log text, and 'source' identifies the log message's origin (e.g., an application name or module).
-     * 
+     *
      * Example of a single log entry format:
      * `level=4&message=Sample%20log%20entry&source=applicationName`
-     * 
+     *
      * Ensure each parameter is properly URL-encoded to avoid interpretation issues.
-     * 
-     * 
-     * @param string $request
+     *
+     *
+     * @param  string  $request
      * @return \LukeHagar\Plex_API\Models\Operations\LogMultiLineResponse
      */
-	public function logMultiLine(
+    public function logMultiLine(
         string $request,
-    ): \LukeHagar\Plex_API\Models\Operations\LogMultiLineResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\LogMultiLineResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/log');
-        
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, "request", "string");
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'string');
         if ($body === null) {
             throw new \Exception('Request body is required');
         }
         $options = array_merge_recursive($options, $body);
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -129,39 +119,34 @@ class Log
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\LogMultiLineResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\LogMultiLineResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Enabling Papertrail
-     * 
+     *
      * This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail networked logging site for a period of time.
-     * 
-     * 
+     *
+     *
      * @return \LukeHagar\Plex_API\Models\Operations\EnablePaperTrailResponse
      */
-	public function enablePaperTrail(
-    ): \LukeHagar\Plex_API\Models\Operations\EnablePaperTrailResponse
-    {
+    public function enablePaperTrail(
+    ): \LukeHagar\Plex_API\Models\Operations\EnablePaperTrailResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/log/networked');
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -170,13 +155,11 @@ class Log
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400 or $httpResponse->getStatusCode() === 403) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\EnablePaperTrailResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\EnablePaperTrailResponseBody', 'json');
             }
         }
 

@@ -8,14 +8,14 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Components;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class Security
 {
-	#[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=X-Plex-Token')]
+    #[SpeakeasyMetadata('security:scheme=true,type=apiKey,subtype=header,name=X-Plex-Token')]
     public string $accessToken;
-    
-	public function __construct()
-	{
-		$this->accessToken = "";
-	}
+
+    public function __construct()
+    {
+        $this->accessToken = '';
+    }
 }

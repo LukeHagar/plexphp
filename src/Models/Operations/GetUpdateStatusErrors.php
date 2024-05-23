@@ -11,25 +11,25 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetUpdateStatusErrors
 {
-	#[\JMS\Serializer\Annotation\SerializedName('code')]
+    #[\JMS\Serializer\Annotation\SerializedName('code')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $code = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('message')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('message')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $message = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('status')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('status')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $status = null;
-    
-	public function __construct()
-	{
-		$this->code = null;
-		$this->message = null;
-		$this->status = null;
-	}
+
+    public function __construct()
+    {
+        $this->code = null;
+        $this->message = null;
+        $this->status = null;
+    }
 }

@@ -342,9 +342,9 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     
 
-    $response = $sdk->library->getLibraryItems('<value>', Operations\Tag::Genre);
+    $response = $sdk->library->getLibraryItems(1, Operations\Tag::Genre);
 
-    if ($response->object !== null) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -354,10 +354,10 @@ try {
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `sectionId`                                                                 | *mixed*                                                                     | :heavy_check_mark:                                                          | the Id of the library to query                                              |
-| `tag`                                                                       | [\LukeHagar\Plex_API\Models\Operations\Tag](../../Models/Operations/Tag.md) | :heavy_check_mark:                                                          | A key representing a specific tag within the section.                       |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `sectionId`                                                                 | *int*                                                                       | :heavy_check_mark:                                                          | the Id of the library to query                                              | 1                                                                           |
+| `tag`                                                                       | [\LukeHagar\Plex_API\Models\Operations\Tag](../../Models/Operations/Tag.md) | :heavy_check_mark:                                                          | A key representing a specific tag within the section.                       |                                                                             |
 
 
 ### Response
@@ -462,7 +462,7 @@ try {
 
     $response = $sdk->library->searchLibrary(933505, Operations\Type::Four);
 
-    if ($response->object !== null) {
+    if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Throwable $e) {

@@ -16,11 +16,12 @@ class FormMetadata
         public string $style,
         public bool $explode,
         public string $dateTimeFormat,
-    ) {}
+    ) {
+    }
 
-    public static function parse(string $metadata): FormMetadata |null
+    public static function parse(string $metadata): ?FormMetadata
     {
-        if ( ! str_starts_with($metadata, 'form:')) {
+        if (! str_starts_with($metadata, 'form:')) {
             return null;
         }
 

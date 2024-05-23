@@ -11,13 +11,13 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetOnDeckGuids
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $id = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+    }
 }

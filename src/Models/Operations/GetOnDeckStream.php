@@ -11,145 +11,145 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetOnDeckStream
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('streamType')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('streamType')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $streamType = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('default')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('default')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $default = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('codec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('codec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $codec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('index')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $index = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('bitrate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $bitrate = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('language')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('language')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $language = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('languageTag')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('languageTag')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $languageTag = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('languageCode')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('languageCode')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $languageCode = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $bitDepth = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $chromaLocation = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $chromaSubsampling = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $codedHeight = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $codedWidth = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('colorRange')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('colorRange')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $colorRange = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('frameRate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('frameRate')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $frameRate = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('height')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('height')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $height = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('level')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('level')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $level = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('profile')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('profile')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $profile = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('refFrames')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('refFrames')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $refFrames = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('width')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('width')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $width = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $displayTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $extendedDisplayTitle = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->streamType = null;
-		$this->default = null;
-		$this->codec = null;
-		$this->index = null;
-		$this->bitrate = null;
-		$this->language = null;
-		$this->languageTag = null;
-		$this->languageCode = null;
-		$this->bitDepth = null;
-		$this->chromaLocation = null;
-		$this->chromaSubsampling = null;
-		$this->codedHeight = null;
-		$this->codedWidth = null;
-		$this->colorRange = null;
-		$this->frameRate = null;
-		$this->height = null;
-		$this->level = null;
-		$this->profile = null;
-		$this->refFrames = null;
-		$this->width = null;
-		$this->displayTitle = null;
-		$this->extendedDisplayTitle = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->streamType = null;
+        $this->default = null;
+        $this->codec = null;
+        $this->index = null;
+        $this->bitrate = null;
+        $this->language = null;
+        $this->languageTag = null;
+        $this->languageCode = null;
+        $this->bitDepth = null;
+        $this->chromaLocation = null;
+        $this->chromaSubsampling = null;
+        $this->codedHeight = null;
+        $this->codedWidth = null;
+        $this->colorRange = null;
+        $this->frameRate = null;
+        $this->height = null;
+        $this->level = null;
+        $this->profile = null;
+        $this->refFrames = null;
+        $this->width = null;
+        $this->displayTitle = null;
+        $this->extendedDisplayTitle = null;
+    }
 }

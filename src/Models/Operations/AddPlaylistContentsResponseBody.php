@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * AddPlaylistContentsResponseBody - Playlist Updated
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** AddPlaylistContentsResponseBody - Playlist Updated */
 class AddPlaylistContentsResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?AddPlaylistContentsMediaContainer $mediaContainer = null;
-    
-	public function __construct()
-	{
-		$this->mediaContainer = null;
-	}
+
+    public function __construct()
+    {
+        $this->mediaContainer = null;
+    }
 }

@@ -11,36 +11,36 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetGlobalHubsMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowSync = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('identifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $identifier = null;
-    
+
     /**
      * $hub
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\Hub> $hub
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Hub')]
+    #[\JMS\Serializer\Annotation\SerializedName('Hub')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Hub>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $hub = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->allowSync = null;
-		$this->identifier = null;
-		$this->hub = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->allowSync = null;
+        $this->identifier = null;
+        $this->hub = null;
+    }
 }

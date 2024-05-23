@@ -8,37 +8,37 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetLibraryHubsRequest
 {
     /**
      * the Id of the library to query
-     * 
+     *
      * @var float $sectionId
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
     public float $sectionId;
-    
+
     /**
      * The number of items to return with each hub.
-     * 
+     *
      * @var ?float $count
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=count')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=count')]
     public ?float $count = null;
-    
+
     /**
      * Only return hubs which are "transient", meaning those which are prone to changing after media playback or addition (e.g. On Deck, or Recently Added).
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\QueryParamOnlyTransient $onlyTransient
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=onlyTransient')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=onlyTransient')]
     public ?QueryParamOnlyTransient $onlyTransient = null;
-    
-	public function __construct()
-	{
-		$this->sectionId = 0;
-		$this->count = null;
-		$this->onlyTransient = null;
-	}
+
+    public function __construct()
+    {
+        $this->sectionId = 0;
+        $this->count = null;
+        $this->onlyTransient = null;
+    }
 }

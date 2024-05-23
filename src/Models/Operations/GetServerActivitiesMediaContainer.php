@@ -11,24 +11,24 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetServerActivitiesMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $size = null;
-    
+
     /**
      * $activity
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\Activity> $activity
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Activity')]
+    #[\JMS\Serializer\Annotation\SerializedName('Activity')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Activity>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $activity = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->activity = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->activity = null;
+    }
 }

@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * SearchLibraryResponseBody - The contents of the library by section and type
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** SearchLibraryResponseBody - The contents of the library by section and type */
 class SearchLibraryResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\SearchLibraryMediaContainer')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?SearchLibraryMediaContainer $mediaContainer = null;
-    
-	public function __construct()
-	{
-		$this->mediaContainer = null;
-	}
+
+    public function __construct()
+    {
+        $this->mediaContainer = null;
+    }
 }

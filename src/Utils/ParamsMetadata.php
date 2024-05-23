@@ -17,9 +17,10 @@ class ParamsMetadata
         public string $name,
         public string $serialization,
         public string $dateTimeFormat,
-    ) {}
+    ) {
+    }
 
-    public static function parse(string $metadata): ParamsMetadata|null
+    public static function parse(string $metadata): ?ParamsMetadata
     {
         $prefix = explode(':', $metadata, 2);
         if (count($prefix) !== 2) {
@@ -28,9 +29,9 @@ class ParamsMetadata
 
         $type = $prefix[0];
 
-        $metadata = removePrefix($metadata, $type . ':');
+        $metadata = removePrefix($metadata, $type.':');
 
-        $style =  '';
+        $style = '';
         $explode = false;
         $name = '';
         $serialization = '';

@@ -8,44 +8,40 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Playlists 
+class Playlists
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Create a Playlist
-     * 
+     *
      * Create a new playlist. By default the playlist is blank. To create a playlist along with a first item, pass:
      * - `uri` - The content URI for what we're playing (e.g. `server://1234/com.plexapp.plugins.library/library/metadata/1`).
      * - `playQueueID` - To create a playlist from an existing play queue.
-     * 
-     * 
-     * @param \LukeHagar\Plex_API\Models\Operations\CreatePlaylistRequest $request
+     *
+     *
+     * @param  \LukeHagar\Plex_API\Models\Operations\CreatePlaylistRequest  $request
      * @return \LukeHagar\Plex_API\Models\Operations\CreatePlaylistResponse
      */
-	public function createPlaylist(
+    public function createPlaylist(
         ?\LukeHagar\Plex_API\Models\Operations\CreatePlaylistRequest $request,
-    ): \LukeHagar\Plex_API\Models\Operations\CreatePlaylistResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\CreatePlaylistResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\CreatePlaylistRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -54,53 +50,46 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\CreatePlaylistResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\CreatePlaylistResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\CreatePlaylistPlaylistsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\CreatePlaylistPlaylistsResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Get All Playlists
-     * 
+     *
      * Get All Playlists given the specified filters.
-     * 
-     * @param ?\LukeHagar\Plex_API\Models\Operations\PlaylistType $playlistType
-     * @param ?\LukeHagar\Plex_API\Models\Operations\QueryParamSmart $smart
+     *
+     * @param  ?\LukeHagar\Plex_API\Models\Operations\PlaylistType  $playlistType
+     * @param  ?\LukeHagar\Plex_API\Models\Operations\QueryParamSmart  $smart
      * @return \LukeHagar\Plex_API\Models\Operations\GetPlaylistsResponse
      */
-	public function getPlaylists(
+    public function getPlaylists(
         ?\LukeHagar\Plex_API\Models\Operations\PlaylistType $playlistType = null,
         ?\LukeHagar\Plex_API\Models\Operations\QueryParamSmart $smart = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetPlaylistsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetPlaylistsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetPlaylistsRequest();
         $request->playlistType = $playlistType;
         $request->smart = $smart;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPlaylistsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -109,51 +98,44 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistsResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistsResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistsPlaylistsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistsPlaylistsResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Retrieve Playlist
-     * 
+     *
      * Gets detailed metadata for a playlist. A playlist for many purposes (rating, editing metadata, tagging), can be treated like a regular metadata item:
      * Smart playlist details contain the `content` attribute. This is the content URI for the generator. This can then be parsed by a client to provide smart playlist editing.
-     * 
-     * 
-     * @param float $playlistID
+     *
+     *
+     * @param  float  $playlistID
      * @return \LukeHagar\Plex_API\Models\Operations\GetPlaylistResponse
      */
-	public function getPlaylist(
+    public function getPlaylist(
         float $playlistID,
-    ): \LukeHagar\Plex_API\Models\Operations\GetPlaylistResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetPlaylistResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetPlaylistRequest();
         $request->playlistID = $playlistID;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\GetPlaylistRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -162,50 +144,43 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistPlaylistsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistPlaylistsResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Deletes a Playlist
-     * 
+     *
      * This endpoint will delete a playlist
-     * 
-     * 
-     * @param float $playlistID
+     *
+     *
+     * @param  float  $playlistID
      * @return \LukeHagar\Plex_API\Models\Operations\DeletePlaylistResponse
      */
-	public function deletePlaylist(
+    public function deletePlaylist(
         float $playlistID,
-    ): \LukeHagar\Plex_API\Models\Operations\DeletePlaylistResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\DeletePlaylistResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\DeletePlaylistRequest();
         $request->playlistID = $playlistID;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\DeletePlaylistRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('DELETE', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -214,51 +189,45 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\DeletePlaylistResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\DeletePlaylistResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Update a Playlist
-     * 
+     *
      * From PMS version 1.9.1 clients can also edit playlist metadata using this endpoint as they would via `PUT /library/metadata/{playlistID}`
-     * 
-     * 
-     * @param float $playlistID
-     * @param ?string $title
-     * @param ?string $summary
+     *
+     *
+     * @param  float  $playlistID
+     * @param  ?string  $title
+     * @param  ?string  $summary
      * @return \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistResponse
      */
-	public function updatePlaylist(
+    public function updatePlaylist(
         float $playlistID,
         ?string $title = null,
         ?string $summary = null,
-    ): \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest();
         $request->playlistID = $playlistID;
         $request->title = $title;
         $request->summary = $summary;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}', \LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UpdatePlaylistRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('PUT', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -267,51 +236,45 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\UpdatePlaylistResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\UpdatePlaylistResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Retrieve Playlist Contents
-     * 
+     *
      * Gets the contents of a playlist. Should be paged by clients via standard mechanisms. 
      * By default leaves are returned (e.g. episodes, movies). In order to return other types you can use the `type` parameter. 
      * For example, you could use this to display a list of recently added albums vis a smart playlist. 
      * Note that for dumb playlists, items have a `playlistItemID` attribute which is used for deleting or moving items.
-     * 
-     * 
-     * @param float $playlistID
-     * @param float $type
+     *
+     *
+     * @param  float  $playlistID
+     * @param  float  $type
      * @return \LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponse
      */
-	public function getPlaylistContents(
+    public function getPlaylistContents(
         float $playlistID,
         float $type,
-    ): \LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRequest();
         $request->playlistID = $playlistID;
         $request->type = $type;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -320,50 +283,43 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsPlaylistsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsPlaylistsResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Delete Playlist Contents
-     * 
+     *
      * Clears a playlist, only works with dumb playlists. Returns the playlist.
-     * 
-     * 
-     * @param float $playlistID
+     *
+     *
+     * @param  float  $playlistID
      * @return \LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsResponse
      */
-	public function clearPlaylistContents(
+    public function clearPlaylistContents(
         float $playlistID,
-    ): \LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsRequest();
         $request->playlistID = $playlistID;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('DELETE', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -372,52 +328,46 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\ClearPlaylistContentsResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Adding to a Playlist
-     * 
+     *
      * Adds a generator to a playlist, same parameters as the POST to create. With a dumb playlist, this adds the specified items to the playlist.
      * With a smart playlist, passing a new `uri` parameter replaces the rules for the playlist. Returns the playlist.
-     * 
-     * 
-     * @param float $playlistID
-     * @param string $uri
-     * @param ?float $playQueueID
+     *
+     *
+     * @param  float  $playlistID
+     * @param  string  $uri
+     * @param  ?float  $playQueueID
      * @return \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponse
      */
-	public function addPlaylistContents(
+    public function addPlaylistContents(
         float $playlistID,
         string $uri,
         ?float $playQueueID = null,
-    ): \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest();
         $request->playlistID = $playlistID;
         $request->uri = $uri;
         $request->playQueueID = $playQueueID;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/{playlistID}/items', \LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('PUT', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -426,54 +376,47 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsPlaylistsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsPlaylistsResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Upload Playlist
-     * 
+     *
      * Imports m3u playlists by passing a path on the server to scan for m3u-formatted playlist files, or a path to a single playlist file.
-     * 
-     * 
-     * @param string $path
-     * @param \LukeHagar\Plex_API\Models\Operations\Force $force
+     *
+     *
+     * @param  string  $path
+     * @param  \LukeHagar\Plex_API\Models\Operations\Force  $force
      * @return \LukeHagar\Plex_API\Models\Operations\UploadPlaylistResponse
      */
-	public function uploadPlaylist(
+    public function uploadPlaylist(
         string $path,
         \LukeHagar\Plex_API\Models\Operations\Force $force,
-    ): \LukeHagar\Plex_API\Models\Operations\UploadPlaylistResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\UploadPlaylistResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\UploadPlaylistRequest();
         $request->path = $path;
         $request->force = $force;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/upload');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UploadPlaylistRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -482,13 +425,11 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\UploadPlaylistResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\UploadPlaylistResponseBody', 'json');
             }
         }
 

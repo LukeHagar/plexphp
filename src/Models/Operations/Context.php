@@ -11,13 +11,13 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Context
 {
-	#[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $librarySectionID = null;
-    
-	public function __construct()
-	{
-		$this->librarySectionID = null;
-	}
+
+    public function __construct()
+    {
+        $this->librarySectionID = null;
+    }
 }

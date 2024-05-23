@@ -11,37 +11,37 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetLibraryDirectory
 {
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('secondary')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('secondary')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $secondary = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('prompt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('prompt')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $prompt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('search')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('search')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $search = null;
-    
-	public function __construct()
-	{
-		$this->key = null;
-		$this->title = null;
-		$this->secondary = null;
-		$this->prompt = null;
-		$this->search = null;
-	}
+
+    public function __construct()
+    {
+        $this->key = null;
+        $this->title = null;
+        $this->secondary = null;
+        $this->prompt = null;
+        $this->search = null;
+    }
 }

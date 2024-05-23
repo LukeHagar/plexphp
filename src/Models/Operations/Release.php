@@ -11,43 +11,43 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Release
 {
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('version')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('version')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $version = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('added')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('added')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $added = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('fixed')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('fixed')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $fixed = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $downloadURL = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('state')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('state')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $state = null;
-    
-	public function __construct()
-	{
-		$this->key = null;
-		$this->version = null;
-		$this->added = null;
-		$this->fixed = null;
-		$this->downloadURL = null;
-		$this->state = null;
-	}
+
+    public function __construct()
+    {
+        $this->key = null;
+        $this->version = null;
+        $this->added = null;
+        $this->fixed = null;
+        $this->downloadURL = null;
+        $this->state = null;
+    }
 }

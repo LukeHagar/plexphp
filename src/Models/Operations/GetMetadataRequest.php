@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetMetadataRequest
 {
     /**
      * the id of the library item to return the children of.
-     * 
+     *
      * @var float $ratingKey
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=ratingKey')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=ratingKey')]
     public float $ratingKey;
-    
-	public function __construct()
-	{
-		$this->ratingKey = 0;
-	}
+
+    public function __construct()
+    {
+        $this->ratingKey = 0;
+    }
 }

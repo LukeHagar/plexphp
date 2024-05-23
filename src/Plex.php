@@ -8,66 +8,59 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Plex 
+class Plex
 {
-	
-	public const GET_PIN_SERVERS = [
-		'https://plex.tv/api/v2',
-	];
-	
-	public const GET_TOKEN_SERVERS = [
-		'https://plex.tv/api/v2',
-	];
+    public const GET_PIN_SERVERS = [
 
-	private SDKConfiguration $sdkConfiguration;
+        'https://plex.tv/api/v2',
+    ];
+    public const GET_TOKEN_SERVERS = [
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
+        'https://plex.tv/api/v2',
+    ];
+    private SDKConfiguration $sdkConfiguration;
+
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
+
     /**
      * Get a Pin
-     * 
+     *
      * Retrieve a Pin from Plex.tv for authentication flows
-     * 
-     * @param ?bool $strong
-     * @param ?string $xPlexClientIdentifier
-     * @param string $serverURL
+     *
+     * @param  ?bool  $strong
+     * @param  ?string  $xPlexClientIdentifier
+     * @param  string  $serverURL
      * @return \LukeHagar\Plex_API\Models\Operations\GetPinResponse
      */
-	public function getPin(
+    public function getPin(
         ?bool $strong = null,
         ?string $xPlexClientIdentifier = null,
         ?string $serverURL = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetPinResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetPinResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetPinRequest();
         $request->strong = $strong;
         $request->xPlexClientIdentifier = $xPlexClientIdentifier;
-        
-        $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], array(
-        ));
-        if (!empty($serverURL)) {
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], [
+        ]);
+        if (! empty($serverURL)) {
             $baseUrl = $serverURL;
         }
-        
         $url = Utils\Utils::generateUrl($baseUrl, '/pins');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetPinRequest::class, $request, $this->sdkConfiguration->globals));
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (!array_key_exists('headers', $options)) {
+        if (! array_key_exists('headers', $options)) {
             $options['headers'] = [];
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->defaultClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -76,61 +69,53 @@ class Plex
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinPlexResponseBody', 'json');
+                $response->fourHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinPlexResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Get Access Token
-     * 
+     *
      * Retrieve an Access Token from Plex.tv after the Pin has already been authenticated
-     * 
-     * @param string $pinID
-     * @param ?string $xPlexClientIdentifier
-     * @param string $serverURL
+     *
+     * @param  string  $pinID
+     * @param  ?string  $xPlexClientIdentifier
+     * @param  string  $serverURL
      * @return \LukeHagar\Plex_API\Models\Operations\GetTokenResponse
      */
-	public function getToken(
+    public function getToken(
         string $pinID,
         ?string $xPlexClientIdentifier = null,
         ?string $serverURL = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetTokenResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetTokenResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetTokenRequest();
         $request->pinID = $pinID;
         $request->xPlexClientIdentifier = $xPlexClientIdentifier;
-        
-        $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_SERVERS[0], array(
-        ));
-        if (!empty($serverURL)) {
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_SERVERS[0], [
+        ]);
+        if (! empty($serverURL)) {
             $baseUrl = $serverURL;
         }
-        
         $url = Utils\Utils::generateUrl($baseUrl, '/pins/{pinID}', \LukeHagar\Plex_API\Models\Operations\GetTokenRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (!array_key_exists('headers', $options)) {
+        if (! array_key_exists('headers', $options)) {
             $options['headers'] = [];
         }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
         $httpResponse = $this->sdkConfiguration->defaultClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -139,13 +124,11 @@ class Plex
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTokenResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTokenResponseBody', 'json');
             }
         }
 

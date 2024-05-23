@@ -13,41 +13,45 @@ class SearchLibraryResponse
 {
     /**
      * HTTP response content type for this operation
-     * 
+     *
      * @var string $contentType
      */
-	
     public string $contentType;
-    
+
     /**
      * HTTP response status code for this operation
-     * 
+     *
      * @var int $statusCode
      */
-	
     public int $statusCode;
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
-     * 
+     *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-	
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
-    
+
     /**
      * The contents of the library by section and type
-     * 
-     * @var ?\LukeHagar\Plex_API\Models\Operations\SearchLibraryResponseBody $object
+     *
+     * @var ?\LukeHagar\Plex_API\Models\Operations\SearchLibraryResponseBody $twoHundredApplicationJsonObject
      */
-	
-    public ?SearchLibraryResponseBody $object = null;
-    
-	public function __construct()
-	{
-		$this->contentType = "";
-		$this->statusCode = 0;
-		$this->rawResponse = null;
-		$this->object = null;
-	}
+    public ?SearchLibraryResponseBody $twoHundredApplicationJsonObject = null;
+
+    /**
+     * Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+     *
+     * @var ?\LukeHagar\Plex_API\Models\Operations\SearchLibraryLibraryResponseBody $fourHundredAndOneApplicationJsonObject
+     */
+    public ?SearchLibraryLibraryResponseBody $fourHundredAndOneApplicationJsonObject = null;
+
+    public function __construct()
+    {
+        $this->contentType = '';
+        $this->statusCode = 0;
+        $this->rawResponse = null;
+        $this->twoHundredApplicationJsonObject = null;
+        $this->fourHundredAndOneApplicationJsonObject = null;
+    }
 }

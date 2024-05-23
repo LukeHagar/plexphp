@@ -11,43 +11,43 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class ButlerTask
 {
-	#[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\JMS\Serializer\Annotation\SerializedName('name')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $name = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('interval')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('interval')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $interval = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('scheduleRandomized')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('scheduleRandomized')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $scheduleRandomized = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('enabled')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('enabled')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $enabled = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('description')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('description')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $description = null;
-    
-	public function __construct()
-	{
-		$this->name = null;
-		$this->interval = null;
-		$this->scheduleRandomized = null;
-		$this->enabled = null;
-		$this->title = null;
-		$this->description = null;
-	}
+
+    public function __construct()
+    {
+        $this->name = null;
+        $this->interval = null;
+        $this->scheduleRandomized = null;
+        $this->enabled = null;
+        $this->title = null;
+        $this->description = null;
+    }
 }

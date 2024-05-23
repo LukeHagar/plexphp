@@ -8,37 +8,37 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class PerformSearchRequest
 {
     /**
      * The query term
-     * 
+     *
      * @var string $query
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=query')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=query')]
     public string $query;
-    
+
     /**
      * This gives context to the search, and can result in re-ordering of search result hubs
-     * 
+     *
      * @var ?float $sectionId
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=sectionId')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=sectionId')]
     public ?float $sectionId = null;
-    
+
     /**
      * The number of items to return per hub
-     * 
+     *
      * @var ?float $limit
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=limit')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=limit')]
     public ?float $limit = null;
-    
-	public function __construct()
-	{
-		$this->query = "";
-		$this->sectionId = null;
-		$this->limit = null;
-	}
+
+    public function __construct()
+    {
+        $this->query = '';
+        $this->sectionId = null;
+        $this->limit = null;
+    }
 }

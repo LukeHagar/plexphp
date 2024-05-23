@@ -8,47 +8,42 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Hubs 
+class Hubs
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Get Global Hubs
-     * 
+     *
      * Get Global Hubs filtered by the parameters provided.
-     * 
-     * @param ?float $count
-     * @param ?\LukeHagar\Plex_API\Models\Operations\OnlyTransient $onlyTransient
+     *
+     * @param  ?float  $count
+     * @param  ?\LukeHagar\Plex_API\Models\Operations\OnlyTransient  $onlyTransient
      * @return \LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponse
      */
-	public function getGlobalHubs(
+    public function getGlobalHubs(
         ?float $count = null,
         ?\LukeHagar\Plex_API\Models\Operations\OnlyTransient $onlyTransient = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetGlobalHubsRequest();
         $request->count = $count;
         $request->onlyTransient = $onlyTransient;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/hubs');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -57,57 +52,50 @@ class Hubs
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetGlobalHubsHubsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetGlobalHubsHubsResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Get library specific hubs
-     * 
+     *
      * This endpoint will return a list of library specific hubs
-     * 
-     * 
-     * @param float $sectionId
-     * @param ?float $count
-     * @param ?\LukeHagar\Plex_API\Models\Operations\QueryParamOnlyTransient $onlyTransient
+     *
+     *
+     * @param  float  $sectionId
+     * @param  ?float  $count
+     * @param  ?\LukeHagar\Plex_API\Models\Operations\QueryParamOnlyTransient  $onlyTransient
      * @return \LukeHagar\Plex_API\Models\Operations\GetLibraryHubsResponse
      */
-	public function getLibraryHubs(
+    public function getLibraryHubs(
         float $sectionId,
         ?float $count = null,
         ?\LukeHagar\Plex_API\Models\Operations\QueryParamOnlyTransient $onlyTransient = null,
-    ): \LukeHagar\Plex_API\Models\Operations\GetLibraryHubsResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\GetLibraryHubsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetLibraryHubsRequest();
         $request->sectionId = $sectionId;
         $request->count = $count;
         $request->onlyTransient = $onlyTransient;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/hubs/sections/{sectionId}', \LukeHagar\Plex_API\Models\Operations\GetLibraryHubsRequest::class, $request, $this->sdkConfiguration->globals);
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLibraryHubsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -116,19 +104,16 @@ class Hubs
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetLibraryHubsResponseBody', 'json');
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetLibraryHubsResponseBody', 'json');
             }
-        }
-        else if ($httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetLibraryHubsHubsResponseBody', 'json');
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetLibraryHubsHubsResponseBody', 'json');
             }
         }
 

@@ -16,11 +16,12 @@ class SecurityMetadata
         public string $name,
         public string $type,
         public string $subtype,
-    ) {}
+    ) {
+    }
 
-    public static function parse(string $metadata): SecurityMetadata|null
+    public static function parse(string $metadata): ?SecurityMetadata
     {
-        if ( ! str_starts_with($metadata, 'security:')) {
+        if (! str_starts_with($metadata, 'security:')) {
             return null;
         }
 

@@ -11,67 +11,67 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Setting
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('label')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('label')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $label = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('summary')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('summary')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $summary = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('type')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $type = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('default')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('default')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $default = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('value')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('value')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $value = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('hidden')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('hidden')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $hidden = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('advanced')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('advanced')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $advanced = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('group')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('group')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $group = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('enumValues')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('enumValues')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $enumValues = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->label = null;
-		$this->summary = null;
-		$this->type = null;
-		$this->default = null;
-		$this->value = null;
-		$this->hidden = null;
-		$this->advanced = null;
-		$this->group = null;
-		$this->enumValues = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->label = null;
+        $this->summary = null;
+        $this->type = null;
+        $this->default = null;
+        $this->value = null;
+        $this->hidden = null;
+        $this->advanced = null;
+        $this->group = null;
+        $this->enumValues = null;
+    }
 }

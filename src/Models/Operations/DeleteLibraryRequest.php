@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class DeleteLibraryRequest
 {
     /**
      * the Id of the library to query
-     * 
+     *
      * @var float $sectionId
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
     public float $sectionId;
-    
-	public function __construct()
-	{
-		$this->sectionId = 0;
-	}
+
+    public function __construct()
+    {
+        $this->sectionId = 0;
+    }
 }

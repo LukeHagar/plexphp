@@ -13,16 +13,16 @@ class ButlerTasks
 {
     /**
      * $butlerTask
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\ButlerTask> $butlerTask
      */
-	#[\JMS\Serializer\Annotation\SerializedName('ButlerTask')]
+    #[\JMS\Serializer\Annotation\SerializedName('ButlerTask')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\ButlerTask>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $butlerTask = null;
-    
-	public function __construct()
-	{
-		$this->butlerTask = null;
-	}
+
+    public function __construct()
+    {
+        $this->butlerTask = null;
+    }
 }

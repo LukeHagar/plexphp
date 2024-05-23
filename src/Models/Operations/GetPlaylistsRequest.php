@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetPlaylistsRequest
 {
     /**
      * limit to a type of playlist.
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\PlaylistType $playlistType
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=playlistType')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=playlistType')]
     public ?PlaylistType $playlistType = null;
-    
+
     /**
      * type of playlists to return (default is all).
-     * 
+     *
      * @var ?\LukeHagar\Plex_API\Models\Operations\QueryParamSmart $smart
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=smart')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=smart')]
     public ?QueryParamSmart $smart = null;
-    
-	public function __construct()
-	{
-		$this->playlistType = null;
-		$this->smart = null;
-	}
+
+    public function __construct()
+    {
+        $this->playlistType = null;
+        $this->smart = null;
+    }
 }

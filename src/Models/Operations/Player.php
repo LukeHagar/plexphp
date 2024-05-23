@@ -11,97 +11,97 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Player
 {
-	#[\JMS\Serializer\Annotation\SerializedName('address')]
+    #[\JMS\Serializer\Annotation\SerializedName('address')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $address = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $machineIdentifier = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('model')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('model')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $model = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('platform')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('platform')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $platform = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $platformVersion = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('product')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('product')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $product = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('profile')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('profile')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $profile = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('remotePublicAddress')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('remotePublicAddress')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $remotePublicAddress = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('state')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('state')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $state = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('version')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('version')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $version = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('local')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('local')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $local = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('relayed')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('relayed')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $relayed = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('secure')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('secure')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $secure = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('userID')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('userID')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $userID = null;
-    
-	public function __construct()
-	{
-		$this->address = null;
-		$this->machineIdentifier = null;
-		$this->model = null;
-		$this->platform = null;
-		$this->platformVersion = null;
-		$this->product = null;
-		$this->profile = null;
-		$this->remotePublicAddress = null;
-		$this->state = null;
-		$this->title = null;
-		$this->version = null;
-		$this->local = null;
-		$this->relayed = null;
-		$this->secure = null;
-		$this->userID = null;
-	}
+
+    public function __construct()
+    {
+        $this->address = null;
+        $this->machineIdentifier = null;
+        $this->model = null;
+        $this->platform = null;
+        $this->platformVersion = null;
+        $this->product = null;
+        $this->profile = null;
+        $this->remotePublicAddress = null;
+        $this->state = null;
+        $this->title = null;
+        $this->version = null;
+        $this->local = null;
+        $this->relayed = null;
+        $this->secure = null;
+        $this->userID = null;
+    }
 }

@@ -8,32 +8,32 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetTokenRequest
 {
     /**
      * The PinID to retrieve an access token for
-     * 
+     *
      * @var string $pinID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=pinID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=pinID')]
     public string $pinID;
-    
+
     /**
      * The unique identifier for the client application
-     * 
+     *
      * This is used to track the client application and its usage
      * (UUID, serial number, or other number unique per device)
-     * 
-     * 
+     *
+     *
      * @var ?string $xPlexClientIdentifier
      */
-	#[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
     public ?string $xPlexClientIdentifier = null;
-    
-	public function __construct()
-	{
-		$this->pinID = "";
-		$this->xPlexClientIdentifier = null;
-	}
+
+    public function __construct()
+    {
+        $this->pinID = '';
+        $this->xPlexClientIdentifier = null;
+    }
 }

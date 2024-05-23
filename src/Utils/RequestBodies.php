@@ -21,12 +21,12 @@ class RequestBodies
     ];
 
     /**
-     * @param mixed $request
-     * @param string $requestFieldName
-     * @param string $serializationMethod
-     * @return array<string,mixed>|null
+     * @param  mixed  $request
+     * @param  string  $requestFieldName
+     * @param  string  $serializationMethod
+     * @return ?array<string,mixed>
      */
-    public function serializeRequestBody(mixed $request, string $requestFieldName, string $serializationMethod): array|null
+    public function serializeRequestBody(mixed $request, string $requestFieldName, string $serializationMethod): ?array
     {
         if ($request === null) {
             return null;
@@ -50,12 +50,12 @@ class RequestBodies
     }
 
     /**
-     * @param string $fieldName
-     * @param string $mediaType
-     * @param mixed $value
-     * @return array<string,mixed>|null
+     * @param  string  $fieldName
+     * @param  string  $mediaType
+     * @param  mixed  $value
+     * @return ?array<string,mixed>
      */
-    private function serializeContentType(string $fieldName, string $mediaType, mixed $value): array|null
+    private function serializeContentType(string $fieldName, string $mediaType, mixed $value): ?array
     {
         if ($value === null) {
             return null;
@@ -67,14 +67,14 @@ class RequestBodies
             $serializer = JSON::createSerializer();
             $options['body'] = $serializer->serialize($value, 'json');
             $options['headers']['content-type'] = $mediaType;
-        } else if (preg_match('/multipart\/.*/', $mediaType)) {
+        } elseif (preg_match('/multipart\/.*/', $mediaType)) {
             return $this->serializeMultipart($value);
-        } else if (preg_match('/application\/x-www-form-urlencoded.*/', $mediaType)) {
+        } elseif (preg_match('/application\/x-www-form-urlencoded.*/', $mediaType)) {
             return $this->serializeFormData($fieldName, $value);
         } else {
             $options['headers']['content-type'] = $mediaType;
             $type = gettype($value);
-            
+
             match ($type) {
                 'string' => $options['body'] = $value,
                 default => throw new \RuntimeException("Invalid request body type $type for field $fieldName")
@@ -85,7 +85,7 @@ class RequestBodies
     }
 
     /**
-     * @param mixed $value
+     * @param  mixed  $value
      * @return array<string,mixed>
      */
     private function serializeMultipart(mixed $value): array
@@ -106,7 +106,7 @@ class RequestBodies
 
             if ($metadata->file) {
                 $options['multipart'][] = $this->serializeMultipartFile($val);
-            } else if ($metadata->json) {
+            } elseif ($metadata->json) {
                 $serializer = JSON::createSerializer();
                 $options['multipart'][] = [
                     'name' => $metadata->name,
@@ -121,8 +121,8 @@ class RequestBodies
                 if (gettype($val) === 'array' && array_is_list($val)) {
                     foreach ($value as $item) {
                         $options['multipart'][] = [
-                            'name' => $metadata->name . '[]',
-                            'contents' => valToString($item, $dateTimeFormat)
+                            'name' => $metadata->name.'[]',
+                            'contents' => valToString($item, $dateTimeFormat),
                         ];
                     }
                 } else {
@@ -138,7 +138,7 @@ class RequestBodies
     }
 
     /**
-     * @param mixed $value
+     * @param  mixed  $value
      * @return array<string,mixed>
      */
     private function serializeMultipartFile(mixed $value): array
@@ -157,7 +157,7 @@ class RequestBodies
             }
 
             $metadata = $this->parseMultipartMetadata(new ReflectionProperty($value::class, $field));
-            if ($metadata === null || (!$metadata->content && empty($metadata->name))) {
+            if ($metadata === null || (! $metadata->content && empty($metadata->name))) {
                 continue;
             }
 
@@ -181,8 +181,8 @@ class RequestBodies
     }
 
     /**
-     * @param string $fieldName
-     * @param mixed $value
+     * @param  string  $fieldName
+     * @param  mixed  $value
      * @return array<string,mixed>
      */
     private function serializeFormData(string $fieldName, mixed $value): array
@@ -237,8 +237,8 @@ class RequestBodies
     }
 
     /**
-     * @param FormMetadata $metadata
-     * @param mixed $value
+     * @param  FormMetadata  $metadata
+     * @param  mixed  $value
      * @return array<string,mixed>
      */
     private function serializeForm(FormMetadata $metadata, mixed $value): array
@@ -312,7 +312,7 @@ class RequestBodies
         return $values;
     }
 
-    public static function parseRequestMetadata(ReflectionProperty $property): RequestMetadata|null
+    public static function parseRequestMetadata(ReflectionProperty $property): ?RequestMetadata
     {
         $attributes = $property->getAttributes(SpeakeasyMetadata::class);
         if (count($attributes) !== 1) {
@@ -332,7 +332,7 @@ class RequestBodies
         return $metadata;
     }
 
-    private function parseMultipartMetadata(ReflectionProperty $property): MultipartMetadata|null
+    private function parseMultipartMetadata(ReflectionProperty $property): ?MultipartMetadata
     {
         $metadataStr = SpeakeasyMetadata::find($property->getAttributes(SpeakeasyMetadata::class), 'multipartForm');
         if ($metadataStr === null) {
@@ -347,7 +347,7 @@ class RequestBodies
         return $metadata;
     }
 
-    private function parseFormMetadata(ReflectionProperty $property): FormMetadata|null
+    private function parseFormMetadata(ReflectionProperty $property): ?FormMetadata
     {
         $metadataStr = SpeakeasyMetadata::find($property->getAttributes(SpeakeasyMetadata::class), 'form');
         if ($metadataStr === null) {

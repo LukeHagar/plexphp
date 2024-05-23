@@ -11,24 +11,24 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class FieldType
 {
-	#[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $type = null;
-    
+
     /**
      * $operator
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\Operator> $operator
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Operator')]
+    #[\JMS\Serializer\Annotation\SerializedName('Operator')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Operator>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $operator = null;
-    
-	public function __construct()
-	{
-		$this->type = null;
-		$this->operator = null;
-	}
+
+    public function __construct()
+    {
+        $this->type = null;
+        $this->operator = null;
+    }
 }

@@ -11,18 +11,19 @@ namespace LukeHagar\Plex_API\Utils;
 use Attribute;
 use ReflectionAttribute;
 
-#[Attribute(Attribute::TARGET_PROPERTY|Attribute::IS_REPEATABLE)]
+#[Attribute(Attribute::TARGET_PROPERTY | Attribute::IS_REPEATABLE)]
 class SpeakeasyMetadata
 {
     public function __construct(
         public string $value,
-    ) {}
+    ) {
+    }
 
     /**
-     * @param array<ReflectionAttribute<SpeakeasyMetadata>> $attributes
-     * @return string|null
+     * @param  array<ReflectionAttribute<SpeakeasyMetadata>>  $attributes
+     * @return ?string
      */
-    public static function find(array $attributes, string $type): string|null
+    public static function find(array $attributes, string $type): ?string
     {
         foreach ($attributes as $attr) {
             $arguments = $attr->getArguments();

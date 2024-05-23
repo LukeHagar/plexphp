@@ -8,37 +8,37 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class UpdatePlayProgressRequest
 {
     /**
      * the media key
-     * 
+     *
      * @var string $key
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=key')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=key')]
     public string $key;
-    
+
     /**
      * The time, in milliseconds, used to set the media playback progress.
-     * 
+     *
      * @var float $time
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=time')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=time')]
     public float $time;
-    
+
     /**
      * The playback state of the media item.
-     * 
+     *
      * @var string $state
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=state')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=state')]
     public string $state;
-    
-	public function __construct()
-	{
-		$this->key = "";
-		$this->time = 0;
-		$this->state = "";
-	}
+
+    public function __construct()
+    {
+        $this->key = '';
+        $this->time = 0;
+        $this->state = '';
+    }
 }

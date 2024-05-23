@@ -8,44 +8,39 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-class Media 
+class Media
 {
+    private SDKConfiguration $sdkConfiguration;
 
-	private SDKConfiguration $sdkConfiguration;
+    /**
+     * @param  SDKConfiguration  $sdkConfig
+     */
+    public function __construct(SDKConfiguration $sdkConfig)
+    {
+        $this->sdkConfiguration = $sdkConfig;
+    }
 
-	/**
-	 * @param SDKConfiguration $sdkConfig
-	 */
-	public function __construct(SDKConfiguration $sdkConfig)
-	{
-		$this->sdkConfiguration = $sdkConfig;
-	}
-	
     /**
      * Mark Media Played
-     * 
+     *
      * This will mark the provided media key as Played.
-     * 
-     * @param float $key
+     *
+     * @param  float  $key
      * @return \LukeHagar\Plex_API\Models\Operations\MarkPlayedResponse
      */
-	public function markPlayed(
+    public function markPlayed(
         float $key,
-    ): \LukeHagar\Plex_API\Models\Operations\MarkPlayedResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\MarkPlayedResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\MarkPlayedRequest();
         $request->key = $key;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/:/scrobble');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\MarkPlayedRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -54,44 +49,38 @@ class Media
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\MarkPlayedResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\MarkPlayedResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Mark Media Unplayed
-     * 
+     *
      * This will mark the provided media key as Unplayed.
-     * 
-     * @param float $key
+     *
+     * @param  float  $key
      * @return \LukeHagar\Plex_API\Models\Operations\MarkUnplayedResponse
      */
-	public function markUnplayed(
+    public function markUnplayed(
         float $key,
-    ): \LukeHagar\Plex_API\Models\Operations\MarkUnplayedResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\MarkUnplayedResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\MarkUnplayedRequest();
         $request->key = $key;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/:/unscrobble');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\MarkUnplayedRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -100,51 +89,45 @@ class Media
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\MarkUnplayedResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\MarkUnplayedResponseBody', 'json');
             }
         }
 
         return $response;
     }
-	
+
     /**
      * Update Media Play Progress
-     * 
+     *
      * This API command can be used to update the play progress of a media item.
-     * 
-     * 
-     * @param string $key
-     * @param float $time
-     * @param string $state
+     *
+     *
+     * @param  string  $key
+     * @param  float  $time
+     * @param  string  $state
      * @return \LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressResponse
      */
-	public function updatePlayProgress(
+    public function updatePlayProgress(
         string $key,
         float $time,
         string $state,
-    ): \LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressResponse
-    {
+    ): \LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressRequest();
         $request->key = $key;
         $request->time = $time;
         $request->state = $state;
-        
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/:/progress');
-        
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
-        
+
         $httpResponse = $this->sdkConfiguration->securityClient->request('POST', $url, $options);
-        
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
@@ -153,13 +136,11 @@ class Media
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        
         if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
-        }
-        else if ($httpResponse->getStatusCode() === 401) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string)$httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressResponseBody', 'json');
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressResponseBody', 'json');
             }
         }
 

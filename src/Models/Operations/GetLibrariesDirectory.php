@@ -11,138 +11,138 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetLibrariesDirectory
 {
-	#[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowSync = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('art')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('art')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $art = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('composite')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('composite')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $composite = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('filters')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('filters')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $filters = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('refreshing')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('refreshing')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $refreshing = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('thumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $thumb = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('type')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $type = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('agent')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('agent')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $agent = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('scanner')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('scanner')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $scanner = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('language')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('language')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $language = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('uuid')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('uuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $uuid = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $updatedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('createdAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $createdAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('scannedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('scannedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $scannedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('content')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('content')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $content = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('directory')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('directory')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $directory = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('contentChangedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('contentChangedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $contentChangedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('hidden')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('hidden')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $hidden = null;
-    
+
     /**
      * $location
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibrariesLocation> $location
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Location')]
+    #[\JMS\Serializer\Annotation\SerializedName('Location')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibrariesLocation>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $location = null;
-    
-	public function __construct()
-	{
-		$this->allowSync = null;
-		$this->art = null;
-		$this->composite = null;
-		$this->filters = null;
-		$this->refreshing = null;
-		$this->thumb = null;
-		$this->key = null;
-		$this->type = null;
-		$this->title = null;
-		$this->agent = null;
-		$this->scanner = null;
-		$this->language = null;
-		$this->uuid = null;
-		$this->updatedAt = null;
-		$this->createdAt = null;
-		$this->scannedAt = null;
-		$this->content = null;
-		$this->directory = null;
-		$this->contentChangedAt = null;
-		$this->hidden = null;
-		$this->location = null;
-	}
+
+    public function __construct()
+    {
+        $this->allowSync = null;
+        $this->art = null;
+        $this->composite = null;
+        $this->filters = null;
+        $this->refreshing = null;
+        $this->thumb = null;
+        $this->key = null;
+        $this->type = null;
+        $this->title = null;
+        $this->agent = null;
+        $this->scanner = null;
+        $this->language = null;
+        $this->uuid = null;
+        $this->updatedAt = null;
+        $this->createdAt = null;
+        $this->scannedAt = null;
+        $this->content = null;
+        $this->directory = null;
+        $this->contentChangedAt = null;
+        $this->hidden = null;
+        $this->location = null;
+    }
 }

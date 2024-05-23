@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class DeletePlaylistRequest
 {
     /**
      * the ID of the playlist
-     * 
+     *
      * @var float $playlistID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=playlistID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=playlistID')]
     public float $playlistID;
-    
-	public function __construct()
-	{
-		$this->playlistID = 0;
-	}
+
+    public function __construct()
+    {
+        $this->playlistID = 0;
+    }
 }

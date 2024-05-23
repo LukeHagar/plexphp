@@ -8,37 +8,37 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class UpdatePlaylistRequest
 {
     /**
      * the ID of the playlist
-     * 
+     *
      * @var float $playlistID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=playlistID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=playlistID')]
     public float $playlistID;
-    
+
     /**
      * name of the playlist
-     * 
+     *
      * @var ?string $title
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=title')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=title')]
     public ?string $title = null;
-    
+
     /**
      * summary description of the playlist
-     * 
+     *
      * @var ?string $summary
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=summary')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=summary')]
     public ?string $summary = null;
-    
-	public function __construct()
-	{
-		$this->playlistID = 0;
-		$this->title = null;
-		$this->summary = null;
-	}
+
+    public function __construct()
+    {
+        $this->playlistID = 0;
+        $this->title = null;
+        $this->summary = null;
+    }
 }

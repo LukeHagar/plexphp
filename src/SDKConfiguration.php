@@ -10,43 +10,72 @@ namespace LukeHagar\Plex_API;
 
 class SDKConfiguration
 {
-	public ?\GuzzleHttp\ClientInterface $defaultClient = null;
-	public ?\GuzzleHttp\ClientInterface $securityClient = null;
-	public ?Models\Components\Security $security = null;
-	public string $serverUrl = '';
-	public int $serverIndex = 0;
-	/** @var array<array<string, string>> */
-	public ?array $serverDefaults = [
-		[
-			'protocol' => 'http',
-			'ip' => '10.10.10.47',
-			'port' => '32400',
-		],
-	];
-	public string $language = 'php';
-	public string $openapiDocVersion = '0.0.3';
-	public string $sdkVersion = '0.4.4';
-	public string $genVersion = '2.326.3';
-	public string $userAgent = 'speakeasy-sdk/php 0.4.4 2.326.3 0.0.3 lukehagar/plex-api';
-	/** @var array<string, array<string, array<string, mixed>>> */
-	public ?array $globals = [
-    	'parameters' => []
+    public ?\GuzzleHttp\ClientInterface $defaultClient = null;
+
+    public ?\GuzzleHttp\ClientInterface $securityClient = null;
+
+    public ?Models\Components\Security $security = null;
+    /** @var pure-Closure(): string */
+    public ?\Closure $securitySource = null;
+
+    public string $serverUrl = '';
+
+    public int $serverIndex = 0;
+
+    /** @var array<array<string, string>> */
+    public ?array $serverDefaults = [
+        [
+            'protocol' => 'http',
+            'ip' => '10.10.10.47',
+            'port' => '32400',
+        ],
     ];
 
-	public function getServerUrl(): string
-	{
-		
-		if ($this->serverUrl !== '') {
-			return $this->serverUrl;
-		};
-		return PlexAPI::SERVERS[$this->serverIndex];
-	}
-	
-	/**
-	 * @return array<string, string>
-	 */
-	public function getServerDefaults(): ?array
-	{
-		return $this->serverDefaults[$this->serverIndex];
-	}
+    public string $language = 'php';
+
+    public string $openapiDocVersion = '0.0.3';
+
+    public string $sdkVersion = '0.5.0';
+
+    public string $genVersion = '2.335.5';
+
+    public string $userAgent = 'speakeasy-sdk/php 0.5.0 2.335.5 0.0.3 lukehagar/plex-api';
+    /** @var array<string, array<string, array<string, mixed>>> */
+    public ?array $globals = [
+        'parameters' => [],
+    ];
+
+    public function getServerUrl(): string
+    {
+
+        if ($this->serverUrl !== '') {
+            return $this->serverUrl;
+        }
+
+        return PlexAPI::SERVERS[$this->serverIndex];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function getServerDefaults(): ?array
+    {
+        return $this->serverDefaults[$this->serverIndex];
+    }
+    public function hasSecurity(): bool
+    {
+        return $this->security !== null || $this->securitySource !== null;
+    }
+
+    public function getSecurity(): ?Models\Components\Security
+    {
+        if ($this->securitySource !== null) {
+            $security = new Models\Components\Security();
+            $security->accessToken = $this->securitySource->call($this);
+
+            return $security;
+        } else {
+            return $this->security;
+        }
+    }
 }

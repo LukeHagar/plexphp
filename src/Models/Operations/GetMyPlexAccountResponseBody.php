@@ -9,21 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetMyPlexAccountResponseBody - MyPlex Account
- * 
- * @package LukeHagar\Plex_API\Models\Operations
- * @access public
- */
+/** GetMyPlexAccountResponseBody - MyPlex Account */
 class GetMyPlexAccountResponseBody
 {
-	#[\JMS\Serializer\Annotation\SerializedName('MyPlex')]
+    #[\JMS\Serializer\Annotation\SerializedName('MyPlex')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\MyPlex')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?MyPlex $myPlex = null;
-    
-	public function __construct()
-	{
-		$this->myPlex = null;
-	}
+
+    public function __construct()
+    {
+        $this->myPlex = null;
+    }
 }

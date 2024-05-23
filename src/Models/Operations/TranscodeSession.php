@@ -11,151 +11,151 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class TranscodeSession
 {
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('throttled')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('throttled')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $throttled = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('complete')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('complete')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $complete = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('progress')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('progress')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $progress = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('speed')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('speed')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $speed = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('error')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('error')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $error = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('duration')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $duration = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('remaining')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('remaining')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $remaining = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('context')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('context')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $context = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('sourceVideoCodec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('sourceVideoCodec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $sourceVideoCodec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('sourceAudioCodec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('sourceAudioCodec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $sourceAudioCodec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('videoDecision')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('videoDecision')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $videoDecision = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audioDecision')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audioDecision')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $audioDecision = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('subtitleDecision')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('subtitleDecision')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $subtitleDecision = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('protocol')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('protocol')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $protocol = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('container')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('container')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $container = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $videoCodec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $audioCodec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $audioChannels = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('transcodeHwRequested')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('transcodeHwRequested')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $transcodeHwRequested = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('timeStamp')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('timeStamp')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $timeStamp = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('maxOffsetAvailable')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('maxOffsetAvailable')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $maxOffsetAvailable = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('minOffsetAvailable')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('minOffsetAvailable')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $minOffsetAvailable = null;
-    
-	public function __construct()
-	{
-		$this->key = null;
-		$this->throttled = null;
-		$this->complete = null;
-		$this->progress = null;
-		$this->size = null;
-		$this->speed = null;
-		$this->error = null;
-		$this->duration = null;
-		$this->remaining = null;
-		$this->context = null;
-		$this->sourceVideoCodec = null;
-		$this->sourceAudioCodec = null;
-		$this->videoDecision = null;
-		$this->audioDecision = null;
-		$this->subtitleDecision = null;
-		$this->protocol = null;
-		$this->container = null;
-		$this->videoCodec = null;
-		$this->audioCodec = null;
-		$this->audioChannels = null;
-		$this->transcodeHwRequested = null;
-		$this->timeStamp = null;
-		$this->maxOffsetAvailable = null;
-		$this->minOffsetAvailable = null;
-	}
+
+    public function __construct()
+    {
+        $this->key = null;
+        $this->throttled = null;
+        $this->complete = null;
+        $this->progress = null;
+        $this->size = null;
+        $this->speed = null;
+        $this->error = null;
+        $this->duration = null;
+        $this->remaining = null;
+        $this->context = null;
+        $this->sourceVideoCodec = null;
+        $this->sourceAudioCodec = null;
+        $this->videoDecision = null;
+        $this->audioDecision = null;
+        $this->subtitleDecision = null;
+        $this->protocol = null;
+        $this->container = null;
+        $this->videoCodec = null;
+        $this->audioCodec = null;
+        $this->audioChannels = null;
+        $this->transcodeHwRequested = null;
+        $this->timeStamp = null;
+        $this->maxOffsetAvailable = null;
+        $this->minOffsetAvailable = null;
+    }
 }

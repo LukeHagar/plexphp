@@ -11,66 +11,66 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetPlaylistContentsMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('composite')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('composite')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $composite = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('duration')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $duration = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('leafCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $leafCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('playlistType')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('playlistType')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $playlistType = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ratingKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('smart')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('smart')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $smart = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
+
     /**
      * $metadata
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMetadata> $metadata
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Metadata')]
+    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMetadata>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $metadata = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->composite = null;
-		$this->duration = null;
-		$this->leafCount = null;
-		$this->playlistType = null;
-		$this->ratingKey = null;
-		$this->smart = null;
-		$this->title = null;
-		$this->metadata = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->composite = null;
+        $this->duration = null;
+        $this->leafCount = null;
+        $this->playlistType = null;
+        $this->ratingKey = null;
+        $this->smart = null;
+        $this->title = null;
+        $this->metadata = null;
+    }
 }

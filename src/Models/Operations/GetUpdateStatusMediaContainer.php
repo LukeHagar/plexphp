@@ -11,48 +11,48 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetUpdateStatusMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('canInstall')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('canInstall')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $canInstall = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('checkedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('checkedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $checkedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $downloadURL = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('status')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('status')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $status = null;
-    
+
     /**
      * $release
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\Release> $release
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Release')]
+    #[\JMS\Serializer\Annotation\SerializedName('Release')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Release>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $release = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->canInstall = null;
-		$this->checkedAt = null;
-		$this->downloadURL = null;
-		$this->status = null;
-		$this->release = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->canInstall = null;
+        $this->checkedAt = null;
+        $this->downloadURL = null;
+        $this->status = null;
+        $this->release = null;
+    }
 }

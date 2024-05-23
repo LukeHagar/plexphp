@@ -11,31 +11,31 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetServerIdentityMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('claimed')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('claimed')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $claimed = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $machineIdentifier = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('version')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('version')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $version = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->claimed = null;
-		$this->machineIdentifier = null;
-		$this->version = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->claimed = null;
+        $this->machineIdentifier = null;
+        $this->version = null;
+    }
 }

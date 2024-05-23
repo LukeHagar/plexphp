@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class CancelServerActivitiesRequest
 {
     /**
      * The UUID of the activity to cancel.
-     * 
+     *
      * @var string $activityUUID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=activityUUID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=activityUUID')]
     public string $activityUUID;
-    
-	public function __construct()
-	{
-		$this->activityUUID = "";
-	}
+
+    public function __construct()
+    {
+        $this->activityUUID = '';
+    }
 }

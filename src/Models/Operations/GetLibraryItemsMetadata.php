@@ -11,379 +11,379 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetLibraryItemsMetadata
 {
-	#[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
+    #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ratingKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('guid')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('guid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $guid = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('studio')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('studio')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $studio = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('type')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $type = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('contentRating')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('contentRating')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $contentRating = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('summary')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('summary')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $summary = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('rating')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('rating')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $rating = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audienceRating')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audienceRating')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $audienceRating = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('year')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('year')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $year = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('tagline')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('tagline')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $tagline = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('thumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $thumb = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('art')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('art')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $art = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('duration')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $duration = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
     #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d', '', '|Y-m-d'>")]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?\DateTime $originallyAvailableAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('addedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $addedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $updatedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audienceRatingImage')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audienceRatingImage')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $audienceRatingImage = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('chapterSource')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('chapterSource')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $chapterSource = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('primaryExtraKey')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('primaryExtraKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $primaryExtraKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('ratingImage')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('ratingImage')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $ratingImage = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $grandparentRatingKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $grandparentGuid = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $grandparentKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $grandparentTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $grandparentThumb = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $grandparentArt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('grandparentTheme')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentTheme')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $grandparentTheme = null;
-    
+
     /**
      * $media
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMedia> $media
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Media')]
+    #[\JMS\Serializer\Annotation\SerializedName('Media')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMedia>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $media = null;
-    
+
     /**
      * $genre
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsGenre> $genre
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Genre')]
+    #[\JMS\Serializer\Annotation\SerializedName('Genre')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryItemsGenre>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $genre = null;
-    
+
     /**
      * $country
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsCountry> $country
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Country')]
+    #[\JMS\Serializer\Annotation\SerializedName('Country')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryItemsCountry>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $country = null;
-    
+
     /**
      * $director
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsDirector> $director
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Director')]
+    #[\JMS\Serializer\Annotation\SerializedName('Director')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryItemsDirector>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $director = null;
-    
+
     /**
      * $writer
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsWriter> $writer
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Writer')]
+    #[\JMS\Serializer\Annotation\SerializedName('Writer')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryItemsWriter>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $writer = null;
-    
+
     /**
      * $role
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRole> $role
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Role')]
+    #[\JMS\Serializer\Annotation\SerializedName('Role')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRole>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $role = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('titleSort')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('titleSort')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $titleSort = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('viewCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('viewCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $viewCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $lastViewedAt = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('originalTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('originalTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $originalTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('viewOffset')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('viewOffset')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $viewOffset = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('skipCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('skipCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $skipCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('index')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $index = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('theme')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('theme')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $theme = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('leafCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $leafCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $viewedLeafCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('childCount')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('childCount')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $childCount = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('hasPremiumExtras')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('hasPremiumExtras')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $hasPremiumExtras = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('hasPremiumPrimaryExtra')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('hasPremiumPrimaryExtra')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $hasPremiumPrimaryExtra = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentRatingKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentGuid = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentStudio = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentKey')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $parentIndex = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentYear')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentYear')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $parentYear = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentThumb = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('parentTheme')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('parentTheme')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $parentTheme = null;
-    
-	public function __construct()
-	{
-		$this->ratingKey = null;
-		$this->key = null;
-		$this->guid = null;
-		$this->studio = null;
-		$this->type = null;
-		$this->title = null;
-		$this->contentRating = null;
-		$this->summary = null;
-		$this->rating = null;
-		$this->audienceRating = null;
-		$this->year = null;
-		$this->tagline = null;
-		$this->thumb = null;
-		$this->art = null;
-		$this->duration = null;
-		$this->originallyAvailableAt = null;
-		$this->addedAt = null;
-		$this->updatedAt = null;
-		$this->audienceRatingImage = null;
-		$this->chapterSource = null;
-		$this->primaryExtraKey = null;
-		$this->ratingImage = null;
-		$this->grandparentRatingKey = null;
-		$this->grandparentGuid = null;
-		$this->grandparentKey = null;
-		$this->grandparentTitle = null;
-		$this->grandparentThumb = null;
-		$this->grandparentArt = null;
-		$this->grandparentTheme = null;
-		$this->media = null;
-		$this->genre = null;
-		$this->country = null;
-		$this->director = null;
-		$this->writer = null;
-		$this->role = null;
-		$this->titleSort = null;
-		$this->viewCount = null;
-		$this->lastViewedAt = null;
-		$this->originalTitle = null;
-		$this->viewOffset = null;
-		$this->skipCount = null;
-		$this->index = null;
-		$this->theme = null;
-		$this->leafCount = null;
-		$this->viewedLeafCount = null;
-		$this->childCount = null;
-		$this->hasPremiumExtras = null;
-		$this->hasPremiumPrimaryExtra = null;
-		$this->parentRatingKey = null;
-		$this->parentGuid = null;
-		$this->parentStudio = null;
-		$this->parentKey = null;
-		$this->parentTitle = null;
-		$this->parentIndex = null;
-		$this->parentYear = null;
-		$this->parentThumb = null;
-		$this->parentTheme = null;
-	}
+
+    public function __construct()
+    {
+        $this->ratingKey = null;
+        $this->key = null;
+        $this->guid = null;
+        $this->studio = null;
+        $this->type = null;
+        $this->title = null;
+        $this->contentRating = null;
+        $this->summary = null;
+        $this->rating = null;
+        $this->audienceRating = null;
+        $this->year = null;
+        $this->tagline = null;
+        $this->thumb = null;
+        $this->art = null;
+        $this->duration = null;
+        $this->originallyAvailableAt = null;
+        $this->addedAt = null;
+        $this->updatedAt = null;
+        $this->audienceRatingImage = null;
+        $this->chapterSource = null;
+        $this->primaryExtraKey = null;
+        $this->ratingImage = null;
+        $this->grandparentRatingKey = null;
+        $this->grandparentGuid = null;
+        $this->grandparentKey = null;
+        $this->grandparentTitle = null;
+        $this->grandparentThumb = null;
+        $this->grandparentArt = null;
+        $this->grandparentTheme = null;
+        $this->media = null;
+        $this->genre = null;
+        $this->country = null;
+        $this->director = null;
+        $this->writer = null;
+        $this->role = null;
+        $this->titleSort = null;
+        $this->viewCount = null;
+        $this->lastViewedAt = null;
+        $this->originalTitle = null;
+        $this->viewOffset = null;
+        $this->skipCount = null;
+        $this->index = null;
+        $this->theme = null;
+        $this->leafCount = null;
+        $this->viewedLeafCount = null;
+        $this->childCount = null;
+        $this->hasPremiumExtras = null;
+        $this->hasPremiumPrimaryExtra = null;
+        $this->parentRatingKey = null;
+        $this->parentGuid = null;
+        $this->parentStudio = null;
+        $this->parentKey = null;
+        $this->parentTitle = null;
+        $this->parentIndex = null;
+        $this->parentYear = null;
+        $this->parentThumb = null;
+        $this->parentTheme = null;
+    }
 }

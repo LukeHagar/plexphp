@@ -11,25 +11,25 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Directory
 {
-	#[\JMS\Serializer\Annotation\SerializedName('count')]
+    #[\JMS\Serializer\Annotation\SerializedName('count')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $count = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('title')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $title = null;
-    
-	public function __construct()
-	{
-		$this->count = null;
-		$this->key = null;
-		$this->title = null;
-	}
+
+    public function __construct()
+    {
+        $this->count = null;
+        $this->key = null;
+        $this->title = null;
+    }
 }

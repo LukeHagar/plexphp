@@ -11,25 +11,25 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Ratings
 {
-	#[\JMS\Serializer\Annotation\SerializedName('image')]
+    #[\JMS\Serializer\Annotation\SerializedName('image')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $image = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('value')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('value')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $value = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('type')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $type = null;
-    
-	public function __construct()
-	{
-		$this->image = null;
-		$this->value = null;
-		$this->type = null;
-	}
+
+    public function __construct()
+    {
+        $this->image = null;
+        $this->value = null;
+        $this->type = null;
+    }
 }

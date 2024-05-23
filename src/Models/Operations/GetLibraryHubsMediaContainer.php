@@ -11,54 +11,54 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetLibraryHubsMediaContainer
 {
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $allowSync = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('identifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $identifier = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $librarySectionID = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $librarySectionTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $librarySectionUUID = null;
-    
+
     /**
      * $hub
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryHubsHub> $hub
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Hub')]
+    #[\JMS\Serializer\Annotation\SerializedName('Hub')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryHubsHub>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $hub = null;
-    
-	public function __construct()
-	{
-		$this->size = null;
-		$this->allowSync = null;
-		$this->identifier = null;
-		$this->librarySectionID = null;
-		$this->librarySectionTitle = null;
-		$this->librarySectionUUID = null;
-		$this->hub = null;
-	}
+
+    public function __construct()
+    {
+        $this->size = null;
+        $this->allowSync = null;
+        $this->identifier = null;
+        $this->librarySectionID = null;
+        $this->librarySectionTitle = null;
+        $this->librarySectionUUID = null;
+        $this->hub = null;
+    }
 }

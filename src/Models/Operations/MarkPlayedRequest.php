@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class MarkPlayedRequest
 {
     /**
      * The media key to mark as played
-     * 
+     *
      * @var float $key
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=key')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=key')]
     public float $key;
-    
-	public function __construct()
-	{
-		$this->key = 0;
-	}
+
+    public function __construct()
+    {
+        $this->key = 0;
+    }
 }

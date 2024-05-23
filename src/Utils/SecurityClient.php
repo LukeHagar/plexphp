@@ -17,17 +17,18 @@ use Psr\Http\Message\UriInterface;
 class SecurityClient implements ClientInterface
 {
     /**
-     * @param ClientInterface $client
-     * @param array<string,array<string,string>> $clientOptions
+     * @param  ClientInterface  $client
+     * @param  array<string,array<string,string>>  $clientOptions
      */
     public function __construct(
         private readonly ClientInterface $client,
         private readonly array $clientOptions,
-    ) {}
+    ) {
+    }
 
     /**
-     * @param RequestInterface $request
-     * @param array<string,mixed> $options
+     * @param  RequestInterface  $request
+     * @param  array<string,mixed>  $options
      * @return ResponseInterface
      */
     public function send(RequestInterface $request, array $options = []): ResponseInterface
@@ -36,8 +37,8 @@ class SecurityClient implements ClientInterface
     }
 
     /**
-     * @param RequestInterface $request
-     * @param array<string,mixed> $options
+     * @param  RequestInterface  $request
+     * @param  array<string,mixed>  $options
      * @return PromiseInterface
      */
     public function sendAsync(RequestInterface $request, array $options = []): PromiseInterface
@@ -46,9 +47,9 @@ class SecurityClient implements ClientInterface
     }
 
     /**
-     * @param string $method
-     * @param string|UriInterface $uri
-     * @param array<string,mixed> $options
+     * @param  string  $method
+     * @param  string|UriInterface  $uri
+     * @param  array<string,mixed>  $options
      * @return ResponseInterface
      */
     public function request(string $method, $uri, array $options = []): ResponseInterface
@@ -57,9 +58,9 @@ class SecurityClient implements ClientInterface
     }
 
     /**
-     * @param string $method
-     * @param string|UriInterface $uri
-     * @param array<string,mixed> $options
+     * @param  string  $method
+     * @param  string|UriInterface  $uri
+     * @param  array<string,mixed>  $options
      * @return PromiseInterface
      */
     public function requestAsync(string $method, $uri, array $options = []): PromiseInterface
@@ -68,7 +69,7 @@ class SecurityClient implements ClientInterface
     }
 
     /**
-     * @param null|string $option
+     * @param  ?string  $option
      * @return mixed
      */
     public function getConfig(?string $option = null): mixed
@@ -77,16 +78,16 @@ class SecurityClient implements ClientInterface
     }
 
     /**
-     * @param array<string,mixed> $options
+     * @param  array<string,mixed>  $options
      * @return array<string,mixed>
      */
     private function addClientOptions(array $options): array
     {
-        if (!isset($options['headers'])) {
+        if (! isset($options['headers'])) {
             $options['headers'] = [];
         }
 
-        if (!isset($options['query'])) {
+        if (! isset($options['query'])) {
             $options['query'] = [];
         }
 

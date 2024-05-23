@@ -11,37 +11,37 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetMetadataWriter
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('filter')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('filter')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $filter = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('tag')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('tag')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $tag = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('tagKey')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('tagKey')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $tagKey = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('thumb')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $thumb = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->filter = null;
-		$this->tag = null;
-		$this->tagKey = null;
-		$this->thumb = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->filter = null;
+        $this->tag = null;
+        $this->tagKey = null;
+        $this->thumb = null;
+    }
 }

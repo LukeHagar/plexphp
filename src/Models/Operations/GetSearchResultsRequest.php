@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetSearchResultsRequest
 {
     /**
      * The search query string to use
-     * 
+     *
      * @var string $query
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=query')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=query')]
     public string $query;
-    
-	public function __construct()
-	{
-		$this->query = "";
-	}
+
+    public function __construct()
+    {
+        $this->query = '';
+    }
 }

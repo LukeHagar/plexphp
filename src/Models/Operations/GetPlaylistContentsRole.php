@@ -11,13 +11,13 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetPlaylistContentsRole
 {
-	#[\JMS\Serializer\Annotation\SerializedName('tag')]
+    #[\JMS\Serializer\Annotation\SerializedName('tag')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $tag = null;
-    
-	public function __construct()
-	{
-		$this->tag = null;
-	}
+
+    public function __construct()
+    {
+        $this->tag = null;
+    }
 }

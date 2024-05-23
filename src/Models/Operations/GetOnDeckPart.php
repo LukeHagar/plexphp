@@ -11,66 +11,66 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class GetOnDeckPart
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('key')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $key = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('duration')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $duration = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('file')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('file')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $file = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('size')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('size')]
     #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?float $size = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $audioProfile = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('container')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('container')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $container = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $videoProfile = null;
-    
+
     /**
      * $stream
-     * 
+     *
      * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckStream> $stream
      */
-	#[\JMS\Serializer\Annotation\SerializedName('Stream')]
+    #[\JMS\Serializer\Annotation\SerializedName('Stream')]
     #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetOnDeckStream>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $stream = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->key = null;
-		$this->duration = null;
-		$this->file = null;
-		$this->size = null;
-		$this->audioProfile = null;
-		$this->container = null;
-		$this->videoProfile = null;
-		$this->stream = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->key = null;
+        $this->duration = null;
+        $this->file = null;
+        $this->size = null;
+        $this->audioProfile = null;
+        $this->container = null;
+        $this->videoProfile = null;
+        $this->stream = null;
+    }
 }

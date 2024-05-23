@@ -11,199 +11,199 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 class Stream
 {
-	#[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $id = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('streamType')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('streamType')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $streamType = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('default')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('default')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $default = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('codec')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('codec')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $codec = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('index')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('index')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $index = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('bitrate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $bitrate = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $bitDepth = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $chromaLocation = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $chromaSubsampling = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $codedHeight = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $codedWidth = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('colorPrimaries')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('colorPrimaries')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $colorPrimaries = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('colorRange')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('colorRange')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $colorRange = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('colorSpace')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('colorSpace')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $colorSpace = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('colorTrc')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('colorTrc')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $colorTrc = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('frameRate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('frameRate')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $frameRate = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('hasScalingMatrix')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('hasScalingMatrix')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $hasScalingMatrix = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('height')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('height')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $height = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('level')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('level')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $level = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('profile')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('profile')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $profile = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('refFrames')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('refFrames')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $refFrames = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('scanType')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('scanType')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $scanType = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('streamIdentifier')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('streamIdentifier')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $streamIdentifier = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('width')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('width')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $width = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $displayTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $extendedDisplayTitle = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('selected')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('selected')]
     #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?bool $selected = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('channels')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('channels')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $channels = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('language')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('language')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $language = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('languageTag')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('languageTag')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $languageTag = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('languageCode')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('languageCode')]
     #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?string $languageCode = null;
-    
-	#[\JMS\Serializer\Annotation\SerializedName('samplingRate')]
+
+    #[\JMS\Serializer\Annotation\SerializedName('samplingRate')]
     #[\JMS\Serializer\Annotation\Type('int')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?int $samplingRate = null;
-    
-	public function __construct()
-	{
-		$this->id = null;
-		$this->streamType = null;
-		$this->default = null;
-		$this->codec = null;
-		$this->index = null;
-		$this->bitrate = null;
-		$this->bitDepth = null;
-		$this->chromaLocation = null;
-		$this->chromaSubsampling = null;
-		$this->codedHeight = null;
-		$this->codedWidth = null;
-		$this->colorPrimaries = null;
-		$this->colorRange = null;
-		$this->colorSpace = null;
-		$this->colorTrc = null;
-		$this->frameRate = null;
-		$this->hasScalingMatrix = null;
-		$this->height = null;
-		$this->level = null;
-		$this->profile = null;
-		$this->refFrames = null;
-		$this->scanType = null;
-		$this->streamIdentifier = null;
-		$this->width = null;
-		$this->displayTitle = null;
-		$this->extendedDisplayTitle = null;
-		$this->selected = null;
-		$this->channels = null;
-		$this->language = null;
-		$this->languageTag = null;
-		$this->languageCode = null;
-		$this->samplingRate = null;
-	}
+
+    public function __construct()
+    {
+        $this->id = null;
+        $this->streamType = null;
+        $this->default = null;
+        $this->codec = null;
+        $this->index = null;
+        $this->bitrate = null;
+        $this->bitDepth = null;
+        $this->chromaLocation = null;
+        $this->chromaSubsampling = null;
+        $this->codedHeight = null;
+        $this->codedWidth = null;
+        $this->colorPrimaries = null;
+        $this->colorRange = null;
+        $this->colorSpace = null;
+        $this->colorTrc = null;
+        $this->frameRate = null;
+        $this->hasScalingMatrix = null;
+        $this->height = null;
+        $this->level = null;
+        $this->profile = null;
+        $this->refFrames = null;
+        $this->scanType = null;
+        $this->streamIdentifier = null;
+        $this->width = null;
+        $this->displayTitle = null;
+        $this->extendedDisplayTitle = null;
+        $this->selected = null;
+        $this->channels = null;
+        $this->language = null;
+        $this->languageTag = null;
+        $this->languageCode = null;
+        $this->samplingRate = null;
+    }
 }

@@ -8,28 +8,28 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-use \LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
+use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetPlaylistContentsRequest
 {
     /**
      * the ID of the playlist
-     * 
+     *
      * @var float $playlistID
      */
-	#[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=playlistID')]
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=playlistID')]
     public float $playlistID;
-    
+
     /**
      * the metadata type of the item to return
-     * 
+     *
      * @var float $type
      */
-	#[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
     public float $type;
-    
-	public function __construct()
-	{
-		$this->playlistID = 0;
-		$this->type = 0;
-	}
+
+    public function __construct()
+    {
+        $this->playlistID = 0;
+        $this->type = 0;
+    }
 }

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 543cb95355401d2e3c2ba11a50d9dd94
+  docChecksum: 911d74baa0d06121d2ce2c71d94e977a
   docVersion: 0.0.3
-  speakeasyVersion: 1.285.0
-  generationVersion: 2.326.3
-  releaseVersion: 0.4.4
-  configChecksum: 2b49475994eb78d9c003d435cb6ea4b0
+  speakeasyVersion: 1.295.1
+  generationVersion: 2.335.5
+  releaseVersion: 0.5.0
+  configChecksum: 8d1922a448f07cd514180b5d6429a0c6
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -15,6 +15,7 @@ features:
     core: 3.3.4
     flattening: 2.81.1
     globalSecurity: 2.81.6
+    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.1
     globals: 2.82.1
     methodServerURLs: 2.82.1
@@ -41,6 +42,7 @@ generatedFiles:
   - src/PlexAPIBuilder.php
   - composer.json
   - phpstan.neon
+  - pint.json
   - rector.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
@@ -250,6 +252,8 @@ generatedFiles:
   - src/Models/Operations/DeleteLibraryResponse.php
   - src/Models/Operations/Tag.php
   - src/Models/Operations/GetLibraryItemsRequest.php
+  - src/Models/Operations/GetLibraryItemsErrors.php
+  - src/Models/Operations/GetLibraryItemsLibraryResponseBody.php
   - src/Models/Operations/GetLibraryItemsPart.php
   - src/Models/Operations/GetLibraryItemsMedia.php
   - src/Models/Operations/GetLibraryItemsGenre.php
@@ -267,6 +271,8 @@ generatedFiles:
   - src/Models/Operations/RefreshLibraryResponse.php
   - src/Models/Operations/Type.php
   - src/Models/Operations/SearchLibraryRequest.php
+  - src/Models/Operations/SearchLibraryErrors.php
+  - src/Models/Operations/SearchLibraryLibraryResponseBody.php
   - src/Models/Operations/SearchLibraryMetadata.php
   - src/Models/Operations/SearchLibraryMediaContainer.php
   - src/Models/Operations/SearchLibraryResponseBody.php
@@ -648,6 +654,8 @@ generatedFiles:
   - docs/Models/Operations/DeleteLibraryResponse.md
   - docs/Models/Operations/Tag.md
   - docs/Models/Operations/GetLibraryItemsRequest.md
+  - docs/Models/Operations/GetLibraryItemsErrors.md
+  - docs/Models/Operations/GetLibraryItemsLibraryResponseBody.md
   - docs/Models/Operations/GetLibraryItemsPart.md
   - docs/Models/Operations/GetLibraryItemsMedia.md
   - docs/Models/Operations/GetLibraryItemsGenre.md
@@ -665,6 +673,8 @@ generatedFiles:
   - docs/Models/Operations/RefreshLibraryResponse.md
   - docs/Models/Operations/Type.md
   - docs/Models/Operations/SearchLibraryRequest.md
+  - docs/Models/Operations/SearchLibraryErrors.md
+  - docs/Models/Operations/SearchLibraryLibraryResponseBody.md
   - docs/Models/Operations/SearchLibraryMetadata.md
   - docs/Models/Operations/SearchLibraryMediaContainer.md
   - docs/Models/Operations/SearchLibraryResponseBody.md
