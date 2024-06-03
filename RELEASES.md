@@ -383,3 +383,11 @@ Based on:
 - Speakeasy CLI 1.299.4 (2.338.7) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [php v0.5.0] .
+
+## 2024-06-03 00:58:29
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.299.4 (2.338.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.5.0] .
