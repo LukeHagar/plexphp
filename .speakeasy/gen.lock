@@ -3,16 +3,16 @@ id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
   docChecksum: 911d74baa0d06121d2ce2c71d94e977a
   docVersion: 0.0.3
-  speakeasyVersion: 1.295.1
-  generationVersion: 2.335.5
-  releaseVersion: 0.5.0
-  configChecksum: 8d1922a448f07cd514180b5d6429a0c6
+  speakeasyVersion: 1.299.6
+  generationVersion: 2.338.12
+  releaseVersion: 0.5.1
+  configChecksum: ae73a7b953477c489ec48e682f1aa404
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
 features:
   php:
-    core: 3.3.4
+    core: 3.3.5
     flattening: 2.81.1
     globalSecurity: 2.81.6
     globalSecurityFlattening: 0.1.0
