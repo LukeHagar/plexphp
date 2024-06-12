@@ -455,3 +455,11 @@ Based on:
 - Speakeasy CLI 1.303.2 (2.339.1) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [php v0.5.1] .
+
+## 2024-06-12 00:58:49
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.305.0 (2.340.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.5.1] .
