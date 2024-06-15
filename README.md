@@ -109,6 +109,12 @@ try {
 * [startTask](docs/sdks/butler/README.md#starttask) - Start a single Butler task
 * [stopTask](docs/sdks/butler/README.md#stoptask) - Stop a single Butler task
 
+### [Plex](docs/sdks/plex/README.md)
+
+* [getHomeData](docs/sdks/plex/README.md#gethomedata) - Get Plex Home Data
+* [getPin](docs/sdks/plex/README.md#getpin) - Get a Pin
+* [getToken](docs/sdks/plex/README.md#gettoken) - Get Access Token
+
 ### [Hubs](docs/sdks/hubs/README.md)
 
 * [getGlobalHubs](docs/sdks/hubs/README.md#getglobalhubs) - Get Global Hubs
@@ -139,11 +145,6 @@ try {
 * [logLine](docs/sdks/log/README.md#logline) - Logging a single line message.
 * [logMultiLine](docs/sdks/log/README.md#logmultiline) - Logging a multi-line message
 * [enablePaperTrail](docs/sdks/log/README.md#enablepapertrail) - Enabling Papertrail
-
-### [Plex](docs/sdks/plex/README.md)
-
-* [getPin](docs/sdks/plex/README.md#getpin) - Get a Pin
-* [getToken](docs/sdks/plex/README.md#gettoken) - Get Access Token
 
 ### [Playlists](docs/sdks/playlists/README.md)
 
@@ -178,6 +179,10 @@ try {
 * [getUpdateStatus](docs/sdks/updater/README.md#getupdatestatus) - Querying status of updates
 * [checkForUpdates](docs/sdks/updater/README.md#checkforupdates) - Checking for updates
 * [applyUpdates](docs/sdks/updater/README.md#applyupdates) - Apply Updates
+
+### [Watchlist](docs/sdks/watchlist/README.md)
+
+* [getWatchlist](docs/sdks/watchlist/README.md#getwatchlist) - Get User Watchlist
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Server Selection [server] -->
@@ -226,9 +231,9 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 try {
-    $response = $sdk->plex->getPin('https://plex.tv/api/v2', false, 'Postman');
+    $response = $sdk->plex->getPin('https://plex.tv/api/v2', 'Postman', false, 'Postman');
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->twoHundredAndOneApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -276,9 +281,9 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 try {
-    $response = $sdk->plex->getPin(false, 'Postman');
+    $response = $sdk->plex->getPin('Postman', false, 'Postman');
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->twoHundredAndOneApplicationJsonObject !== null) {
         // handle response
     }
 } catch (Throwable $e) {

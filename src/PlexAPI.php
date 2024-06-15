@@ -72,6 +72,15 @@ class PlexAPI
     public Butler $butler;
 
     /**
+     * API Calls that perform operations directly against https://Plex.tv
+     *
+     *
+     *
+     * @var Plex $$plex
+     */
+    public Plex $plex;
+
+    /**
      * Hubs are a structured two-dimensional container for media, generally represented by multiple horizontal rows.
      *
      *
@@ -106,15 +115,6 @@ class PlexAPI
      * @var Log $$log
      */
     public Log $log;
-
-    /**
-     * API Calls that perform operations directly against https://Plex.tv
-     *
-     *
-     *
-     * @var Plex $$plex
-     */
-    public Plex $plex;
 
     /**
      * Playlists are ordered collections of media. They can be dumb (just a list of media) or smart (based on a media query, such as "all albums from 2017"). 
@@ -166,6 +166,15 @@ class PlexAPI
     public Updater $updater;
 
     /**
+     * API Calls that perform operations with Plex Media Server Watchlists
+     *
+     *
+     *
+     * @var Watchlist $$watchlist
+     */
+    public Watchlist $watchlist;
+
+    /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
      *
      * @return PlexAPIBuilder
@@ -186,15 +195,16 @@ class PlexAPI
         $this->video = new Video($this->sdkConfiguration);
         $this->activities = new Activities($this->sdkConfiguration);
         $this->butler = new Butler($this->sdkConfiguration);
+        $this->plex = new Plex($this->sdkConfiguration);
         $this->hubs = new Hubs($this->sdkConfiguration);
         $this->search = new Search($this->sdkConfiguration);
         $this->library = new Library($this->sdkConfiguration);
         $this->log = new Log($this->sdkConfiguration);
-        $this->plex = new Plex($this->sdkConfiguration);
         $this->playlists = new Playlists($this->sdkConfiguration);
         $this->authentication = new Authentication($this->sdkConfiguration);
         $this->statistics = new Statistics($this->sdkConfiguration);
         $this->sessions = new Sessions($this->sdkConfiguration);
         $this->updater = new Updater($this->sdkConfiguration);
+        $this->watchlist = new Watchlist($this->sdkConfiguration);
     }
 }

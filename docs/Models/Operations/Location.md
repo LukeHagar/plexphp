@@ -11,7 +11,7 @@
 | `country`                    | *?string*                    | :heavy_minus_sign:           | N/A                          | United States                |
 | `city`                       | *?string*                    | :heavy_minus_sign:           | N/A                          | Austin                       |
 | `timeZone`                   | *?string*                    | :heavy_minus_sign:           | N/A                          | America/Chicago              |
-| `postalCode`                 | *?float*                     | :heavy_minus_sign:           | N/A                          | 78732                        |
+| `postalCode`                 | *?string*                    | :heavy_minus_sign:           | N/A                          | 78732                        |
 | `inPrivacyRestrictedCountry` | *?bool*                      | :heavy_minus_sign:           | N/A                          |                              |
 | `subdivisions`               | *?string*                    | :heavy_minus_sign:           | N/A                          | Texas                        |
 | `coordinates`                | *?string*                    | :heavy_minus_sign:           | N/A                          | 30.3768 -97.8935             |

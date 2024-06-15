@@ -34,10 +34,10 @@ class GetLibraryType
     /**
      * $filter
      *
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\Filter> $filter
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetLibraryFilter> $filter
      */
     #[\JMS\Serializer\Annotation\SerializedName('Filter')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Filter>')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetLibraryFilter>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $filter = null;
 

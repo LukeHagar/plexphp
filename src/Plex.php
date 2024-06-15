@@ -29,21 +29,64 @@ class Plex
     }
 
     /**
+     * Get Plex Home Data
+     *
+     * Retrieves the home data for the authenticated user, including details like home ID, name, guest access information, and subscription status.
+     *
+     * @return \LukeHagar\Plex_API\Models\Operations\GetHomeDataResponse
+     */
+    public function getHomeData(
+    ): \LukeHagar\Plex_API\Models\Operations\GetHomeDataResponse {
+        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
+        $url = Utils\Utils::generateUrl($baseUrl, '/home');
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \LukeHagar\Plex_API\Models\Operations\GetHomeDataResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetHomeDataResponseBody', 'json');
+            }
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetHomeDataPlexResponseBody', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
      * Get a Pin
      *
      * Retrieve a Pin from Plex.tv for authentication flows
      *
+     * @param  string  $xPlexProduct
      * @param  ?bool  $strong
      * @param  ?string  $xPlexClientIdentifier
      * @param  string  $serverURL
      * @return \LukeHagar\Plex_API\Models\Operations\GetPinResponse
      */
     public function getPin(
+        string $xPlexProduct,
         ?bool $strong = null,
         ?string $xPlexClientIdentifier = null,
         ?string $serverURL = null,
     ): \LukeHagar\Plex_API\Models\Operations\GetPinResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetPinRequest();
+        $request->xPlexProduct = $xPlexProduct;
         $request->strong = $strong;
         $request->xPlexClientIdentifier = $xPlexClientIdentifier;
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], [
@@ -69,10 +112,10 @@ class Plex
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200) {
+        if ($httpResponse->getStatusCode() === 201) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinResponseBody', 'json');
+                $response->twoHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetPinResponseBody', 'json');
             }
         } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
@@ -125,10 +168,14 @@ class Plex
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
         if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTokenResponseBody', 'json');
+            }
         } elseif ($httpResponse->getStatusCode() === 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTokenResponseBody', 'json');
+                $response->fourHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTokenPlexResponseBody', 'json');
             }
         }
 

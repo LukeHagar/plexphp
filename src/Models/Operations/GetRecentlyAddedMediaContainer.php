@@ -44,10 +44,10 @@ class GetRecentlyAddedMediaContainer
     /**
      * $metadata
      *
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\Metadata> $metadata
+     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\Metadata>')]
+    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedMetadata>')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
     public ?array $metadata = null;
 

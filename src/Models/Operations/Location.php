@@ -42,9 +42,9 @@ class Location
     public ?string $timeZone = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('postal_code')]
-    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\Type('string')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $postalCode = null;
+    public ?string $postalCode = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('in_privacy_restricted_country')]
     #[\JMS\Serializer\Annotation\Type('bool')]

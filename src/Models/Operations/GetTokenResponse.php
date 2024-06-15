@@ -33,17 +33,25 @@ class GetTokenResponse
     public ?\Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
+     * Access Token
+     *
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetTokenResponseBody $twoHundredApplicationJsonObject
+     */
+    public ?GetTokenResponseBody $twoHundredApplicationJsonObject = null;
+
+    /**
      * X-Plex-Client-Identifier is missing
      *
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetTokenResponseBody $object
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetTokenPlexResponseBody $fourHundredApplicationJsonObject
      */
-    public ?GetTokenResponseBody $object = null;
+    public ?GetTokenPlexResponseBody $fourHundredApplicationJsonObject = null;
 
     public function __construct()
     {
         $this->contentType = '';
         $this->statusCode = 0;
         $this->rawResponse = null;
-        $this->object = null;
+        $this->twoHundredApplicationJsonObject = null;
+        $this->fourHundredApplicationJsonObject = null;
     }
 }

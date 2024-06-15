@@ -35,9 +35,9 @@ class GetPinResponse
     /**
      * The Pin
      *
-     * @var ?\LukeHagar\Plex_API\Models\Operations\GetPinResponseBody $twoHundredApplicationJsonObject
+     * @var ?\LukeHagar\Plex_API\Models\Operations\GetPinResponseBody $twoHundredAndOneApplicationJsonObject
      */
-    public ?GetPinResponseBody $twoHundredApplicationJsonObject = null;
+    public ?GetPinResponseBody $twoHundredAndOneApplicationJsonObject = null;
 
     /**
      * X-Plex-Client-Identifier is missing
@@ -51,7 +51,7 @@ class GetPinResponse
         $this->contentType = '';
         $this->statusCode = 0;
         $this->rawResponse = null;
-        $this->twoHundredApplicationJsonObject = null;
+        $this->twoHundredAndOneApplicationJsonObject = null;
         $this->fourHundredApplicationJsonObject = null;
     }
 }

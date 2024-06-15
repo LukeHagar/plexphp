@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 911d74baa0d06121d2ce2c71d94e977a
+  docChecksum: 37654ea0982ab5e87a9a9576014c9d19
   docVersion: 0.0.3
-  speakeasyVersion: 1.299.6
-  generationVersion: 2.338.12
-  releaseVersion: 0.5.1
-  configChecksum: ae73a7b953477c489ec48e682f1aa404
+  speakeasyVersion: 1.308.1
+  generationVersion: 2.342.6
+  releaseVersion: 0.6.0
+  configChecksum: 10ccac6158027b240995e62516fee8de
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -20,6 +20,7 @@ features:
     globals: 2.82.1
     methodServerURLs: 2.82.1
     nameOverrides: 2.81.2
+    typeOverrides: 2.81.1
 generatedFiles:
   - src/SDKConfiguration.php
   - src/Server.php
@@ -27,16 +28,17 @@ generatedFiles:
   - src/Video.php
   - src/Activities.php
   - src/Butler.php
+  - src/Plex.php
   - src/Hubs.php
   - src/Search.php
   - src/Library.php
   - src/Log.php
-  - src/Plex.php
   - src/Playlists.php
   - src/Authentication.php
   - src/Statistics.php
   - src/Sessions.php
   - src/Updater.php
+  - src/Watchlist.php
   - src/PlexAPI.php
   - src/ServerProtocol.php
   - src/PlexAPIBuilder.php
@@ -160,6 +162,22 @@ generatedFiles:
   - src/Models/Operations/StopTaskErrors.php
   - src/Models/Operations/StopTaskResponseBody.php
   - src/Models/Operations/StopTaskResponse.php
+  - src/Models/Operations/GetHomeDataErrors.php
+  - src/Models/Operations/GetHomeDataPlexResponseBody.php
+  - src/Models/Operations/GetHomeDataResponseBody.php
+  - src/Models/Operations/GetHomeDataResponse.php
+  - src/Models/Operations/GetPinRequest.php
+  - src/Models/Operations/GetPinErrors.php
+  - src/Models/Operations/GetPinPlexResponseBody.php
+  - src/Models/Operations/Location.php
+  - src/Models/Operations/GetPinResponseBody.php
+  - src/Models/Operations/GetPinResponse.php
+  - src/Models/Operations/GetTokenRequest.php
+  - src/Models/Operations/GetTokenErrors.php
+  - src/Models/Operations/GetTokenPlexResponseBody.php
+  - src/Models/Operations/GetTokenLocation.php
+  - src/Models/Operations/GetTokenResponseBody.php
+  - src/Models/Operations/GetTokenResponse.php
   - src/Models/Operations/OnlyTransient.php
   - src/Models/Operations/GetGlobalHubsRequest.php
   - src/Models/Operations/GetGlobalHubsErrors.php
@@ -221,7 +239,7 @@ generatedFiles:
   - src/Models/Operations/Writer.php
   - src/Models/Operations/Country.php
   - src/Models/Operations/Role.php
-  - src/Models/Operations/Metadata.php
+  - src/Models/Operations/GetRecentlyAddedMetadata.php
   - src/Models/Operations/GetRecentlyAddedMediaContainer.php
   - src/Models/Operations/GetRecentlyAddedResponseBody.php
   - src/Models/Operations/GetRecentlyAddedResponse.php
@@ -237,7 +255,7 @@ generatedFiles:
   - src/Models/Operations/GetLibraryErrors.php
   - src/Models/Operations/GetLibraryLibraryResponseBody.php
   - src/Models/Operations/GetLibraryDirectory.php
-  - src/Models/Operations/Filter.php
+  - src/Models/Operations/GetLibraryFilter.php
   - src/Models/Operations/Sort.php
   - src/Models/Operations/Field.php
   - src/Models/Operations/GetLibraryType.php
@@ -324,16 +342,6 @@ generatedFiles:
   - src/Models/Operations/EnablePaperTrailErrors.php
   - src/Models/Operations/EnablePaperTrailResponseBody.php
   - src/Models/Operations/EnablePaperTrailResponse.php
-  - src/Models/Operations/GetPinRequest.php
-  - src/Models/Operations/GetPinErrors.php
-  - src/Models/Operations/GetPinPlexResponseBody.php
-  - src/Models/Operations/Location.php
-  - src/Models/Operations/GetPinResponseBody.php
-  - src/Models/Operations/GetPinResponse.php
-  - src/Models/Operations/GetTokenRequest.php
-  - src/Models/Operations/GetTokenErrors.php
-  - src/Models/Operations/GetTokenResponseBody.php
-  - src/Models/Operations/GetTokenResponse.php
   - src/Models/Operations/QueryParamType.php
   - src/Models/Operations/Smart.php
   - src/Models/Operations/CreatePlaylistRequest.php
@@ -461,6 +469,17 @@ generatedFiles:
   - src/Models/Operations/ApplyUpdatesErrors.php
   - src/Models/Operations/ApplyUpdatesResponseBody.php
   - src/Models/Operations/ApplyUpdatesResponse.php
+  - src/Models/Operations/Filter.php
+  - src/Models/Operations/Libtype.php
+  - src/Models/Operations/IncludeCollections.php
+  - src/Models/Operations/IncludeExternalMedia.php
+  - src/Models/Operations/GetWatchlistRequest.php
+  - src/Models/Operations/GetWatchlistErrors.php
+  - src/Models/Operations/GetWatchlistWatchlistResponseBody.php
+  - src/Models/Operations/Image.php
+  - src/Models/Operations/Metadata.php
+  - src/Models/Operations/GetWatchlistResponseBody.php
+  - src/Models/Operations/GetWatchlistResponse.php
   - src/Models/Components/Security.php
   - docs/Models/Operations/Errors.md
   - docs/Models/Operations/GetServerCapabilitiesServerResponseBody.md
@@ -562,6 +581,22 @@ generatedFiles:
   - docs/Models/Operations/StopTaskErrors.md
   - docs/Models/Operations/StopTaskResponseBody.md
   - docs/Models/Operations/StopTaskResponse.md
+  - docs/Models/Operations/GetHomeDataErrors.md
+  - docs/Models/Operations/GetHomeDataPlexResponseBody.md
+  - docs/Models/Operations/GetHomeDataResponseBody.md
+  - docs/Models/Operations/GetHomeDataResponse.md
+  - docs/Models/Operations/GetPinRequest.md
+  - docs/Models/Operations/GetPinErrors.md
+  - docs/Models/Operations/GetPinPlexResponseBody.md
+  - docs/Models/Operations/Location.md
+  - docs/Models/Operations/GetPinResponseBody.md
+  - docs/Models/Operations/GetPinResponse.md
+  - docs/Models/Operations/GetTokenRequest.md
+  - docs/Models/Operations/GetTokenErrors.md
+  - docs/Models/Operations/GetTokenPlexResponseBody.md
+  - docs/Models/Operations/GetTokenLocation.md
+  - docs/Models/Operations/GetTokenResponseBody.md
+  - docs/Models/Operations/GetTokenResponse.md
   - docs/Models/Operations/OnlyTransient.md
   - docs/Models/Operations/GetGlobalHubsRequest.md
   - docs/Models/Operations/GetGlobalHubsErrors.md
@@ -623,7 +658,7 @@ generatedFiles:
   - docs/Models/Operations/Writer.md
   - docs/Models/Operations/Country.md
   - docs/Models/Operations/Role.md
-  - docs/Models/Operations/Metadata.md
+  - docs/Models/Operations/GetRecentlyAddedMetadata.md
   - docs/Models/Operations/GetRecentlyAddedMediaContainer.md
   - docs/Models/Operations/GetRecentlyAddedResponseBody.md
   - docs/Models/Operations/GetRecentlyAddedResponse.md
@@ -639,7 +674,7 @@ generatedFiles:
   - docs/Models/Operations/GetLibraryErrors.md
   - docs/Models/Operations/GetLibraryLibraryResponseBody.md
   - docs/Models/Operations/GetLibraryDirectory.md
-  - docs/Models/Operations/Filter.md
+  - docs/Models/Operations/GetLibraryFilter.md
   - docs/Models/Operations/Sort.md
   - docs/Models/Operations/Field.md
   - docs/Models/Operations/GetLibraryType.md
@@ -726,16 +761,6 @@ generatedFiles:
   - docs/Models/Operations/EnablePaperTrailErrors.md
   - docs/Models/Operations/EnablePaperTrailResponseBody.md
   - docs/Models/Operations/EnablePaperTrailResponse.md
-  - docs/Models/Operations/GetPinRequest.md
-  - docs/Models/Operations/GetPinErrors.md
-  - docs/Models/Operations/GetPinPlexResponseBody.md
-  - docs/Models/Operations/Location.md
-  - docs/Models/Operations/GetPinResponseBody.md
-  - docs/Models/Operations/GetPinResponse.md
-  - docs/Models/Operations/GetTokenRequest.md
-  - docs/Models/Operations/GetTokenErrors.md
-  - docs/Models/Operations/GetTokenResponseBody.md
-  - docs/Models/Operations/GetTokenResponse.md
   - docs/Models/Operations/QueryParamType.md
   - docs/Models/Operations/Smart.md
   - docs/Models/Operations/CreatePlaylistRequest.md
@@ -863,6 +888,17 @@ generatedFiles:
   - docs/Models/Operations/ApplyUpdatesErrors.md
   - docs/Models/Operations/ApplyUpdatesResponseBody.md
   - docs/Models/Operations/ApplyUpdatesResponse.md
+  - docs/Models/Operations/Filter.md
+  - docs/Models/Operations/Libtype.md
+  - docs/Models/Operations/IncludeCollections.md
+  - docs/Models/Operations/IncludeExternalMedia.md
+  - docs/Models/Operations/GetWatchlistRequest.md
+  - docs/Models/Operations/GetWatchlistErrors.md
+  - docs/Models/Operations/GetWatchlistWatchlistResponseBody.md
+  - docs/Models/Operations/Image.md
+  - docs/Models/Operations/Metadata.md
+  - docs/Models/Operations/GetWatchlistResponseBody.md
+  - docs/Models/Operations/GetWatchlistResponse.md
   - docs/Models/Components/Security.md
   - docs/sdks/plexapi/README.md
   - docs/sdks/server/README.md
@@ -870,15 +906,16 @@ generatedFiles:
   - docs/sdks/video/README.md
   - docs/sdks/activities/README.md
   - docs/sdks/butler/README.md
+  - docs/sdks/plex/README.md
   - docs/sdks/hubs/README.md
   - docs/sdks/search/README.md
   - docs/sdks/library/README.md
   - docs/sdks/log/README.md
-  - docs/sdks/plex/README.md
   - docs/sdks/playlists/README.md
   - docs/sdks/authentication/README.md
   - docs/sdks/statistics/README.md
   - docs/sdks/sessions/README.md
   - docs/sdks/updater/README.md
+  - docs/sdks/watchlist/README.md
   - USAGE.md
   - .gitattributes

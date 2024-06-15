@@ -9,21 +9,96 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** GetTokenResponseBody - X-Plex-Client-Identifier is missing */
+/** GetTokenResponseBody - Access Token */
 class GetTokenResponseBody
 {
     /**
-     * $errors
+     * PinID for use with authentication
      *
-     * @var ?array<\LukeHagar\Plex_API\Models\Operations\GetTokenErrors> $errors
+     * @var ?float $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<LukeHagar\Plex_API\Models\Operations\GetTokenErrors>')]
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\Type('float')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?array $errors = null;
+    public ?float $id = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('code')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $code = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('product')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $product = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('trusted')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?bool $trusted = null;
+
+    /**
+     * a link to a QR code hosted on plex.tv 
+     *
+     * The QR code redirects to the relevant `plex.tv/link` authentication page
+     * Which then prompts the user for the 4 Digit Link Pin
+     *
+     *
+     * @var ?string $qr
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('qr')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $qr = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('clientIdentifier')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $clientIdentifier = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('location')]
+    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetTokenLocation')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?GetTokenLocation $location = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('expiresIn')]
+    #[\JMS\Serializer\Annotation\Type('float')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?float $expiresIn = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?\DateTime $createdAt = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('expiresAt')]
+    #[\JMS\Serializer\Annotation\Type("DateTime<'Y-m-d\TH:i:s.up'>")]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?\DateTime $expiresAt = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('authToken')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $authToken = null;
+
+    #[\JMS\Serializer\Annotation\SerializedName('newRegistration')]
+    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    public ?string $newRegistration = null;
 
     public function __construct()
     {
-        $this->errors = null;
+        $this->id = null;
+        $this->code = null;
+        $this->product = null;
+        $this->trusted = null;
+        $this->qr = null;
+        $this->clientIdentifier = null;
+        $this->location = null;
+        $this->expiresIn = null;
+        $this->createdAt = null;
+        $this->expiresAt = null;
+        $this->authToken = null;
+        $this->newRegistration = null;
     }
 }

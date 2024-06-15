@@ -12,6 +12,16 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetPinRequest
 {
     /**
+     * Product name of the application shown in the list of devices
+     *
+     *
+     *
+     * @var string $xPlexProduct
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Product')]
+    public string $xPlexProduct;
+
+    /**
      * Determines the kind of code returned by the API call
      *
      * Strong codes are used for Pin authentication flows
@@ -37,6 +47,7 @@ class GetPinRequest
 
     public function __construct()
     {
+        $this->xPlexProduct = '';
         $this->strong = null;
         $this->xPlexClientIdentifier = null;
     }
