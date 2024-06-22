@@ -1,0 +1,15 @@
+# GetBandwidthStatisticsAccount
+
+
+## Fields
+
+| Field                                                      | Type                                                       | Required                                                   | Description                                                | Example                                                    |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `id`                                                       | *?int*                                                     | :heavy_minus_sign:                                         | N/A                                                        | 238960586                                                  |
+| `key`                                                      | *?string*                                                  | :heavy_minus_sign:                                         | N/A                                                        | /accounts/238960586                                        |
+| `name`                                                     | *?string*                                                  | :heavy_minus_sign:                                         | N/A                                                        | Diane                                                      |
+| `defaultAudioLanguage`                                     | *?string*                                                  | :heavy_minus_sign:                                         | N/A                                                        | en                                                         |
+| `autoSelectAudio`                                          | *?bool*                                                    | :heavy_minus_sign:                                         | N/A                                                        | true                                                       |
+| `defaultSubtitleLanguage`                                  | *?string*                                                  | :heavy_minus_sign:                                         | N/A                                                        | en                                                         |
+| `subtitleMode`                                             | *?int*                                                     | :heavy_minus_sign:                                         | N/A                                                        | 1                                                          |
+| `thumb`                                                    | *?string*                                                  | :heavy_minus_sign:                                         | N/A                                                        | https://plex.tv/users/50d83634246da1de/avatar?c=1707110967 |

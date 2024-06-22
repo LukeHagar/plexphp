@@ -32,9 +32,9 @@ class GetLibraryItemsMediaContainer
     public ?string $identifier = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\Type('int')]
+    #[\JMS\Serializer\Annotation\Type('mixed')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?int $librarySectionID = null;
+    public mixed $librarySectionID = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
     #[\JMS\Serializer\Annotation\Type('string')]

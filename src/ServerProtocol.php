@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-/** The protocol to use when connecting to your plex server. */
 enum ServerProtocol: string
 {
     case Http = 'http';

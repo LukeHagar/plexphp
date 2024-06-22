@@ -64,4 +64,94 @@ class Statistics
 
         return $response;
     }
+
+    /**
+     * Get Resources Statistics
+     *
+     * This will return the resources for the server
+     *
+     * @param  ?int  $timespan
+     * @return \LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsResponse
+     */
+    public function getResourcesStatistics(
+        ?int $timespan = null,
+    ): \LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsResponse {
+        $request = new \LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsRequest();
+        $request->timespan = $timespan;
+        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
+        $url = Utils\Utils::generateUrl($baseUrl, '/statistics/resources');
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsResponseBody', 'json');
+            }
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsStatisticsResponseBody', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * Get Bandwidth Statistics
+     *
+     * This will return the bandwidth statistics for the server
+     *
+     * @param  ?int  $timespan
+     * @return \LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsResponse
+     */
+    public function getBandwidthStatistics(
+        ?int $timespan = null,
+    ): \LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsResponse {
+        $request = new \LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsRequest();
+        $request->timespan = $timespan;
+        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
+        $url = Utils\Utils::generateUrl($baseUrl, '/statistics/bandwidth');
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->twoHundredApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsResponseBody', 'json');
+            }
+        } elseif ($httpResponse->getStatusCode() === 400) {
+        } elseif ($httpResponse->getStatusCode() === 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsStatisticsResponseBody', 'json');
+            }
+        }
+
+        return $response;
+    }
 }

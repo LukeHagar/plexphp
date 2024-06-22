@@ -18,6 +18,7 @@ API Calls interacting with Plex Media Server Libraries
 * [searchLibrary](#searchlibrary) - Search Library
 * [getMetadata](#getmetadata) - Get Items Metadata
 * [getMetadataChildren](#getmetadatachildren) - Get Items Children
+* [getTopWatchedContent](#gettopwatchedcontent) - Get Top Watched Content
 * [getOnDeck](#getondeck) - Get On Deck
 
 ## getFileHash
@@ -342,7 +343,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     
 
-    $response = $sdk->library->getLibraryItems('<value>', Operations\Tag::Genre);
+    $response = $sdk->library->getLibraryItems('<value>', Operations\Tag::Genre, 1);
 
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
@@ -354,10 +355,11 @@ try {
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `sectionId`                                                                 | *mixed*                                                                     | :heavy_check_mark:                                                          | the Id of the library to query                                              |
-| `tag`                                                                       | [\LukeHagar\Plex_API\Models\Operations\Tag](../../Models/Operations/Tag.md) | :heavy_check_mark:                                                          | A key representing a specific tag within the section.                       |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `sectionId`                                                                 | *mixed*                                                                     | :heavy_check_mark:                                                          | the Id of the library to query                                              |                                                                             |
+| `tag`                                                                       | [\LukeHagar\Plex_API\Models\Operations\Tag](../../Models/Operations/Tag.md) | :heavy_check_mark:                                                          | A key representing a specific tag within the section.                       |                                                                             |
+| `includeGuids`                                                              | *int*                                                                       | :heavy_minus_sign:                                                          | Adds the Guids object to the response<br/>                                  | 1                                                                           |
 
 
 ### Response
@@ -561,7 +563,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     
 
-    $response = $sdk->library->getMetadataChildren(1539.14);
+    $response = $sdk->library->getMetadataChildren(1539.14, '<value>');
 
     if ($response->twoHundredApplicationJsonObject !== null) {
         // handle response
@@ -573,14 +575,66 @@ try {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ratingKey`                                           | *float*                                               | :heavy_check_mark:                                    | the id of the library item to return the children of. |
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `ratingKey`                                                             | *float*                                                                 | :heavy_check_mark:                                                      | the id of the library item to return the children of.                   |
+| `includeElements`                                                       | *string*                                                                | :heavy_minus_sign:                                                      | Adds additional elements to the response. Supported types are (Stream)<br/> |
 
 
 ### Response
 
 **[?\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponse](../../Models/Operations/GetMetadataChildrenResponse.md)**
+
+
+## getTopWatchedContent
+
+This endpoint will return the top watched content from libraries of a certain type
+
+
+### Example Usage
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use \LukeHagar\Plex_API;
+use \LukeHagar\Plex_API\Models\Components;
+use \LukeHagar\Plex_API\Models\Operations;
+
+$security = new Components\Security();
+$security->accessToken = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('Postman')
+    ->setSecurity($security)->build();
+
+try {
+    
+
+    $response = $sdk->library->getTopWatchedContent(505531, 1);
+
+    if ($response->object !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                           | Type                                                | Required                                            | Description                                         | Example                                             |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| `type`                                              | *int*                                               | :heavy_check_mark:                                  | the library type (1 - movies, 2 - shows, 3 - music) |                                                     |
+| `includeGuids`                                      | *int*                                               | :heavy_minus_sign:                                  | Adds the Guids object to the response<br/>          | 1                                                   |
+
+
+### Response
+
+**[?\LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentResponse](../../Models/Operations/GetTopWatchedContentResponse.md)**
 
 
 ## getOnDeck

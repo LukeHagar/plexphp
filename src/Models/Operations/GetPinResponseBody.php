@@ -82,9 +82,9 @@ class GetPinResponseBody
     public ?string $authToken = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('newRegistration')]
-    #[\JMS\Serializer\Annotation\Type('string')]
+    #[\JMS\Serializer\Annotation\Type('bool')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $newRegistration = null;
+    public ?bool $newRegistration = null;
 
     public function __construct()
     {

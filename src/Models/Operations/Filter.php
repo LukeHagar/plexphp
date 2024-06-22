@@ -9,10 +9,15 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Filter */
-enum Filter: string
+/**
+ * Filter - Filters content by field and direction/equality
+ *
+ * (Unknown if viewedAt is the only supported column)
+ *
+ */
+class Filter
 {
-    case All = 'all';
-    case Available = 'available';
-    case Released = 'released';
+    public function __construct()
+    {
+    }
 }

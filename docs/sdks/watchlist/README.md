@@ -36,7 +36,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
         $request = new Operations\GetWatchlistRequest();
-    $request->filter = Operations\Filter::Released;
+    $request->filter = Operations\PathParamFilter::Released;
     $request->sort = '<value>';
     $request->libtype = Operations\Libtype::Movie;
     $request->maxresults = 303056;

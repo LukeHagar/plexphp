@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 37654ea0982ab5e87a9a9576014c9d19
+  docChecksum: e73920abd3a55e8d249592f2e3090574
   docVersion: 0.0.3
-  speakeasyVersion: 1.308.1
-  generationVersion: 2.342.6
-  releaseVersion: 0.6.0
-  configChecksum: 10ccac6158027b240995e62516fee8de
+  speakeasyVersion: 1.314.2
+  generationVersion: 2.349.6
+  releaseVersion: 0.6.1
+  configChecksum: 1694452926c402dd09d1cc43ef9b906b
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
 features:
   php:
-    core: 3.3.5
+    core: 3.3.6
     flattening: 2.81.1
     globalSecurity: 2.81.6
     globalSecurityFlattening: 0.1.0
@@ -321,6 +321,16 @@ generatedFiles:
   - src/Models/Operations/GetMetadataChildrenMediaContainer.php
   - src/Models/Operations/GetMetadataChildrenResponseBody.php
   - src/Models/Operations/GetMetadataChildrenResponse.php
+  - src/Models/Operations/GetTopWatchedContentRequest.php
+  - src/Models/Operations/GetTopWatchedContentGenre.php
+  - src/Models/Operations/GetTopWatchedContentCountry.php
+  - src/Models/Operations/GetTopWatchedContentGuids.php
+  - src/Models/Operations/GetTopWatchedContentRole.php
+  - src/Models/Operations/User.php
+  - src/Models/Operations/GetTopWatchedContentMetadata.php
+  - src/Models/Operations/GetTopWatchedContentMediaContainer.php
+  - src/Models/Operations/GetTopWatchedContentResponseBody.php
+  - src/Models/Operations/GetTopWatchedContentResponse.php
   - src/Models/Operations/GetOnDeckErrors.php
   - src/Models/Operations/GetOnDeckLibraryResponseBody.php
   - src/Models/Operations/GetOnDeckStream.php
@@ -424,18 +434,36 @@ generatedFiles:
   - src/Models/Operations/GetStatisticsMediaContainer.php
   - src/Models/Operations/GetStatisticsResponseBody.php
   - src/Models/Operations/GetStatisticsResponse.php
+  - src/Models/Operations/GetResourcesStatisticsRequest.php
+  - src/Models/Operations/GetResourcesStatisticsErrors.php
+  - src/Models/Operations/GetResourcesStatisticsStatisticsResponseBody.php
+  - src/Models/Operations/StatisticsResources.php
+  - src/Models/Operations/GetResourcesStatisticsMediaContainer.php
+  - src/Models/Operations/GetResourcesStatisticsResponseBody.php
+  - src/Models/Operations/GetResourcesStatisticsResponse.php
+  - src/Models/Operations/GetBandwidthStatisticsRequest.php
+  - src/Models/Operations/GetBandwidthStatisticsErrors.php
+  - src/Models/Operations/GetBandwidthStatisticsStatisticsResponseBody.php
+  - src/Models/Operations/GetBandwidthStatisticsDevice.php
+  - src/Models/Operations/GetBandwidthStatisticsAccount.php
+  - src/Models/Operations/StatisticsBandwidth.php
+  - src/Models/Operations/GetBandwidthStatisticsMediaContainer.php
+  - src/Models/Operations/GetBandwidthStatisticsResponseBody.php
+  - src/Models/Operations/GetBandwidthStatisticsResponse.php
   - src/Models/Operations/GetSessionsErrors.php
   - src/Models/Operations/GetSessionsSessionsResponseBody.php
   - src/Models/Operations/GetSessionsStream.php
   - src/Models/Operations/GetSessionsPart.php
   - src/Models/Operations/GetSessionsMedia.php
-  - src/Models/Operations/User.php
+  - src/Models/Operations/GetSessionsUser.php
   - src/Models/Operations/Player.php
   - src/Models/Operations/Session.php
   - src/Models/Operations/GetSessionsMetadata.php
   - src/Models/Operations/GetSessionsMediaContainer.php
   - src/Models/Operations/GetSessionsResponseBody.php
   - src/Models/Operations/GetSessionsResponse.php
+  - src/Models/Operations/Filter.php
+  - src/Models/Operations/GetSessionHistoryRequest.php
   - src/Models/Operations/GetSessionHistoryErrors.php
   - src/Models/Operations/GetSessionHistorySessionsResponseBody.php
   - src/Models/Operations/GetSessionHistoryMetadata.php
@@ -469,7 +497,7 @@ generatedFiles:
   - src/Models/Operations/ApplyUpdatesErrors.php
   - src/Models/Operations/ApplyUpdatesResponseBody.php
   - src/Models/Operations/ApplyUpdatesResponse.php
-  - src/Models/Operations/Filter.php
+  - src/Models/Operations/PathParamFilter.php
   - src/Models/Operations/Libtype.php
   - src/Models/Operations/IncludeCollections.php
   - src/Models/Operations/IncludeExternalMedia.php
@@ -740,6 +768,16 @@ generatedFiles:
   - docs/Models/Operations/GetMetadataChildrenMediaContainer.md
   - docs/Models/Operations/GetMetadataChildrenResponseBody.md
   - docs/Models/Operations/GetMetadataChildrenResponse.md
+  - docs/Models/Operations/GetTopWatchedContentRequest.md
+  - docs/Models/Operations/GetTopWatchedContentGenre.md
+  - docs/Models/Operations/GetTopWatchedContentCountry.md
+  - docs/Models/Operations/GetTopWatchedContentGuids.md
+  - docs/Models/Operations/GetTopWatchedContentRole.md
+  - docs/Models/Operations/User.md
+  - docs/Models/Operations/GetTopWatchedContentMetadata.md
+  - docs/Models/Operations/GetTopWatchedContentMediaContainer.md
+  - docs/Models/Operations/GetTopWatchedContentResponseBody.md
+  - docs/Models/Operations/GetTopWatchedContentResponse.md
   - docs/Models/Operations/GetOnDeckErrors.md
   - docs/Models/Operations/GetOnDeckLibraryResponseBody.md
   - docs/Models/Operations/GetOnDeckStream.md
@@ -843,18 +881,36 @@ generatedFiles:
   - docs/Models/Operations/GetStatisticsMediaContainer.md
   - docs/Models/Operations/GetStatisticsResponseBody.md
   - docs/Models/Operations/GetStatisticsResponse.md
+  - docs/Models/Operations/GetResourcesStatisticsRequest.md
+  - docs/Models/Operations/GetResourcesStatisticsErrors.md
+  - docs/Models/Operations/GetResourcesStatisticsStatisticsResponseBody.md
+  - docs/Models/Operations/StatisticsResources.md
+  - docs/Models/Operations/GetResourcesStatisticsMediaContainer.md
+  - docs/Models/Operations/GetResourcesStatisticsResponseBody.md
+  - docs/Models/Operations/GetResourcesStatisticsResponse.md
+  - docs/Models/Operations/GetBandwidthStatisticsRequest.md
+  - docs/Models/Operations/GetBandwidthStatisticsErrors.md
+  - docs/Models/Operations/GetBandwidthStatisticsStatisticsResponseBody.md
+  - docs/Models/Operations/GetBandwidthStatisticsDevice.md
+  - docs/Models/Operations/GetBandwidthStatisticsAccount.md
+  - docs/Models/Operations/StatisticsBandwidth.md
+  - docs/Models/Operations/GetBandwidthStatisticsMediaContainer.md
+  - docs/Models/Operations/GetBandwidthStatisticsResponseBody.md
+  - docs/Models/Operations/GetBandwidthStatisticsResponse.md
   - docs/Models/Operations/GetSessionsErrors.md
   - docs/Models/Operations/GetSessionsSessionsResponseBody.md
   - docs/Models/Operations/GetSessionsStream.md
   - docs/Models/Operations/GetSessionsPart.md
   - docs/Models/Operations/GetSessionsMedia.md
-  - docs/Models/Operations/User.md
+  - docs/Models/Operations/GetSessionsUser.md
   - docs/Models/Operations/Player.md
   - docs/Models/Operations/Session.md
   - docs/Models/Operations/GetSessionsMetadata.md
   - docs/Models/Operations/GetSessionsMediaContainer.md
   - docs/Models/Operations/GetSessionsResponseBody.md
   - docs/Models/Operations/GetSessionsResponse.md
+  - docs/Models/Operations/Filter.md
+  - docs/Models/Operations/GetSessionHistoryRequest.md
   - docs/Models/Operations/GetSessionHistoryErrors.md
   - docs/Models/Operations/GetSessionHistorySessionsResponseBody.md
   - docs/Models/Operations/GetSessionHistoryMetadata.md
@@ -888,7 +944,7 @@ generatedFiles:
   - docs/Models/Operations/ApplyUpdatesErrors.md
   - docs/Models/Operations/ApplyUpdatesResponseBody.md
   - docs/Models/Operations/ApplyUpdatesResponse.md
-  - docs/Models/Operations/Filter.md
+  - docs/Models/Operations/PathParamFilter.md
   - docs/Models/Operations/Libtype.md
   - docs/Models/Operations/IncludeCollections.md
   - docs/Models/Operations/IncludeExternalMedia.md

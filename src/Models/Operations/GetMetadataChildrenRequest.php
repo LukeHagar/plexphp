@@ -19,8 +19,19 @@ class GetMetadataChildrenRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=ratingKey')]
     public float $ratingKey;
 
+    /**
+     * Adds additional elements to the response. Supported types are (Stream)
+     *
+     *
+     *
+     * @var ?string $includeElements
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeElements')]
+    public ?string $includeElements = null;
+
     public function __construct()
     {
         $this->ratingKey = 0;
+        $this->includeElements = null;
     }
 }

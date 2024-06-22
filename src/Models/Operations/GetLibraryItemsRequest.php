@@ -27,9 +27,20 @@ class GetLibraryItemsRequest
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=tag')]
     public Tag $tag;
 
+    /**
+     * Adds the Guids object to the response
+     *
+     *
+     *
+     * @var ?int $includeGuids
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeGuids')]
+    public ?int $includeGuids = null;
+
     public function __construct()
     {
         $this->sectionId = null;
         $this->tag = \LukeHagar\Plex_API\Models\Operations\Tag::All;
+        $this->includeGuids = null;
     }
 }

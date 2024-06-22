@@ -65,13 +65,27 @@ class Sessions
      *
      * This will Retrieve a listing of all history views.
      *
+     * @param  ?string  $sort
+     * @param  ?int  $accountId
+     * @param  ?\LukeHagar\Plex_API\Models\Operations\Filter  $filter
+     * @param  ?int  $librarySectionID
      * @return \LukeHagar\Plex_API\Models\Operations\GetSessionHistoryResponse
      */
     public function getSessionHistory(
+        ?string $sort = null,
+        ?int $accountId = null,
+        ?\LukeHagar\Plex_API\Models\Operations\Filter $filter = null,
+        ?int $librarySectionID = null,
     ): \LukeHagar\Plex_API\Models\Operations\GetSessionHistoryResponse {
+        $request = new \LukeHagar\Plex_API\Models\Operations\GetSessionHistoryRequest();
+        $request->sort = $sort;
+        $request->accountId = $accountId;
+        $request->filter = $filter;
+        $request->librarySectionID = $librarySectionID;
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/status/sessions/history/all');
         $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetSessionHistoryRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
 

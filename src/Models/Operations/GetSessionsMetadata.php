@@ -187,9 +187,9 @@ class GetSessionsMetadata
     public ?array $media = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('User')]
-    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\User')]
+    #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\GetSessionsUser')]
     #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?User $user = null;
+    public ?GetSessionsUser $user = null;
 
     #[\JMS\Serializer\Annotation\SerializedName('Player')]
     #[\JMS\Serializer\Annotation\Type('LukeHagar\Plex_API\Models\Operations\Player')]

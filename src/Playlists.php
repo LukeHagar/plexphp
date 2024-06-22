@@ -189,7 +189,7 @@ class Playlists
         $response->statusCode = $statusCode;
         $response->contentType = $contentType;
         $response->rawResponse = $httpResponse;
-        if ($httpResponse->getStatusCode() === 200 or $httpResponse->getStatusCode() === 400) {
+        if ($httpResponse->getStatusCode() === 204 or $httpResponse->getStatusCode() === 400) {
         } elseif ($httpResponse->getStatusCode() === 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();

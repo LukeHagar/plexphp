@@ -21,9 +21,9 @@ class Server
     }
 
     /**
-     * Server Capabilities
+     * Get Server Capabilities
      *
-     * Server Capabilities
+     * Get Server Capabilities
      *
      * @return \LukeHagar\Plex_API\Models\Operations\GetServerCapabilitiesResponse
      */

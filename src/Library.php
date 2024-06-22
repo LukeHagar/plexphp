@@ -303,18 +303,22 @@ class Library
      *
      * @param  mixed  $sectionId
      * @param  \LukeHagar\Plex_API\Models\Operations\Tag  $tag
+     * @param  ?int  $includeGuids
      * @return \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponse
      */
     public function getLibraryItems(
         mixed $sectionId,
         \LukeHagar\Plex_API\Models\Operations\Tag $tag,
+        ?int $includeGuids = null,
     ): \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest();
         $request->sectionId = $sectionId;
         $request->tag = $tag;
+        $request->includeGuids = $includeGuids;
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionId}/{tag}', \LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
 
@@ -501,16 +505,20 @@ class Library
      *
      *
      * @param  float  $ratingKey
+     * @param  ?string  $includeElements
      * @return \LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponse
      */
     public function getMetadataChildren(
         float $ratingKey,
+        ?string $includeElements = null,
     ): \LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponse {
         $request = new \LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenRequest();
         $request->ratingKey = $ratingKey;
+        $request->includeElements = $includeElements;
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}/children', \LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
 
@@ -533,6 +541,49 @@ class Library
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $response->fourHundredAndOneApplicationJsonObject = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenLibraryResponseBody', 'json');
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * Get Top Watched Content
+     *
+     * This endpoint will return the top watched content from libraries of a certain type
+     *
+     *
+     * @param  int  $type
+     * @param  ?int  $includeGuids
+     * @return \LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentResponse
+     */
+    public function getTopWatchedContent(
+        int $type,
+        ?int $includeGuids = null,
+    ): \LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentResponse {
+        $request = new \LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentRequest();
+        $request->type = $type;
+        $request->includeGuids = $includeGuids;
+        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
+        $url = Utils\Utils::generateUrl($baseUrl, '/library/all/top');
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(\LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+
+        $httpResponse = $this->sdkConfiguration->securityClient->request('GET', $url, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+
+        $response = new \LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentResponse();
+        $response->statusCode = $statusCode;
+        $response->contentType = $contentType;
+        $response->rawResponse = $httpResponse;
+        if ($httpResponse->getStatusCode() === 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $response->object = $serializer->deserialize((string) $httpResponse->getBody(), 'LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentResponseBody', 'json');
             }
         }
 

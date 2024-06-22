@@ -11,6 +11,7 @@
         "no_extra_blank_lines": false,
         "no_blank_lines_after_class_opening": false,
         "single_line_after_imports": false,
-        "no_trailing_whitespace_in_comment": false
+        "no_trailing_whitespace_in_comment": false,
+        "single_line_empty_body": false
     }
 }

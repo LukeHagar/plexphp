@@ -14,10 +14,10 @@ class GetWatchlistRequest
     /**
      * Filter
      *
-     * @var \LukeHagar\Plex_API\Models\Operations\Filter $filter
+     * @var \LukeHagar\Plex_API\Models\Operations\PathParamFilter $filter
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=filter')]
-    public Filter $filter;
+    public PathParamFilter $filter;
 
     /**
      * In the format "field:dir". Available fields are "watchlistedAt" (Added At),
@@ -104,7 +104,7 @@ class GetWatchlistRequest
 
     public function __construct()
     {
-        $this->filter = \LukeHagar\Plex_API\Models\Operations\Filter::All;
+        $this->filter = \LukeHagar\Plex_API\Models\Operations\PathParamFilter::All;
         $this->sort = null;
         $this->libtype = null;
         $this->maxresults = null;
