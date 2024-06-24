@@ -503,3 +503,11 @@ Based on:
 - Speakeasy CLI 1.314.2 (2.349.6) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [php v0.6.1] .
+
+## 2024-06-24 00:14:18
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.314.2 (2.349.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.6.1] .
