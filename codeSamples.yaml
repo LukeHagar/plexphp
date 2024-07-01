@@ -3,405 +3,6 @@ info:
   title: CodeSamples overlay for php target
   version: 0.0.0
 actions:
-  - target: $["paths"]["/log/networked"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: enablePaperTrail
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->log->enablePaperTrail();
-
-                if ($response->statusCode === 200) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/status/sessions"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getSessions
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->sessions->getSessions();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/home"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getHomeData
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->plex->getHomeData();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/library/metadata/{ratingKey}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getMetadata
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getMetadata(8382.31);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/servers"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getServerList
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->server->getServerList();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/pins"]["post"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getPin
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->build();\n\ntry {\n    \n\n    $response = $sdk->plex->getPin('Postman', false, 'Postman');\n\n    if ($response->twoHundredAndOneApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/sections/{sectionId}/{tag}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getLibraryItems
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getLibraryItems('<value>', Operations\\Tag::Genre, 1);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/all/top"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getTopWatchedContent
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getTopWatchedContent(505531, 1);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/playlists/{playlistID}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: deletePlaylist
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->deletePlaylist(216.22);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/identity"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getServerIdentity
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->server->getServerIdentity();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/photo/:/transcode"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getResizedPhoto
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-            use \LukeHagar\Plex_API\Models\Operations;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                    $request = new Operations\GetResizedPhotoRequest();
-                $request->width = 110;
-                $request->height = 165;
-                $request->opacity = 643869;
-                $request->blur = 4000;
-                $request->minSize = Operations\MinSize::Zero;
-                $request->upscale = Operations\Upscale::Zero;
-                $request->url = '/library/metadata/49564/thumb/1654258204';;
-
-                $response = $sdk->server->getResizedPhoto($request);
-
-                if ($response->statusCode === 200) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/log"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: logLine
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->log->logLine(Operations\\Level::Three, 'Test log message', 'Postman');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/clients"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getAvailableClients
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->server->getAvailableClients();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/:/timeline"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getTimeline
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-            use \LukeHagar\Plex_API\Models\Operations;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                    $request = new Operations\GetTimelineRequest();
-                $request->ratingKey = 23409;
-                $request->key = '/library/metadata/23409';
-                $request->state = Operations\State::Playing;
-                $request->hasMDE = 1;
-                $request->time = 2000;
-                $request->duration = 10000;
-                $request->context = 'home:hub.continueWatching';
-                $request->playQueueItemID = 1;
-                $request->playBackTime = 2000;
-                $request->row = 1;;
-
-                $response = $sdk->video->getTimeline($request);
-
-                if ($response->statusCode === 200) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/library/hashes"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getFileHash
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getFileHash('file://C:\\Image.png&type=13', 4462.17);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/sections/{sectionId}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: deleteLibrary
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->deleteLibrary(1000);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/statistics/resources"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getResourcesStatistics
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->statistics->getResourcesStatistics(4);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/sections/watchlist/{filter}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getWatchlist
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-            use \LukeHagar\Plex_API\Models\Operations;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                    $request = new Operations\GetWatchlistRequest();
-                $request->filter = Operations\PathParamFilter::Released;
-                $request->sort = '<value>';
-                $request->libtype = Operations\Libtype::Movie;
-                $request->maxresults = 303056;
-                $request->includeCollections = Operations\IncludeCollections::Zero;
-                $request->includeExternalMedia = Operations\IncludeExternalMedia::One;
-                $request->xPlexToken = '<value>';
-                $request->xPlexContainerStart = 406911;
-                $request->xPlexContainerSize = 958629;;
-
-                $response = $sdk->watchlist->getWatchlist($request);
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getServerCapabilities
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->server->getServerCapabilities();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
   - target: $["paths"]["/video/:/transcode/universal/start.mpd"]["get"]
     update:
       x-codeSamples:
@@ -452,11 +53,158 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/playlists"]["post"]
+  - target: $["paths"]["/butler/{taskName}"]["delete"]
     update:
       x-codeSamples:
         - lang: php
-          label: createPlaylist
+          label: stopTask
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->butler->stopTask(Operations\\PathParamTaskName::BackupDatabase);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/hubs"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getGlobalHubs
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->hubs->getGlobalHubs(1262.49, Operations\\OnlyTransient::One);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/library/onDeck"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getOnDeck
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->library->getOnDeck();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/playlists/upload"]["post"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: uploadPlaylist
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->uploadPlaylist('/home/barkley/playlist.m3u', Operations\\Force::Zero);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/library/recentlyAdded"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getRecentlyAdded
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->library->getRecentlyAdded();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/library/sections/{sectionId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getLibrary
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getLibrary(1000, Operations\\IncludeDetails::Zero);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/playlists"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getPlaylists
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->getPlaylists(Operations\\PlaylistType::Audio, Operations\\QueryParamSmart::Zero);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/myplex/account"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getMyPlexAccount
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->server->getMyPlexAccount();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/pins/{pinID}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getToken
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->build();\n\ntry {\n    \n\n    $response = $sdk->plex->getToken('<value>', 'Postman');\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/activities/{activityUUID}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: cancelServerActivities
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->activities->cancelServerActivities('25b71ed5-0f9d-461c-baa7-d404e9e10d3e');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/library/hashes"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getFileHash
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getFileHash('file://C:\\Image.png&type=13', 4462.17);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/security/token"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getTransientToken
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->authentication->getTransientToken(Operations\\GetTransientTokenQueryParamType::Delegation, Operations\\Scope::All);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/status/sessions/history/all"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getSessionHistory
           source: |-
             <?php
 
@@ -476,14 +224,9 @@ actions:
                 ->setSecurity($security)->build();
 
             try {
-                    $request = new Operations\CreatePlaylistRequest();
-                $request->title = '<value>';
-                $request->type = Operations\QueryParamType::Photo;
-                $request->smart = Operations\Smart::One;
-                $request->uri = 'https://inborn-brochure.biz';
-                $request->playQueueID = 3686.33;;
+                    $filter = new Operations\Filter();
 
-                $response = $sdk->playlists->createPlaylist($request);
+                $response = $sdk->sessions->getSessionHistory('<value>', 1, $filter, 12);
 
                 if ($response->twoHundredApplicationJsonObject !== null) {
                     // handle response
@@ -491,24 +234,208 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/playlists/{playlistID}/items"]["delete"]
+  - target: $["paths"]["/clients"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: clearPlaylistContents
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->clearPlaylistContents(1893.18);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/playlists/{playlistID}"]["get"]
+          label: getAvailableClients
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->server->getAvailableClients();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/photo/:/transcode"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: getPlaylist
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->getPlaylist(4109.48);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/:/progress"]["post"]
+          label: getResizedPhoto
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+            use \LukeHagar\Plex_API\Models\Operations;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                    $request = new Operations\GetResizedPhotoRequest();
+                $request->width = 110;
+                $request->height = 165;
+                $request->opacity = 643869;
+                $request->blur = 4000;
+                $request->minSize = Operations\MinSize::Zero;
+                $request->upscale = Operations\Upscale::Zero;
+                $request->url = '/library/metadata/49564/thumb/1654258204';;
+
+                $response = $sdk->server->getResizedPhoto($request);
+
+                if ($response->statusCode === 200) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/:/timeline"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: updatePlayProgress
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->media->updatePlayProgress('<value>', 90000, 'played');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          label: getTimeline
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+            use \LukeHagar\Plex_API\Models\Operations;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                    $request = new Operations\GetTimelineRequest();
+                $request->ratingKey = 23409;
+                $request->key = '/library/metadata/23409';
+                $request->state = Operations\State::Playing;
+                $request->hasMDE = 1;
+                $request->time = 2000;
+                $request->duration = 10000;
+                $request->context = 'home:hub.continueWatching';
+                $request->playQueueItemID = 1;
+                $request->playBackTime = 2000;
+                $request->row = 1;;
+
+                $response = $sdk->video->getTimeline($request);
+
+                if ($response->statusCode === 200) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/library/sections/{sectionId}/refresh"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: refreshLibrary
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->refreshLibrary(934.16);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/library/sections/{sectionId}/search"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: searchLibrary
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->searchLibrary(933505, Operations\\Type::Four);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/:/prefs"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getServerPreferences
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->server->getServerPreferences();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/hubs/search/voice"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: performVoiceSearch
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->search->performVoiceSearch('dead+poop', 4094.8, 5);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/log/networked"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: enablePaperTrail
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->log->enablePaperTrail();
+
+                if ($response->statusCode === 200) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/updater/apply"]["put"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: applyUpdates
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->updater->applyUpdates(Operations\\Tonight::One, Operations\\Skip::Zero);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/activities"]["get"]
     update:
       x-codeSamples:
@@ -540,17 +467,11 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/hubs/search/voice"]["get"]
+  - target: $["paths"]["/home"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: performVoiceSearch
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->search->performVoiceSearch('dead+poop', 4094.8, 5);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/sections"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getLibraries
+          label: getHomeData
           source: |-
             <?php
 
@@ -569,9 +490,50 @@ actions:
                 ->setSecurity($security)->build();
 
             try {
-                $response = $sdk->library->getLibraries();
+                $response = $sdk->plex->getHomeData();
 
                 if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/library/sections/{sectionId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: deleteLibrary
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->deleteLibrary(1000);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/log"]["post"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: logMultiLine
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                'level=4&message=Test%20message%201&source=postman
+            level=3&message=Test%20message%202&source=postman
+            level=1&message=Test%20message%203&source=postman';
+
+                $response = $sdk->log->logMultiLine($request);
+
+                if ($response->statusCode === 200) {
                     // handle response
                 }
             } catch (Throwable $e) {
@@ -614,23 +576,11 @@ actions:
         - lang: php
           label: getLibraryHubs
           source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->hubs->getLibraryHubs(6728.76, 9010.22, Operations\\QueryParamOnlyTransient::Zero);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/playlists/upload"]["post"]
+  - target: $["paths"]["/library/sections"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: uploadPlaylist
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->uploadPlaylist('/home/barkley/playlist.m3u', Operations\\Force::Zero);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/statistics/media"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getStatistics
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->statistics->getStatistics(4);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/updater/status"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getUpdateStatus
+          label: getLibraries
           source: |-
             <?php
 
@@ -649,7 +599,7 @@ actions:
                 ->setSecurity($security)->build();
 
             try {
-                $response = $sdk->updater->getUpdateStatus();
+                $response = $sdk->library->getLibraries();
 
                 if ($response->twoHundredApplicationJsonObject !== null) {
                     // handle response
@@ -657,55 +607,24 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/search"]["get"]
+  - target: $["paths"]["/playlists/{playlistID}"]["put"]
     update:
       x-codeSamples:
         - lang: php
-          label: getSearchResults
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->search->getSearchResults('110');\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/playlists/{playlistID}/items"]["put"]
+          label: updatePlaylist
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->updatePlaylist(3915, '<value>', '<value>');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/statistics/bandwidth"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: addPlaylistContents
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->addPlaylistContents(8502.01, 'server://12345/com.plexapp.plugins.library/library/metadata/1', 123);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/butler"]["delete"]
+          label: getBandwidthStatistics
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->statistics->getBandwidthStatistics(4);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/:/progress"]["post"]
     update:
       x-codeSamples:
         - lang: php
-          label: stopAllTasks
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->butler->stopAllTasks();
-
-                if ($response->statusCode === 200) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/:/unscrobble"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: markUnplayed
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->media->markUnplayed(59398);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          label: updatePlayProgress
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->media->updatePlayProgress('<value>', 90000, 'played');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/butler"]["post"]
     update:
       x-codeSamples:
@@ -737,258 +656,12 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/log"]["post"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: logMultiLine
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                'level=4&message=Test%20message%201&source=postman
-            level=3&message=Test%20message%202&source=postman
-            level=1&message=Test%20message%203&source=postman';
-
-                $response = $sdk->log->logMultiLine($request);
-
-                if ($response->statusCode === 200) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/playlists/{playlistID}/items"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getPlaylistContents
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->getPlaylistContents(5004.46, 9403.59);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/updater/check"]["put"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: checkForUpdates
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->updater->checkForUpdates(Operations\\Download::One);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/:/scrobble"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: markPlayed
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->media->markPlayed(59398);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/sections/{sectionId}/refresh"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: refreshLibrary
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->refreshLibrary(934.16);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/playlists"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getPlaylists
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->getPlaylists(Operations\\PlaylistType::Audio, Operations\\QueryParamSmart::Zero);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/statistics/bandwidth"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getBandwidthStatistics
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->statistics->getBandwidthStatistics(4);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/status/sessions/history/all"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getSessionHistory
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-            use \LukeHagar\Plex_API\Models\Operations;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                    $filter = new Operations\Filter();
-
-                $response = $sdk->sessions->getSessionHistory('<value>', 1, $filter, 12);
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/library/recentlyAdded"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getRecentlyAdded
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->library->getRecentlyAdded();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/library/onDeck"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getOnDeck
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->library->getOnDeck();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/pins/{pinID}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getToken
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->build();\n\ntry {\n    \n\n    $response = $sdk->plex->getToken('<value>', 'Postman');\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/hubs"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getGlobalHubs
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->hubs->getGlobalHubs(1262.49, Operations\\OnlyTransient::One);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/hubs/search"]["get"]
     update:
       x-codeSamples:
         - lang: php
           label: performSearch
           source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->search->performSearch('dylan', 1516.53, 5);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/security/token"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getTransientToken
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->authentication->getTransientToken(Operations\\GetTransientTokenQueryParamType::Delegation, Operations\\Scope::All);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/devices"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getDevices
-          source: |-
-            <?php
-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use \LukeHagar\Plex_API;
-            use \LukeHagar\Plex_API\Models\Components;
-
-            $security = new Components\Security();
-            $security->accessToken = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setXPlexClientIdentifier('Postman')
-                ->setSecurity($security)->build();
-
-            try {
-                $response = $sdk->server->getDevices();
-
-                if ($response->twoHundredApplicationJsonObject !== null) {
-                    // handle response
-                }
-            } catch (Throwable $e) {
-                // handle exception
-            }
-  - target: $["paths"]["/butler/{taskName}"]["post"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: startTask
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->butler->startTask(Operations\\TaskName::CleanOldBundles);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/activities/{activityUUID}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: cancelServerActivities
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->activities->cancelServerActivities('25b71ed5-0f9d-461c-baa7-d404e9e10d3e');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/butler/{taskName}"]["delete"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: stopTask
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->butler->stopTask(Operations\\PathParamTaskName::BackupDatabase);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/sections/{sectionId}"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getLibrary
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getLibrary(1000, Operations\\IncludeDetails::Zero);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/security/resources"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getSourceConnectionInformation
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
   - target: $["paths"]["/transcode/sessions"]["get"]
     update:
       x-codeSamples:
@@ -1020,11 +693,74 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/:/prefs"]["get"]
+  - target: $["paths"]["/library/metadata/{ratingKey}"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: getServerPreferences
+          label: getMetadata
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getMetadata(8382.31);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/playlists"]["post"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: createPlaylist
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+            use \LukeHagar\Plex_API\Models\Operations;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                    $request = new Operations\CreatePlaylistRequest();
+                $request->title = '<value>';
+                $request->type = Operations\QueryParamType::Photo;
+                $request->smart = Operations\Smart::One;
+                $request->uri = 'https://inborn-brochure.biz';
+                $request->playQueueID = 3686.33;;
+
+                $response = $sdk->playlists->createPlaylist($request);
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/playlists/{playlistID}/items"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getPlaylistContents
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->getPlaylistContents(5004.46, 9403.59);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/library/all/top"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getTopWatchedContent
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getTopWatchedContent(505531, 1);\n\n    if ($response->object !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/playlists/{playlistID}/items"]["put"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: addPlaylistContents
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->addPlaylistContents(8502.01, 'server://12345/com.plexapp.plugins.library/library/metadata/1', 123);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/status/sessions"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getSessions
           source: |-
             <?php
 
@@ -1043,7 +779,7 @@ actions:
                 ->setSecurity($security)->build();
 
             try {
-                $response = $sdk->server->getServerPreferences();
+                $response = $sdk->sessions->getSessions();
 
                 if ($response->twoHundredApplicationJsonObject !== null) {
                     // handle response
@@ -1051,11 +787,11 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/myplex/account"]["get"]
+  - target: $["paths"]["/"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: getMyPlexAccount
+          label: getServerCapabilities
           source: |-
             <?php
 
@@ -1074,7 +810,7 @@ actions:
                 ->setSecurity($security)->build();
 
             try {
-                $response = $sdk->server->getMyPlexAccount();
+                $response = $sdk->server->getServerCapabilities();
 
                 if ($response->twoHundredApplicationJsonObject !== null) {
                     // handle response
@@ -1082,33 +818,297 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
-  - target: $["paths"]["/playlists/{playlistID}"]["put"]
+  - target: $["paths"]["/identity"]["get"]
     update:
       x-codeSamples:
         - lang: php
-          label: updatePlaylist
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->updatePlaylist(3915, '<value>', '<value>');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/transcode/sessions/{sessionKey}"]["delete"]
+          label: getServerIdentity
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->server->getServerIdentity();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/butler"]["delete"]
     update:
       x-codeSamples:
         - lang: php
-          label: stopTranscodeSession
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->sessions->stopTranscodeSession('zz7llzqlx8w9vnrsbnwhbmep');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/updater/apply"]["put"]
+          label: stopAllTasks
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->butler->stopAllTasks();
+
+                if ($response->statusCode === 200) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/butler/{taskName}"]["post"]
     update:
       x-codeSamples:
         - lang: php
-          label: applyUpdates
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->updater->applyUpdates(Operations\\Tonight::One, Operations\\Skip::Zero);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
-  - target: $["paths"]["/library/sections/{sectionId}/search"]["get"]
+          label: startTask
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->butler->startTask(Operations\\TaskName::CleanOldBundles);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/pins"]["post"]
     update:
       x-codeSamples:
         - lang: php
-          label: searchLibrary
-          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->searchLibrary(933505, Operations\\Type::Four);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+          label: getPin
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->build();\n\ntry {\n    \n\n    $response = $sdk->plex->getPin('Postman', false, 'Postman');\n\n    if ($response->twoHundredAndOneApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/updater/status"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getUpdateStatus
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->updater->getUpdateStatus();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/updater/check"]["put"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: checkForUpdates
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->updater->checkForUpdates(Operations\\Download::One);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/servers"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getServerList
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->server->getServerList();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/:/unscrobble"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: markUnplayed
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->media->markUnplayed(59398);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/log"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: logLine
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->log->logLine(Operations\\Level::Three, 'Test log message', 'Postman');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/playlists/{playlistID}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: deletePlaylist
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->deletePlaylist(216.22);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/statistics/media"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getStatistics
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->statistics->getStatistics(4);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/search"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getSearchResults
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->search->getSearchResults('110');\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/playlists/{playlistID}/items"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: clearPlaylistContents
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->clearPlaylistContents(1893.18);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/devices"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getDevices
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                $response = $sdk->server->getDevices();
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
   - target: $["paths"]["/library/metadata/{ratingKey}/children"]["get"]
     update:
       x-codeSamples:
         - lang: php
           label: getMetadataChildren
           source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getMetadataChildren(1539.14, '<value>');\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/playlists/{playlistID}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getPlaylist
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->playlists->getPlaylist(4109.48);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/statistics/resources"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getResourcesStatistics
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->statistics->getResourcesStatistics(4);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/library/sections/{sectionId}/{tag}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getLibraryItems
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->library->getLibraryItems('<value>', Operations\\Tag::Genre, 1);\n\n    if ($response->twoHundredApplicationJsonObject !== null) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/library/sections/watchlist/{filter}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getWatchlist
+          source: |-
+            <?php
+
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use \LukeHagar\Plex_API;
+            use \LukeHagar\Plex_API\Models\Components;
+            use \LukeHagar\Plex_API\Models\Operations;
+
+            $security = new Components\Security();
+            $security->accessToken = '<YOUR_API_KEY_HERE>';
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setXPlexClientIdentifier('Postman')
+                ->setSecurity($security)->build();
+
+            try {
+                    $request = new Operations\GetWatchlistRequest();
+                $request->filter = Operations\PathParamFilter::Released;
+                $request->sort = '<value>';
+                $request->libtype = Operations\Libtype::Movie;
+                $request->maxresults = 303056;
+                $request->includeCollections = Operations\IncludeCollections::Zero;
+                $request->includeExternalMedia = Operations\IncludeExternalMedia::One;
+                $request->xPlexToken = '<value>';
+                $request->xPlexContainerStart = 406911;
+                $request->xPlexContainerSize = 958629;;
+
+                $response = $sdk->watchlist->getWatchlist($request);
+
+                if ($response->twoHundredApplicationJsonObject !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
+  - target: $["paths"]["/:/scrobble"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: markPlayed
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->media->markPlayed(59398);\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/security/resources"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: getSourceConnectionInformation
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"
+  - target: $["paths"]["/transcode/sessions/{sessionKey}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: stopTranscodeSession
+          source: "<?php\n\ndeclare(strict_types=1);\n\nrequire 'vendor/autoload.php';\n\nuse \\LukeHagar\\Plex_API;\nuse \\LukeHagar\\Plex_API\\Models\\Components;\nuse \\LukeHagar\\Plex_API\\Models\\Operations;\n\n$security = new Components\\Security();\n$security->accessToken = '<YOUR_API_KEY_HERE>';\n\n$sdk = Plex_API\\PlexAPI::builder()\n    ->setXPlexClientIdentifier('Postman')\n    ->setSecurity($security)->build();\n\ntry {\n    \n\n    $response = $sdk->sessions->stopTranscodeSession('zz7llzqlx8w9vnrsbnwhbmep');\n\n    if ($response->statusCode === 200) {\n        // handle response\n    }\n} catch (Throwable $e) {\n    // handle exception\n}"

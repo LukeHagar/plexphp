@@ -1,9 +1,9 @@
-speakeasyVersion: 1.322.3
+speakeasyVersion: 1.323.0
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:a3681cf0312258f245f4df931eda00ac14434e5f8d7312b696928fd3cc462038
-        sourceBlobDigest: sha256:1c0f34e2258d0e31cefdd830c85a9fb5823fcc8d9e952baf0c6bf129a7b633c1
+        sourceRevisionDigest: sha256:3ff45b002ead8da26edb32de7bfe420b28c3899c98f898b546730c90e3841614
+        sourceBlobDigest: sha256:27174918b80c37f841d105b5120f6beb8fed03400753018c65d312626f1de4c0
         tags:
             - latest
             - main
@@ -11,8 +11,10 @@ targets:
     plexphp:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:a3681cf0312258f245f4df931eda00ac14434e5f8d7312b696928fd3cc462038
-        sourceBlobDigest: sha256:1c0f34e2258d0e31cefdd830c85a9fb5823fcc8d9e952baf0c6bf129a7b633c1
+        sourceRevisionDigest: sha256:3ff45b002ead8da26edb32de7bfe420b28c3899c98f898b546730c90e3841614
+        sourceBlobDigest: sha256:27174918b80c37f841d105b5120f6beb8fed03400753018c65d312626f1de4c0
+        codeSamplesNamespace: code-samples-php-plexphp
+        codeSamplesRevisionDigest: sha256:ffafae78abf92ae1a1f47fa4c8cc68a4da89a8ff80d128e9e6a9f48e3dd75e94
         outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0
@@ -29,3 +31,5 @@ workflow:
             source: my-source
             codeSamples:
                 output: codeSamples.yaml
+                registry:
+                    location: registry.speakeasyapi.dev/lukehagar/lukehagar/code-samples-php-plexphp
