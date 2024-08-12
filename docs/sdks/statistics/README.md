@@ -19,15 +19,12 @@ This will return the media statistics for the server
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -37,11 +34,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->statistics->getStatistics(4);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -58,8 +54,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetStatisticsResponse](../../Models/Operations/GetStatisticsResponse.md)**
+**[?Operations\GetStatisticsResponse](../../Models/Operations/GetStatisticsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetStatisticsResponseBody              | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getResourcesStatistics
 
@@ -68,15 +69,12 @@ This will return the resources for the server
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -86,11 +84,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->statistics->getResourcesStatistics(4);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -107,8 +104,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsResponse](../../Models/Operations/GetResourcesStatisticsResponse.md)**
+**[?Operations\GetResourcesStatisticsResponse](../../Models/Operations/GetResourcesStatisticsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetResourcesStatisticsResponseBody     | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getBandwidthStatistics
 
@@ -117,15 +119,12 @@ This will return the bandwidth statistics for the server
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -135,11 +134,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->statistics->getBandwidthStatistics(4);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -156,5 +154,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsResponse](../../Models/Operations/GetBandwidthStatisticsResponse.md)**
+**[?Operations\GetBandwidthStatisticsResponse](../../Models/Operations/GetBandwidthStatisticsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetBandwidthStatisticsResponseBody     | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

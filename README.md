@@ -41,8 +41,6 @@ composer update
 ### Example
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
@@ -55,19 +53,17 @@ $security->accessToken = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setXPlexClientIdentifier('Postman')
-    ->setSecurity($security)
-    ->build();
+    ->setSecurity($security)->build();
 
 try {
     $response = $sdk->server->getServerCapabilities();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
     // handle exception
 }
-
 ```
 <!-- End SDK Example Usage [usage] -->
 
@@ -219,82 +215,28 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 The server URL can also be overridden on a per-operation basis, provided a server list was specified for the operation. For example:
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
-use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setXPlexClientIdentifier('Postman')
     ->build();
 
 try {
-    $response = $sdk->plex->getPin('https://plex.tv/api/v2', 'Postman', false, 'Postman');
 
-    if ($response->twoHundredAndOneApplicationJsonObject !== null) {
+    $response = $sdk->plex->getPin("https://plex.tv/api/v2", 'Postman', false, 'Postman');
+
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
     // handle exception
 }
-
 ```
 <!-- End Server Selection [server] -->
-
-<!-- Start Global Parameters [global-parameters] -->
-## Global Parameters
-
-A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
-
-For example, you can set `X-Plex-Client-Identifier` to `'Postman'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getPin`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
-
-
-### Available Globals
-
-The following global parameter is available.
-
-| Name | Type | Required | Description |
-| ---- | ---- |:--------:| ----------- |
-| xPlexClientIdentifier | string |  | The unique identifier for the client application
-This is used to track the client application and its usage
-(UUID, serial number, or other number unique per device)
- |
-
-
-### Example
-
-```php
-<?php
-
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
-use LukeHagar\Plex_API\Models\Operations;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
-    ->build();
-
-try {
-    $response = $sdk->plex->getPin('Postman', false, 'Postman');
-
-    if ($response->twoHundredAndOneApplicationJsonObject !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
-}
-
-```
-<!-- End Global Parameters [global-parameters] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

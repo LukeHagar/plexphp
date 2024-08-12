@@ -7,10 +7,18 @@
     }
   },
   "license": "MIT",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/idbentley/serializer"
+    }
+  ],
   "require": {
     "php": "^8.1",
     "guzzlehttp/guzzle": "^7.0",
-    "jms/serializer": "^3.22"
+    "jms/serializer": "dev-deserialize-unions",
+    "brick/date-time": "^0.7.0",
+    "phpdocumentor/type-resolver": "^1.8"
   },
   "require-dev": {
     "laravel/pint": "^1.15",
@@ -28,7 +36,7 @@
   },
   "scripts": {
     "test": [
-      "./vendor/bin/phpunit --testdox"
+      "./vendor/bin/phpunit --testdox --display-warnings --colors=always"
     ],
     "stan": [
       "./vendor/bin/phpstan analyse --memory-limit=2g"

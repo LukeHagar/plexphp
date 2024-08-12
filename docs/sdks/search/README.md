@@ -31,15 +31,12 @@ This request is intended to be very fast, and called as the user types.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -49,7 +46,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->search->performSearch('dylan', 1516.53, 5);
 
@@ -72,8 +68,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\PerformSearchResponse](../../Models/Operations/PerformSearchResponse.md)**
+**[?Operations\PerformSearchResponse](../../Models/Operations/PerformSearchResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\PerformSearchResponseBody              | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## performVoiceSearch
 
@@ -86,15 +87,12 @@ Results, as well as their containing per-type hubs, contain a `distance` attribu
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -104,7 +102,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->search->performVoiceSearch('dead+poop', 4094.8, 5);
 
@@ -127,8 +124,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\PerformVoiceSearchResponse](../../Models/Operations/PerformVoiceSearchResponse.md)**
+**[?Operations\PerformVoiceSearchResponse](../../Models/Operations/PerformVoiceSearchResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\PerformVoiceSearchResponseBody         | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getSearchResults
 
@@ -137,15 +139,12 @@ This will search the database for the string provided.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -155,11 +154,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->search->getSearchResults('110');
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -176,5 +174,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetSearchResultsResponse](../../Models/Operations/GetSearchResultsResponse.md)**
+**[?Operations\GetSearchResultsResponse](../../Models/Operations/GetSearchResultsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetSearchResultsResponseBody           | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

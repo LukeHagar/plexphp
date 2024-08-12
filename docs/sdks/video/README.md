@@ -18,15 +18,13 @@ Get the timeline for a media item
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -36,18 +34,18 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-        $request = new Operations\GetTimelineRequest();
-    $request->ratingKey = 23409;
-    $request->key = '/library/metadata/23409';
-    $request->state = Operations\State::Playing;
-    $request->hasMDE = 1;
-    $request->time = 2000;
-    $request->duration = 10000;
-    $request->context = 'home:hub.continueWatching';
-    $request->playQueueItemID = 1;
-    $request->playBackTime = 2000;
-    $request->row = 1;;
-
+    $request = new Operations\GetTimelineRequest(
+        ratingKey: 23409,
+        key: '/library/metadata/23409',
+        state: Operations\State::Playing,
+        hasMDE: 1,
+        time: 2000,
+        duration: 10000,
+        context: 'home:hub.continueWatching',
+        playQueueItemID: 1,
+        playBackTime: 2000,
+        row: 1,
+    );
     $response = $sdk->video->getTimeline($request);
 
     if ($response->statusCode === 200) {
@@ -60,15 +58,20 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                | [\LukeHagar\Plex_API\Models\Operations\GetTimelineRequest](../../Models/Operations/GetTimelineRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `$request`                                                                     | [Operations\GetTimelineRequest](../../Models/Operations/GetTimelineRequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetTimelineResponse](../../Models/Operations/GetTimelineResponse.md)**
+**[?Operations\GetTimelineResponse](../../Models/Operations/GetTimelineResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetTimelineResponseBody                | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## startUniversalTranscode
 
@@ -77,15 +80,13 @@ Begin a Universal Transcode Session
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -95,24 +96,17 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-        $request = new Operations\StartUniversalTranscodeRequest();
-    $request->hasMDE = 1;
-    $request->path = '/library/metadata/23409';
-    $request->mediaIndex = 0;
-    $request->partIndex = 0;
-    $request->protocol = 'hls';
-    $request->fastSeek = 0;
-    $request->directPlay = 0;
-    $request->directStream = 0;
-    $request->subtitleSize = 100;
-    $request->subtites = 'burn';
-    $request->audioBoost = 100;
-    $request->location = 'lan';
-    $request->mediaBufferSize = 102400;
-    $request->session = 'zvcage8b7rkioqcm8f4uns4c';
-    $request->addDebugOverlay = 0;
-    $request->autoAdjustQuality = 0;;
-
+    $request = new Operations\StartUniversalTranscodeRequest(
+        hasMDE: 1,
+        path: '/library/metadata/23409',
+        protocol: 'hls',
+        subtitleSize: 100,
+        subtites: 'burn',
+        audioBoost: 100,
+        location: 'lan',
+        mediaBufferSize: 102400,
+        session: 'zvcage8b7rkioqcm8f4uns4c',
+    );
     $response = $sdk->video->startUniversalTranscode($request);
 
     if ($response->statusCode === 200) {
@@ -125,12 +119,17 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                                                        | [\LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeRequest](../../Models/Operations/StartUniversalTranscodeRequest.md) | :heavy_check_mark:                                                                                                                | The request object to use for the request.                                                                                        |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                             | [Operations\StartUniversalTranscodeRequest](../../Models/Operations/StartUniversalTranscodeRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\StartUniversalTranscodeResponse](../../Models/Operations/StartUniversalTranscodeResponse.md)**
+**[?Operations\StartUniversalTranscodeResponse](../../Models/Operations/StartUniversalTranscodeResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\StartUniversalTranscodeResponseBody    | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

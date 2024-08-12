@@ -20,15 +20,13 @@ This endpoint will write a single-line log message, including a level and source
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -38,7 +36,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->log->logLine(Operations\Level::Three, 'Test log message', 'Postman');
 
@@ -54,15 +51,20 @@ try {
 
 | Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   | Example                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `level`                                                                                                       | [\LukeHagar\Plex_API\Models\Operations\Level](../../Models/Operations/Level.md)                               | :heavy_check_mark:                                                                                            | An integer log level to write to the PMS log with.  <br/>0: Error  <br/>1: Warning  <br/>2: Info  <br/>3: Debug  <br/>4: Verbose<br/> |                                                                                                               |
+| `level`                                                                                                       | [Operations\Level](../../Models/Operations/Level.md)                                                          | :heavy_check_mark:                                                                                            | An integer log level to write to the PMS log with.  <br/>0: Error  <br/>1: Warning  <br/>2: Info  <br/>3: Debug  <br/>4: Verbose<br/> |                                                                                                               |
 | `message`                                                                                                     | *string*                                                                                                      | :heavy_check_mark:                                                                                            | The text of the message to write to the log.                                                                  | Test log message                                                                                              |
 | `source`                                                                                                      | *string*                                                                                                      | :heavy_check_mark:                                                                                            | a string indicating the source of the message.                                                                | Postman                                                                                                       |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\LogLineResponse](../../Models/Operations/LogLineResponse.md)**
+**[?Operations\LogLineResponse](../../Models/Operations/LogLineResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\LogLineResponseBody                    | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## logMultiLine
 
@@ -92,14 +94,12 @@ Ensure each parameter is properly URL-encoded to avoid interpretation issues.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -109,10 +109,9 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    'level=4&message=Test%20message%201&source=postman
-level=3&message=Test%20message%202&source=postman
-level=1&message=Test%20message%203&source=postman';
-
+    $request = 'level=4&message=Test%20message%201&source=postman
+    level=3&message=Test%20message%202&source=postman
+    level=1&message=Test%20message%203&source=postman';
     $response = $sdk->log->logMultiLine($request);
 
     if ($response->statusCode === 200) {
@@ -132,8 +131,13 @@ level=1&message=Test%20message%203&source=postman';
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\LogMultiLineResponse](../../Models/Operations/LogMultiLineResponse.md)**
+**[?Operations\LogMultiLineResponse](../../Models/Operations/LogMultiLineResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\LogMultiLineResponseBody               | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## enablePaperTrail
 
@@ -143,14 +147,12 @@ This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -173,5 +175,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\EnablePaperTrailResponse](../../Models/Operations/EnablePaperTrailResponse.md)**
+**[?Operations\EnablePaperTrailResponse](../../Models/Operations/EnablePaperTrailResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\EnablePaperTrailResponseBody           | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

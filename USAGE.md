@@ -1,7 +1,5 @@
 <!-- Start SDK Example Usage [usage] -->
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
@@ -14,18 +12,16 @@ $security->accessToken = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setXPlexClientIdentifier('Postman')
-    ->setSecurity($security)
-    ->build();
+    ->setSecurity($security)->build();
 
 try {
     $response = $sdk->server->getServerCapabilities();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
     // handle exception
 }
-
 ```
 <!-- End SDK Example Usage [usage] -->

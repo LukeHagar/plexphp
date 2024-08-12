@@ -19,14 +19,12 @@ Retrieves the home data for the authenticated user, including details like home 
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -38,7 +36,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     $response = $sdk->plex->getHomeData();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -49,8 +47,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetHomeDataResponse](../../Models/Operations/GetHomeDataResponse.md)**
+**[?Operations\GetHomeDataResponse](../../Models/Operations/GetHomeDataResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetHomeDataResponseBody                | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getPin
 
@@ -59,26 +62,21 @@ Retrieve a Pin from Plex.tv for authentication flows
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setXPlexClientIdentifier('Postman')
     ->build();
 
 try {
-    
 
     $response = $sdk->plex->getPin('Postman', false, 'Postman');
 
-    if ($response->twoHundredAndOneApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -98,8 +96,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetPinResponse](../../Models/Operations/GetPinResponse.md)**
+**[?Operations\GetPinResponse](../../Models/Operations/GetPinResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetPinResponseBody                     | 400                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getToken
 
@@ -108,26 +111,21 @@ Retrieve an Access Token from Plex.tv after the Pin has already been authenticat
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setXPlexClientIdentifier('Postman')
     ->build();
 
 try {
-    
 
     $response = $sdk->plex->getToken('<value>', 'Postman');
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -146,5 +144,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetTokenResponse](../../Models/Operations/GetTokenResponse.md)**
+**[?Operations\GetTokenResponse](../../Models/Operations/GetTokenResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetTokenResponseBody                   | 400                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

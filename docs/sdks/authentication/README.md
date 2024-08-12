@@ -19,15 +19,13 @@ This endpoint provides the caller with a temporary token with the same access le
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -37,7 +35,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->authentication->getTransientToken(Operations\GetTransientTokenQueryParamType::Delegation, Operations\Scope::All);
 
@@ -51,16 +48,21 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                                              | [\LukeHagar\Plex_API\Models\Operations\GetTransientTokenQueryParamType](../../Models/Operations/GetTransientTokenQueryParamType.md) | :heavy_check_mark:                                                                                                                  | `delegation` - This is the only supported `type` parameter.                                                                         |
-| `scope`                                                                                                                             | [\LukeHagar\Plex_API\Models\Operations\Scope](../../Models/Operations/Scope.md)                                                     | :heavy_check_mark:                                                                                                                  | `all` - This is the only supported `scope` parameter.                                                                               |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                   | [Operations\GetTransientTokenQueryParamType](../../Models/Operations/GetTransientTokenQueryParamType.md) | :heavy_check_mark:                                                                                       | `delegation` - This is the only supported `type` parameter.                                              |
+| `scope`                                                                                                  | [Operations\Scope](../../Models/Operations/Scope.md)                                                     | :heavy_check_mark:                                                                                       | `all` - This is the only supported `scope` parameter.                                                    |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetTransientTokenResponse](../../Models/Operations/GetTransientTokenResponse.md)**
+**[?Operations\GetTransientTokenResponse](../../Models/Operations/GetTransientTokenResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetTransientTokenResponseBody          | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getSourceConnectionInformation
 
@@ -71,15 +73,12 @@ Note: requires Plex Media Server >= 1.15.4.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -89,7 +88,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');
 
@@ -110,5 +108,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetSourceConnectionInformationResponse](../../Models/Operations/GetSourceConnectionInformationResponse.md)**
+**[?Operations\GetSourceConnectionInformationResponse](../../Models/Operations/GetSourceConnectionInformationResponse.md)**
+### Errors
 
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| Errors\GetSourceConnectionInformationResponseBody | 401                                               | application/json                                  |
+| LukeHagar\Plex_API\Models\Errors.SDKException     | 4xx-5xx                                           | */*                                               |

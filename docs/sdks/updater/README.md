@@ -20,14 +20,12 @@ Querying status of updates
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -39,7 +37,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     $response = $sdk->updater->getUpdateStatus();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -50,8 +48,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetUpdateStatusResponse](../../Models/Operations/GetUpdateStatusResponse.md)**
+**[?Operations\GetUpdateStatusResponse](../../Models/Operations/GetUpdateStatusResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetUpdateStatusResponseBody            | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## checkForUpdates
 
@@ -60,15 +63,13 @@ Checking for updates
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -78,7 +79,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->updater->checkForUpdates(Operations\Download::One);
 
@@ -92,15 +92,20 @@ try {
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `download`                                                                            | [\LukeHagar\Plex_API\Models\Operations\Download](../../Models/Operations/Download.md) | :heavy_minus_sign:                                                                    | Indicate that you want to start download any updates found.                           | 1                                                                                     |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `download`                                                  | [Operations\Download](../../Models/Operations/Download.md)  | :heavy_minus_sign:                                          | Indicate that you want to start download any updates found. | 1                                                           |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\CheckForUpdatesResponse](../../Models/Operations/CheckForUpdatesResponse.md)**
+**[?Operations\CheckForUpdatesResponse](../../Models/Operations/CheckForUpdatesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\CheckForUpdatesResponseBody            | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## applyUpdates
 
@@ -110,15 +115,13 @@ Note that these two parameters are effectively mutually exclusive. The `tonight`
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -128,7 +131,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->updater->applyUpdates(Operations\Tonight::One, Operations\Skip::Zero);
 
@@ -144,11 +146,16 @@ try {
 
 | Parameter                                                                                                                                                | Type                                                                                                                                                     | Required                                                                                                                                                 | Description                                                                                                                                              | Example                                                                                                                                                  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tonight`                                                                                                                                                | [\LukeHagar\Plex_API\Models\Operations\Tonight](../../Models/Operations/Tonight.md)                                                                      | :heavy_minus_sign:                                                                                                                                       | Indicate that you want the update to run during the next Butler execution. Omitting this or setting it to false indicates that the update should install | 1                                                                                                                                                        |
-| `skip`                                                                                                                                                   | [\LukeHagar\Plex_API\Models\Operations\Skip](../../Models/Operations/Skip.md)                                                                            | :heavy_minus_sign:                                                                                                                                       | Indicate that the latest version should be marked as skipped. The <Release> entry for this version will have the `state` set to `skipped`.               | 1                                                                                                                                                        |
+| `tonight`                                                                                                                                                | [Operations\Tonight](../../Models/Operations/Tonight.md)                                                                                                 | :heavy_minus_sign:                                                                                                                                       | Indicate that you want the update to run during the next Butler execution. Omitting this or setting it to false indicates that the update should install | 1                                                                                                                                                        |
+| `skip`                                                                                                                                                   | [Operations\Skip](../../Models/Operations/Skip.md)                                                                                                       | :heavy_minus_sign:                                                                                                                                       | Indicate that the latest version should be marked as skipped. The <Release> entry for this version will have the `state` set to `skipped`.               | 1                                                                                                                                                        |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\ApplyUpdatesResponse](../../Models/Operations/ApplyUpdatesResponse.md)**
+**[?Operations\ApplyUpdatesResponse](../../Models/Operations/ApplyUpdatesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\ApplyUpdatesResponseBody               | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

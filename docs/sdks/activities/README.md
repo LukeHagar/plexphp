@@ -24,14 +24,12 @@ Get Server Activities
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -43,7 +41,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     $response = $sdk->activities->getServerActivities();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -54,8 +52,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetServerActivitiesResponse](../../Models/Operations/GetServerActivitiesResponse.md)**
+**[?Operations\GetServerActivitiesResponse](../../Models/Operations/GetServerActivitiesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetServerActivitiesResponseBody        | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## cancelServerActivities
 
@@ -64,15 +67,12 @@ Cancel Server Activities
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -82,7 +82,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->activities->cancelServerActivities('25b71ed5-0f9d-461c-baa7-d404e9e10d3e');
 
@@ -103,5 +102,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\CancelServerActivitiesResponse](../../Models/Operations/CancelServerActivitiesResponse.md)**
+**[?Operations\CancelServerActivitiesResponse](../../Models/Operations/CancelServerActivitiesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\CancelServerActivitiesResponseBody     | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

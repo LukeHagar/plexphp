@@ -18,15 +18,13 @@ Get Global Hubs filtered by the parameters provided.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -36,11 +34,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->hubs->getGlobalHubs(1262.49, Operations\OnlyTransient::One);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -53,13 +50,18 @@ try {
 | Parameter                                                                                                                                             | Type                                                                                                                                                  | Required                                                                                                                                              | Description                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `count`                                                                                                                                               | *float*                                                                                                                                               | :heavy_minus_sign:                                                                                                                                    | The number of items to return with each hub.                                                                                                          |
-| `onlyTransient`                                                                                                                                       | [\LukeHagar\Plex_API\Models\Operations\OnlyTransient](../../Models/Operations/OnlyTransient.md)                                                       | :heavy_minus_sign:                                                                                                                                    | Only return hubs which are "transient", meaning those which are prone to changing after media playback or addition (e.g. On Deck, or Recently Added). |
+| `onlyTransient`                                                                                                                                       | [Operations\OnlyTransient](../../Models/Operations/OnlyTransient.md)                                                                                  | :heavy_minus_sign:                                                                                                                                    | Only return hubs which are "transient", meaning those which are prone to changing after media playback or addition (e.g. On Deck, or Recently Added). |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsResponse](../../Models/Operations/GetGlobalHubsResponse.md)**
+**[?Operations\GetGlobalHubsResponse](../../Models/Operations/GetGlobalHubsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetGlobalHubsResponseBody              | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getLibraryHubs
 
@@ -69,15 +71,13 @@ This endpoint will return a list of library specific hubs
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -87,11 +87,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->hubs->getLibraryHubs(6728.76, 9010.22, Operations\QueryParamOnlyTransient::Zero);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -105,10 +104,15 @@ try {
 | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sectionId`                                                                                                                                           | *float*                                                                                                                                               | :heavy_check_mark:                                                                                                                                    | the Id of the library to query                                                                                                                        |
 | `count`                                                                                                                                               | *float*                                                                                                                                               | :heavy_minus_sign:                                                                                                                                    | The number of items to return with each hub.                                                                                                          |
-| `onlyTransient`                                                                                                                                       | [\LukeHagar\Plex_API\Models\Operations\QueryParamOnlyTransient](../../Models/Operations/QueryParamOnlyTransient.md)                                   | :heavy_minus_sign:                                                                                                                                    | Only return hubs which are "transient", meaning those which are prone to changing after media playback or addition (e.g. On Deck, or Recently Added). |
+| `onlyTransient`                                                                                                                                       | [Operations\QueryParamOnlyTransient](../../Models/Operations/QueryParamOnlyTransient.md)                                                              | :heavy_minus_sign:                                                                                                                                    | Only return hubs which are "transient", meaning those which are prone to changing after media playback or addition (e.g. On Deck, or Recently Added). |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetLibraryHubsResponse](../../Models/Operations/GetLibraryHubsResponse.md)**
+**[?Operations\GetLibraryHubsResponse](../../Models/Operations/GetLibraryHubsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetLibraryHubsResponseBody             | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

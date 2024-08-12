@@ -28,15 +28,12 @@ This resource returns hash values for local files
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -46,7 +43,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->getFileHash('file://C:\Image.png&type=13', 4462.17);
 
@@ -68,8 +64,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetFileHashResponse](../../Models/Operations/GetFileHashResponse.md)**
+**[?Operations\GetFileHashResponse](../../Models/Operations/GetFileHashResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetFileHashResponseBody                | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getRecentlyAdded
 
@@ -79,14 +80,12 @@ This endpoint will return the recently added content.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -98,7 +97,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     $response = $sdk->library->getRecentlyAdded();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -109,8 +108,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedResponse](../../Models/Operations/GetRecentlyAddedResponse.md)**
+**[?Operations\GetRecentlyAddedResponse](../../Models/Operations/GetRecentlyAddedResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetRecentlyAddedResponseBody           | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getLibraries
 
@@ -125,14 +129,12 @@ This allows a client to provide a rich interface around the media (e.g. allow so
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -144,7 +146,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     $response = $sdk->library->getLibraries();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -155,8 +157,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetLibrariesResponse](../../Models/Operations/GetLibrariesResponse.md)**
+**[?Operations\GetLibrariesResponse](../../Models/Operations/GetLibrariesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetLibrariesResponseBody               | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getLibrary
 
@@ -204,15 +211,13 @@ Each type in the library comes with a set of filters and sorts, aiding in buildi
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -222,11 +227,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->getLibrary(1000, Operations\IncludeDetails::Zero);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -239,13 +243,18 @@ try {
 | Parameter                                                                                                                                                                                  | Type                                                                                                                                                                                       | Required                                                                                                                                                                                   | Description                                                                                                                                                                                | Example                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `sectionId`                                                                                                                                                                                | *float*                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                         | the Id of the library to query                                                                                                                                                             | 1000                                                                                                                                                                                       |
-| `includeDetails`                                                                                                                                                                           | [\LukeHagar\Plex_API\Models\Operations\IncludeDetails](../../Models/Operations/IncludeDetails.md)                                                                                          | :heavy_minus_sign:                                                                                                                                                                         | Whether or not to include details for a section (types, filters, and sorts). <br/>Only exists for backwards compatibility, media providers other than the server libraries have it on always.<br/> |                                                                                                                                                                                            |
+| `includeDetails`                                                                                                                                                                           | [Operations\IncludeDetails](../../Models/Operations/IncludeDetails.md)                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                         | Whether or not to include details for a section (types, filters, and sorts). <br/>Only exists for backwards compatibility, media providers other than the server libraries have it on always.<br/> |                                                                                                                                                                                            |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetLibraryResponse](../../Models/Operations/GetLibraryResponse.md)**
+**[?Operations\GetLibraryResponse](../../Models/Operations/GetLibraryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetLibraryResponseBody                 | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## deleteLibrary
 
@@ -254,15 +263,12 @@ Delate a library using a specific section
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -272,7 +278,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->deleteLibrary(1000);
 
@@ -293,8 +298,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\DeleteLibraryResponse](../../Models/Operations/DeleteLibraryResponse.md)**
+**[?Operations\DeleteLibraryResponse](../../Models/Operations/DeleteLibraryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\DeleteLibraryResponseBody              | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getLibraryItems
 
@@ -323,15 +333,13 @@ Fetches details from a specific section of the library identified by a section k
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -341,11 +349,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->getLibraryItems('<value>', Operations\Tag::Genre, 1);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -355,17 +362,22 @@ try {
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `sectionId`                                                                 | *mixed*                                                                     | :heavy_check_mark:                                                          | the Id of the library to query                                              |                                                                             |
-| `tag`                                                                       | [\LukeHagar\Plex_API\Models\Operations\Tag](../../Models/Operations/Tag.md) | :heavy_check_mark:                                                          | A key representing a specific tag within the section.                       |                                                                             |
-| `includeGuids`                                                              | *int*                                                                       | :heavy_minus_sign:                                                          | Adds the Guids object to the response<br/>                                  | 1                                                                           |
+| Parameter                                             | Type                                                  | Required                                              | Description                                           | Example                                               |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `sectionId`                                           | *mixed*                                               | :heavy_check_mark:                                    | the Id of the library to query                        |                                                       |
+| `tag`                                                 | [Operations\Tag](../../Models/Operations/Tag.md)      | :heavy_check_mark:                                    | A key representing a specific tag within the section. |                                                       |
+| `includeGuids`                                        | *int*                                                 | :heavy_minus_sign:                                    | Adds the Guids object to the response<br/>            | 1                                                     |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsResponse](../../Models/Operations/GetLibraryItemsResponse.md)**
+**[?Operations\GetLibraryItemsResponse](../../Models/Operations/GetLibraryItemsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetLibraryItemsResponseBody            | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## refreshLibrary
 
@@ -375,15 +387,12 @@ This endpoint Refreshes the library.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -393,7 +402,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->refreshLibrary(934.16);
 
@@ -414,8 +422,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\RefreshLibraryResponse](../../Models/Operations/RefreshLibraryResponse.md)**
+**[?Operations\RefreshLibraryResponse](../../Models/Operations/RefreshLibraryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\RefreshLibraryResponseBody             | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## searchLibrary
 
@@ -442,15 +455,13 @@ Each type in the library comes with a set of filters and sorts, aiding in buildi
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -460,11 +471,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->searchLibrary(933505, Operations\Type::Four);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -474,16 +484,21 @@ try {
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `sectionId`                                                                   | *int*                                                                         | :heavy_check_mark:                                                            | the Id of the library to query                                                |
-| `type`                                                                        | [\LukeHagar\Plex_API\Models\Operations\Type](../../Models/Operations/Type.md) | :heavy_check_mark:                                                            | Plex content type to search for                                               |
+| Parameter                                          | Type                                               | Required                                           | Description                                        |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| `sectionId`                                        | *int*                                              | :heavy_check_mark:                                 | the Id of the library to query                     |
+| `type`                                             | [Operations\Type](../../Models/Operations/Type.md) | :heavy_check_mark:                                 | Plex content type to search for                    |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\SearchLibraryResponse](../../Models/Operations/SearchLibraryResponse.md)**
+**[?Operations\SearchLibraryResponse](../../Models/Operations/SearchLibraryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\SearchLibraryResponseBody              | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getMetadata
 
@@ -493,15 +508,12 @@ This endpoint will return the metadata of a library item specified with the rati
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -511,11 +523,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->getMetadata(8382.31);
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -532,8 +543,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetMetadataResponse](../../Models/Operations/GetMetadataResponse.md)**
+**[?Operations\GetMetadataResponse](../../Models/Operations/GetMetadataResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetMetadataResponseBody                | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getMetadataChildren
 
@@ -543,15 +559,12 @@ This endpoint will return the children of of a library item specified with the r
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -561,11 +574,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->getMetadataChildren(1539.14, '<value>');
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -583,8 +595,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenResponse](../../Models/Operations/GetMetadataChildrenResponse.md)**
+**[?Operations\GetMetadataChildrenResponse](../../Models/Operations/GetMetadataChildrenResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetMetadataChildrenResponseBody        | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getTopWatchedContent
 
@@ -594,15 +611,12 @@ This endpoint will return the top watched content from libraries of a certain ty
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -612,7 +626,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->library->getTopWatchedContent(505531, 1);
 
@@ -634,8 +647,12 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentResponse](../../Models/Operations/GetTopWatchedContentResponse.md)**
+**[?Operations\GetTopWatchedContentResponse](../../Models/Operations/GetTopWatchedContentResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## getOnDeck
 
@@ -645,14 +662,12 @@ This endpoint will return the on deck content.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -664,7 +679,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     $response = $sdk->library->getOnDeck();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -675,5 +690,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetOnDeckResponse](../../Models/Operations/GetOnDeckResponse.md)**
+**[?Operations\GetOnDeckResponse](../../Models/Operations/GetOnDeckResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetOnDeckResponseBody                  | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

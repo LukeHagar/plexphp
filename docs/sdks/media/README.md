@@ -19,15 +19,12 @@ This will mark the provided media key as Played.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -37,7 +34,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->media->markPlayed(59398);
 
@@ -58,8 +54,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\MarkPlayedResponse](../../Models/Operations/MarkPlayedResponse.md)**
+**[?Operations\MarkPlayedResponse](../../Models/Operations/MarkPlayedResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\MarkPlayedResponseBody                 | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## markUnplayed
 
@@ -68,15 +69,12 @@ This will mark the provided media key as Unplayed.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -86,7 +84,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->media->markUnplayed(59398);
 
@@ -107,8 +104,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\MarkUnplayedResponse](../../Models/Operations/MarkUnplayedResponse.md)**
+**[?Operations\MarkUnplayedResponse](../../Models/Operations/MarkUnplayedResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\MarkUnplayedResponseBody               | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## updatePlayProgress
 
@@ -118,15 +120,12 @@ This API command can be used to update the play progress of a media item.
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -136,7 +135,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->media->updatePlayProgress('<value>', 90000, 'played');
 
@@ -159,5 +157,10 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\UpdatePlayProgressResponse](../../Models/Operations/UpdatePlayProgressResponse.md)**
+**[?Operations\UpdatePlayProgressResponse](../../Models/Operations/UpdatePlayProgressResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\UpdatePlayProgressResponseBody         | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

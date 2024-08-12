@@ -21,14 +21,12 @@ Returns a list of butler tasks
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -40,7 +38,7 @@ $sdk = Plex_API\PlexAPI::builder()
 try {
     $response = $sdk->butler->getButlerTasks();
 
-    if ($response->twoHundredApplicationJsonObject !== null) {
+    if ($response->object !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -51,8 +49,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\GetButlerTasksResponse](../../Models/Operations/GetButlerTasksResponse.md)**
+**[?Operations\GetButlerTasksResponse](../../Models/Operations/GetButlerTasksResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetButlerTasksResponseBody             | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## startAllTasks
 
@@ -66,14 +69,12 @@ This endpoint will attempt to start all Butler tasks that are enabled in the set
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -96,8 +97,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\StartAllTasksResponse](../../Models/Operations/StartAllTasksResponse.md)**
+**[?Operations\StartAllTasksResponse](../../Models/Operations/StartAllTasksResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\StartAllTasksResponseBody              | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## stopAllTasks
 
@@ -107,14 +113,12 @@ This endpoint will stop all currently running tasks and remove any scheduled tas
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -137,8 +141,13 @@ try {
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\StopAllTasksResponse](../../Models/Operations/StopAllTasksResponse.md)**
+**[?Operations\StopAllTasksResponse](../../Models/Operations/StopAllTasksResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\StopAllTasksResponseBody               | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## startTask
 
@@ -152,15 +161,13 @@ This endpoint will attempt to start a single Butler task that is enabled in the 
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -170,7 +177,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->butler->startTask(Operations\TaskName::CleanOldBundles);
 
@@ -184,15 +190,20 @@ try {
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `taskName`                                                                            | [\LukeHagar\Plex_API\Models\Operations\TaskName](../../Models/Operations/TaskName.md) | :heavy_check_mark:                                                                    | the name of the task to be started.                                                   |
+| Parameter                                                  | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `taskName`                                                 | [Operations\TaskName](../../Models/Operations/TaskName.md) | :heavy_check_mark:                                         | the name of the task to be started.                        |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\StartTaskResponse](../../Models/Operations/StartTaskResponse.md)**
+**[?Operations\StartTaskResponse](../../Models/Operations/StartTaskResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\StartTaskResponseBody                  | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## stopTask
 
@@ -202,15 +213,13 @@ This endpoint will stop a currently running task by name, or remove it from the 
 ### Example Usage
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use \LukeHagar\Plex_API;
-use \LukeHagar\Plex_API\Models\Components;
-use \LukeHagar\Plex_API\Models\Operations;
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security();
 $security->accessToken = '<YOUR_API_KEY_HERE>';
@@ -220,7 +229,6 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-    
 
     $response = $sdk->butler->stopTask(Operations\PathParamTaskName::BackupDatabase);
 
@@ -234,12 +242,17 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `taskName`                                                                                              | [\LukeHagar\Plex_API\Models\Operations\PathParamTaskName](../../Models/Operations/PathParamTaskName.md) | :heavy_check_mark:                                                                                      | The name of the task to be started.                                                                     |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `taskName`                                                                   | [Operations\PathParamTaskName](../../Models/Operations/PathParamTaskName.md) | :heavy_check_mark:                                                           | The name of the task to be started.                                          |
 
 
 ### Response
 
-**[?\LukeHagar\Plex_API\Models\Operations\StopTaskResponse](../../Models/Operations/StopTaskResponse.md)**
+**[?Operations\StopTaskResponse](../../Models/Operations/StopTaskResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\StopTaskResponseBody                   | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
