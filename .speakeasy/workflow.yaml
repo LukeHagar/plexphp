@@ -8,6 +8,10 @@ targets:
     plexphp:
         target: php
         source: plexapi
+        publish:
+            packagist:
+                username: LukeHagar
+                token: $packagist_token
         codeSamples:
             output: codeSamples.yaml
             registry:
