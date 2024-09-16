@@ -16,7 +16,7 @@ class Sort
      * @var ?string $default
      */
     #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $default = null;
 
     /**
@@ -24,7 +24,7 @@ class Sort
      * @var ?string $defaultDirection
      */
     #[\JMS\Serializer\Annotation\SerializedName('defaultDirection')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultDirection = null;
 
     /**
@@ -32,7 +32,7 @@ class Sort
      * @var ?string $descKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('descKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $descKey = null;
 
     /**
@@ -40,7 +40,7 @@ class Sort
      * @var ?string $firstCharacterKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('firstCharacterKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $firstCharacterKey = null;
 
     /**
@@ -48,7 +48,7 @@ class Sort
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -56,7 +56,7 @@ class Sort
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**

@@ -36,11 +36,11 @@ class GetLibraryHubsRequest
     public ?QueryParamOnlyTransient $onlyTransient = null;
 
     /**
-     * @param  ?float  $sectionId
+     * @param  float  $sectionId
      * @param  ?float  $count
      * @param  ?QueryParamOnlyTransient  $onlyTransient
      */
-    public function __construct(?float $sectionId = null, ?float $count = null, ?QueryParamOnlyTransient $onlyTransient = null)
+    public function __construct(float $sectionId, ?float $count = null, ?QueryParamOnlyTransient $onlyTransient = null)
     {
         $this->sectionId = $sectionId;
         $this->count = $count;

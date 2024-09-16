@@ -36,11 +36,11 @@ class PerformSearchRequest
     public ?float $limit = null;
 
     /**
-     * @param  ?string  $query
+     * @param  string  $query
      * @param  ?float  $sectionId
      * @param  ?float  $limit
      */
-    public function __construct(?string $query = null, ?float $sectionId = null, ?float $limit = null)
+    public function __construct(string $query, ?float $sectionId = null, ?float $limit = null)
     {
         $this->query = $query;
         $this->sectionId = $sectionId;

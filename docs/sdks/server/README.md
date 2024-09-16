@@ -1,6 +1,5 @@
 # Server
 
-
 ## Overview
 
 Operations against the Plex Media Server System.
@@ -15,6 +14,7 @@ Operations against the Plex Media Server System.
 * [getServerIdentity](#getserveridentity) - Get Server Identity
 * [getMyPlexAccount](#getmyplexaccount) - Get MyPlex Account
 * [getResizedPhoto](#getresizedphoto) - Get a Resized Photo
+* [getMediaProviders](#getmediaproviders) - Get Media Providers
 * [getServerList](#getserverlist) - Get Server List
 
 ## getServerCapabilities
@@ -31,11 +31,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -49,16 +50,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetServerCapabilitiesResponse](../../Models/Operations/GetServerCapabilitiesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerCapabilitiesResponseBody      | 401                                           | application/json                              |
+| Errors\GetServerCapabilitiesBadRequest        | 400                                           | application/json                              |
+| Errors\GetServerCapabilitiesUnauthorized      | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getServerPreferences
 
@@ -74,11 +77,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -92,16 +96,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetServerPreferencesResponse](../../Models/Operations/GetServerPreferencesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerPreferencesResponseBody       | 401                                           | application/json                              |
+| Errors\GetServerPreferencesBadRequest         | 400                                           | application/json                              |
+| Errors\GetServerPreferencesUnauthorized       | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getAvailableClients
 
@@ -117,11 +123,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -135,16 +142,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetAvailableClientsResponse](../../Models/Operations/GetAvailableClientsResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetAvailableClientsResponseBody        | 401                                           | application/json                              |
+| Errors\GetAvailableClientsBadRequest          | 400                                           | application/json                              |
+| Errors\GetAvailableClientsUnauthorized        | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getDevices
 
@@ -160,11 +169,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -178,20 +188,22 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetDevicesResponse](../../Models/Operations/GetDevicesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetDevicesResponseBody                 | 401                                           | application/json                              |
+| Errors\GetDevicesBadRequest                   | 400                                           | application/json                              |
+| Errors\GetDevicesUnauthorized                 | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getServerIdentity
 
-Get Server Identity
+This request is useful to determine if the server is online or offline
 
 ### Example Usage
 
@@ -201,14 +213,10 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
-
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
-    ->setSecurity($security)->build();
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->build();
 
 try {
     $response = $sdk->server->getServerIdentity();
@@ -221,16 +229,17 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetServerIdentityResponse](../../Models/Operations/GetServerIdentityResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerIdentityResponseBody          | 401                                           | application/json                              |
+| Errors\GetServerIdentityRequestTimeout        | 408                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getMyPlexAccount
 
@@ -246,11 +255,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -264,16 +274,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetMyPlexAccountResponse](../../Models/Operations/GetMyPlexAccountResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetMyPlexAccountResponseBody           | 401                                           | application/json                              |
+| Errors\GetMyPlexAccountBadRequest             | 400                                           | application/json                              |
+| Errors\GetMyPlexAccountUnauthorized           | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getResizedPhoto
 
@@ -291,11 +303,12 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -303,9 +316,9 @@ try {
         width: 110,
         height: 165,
         opacity: 643869,
-        blur: 4000,
+        blur: 0,
         minSize: Operations\MinSize::Zero,
-        upscale: Operations\Upscale::Zero,
+        upscale: Operations\Upscale::One,
         url: '/library/metadata/49564/thumb/1654258204',
     );
     $response = $sdk->server->getResizedPhoto($request);
@@ -324,16 +337,71 @@ try {
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `$request`                                                                             | [Operations\GetResizedPhotoRequest](../../Models/Operations/GetResizedPhotoRequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
-
 ### Response
 
 **[?Operations\GetResizedPhotoResponse](../../Models/Operations/GetResizedPhotoResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetResizedPhotoResponseBody            | 401                                           | application/json                              |
+| Errors\GetResizedPhotoBadRequest              | 400                                           | application/json                              |
+| Errors\GetResizedPhotoUnauthorized            | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
+
+## getMediaProviders
+
+Retrieves media providers and their features from the Plex server.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setSecurity($security)->build();
+
+try {
+
+    $response = $sdk->server->getMediaProviders('CV5xoxjTpFKUzBTShsaf');
+
+    if ($response->object !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                 | Type                      | Required                  | Description               | Example                   |
+| ------------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- |
+| `xPlexToken`              | *string*                  | :heavy_check_mark:        | Plex Authentication Token | CV5xoxjTpFKUzBTShsaf      |
+
+### Response
+
+**[?Operations\GetMediaProvidersResponse](../../Models/Operations/GetMediaProvidersResponse.md)**
+
+### Errors
+
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetMediaProvidersBadRequest            | 400                                           | application/json                              |
+| Errors\GetMediaProvidersUnauthorized          | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getServerList
 
@@ -349,11 +417,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -367,13 +436,14 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetServerListResponse](../../Models/Operations/GetServerListResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerListResponseBody              | 401                                           | application/json                              |
+| Errors\GetServerListBadRequest                | 400                                           | application/json                              |
+| Errors\GetServerListUnauthorized              | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

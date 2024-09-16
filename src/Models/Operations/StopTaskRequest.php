@@ -20,9 +20,9 @@ class StopTaskRequest
     public PathParamTaskName $taskName;
 
     /**
-     * @param  ?PathParamTaskName  $taskName
+     * @param  PathParamTaskName  $taskName
      */
-    public function __construct(?PathParamTaskName $taskName = null)
+    public function __construct(PathParamTaskName $taskName)
     {
         $this->taskName = $taskName;
     }

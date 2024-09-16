@@ -36,11 +36,11 @@ class UpdatePlaylistRequest
     public ?string $summary = null;
 
     /**
-     * @param  ?float  $playlistID
+     * @param  float  $playlistID
      * @param  ?string  $title
      * @param  ?string  $summary
      */
-    public function __construct(?float $playlistID = null, ?string $title = null, ?string $summary = null)
+    public function __construct(float $playlistID, ?string $title = null, ?string $summary = null)
     {
         $this->playlistID = $playlistID;
         $this->title = $title;

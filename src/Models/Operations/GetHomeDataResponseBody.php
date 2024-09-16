@@ -17,7 +17,7 @@ class GetHomeDataResponseBody
      * @var ?float $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $id = null;
 
     /**
@@ -25,7 +25,7 @@ class GetHomeDataResponseBody
      * @var ?string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
@@ -33,7 +33,7 @@ class GetHomeDataResponseBody
      * @var ?float $guestUserID
      */
     #[\JMS\Serializer\Annotation\SerializedName('guestUserID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $guestUserID = null;
 
     /**
@@ -41,7 +41,7 @@ class GetHomeDataResponseBody
      * @var ?string $guestUserUUID
      */
     #[\JMS\Serializer\Annotation\SerializedName('guestUserUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guestUserUUID = null;
 
     /**
@@ -49,7 +49,7 @@ class GetHomeDataResponseBody
      * @var ?bool $guestEnabled
      */
     #[\JMS\Serializer\Annotation\SerializedName('guestEnabled')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $guestEnabled = null;
 
     /**
@@ -57,7 +57,7 @@ class GetHomeDataResponseBody
      * @var ?bool $subscription
      */
     #[\JMS\Serializer\Annotation\SerializedName('subscription')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $subscription = null;
 
     /**

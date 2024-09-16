@@ -14,10 +14,10 @@ class Headers
 {
     /**
      * @param  mixed  $headers
-     * @param  array<string,array<string,array<string,string>>>  $globals
+     * @param  array<string,array<string,array<string,string>>>|null  $globals
      * @return array<string,string>
      */
-    public function parseHeaders(mixed $headers, array $globals): array
+    public function parseHeaders(mixed $headers, ?array $globals = null): array
     {
         $out = [];
 
@@ -26,7 +26,10 @@ class Headers
         }
 
         foreach ($headers as $field => $value) {
-            $value = populateGlobal($value, 'header', $field, $globals);
+            if ($globals !== null) {
+                $value = populateGlobal($value, 'header', $field, $globals);
+            }
+
             if ($value === null) {
                 continue;
             }

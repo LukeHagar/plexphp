@@ -149,11 +149,11 @@ class PlexAPIBuilder
      */
     public function setXPlexClientIdentifier(string $xPlexClientIdentifier): PlexAPIBuilder
     {
-        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['header'] = [];
+        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['queryParam'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['header']['xPlexClientIdentifier'] = $xPlexClientIdentifier;
+        $this->sdkConfig->globals['parameters']['queryParam']['xPlexClientIdentifier'] = $xPlexClientIdentifier;
 
         return $this;
     }

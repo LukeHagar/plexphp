@@ -10,11 +10,7 @@ namespace LukeHagar\Plex_API;
 
 
 
-/**
- * PlexAPI - Plex-API: A Plex Media Server API Map
- *
- * An Open API Spec for interacting with Plex.tv and Plex Servers
- */
+/** PlexAPI - Plex-API: An Open API Spec for interacting with Plex.tv and Plex Media Server */
 class PlexAPI
 {
     public const SERVERS = [
@@ -110,6 +106,15 @@ class PlexAPI
     public Library $library;
 
     /**
+     * API Calls that perform operations with Plex Media Server Watchlists
+     *
+     *
+     *
+     * @var Watchlist $$watchlist
+     */
+    public Watchlist $watchlist;
+
+    /**
      * Submit logs to the Log Handler for Plex Media Server
      *
      *
@@ -168,15 +173,6 @@ class PlexAPI
     public Updater $updater;
 
     /**
-     * API Calls that perform operations with Plex Media Server Watchlists
-     *
-     *
-     *
-     * @var Watchlist $$watchlist
-     */
-    public Watchlist $watchlist;
-
-    /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
      *
      * @return PlexAPIBuilder
@@ -201,12 +197,12 @@ class PlexAPI
         $this->hubs = new Hubs($this->sdkConfiguration);
         $this->search = new Search($this->sdkConfiguration);
         $this->library = new Library($this->sdkConfiguration);
+        $this->watchlist = new Watchlist($this->sdkConfiguration);
         $this->log = new Log($this->sdkConfiguration);
         $this->playlists = new Playlists($this->sdkConfiguration);
         $this->authentication = new Authentication($this->sdkConfiguration);
         $this->statistics = new Statistics($this->sdkConfiguration);
         $this->sessions = new Sessions($this->sdkConfiguration);
         $this->updater = new Updater($this->sdkConfiguration);
-        $this->watchlist = new Watchlist($this->sdkConfiguration);
     }
 }

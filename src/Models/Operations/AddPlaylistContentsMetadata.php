@@ -16,7 +16,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -24,7 +24,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -40,7 +40,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -48,7 +48,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -56,7 +56,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
@@ -64,7 +64,7 @@ class AddPlaylistContentsMetadata
      * @var ?bool $smart
      */
     #[\JMS\Serializer\Annotation\SerializedName('smart')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $smart = null;
 
     /**
@@ -72,7 +72,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $playlistType
      */
     #[\JMS\Serializer\Annotation\SerializedName('playlistType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $playlistType = null;
 
     /**
@@ -80,7 +80,7 @@ class AddPlaylistContentsMetadata
      * @var ?string $composite
      */
     #[\JMS\Serializer\Annotation\SerializedName('composite')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $composite = null;
 
     /**
@@ -88,7 +88,7 @@ class AddPlaylistContentsMetadata
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -96,7 +96,7 @@ class AddPlaylistContentsMetadata
      * @var ?int $leafCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCount = null;
 
     /**
@@ -104,7 +104,7 @@ class AddPlaylistContentsMetadata
      * @var ?int $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $addedAt = null;
 
     /**
@@ -112,7 +112,7 @@ class AddPlaylistContentsMetadata
      * @var ?int $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**

@@ -20,9 +20,9 @@ class StopTranscodeSessionRequest
     public string $sessionKey;
 
     /**
-     * @param  ?string  $sessionKey
+     * @param  string  $sessionKey
      */
-    public function __construct(?string $sessionKey = null)
+    public function __construct(string $sessionKey)
     {
         $this->sessionKey = $sessionKey;
     }

@@ -16,7 +16,7 @@ class GetLibraryItemsMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -24,7 +24,7 @@ class GetLibraryItemsMediaContainer
      * @var ?bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
@@ -32,7 +32,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -40,7 +40,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $identifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
@@ -49,7 +49,7 @@ class GetLibraryItemsMediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
     #[\JMS\Serializer\Annotation\Type('int|string')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public int|string|null $librarySectionID = null;
 
     /**
@@ -57,7 +57,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $librarySectionTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
@@ -65,7 +65,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $librarySectionUUID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionUUID = null;
 
     /**
@@ -73,7 +73,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $mediaTagPrefix
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $mediaTagPrefix = null;
 
     /**
@@ -81,7 +81,7 @@ class GetLibraryItemsMediaContainer
      * @var ?int $mediaTagVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $mediaTagVersion = null;
 
     /**
@@ -89,7 +89,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -97,7 +97,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $title1
      */
     #[\JMS\Serializer\Annotation\SerializedName('title1')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title1 = null;
 
     /**
@@ -105,7 +105,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $title2
      */
     #[\JMS\Serializer\Annotation\SerializedName('title2')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title2 = null;
 
     /**
@@ -113,7 +113,7 @@ class GetLibraryItemsMediaContainer
      * @var ?string $viewGroup
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewGroup')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $viewGroup = null;
 
     /**
@@ -121,7 +121,7 @@ class GetLibraryItemsMediaContainer
      * @var ?int $viewMode
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewMode')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewMode = null;
 
     /**
@@ -129,7 +129,7 @@ class GetLibraryItemsMediaContainer
      * @var ?bool $mixedParents
      */
     #[\JMS\Serializer\Annotation\SerializedName('mixedParents')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $mixedParents = null;
 
     /**
@@ -138,8 +138,8 @@ class GetLibraryItemsMediaContainer
      * @var ?array<GetLibraryItemsMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

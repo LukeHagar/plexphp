@@ -16,7 +16,7 @@ class GetLibraryItemsMedia
      * @var ?int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
@@ -24,7 +24,7 @@ class GetLibraryItemsMedia
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -32,7 +32,7 @@ class GetLibraryItemsMedia
      * @var ?int $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $bitrate = null;
 
     /**
@@ -40,7 +40,7 @@ class GetLibraryItemsMedia
      * @var ?int $width
      */
     #[\JMS\Serializer\Annotation\SerializedName('width')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $width = null;
 
     /**
@@ -48,7 +48,7 @@ class GetLibraryItemsMedia
      * @var ?int $height
      */
     #[\JMS\Serializer\Annotation\SerializedName('height')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $height = null;
 
     /**
@@ -56,7 +56,7 @@ class GetLibraryItemsMedia
      * @var ?float $aspectRatio
      */
     #[\JMS\Serializer\Annotation\SerializedName('aspectRatio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $aspectRatio = null;
 
     /**
@@ -64,7 +64,7 @@ class GetLibraryItemsMedia
      * @var ?int $audioChannels
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $audioChannels = null;
 
     /**
@@ -72,7 +72,7 @@ class GetLibraryItemsMedia
      * @var ?string $audioCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audioCodec = null;
 
     /**
@@ -80,7 +80,7 @@ class GetLibraryItemsMedia
      * @var ?string $videoCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoCodec = null;
 
     /**
@@ -88,7 +88,7 @@ class GetLibraryItemsMedia
      * @var ?string $videoResolution
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoResolution')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoResolution = null;
 
     /**
@@ -96,7 +96,7 @@ class GetLibraryItemsMedia
      * @var ?string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
@@ -104,7 +104,7 @@ class GetLibraryItemsMedia
      * @var ?string $videoFrameRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoFrameRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoFrameRate = null;
 
     /**
@@ -112,7 +112,7 @@ class GetLibraryItemsMedia
      * @var ?string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoProfile = null;
 
     /**
@@ -121,8 +121,8 @@ class GetLibraryItemsMedia
      * @var ?array<GetLibraryItemsPart> $part
      */
     #[\JMS\Serializer\Annotation\SerializedName('Part')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsPart>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsPart>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $part = null;
 
     /**

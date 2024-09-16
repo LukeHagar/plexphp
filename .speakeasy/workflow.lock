@@ -1,4 +1,4 @@
-speakeasyVersion: 1.362.0
+speakeasyVersion: 1.397.2
 sources:
     my-source:
         sourceNamespace: my-source
@@ -7,29 +7,37 @@ sources:
         tags:
             - latest
             - main
+    plexapi:
+        sourceNamespace: plexapi
+        sourceRevisionDigest: sha256:533fe97486e3fe2d84e890b7bbcdba4543d415e45181386154e011861f6da36f
+        sourceBlobDigest: sha256:f7e2709f52370dff16c1851a7a4e44a89f2e978e9cae335bffc10625950b3bd9
+        tags:
+            - latest
+            - main
 targets:
     plexphp:
-        source: my-source
-        sourceNamespace: my-source
-        sourceRevisionDigest: sha256:c655e586ae918fdfeb2a0e48f44dd0d83a60834c56b12cda70cc1b6e41a30680
-        sourceBlobDigest: sha256:e7c91bb1aed0f6cc3284fef94ec096c89c1c88c5a256ca9d0d032de67180fdd8
+        source: plexapi
+        sourceNamespace: plexapi
+        sourceRevisionDigest: sha256:533fe97486e3fe2d84e890b7bbcdba4543d415e45181386154e011861f6da36f
+        sourceBlobDigest: sha256:f7e2709f52370dff16c1851a7a4e44a89f2e978e9cae335bffc10625950b3bd9
         codeSamplesNamespace: code-samples-php-plexphp
-        codeSamplesRevisionDigest: sha256:b7885c14977a7f51b434eba5a7fa83a28455dfa4bfd20a8ab04319dfbace7417
-        outLocation: /github/workspace/repo
+        codeSamplesRevisionDigest: sha256:09c3a7a54c93941a76a6e929193153781dfd0468455ab492b9650f410d8e8c4c
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
-        my-source:
+        plexapi:
             inputs:
-                - location: https://raw.githubusercontent.com/LukeHagar/plex-api-spec/main/plex-media-server-spec-dereferenced.yaml
-            registry:
-                location: registry.speakeasyapi.dev/lukehagar/lukehagar/my-source
+                - location: registry.speakeasyapi.dev/plexapi/plexapi/plexapi:main
     targets:
         plexphp:
             target: php
-            source: my-source
+            source: plexapi
+            publish:
+                packagist:
+                    username: LukeHagar
+                    token: $packagist_token
             codeSamples:
                 output: codeSamples.yaml
                 registry:
-                    location: registry.speakeasyapi.dev/lukehagar/lukehagar/code-samples-php-plexphp
+                    location: registry.speakeasyapi.dev/plexapi/plexapi/code-samples-php-plexphp

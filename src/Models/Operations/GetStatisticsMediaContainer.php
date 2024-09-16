@@ -16,7 +16,7 @@ class GetStatisticsMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -25,8 +25,8 @@ class GetStatisticsMediaContainer
      * @var ?array<GetStatisticsDevice> $device
      */
     #[\JMS\Serializer\Annotation\SerializedName('Device')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetStatisticsDevice>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetStatisticsDevice>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $device = null;
 
     /**
@@ -35,8 +35,8 @@ class GetStatisticsMediaContainer
      * @var ?array<Account> $account
      */
     #[\JMS\Serializer\Annotation\SerializedName('Account')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Account>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Account>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $account = null;
 
     /**
@@ -45,8 +45,8 @@ class GetStatisticsMediaContainer
      * @var ?array<StatisticsMedia> $statisticsMedia
      */
     #[\JMS\Serializer\Annotation\SerializedName('StatisticsMedia')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsMedia>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsMedia>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $statisticsMedia = null;
 
     /**

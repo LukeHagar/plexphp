@@ -235,11 +235,8 @@ function valToString(mixed $val, string $dateTimeFormat = ''): string
  */
 function populateGlobal(mixed $value, string $type, string $field, array $globals): mixed
 {
-    if ($globals !== null && $value === null && isset($globals['parameters'][$type]) && isset($globals['parameters'][$type][$field])) {
-        $globalVal = $globals['parameters'][$type][$field];
-        if ($globalVal !== null) {
-            $value = $globalVal;
-        }
+    if ($value === null && ! empty($globals['parameters'][$type][$field])) {
+        $value = $globals['parameters'][$type][$field];
     }
 
     return $value;

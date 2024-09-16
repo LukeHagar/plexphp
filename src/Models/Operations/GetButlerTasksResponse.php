@@ -40,12 +40,12 @@ class GetButlerTasksResponse
     public ?GetButlerTasksResponseBody $object = null;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetButlerTasksResponseBody  $object
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?GetButlerTasksResponseBody $object = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetButlerTasksResponseBody $object = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

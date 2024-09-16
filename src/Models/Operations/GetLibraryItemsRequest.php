@@ -12,12 +12,15 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetLibraryItemsRequest
 {
     /**
-     * the Id of the library to query
+     * The unique key of the Plex library. 
      *
-     * @var mixed $sectionId
+     * Note: This is unique in the context of the Plex server.
+     *
+     *
+     * @var int $sectionKey
      */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
-    public mixed $sectionId;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionKey')]
+    public int $sectionKey;
 
     /**
      * A key representing a specific tag within the section.
@@ -32,20 +35,77 @@ class GetLibraryItemsRequest
      *
      *
      *
-     * @var ?int $includeGuids
+     * @var ?IncludeGuids $includeGuids
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeGuids')]
-    public ?int $includeGuids = null;
+    public ?IncludeGuids $includeGuids = null;
 
     /**
-     * @param  mixed  $sectionId
-     * @param  ?Tag  $tag
-     * @param  ?int  $includeGuids
+     * Adds the Meta object to the response
+     *
+     *
+     *
+     * @var ?IncludeMeta $includeMeta
      */
-    public function __construct(mixed $sectionId = null, ?Tag $tag = null, ?int $includeGuids = null)
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeMeta')]
+    public ?IncludeMeta $includeMeta = null;
+
+    /**
+     * The type of media to retrieve.
+     *
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var Type $type
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    public Type $type;
+
+    /**
+     * The index of the first item to return. If not specified, the first item will be returned.
+     *
+     * If the number of items exceeds the limit, the response will be paginated.
+     * By default this is 0
+     *
+     *
+     * @var ?int $xPlexContainerStart
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Container-Start')]
+    public ?int $xPlexContainerStart = null;
+
+    /**
+     * The number of items to return. If not specified, all items will be returned.
+     *
+     * If the number of items exceeds the limit, the response will be paginated.
+     * By default this is 50
+     *
+     *
+     * @var ?int $xPlexContainerSize
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Container-Size')]
+    public ?int $xPlexContainerSize = null;
+
+    /**
+     * @param  int  $sectionKey
+     * @param  Tag  $tag
+     * @param  Type  $type
+     * @param  ?IncludeGuids  $includeGuids
+     * @param  ?IncludeMeta  $includeMeta
+     * @param  ?int  $xPlexContainerStart
+     * @param  ?int  $xPlexContainerSize
+     */
+    public function __construct(int $sectionKey, Tag $tag, Type $type, ?IncludeGuids $includeGuids = null, ?IncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
     {
-        $this->sectionId = $sectionId;
+        $this->sectionKey = $sectionKey;
         $this->tag = $tag;
+        $this->type = $type;
         $this->includeGuids = $includeGuids;
+        $this->includeMeta = $includeMeta;
+        $this->xPlexContainerStart = $xPlexContainerStart;
+        $this->xPlexContainerSize = $xPlexContainerSize;
     }
 }

@@ -34,16 +34,16 @@ class UploadPlaylistRequest
      * If the `force` argument is set to 0, a new playlist will be created suffixed with the date and time that the duplicate was uploaded.
      *
      *
-     * @var Force $force
+     * @var QueryParamForce $force
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=force')]
-    public Force $force;
+    public QueryParamForce $force;
 
     /**
-     * @param  ?string  $path
-     * @param  ?Force  $force
+     * @param  string  $path
+     * @param  QueryParamForce  $force
      */
-    public function __construct(?string $path = null, ?Force $force = null)
+    public function __construct(string $path, QueryParamForce $force)
     {
         $this->path = $path;
         $this->force = $force;

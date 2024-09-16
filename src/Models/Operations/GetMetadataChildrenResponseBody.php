@@ -17,8 +17,8 @@ class GetMetadataChildrenResponseBody
      * @var ?GetMetadataChildrenMediaContainer $mediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenMediaContainer')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMetadataChildrenMediaContainer|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GetMetadataChildrenMediaContainer $mediaContainer = null;
 
     /**

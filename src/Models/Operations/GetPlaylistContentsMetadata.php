@@ -16,7 +16,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -24,7 +24,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -40,7 +40,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $studio
      */
     #[\JMS\Serializer\Annotation\SerializedName('studio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $studio = null;
 
     /**
@@ -48,7 +48,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -56,7 +56,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -64,7 +64,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $titleSort
      */
     #[\JMS\Serializer\Annotation\SerializedName('titleSort')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $titleSort = null;
 
     /**
@@ -72,7 +72,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $librarySectionTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
@@ -80,7 +80,7 @@ class GetPlaylistContentsMetadata
      * @var ?int $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $librarySectionID = null;
 
     /**
@@ -88,7 +88,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $librarySectionKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionKey = null;
 
     /**
@@ -96,7 +96,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $contentRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('contentRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
 
     /**
@@ -104,7 +104,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
@@ -112,7 +112,7 @@ class GetPlaylistContentsMetadata
      * @var ?float $rating
      */
     #[\JMS\Serializer\Annotation\SerializedName('rating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $rating = null;
 
     /**
@@ -120,7 +120,7 @@ class GetPlaylistContentsMetadata
      * @var ?float $audienceRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $audienceRating = null;
 
     /**
@@ -128,7 +128,7 @@ class GetPlaylistContentsMetadata
      * @var ?int $year
      */
     #[\JMS\Serializer\Annotation\SerializedName('year')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $year = null;
 
     /**
@@ -136,7 +136,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $tagline
      */
     #[\JMS\Serializer\Annotation\SerializedName('tagline')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tagline = null;
 
     /**
@@ -144,7 +144,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -152,7 +152,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -160,7 +160,7 @@ class GetPlaylistContentsMetadata
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -168,7 +168,7 @@ class GetPlaylistContentsMetadata
      * @var ?LocalDate $originallyAvailableAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?LocalDate $originallyAvailableAt = null;
 
     /**
@@ -176,7 +176,7 @@ class GetPlaylistContentsMetadata
      * @var ?int $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $addedAt = null;
 
     /**
@@ -184,7 +184,7 @@ class GetPlaylistContentsMetadata
      * @var ?int $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**
@@ -192,7 +192,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $audienceRatingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRatingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audienceRatingImage = null;
 
     /**
@@ -200,7 +200,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $hasPremiumExtras
      */
     #[\JMS\Serializer\Annotation\SerializedName('hasPremiumExtras')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $hasPremiumExtras = null;
 
     /**
@@ -208,7 +208,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $hasPremiumPrimaryExtra
      */
     #[\JMS\Serializer\Annotation\SerializedName('hasPremiumPrimaryExtra')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $hasPremiumPrimaryExtra = null;
 
     /**
@@ -216,7 +216,7 @@ class GetPlaylistContentsMetadata
      * @var ?string $ratingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingImage = null;
 
     /**
@@ -225,8 +225,8 @@ class GetPlaylistContentsMetadata
      * @var ?array<GetPlaylistContentsMedia> $media
      */
     #[\JMS\Serializer\Annotation\SerializedName('Media')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMedia>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMedia>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $media = null;
 
     /**
@@ -235,8 +235,8 @@ class GetPlaylistContentsMetadata
      * @var ?array<GetPlaylistContentsGenre> $genre
      */
     #[\JMS\Serializer\Annotation\SerializedName('Genre')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsGenre>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsGenre>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $genre = null;
 
     /**
@@ -245,8 +245,8 @@ class GetPlaylistContentsMetadata
      * @var ?array<GetPlaylistContentsCountry> $country
      */
     #[\JMS\Serializer\Annotation\SerializedName('Country')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsCountry>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsCountry>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $country = null;
 
     /**
@@ -255,8 +255,8 @@ class GetPlaylistContentsMetadata
      * @var ?array<GetPlaylistContentsDirector> $director
      */
     #[\JMS\Serializer\Annotation\SerializedName('Director')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsDirector>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsDirector>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $director = null;
 
     /**
@@ -265,8 +265,8 @@ class GetPlaylistContentsMetadata
      * @var ?array<GetPlaylistContentsWriter> $writer
      */
     #[\JMS\Serializer\Annotation\SerializedName('Writer')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsWriter>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsWriter>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $writer = null;
 
     /**
@@ -275,8 +275,8 @@ class GetPlaylistContentsMetadata
      * @var ?array<GetPlaylistContentsRole> $role
      */
     #[\JMS\Serializer\Annotation\SerializedName('Role')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRole>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsRole>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $role = null;
 
     /**

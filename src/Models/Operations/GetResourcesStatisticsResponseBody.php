@@ -17,8 +17,8 @@ class GetResourcesStatisticsResponseBody
      * @var ?GetResourcesStatisticsMediaContainer $mediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsMediaContainer')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetResourcesStatisticsMediaContainer|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GetResourcesStatisticsMediaContainer $mediaContainer = null;
 
     /**

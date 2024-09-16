@@ -16,7 +16,7 @@ class Session
      * @var ?string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
@@ -24,7 +24,7 @@ class Session
      * @var ?int $bandwidth
      */
     #[\JMS\Serializer\Annotation\SerializedName('bandwidth')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $bandwidth = null;
 
     /**
@@ -32,7 +32,7 @@ class Session
      * @var ?string $location
      */
     #[\JMS\Serializer\Annotation\SerializedName('location')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $location = null;
 
     /**

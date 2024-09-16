@@ -30,10 +30,10 @@ class GetMetadataChildrenRequest
     public ?string $includeElements = null;
 
     /**
-     * @param  ?float  $ratingKey
+     * @param  float  $ratingKey
      * @param  ?string  $includeElements
      */
-    public function __construct(?float $ratingKey = null, ?string $includeElements = null)
+    public function __construct(float $ratingKey, ?string $includeElements = null)
     {
         $this->ratingKey = $ratingKey;
         $this->includeElements = $includeElements;

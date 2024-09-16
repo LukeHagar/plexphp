@@ -28,10 +28,10 @@ class GetFileHashRequest
     public ?float $type = null;
 
     /**
-     * @param  ?string  $url
+     * @param  string  $url
      * @param  ?float  $type
      */
-    public function __construct(?string $url = null, ?float $type = null)
+    public function __construct(string $url, ?float $type = null)
     {
         $this->url = $url;
         $this->type = $type;

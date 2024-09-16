@@ -16,7 +16,7 @@ class GetOnDeckStream
      * @var ?float $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $id = null;
 
     /**
@@ -24,7 +24,7 @@ class GetOnDeckStream
      * @var ?float $streamType
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $streamType = null;
 
     /**
@@ -32,7 +32,7 @@ class GetOnDeckStream
      * @var ?bool $default
      */
     #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $default = null;
 
     /**
@@ -40,7 +40,7 @@ class GetOnDeckStream
      * @var ?string $codec
      */
     #[\JMS\Serializer\Annotation\SerializedName('codec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $codec = null;
 
     /**
@@ -48,7 +48,7 @@ class GetOnDeckStream
      * @var ?float $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $index = null;
 
     /**
@@ -56,7 +56,7 @@ class GetOnDeckStream
      * @var ?float $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $bitrate = null;
 
     /**
@@ -64,7 +64,7 @@ class GetOnDeckStream
      * @var ?string $language
      */
     #[\JMS\Serializer\Annotation\SerializedName('language')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $language = null;
 
     /**
@@ -72,7 +72,7 @@ class GetOnDeckStream
      * @var ?string $languageTag
      */
     #[\JMS\Serializer\Annotation\SerializedName('languageTag')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $languageTag = null;
 
     /**
@@ -80,7 +80,7 @@ class GetOnDeckStream
      * @var ?string $languageCode
      */
     #[\JMS\Serializer\Annotation\SerializedName('languageCode')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $languageCode = null;
 
     /**
@@ -88,7 +88,7 @@ class GetOnDeckStream
      * @var ?float $bitDepth
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $bitDepth = null;
 
     /**
@@ -96,7 +96,7 @@ class GetOnDeckStream
      * @var ?string $chromaLocation
      */
     #[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $chromaLocation = null;
 
     /**
@@ -104,7 +104,7 @@ class GetOnDeckStream
      * @var ?string $chromaSubsampling
      */
     #[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $chromaSubsampling = null;
 
     /**
@@ -112,7 +112,7 @@ class GetOnDeckStream
      * @var ?float $codedHeight
      */
     #[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $codedHeight = null;
 
     /**
@@ -120,7 +120,7 @@ class GetOnDeckStream
      * @var ?float $codedWidth
      */
     #[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $codedWidth = null;
 
     /**
@@ -128,7 +128,7 @@ class GetOnDeckStream
      * @var ?string $colorRange
      */
     #[\JMS\Serializer\Annotation\SerializedName('colorRange')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $colorRange = null;
 
     /**
@@ -136,7 +136,7 @@ class GetOnDeckStream
      * @var ?float $frameRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('frameRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $frameRate = null;
 
     /**
@@ -144,7 +144,7 @@ class GetOnDeckStream
      * @var ?float $height
      */
     #[\JMS\Serializer\Annotation\SerializedName('height')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $height = null;
 
     /**
@@ -152,7 +152,7 @@ class GetOnDeckStream
      * @var ?float $level
      */
     #[\JMS\Serializer\Annotation\SerializedName('level')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $level = null;
 
     /**
@@ -160,7 +160,7 @@ class GetOnDeckStream
      * @var ?string $profile
      */
     #[\JMS\Serializer\Annotation\SerializedName('profile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $profile = null;
 
     /**
@@ -168,7 +168,7 @@ class GetOnDeckStream
      * @var ?float $refFrames
      */
     #[\JMS\Serializer\Annotation\SerializedName('refFrames')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $refFrames = null;
 
     /**
@@ -176,7 +176,7 @@ class GetOnDeckStream
      * @var ?float $width
      */
     #[\JMS\Serializer\Annotation\SerializedName('width')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $width = null;
 
     /**
@@ -184,7 +184,7 @@ class GetOnDeckStream
      * @var ?string $displayTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $displayTitle = null;
 
     /**
@@ -192,7 +192,7 @@ class GetOnDeckStream
      * @var ?string $extendedDisplayTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $extendedDisplayTitle = null;
 
     /**

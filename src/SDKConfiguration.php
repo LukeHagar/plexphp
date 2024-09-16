@@ -26,7 +26,7 @@ class SDKConfiguration
     /** @var array<array<string, string>> */
     public ?array $serverDefaults = [
         [
-            'protocol' => 'http',
+            'protocol' => 'https',
             'ip' => '10.10.10.47',
             'port' => '32400',
         ],
@@ -36,11 +36,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.0.3';
 
-    public string $sdkVersion = '0.7.0';
+    public string $sdkVersion = '0.8.0';
 
-    public string $genVersion = '2.393.4';
+    public string $genVersion = '2.415.8';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.7.0 2.393.4 0.0.3 lukehagar/plex-api';
+    public string $userAgent = 'speakeasy-sdk/php 0.8.0 2.415.8 0.0.3 lukehagar/plex-api';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],

@@ -12,16 +12,6 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetPinRequest
 {
     /**
-     * Product name of the application shown in the list of devices
-     *
-     *
-     *
-     * @var string $xPlexProduct
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Product')]
-    public string $xPlexProduct;
-
-    /**
      * Determines the kind of code returned by the API call
      *
      * Strong codes are used for Pin authentication flows
@@ -42,18 +32,25 @@ class GetPinRequest
      *
      * @var ?string $xPlexClientIdentifier
      */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
     public ?string $xPlexClientIdentifier = null;
 
     /**
-     * @param  ?string  $xPlexProduct
+     *
+     * @var ?string $xPlexProduct
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Product')]
+    public ?string $xPlexProduct = null;
+
+    /**
      * @param  ?bool  $strong
      * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $xPlexProduct
      */
-    public function __construct(?string $xPlexProduct = null, ?bool $strong = null, ?string $xPlexClientIdentifier = null)
+    public function __construct(?bool $strong = null, ?string $xPlexClientIdentifier = null, ?string $xPlexProduct = null)
     {
-        $this->xPlexProduct = $xPlexProduct;
         $this->strong = $strong;
         $this->xPlexClientIdentifier = $xPlexClientIdentifier;
+        $this->xPlexProduct = $xPlexProduct;
     }
 }

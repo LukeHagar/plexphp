@@ -72,10 +72,42 @@ final class UnionHandler implements SubscribingHandlerInterface
         if ($this->isPrimitiveType(gettype($data))) {
             return $this->matchSimpleType($data, $type, $context);
         } else {
-            $resolvedType = [
-                'name' => get_class($data),
-                'params' => [],
-            ];
+            if (is_array($data)) {
+                if (array_is_list($data) && ! empty($data)) {
+                    $innerType = gettype($data[0]);
+                    if ($innerType === 'object') {
+                        $innerType = get_class($data[0]);
+                    }
+                    $resolvedType = [
+                        'name' => 'array',
+                        'params' => ['name' => $innerType, 'params' => []],
+                    ];
+                } else {
+                    $keyType = gettype(array_key_first($data));
+                    $valueType = gettype($data[array_key_first($data)]);
+                    $resolvedType = [
+                        'name' => 'array',
+                        'params' => [
+                            ['name' => $keyType, 'params' => []],
+                            ['name' => $valueType, 'params' => []],
+                        ],
+                    ];
+                }
+            } else {
+                $resolvedType = null;
+                foreach ($type['params'] as $possibleType) {
+                    if ($possibleType['name'] === 'enum' && $possibleType['params'][0]['name'] === get_class($data)) {
+                        $resolvedType = $possibleType;
+                        break;
+                    }
+                }
+                if ($resolvedType === null) {
+                    $resolvedType = [
+                        'name' => get_class($data),
+                        'params' => [],
+                    ];
+                }
+            }
 
             return $context->getNavigator()->accept($data, $resolvedType);
         }
@@ -94,71 +126,87 @@ final class UnionHandler implements SubscribingHandlerInterface
             throw new RuntimeException('XML deserialisation into union types is not supported yet.');
         }
 
-
-        $alternativeName = null;
-
-        foreach ($this->reorderTypes($type)['params'] as $possibleType) {
-            $propertyMetadata = $context->getMetadataStack()->top();
-            $finalType = null;
-            if ($propertyMetadata->unionDiscriminatorField !== null) {
-                if (! array_key_exists($propertyMetadata->unionDiscriminatorField, $data)) {
-                    throw new NonVisitableTypeException('Union Discriminator Field \''.$propertyMetadata->unionDiscriminatorField.'\' not found in data');
-                }
-
-                $lkup = $data[$propertyMetadata->unionDiscriminatorField];
-                if (! empty($propertyMetadata->unionDiscriminatorMap)) {
-                    if (array_key_exists($lkup, $propertyMetadata->unionDiscriminatorMap)) {
-                        $finalType = [
-                            'name' => $propertyMetadata->unionDiscriminatorMap[$lkup],
-                            'params' => [],
-                        ];
-                    } else {
-                        throw new NonVisitableTypeException('Union Discriminator Map does not contain key \''.$lkup.'\'');
-                    }
-                } else {
-                    $finalType = [
-                        'name' => $lkup,
-                        'params' => [],
-                    ];
-                }
+        // if three params exist, it may mean that there was a union discriminator set for this type.
+        // It also may mean that there are three possible types.
+        if (count($type['params']) == 3 && $this->paramsLookLikeUnionDiscriminator($type)) {
+            $lookupField = $type['params'][1];
+            if (empty($data[$lookupField])) {
+                throw new NonVisitableTypeException(sprintf('Union Discriminator Field "%s" not found in data', $lookupField));
             }
 
-            if ($finalType !== null && $finalType['name'] !== null) {
-                return $context->getNavigator()->accept($data, $finalType);
-            } else {
-                $typeToTry = $possibleType['name'];
-                if ($typeToTry === 'array') {
-                    $typeNames = array_map(fn ($t) => $t['name'], $possibleType['params']);
-                    $typeToTry = 'array<'.implode(', ', $typeNames).'>';
-                }
-                $serializer = JSON::createSerializer();
-                try {
-                    if ($this->isPrimitiveType($possibleType['name']) && (is_array($data) || ! $this->testPrimitive($data, $possibleType['name']))) {
-                        continue;
-                    }
+            $unionMap = $type['params'][2];
+            $lookupValue = $data[$lookupField];
+            if (empty($unionMap[$lookupValue])) {
+                throw new NonVisitableTypeException(sprintf('Union Discriminator Map does not contain key "%s"', $lookupValue));
+            }
 
-                    $json_encoded_data = json_encode($data);
-                    if ($json_encoded_data === false) {
-                        throw new RuntimeException('Failed to encode data to JSON: '.json_last_error_msg());
-                    }
-                    $accept = $serializer->deserialize($json_encoded_data, $typeToTry, 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+            $finalType = [
+                'name' => $unionMap[$lookupValue],
+                'params' => [],
+            ];
 
-                    return $accept;
-                } catch (NonVisitableTypeException $e) {
-                    continue;
-                } catch (PropertyMissingException $e) {
-                    continue;
-                } catch (NonStringCastableTypeException $e) {
-                    continue;
-                } catch (NonIntCastableTypeException $e) {
-                    continue;
-                } catch (NonFloatCastableTypeException $e) {
+            return $context->getNavigator()->accept($data, $finalType);
+        }
+
+        foreach ($this->reorderTypes($type)['params'] as $possibleType) {
+
+            $typeToTry = $possibleType['name'];
+            if ($typeToTry === 'array') {
+                $typeNames = array_map(fn ($t) => $t['name'], $possibleType['params']);
+                $typeToTry = 'array<'.implode(', ', $typeNames).'>';
+            }
+            if ($typeToTry === 'enum') {
+                $typeToTry = $possibleType['params'][0]['name'];
+            }
+            if ($typeToTry == 'NULL') {
+                if ($data == null) {
+                    return null;
+                } else {
                     continue;
                 }
+            }
+            $serializer = JSON::createSerializer();
+            try {
+                if ($this->isPrimitiveType($possibleType['name']) && (is_array($data) || ! $this->testPrimitive($data, $possibleType['name']))) {
+                    continue;
+                }
+
+                $json_encoded_data = json_encode($data);
+                if ($json_encoded_data === false) {
+                    throw new RuntimeException('Failed to encode data to JSON: '.json_last_error_msg());
+                }
+                $accept = $serializer->deserialize($json_encoded_data, $typeToTry, 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+
+                return $accept;
+            } catch (NonVisitableTypeException $e) {
+                continue;
+            } catch (PropertyMissingException $e) {
+                continue;
+            } catch (NonStringCastableTypeException $e) {
+                continue;
+            } catch (NonIntCastableTypeException $e) {
+                continue;
+            } catch (NonFloatCastableTypeException $e) {
+                continue;
+            } catch (RuntimeException $e) {
+                continue;
             }
         }
 
         return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $type
+     * @return bool
+     */
+    private function paramsLookLikeUnionDiscriminator(array $type): bool
+    {
+        // if the first param is null, then the second and third parameters
+        // will contain the discriminator details.
+        $first = $type['params'][0];
+
+        return $first === null;
     }
 
     /**
@@ -168,8 +216,6 @@ final class UnionHandler implements SubscribingHandlerInterface
      */
     private function matchSimpleType(mixed $data, array $type, Context $context): mixed
     {
-        $alternativeName = null;
-
         foreach ($type['params'] as $possibleType) {
             if ($this->isPrimitiveType($possibleType['name']) && ! $this->testPrimitive($data, $possibleType['name'])) {
                 continue;

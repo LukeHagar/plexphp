@@ -1,6 +1,5 @@
 # Butler
 
-
 ## Overview
 
 Butler is the task manager of the Plex Media Server Ecosystem.
@@ -28,11 +27,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -46,16 +46,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetButlerTasksResponse](../../Models/Operations/GetButlerTasksResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetButlerTasksResponseBody             | 401                                           | application/json                              |
+| Errors\GetButlerTasksBadRequest               | 400                                           | application/json                              |
+| Errors\GetButlerTasksUnauthorized             | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## startAllTasks
 
@@ -76,11 +78,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -94,16 +97,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\StartAllTasksResponse](../../Models/Operations/StartAllTasksResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StartAllTasksResponseBody              | 401                                           | application/json                              |
+| Errors\StartAllTasksBadRequest                | 400                                           | application/json                              |
+| Errors\StartAllTasksUnauthorized              | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## stopAllTasks
 
@@ -120,11 +125,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -138,16 +144,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\StopAllTasksResponse](../../Models/Operations/StopAllTasksResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StopAllTasksResponseBody               | 401                                           | application/json                              |
+| Errors\StopAllTasksBadRequest                 | 400                                           | application/json                              |
+| Errors\StopAllTasksUnauthorized               | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## startTask
 
@@ -169,11 +177,12 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -194,16 +203,18 @@ try {
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | `taskName`                                                 | [Operations\TaskName](../../Models/Operations/TaskName.md) | :heavy_check_mark:                                         | the name of the task to be started.                        |
 
-
 ### Response
 
 **[?Operations\StartTaskResponse](../../Models/Operations/StartTaskResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StartTaskResponseBody                  | 401                                           | application/json                              |
+| Errors\StartTaskBadRequest                    | 400                                           | application/json                              |
+| Errors\StartTaskUnauthorized                  | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## stopTask
 
@@ -221,11 +232,12 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -246,13 +258,14 @@ try {
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `taskName`                                                                   | [Operations\PathParamTaskName](../../Models/Operations/PathParamTaskName.md) | :heavy_check_mark:                                                           | The name of the task to be started.                                          |
 
-
 ### Response
 
 **[?Operations\StopTaskResponse](../../Models/Operations/StopTaskResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StopTaskResponseBody                   | 401                                           | application/json                              |
+| Errors\StopTaskBadRequest                     | 400                                           | application/json                              |
+| Errors\StopTaskUnauthorized                   | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

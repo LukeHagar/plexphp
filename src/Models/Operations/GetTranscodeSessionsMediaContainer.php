@@ -16,7 +16,7 @@ class GetTranscodeSessionsMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -25,8 +25,8 @@ class GetTranscodeSessionsMediaContainer
      * @var ?array<TranscodeSession> $transcodeSession
      */
     #[\JMS\Serializer\Annotation\SerializedName('TranscodeSession')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\TranscodeSession>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\TranscodeSession>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $transcodeSession = null;
 
     /**

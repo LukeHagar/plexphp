@@ -1,6 +1,5 @@
 # Video
 
-
 ## Overview
 
 API Calls that perform operations with Plex Media Server Videos
@@ -26,11 +25,12 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -62,16 +62,18 @@ try {
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `$request`                                                                     | [Operations\GetTimelineRequest](../../Models/Operations/GetTimelineRequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
-
 ### Response
 
 **[?Operations\GetTimelineResponse](../../Models/Operations/GetTimelineResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTimelineResponseBody                | 401                                           | application/json                              |
+| Errors\GetTimelineBadRequest                  | 400                                           | application/json                              |
+| Errors\GetTimelineUnauthorized                | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## startUniversalTranscode
 
@@ -88,24 +90,32 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
     $request = new Operations\StartUniversalTranscodeRequest(
         hasMDE: 1,
         path: '/library/metadata/23409',
+        mediaIndex: 0,
+        partIndex: 0,
         protocol: 'hls',
+        fastSeek: 0,
+        directPlay: 0,
+        directStream: 0,
         subtitleSize: 100,
         subtites: 'burn',
         audioBoost: 100,
         location: 'lan',
         mediaBufferSize: 102400,
         session: 'zvcage8b7rkioqcm8f4uns4c',
+        addDebugOverlay: 0,
+        autoAdjustQuality: 0,
     );
     $response = $sdk->video->startUniversalTranscode($request);
 
@@ -123,13 +133,14 @@ try {
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
 | `$request`                                                                                             | [Operations\StartUniversalTranscodeRequest](../../Models/Operations/StartUniversalTranscodeRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
-
 ### Response
 
 **[?Operations\StartUniversalTranscodeResponse](../../Models/Operations/StartUniversalTranscodeResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StartUniversalTranscodeResponseBody    | 401                                           | application/json                              |
+| Errors\StartUniversalTranscodeBadRequest      | 400                                           | application/json                              |
+| Errors\StartUniversalTranscodeUnauthorized    | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

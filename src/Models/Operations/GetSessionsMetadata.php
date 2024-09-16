@@ -16,7 +16,7 @@ class GetSessionsMetadata
      * @var ?int $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $addedAt = null;
 
     /**
@@ -24,7 +24,7 @@ class GetSessionsMetadata
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -32,7 +32,7 @@ class GetSessionsMetadata
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -40,7 +40,7 @@ class GetSessionsMetadata
      * @var ?string $grandparentArt
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentArt = null;
 
     /**
@@ -48,7 +48,7 @@ class GetSessionsMetadata
      * @var ?string $grandparentGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentGuid = null;
 
     /**
@@ -56,7 +56,7 @@ class GetSessionsMetadata
      * @var ?string $grandparentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentKey = null;
 
     /**
@@ -64,7 +64,7 @@ class GetSessionsMetadata
      * @var ?string $grandparentRatingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentRatingKey = null;
 
     /**
@@ -72,7 +72,7 @@ class GetSessionsMetadata
      * @var ?string $grandparentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentThumb = null;
 
     /**
@@ -80,7 +80,7 @@ class GetSessionsMetadata
      * @var ?string $grandparentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTitle = null;
 
     /**
@@ -88,7 +88,7 @@ class GetSessionsMetadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -96,7 +96,7 @@ class GetSessionsMetadata
      * @var ?int $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
@@ -104,7 +104,7 @@ class GetSessionsMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -112,7 +112,7 @@ class GetSessionsMetadata
      * @var ?string $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionID = null;
 
     /**
@@ -120,7 +120,7 @@ class GetSessionsMetadata
      * @var ?string $librarySectionKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionKey = null;
 
     /**
@@ -128,7 +128,7 @@ class GetSessionsMetadata
      * @var ?string $librarySectionTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
@@ -136,7 +136,7 @@ class GetSessionsMetadata
      * @var ?string $musicAnalysisVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('musicAnalysisVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $musicAnalysisVersion = null;
 
     /**
@@ -144,7 +144,7 @@ class GetSessionsMetadata
      * @var ?string $parentGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentGuid = null;
 
     /**
@@ -152,7 +152,7 @@ class GetSessionsMetadata
      * @var ?int $parentIndex
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $parentIndex = null;
 
     /**
@@ -160,7 +160,7 @@ class GetSessionsMetadata
      * @var ?string $parentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentKey = null;
 
     /**
@@ -168,7 +168,7 @@ class GetSessionsMetadata
      * @var ?string $parentRatingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentRatingKey = null;
 
     /**
@@ -176,7 +176,7 @@ class GetSessionsMetadata
      * @var ?string $parentStudio
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentStudio = null;
 
     /**
@@ -184,7 +184,7 @@ class GetSessionsMetadata
      * @var ?string $parentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentThumb = null;
 
     /**
@@ -192,7 +192,7 @@ class GetSessionsMetadata
      * @var ?string $parentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTitle = null;
 
     /**
@@ -200,7 +200,7 @@ class GetSessionsMetadata
      * @var ?int $parentYear
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentYear')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $parentYear = null;
 
     /**
@@ -208,7 +208,7 @@ class GetSessionsMetadata
      * @var ?int $ratingCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $ratingCount = null;
 
     /**
@@ -216,7 +216,7 @@ class GetSessionsMetadata
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -224,7 +224,7 @@ class GetSessionsMetadata
      * @var ?string $sessionKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('sessionKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $sessionKey = null;
 
     /**
@@ -232,7 +232,7 @@ class GetSessionsMetadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -240,7 +240,7 @@ class GetSessionsMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -248,7 +248,7 @@ class GetSessionsMetadata
      * @var ?string $titleSort
      */
     #[\JMS\Serializer\Annotation\SerializedName('titleSort')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $titleSort = null;
 
     /**
@@ -256,7 +256,7 @@ class GetSessionsMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -264,7 +264,7 @@ class GetSessionsMetadata
      * @var ?int $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**
@@ -272,7 +272,7 @@ class GetSessionsMetadata
      * @var ?int $viewOffset
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewOffset')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewOffset = null;
 
     /**
@@ -281,8 +281,8 @@ class GetSessionsMetadata
      * @var ?array<GetSessionsMedia> $media
      */
     #[\JMS\Serializer\Annotation\SerializedName('Media')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsMedia>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsMedia>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $media = null;
 
     /**
@@ -290,8 +290,8 @@ class GetSessionsMetadata
      * @var ?GetSessionsUser $user
      */
     #[\JMS\Serializer\Annotation\SerializedName('User')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSessionsUser')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSessionsUser|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GetSessionsUser $user = null;
 
     /**
@@ -299,8 +299,8 @@ class GetSessionsMetadata
      * @var ?Player $player
      */
     #[\JMS\Serializer\Annotation\SerializedName('Player')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Player')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Player|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?Player $player = null;
 
     /**
@@ -308,8 +308,8 @@ class GetSessionsMetadata
      * @var ?Session $session
      */
     #[\JMS\Serializer\Annotation\SerializedName('Session')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Session')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Session|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?Session $session = null;
 
     /**

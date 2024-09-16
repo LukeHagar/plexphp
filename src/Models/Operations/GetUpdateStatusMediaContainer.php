@@ -16,7 +16,7 @@ class GetUpdateStatusMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -24,7 +24,7 @@ class GetUpdateStatusMediaContainer
      * @var ?bool $canInstall
      */
     #[\JMS\Serializer\Annotation\SerializedName('canInstall')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $canInstall = null;
 
     /**
@@ -32,7 +32,7 @@ class GetUpdateStatusMediaContainer
      * @var ?int $checkedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('checkedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $checkedAt = null;
 
     /**
@@ -40,7 +40,7 @@ class GetUpdateStatusMediaContainer
      * @var ?string $downloadURL
      */
     #[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $downloadURL = null;
 
     /**
@@ -48,7 +48,7 @@ class GetUpdateStatusMediaContainer
      * @var ?int $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $status = null;
 
     /**
@@ -57,8 +57,8 @@ class GetUpdateStatusMediaContainer
      * @var ?array<Release> $release
      */
     #[\JMS\Serializer\Annotation\SerializedName('Release')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Release>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Release>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $release = null;
 
     /**

@@ -20,9 +20,9 @@ class GetPlaylistRequest
     public float $playlistID;
 
     /**
-     * @param  ?float  $playlistID
+     * @param  float  $playlistID
      */
-    public function __construct(?float $playlistID = null)
+    public function __construct(float $playlistID)
     {
         $this->playlistID = $playlistID;
     }

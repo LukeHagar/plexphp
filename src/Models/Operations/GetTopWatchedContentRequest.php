@@ -12,12 +12,19 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetTopWatchedContentRequest
 {
     /**
-     * the library type (1 - movies, 2 - shows, 3 - music)
+     * The type of media to retrieve.
      *
-     * @var int $type
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var GetTopWatchedContentQueryParamType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public int $type;
+    public GetTopWatchedContentQueryParamType $type;
 
     /**
      * Adds the Guids object to the response
@@ -30,10 +37,10 @@ class GetTopWatchedContentRequest
     public ?int $includeGuids = null;
 
     /**
-     * @param  ?int  $type
+     * @param  GetTopWatchedContentQueryParamType  $type
      * @param  ?int  $includeGuids
      */
-    public function __construct(?int $type = null, ?int $includeGuids = null)
+    public function __construct(GetTopWatchedContentQueryParamType $type, ?int $includeGuids = null)
     {
         $this->type = $type;
         $this->includeGuids = $includeGuids;

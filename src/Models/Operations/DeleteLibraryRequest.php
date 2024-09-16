@@ -12,18 +12,21 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class DeleteLibraryRequest
 {
     /**
-     * the Id of the library to query
+     * The unique key of the Plex library. 
      *
-     * @var float $sectionId
+     * Note: This is unique in the context of the Plex server.
+     *
+     *
+     * @var int $sectionKey
      */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionId')]
-    public float $sectionId;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionKey')]
+    public int $sectionKey;
 
     /**
-     * @param  ?float  $sectionId
+     * @param  int  $sectionKey
      */
-    public function __construct(?float $sectionId = null)
+    public function __construct(int $sectionKey)
     {
-        $this->sectionId = $sectionId;
+        $this->sectionKey = $sectionKey;
     }
 }

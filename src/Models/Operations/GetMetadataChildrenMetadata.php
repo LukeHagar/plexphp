@@ -16,7 +16,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -24,7 +24,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $parentRatingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentRatingKey = null;
 
     /**
@@ -40,7 +40,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -48,7 +48,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $parentGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentGuid = null;
 
     /**
@@ -56,7 +56,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $parentStudio
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentStudio = null;
 
     /**
@@ -64,7 +64,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -72,7 +72,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -80,7 +80,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $parentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentKey = null;
 
     /**
@@ -88,7 +88,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $parentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTitle = null;
 
     /**
@@ -96,7 +96,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
@@ -104,7 +104,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
@@ -112,7 +112,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $parentIndex
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $parentIndex = null;
 
     /**
@@ -120,7 +120,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $viewCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewCount = null;
 
     /**
@@ -128,7 +128,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $lastViewedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $lastViewedAt = null;
 
     /**
@@ -136,7 +136,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $parentYear
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentYear')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $parentYear = null;
 
     /**
@@ -144,7 +144,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -152,7 +152,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -160,7 +160,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $parentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentThumb = null;
 
     /**
@@ -168,7 +168,7 @@ class GetMetadataChildrenMetadata
      * @var ?string $parentTheme
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentTheme')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTheme = null;
 
     /**
@@ -176,7 +176,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $leafCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCount = null;
 
     /**
@@ -184,7 +184,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $viewedLeafCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewedLeafCount = null;
 
     /**
@@ -192,7 +192,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $addedAt = null;
 
     /**
@@ -200,7 +200,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**
@@ -208,7 +208,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $userRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('userRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $userRating = null;
 
     /**
@@ -216,7 +216,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $skipCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('skipCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $skipCount = null;
 
     /**
@@ -224,7 +224,7 @@ class GetMetadataChildrenMetadata
      * @var ?int $lastRatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('lastRatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $lastRatedAt = null;
 
     /**

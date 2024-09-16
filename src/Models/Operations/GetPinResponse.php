@@ -33,23 +33,23 @@ class GetPinResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * The Pin
+     * Requests a new pin id used in the authentication flow
      *
-     * @var ?GetPinResponseBody $object
+     * @var ?GetPinAuthPinContainer $authPinContainer
      */
-    public ?GetPinResponseBody $object = null;
+    public ?GetPinAuthPinContainer $authPinContainer = null;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
-     * @param  ?GetPinResponseBody  $object
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  ?GetPinAuthPinContainer  $authPinContainer
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?GetPinResponseBody $object = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetPinAuthPinContainer $authPinContainer = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;
         $this->rawResponse = $rawResponse;
-        $this->object = $object;
+        $this->authPinContainer = $authPinContainer;
     }
 }

@@ -85,7 +85,13 @@ class PhpDocTypeParser implements ParserInterface
                     ];
                 }
             }
+        } elseif (\is_a($type, \phpDocumentor\Reflection\Types\Null_::class)) {
+            return [
+                'name' => 'NULL',
+                'params' => [],
+            ];
         }
+
 
         return [
             'name' => $type->__toString(),

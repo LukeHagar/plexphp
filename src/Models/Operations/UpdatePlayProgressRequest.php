@@ -36,11 +36,11 @@ class UpdatePlayProgressRequest
     public string $state;
 
     /**
-     * @param  ?string  $key
-     * @param  ?float  $time
-     * @param  ?string  $state
+     * @param  string  $key
+     * @param  float  $time
+     * @param  string  $state
      */
-    public function __construct(?string $key = null, ?float $time = null, ?string $state = null)
+    public function __construct(string $key, float $time, string $state)
     {
         $this->key = $key;
         $this->time = $time;

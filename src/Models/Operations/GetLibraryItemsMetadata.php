@@ -16,7 +16,7 @@ class GetLibraryItemsMetadata
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -24,7 +24,7 @@ class GetLibraryItemsMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class GetLibraryItemsMetadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -40,7 +40,7 @@ class GetLibraryItemsMetadata
      * @var ?string $studio
      */
     #[\JMS\Serializer\Annotation\SerializedName('studio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $studio = null;
 
     /**
@@ -48,7 +48,7 @@ class GetLibraryItemsMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -56,7 +56,7 @@ class GetLibraryItemsMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -64,7 +64,7 @@ class GetLibraryItemsMetadata
      * @var ?string $contentRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('contentRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
 
     /**
@@ -72,7 +72,7 @@ class GetLibraryItemsMetadata
      * @var ?string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
@@ -80,7 +80,7 @@ class GetLibraryItemsMetadata
      * @var ?float $rating
      */
     #[\JMS\Serializer\Annotation\SerializedName('rating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $rating = null;
 
     /**
@@ -88,7 +88,7 @@ class GetLibraryItemsMetadata
      * @var ?float $audienceRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $audienceRating = null;
 
     /**
@@ -96,7 +96,7 @@ class GetLibraryItemsMetadata
      * @var ?int $year
      */
     #[\JMS\Serializer\Annotation\SerializedName('year')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $year = null;
 
     /**
@@ -104,7 +104,7 @@ class GetLibraryItemsMetadata
      * @var ?string $tagline
      */
     #[\JMS\Serializer\Annotation\SerializedName('tagline')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tagline = null;
 
     /**
@@ -112,7 +112,7 @@ class GetLibraryItemsMetadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -120,7 +120,7 @@ class GetLibraryItemsMetadata
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -128,7 +128,7 @@ class GetLibraryItemsMetadata
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -136,7 +136,7 @@ class GetLibraryItemsMetadata
      * @var ?LocalDate $originallyAvailableAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?LocalDate $originallyAvailableAt = null;
 
     /**
@@ -144,7 +144,7 @@ class GetLibraryItemsMetadata
      * @var ?int $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $addedAt = null;
 
     /**
@@ -152,7 +152,7 @@ class GetLibraryItemsMetadata
      * @var ?int $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**
@@ -160,7 +160,7 @@ class GetLibraryItemsMetadata
      * @var ?string $audienceRatingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRatingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audienceRatingImage = null;
 
     /**
@@ -168,7 +168,7 @@ class GetLibraryItemsMetadata
      * @var ?string $chapterSource
      */
     #[\JMS\Serializer\Annotation\SerializedName('chapterSource')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $chapterSource = null;
 
     /**
@@ -176,7 +176,7 @@ class GetLibraryItemsMetadata
      * @var ?string $primaryExtraKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('primaryExtraKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $primaryExtraKey = null;
 
     /**
@@ -184,7 +184,7 @@ class GetLibraryItemsMetadata
      * @var ?string $ratingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingImage = null;
 
     /**
@@ -192,7 +192,7 @@ class GetLibraryItemsMetadata
      * @var ?string $grandparentRatingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentRatingKey = null;
 
     /**
@@ -200,7 +200,7 @@ class GetLibraryItemsMetadata
      * @var ?string $grandparentGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentGuid = null;
 
     /**
@@ -208,7 +208,7 @@ class GetLibraryItemsMetadata
      * @var ?string $grandparentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentKey = null;
 
     /**
@@ -216,7 +216,7 @@ class GetLibraryItemsMetadata
      * @var ?string $grandparentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTitle = null;
 
     /**
@@ -224,7 +224,7 @@ class GetLibraryItemsMetadata
      * @var ?string $grandparentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentThumb = null;
 
     /**
@@ -232,7 +232,7 @@ class GetLibraryItemsMetadata
      * @var ?string $grandparentArt
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentArt = null;
 
     /**
@@ -240,7 +240,7 @@ class GetLibraryItemsMetadata
      * @var ?string $grandparentTheme
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentTheme')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTheme = null;
 
     /**
@@ -249,8 +249,8 @@ class GetLibraryItemsMetadata
      * @var ?array<GetLibraryItemsMedia> $media
      */
     #[\JMS\Serializer\Annotation\SerializedName('Media')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMedia>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMedia>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $media = null;
 
     /**
@@ -259,8 +259,8 @@ class GetLibraryItemsMetadata
      * @var ?array<GetLibraryItemsGenre> $genre
      */
     #[\JMS\Serializer\Annotation\SerializedName('Genre')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsGenre>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsGenre>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $genre = null;
 
     /**
@@ -269,8 +269,8 @@ class GetLibraryItemsMetadata
      * @var ?array<GetLibraryItemsCountry> $country
      */
     #[\JMS\Serializer\Annotation\SerializedName('Country')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsCountry>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsCountry>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $country = null;
 
     /**
@@ -279,8 +279,8 @@ class GetLibraryItemsMetadata
      * @var ?array<GetLibraryItemsDirector> $director
      */
     #[\JMS\Serializer\Annotation\SerializedName('Director')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsDirector>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsDirector>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $director = null;
 
     /**
@@ -289,8 +289,8 @@ class GetLibraryItemsMetadata
      * @var ?array<GetLibraryItemsWriter> $writer
      */
     #[\JMS\Serializer\Annotation\SerializedName('Writer')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsWriter>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsWriter>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $writer = null;
 
     /**
@@ -299,8 +299,8 @@ class GetLibraryItemsMetadata
      * @var ?array<GetLibraryItemsRole> $role
      */
     #[\JMS\Serializer\Annotation\SerializedName('Role')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRole>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRole>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $role = null;
 
     /**
@@ -308,7 +308,7 @@ class GetLibraryItemsMetadata
      * @var ?string $titleSort
      */
     #[\JMS\Serializer\Annotation\SerializedName('titleSort')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $titleSort = null;
 
     /**
@@ -316,7 +316,7 @@ class GetLibraryItemsMetadata
      * @var ?int $viewCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewCount = null;
 
     /**
@@ -324,7 +324,7 @@ class GetLibraryItemsMetadata
      * @var ?int $lastViewedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $lastViewedAt = null;
 
     /**
@@ -332,7 +332,7 @@ class GetLibraryItemsMetadata
      * @var ?string $originalTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('originalTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $originalTitle = null;
 
     /**
@@ -340,7 +340,7 @@ class GetLibraryItemsMetadata
      * @var ?int $viewOffset
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewOffset')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewOffset = null;
 
     /**
@@ -348,7 +348,7 @@ class GetLibraryItemsMetadata
      * @var ?int $skipCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('skipCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $skipCount = null;
 
     /**
@@ -356,7 +356,7 @@ class GetLibraryItemsMetadata
      * @var ?int $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
@@ -364,7 +364,7 @@ class GetLibraryItemsMetadata
      * @var ?string $theme
      */
     #[\JMS\Serializer\Annotation\SerializedName('theme')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $theme = null;
 
     /**
@@ -372,7 +372,7 @@ class GetLibraryItemsMetadata
      * @var ?int $leafCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCount = null;
 
     /**
@@ -380,7 +380,7 @@ class GetLibraryItemsMetadata
      * @var ?int $viewedLeafCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewedLeafCount = null;
 
     /**
@@ -388,7 +388,7 @@ class GetLibraryItemsMetadata
      * @var ?int $childCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('childCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $childCount = null;
 
     /**
@@ -396,7 +396,7 @@ class GetLibraryItemsMetadata
      * @var ?string $hasPremiumExtras
      */
     #[\JMS\Serializer\Annotation\SerializedName('hasPremiumExtras')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $hasPremiumExtras = null;
 
     /**
@@ -404,7 +404,7 @@ class GetLibraryItemsMetadata
      * @var ?string $hasPremiumPrimaryExtra
      */
     #[\JMS\Serializer\Annotation\SerializedName('hasPremiumPrimaryExtra')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $hasPremiumPrimaryExtra = null;
 
     /**
@@ -412,7 +412,7 @@ class GetLibraryItemsMetadata
      * @var ?string $parentRatingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentRatingKey = null;
 
     /**
@@ -420,7 +420,7 @@ class GetLibraryItemsMetadata
      * @var ?string $parentGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentGuid = null;
 
     /**
@@ -428,7 +428,7 @@ class GetLibraryItemsMetadata
      * @var ?string $parentStudio
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentStudio = null;
 
     /**
@@ -436,7 +436,7 @@ class GetLibraryItemsMetadata
      * @var ?string $parentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentKey = null;
 
     /**
@@ -444,7 +444,7 @@ class GetLibraryItemsMetadata
      * @var ?string $parentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTitle = null;
 
     /**
@@ -452,7 +452,7 @@ class GetLibraryItemsMetadata
      * @var ?int $parentIndex
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $parentIndex = null;
 
     /**
@@ -460,7 +460,7 @@ class GetLibraryItemsMetadata
      * @var ?int $parentYear
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentYear')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $parentYear = null;
 
     /**
@@ -468,7 +468,7 @@ class GetLibraryItemsMetadata
      * @var ?string $parentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentThumb = null;
 
     /**
@@ -476,7 +476,7 @@ class GetLibraryItemsMetadata
      * @var ?string $parentTheme
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentTheme')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTheme = null;
 
     /**

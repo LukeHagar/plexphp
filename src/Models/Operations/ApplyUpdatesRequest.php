@@ -20,7 +20,7 @@ class ApplyUpdatesRequest
     public ?Tonight $tonight = null;
 
     /**
-     * Indicate that the latest version should be marked as skipped. The <Release> entry for this version will have the `state` set to `skipped`.
+     * Indicate that the latest version should be marked as skipped. The [Release] entry for this version will have the `state` set to `skipped`.
      *
      * @var ?Skip $skip
      */

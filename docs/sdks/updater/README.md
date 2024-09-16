@@ -1,6 +1,5 @@
 # Updater
 
-
 ## Overview
 
 This describes the API for searching and applying updates to the Plex Media Server.
@@ -27,11 +26,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -45,16 +45,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetUpdateStatusResponse](../../Models/Operations/GetUpdateStatusResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetUpdateStatusResponseBody            | 401                                           | application/json                              |
+| Errors\GetUpdateStatusBadRequest              | 400                                           | application/json                              |
+| Errors\GetUpdateStatusUnauthorized            | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## checkForUpdates
 
@@ -71,11 +73,12 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -96,16 +99,18 @@ try {
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | `download`                                                  | [Operations\Download](../../Models/Operations/Download.md)  | :heavy_minus_sign:                                          | Indicate that you want to start download any updates found. | 1                                                           |
 
-
 ### Response
 
 **[?Operations\CheckForUpdatesResponse](../../Models/Operations/CheckForUpdatesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\CheckForUpdatesResponseBody            | 401                                           | application/json                              |
+| Errors\CheckForUpdatesBadRequest              | 400                                           | application/json                              |
+| Errors\CheckForUpdatesUnauthorized            | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## applyUpdates
 
@@ -123,16 +128,17 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->updater->applyUpdates(Operations\Tonight::One, Operations\Skip::Zero);
+    $response = $sdk->updater->applyUpdates(Operations\Tonight::One, Operations\Skip::One);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -147,15 +153,16 @@ try {
 | Parameter                                                                                                                                                | Type                                                                                                                                                     | Required                                                                                                                                                 | Description                                                                                                                                              | Example                                                                                                                                                  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `tonight`                                                                                                                                                | [Operations\Tonight](../../Models/Operations/Tonight.md)                                                                                                 | :heavy_minus_sign:                                                                                                                                       | Indicate that you want the update to run during the next Butler execution. Omitting this or setting it to false indicates that the update should install | 1                                                                                                                                                        |
-| `skip`                                                                                                                                                   | [Operations\Skip](../../Models/Operations/Skip.md)                                                                                                       | :heavy_minus_sign:                                                                                                                                       | Indicate that the latest version should be marked as skipped. The <Release> entry for this version will have the `state` set to `skipped`.               | 1                                                                                                                                                        |
-
+| `skip`                                                                                                                                                   | [Operations\Skip](../../Models/Operations/Skip.md)                                                                                                       | :heavy_minus_sign:                                                                                                                                       | Indicate that the latest version should be marked as skipped. The [Release] entry for this version will have the `state` set to `skipped`.               | 1                                                                                                                                                        |
 
 ### Response
 
 **[?Operations\ApplyUpdatesResponse](../../Models/Operations/ApplyUpdatesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\ApplyUpdatesResponseBody               | 401                                           | application/json                              |
+| Errors\ApplyUpdatesBadRequest                 | 400                                           | application/json                              |
+| Errors\ApplyUpdatesUnauthorized               | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

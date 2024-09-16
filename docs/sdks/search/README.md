@@ -1,6 +1,5 @@
 # Search
 
-
 ## Overview
 
 API Calls that perform search operations with Plex Media Server
@@ -38,16 +37,17 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->search->performSearch('dylan', 1516.53, 5);
+    $response = $sdk->search->performSearch('arnold', 9372.7, 5);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -65,16 +65,18 @@ try {
 | `sectionId`                                                                           | *float*                                                                               | :heavy_minus_sign:                                                                    | This gives context to the search, and can result in re-ordering of search result hubs |                                                                                       |
 | `limit`                                                                               | *float*                                                                               | :heavy_minus_sign:                                                                    | The number of items to return per hub                                                 | 5                                                                                     |
 
-
 ### Response
 
 **[?Operations\PerformSearchResponse](../../Models/Operations/PerformSearchResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\PerformSearchResponseBody              | 401                                           | application/json                              |
+| Errors\PerformSearchBadRequest                | 400                                           | application/json                              |
+| Errors\PerformSearchUnauthorized              | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## performVoiceSearch
 
@@ -94,11 +96,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -121,16 +124,18 @@ try {
 | `sectionId`                                                                           | *float*                                                                               | :heavy_minus_sign:                                                                    | This gives context to the search, and can result in re-ordering of search result hubs |                                                                                       |
 | `limit`                                                                               | *float*                                                                               | :heavy_minus_sign:                                                                    | The number of items to return per hub                                                 | 5                                                                                     |
 
-
 ### Response
 
 **[?Operations\PerformVoiceSearchResponse](../../Models/Operations/PerformVoiceSearchResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\PerformVoiceSearchResponseBody         | 401                                           | application/json                              |
+| Errors\PerformVoiceSearchBadRequest           | 400                                           | application/json                              |
+| Errors\PerformVoiceSearchUnauthorized         | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getSearchResults
 
@@ -146,11 +151,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -171,13 +177,14 @@ try {
 | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
 | `query`                        | *string*                       | :heavy_check_mark:             | The search query string to use | 110                            |
 
-
 ### Response
 
 **[?Operations\GetSearchResultsResponse](../../Models/Operations/GetSearchResultsResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetSearchResultsResponseBody           | 401                                           | application/json                              |
+| Errors\GetSearchResultsBadRequest             | 400                                           | application/json                              |
+| Errors\GetSearchResultsUnauthorized           | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

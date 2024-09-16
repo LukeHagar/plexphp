@@ -16,7 +16,7 @@ class GetTopWatchedContentRole
      * @var ?int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
@@ -24,7 +24,7 @@ class GetTopWatchedContentRole
      * @var ?string $filter
      */
     #[\JMS\Serializer\Annotation\SerializedName('filter')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $filter = null;
 
     /**
@@ -32,7 +32,7 @@ class GetTopWatchedContentRole
      * @var ?string $tag
      */
     #[\JMS\Serializer\Annotation\SerializedName('tag')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tag = null;
 
     /**
@@ -40,7 +40,7 @@ class GetTopWatchedContentRole
      * @var ?string $tagKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('tagKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tagKey = null;
 
     /**
@@ -48,7 +48,7 @@ class GetTopWatchedContentRole
      * @var ?string $role
      */
     #[\JMS\Serializer\Annotation\SerializedName('role')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $role = null;
 
     /**
@@ -56,7 +56,7 @@ class GetTopWatchedContentRole
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**

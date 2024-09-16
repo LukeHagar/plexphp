@@ -16,7 +16,7 @@ class Setting
      * @var ?string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
@@ -24,7 +24,7 @@ class Setting
      * @var ?string $label
      */
     #[\JMS\Serializer\Annotation\SerializedName('label')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $label = null;
 
     /**
@@ -32,7 +32,7 @@ class Setting
      * @var ?string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
@@ -40,7 +40,7 @@ class Setting
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -48,7 +48,7 @@ class Setting
      * @var ?bool $default
      */
     #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $default = null;
 
     /**
@@ -56,7 +56,7 @@ class Setting
      * @var ?bool $value
      */
     #[\JMS\Serializer\Annotation\SerializedName('value')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $value = null;
 
     /**
@@ -64,7 +64,7 @@ class Setting
      * @var ?bool $hidden
      */
     #[\JMS\Serializer\Annotation\SerializedName('hidden')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $hidden = null;
 
     /**
@@ -72,7 +72,7 @@ class Setting
      * @var ?bool $advanced
      */
     #[\JMS\Serializer\Annotation\SerializedName('advanced')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $advanced = null;
 
     /**
@@ -80,7 +80,7 @@ class Setting
      * @var ?string $group
      */
     #[\JMS\Serializer\Annotation\SerializedName('group')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $group = null;
 
     /**
@@ -88,7 +88,7 @@ class Setting
      * @var ?string $enumValues
      */
     #[\JMS\Serializer\Annotation\SerializedName('enumValues')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $enumValues = null;
 
     /**

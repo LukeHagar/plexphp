@@ -22,10 +22,10 @@ class CreatePlaylistRequest
     /**
      * type of playlist to create
      *
-     * @var QueryParamType $type
+     * @var CreatePlaylistQueryParamType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public QueryParamType $type;
+    public CreatePlaylistQueryParamType $type;
 
     /**
      * whether the playlist is smart or not
@@ -52,13 +52,13 @@ class CreatePlaylistRequest
     public ?float $playQueueID = null;
 
     /**
-     * @param  ?string  $title
-     * @param  ?QueryParamType  $type
-     * @param  ?Smart  $smart
-     * @param  ?string  $uri
+     * @param  string  $title
+     * @param  CreatePlaylistQueryParamType  $type
+     * @param  Smart  $smart
+     * @param  string  $uri
      * @param  ?float  $playQueueID
      */
-    public function __construct(?string $title = null, ?QueryParamType $type = null, ?Smart $smart = null, ?string $uri = null, ?float $playQueueID = null)
+    public function __construct(string $title, CreatePlaylistQueryParamType $type, Smart $smart, string $uri, ?float $playQueueID = null)
     {
         $this->title = $title;
         $this->type = $type;

@@ -16,7 +16,7 @@ class Player
      * @var ?string $address
      */
     #[\JMS\Serializer\Annotation\SerializedName('address')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $address = null;
 
     /**
@@ -24,7 +24,7 @@ class Player
      * @var ?string $machineIdentifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
@@ -32,7 +32,7 @@ class Player
      * @var ?string $model
      */
     #[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $model = null;
 
     /**
@@ -40,7 +40,7 @@ class Player
      * @var ?string $platform
      */
     #[\JMS\Serializer\Annotation\SerializedName('platform')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $platform = null;
 
     /**
@@ -48,7 +48,7 @@ class Player
      * @var ?string $platformVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $platformVersion = null;
 
     /**
@@ -56,7 +56,7 @@ class Player
      * @var ?string $product
      */
     #[\JMS\Serializer\Annotation\SerializedName('product')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $product = null;
 
     /**
@@ -64,7 +64,7 @@ class Player
      * @var ?string $profile
      */
     #[\JMS\Serializer\Annotation\SerializedName('profile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $profile = null;
 
     /**
@@ -72,7 +72,7 @@ class Player
      * @var ?string $remotePublicAddress
      */
     #[\JMS\Serializer\Annotation\SerializedName('remotePublicAddress')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $remotePublicAddress = null;
 
     /**
@@ -80,7 +80,7 @@ class Player
      * @var ?string $state
      */
     #[\JMS\Serializer\Annotation\SerializedName('state')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $state = null;
 
     /**
@@ -88,7 +88,7 @@ class Player
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -96,7 +96,7 @@ class Player
      * @var ?string $version
      */
     #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
@@ -104,7 +104,7 @@ class Player
      * @var ?bool $local
      */
     #[\JMS\Serializer\Annotation\SerializedName('local')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $local = null;
 
     /**
@@ -112,7 +112,7 @@ class Player
      * @var ?bool $relayed
      */
     #[\JMS\Serializer\Annotation\SerializedName('relayed')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $relayed = null;
 
     /**
@@ -120,7 +120,7 @@ class Player
      * @var ?bool $secure
      */
     #[\JMS\Serializer\Annotation\SerializedName('secure')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $secure = null;
 
     /**
@@ -128,7 +128,7 @@ class Player
      * @var ?int $userID
      */
     #[\JMS\Serializer\Annotation\SerializedName('userID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $userID = null;
 
     /**

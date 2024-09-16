@@ -17,8 +17,8 @@ class GetTopWatchedContentResponseBody
      * @var ?GetTopWatchedContentMediaContainer $mediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentMediaContainer')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetTopWatchedContentMediaContainer|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GetTopWatchedContentMediaContainer $mediaContainer = null;
 
     /**

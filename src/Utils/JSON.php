@@ -13,6 +13,7 @@ use JMS\Serializer\Handler\ArrayCollectionHandler;
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Handler\IteratorHandler;
 use JMS\Serializer\Handler\StdClassHandler;
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 
 
@@ -31,6 +32,10 @@ class JSON
                 $registry->registerSubscribingHandler(new DateHandler());
                 $registry->registerSubscribingHandler(new UnionHandler());
             },
-        )->setTypeParser(new PhpDocTypeParser())->build();
+        )->setTypeParser(new PhpDocTypeParser()
+        )->setSerializationContextFactory(function () {
+            return SerializationContext::create()
+                ->setSerializeNull(true);
+        })->build();
     }
 }

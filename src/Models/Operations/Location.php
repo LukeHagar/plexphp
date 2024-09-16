@@ -13,107 +13,27 @@ class Location
 {
     /**
      *
-     * @var ?string $code
+     * @var ?int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $code = null;
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $id = null;
 
     /**
      *
-     * @var ?bool $europeanUnionMember
+     * @var ?string $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('european_union_member')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?bool $europeanUnionMember = null;
+    #[\JMS\Serializer\Annotation\SerializedName('path')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $path = null;
 
     /**
-     *
-     * @var ?string $continentCode
+     * @param  ?int  $id
+     * @param  ?string  $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('continent_code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $continentCode = null;
-
-    /**
-     *
-     * @var ?string $country
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('country')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $country = null;
-
-    /**
-     *
-     * @var ?string $city
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('city')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $city = null;
-
-    /**
-     *
-     * @var ?string $timeZone
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('time_zone')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $timeZone = null;
-
-    /**
-     *
-     * @var ?string $postalCode
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('postal_code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $postalCode = null;
-
-    /**
-     *
-     * @var ?bool $inPrivacyRestrictedCountry
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('in_privacy_restricted_country')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?bool $inPrivacyRestrictedCountry = null;
-
-    /**
-     *
-     * @var ?string $subdivisions
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('subdivisions')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $subdivisions = null;
-
-    /**
-     *
-     * @var ?string $coordinates
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('coordinates')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?string $coordinates = null;
-
-    /**
-     * @param  ?string  $code
-     * @param  ?bool  $europeanUnionMember
-     * @param  ?string  $continentCode
-     * @param  ?string  $country
-     * @param  ?string  $city
-     * @param  ?string  $timeZone
-     * @param  ?string  $postalCode
-     * @param  ?bool  $inPrivacyRestrictedCountry
-     * @param  ?string  $subdivisions
-     * @param  ?string  $coordinates
-     */
-    public function __construct(?string $code = null, ?bool $europeanUnionMember = null, ?string $continentCode = null, ?string $country = null, ?string $city = null, ?string $timeZone = null, ?string $postalCode = null, ?bool $inPrivacyRestrictedCountry = null, ?string $subdivisions = null, ?string $coordinates = null)
+    public function __construct(?int $id = null, ?string $path = null)
     {
-        $this->code = $code;
-        $this->europeanUnionMember = $europeanUnionMember;
-        $this->continentCode = $continentCode;
-        $this->country = $country;
-        $this->city = $city;
-        $this->timeZone = $timeZone;
-        $this->postalCode = $postalCode;
-        $this->inPrivacyRestrictedCountry = $inPrivacyRestrictedCountry;
-        $this->subdivisions = $subdivisions;
-        $this->coordinates = $coordinates;
+        $this->id = $id;
+        $this->path = $path;
     }
 }

@@ -17,8 +17,8 @@ class GetPlaylistContentsResponseBody
      * @var ?GetPlaylistContentsMediaContainer $mediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMediaContainer')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMediaContainer|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GetPlaylistContentsMediaContainer $mediaContainer = null;
 
     /**

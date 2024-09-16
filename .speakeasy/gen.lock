@@ -1,58 +1,1601 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: e73920abd3a55e8d249592f2e3090574
+  docChecksum: a6fee1797b2da7ccbaf7743772a40b56
   docVersion: 0.0.3
-  speakeasyVersion: 1.362.0
-  generationVersion: 2.393.4
-  releaseVersion: 0.7.0
-  configChecksum: 239d479930546495013090103b36829e
+  speakeasyVersion: 1.397.2
+  generationVersion: 2.415.8
+  releaseVersion: 0.8.0
+  configChecksum: 277c6d222037e020407684fc302d9752
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
+  published: true
 features:
   php:
-    core: 3.3.10
+    core: 3.4.3
+    deprecations: 2.81.1
+    errors: 0.1.2
     flattening: 2.81.1
     globalSecurity: 2.81.7
-    globalSecurityFlattening: 0.1.0
+    globalSecurityFlattening: 0.1.1
     globalServerURLs: 2.82.1
-    globals: 2.82.1
+    globals: 2.82.2
     methodServerURLs: 2.82.1
     nameOverrides: 2.81.2
+    nullables: 1.0.0
     responseFormat: 0.1.0
-    typeOverrides: 2.81.1
-    unions: 0.1.0
+    unions: 0.1.2
 generatedFiles:
-  - src/SDKConfiguration.php
-  - src/Server.php
-  - src/Media.php
-  - src/Video.php
-  - src/Activities.php
-  - src/Butler.php
-  - src/Plex.php
-  - src/Hubs.php
-  - src/Search.php
-  - src/Library.php
-  - src/Log.php
-  - src/Playlists.php
-  - src/Authentication.php
-  - src/Statistics.php
-  - src/Sessions.php
-  - src/Updater.php
-  - src/Watchlist.php
-  - src/PlexAPI.php
-  - src/ServerProtocol.php
-  - src/PlexAPIBuilder.php
+  - .gitattributes
+  - CONTRIBUTING.md
+  - USAGE.md
   - composer.json
+  - docs/Models/Components/Security.md
+  - docs/Models/Errors/AddPlaylistContentsBadRequest.md
+  - docs/Models/Errors/AddPlaylistContentsErrors.md
+  - docs/Models/Errors/AddPlaylistContentsPlaylistsErrors.md
+  - docs/Models/Errors/AddPlaylistContentsUnauthorized.md
+  - docs/Models/Errors/ApplyUpdatesBadRequest.md
+  - docs/Models/Errors/ApplyUpdatesErrors.md
+  - docs/Models/Errors/ApplyUpdatesUnauthorized.md
+  - docs/Models/Errors/ApplyUpdatesUpdaterErrors.md
+  - docs/Models/Errors/CancelServerActivitiesActivitiesErrors.md
+  - docs/Models/Errors/CancelServerActivitiesBadRequest.md
+  - docs/Models/Errors/CancelServerActivitiesErrors.md
+  - docs/Models/Errors/CancelServerActivitiesUnauthorized.md
+  - docs/Models/Errors/CheckForUpdatesBadRequest.md
+  - docs/Models/Errors/CheckForUpdatesErrors.md
+  - docs/Models/Errors/CheckForUpdatesUnauthorized.md
+  - docs/Models/Errors/CheckForUpdatesUpdaterErrors.md
+  - docs/Models/Errors/ClearPlaylistContentsBadRequest.md
+  - docs/Models/Errors/ClearPlaylistContentsErrors.md
+  - docs/Models/Errors/ClearPlaylistContentsPlaylistsErrors.md
+  - docs/Models/Errors/ClearPlaylistContentsUnauthorized.md
+  - docs/Models/Errors/CreatePlaylistBadRequest.md
+  - docs/Models/Errors/CreatePlaylistErrors.md
+  - docs/Models/Errors/CreatePlaylistPlaylistsErrors.md
+  - docs/Models/Errors/CreatePlaylistUnauthorized.md
+  - docs/Models/Errors/DeleteLibraryBadRequest.md
+  - docs/Models/Errors/DeleteLibraryErrors.md
+  - docs/Models/Errors/DeleteLibraryLibraryErrors.md
+  - docs/Models/Errors/DeleteLibraryUnauthorized.md
+  - docs/Models/Errors/DeletePlaylistBadRequest.md
+  - docs/Models/Errors/DeletePlaylistErrors.md
+  - docs/Models/Errors/DeletePlaylistPlaylistsErrors.md
+  - docs/Models/Errors/DeletePlaylistUnauthorized.md
+  - docs/Models/Errors/EnablePaperTrailBadRequest.md
+  - docs/Models/Errors/EnablePaperTrailErrors.md
+  - docs/Models/Errors/EnablePaperTrailLogErrors.md
+  - docs/Models/Errors/EnablePaperTrailUnauthorized.md
+  - docs/Models/Errors/Errors.md
+  - docs/Models/Errors/GetAllLibrariesBadRequest.md
+  - docs/Models/Errors/GetAllLibrariesErrors.md
+  - docs/Models/Errors/GetAllLibrariesLibraryErrors.md
+  - docs/Models/Errors/GetAllLibrariesUnauthorized.md
+  - docs/Models/Errors/GetAvailableClientsBadRequest.md
+  - docs/Models/Errors/GetAvailableClientsErrors.md
+  - docs/Models/Errors/GetAvailableClientsServerErrors.md
+  - docs/Models/Errors/GetAvailableClientsUnauthorized.md
+  - docs/Models/Errors/GetBandwidthStatisticsBadRequest.md
+  - docs/Models/Errors/GetBandwidthStatisticsErrors.md
+  - docs/Models/Errors/GetBandwidthStatisticsStatisticsErrors.md
+  - docs/Models/Errors/GetBandwidthStatisticsUnauthorized.md
+  - docs/Models/Errors/GetBannerImageBadRequest.md
+  - docs/Models/Errors/GetBannerImageErrors.md
+  - docs/Models/Errors/GetBannerImageMediaErrors.md
+  - docs/Models/Errors/GetBannerImageUnauthorized.md
+  - docs/Models/Errors/GetButlerTasksBadRequest.md
+  - docs/Models/Errors/GetButlerTasksButlerErrors.md
+  - docs/Models/Errors/GetButlerTasksErrors.md
+  - docs/Models/Errors/GetButlerTasksUnauthorized.md
+  - docs/Models/Errors/GetCompanionsDataBadRequest.md
+  - docs/Models/Errors/GetCompanionsDataErrors.md
+  - docs/Models/Errors/GetCompanionsDataPlexErrors.md
+  - docs/Models/Errors/GetCompanionsDataUnauthorized.md
+  - docs/Models/Errors/GetDevicesBadRequest.md
+  - docs/Models/Errors/GetDevicesErrors.md
+  - docs/Models/Errors/GetDevicesServerErrors.md
+  - docs/Models/Errors/GetDevicesUnauthorized.md
+  - docs/Models/Errors/GetFileHashBadRequest.md
+  - docs/Models/Errors/GetFileHashErrors.md
+  - docs/Models/Errors/GetFileHashLibraryErrors.md
+  - docs/Models/Errors/GetFileHashUnauthorized.md
+  - docs/Models/Errors/GetGeoDataBadRequest.md
+  - docs/Models/Errors/GetGeoDataErrors.md
+  - docs/Models/Errors/GetGeoDataPlexErrors.md
+  - docs/Models/Errors/GetGeoDataUnauthorized.md
+  - docs/Models/Errors/GetGlobalHubsBadRequest.md
+  - docs/Models/Errors/GetGlobalHubsErrors.md
+  - docs/Models/Errors/GetGlobalHubsHubsErrors.md
+  - docs/Models/Errors/GetGlobalHubsUnauthorized.md
+  - docs/Models/Errors/GetHomeDataBadRequest.md
+  - docs/Models/Errors/GetHomeDataErrors.md
+  - docs/Models/Errors/GetHomeDataPlexErrors.md
+  - docs/Models/Errors/GetHomeDataUnauthorized.md
+  - docs/Models/Errors/GetLibraryDetailsBadRequest.md
+  - docs/Models/Errors/GetLibraryDetailsErrors.md
+  - docs/Models/Errors/GetLibraryDetailsLibraryErrors.md
+  - docs/Models/Errors/GetLibraryDetailsUnauthorized.md
+  - docs/Models/Errors/GetLibraryHubsBadRequest.md
+  - docs/Models/Errors/GetLibraryHubsErrors.md
+  - docs/Models/Errors/GetLibraryHubsHubsErrors.md
+  - docs/Models/Errors/GetLibraryHubsUnauthorized.md
+  - docs/Models/Errors/GetLibraryItemsBadRequest.md
+  - docs/Models/Errors/GetLibraryItemsErrors.md
+  - docs/Models/Errors/GetLibraryItemsLibraryErrors.md
+  - docs/Models/Errors/GetLibraryItemsUnauthorized.md
+  - docs/Models/Errors/GetMediaProvidersBadRequest.md
+  - docs/Models/Errors/GetMediaProvidersErrors.md
+  - docs/Models/Errors/GetMediaProvidersServerErrors.md
+  - docs/Models/Errors/GetMediaProvidersUnauthorized.md
+  - docs/Models/Errors/GetMetaDataByRatingKeyBadRequest.md
+  - docs/Models/Errors/GetMetaDataByRatingKeyErrors.md
+  - docs/Models/Errors/GetMetaDataByRatingKeyLibraryErrors.md
+  - docs/Models/Errors/GetMetaDataByRatingKeyUnauthorized.md
+  - docs/Models/Errors/GetMetadataChildrenBadRequest.md
+  - docs/Models/Errors/GetMetadataChildrenErrors.md
+  - docs/Models/Errors/GetMetadataChildrenLibraryErrors.md
+  - docs/Models/Errors/GetMetadataChildrenUnauthorized.md
+  - docs/Models/Errors/GetMyPlexAccountBadRequest.md
+  - docs/Models/Errors/GetMyPlexAccountErrors.md
+  - docs/Models/Errors/GetMyPlexAccountServerErrors.md
+  - docs/Models/Errors/GetMyPlexAccountUnauthorized.md
+  - docs/Models/Errors/GetOnDeckBadRequest.md
+  - docs/Models/Errors/GetOnDeckErrors.md
+  - docs/Models/Errors/GetOnDeckLibraryErrors.md
+  - docs/Models/Errors/GetOnDeckUnauthorized.md
+  - docs/Models/Errors/GetPinBadRequest.md
+  - docs/Models/Errors/GetPinErrors.md
+  - docs/Models/Errors/GetPlaylistBadRequest.md
+  - docs/Models/Errors/GetPlaylistContentsBadRequest.md
+  - docs/Models/Errors/GetPlaylistContentsErrors.md
+  - docs/Models/Errors/GetPlaylistContentsPlaylistsErrors.md
+  - docs/Models/Errors/GetPlaylistContentsUnauthorized.md
+  - docs/Models/Errors/GetPlaylistErrors.md
+  - docs/Models/Errors/GetPlaylistPlaylistsErrors.md
+  - docs/Models/Errors/GetPlaylistUnauthorized.md
+  - docs/Models/Errors/GetPlaylistsBadRequest.md
+  - docs/Models/Errors/GetPlaylistsErrors.md
+  - docs/Models/Errors/GetPlaylistsPlaylistsErrors.md
+  - docs/Models/Errors/GetPlaylistsUnauthorized.md
+  - docs/Models/Errors/GetRecentlyAddedBadRequest.md
+  - docs/Models/Errors/GetRecentlyAddedErrors.md
+  - docs/Models/Errors/GetRecentlyAddedLibraryErrors.md
+  - docs/Models/Errors/GetRecentlyAddedUnauthorized.md
+  - docs/Models/Errors/GetRefreshLibraryMetadataBadRequest.md
+  - docs/Models/Errors/GetRefreshLibraryMetadataErrors.md
+  - docs/Models/Errors/GetRefreshLibraryMetadataLibraryErrors.md
+  - docs/Models/Errors/GetRefreshLibraryMetadataUnauthorized.md
+  - docs/Models/Errors/GetResizedPhotoBadRequest.md
+  - docs/Models/Errors/GetResizedPhotoErrors.md
+  - docs/Models/Errors/GetResizedPhotoServerErrors.md
+  - docs/Models/Errors/GetResizedPhotoUnauthorized.md
+  - docs/Models/Errors/GetResourcesStatisticsBadRequest.md
+  - docs/Models/Errors/GetResourcesStatisticsErrors.md
+  - docs/Models/Errors/GetResourcesStatisticsStatisticsErrors.md
+  - docs/Models/Errors/GetResourcesStatisticsUnauthorized.md
+  - docs/Models/Errors/GetSearchLibraryBadRequest.md
+  - docs/Models/Errors/GetSearchLibraryErrors.md
+  - docs/Models/Errors/GetSearchLibraryLibraryErrors.md
+  - docs/Models/Errors/GetSearchLibraryUnauthorized.md
+  - docs/Models/Errors/GetSearchResultsBadRequest.md
+  - docs/Models/Errors/GetSearchResultsErrors.md
+  - docs/Models/Errors/GetSearchResultsSearchErrors.md
+  - docs/Models/Errors/GetSearchResultsUnauthorized.md
+  - docs/Models/Errors/GetServerActivitiesActivitiesErrors.md
+  - docs/Models/Errors/GetServerActivitiesBadRequest.md
+  - docs/Models/Errors/GetServerActivitiesErrors.md
+  - docs/Models/Errors/GetServerActivitiesUnauthorized.md
+  - docs/Models/Errors/GetServerCapabilitiesBadRequest.md
+  - docs/Models/Errors/GetServerCapabilitiesErrors.md
+  - docs/Models/Errors/GetServerCapabilitiesUnauthorized.md
+  - docs/Models/Errors/GetServerIdentityRequestTimeout.md
+  - docs/Models/Errors/GetServerListBadRequest.md
+  - docs/Models/Errors/GetServerListErrors.md
+  - docs/Models/Errors/GetServerListServerErrors.md
+  - docs/Models/Errors/GetServerListUnauthorized.md
+  - docs/Models/Errors/GetServerPreferencesBadRequest.md
+  - docs/Models/Errors/GetServerPreferencesErrors.md
+  - docs/Models/Errors/GetServerPreferencesServerErrors.md
+  - docs/Models/Errors/GetServerPreferencesUnauthorized.md
+  - docs/Models/Errors/GetServerResourcesBadRequest.md
+  - docs/Models/Errors/GetServerResourcesErrors.md
+  - docs/Models/Errors/GetServerResourcesPlexErrors.md
+  - docs/Models/Errors/GetServerResourcesUnauthorized.md
+  - docs/Models/Errors/GetSessionHistoryBadRequest.md
+  - docs/Models/Errors/GetSessionHistoryErrors.md
+  - docs/Models/Errors/GetSessionHistorySessionsErrors.md
+  - docs/Models/Errors/GetSessionHistoryUnauthorized.md
+  - docs/Models/Errors/GetSessionsBadRequest.md
+  - docs/Models/Errors/GetSessionsErrors.md
+  - docs/Models/Errors/GetSessionsSessionsErrors.md
+  - docs/Models/Errors/GetSessionsUnauthorized.md
+  - docs/Models/Errors/GetSourceConnectionInformationAuthenticationErrors.md
+  - docs/Models/Errors/GetSourceConnectionInformationBadRequest.md
+  - docs/Models/Errors/GetSourceConnectionInformationErrors.md
+  - docs/Models/Errors/GetSourceConnectionInformationUnauthorized.md
+  - docs/Models/Errors/GetStatisticsBadRequest.md
+  - docs/Models/Errors/GetStatisticsErrors.md
+  - docs/Models/Errors/GetStatisticsStatisticsErrors.md
+  - docs/Models/Errors/GetStatisticsUnauthorized.md
+  - docs/Models/Errors/GetThumbImageBadRequest.md
+  - docs/Models/Errors/GetThumbImageErrors.md
+  - docs/Models/Errors/GetThumbImageMediaErrors.md
+  - docs/Models/Errors/GetThumbImageUnauthorized.md
+  - docs/Models/Errors/GetTimelineBadRequest.md
+  - docs/Models/Errors/GetTimelineErrors.md
+  - docs/Models/Errors/GetTimelineUnauthorized.md
+  - docs/Models/Errors/GetTimelineVideoErrors.md
+  - docs/Models/Errors/GetTokenByPinIdBadRequest.md
+  - docs/Models/Errors/GetTokenByPinIdErrors.md
+  - docs/Models/Errors/GetTokenByPinIdPlexErrors.md
+  - docs/Models/Errors/GetTokenByPinIdResponseBody.md
+  - docs/Models/Errors/GetTokenDetailsAuthenticationErrors.md
+  - docs/Models/Errors/GetTokenDetailsBadRequest.md
+  - docs/Models/Errors/GetTokenDetailsErrors.md
+  - docs/Models/Errors/GetTokenDetailsUnauthorized.md
+  - docs/Models/Errors/GetTopWatchedContentBadRequest.md
+  - docs/Models/Errors/GetTopWatchedContentErrors.md
+  - docs/Models/Errors/GetTopWatchedContentLibraryErrors.md
+  - docs/Models/Errors/GetTopWatchedContentUnauthorized.md
+  - docs/Models/Errors/GetTranscodeSessionsBadRequest.md
+  - docs/Models/Errors/GetTranscodeSessionsErrors.md
+  - docs/Models/Errors/GetTranscodeSessionsSessionsErrors.md
+  - docs/Models/Errors/GetTranscodeSessionsUnauthorized.md
+  - docs/Models/Errors/GetTransientTokenAuthenticationErrors.md
+  - docs/Models/Errors/GetTransientTokenBadRequest.md
+  - docs/Models/Errors/GetTransientTokenErrors.md
+  - docs/Models/Errors/GetTransientTokenUnauthorized.md
+  - docs/Models/Errors/GetUpdateStatusBadRequest.md
+  - docs/Models/Errors/GetUpdateStatusErrors.md
+  - docs/Models/Errors/GetUpdateStatusUnauthorized.md
+  - docs/Models/Errors/GetUpdateStatusUpdaterErrors.md
+  - docs/Models/Errors/GetUserFriendsBadRequest.md
+  - docs/Models/Errors/GetUserFriendsErrors.md
+  - docs/Models/Errors/GetUserFriendsPlexErrors.md
+  - docs/Models/Errors/GetUserFriendsUnauthorized.md
+  - docs/Models/Errors/GetWatchListBadRequest.md
+  - docs/Models/Errors/GetWatchListErrors.md
+  - docs/Models/Errors/GetWatchListUnauthorized.md
+  - docs/Models/Errors/GetWatchListWatchlistErrors.md
+  - docs/Models/Errors/LogLineBadRequest.md
+  - docs/Models/Errors/LogLineErrors.md
+  - docs/Models/Errors/LogLineLogErrors.md
+  - docs/Models/Errors/LogLineUnauthorized.md
+  - docs/Models/Errors/LogMultiLineBadRequest.md
+  - docs/Models/Errors/LogMultiLineErrors.md
+  - docs/Models/Errors/LogMultiLineLogErrors.md
+  - docs/Models/Errors/LogMultiLineUnauthorized.md
+  - docs/Models/Errors/MarkPlayedBadRequest.md
+  - docs/Models/Errors/MarkPlayedErrors.md
+  - docs/Models/Errors/MarkPlayedMediaErrors.md
+  - docs/Models/Errors/MarkPlayedUnauthorized.md
+  - docs/Models/Errors/MarkUnplayedBadRequest.md
+  - docs/Models/Errors/MarkUnplayedErrors.md
+  - docs/Models/Errors/MarkUnplayedMediaErrors.md
+  - docs/Models/Errors/MarkUnplayedUnauthorized.md
+  - docs/Models/Errors/PerformSearchBadRequest.md
+  - docs/Models/Errors/PerformSearchErrors.md
+  - docs/Models/Errors/PerformSearchSearchErrors.md
+  - docs/Models/Errors/PerformSearchUnauthorized.md
+  - docs/Models/Errors/PerformVoiceSearchBadRequest.md
+  - docs/Models/Errors/PerformVoiceSearchErrors.md
+  - docs/Models/Errors/PerformVoiceSearchSearchErrors.md
+  - docs/Models/Errors/PerformVoiceSearchUnauthorized.md
+  - docs/Models/Errors/PostUsersSignInDataAuthenticationErrors.md
+  - docs/Models/Errors/PostUsersSignInDataBadRequest.md
+  - docs/Models/Errors/PostUsersSignInDataErrors.md
+  - docs/Models/Errors/PostUsersSignInDataUnauthorized.md
+  - docs/Models/Errors/StartAllTasksBadRequest.md
+  - docs/Models/Errors/StartAllTasksButlerErrors.md
+  - docs/Models/Errors/StartAllTasksErrors.md
+  - docs/Models/Errors/StartAllTasksUnauthorized.md
+  - docs/Models/Errors/StartTaskBadRequest.md
+  - docs/Models/Errors/StartTaskButlerErrors.md
+  - docs/Models/Errors/StartTaskErrors.md
+  - docs/Models/Errors/StartTaskUnauthorized.md
+  - docs/Models/Errors/StartUniversalTranscodeBadRequest.md
+  - docs/Models/Errors/StartUniversalTranscodeErrors.md
+  - docs/Models/Errors/StartUniversalTranscodeUnauthorized.md
+  - docs/Models/Errors/StartUniversalTranscodeVideoErrors.md
+  - docs/Models/Errors/StopAllTasksBadRequest.md
+  - docs/Models/Errors/StopAllTasksButlerErrors.md
+  - docs/Models/Errors/StopAllTasksErrors.md
+  - docs/Models/Errors/StopAllTasksUnauthorized.md
+  - docs/Models/Errors/StopTaskBadRequest.md
+  - docs/Models/Errors/StopTaskButlerErrors.md
+  - docs/Models/Errors/StopTaskErrors.md
+  - docs/Models/Errors/StopTaskUnauthorized.md
+  - docs/Models/Errors/StopTranscodeSessionBadRequest.md
+  - docs/Models/Errors/StopTranscodeSessionErrors.md
+  - docs/Models/Errors/StopTranscodeSessionSessionsErrors.md
+  - docs/Models/Errors/StopTranscodeSessionUnauthorized.md
+  - docs/Models/Errors/UpdatePlayProgressBadRequest.md
+  - docs/Models/Errors/UpdatePlayProgressErrors.md
+  - docs/Models/Errors/UpdatePlayProgressMediaErrors.md
+  - docs/Models/Errors/UpdatePlayProgressUnauthorized.md
+  - docs/Models/Errors/UpdatePlaylistBadRequest.md
+  - docs/Models/Errors/UpdatePlaylistErrors.md
+  - docs/Models/Errors/UpdatePlaylistPlaylistsErrors.md
+  - docs/Models/Errors/UpdatePlaylistUnauthorized.md
+  - docs/Models/Errors/UploadPlaylistBadRequest.md
+  - docs/Models/Errors/UploadPlaylistErrors.md
+  - docs/Models/Errors/UploadPlaylistPlaylistsErrors.md
+  - docs/Models/Errors/UploadPlaylistUnauthorized.md
+  - docs/Models/Operations/Account.md
+  - docs/Models/Operations/Activity.md
+  - docs/Models/Operations/AddPlaylistContentsMediaContainer.md
+  - docs/Models/Operations/AddPlaylistContentsMetadata.md
+  - docs/Models/Operations/AddPlaylistContentsRequest.md
+  - docs/Models/Operations/AddPlaylistContentsResponse.md
+  - docs/Models/Operations/AddPlaylistContentsResponseBody.md
+  - docs/Models/Operations/ApplyUpdatesRequest.md
+  - docs/Models/Operations/ApplyUpdatesResponse.md
+  - docs/Models/Operations/AutoSelectSubtitle.md
+  - docs/Models/Operations/Billing.md
+  - docs/Models/Operations/ButlerTask.md
+  - docs/Models/Operations/ButlerTasks.md
+  - docs/Models/Operations/CancelServerActivitiesRequest.md
+  - docs/Models/Operations/CancelServerActivitiesResponse.md
+  - docs/Models/Operations/CheckForUpdatesRequest.md
+  - docs/Models/Operations/CheckForUpdatesResponse.md
+  - docs/Models/Operations/ClearPlaylistContentsRequest.md
+  - docs/Models/Operations/ClearPlaylistContentsResponse.md
+  - docs/Models/Operations/Connections.md
+  - docs/Models/Operations/Context.md
+  - docs/Models/Operations/Country.md
+  - docs/Models/Operations/CreatePlaylistMediaContainer.md
+  - docs/Models/Operations/CreatePlaylistMetadata.md
+  - docs/Models/Operations/CreatePlaylistQueryParamType.md
+  - docs/Models/Operations/CreatePlaylistRequest.md
+  - docs/Models/Operations/CreatePlaylistResponse.md
+  - docs/Models/Operations/CreatePlaylistResponseBody.md
+  - docs/Models/Operations/DefaultSubtitleAccessibility.md
+  - docs/Models/Operations/DefaultSubtitleForced.md
+  - docs/Models/Operations/DeleteLibraryRequest.md
+  - docs/Models/Operations/DeleteLibraryResponse.md
+  - docs/Models/Operations/DeletePlaylistRequest.md
+  - docs/Models/Operations/DeletePlaylistResponse.md
+  - docs/Models/Operations/Device.md
+  - docs/Models/Operations/Director.md
+  - docs/Models/Operations/Directory.md
+  - docs/Models/Operations/Download.md
+  - docs/Models/Operations/EnablePaperTrailResponse.md
+  - docs/Models/Operations/Feature.md
+  - docs/Models/Operations/Features.md
+  - docs/Models/Operations/Field.md
+  - docs/Models/Operations/FieldType.md
+  - docs/Models/Operations/Filter.md
+  - docs/Models/Operations/Force.md
+  - docs/Models/Operations/Friend.md
+  - docs/Models/Operations/Genre.md
+  - docs/Models/Operations/GeoData.md
+  - docs/Models/Operations/GetAllLibrariesDirectory.md
+  - docs/Models/Operations/GetAllLibrariesMediaContainer.md
+  - docs/Models/Operations/GetAllLibrariesResponse.md
+  - docs/Models/Operations/GetAllLibrariesResponseBody.md
+  - docs/Models/Operations/GetAvailableClientsMediaContainer.md
+  - docs/Models/Operations/GetAvailableClientsResponse.md
+  - docs/Models/Operations/GetAvailableClientsResponseBody.md
+  - docs/Models/Operations/GetBandwidthStatisticsAccount.md
+  - docs/Models/Operations/GetBandwidthStatisticsDevice.md
+  - docs/Models/Operations/GetBandwidthStatisticsMediaContainer.md
+  - docs/Models/Operations/GetBandwidthStatisticsRequest.md
+  - docs/Models/Operations/GetBandwidthStatisticsResponse.md
+  - docs/Models/Operations/GetBandwidthStatisticsResponseBody.md
+  - docs/Models/Operations/GetBannerImageRequest.md
+  - docs/Models/Operations/GetBannerImageResponse.md
+  - docs/Models/Operations/GetButlerTasksResponse.md
+  - docs/Models/Operations/GetButlerTasksResponseBody.md
+  - docs/Models/Operations/GetCompanionsDataResponse.md
+  - docs/Models/Operations/GetDevicesMediaContainer.md
+  - docs/Models/Operations/GetDevicesResponse.md
+  - docs/Models/Operations/GetDevicesResponseBody.md
+  - docs/Models/Operations/GetFileHashRequest.md
+  - docs/Models/Operations/GetFileHashResponse.md
+  - docs/Models/Operations/GetGeoDataGeoData.md
+  - docs/Models/Operations/GetGeoDataResponse.md
+  - docs/Models/Operations/GetGlobalHubsMediaContainer.md
+  - docs/Models/Operations/GetGlobalHubsMetadata.md
+  - docs/Models/Operations/GetGlobalHubsRequest.md
+  - docs/Models/Operations/GetGlobalHubsResponse.md
+  - docs/Models/Operations/GetGlobalHubsResponseBody.md
+  - docs/Models/Operations/GetHomeDataResponse.md
+  - docs/Models/Operations/GetHomeDataResponseBody.md
+  - docs/Models/Operations/GetLibraryDetailsDirectory.md
+  - docs/Models/Operations/GetLibraryDetailsFilter.md
+  - docs/Models/Operations/GetLibraryDetailsMediaContainer.md
+  - docs/Models/Operations/GetLibraryDetailsRequest.md
+  - docs/Models/Operations/GetLibraryDetailsResponse.md
+  - docs/Models/Operations/GetLibraryDetailsResponseBody.md
+  - docs/Models/Operations/GetLibraryDetailsType.md
+  - docs/Models/Operations/GetLibraryHubsCountry.md
+  - docs/Models/Operations/GetLibraryHubsDirector.md
+  - docs/Models/Operations/GetLibraryHubsGenre.md
+  - docs/Models/Operations/GetLibraryHubsHub.md
+  - docs/Models/Operations/GetLibraryHubsMedia.md
+  - docs/Models/Operations/GetLibraryHubsMediaContainer.md
+  - docs/Models/Operations/GetLibraryHubsMetadata.md
+  - docs/Models/Operations/GetLibraryHubsPart.md
+  - docs/Models/Operations/GetLibraryHubsRequest.md
+  - docs/Models/Operations/GetLibraryHubsResponse.md
+  - docs/Models/Operations/GetLibraryHubsResponseBody.md
+  - docs/Models/Operations/GetLibraryHubsRole.md
+  - docs/Models/Operations/GetLibraryHubsWriter.md
+  - docs/Models/Operations/GetLibraryItemsCountry.md
+  - docs/Models/Operations/GetLibraryItemsDirector.md
+  - docs/Models/Operations/GetLibraryItemsGenre.md
+  - docs/Models/Operations/GetLibraryItemsMedia.md
+  - docs/Models/Operations/GetLibraryItemsMediaContainer.md
+  - docs/Models/Operations/GetLibraryItemsMetadata.md
+  - docs/Models/Operations/GetLibraryItemsPart.md
+  - docs/Models/Operations/GetLibraryItemsRequest.md
+  - docs/Models/Operations/GetLibraryItemsResponse.md
+  - docs/Models/Operations/GetLibraryItemsResponseBody.md
+  - docs/Models/Operations/GetLibraryItemsRole.md
+  - docs/Models/Operations/GetLibraryItemsWriter.md
+  - docs/Models/Operations/GetMediaProvidersDirectory.md
+  - docs/Models/Operations/GetMediaProvidersMediaContainer.md
+  - docs/Models/Operations/GetMediaProvidersRequest.md
+  - docs/Models/Operations/GetMediaProvidersResponse.md
+  - docs/Models/Operations/GetMediaProvidersResponseBody.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyCountry.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyDirector.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyGenre.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyMedia.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyMediaContainer.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyMetadata.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyPart.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyRequest.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyResponse.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyResponseBody.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyRole.md
+  - docs/Models/Operations/GetMetaDataByRatingKeyWriter.md
+  - docs/Models/Operations/GetMetadataChildrenDirectory.md
+  - docs/Models/Operations/GetMetadataChildrenMediaContainer.md
+  - docs/Models/Operations/GetMetadataChildrenMetadata.md
+  - docs/Models/Operations/GetMetadataChildrenRequest.md
+  - docs/Models/Operations/GetMetadataChildrenResponse.md
+  - docs/Models/Operations/GetMetadataChildrenResponseBody.md
+  - docs/Models/Operations/GetMyPlexAccountResponse.md
+  - docs/Models/Operations/GetMyPlexAccountResponseBody.md
+  - docs/Models/Operations/GetOnDeckGuids.md
+  - docs/Models/Operations/GetOnDeckMedia.md
+  - docs/Models/Operations/GetOnDeckMediaContainer.md
+  - docs/Models/Operations/GetOnDeckMetadata.md
+  - docs/Models/Operations/GetOnDeckPart.md
+  - docs/Models/Operations/GetOnDeckResponse.md
+  - docs/Models/Operations/GetOnDeckResponseBody.md
+  - docs/Models/Operations/GetOnDeckStream.md
+  - docs/Models/Operations/GetPinAuthPinContainer.md
+  - docs/Models/Operations/GetPinRequest.md
+  - docs/Models/Operations/GetPinResponse.md
+  - docs/Models/Operations/GetPlaylistContentsCountry.md
+  - docs/Models/Operations/GetPlaylistContentsDirector.md
+  - docs/Models/Operations/GetPlaylistContentsGenre.md
+  - docs/Models/Operations/GetPlaylistContentsMedia.md
+  - docs/Models/Operations/GetPlaylistContentsMediaContainer.md
+  - docs/Models/Operations/GetPlaylistContentsMetadata.md
+  - docs/Models/Operations/GetPlaylistContentsPart.md
+  - docs/Models/Operations/GetPlaylistContentsQueryParamType.md
+  - docs/Models/Operations/GetPlaylistContentsRequest.md
+  - docs/Models/Operations/GetPlaylistContentsResponse.md
+  - docs/Models/Operations/GetPlaylistContentsResponseBody.md
+  - docs/Models/Operations/GetPlaylistContentsRole.md
+  - docs/Models/Operations/GetPlaylistContentsWriter.md
+  - docs/Models/Operations/GetPlaylistMediaContainer.md
+  - docs/Models/Operations/GetPlaylistMetadata.md
+  - docs/Models/Operations/GetPlaylistRequest.md
+  - docs/Models/Operations/GetPlaylistResponse.md
+  - docs/Models/Operations/GetPlaylistResponseBody.md
+  - docs/Models/Operations/GetPlaylistsMediaContainer.md
+  - docs/Models/Operations/GetPlaylistsMetadata.md
+  - docs/Models/Operations/GetPlaylistsRequest.md
+  - docs/Models/Operations/GetPlaylistsResponse.md
+  - docs/Models/Operations/GetPlaylistsResponseBody.md
+  - docs/Models/Operations/GetRecentlyAddedMediaContainer.md
+  - docs/Models/Operations/GetRecentlyAddedMetadata.md
+  - docs/Models/Operations/GetRecentlyAddedRequest.md
+  - docs/Models/Operations/GetRecentlyAddedResponse.md
+  - docs/Models/Operations/GetRecentlyAddedResponseBody.md
+  - docs/Models/Operations/GetRefreshLibraryMetadataRequest.md
+  - docs/Models/Operations/GetRefreshLibraryMetadataResponse.md
+  - docs/Models/Operations/GetResizedPhotoRequest.md
+  - docs/Models/Operations/GetResizedPhotoResponse.md
+  - docs/Models/Operations/GetResourcesStatisticsMediaContainer.md
+  - docs/Models/Operations/GetResourcesStatisticsRequest.md
+  - docs/Models/Operations/GetResourcesStatisticsResponse.md
+  - docs/Models/Operations/GetResourcesStatisticsResponseBody.md
+  - docs/Models/Operations/GetSearchLibraryMediaContainer.md
+  - docs/Models/Operations/GetSearchLibraryMetadata.md
+  - docs/Models/Operations/GetSearchLibraryRequest.md
+  - docs/Models/Operations/GetSearchLibraryResponse.md
+  - docs/Models/Operations/GetSearchLibraryResponseBody.md
+  - docs/Models/Operations/GetSearchResultsCountry.md
+  - docs/Models/Operations/GetSearchResultsDirector.md
+  - docs/Models/Operations/GetSearchResultsGenre.md
+  - docs/Models/Operations/GetSearchResultsMedia.md
+  - docs/Models/Operations/GetSearchResultsMediaContainer.md
+  - docs/Models/Operations/GetSearchResultsMetadata.md
+  - docs/Models/Operations/GetSearchResultsPart.md
+  - docs/Models/Operations/GetSearchResultsRequest.md
+  - docs/Models/Operations/GetSearchResultsResponse.md
+  - docs/Models/Operations/GetSearchResultsResponseBody.md
+  - docs/Models/Operations/GetSearchResultsRole.md
+  - docs/Models/Operations/GetSearchResultsWriter.md
+  - docs/Models/Operations/GetServerActivitiesMediaContainer.md
+  - docs/Models/Operations/GetServerActivitiesResponse.md
+  - docs/Models/Operations/GetServerActivitiesResponseBody.md
+  - docs/Models/Operations/GetServerCapabilitiesResponse.md
+  - docs/Models/Operations/GetServerCapabilitiesResponseBody.md
+  - docs/Models/Operations/GetServerIdentityMediaContainer.md
+  - docs/Models/Operations/GetServerIdentityResponse.md
+  - docs/Models/Operations/GetServerIdentityResponseBody.md
+  - docs/Models/Operations/GetServerListMediaContainer.md
+  - docs/Models/Operations/GetServerListResponse.md
+  - docs/Models/Operations/GetServerListResponseBody.md
+  - docs/Models/Operations/GetServerListServer.md
+  - docs/Models/Operations/GetServerPreferencesMediaContainer.md
+  - docs/Models/Operations/GetServerPreferencesResponse.md
+  - docs/Models/Operations/GetServerPreferencesResponseBody.md
+  - docs/Models/Operations/GetServerResourcesRequest.md
+  - docs/Models/Operations/GetServerResourcesResponse.md
+  - docs/Models/Operations/GetSessionHistoryMediaContainer.md
+  - docs/Models/Operations/GetSessionHistoryMetadata.md
+  - docs/Models/Operations/GetSessionHistoryRequest.md
+  - docs/Models/Operations/GetSessionHistoryResponse.md
+  - docs/Models/Operations/GetSessionHistoryResponseBody.md
+  - docs/Models/Operations/GetSessionsMedia.md
+  - docs/Models/Operations/GetSessionsMediaContainer.md
+  - docs/Models/Operations/GetSessionsMetadata.md
+  - docs/Models/Operations/GetSessionsPart.md
+  - docs/Models/Operations/GetSessionsResponse.md
+  - docs/Models/Operations/GetSessionsResponseBody.md
+  - docs/Models/Operations/GetSessionsStream.md
+  - docs/Models/Operations/GetSessionsUser.md
+  - docs/Models/Operations/GetSourceConnectionInformationRequest.md
+  - docs/Models/Operations/GetSourceConnectionInformationResponse.md
+  - docs/Models/Operations/GetStatisticsDevice.md
+  - docs/Models/Operations/GetStatisticsMediaContainer.md
+  - docs/Models/Operations/GetStatisticsRequest.md
+  - docs/Models/Operations/GetStatisticsResponse.md
+  - docs/Models/Operations/GetStatisticsResponseBody.md
+  - docs/Models/Operations/GetThumbImageRequest.md
+  - docs/Models/Operations/GetThumbImageResponse.md
+  - docs/Models/Operations/GetTimelineRequest.md
+  - docs/Models/Operations/GetTimelineResponse.md
+  - docs/Models/Operations/GetTokenByPinIdAuthPinContainer.md
+  - docs/Models/Operations/GetTokenByPinIdGeoData.md
+  - docs/Models/Operations/GetTokenByPinIdRequest.md
+  - docs/Models/Operations/GetTokenByPinIdResponse.md
+  - docs/Models/Operations/GetTokenDetailsAuthenticationResponseStatus.md
+  - docs/Models/Operations/GetTokenDetailsAuthenticationStatus.md
+  - docs/Models/Operations/GetTokenDetailsFeatures.md
+  - docs/Models/Operations/GetTokenDetailsResponse.md
+  - docs/Models/Operations/GetTokenDetailsStatus.md
+  - docs/Models/Operations/GetTokenDetailsSubscription.md
+  - docs/Models/Operations/GetTokenDetailsUserPlexAccount.md
+  - docs/Models/Operations/GetTopWatchedContentCountry.md
+  - docs/Models/Operations/GetTopWatchedContentGenre.md
+  - docs/Models/Operations/GetTopWatchedContentGuids.md
+  - docs/Models/Operations/GetTopWatchedContentMediaContainer.md
+  - docs/Models/Operations/GetTopWatchedContentMetadata.md
+  - docs/Models/Operations/GetTopWatchedContentQueryParamType.md
+  - docs/Models/Operations/GetTopWatchedContentRequest.md
+  - docs/Models/Operations/GetTopWatchedContentResponse.md
+  - docs/Models/Operations/GetTopWatchedContentResponseBody.md
+  - docs/Models/Operations/GetTopWatchedContentRole.md
+  - docs/Models/Operations/GetTranscodeSessionsMediaContainer.md
+  - docs/Models/Operations/GetTranscodeSessionsResponse.md
+  - docs/Models/Operations/GetTranscodeSessionsResponseBody.md
+  - docs/Models/Operations/GetTransientTokenQueryParamType.md
+  - docs/Models/Operations/GetTransientTokenRequest.md
+  - docs/Models/Operations/GetTransientTokenResponse.md
+  - docs/Models/Operations/GetUpdateStatusMediaContainer.md
+  - docs/Models/Operations/GetUpdateStatusResponse.md
+  - docs/Models/Operations/GetUpdateStatusResponseBody.md
+  - docs/Models/Operations/GetUserFriendsResponse.md
+  - docs/Models/Operations/GetWatchListRequest.md
+  - docs/Models/Operations/GetWatchListResponse.md
+  - docs/Models/Operations/GetWatchListResponseBody.md
+  - docs/Models/Operations/Guids.md
+  - docs/Models/Operations/Hub.md
+  - docs/Models/Operations/Image.md
+  - docs/Models/Operations/IncludeCollections.md
+  - docs/Models/Operations/IncludeDetails.md
+  - docs/Models/Operations/IncludeExternalMedia.md
+  - docs/Models/Operations/IncludeGuids.md
+  - docs/Models/Operations/IncludeHttps.md
+  - docs/Models/Operations/IncludeIPv6.md
+  - docs/Models/Operations/IncludeMeta.md
+  - docs/Models/Operations/IncludeRelay.md
+  - docs/Models/Operations/InternalPaymentMethod.md
+  - docs/Models/Operations/Level.md
+  - docs/Models/Operations/LibrarySectionID.md
+  - docs/Models/Operations/Libtype.md
+  - docs/Models/Operations/Location.md
+  - docs/Models/Operations/LogLineRequest.md
+  - docs/Models/Operations/LogLineResponse.md
+  - docs/Models/Operations/LogMultiLineResponse.md
+  - docs/Models/Operations/MailingListStatus.md
+  - docs/Models/Operations/MarkPlayedRequest.md
+  - docs/Models/Operations/MarkPlayedResponse.md
+  - docs/Models/Operations/MarkUnplayedRequest.md
+  - docs/Models/Operations/MarkUnplayedResponse.md
+  - docs/Models/Operations/Media.md
+  - docs/Models/Operations/MediaContainer.md
+  - docs/Models/Operations/MediaProvider.md
+  - docs/Models/Operations/MediaReviewsVisibility.md
+  - docs/Models/Operations/Metadata.md
+  - docs/Models/Operations/MinSize.md
+  - docs/Models/Operations/MyPlex.md
+  - docs/Models/Operations/OnlyTransient.md
+  - docs/Models/Operations/Operator.md
+  - docs/Models/Operations/Part.md
+  - docs/Models/Operations/PastSubscription.md
+  - docs/Models/Operations/PathParamTaskName.md
+  - docs/Models/Operations/PerformSearchRequest.md
+  - docs/Models/Operations/PerformSearchResponse.md
+  - docs/Models/Operations/PerformVoiceSearchRequest.md
+  - docs/Models/Operations/PerformVoiceSearchResponse.md
+  - docs/Models/Operations/Pivot.md
+  - docs/Models/Operations/Player.md
+  - docs/Models/Operations/PlaylistType.md
+  - docs/Models/Operations/PlexDevice.md
+  - docs/Models/Operations/PostUsersSignInDataAuthenticationFeatures.md
+  - docs/Models/Operations/PostUsersSignInDataAuthenticationResponseStatus.md
+  - docs/Models/Operations/PostUsersSignInDataAuthenticationStatus.md
+  - docs/Models/Operations/PostUsersSignInDataAuthenticationSubscription.md
+  - docs/Models/Operations/PostUsersSignInDataAutoSelectSubtitle.md
+  - docs/Models/Operations/PostUsersSignInDataDefaultSubtitleAccessibility.md
+  - docs/Models/Operations/PostUsersSignInDataDefaultSubtitleForced.md
+  - docs/Models/Operations/PostUsersSignInDataFeatures.md
+  - docs/Models/Operations/PostUsersSignInDataMailingListStatus.md
+  - docs/Models/Operations/PostUsersSignInDataMediaReviewsVisibility.md
+  - docs/Models/Operations/PostUsersSignInDataRequest.md
+  - docs/Models/Operations/PostUsersSignInDataRequestBody.md
+  - docs/Models/Operations/PostUsersSignInDataResponse.md
+  - docs/Models/Operations/PostUsersSignInDataServices.md
+  - docs/Models/Operations/PostUsersSignInDataState.md
+  - docs/Models/Operations/PostUsersSignInDataStatus.md
+  - docs/Models/Operations/PostUsersSignInDataSubscription.md
+  - docs/Models/Operations/PostUsersSignInDataUserPlexAccount.md
+  - docs/Models/Operations/PostUsersSignInDataUserProfile.md
+  - docs/Models/Operations/PostUsersSignInDataWatchedIndicator.md
+  - docs/Models/Operations/Producer.md
+  - docs/Models/Operations/Provider.md
+  - docs/Models/Operations/QueryParamFilter.md
+  - docs/Models/Operations/QueryParamForce.md
+  - docs/Models/Operations/QueryParamOnlyTransient.md
+  - docs/Models/Operations/QueryParamSmart.md
+  - docs/Models/Operations/QueryParamType.md
+  - docs/Models/Operations/Ratings.md
+  - docs/Models/Operations/Release.md
+  - docs/Models/Operations/ResponseBody.md
+  - docs/Models/Operations/Role.md
+  - docs/Models/Operations/Scope.md
+  - docs/Models/Operations/Server.md
+  - docs/Models/Operations/Services.md
+  - docs/Models/Operations/Session.md
+  - docs/Models/Operations/Setting.md
+  - docs/Models/Operations/SharedServers.md
+  - docs/Models/Operations/SharedSources.md
+  - docs/Models/Operations/Skip.md
+  - docs/Models/Operations/Smart.md
+  - docs/Models/Operations/Sort.md
+  - docs/Models/Operations/StartAllTasksResponse.md
+  - docs/Models/Operations/StartTaskRequest.md
+  - docs/Models/Operations/StartTaskResponse.md
+  - docs/Models/Operations/StartUniversalTranscodeRequest.md
+  - docs/Models/Operations/StartUniversalTranscodeResponse.md
+  - docs/Models/Operations/State.md
+  - docs/Models/Operations/StatisticsBandwidth.md
+  - docs/Models/Operations/StatisticsMedia.md
+  - docs/Models/Operations/StatisticsResources.md
+  - docs/Models/Operations/Status.md
+  - docs/Models/Operations/StopAllTasksResponse.md
+  - docs/Models/Operations/StopTaskRequest.md
+  - docs/Models/Operations/StopTaskResponse.md
+  - docs/Models/Operations/StopTranscodeSessionRequest.md
+  - docs/Models/Operations/StopTranscodeSessionResponse.md
+  - docs/Models/Operations/Stream.md
+  - docs/Models/Operations/Subscription.md
+  - docs/Models/Operations/Tag.md
+  - docs/Models/Operations/TaskName.md
+  - docs/Models/Operations/Tonight.md
+  - docs/Models/Operations/TranscodeSession.md
+  - docs/Models/Operations/Trials.md
+  - docs/Models/Operations/Type.md
+  - docs/Models/Operations/UpdatePlayProgressRequest.md
+  - docs/Models/Operations/UpdatePlayProgressResponse.md
+  - docs/Models/Operations/UpdatePlaylistRequest.md
+  - docs/Models/Operations/UpdatePlaylistResponse.md
+  - docs/Models/Operations/UploadPlaylistRequest.md
+  - docs/Models/Operations/UploadPlaylistResponse.md
+  - docs/Models/Operations/Upscale.md
+  - docs/Models/Operations/User.md
+  - docs/Models/Operations/UserProfile.md
+  - docs/Models/Operations/WatchedIndicator.md
+  - docs/Models/Operations/Writer.md
+  - docs/sdks/activities/README.md
+  - docs/sdks/authentication/README.md
+  - docs/sdks/butler/README.md
+  - docs/sdks/hubs/README.md
+  - docs/sdks/library/README.md
+  - docs/sdks/log/README.md
+  - docs/sdks/media/README.md
+  - docs/sdks/playlists/README.md
+  - docs/sdks/plex/README.md
+  - docs/sdks/plexapi/README.md
+  - docs/sdks/search/README.md
+  - docs/sdks/server/README.md
+  - docs/sdks/sessions/README.md
+  - docs/sdks/statistics/README.md
+  - docs/sdks/updater/README.md
+  - docs/sdks/video/README.md
+  - docs/sdks/watchlist/README.md
   - phpstan.neon
   - phpunit.xml
   - pint.json
   - rector.php
+  - src/Activities.php
+  - src/Authentication.php
+  - src/Butler.php
+  - src/Hubs.php
+  - src/Library.php
+  - src/Log.php
+  - src/Media.php
+  - src/Models/Components/Security.php
+  - src/Models/Errors/AddPlaylistContentsBadRequest.php
+  - src/Models/Errors/AddPlaylistContentsBadRequestThrowable.php
+  - src/Models/Errors/AddPlaylistContentsErrors.php
+  - src/Models/Errors/AddPlaylistContentsPlaylistsErrors.php
+  - src/Models/Errors/AddPlaylistContentsUnauthorized.php
+  - src/Models/Errors/AddPlaylistContentsUnauthorizedThrowable.php
+  - src/Models/Errors/ApplyUpdatesBadRequest.php
+  - src/Models/Errors/ApplyUpdatesBadRequestThrowable.php
+  - src/Models/Errors/ApplyUpdatesErrors.php
+  - src/Models/Errors/ApplyUpdatesUnauthorized.php
+  - src/Models/Errors/ApplyUpdatesUnauthorizedThrowable.php
+  - src/Models/Errors/ApplyUpdatesUpdaterErrors.php
+  - src/Models/Errors/CancelServerActivitiesActivitiesErrors.php
+  - src/Models/Errors/CancelServerActivitiesBadRequest.php
+  - src/Models/Errors/CancelServerActivitiesBadRequestThrowable.php
+  - src/Models/Errors/CancelServerActivitiesErrors.php
+  - src/Models/Errors/CancelServerActivitiesUnauthorized.php
+  - src/Models/Errors/CancelServerActivitiesUnauthorizedThrowable.php
+  - src/Models/Errors/CheckForUpdatesBadRequest.php
+  - src/Models/Errors/CheckForUpdatesBadRequestThrowable.php
+  - src/Models/Errors/CheckForUpdatesErrors.php
+  - src/Models/Errors/CheckForUpdatesUnauthorized.php
+  - src/Models/Errors/CheckForUpdatesUnauthorizedThrowable.php
+  - src/Models/Errors/CheckForUpdatesUpdaterErrors.php
+  - src/Models/Errors/ClearPlaylistContentsBadRequest.php
+  - src/Models/Errors/ClearPlaylistContentsBadRequestThrowable.php
+  - src/Models/Errors/ClearPlaylistContentsErrors.php
+  - src/Models/Errors/ClearPlaylistContentsPlaylistsErrors.php
+  - src/Models/Errors/ClearPlaylistContentsUnauthorized.php
+  - src/Models/Errors/ClearPlaylistContentsUnauthorizedThrowable.php
+  - src/Models/Errors/CreatePlaylistBadRequest.php
+  - src/Models/Errors/CreatePlaylistBadRequestThrowable.php
+  - src/Models/Errors/CreatePlaylistErrors.php
+  - src/Models/Errors/CreatePlaylistPlaylistsErrors.php
+  - src/Models/Errors/CreatePlaylistUnauthorized.php
+  - src/Models/Errors/CreatePlaylistUnauthorizedThrowable.php
+  - src/Models/Errors/DeleteLibraryBadRequest.php
+  - src/Models/Errors/DeleteLibraryBadRequestThrowable.php
+  - src/Models/Errors/DeleteLibraryErrors.php
+  - src/Models/Errors/DeleteLibraryLibraryErrors.php
+  - src/Models/Errors/DeleteLibraryUnauthorized.php
+  - src/Models/Errors/DeleteLibraryUnauthorizedThrowable.php
+  - src/Models/Errors/DeletePlaylistBadRequest.php
+  - src/Models/Errors/DeletePlaylistBadRequestThrowable.php
+  - src/Models/Errors/DeletePlaylistErrors.php
+  - src/Models/Errors/DeletePlaylistPlaylistsErrors.php
+  - src/Models/Errors/DeletePlaylistUnauthorized.php
+  - src/Models/Errors/DeletePlaylistUnauthorizedThrowable.php
+  - src/Models/Errors/EnablePaperTrailBadRequest.php
+  - src/Models/Errors/EnablePaperTrailBadRequestThrowable.php
+  - src/Models/Errors/EnablePaperTrailErrors.php
+  - src/Models/Errors/EnablePaperTrailLogErrors.php
+  - src/Models/Errors/EnablePaperTrailUnauthorized.php
+  - src/Models/Errors/EnablePaperTrailUnauthorizedThrowable.php
+  - src/Models/Errors/Errors.php
+  - src/Models/Errors/GetAllLibrariesBadRequest.php
+  - src/Models/Errors/GetAllLibrariesBadRequestThrowable.php
+  - src/Models/Errors/GetAllLibrariesErrors.php
+  - src/Models/Errors/GetAllLibrariesLibraryErrors.php
+  - src/Models/Errors/GetAllLibrariesUnauthorized.php
+  - src/Models/Errors/GetAllLibrariesUnauthorizedThrowable.php
+  - src/Models/Errors/GetAvailableClientsBadRequest.php
+  - src/Models/Errors/GetAvailableClientsBadRequestThrowable.php
+  - src/Models/Errors/GetAvailableClientsErrors.php
+  - src/Models/Errors/GetAvailableClientsServerErrors.php
+  - src/Models/Errors/GetAvailableClientsUnauthorized.php
+  - src/Models/Errors/GetAvailableClientsUnauthorizedThrowable.php
+  - src/Models/Errors/GetBandwidthStatisticsBadRequest.php
+  - src/Models/Errors/GetBandwidthStatisticsBadRequestThrowable.php
+  - src/Models/Errors/GetBandwidthStatisticsErrors.php
+  - src/Models/Errors/GetBandwidthStatisticsStatisticsErrors.php
+  - src/Models/Errors/GetBandwidthStatisticsUnauthorized.php
+  - src/Models/Errors/GetBandwidthStatisticsUnauthorizedThrowable.php
+  - src/Models/Errors/GetBannerImageBadRequest.php
+  - src/Models/Errors/GetBannerImageBadRequestThrowable.php
+  - src/Models/Errors/GetBannerImageErrors.php
+  - src/Models/Errors/GetBannerImageMediaErrors.php
+  - src/Models/Errors/GetBannerImageUnauthorized.php
+  - src/Models/Errors/GetBannerImageUnauthorizedThrowable.php
+  - src/Models/Errors/GetButlerTasksBadRequest.php
+  - src/Models/Errors/GetButlerTasksBadRequestThrowable.php
+  - src/Models/Errors/GetButlerTasksButlerErrors.php
+  - src/Models/Errors/GetButlerTasksErrors.php
+  - src/Models/Errors/GetButlerTasksUnauthorized.php
+  - src/Models/Errors/GetButlerTasksUnauthorizedThrowable.php
+  - src/Models/Errors/GetCompanionsDataBadRequest.php
+  - src/Models/Errors/GetCompanionsDataBadRequestThrowable.php
+  - src/Models/Errors/GetCompanionsDataErrors.php
+  - src/Models/Errors/GetCompanionsDataPlexErrors.php
+  - src/Models/Errors/GetCompanionsDataUnauthorized.php
+  - src/Models/Errors/GetCompanionsDataUnauthorizedThrowable.php
+  - src/Models/Errors/GetDevicesBadRequest.php
+  - src/Models/Errors/GetDevicesBadRequestThrowable.php
+  - src/Models/Errors/GetDevicesErrors.php
+  - src/Models/Errors/GetDevicesServerErrors.php
+  - src/Models/Errors/GetDevicesUnauthorized.php
+  - src/Models/Errors/GetDevicesUnauthorizedThrowable.php
+  - src/Models/Errors/GetFileHashBadRequest.php
+  - src/Models/Errors/GetFileHashBadRequestThrowable.php
+  - src/Models/Errors/GetFileHashErrors.php
+  - src/Models/Errors/GetFileHashLibraryErrors.php
+  - src/Models/Errors/GetFileHashUnauthorized.php
+  - src/Models/Errors/GetFileHashUnauthorizedThrowable.php
+  - src/Models/Errors/GetGeoDataBadRequest.php
+  - src/Models/Errors/GetGeoDataBadRequestThrowable.php
+  - src/Models/Errors/GetGeoDataErrors.php
+  - src/Models/Errors/GetGeoDataPlexErrors.php
+  - src/Models/Errors/GetGeoDataUnauthorized.php
+  - src/Models/Errors/GetGeoDataUnauthorizedThrowable.php
+  - src/Models/Errors/GetGlobalHubsBadRequest.php
+  - src/Models/Errors/GetGlobalHubsBadRequestThrowable.php
+  - src/Models/Errors/GetGlobalHubsErrors.php
+  - src/Models/Errors/GetGlobalHubsHubsErrors.php
+  - src/Models/Errors/GetGlobalHubsUnauthorized.php
+  - src/Models/Errors/GetGlobalHubsUnauthorizedThrowable.php
+  - src/Models/Errors/GetHomeDataBadRequest.php
+  - src/Models/Errors/GetHomeDataBadRequestThrowable.php
+  - src/Models/Errors/GetHomeDataErrors.php
+  - src/Models/Errors/GetHomeDataPlexErrors.php
+  - src/Models/Errors/GetHomeDataUnauthorized.php
+  - src/Models/Errors/GetHomeDataUnauthorizedThrowable.php
+  - src/Models/Errors/GetLibraryDetailsBadRequest.php
+  - src/Models/Errors/GetLibraryDetailsBadRequestThrowable.php
+  - src/Models/Errors/GetLibraryDetailsErrors.php
+  - src/Models/Errors/GetLibraryDetailsLibraryErrors.php
+  - src/Models/Errors/GetLibraryDetailsUnauthorized.php
+  - src/Models/Errors/GetLibraryDetailsUnauthorizedThrowable.php
+  - src/Models/Errors/GetLibraryHubsBadRequest.php
+  - src/Models/Errors/GetLibraryHubsBadRequestThrowable.php
+  - src/Models/Errors/GetLibraryHubsErrors.php
+  - src/Models/Errors/GetLibraryHubsHubsErrors.php
+  - src/Models/Errors/GetLibraryHubsUnauthorized.php
+  - src/Models/Errors/GetLibraryHubsUnauthorizedThrowable.php
+  - src/Models/Errors/GetLibraryItemsBadRequest.php
+  - src/Models/Errors/GetLibraryItemsBadRequestThrowable.php
+  - src/Models/Errors/GetLibraryItemsErrors.php
+  - src/Models/Errors/GetLibraryItemsLibraryErrors.php
+  - src/Models/Errors/GetLibraryItemsUnauthorized.php
+  - src/Models/Errors/GetLibraryItemsUnauthorizedThrowable.php
+  - src/Models/Errors/GetMediaProvidersBadRequest.php
+  - src/Models/Errors/GetMediaProvidersBadRequestThrowable.php
+  - src/Models/Errors/GetMediaProvidersErrors.php
+  - src/Models/Errors/GetMediaProvidersServerErrors.php
+  - src/Models/Errors/GetMediaProvidersUnauthorized.php
+  - src/Models/Errors/GetMediaProvidersUnauthorizedThrowable.php
+  - src/Models/Errors/GetMetaDataByRatingKeyBadRequest.php
+  - src/Models/Errors/GetMetaDataByRatingKeyBadRequestThrowable.php
+  - src/Models/Errors/GetMetaDataByRatingKeyErrors.php
+  - src/Models/Errors/GetMetaDataByRatingKeyLibraryErrors.php
+  - src/Models/Errors/GetMetaDataByRatingKeyUnauthorized.php
+  - src/Models/Errors/GetMetaDataByRatingKeyUnauthorizedThrowable.php
+  - src/Models/Errors/GetMetadataChildrenBadRequest.php
+  - src/Models/Errors/GetMetadataChildrenBadRequestThrowable.php
+  - src/Models/Errors/GetMetadataChildrenErrors.php
+  - src/Models/Errors/GetMetadataChildrenLibraryErrors.php
+  - src/Models/Errors/GetMetadataChildrenUnauthorized.php
+  - src/Models/Errors/GetMetadataChildrenUnauthorizedThrowable.php
+  - src/Models/Errors/GetMyPlexAccountBadRequest.php
+  - src/Models/Errors/GetMyPlexAccountBadRequestThrowable.php
+  - src/Models/Errors/GetMyPlexAccountErrors.php
+  - src/Models/Errors/GetMyPlexAccountServerErrors.php
+  - src/Models/Errors/GetMyPlexAccountUnauthorized.php
+  - src/Models/Errors/GetMyPlexAccountUnauthorizedThrowable.php
+  - src/Models/Errors/GetOnDeckBadRequest.php
+  - src/Models/Errors/GetOnDeckBadRequestThrowable.php
+  - src/Models/Errors/GetOnDeckErrors.php
+  - src/Models/Errors/GetOnDeckLibraryErrors.php
+  - src/Models/Errors/GetOnDeckUnauthorized.php
+  - src/Models/Errors/GetOnDeckUnauthorizedThrowable.php
+  - src/Models/Errors/GetPinBadRequest.php
+  - src/Models/Errors/GetPinBadRequestThrowable.php
+  - src/Models/Errors/GetPinErrors.php
+  - src/Models/Errors/GetPlaylistBadRequest.php
+  - src/Models/Errors/GetPlaylistBadRequestThrowable.php
+  - src/Models/Errors/GetPlaylistContentsBadRequest.php
+  - src/Models/Errors/GetPlaylistContentsBadRequestThrowable.php
+  - src/Models/Errors/GetPlaylistContentsErrors.php
+  - src/Models/Errors/GetPlaylistContentsPlaylistsErrors.php
+  - src/Models/Errors/GetPlaylistContentsUnauthorized.php
+  - src/Models/Errors/GetPlaylistContentsUnauthorizedThrowable.php
+  - src/Models/Errors/GetPlaylistErrors.php
+  - src/Models/Errors/GetPlaylistPlaylistsErrors.php
+  - src/Models/Errors/GetPlaylistUnauthorized.php
+  - src/Models/Errors/GetPlaylistUnauthorizedThrowable.php
+  - src/Models/Errors/GetPlaylistsBadRequest.php
+  - src/Models/Errors/GetPlaylistsBadRequestThrowable.php
+  - src/Models/Errors/GetPlaylistsErrors.php
+  - src/Models/Errors/GetPlaylistsPlaylistsErrors.php
+  - src/Models/Errors/GetPlaylistsUnauthorized.php
+  - src/Models/Errors/GetPlaylistsUnauthorizedThrowable.php
+  - src/Models/Errors/GetRecentlyAddedBadRequest.php
+  - src/Models/Errors/GetRecentlyAddedBadRequestThrowable.php
+  - src/Models/Errors/GetRecentlyAddedErrors.php
+  - src/Models/Errors/GetRecentlyAddedLibraryErrors.php
+  - src/Models/Errors/GetRecentlyAddedUnauthorized.php
+  - src/Models/Errors/GetRecentlyAddedUnauthorizedThrowable.php
+  - src/Models/Errors/GetRefreshLibraryMetadataBadRequest.php
+  - src/Models/Errors/GetRefreshLibraryMetadataBadRequestThrowable.php
+  - src/Models/Errors/GetRefreshLibraryMetadataErrors.php
+  - src/Models/Errors/GetRefreshLibraryMetadataLibraryErrors.php
+  - src/Models/Errors/GetRefreshLibraryMetadataUnauthorized.php
+  - src/Models/Errors/GetRefreshLibraryMetadataUnauthorizedThrowable.php
+  - src/Models/Errors/GetResizedPhotoBadRequest.php
+  - src/Models/Errors/GetResizedPhotoBadRequestThrowable.php
+  - src/Models/Errors/GetResizedPhotoErrors.php
+  - src/Models/Errors/GetResizedPhotoServerErrors.php
+  - src/Models/Errors/GetResizedPhotoUnauthorized.php
+  - src/Models/Errors/GetResizedPhotoUnauthorizedThrowable.php
+  - src/Models/Errors/GetResourcesStatisticsBadRequest.php
+  - src/Models/Errors/GetResourcesStatisticsBadRequestThrowable.php
+  - src/Models/Errors/GetResourcesStatisticsErrors.php
+  - src/Models/Errors/GetResourcesStatisticsStatisticsErrors.php
+  - src/Models/Errors/GetResourcesStatisticsUnauthorized.php
+  - src/Models/Errors/GetResourcesStatisticsUnauthorizedThrowable.php
+  - src/Models/Errors/GetSearchLibraryBadRequest.php
+  - src/Models/Errors/GetSearchLibraryBadRequestThrowable.php
+  - src/Models/Errors/GetSearchLibraryErrors.php
+  - src/Models/Errors/GetSearchLibraryLibraryErrors.php
+  - src/Models/Errors/GetSearchLibraryUnauthorized.php
+  - src/Models/Errors/GetSearchLibraryUnauthorizedThrowable.php
+  - src/Models/Errors/GetSearchResultsBadRequest.php
+  - src/Models/Errors/GetSearchResultsBadRequestThrowable.php
+  - src/Models/Errors/GetSearchResultsErrors.php
+  - src/Models/Errors/GetSearchResultsSearchErrors.php
+  - src/Models/Errors/GetSearchResultsUnauthorized.php
+  - src/Models/Errors/GetSearchResultsUnauthorizedThrowable.php
+  - src/Models/Errors/GetServerActivitiesActivitiesErrors.php
+  - src/Models/Errors/GetServerActivitiesBadRequest.php
+  - src/Models/Errors/GetServerActivitiesBadRequestThrowable.php
+  - src/Models/Errors/GetServerActivitiesErrors.php
+  - src/Models/Errors/GetServerActivitiesUnauthorized.php
+  - src/Models/Errors/GetServerActivitiesUnauthorizedThrowable.php
+  - src/Models/Errors/GetServerCapabilitiesBadRequest.php
+  - src/Models/Errors/GetServerCapabilitiesBadRequestThrowable.php
+  - src/Models/Errors/GetServerCapabilitiesErrors.php
+  - src/Models/Errors/GetServerCapabilitiesUnauthorized.php
+  - src/Models/Errors/GetServerCapabilitiesUnauthorizedThrowable.php
+  - src/Models/Errors/GetServerIdentityRequestTimeout.php
+  - src/Models/Errors/GetServerIdentityRequestTimeoutThrowable.php
+  - src/Models/Errors/GetServerListBadRequest.php
+  - src/Models/Errors/GetServerListBadRequestThrowable.php
+  - src/Models/Errors/GetServerListErrors.php
+  - src/Models/Errors/GetServerListServerErrors.php
+  - src/Models/Errors/GetServerListUnauthorized.php
+  - src/Models/Errors/GetServerListUnauthorizedThrowable.php
+  - src/Models/Errors/GetServerPreferencesBadRequest.php
+  - src/Models/Errors/GetServerPreferencesBadRequestThrowable.php
+  - src/Models/Errors/GetServerPreferencesErrors.php
+  - src/Models/Errors/GetServerPreferencesServerErrors.php
+  - src/Models/Errors/GetServerPreferencesUnauthorized.php
+  - src/Models/Errors/GetServerPreferencesUnauthorizedThrowable.php
+  - src/Models/Errors/GetServerResourcesBadRequest.php
+  - src/Models/Errors/GetServerResourcesBadRequestThrowable.php
+  - src/Models/Errors/GetServerResourcesErrors.php
+  - src/Models/Errors/GetServerResourcesPlexErrors.php
+  - src/Models/Errors/GetServerResourcesUnauthorized.php
+  - src/Models/Errors/GetServerResourcesUnauthorizedThrowable.php
+  - src/Models/Errors/GetSessionHistoryBadRequest.php
+  - src/Models/Errors/GetSessionHistoryBadRequestThrowable.php
+  - src/Models/Errors/GetSessionHistoryErrors.php
+  - src/Models/Errors/GetSessionHistorySessionsErrors.php
+  - src/Models/Errors/GetSessionHistoryUnauthorized.php
+  - src/Models/Errors/GetSessionHistoryUnauthorizedThrowable.php
+  - src/Models/Errors/GetSessionsBadRequest.php
+  - src/Models/Errors/GetSessionsBadRequestThrowable.php
+  - src/Models/Errors/GetSessionsErrors.php
+  - src/Models/Errors/GetSessionsSessionsErrors.php
+  - src/Models/Errors/GetSessionsUnauthorized.php
+  - src/Models/Errors/GetSessionsUnauthorizedThrowable.php
+  - src/Models/Errors/GetSourceConnectionInformationAuthenticationErrors.php
+  - src/Models/Errors/GetSourceConnectionInformationBadRequest.php
+  - src/Models/Errors/GetSourceConnectionInformationBadRequestThrowable.php
+  - src/Models/Errors/GetSourceConnectionInformationErrors.php
+  - src/Models/Errors/GetSourceConnectionInformationUnauthorized.php
+  - src/Models/Errors/GetSourceConnectionInformationUnauthorizedThrowable.php
+  - src/Models/Errors/GetStatisticsBadRequest.php
+  - src/Models/Errors/GetStatisticsBadRequestThrowable.php
+  - src/Models/Errors/GetStatisticsErrors.php
+  - src/Models/Errors/GetStatisticsStatisticsErrors.php
+  - src/Models/Errors/GetStatisticsUnauthorized.php
+  - src/Models/Errors/GetStatisticsUnauthorizedThrowable.php
+  - src/Models/Errors/GetThumbImageBadRequest.php
+  - src/Models/Errors/GetThumbImageBadRequestThrowable.php
+  - src/Models/Errors/GetThumbImageErrors.php
+  - src/Models/Errors/GetThumbImageMediaErrors.php
+  - src/Models/Errors/GetThumbImageUnauthorized.php
+  - src/Models/Errors/GetThumbImageUnauthorizedThrowable.php
+  - src/Models/Errors/GetTimelineBadRequest.php
+  - src/Models/Errors/GetTimelineBadRequestThrowable.php
+  - src/Models/Errors/GetTimelineErrors.php
+  - src/Models/Errors/GetTimelineUnauthorized.php
+  - src/Models/Errors/GetTimelineUnauthorizedThrowable.php
+  - src/Models/Errors/GetTimelineVideoErrors.php
+  - src/Models/Errors/GetTokenByPinIdBadRequest.php
+  - src/Models/Errors/GetTokenByPinIdBadRequestThrowable.php
+  - src/Models/Errors/GetTokenByPinIdErrors.php
+  - src/Models/Errors/GetTokenByPinIdPlexErrors.php
+  - src/Models/Errors/GetTokenByPinIdResponseBody.php
+  - src/Models/Errors/GetTokenByPinIdResponseBodyThrowable.php
+  - src/Models/Errors/GetTokenDetailsAuthenticationErrors.php
+  - src/Models/Errors/GetTokenDetailsBadRequest.php
+  - src/Models/Errors/GetTokenDetailsBadRequestThrowable.php
+  - src/Models/Errors/GetTokenDetailsErrors.php
+  - src/Models/Errors/GetTokenDetailsUnauthorized.php
+  - src/Models/Errors/GetTokenDetailsUnauthorizedThrowable.php
+  - src/Models/Errors/GetTopWatchedContentBadRequest.php
+  - src/Models/Errors/GetTopWatchedContentBadRequestThrowable.php
+  - src/Models/Errors/GetTopWatchedContentErrors.php
+  - src/Models/Errors/GetTopWatchedContentLibraryErrors.php
+  - src/Models/Errors/GetTopWatchedContentUnauthorized.php
+  - src/Models/Errors/GetTopWatchedContentUnauthorizedThrowable.php
+  - src/Models/Errors/GetTranscodeSessionsBadRequest.php
+  - src/Models/Errors/GetTranscodeSessionsBadRequestThrowable.php
+  - src/Models/Errors/GetTranscodeSessionsErrors.php
+  - src/Models/Errors/GetTranscodeSessionsSessionsErrors.php
+  - src/Models/Errors/GetTranscodeSessionsUnauthorized.php
+  - src/Models/Errors/GetTranscodeSessionsUnauthorizedThrowable.php
+  - src/Models/Errors/GetTransientTokenAuthenticationErrors.php
+  - src/Models/Errors/GetTransientTokenBadRequest.php
+  - src/Models/Errors/GetTransientTokenBadRequestThrowable.php
+  - src/Models/Errors/GetTransientTokenErrors.php
+  - src/Models/Errors/GetTransientTokenUnauthorized.php
+  - src/Models/Errors/GetTransientTokenUnauthorizedThrowable.php
+  - src/Models/Errors/GetUpdateStatusBadRequest.php
+  - src/Models/Errors/GetUpdateStatusBadRequestThrowable.php
+  - src/Models/Errors/GetUpdateStatusErrors.php
+  - src/Models/Errors/GetUpdateStatusUnauthorized.php
+  - src/Models/Errors/GetUpdateStatusUnauthorizedThrowable.php
+  - src/Models/Errors/GetUpdateStatusUpdaterErrors.php
+  - src/Models/Errors/GetUserFriendsBadRequest.php
+  - src/Models/Errors/GetUserFriendsBadRequestThrowable.php
+  - src/Models/Errors/GetUserFriendsErrors.php
+  - src/Models/Errors/GetUserFriendsPlexErrors.php
+  - src/Models/Errors/GetUserFriendsUnauthorized.php
+  - src/Models/Errors/GetUserFriendsUnauthorizedThrowable.php
+  - src/Models/Errors/GetWatchListBadRequest.php
+  - src/Models/Errors/GetWatchListBadRequestThrowable.php
+  - src/Models/Errors/GetWatchListErrors.php
+  - src/Models/Errors/GetWatchListUnauthorized.php
+  - src/Models/Errors/GetWatchListUnauthorizedThrowable.php
+  - src/Models/Errors/GetWatchListWatchlistErrors.php
+  - src/Models/Errors/LogLineBadRequest.php
+  - src/Models/Errors/LogLineBadRequestThrowable.php
+  - src/Models/Errors/LogLineErrors.php
+  - src/Models/Errors/LogLineLogErrors.php
+  - src/Models/Errors/LogLineUnauthorized.php
+  - src/Models/Errors/LogLineUnauthorizedThrowable.php
+  - src/Models/Errors/LogMultiLineBadRequest.php
+  - src/Models/Errors/LogMultiLineBadRequestThrowable.php
+  - src/Models/Errors/LogMultiLineErrors.php
+  - src/Models/Errors/LogMultiLineLogErrors.php
+  - src/Models/Errors/LogMultiLineUnauthorized.php
+  - src/Models/Errors/LogMultiLineUnauthorizedThrowable.php
+  - src/Models/Errors/MarkPlayedBadRequest.php
+  - src/Models/Errors/MarkPlayedBadRequestThrowable.php
+  - src/Models/Errors/MarkPlayedErrors.php
+  - src/Models/Errors/MarkPlayedMediaErrors.php
+  - src/Models/Errors/MarkPlayedUnauthorized.php
+  - src/Models/Errors/MarkPlayedUnauthorizedThrowable.php
+  - src/Models/Errors/MarkUnplayedBadRequest.php
+  - src/Models/Errors/MarkUnplayedBadRequestThrowable.php
+  - src/Models/Errors/MarkUnplayedErrors.php
+  - src/Models/Errors/MarkUnplayedMediaErrors.php
+  - src/Models/Errors/MarkUnplayedUnauthorized.php
+  - src/Models/Errors/MarkUnplayedUnauthorizedThrowable.php
+  - src/Models/Errors/PerformSearchBadRequest.php
+  - src/Models/Errors/PerformSearchBadRequestThrowable.php
+  - src/Models/Errors/PerformSearchErrors.php
+  - src/Models/Errors/PerformSearchSearchErrors.php
+  - src/Models/Errors/PerformSearchUnauthorized.php
+  - src/Models/Errors/PerformSearchUnauthorizedThrowable.php
+  - src/Models/Errors/PerformVoiceSearchBadRequest.php
+  - src/Models/Errors/PerformVoiceSearchBadRequestThrowable.php
+  - src/Models/Errors/PerformVoiceSearchErrors.php
+  - src/Models/Errors/PerformVoiceSearchSearchErrors.php
+  - src/Models/Errors/PerformVoiceSearchUnauthorized.php
+  - src/Models/Errors/PerformVoiceSearchUnauthorizedThrowable.php
+  - src/Models/Errors/PostUsersSignInDataAuthenticationErrors.php
+  - src/Models/Errors/PostUsersSignInDataBadRequest.php
+  - src/Models/Errors/PostUsersSignInDataBadRequestThrowable.php
+  - src/Models/Errors/PostUsersSignInDataErrors.php
+  - src/Models/Errors/PostUsersSignInDataUnauthorized.php
+  - src/Models/Errors/PostUsersSignInDataUnauthorizedThrowable.php
+  - src/Models/Errors/SDKException.php
+  - src/Models/Errors/StartAllTasksBadRequest.php
+  - src/Models/Errors/StartAllTasksBadRequestThrowable.php
+  - src/Models/Errors/StartAllTasksButlerErrors.php
+  - src/Models/Errors/StartAllTasksErrors.php
+  - src/Models/Errors/StartAllTasksUnauthorized.php
+  - src/Models/Errors/StartAllTasksUnauthorizedThrowable.php
+  - src/Models/Errors/StartTaskBadRequest.php
+  - src/Models/Errors/StartTaskBadRequestThrowable.php
+  - src/Models/Errors/StartTaskButlerErrors.php
+  - src/Models/Errors/StartTaskErrors.php
+  - src/Models/Errors/StartTaskUnauthorized.php
+  - src/Models/Errors/StartTaskUnauthorizedThrowable.php
+  - src/Models/Errors/StartUniversalTranscodeBadRequest.php
+  - src/Models/Errors/StartUniversalTranscodeBadRequestThrowable.php
+  - src/Models/Errors/StartUniversalTranscodeErrors.php
+  - src/Models/Errors/StartUniversalTranscodeUnauthorized.php
+  - src/Models/Errors/StartUniversalTranscodeUnauthorizedThrowable.php
+  - src/Models/Errors/StartUniversalTranscodeVideoErrors.php
+  - src/Models/Errors/StopAllTasksBadRequest.php
+  - src/Models/Errors/StopAllTasksBadRequestThrowable.php
+  - src/Models/Errors/StopAllTasksButlerErrors.php
+  - src/Models/Errors/StopAllTasksErrors.php
+  - src/Models/Errors/StopAllTasksUnauthorized.php
+  - src/Models/Errors/StopAllTasksUnauthorizedThrowable.php
+  - src/Models/Errors/StopTaskBadRequest.php
+  - src/Models/Errors/StopTaskBadRequestThrowable.php
+  - src/Models/Errors/StopTaskButlerErrors.php
+  - src/Models/Errors/StopTaskErrors.php
+  - src/Models/Errors/StopTaskUnauthorized.php
+  - src/Models/Errors/StopTaskUnauthorizedThrowable.php
+  - src/Models/Errors/StopTranscodeSessionBadRequest.php
+  - src/Models/Errors/StopTranscodeSessionBadRequestThrowable.php
+  - src/Models/Errors/StopTranscodeSessionErrors.php
+  - src/Models/Errors/StopTranscodeSessionSessionsErrors.php
+  - src/Models/Errors/StopTranscodeSessionUnauthorized.php
+  - src/Models/Errors/StopTranscodeSessionUnauthorizedThrowable.php
+  - src/Models/Errors/UpdatePlayProgressBadRequest.php
+  - src/Models/Errors/UpdatePlayProgressBadRequestThrowable.php
+  - src/Models/Errors/UpdatePlayProgressErrors.php
+  - src/Models/Errors/UpdatePlayProgressMediaErrors.php
+  - src/Models/Errors/UpdatePlayProgressUnauthorized.php
+  - src/Models/Errors/UpdatePlayProgressUnauthorizedThrowable.php
+  - src/Models/Errors/UpdatePlaylistBadRequest.php
+  - src/Models/Errors/UpdatePlaylistBadRequestThrowable.php
+  - src/Models/Errors/UpdatePlaylistErrors.php
+  - src/Models/Errors/UpdatePlaylistPlaylistsErrors.php
+  - src/Models/Errors/UpdatePlaylistUnauthorized.php
+  - src/Models/Errors/UpdatePlaylistUnauthorizedThrowable.php
+  - src/Models/Errors/UploadPlaylistBadRequest.php
+  - src/Models/Errors/UploadPlaylistBadRequestThrowable.php
+  - src/Models/Errors/UploadPlaylistErrors.php
+  - src/Models/Errors/UploadPlaylistPlaylistsErrors.php
+  - src/Models/Errors/UploadPlaylistUnauthorized.php
+  - src/Models/Errors/UploadPlaylistUnauthorizedThrowable.php
+  - src/Models/Operations/Account.php
+  - src/Models/Operations/Activity.php
+  - src/Models/Operations/AddPlaylistContentsMediaContainer.php
+  - src/Models/Operations/AddPlaylistContentsMetadata.php
+  - src/Models/Operations/AddPlaylistContentsRequest.php
+  - src/Models/Operations/AddPlaylistContentsResponse.php
+  - src/Models/Operations/AddPlaylistContentsResponseBody.php
+  - src/Models/Operations/ApplyUpdatesRequest.php
+  - src/Models/Operations/ApplyUpdatesResponse.php
+  - src/Models/Operations/AutoSelectSubtitle.php
+  - src/Models/Operations/Billing.php
+  - src/Models/Operations/ButlerTask.php
+  - src/Models/Operations/ButlerTasks.php
+  - src/Models/Operations/CancelServerActivitiesRequest.php
+  - src/Models/Operations/CancelServerActivitiesResponse.php
+  - src/Models/Operations/CheckForUpdatesRequest.php
+  - src/Models/Operations/CheckForUpdatesResponse.php
+  - src/Models/Operations/ClearPlaylistContentsRequest.php
+  - src/Models/Operations/ClearPlaylistContentsResponse.php
+  - src/Models/Operations/Connections.php
+  - src/Models/Operations/Context.php
+  - src/Models/Operations/Country.php
+  - src/Models/Operations/CreatePlaylistMediaContainer.php
+  - src/Models/Operations/CreatePlaylistMetadata.php
+  - src/Models/Operations/CreatePlaylistQueryParamType.php
+  - src/Models/Operations/CreatePlaylistRequest.php
+  - src/Models/Operations/CreatePlaylistResponse.php
+  - src/Models/Operations/CreatePlaylistResponseBody.php
+  - src/Models/Operations/DefaultSubtitleAccessibility.php
+  - src/Models/Operations/DefaultSubtitleForced.php
+  - src/Models/Operations/DeleteLibraryRequest.php
+  - src/Models/Operations/DeleteLibraryResponse.php
+  - src/Models/Operations/DeletePlaylistRequest.php
+  - src/Models/Operations/DeletePlaylistResponse.php
+  - src/Models/Operations/Device.php
+  - src/Models/Operations/Director.php
+  - src/Models/Operations/Directory.php
+  - src/Models/Operations/Download.php
+  - src/Models/Operations/EnablePaperTrailResponse.php
+  - src/Models/Operations/Feature.php
+  - src/Models/Operations/Features.php
+  - src/Models/Operations/Field.php
+  - src/Models/Operations/FieldType.php
+  - src/Models/Operations/Filter.php
+  - src/Models/Operations/Force.php
+  - src/Models/Operations/Friend.php
+  - src/Models/Operations/Genre.php
+  - src/Models/Operations/GeoData.php
+  - src/Models/Operations/GetAllLibrariesDirectory.php
+  - src/Models/Operations/GetAllLibrariesMediaContainer.php
+  - src/Models/Operations/GetAllLibrariesResponse.php
+  - src/Models/Operations/GetAllLibrariesResponseBody.php
+  - src/Models/Operations/GetAvailableClientsMediaContainer.php
+  - src/Models/Operations/GetAvailableClientsResponse.php
+  - src/Models/Operations/GetAvailableClientsResponseBody.php
+  - src/Models/Operations/GetBandwidthStatisticsAccount.php
+  - src/Models/Operations/GetBandwidthStatisticsDevice.php
+  - src/Models/Operations/GetBandwidthStatisticsMediaContainer.php
+  - src/Models/Operations/GetBandwidthStatisticsRequest.php
+  - src/Models/Operations/GetBandwidthStatisticsResponse.php
+  - src/Models/Operations/GetBandwidthStatisticsResponseBody.php
+  - src/Models/Operations/GetBannerImageRequest.php
+  - src/Models/Operations/GetBannerImageResponse.php
+  - src/Models/Operations/GetButlerTasksResponse.php
+  - src/Models/Operations/GetButlerTasksResponseBody.php
+  - src/Models/Operations/GetCompanionsDataResponse.php
+  - src/Models/Operations/GetDevicesMediaContainer.php
+  - src/Models/Operations/GetDevicesResponse.php
+  - src/Models/Operations/GetDevicesResponseBody.php
+  - src/Models/Operations/GetFileHashRequest.php
+  - src/Models/Operations/GetFileHashResponse.php
+  - src/Models/Operations/GetGeoDataGeoData.php
+  - src/Models/Operations/GetGeoDataResponse.php
+  - src/Models/Operations/GetGlobalHubsMediaContainer.php
+  - src/Models/Operations/GetGlobalHubsMetadata.php
+  - src/Models/Operations/GetGlobalHubsRequest.php
+  - src/Models/Operations/GetGlobalHubsResponse.php
+  - src/Models/Operations/GetGlobalHubsResponseBody.php
+  - src/Models/Operations/GetHomeDataResponse.php
+  - src/Models/Operations/GetHomeDataResponseBody.php
+  - src/Models/Operations/GetLibraryDetailsDirectory.php
+  - src/Models/Operations/GetLibraryDetailsFilter.php
+  - src/Models/Operations/GetLibraryDetailsMediaContainer.php
+  - src/Models/Operations/GetLibraryDetailsRequest.php
+  - src/Models/Operations/GetLibraryDetailsResponse.php
+  - src/Models/Operations/GetLibraryDetailsResponseBody.php
+  - src/Models/Operations/GetLibraryDetailsType.php
+  - src/Models/Operations/GetLibraryHubsCountry.php
+  - src/Models/Operations/GetLibraryHubsDirector.php
+  - src/Models/Operations/GetLibraryHubsGenre.php
+  - src/Models/Operations/GetLibraryHubsHub.php
+  - src/Models/Operations/GetLibraryHubsMedia.php
+  - src/Models/Operations/GetLibraryHubsMediaContainer.php
+  - src/Models/Operations/GetLibraryHubsMetadata.php
+  - src/Models/Operations/GetLibraryHubsPart.php
+  - src/Models/Operations/GetLibraryHubsRequest.php
+  - src/Models/Operations/GetLibraryHubsResponse.php
+  - src/Models/Operations/GetLibraryHubsResponseBody.php
+  - src/Models/Operations/GetLibraryHubsRole.php
+  - src/Models/Operations/GetLibraryHubsWriter.php
+  - src/Models/Operations/GetLibraryItemsCountry.php
+  - src/Models/Operations/GetLibraryItemsDirector.php
+  - src/Models/Operations/GetLibraryItemsGenre.php
+  - src/Models/Operations/GetLibraryItemsMedia.php
+  - src/Models/Operations/GetLibraryItemsMediaContainer.php
+  - src/Models/Operations/GetLibraryItemsMetadata.php
+  - src/Models/Operations/GetLibraryItemsPart.php
+  - src/Models/Operations/GetLibraryItemsRequest.php
+  - src/Models/Operations/GetLibraryItemsResponse.php
+  - src/Models/Operations/GetLibraryItemsResponseBody.php
+  - src/Models/Operations/GetLibraryItemsRole.php
+  - src/Models/Operations/GetLibraryItemsWriter.php
+  - src/Models/Operations/GetMediaProvidersDirectory.php
+  - src/Models/Operations/GetMediaProvidersMediaContainer.php
+  - src/Models/Operations/GetMediaProvidersRequest.php
+  - src/Models/Operations/GetMediaProvidersResponse.php
+  - src/Models/Operations/GetMediaProvidersResponseBody.php
+  - src/Models/Operations/GetMetaDataByRatingKeyCountry.php
+  - src/Models/Operations/GetMetaDataByRatingKeyDirector.php
+  - src/Models/Operations/GetMetaDataByRatingKeyGenre.php
+  - src/Models/Operations/GetMetaDataByRatingKeyMedia.php
+  - src/Models/Operations/GetMetaDataByRatingKeyMediaContainer.php
+  - src/Models/Operations/GetMetaDataByRatingKeyMetadata.php
+  - src/Models/Operations/GetMetaDataByRatingKeyPart.php
+  - src/Models/Operations/GetMetaDataByRatingKeyRequest.php
+  - src/Models/Operations/GetMetaDataByRatingKeyResponse.php
+  - src/Models/Operations/GetMetaDataByRatingKeyResponseBody.php
+  - src/Models/Operations/GetMetaDataByRatingKeyRole.php
+  - src/Models/Operations/GetMetaDataByRatingKeyWriter.php
+  - src/Models/Operations/GetMetadataChildrenDirectory.php
+  - src/Models/Operations/GetMetadataChildrenMediaContainer.php
+  - src/Models/Operations/GetMetadataChildrenMetadata.php
+  - src/Models/Operations/GetMetadataChildrenRequest.php
+  - src/Models/Operations/GetMetadataChildrenResponse.php
+  - src/Models/Operations/GetMetadataChildrenResponseBody.php
+  - src/Models/Operations/GetMyPlexAccountResponse.php
+  - src/Models/Operations/GetMyPlexAccountResponseBody.php
+  - src/Models/Operations/GetOnDeckGuids.php
+  - src/Models/Operations/GetOnDeckMedia.php
+  - src/Models/Operations/GetOnDeckMediaContainer.php
+  - src/Models/Operations/GetOnDeckMetadata.php
+  - src/Models/Operations/GetOnDeckPart.php
+  - src/Models/Operations/GetOnDeckResponse.php
+  - src/Models/Operations/GetOnDeckResponseBody.php
+  - src/Models/Operations/GetOnDeckStream.php
+  - src/Models/Operations/GetPinAuthPinContainer.php
+  - src/Models/Operations/GetPinRequest.php
+  - src/Models/Operations/GetPinResponse.php
+  - src/Models/Operations/GetPlaylistContentsCountry.php
+  - src/Models/Operations/GetPlaylistContentsDirector.php
+  - src/Models/Operations/GetPlaylistContentsGenre.php
+  - src/Models/Operations/GetPlaylistContentsMedia.php
+  - src/Models/Operations/GetPlaylistContentsMediaContainer.php
+  - src/Models/Operations/GetPlaylistContentsMetadata.php
+  - src/Models/Operations/GetPlaylistContentsPart.php
+  - src/Models/Operations/GetPlaylistContentsQueryParamType.php
+  - src/Models/Operations/GetPlaylistContentsRequest.php
+  - src/Models/Operations/GetPlaylistContentsResponse.php
+  - src/Models/Operations/GetPlaylistContentsResponseBody.php
+  - src/Models/Operations/GetPlaylistContentsRole.php
+  - src/Models/Operations/GetPlaylistContentsWriter.php
+  - src/Models/Operations/GetPlaylistMediaContainer.php
+  - src/Models/Operations/GetPlaylistMetadata.php
+  - src/Models/Operations/GetPlaylistRequest.php
+  - src/Models/Operations/GetPlaylistResponse.php
+  - src/Models/Operations/GetPlaylistResponseBody.php
+  - src/Models/Operations/GetPlaylistsMediaContainer.php
+  - src/Models/Operations/GetPlaylistsMetadata.php
+  - src/Models/Operations/GetPlaylistsRequest.php
+  - src/Models/Operations/GetPlaylistsResponse.php
+  - src/Models/Operations/GetPlaylistsResponseBody.php
+  - src/Models/Operations/GetRecentlyAddedMediaContainer.php
+  - src/Models/Operations/GetRecentlyAddedMetadata.php
+  - src/Models/Operations/GetRecentlyAddedRequest.php
+  - src/Models/Operations/GetRecentlyAddedResponse.php
+  - src/Models/Operations/GetRecentlyAddedResponseBody.php
+  - src/Models/Operations/GetRefreshLibraryMetadataRequest.php
+  - src/Models/Operations/GetRefreshLibraryMetadataResponse.php
+  - src/Models/Operations/GetResizedPhotoRequest.php
+  - src/Models/Operations/GetResizedPhotoResponse.php
+  - src/Models/Operations/GetResourcesStatisticsMediaContainer.php
+  - src/Models/Operations/GetResourcesStatisticsRequest.php
+  - src/Models/Operations/GetResourcesStatisticsResponse.php
+  - src/Models/Operations/GetResourcesStatisticsResponseBody.php
+  - src/Models/Operations/GetSearchLibraryMediaContainer.php
+  - src/Models/Operations/GetSearchLibraryMetadata.php
+  - src/Models/Operations/GetSearchLibraryRequest.php
+  - src/Models/Operations/GetSearchLibraryResponse.php
+  - src/Models/Operations/GetSearchLibraryResponseBody.php
+  - src/Models/Operations/GetSearchResultsCountry.php
+  - src/Models/Operations/GetSearchResultsDirector.php
+  - src/Models/Operations/GetSearchResultsGenre.php
+  - src/Models/Operations/GetSearchResultsMedia.php
+  - src/Models/Operations/GetSearchResultsMediaContainer.php
+  - src/Models/Operations/GetSearchResultsMetadata.php
+  - src/Models/Operations/GetSearchResultsPart.php
+  - src/Models/Operations/GetSearchResultsRequest.php
+  - src/Models/Operations/GetSearchResultsResponse.php
+  - src/Models/Operations/GetSearchResultsResponseBody.php
+  - src/Models/Operations/GetSearchResultsRole.php
+  - src/Models/Operations/GetSearchResultsWriter.php
+  - src/Models/Operations/GetServerActivitiesMediaContainer.php
+  - src/Models/Operations/GetServerActivitiesResponse.php
+  - src/Models/Operations/GetServerActivitiesResponseBody.php
+  - src/Models/Operations/GetServerCapabilitiesResponse.php
+  - src/Models/Operations/GetServerCapabilitiesResponseBody.php
+  - src/Models/Operations/GetServerIdentityMediaContainer.php
+  - src/Models/Operations/GetServerIdentityResponse.php
+  - src/Models/Operations/GetServerIdentityResponseBody.php
+  - src/Models/Operations/GetServerListMediaContainer.php
+  - src/Models/Operations/GetServerListResponse.php
+  - src/Models/Operations/GetServerListResponseBody.php
+  - src/Models/Operations/GetServerListServer.php
+  - src/Models/Operations/GetServerPreferencesMediaContainer.php
+  - src/Models/Operations/GetServerPreferencesResponse.php
+  - src/Models/Operations/GetServerPreferencesResponseBody.php
+  - src/Models/Operations/GetServerResourcesRequest.php
+  - src/Models/Operations/GetServerResourcesResponse.php
+  - src/Models/Operations/GetSessionHistoryMediaContainer.php
+  - src/Models/Operations/GetSessionHistoryMetadata.php
+  - src/Models/Operations/GetSessionHistoryRequest.php
+  - src/Models/Operations/GetSessionHistoryResponse.php
+  - src/Models/Operations/GetSessionHistoryResponseBody.php
+  - src/Models/Operations/GetSessionsMedia.php
+  - src/Models/Operations/GetSessionsMediaContainer.php
+  - src/Models/Operations/GetSessionsMetadata.php
+  - src/Models/Operations/GetSessionsPart.php
+  - src/Models/Operations/GetSessionsResponse.php
+  - src/Models/Operations/GetSessionsResponseBody.php
+  - src/Models/Operations/GetSessionsStream.php
+  - src/Models/Operations/GetSessionsUser.php
+  - src/Models/Operations/GetSourceConnectionInformationRequest.php
+  - src/Models/Operations/GetSourceConnectionInformationResponse.php
+  - src/Models/Operations/GetStatisticsDevice.php
+  - src/Models/Operations/GetStatisticsMediaContainer.php
+  - src/Models/Operations/GetStatisticsRequest.php
+  - src/Models/Operations/GetStatisticsResponse.php
+  - src/Models/Operations/GetStatisticsResponseBody.php
+  - src/Models/Operations/GetThumbImageRequest.php
+  - src/Models/Operations/GetThumbImageResponse.php
+  - src/Models/Operations/GetTimelineRequest.php
+  - src/Models/Operations/GetTimelineResponse.php
+  - src/Models/Operations/GetTokenByPinIdAuthPinContainer.php
+  - src/Models/Operations/GetTokenByPinIdGeoData.php
+  - src/Models/Operations/GetTokenByPinIdRequest.php
+  - src/Models/Operations/GetTokenByPinIdResponse.php
+  - src/Models/Operations/GetTokenDetailsAuthenticationResponseStatus.php
+  - src/Models/Operations/GetTokenDetailsAuthenticationStatus.php
+  - src/Models/Operations/GetTokenDetailsFeatures.php
+  - src/Models/Operations/GetTokenDetailsResponse.php
+  - src/Models/Operations/GetTokenDetailsStatus.php
+  - src/Models/Operations/GetTokenDetailsSubscription.php
+  - src/Models/Operations/GetTokenDetailsUserPlexAccount.php
+  - src/Models/Operations/GetTopWatchedContentCountry.php
+  - src/Models/Operations/GetTopWatchedContentGenre.php
+  - src/Models/Operations/GetTopWatchedContentGuids.php
+  - src/Models/Operations/GetTopWatchedContentMediaContainer.php
+  - src/Models/Operations/GetTopWatchedContentMetadata.php
+  - src/Models/Operations/GetTopWatchedContentQueryParamType.php
+  - src/Models/Operations/GetTopWatchedContentRequest.php
+  - src/Models/Operations/GetTopWatchedContentResponse.php
+  - src/Models/Operations/GetTopWatchedContentResponseBody.php
+  - src/Models/Operations/GetTopWatchedContentRole.php
+  - src/Models/Operations/GetTranscodeSessionsMediaContainer.php
+  - src/Models/Operations/GetTranscodeSessionsResponse.php
+  - src/Models/Operations/GetTranscodeSessionsResponseBody.php
+  - src/Models/Operations/GetTransientTokenQueryParamType.php
+  - src/Models/Operations/GetTransientTokenRequest.php
+  - src/Models/Operations/GetTransientTokenResponse.php
+  - src/Models/Operations/GetUpdateStatusMediaContainer.php
+  - src/Models/Operations/GetUpdateStatusResponse.php
+  - src/Models/Operations/GetUpdateStatusResponseBody.php
+  - src/Models/Operations/GetUserFriendsResponse.php
+  - src/Models/Operations/GetWatchListRequest.php
+  - src/Models/Operations/GetWatchListResponse.php
+  - src/Models/Operations/GetWatchListResponseBody.php
+  - src/Models/Operations/Guids.php
+  - src/Models/Operations/Hub.php
+  - src/Models/Operations/Image.php
+  - src/Models/Operations/IncludeCollections.php
+  - src/Models/Operations/IncludeDetails.php
+  - src/Models/Operations/IncludeExternalMedia.php
+  - src/Models/Operations/IncludeGuids.php
+  - src/Models/Operations/IncludeHttps.php
+  - src/Models/Operations/IncludeIPv6.php
+  - src/Models/Operations/IncludeMeta.php
+  - src/Models/Operations/IncludeRelay.php
+  - src/Models/Operations/InternalPaymentMethod.php
+  - src/Models/Operations/Level.php
+  - src/Models/Operations/Libtype.php
+  - src/Models/Operations/Location.php
+  - src/Models/Operations/LogLineRequest.php
+  - src/Models/Operations/LogLineResponse.php
+  - src/Models/Operations/LogMultiLineResponse.php
+  - src/Models/Operations/MailingListStatus.php
+  - src/Models/Operations/MarkPlayedRequest.php
+  - src/Models/Operations/MarkPlayedResponse.php
+  - src/Models/Operations/MarkUnplayedRequest.php
+  - src/Models/Operations/MarkUnplayedResponse.php
+  - src/Models/Operations/Media.php
+  - src/Models/Operations/MediaContainer.php
+  - src/Models/Operations/MediaProvider.php
+  - src/Models/Operations/MediaReviewsVisibility.php
+  - src/Models/Operations/Metadata.php
+  - src/Models/Operations/MinSize.php
+  - src/Models/Operations/MyPlex.php
+  - src/Models/Operations/OnlyTransient.php
+  - src/Models/Operations/Operator.php
+  - src/Models/Operations/Part.php
+  - src/Models/Operations/PastSubscription.php
+  - src/Models/Operations/PathParamTaskName.php
+  - src/Models/Operations/PerformSearchRequest.php
+  - src/Models/Operations/PerformSearchResponse.php
+  - src/Models/Operations/PerformVoiceSearchRequest.php
+  - src/Models/Operations/PerformVoiceSearchResponse.php
+  - src/Models/Operations/Pivot.php
+  - src/Models/Operations/Player.php
+  - src/Models/Operations/PlaylistType.php
+  - src/Models/Operations/PlexDevice.php
+  - src/Models/Operations/PostUsersSignInDataAuthenticationFeatures.php
+  - src/Models/Operations/PostUsersSignInDataAuthenticationResponseStatus.php
+  - src/Models/Operations/PostUsersSignInDataAuthenticationStatus.php
+  - src/Models/Operations/PostUsersSignInDataAuthenticationSubscription.php
+  - src/Models/Operations/PostUsersSignInDataAutoSelectSubtitle.php
+  - src/Models/Operations/PostUsersSignInDataDefaultSubtitleAccessibility.php
+  - src/Models/Operations/PostUsersSignInDataDefaultSubtitleForced.php
+  - src/Models/Operations/PostUsersSignInDataFeatures.php
+  - src/Models/Operations/PostUsersSignInDataMailingListStatus.php
+  - src/Models/Operations/PostUsersSignInDataMediaReviewsVisibility.php
+  - src/Models/Operations/PostUsersSignInDataRequest.php
+  - src/Models/Operations/PostUsersSignInDataRequestBody.php
+  - src/Models/Operations/PostUsersSignInDataResponse.php
+  - src/Models/Operations/PostUsersSignInDataServices.php
+  - src/Models/Operations/PostUsersSignInDataState.php
+  - src/Models/Operations/PostUsersSignInDataStatus.php
+  - src/Models/Operations/PostUsersSignInDataSubscription.php
+  - src/Models/Operations/PostUsersSignInDataUserPlexAccount.php
+  - src/Models/Operations/PostUsersSignInDataUserProfile.php
+  - src/Models/Operations/PostUsersSignInDataWatchedIndicator.php
+  - src/Models/Operations/Producer.php
+  - src/Models/Operations/Provider.php
+  - src/Models/Operations/QueryParamFilter.php
+  - src/Models/Operations/QueryParamForce.php
+  - src/Models/Operations/QueryParamOnlyTransient.php
+  - src/Models/Operations/QueryParamSmart.php
+  - src/Models/Operations/QueryParamType.php
+  - src/Models/Operations/Ratings.php
+  - src/Models/Operations/Release.php
+  - src/Models/Operations/ResponseBody.php
+  - src/Models/Operations/Role.php
+  - src/Models/Operations/Scope.php
+  - src/Models/Operations/Server.php
+  - src/Models/Operations/Services.php
+  - src/Models/Operations/Session.php
+  - src/Models/Operations/Setting.php
+  - src/Models/Operations/SharedServers.php
+  - src/Models/Operations/SharedSources.php
+  - src/Models/Operations/Skip.php
+  - src/Models/Operations/Smart.php
+  - src/Models/Operations/Sort.php
+  - src/Models/Operations/StartAllTasksResponse.php
+  - src/Models/Operations/StartTaskRequest.php
+  - src/Models/Operations/StartTaskResponse.php
+  - src/Models/Operations/StartUniversalTranscodeRequest.php
+  - src/Models/Operations/StartUniversalTranscodeResponse.php
+  - src/Models/Operations/State.php
+  - src/Models/Operations/StatisticsBandwidth.php
+  - src/Models/Operations/StatisticsMedia.php
+  - src/Models/Operations/StatisticsResources.php
+  - src/Models/Operations/Status.php
+  - src/Models/Operations/StopAllTasksResponse.php
+  - src/Models/Operations/StopTaskRequest.php
+  - src/Models/Operations/StopTaskResponse.php
+  - src/Models/Operations/StopTranscodeSessionRequest.php
+  - src/Models/Operations/StopTranscodeSessionResponse.php
+  - src/Models/Operations/Stream.php
+  - src/Models/Operations/Subscription.php
+  - src/Models/Operations/Tag.php
+  - src/Models/Operations/TaskName.php
+  - src/Models/Operations/Tonight.php
+  - src/Models/Operations/TranscodeSession.php
+  - src/Models/Operations/Trials.php
+  - src/Models/Operations/Type.php
+  - src/Models/Operations/UpdatePlayProgressRequest.php
+  - src/Models/Operations/UpdatePlayProgressResponse.php
+  - src/Models/Operations/UpdatePlaylistRequest.php
+  - src/Models/Operations/UpdatePlaylistResponse.php
+  - src/Models/Operations/UploadPlaylistRequest.php
+  - src/Models/Operations/UploadPlaylistResponse.php
+  - src/Models/Operations/Upscale.php
+  - src/Models/Operations/User.php
+  - src/Models/Operations/UserProfile.php
+  - src/Models/Operations/WatchedIndicator.php
+  - src/Models/Operations/Writer.php
+  - src/Playlists.php
+  - src/Plex.php
+  - src/PlexAPI.php
+  - src/PlexAPIBuilder.php
+  - src/SDKConfiguration.php
+  - src/Search.php
+  - src/Server.php
+  - src/ServerProtocol.php
+  - src/Sessions.php
+  - src/Statistics.php
+  - src/Updater.php
   - src/Utils/DateHandler.php
   - src/Utils/DateTimeHandler.php
+  - src/Utils/DefaultRequest.php
   - src/Utils/DefaultResponse.php
   - src/Utils/DefaultStream.php
+  - src/Utils/DefaultUri.php
   - src/Utils/EnumHandler.php
   - src/Utils/FormMetadata.php
   - src/Utils/Headers.php
@@ -71,919 +1614,924 @@ generatedFiles:
   - src/Utils/SpeakeasyMetadata.php
   - src/Utils/UnionHandler.php
   - src/Utils/Utils.php
-  - src/Models/Errors/SDKException.php
-  - src/Models/Operations/Directory.php
-  - src/Models/Operations/MediaContainer.php
-  - src/Models/Operations/GetServerCapabilitiesResponseBody.php
-  - src/Models/Operations/GetServerCapabilitiesResponse.php
-  - src/Models/Operations/Setting.php
-  - src/Models/Operations/GetServerPreferencesMediaContainer.php
-  - src/Models/Operations/GetServerPreferencesResponseBody.php
-  - src/Models/Operations/GetServerPreferencesResponse.php
-  - src/Models/Operations/Server.php
-  - src/Models/Operations/GetAvailableClientsMediaContainer.php
-  - src/Models/Operations/GetAvailableClientsResponseBody.php
-  - src/Models/Operations/GetAvailableClientsResponse.php
-  - src/Models/Operations/Device.php
-  - src/Models/Operations/GetDevicesMediaContainer.php
-  - src/Models/Operations/GetDevicesResponseBody.php
-  - src/Models/Operations/GetDevicesResponse.php
-  - src/Models/Operations/GetServerIdentityMediaContainer.php
-  - src/Models/Operations/GetServerIdentityResponseBody.php
-  - src/Models/Operations/GetServerIdentityResponse.php
-  - src/Models/Operations/MyPlex.php
-  - src/Models/Operations/GetMyPlexAccountResponseBody.php
-  - src/Models/Operations/GetMyPlexAccountResponse.php
-  - src/Models/Operations/MinSize.php
-  - src/Models/Operations/Upscale.php
-  - src/Models/Operations/GetResizedPhotoRequest.php
-  - src/Models/Operations/GetResizedPhotoResponse.php
-  - src/Models/Operations/GetServerListServer.php
-  - src/Models/Operations/GetServerListMediaContainer.php
-  - src/Models/Operations/GetServerListResponseBody.php
-  - src/Models/Operations/GetServerListResponse.php
-  - src/Models/Operations/MarkPlayedRequest.php
-  - src/Models/Operations/MarkPlayedResponse.php
-  - src/Models/Operations/MarkUnplayedRequest.php
-  - src/Models/Operations/MarkUnplayedResponse.php
-  - src/Models/Operations/UpdatePlayProgressRequest.php
-  - src/Models/Operations/UpdatePlayProgressResponse.php
-  - src/Models/Operations/State.php
-  - src/Models/Operations/GetTimelineRequest.php
-  - src/Models/Operations/GetTimelineResponse.php
-  - src/Models/Operations/StartUniversalTranscodeRequest.php
-  - src/Models/Operations/StartUniversalTranscodeResponse.php
-  - src/Models/Operations/Context.php
-  - src/Models/Operations/Activity.php
-  - src/Models/Operations/GetServerActivitiesMediaContainer.php
-  - src/Models/Operations/GetServerActivitiesResponseBody.php
-  - src/Models/Operations/GetServerActivitiesResponse.php
-  - src/Models/Operations/CancelServerActivitiesRequest.php
-  - src/Models/Operations/CancelServerActivitiesResponse.php
-  - src/Models/Operations/ButlerTask.php
-  - src/Models/Operations/ButlerTasks.php
-  - src/Models/Operations/GetButlerTasksResponseBody.php
-  - src/Models/Operations/GetButlerTasksResponse.php
-  - src/Models/Operations/StartAllTasksResponse.php
-  - src/Models/Operations/StopAllTasksResponse.php
-  - src/Models/Operations/TaskName.php
-  - src/Models/Operations/StartTaskRequest.php
-  - src/Models/Operations/StartTaskResponse.php
-  - src/Models/Operations/PathParamTaskName.php
-  - src/Models/Operations/StopTaskRequest.php
-  - src/Models/Operations/StopTaskResponse.php
-  - src/Models/Operations/GetHomeDataResponseBody.php
-  - src/Models/Operations/GetHomeDataResponse.php
-  - src/Models/Operations/GetPinRequest.php
-  - src/Models/Operations/Location.php
-  - src/Models/Operations/GetPinResponseBody.php
-  - src/Models/Operations/GetPinResponse.php
-  - src/Models/Operations/GetTokenRequest.php
-  - src/Models/Operations/GetTokenLocation.php
-  - src/Models/Operations/GetTokenResponseBody.php
-  - src/Models/Operations/GetTokenResponse.php
-  - src/Models/Operations/OnlyTransient.php
-  - src/Models/Operations/GetGlobalHubsRequest.php
-  - src/Models/Operations/GetGlobalHubsMetadata.php
-  - src/Models/Operations/Hub.php
-  - src/Models/Operations/GetGlobalHubsMediaContainer.php
-  - src/Models/Operations/GetGlobalHubsResponseBody.php
-  - src/Models/Operations/GetGlobalHubsResponse.php
-  - src/Models/Operations/QueryParamOnlyTransient.php
-  - src/Models/Operations/GetLibraryHubsRequest.php
-  - src/Models/Operations/GetLibraryHubsPart.php
-  - src/Models/Operations/GetLibraryHubsMedia.php
-  - src/Models/Operations/GetLibraryHubsGenre.php
-  - src/Models/Operations/GetLibraryHubsCountry.php
-  - src/Models/Operations/GetLibraryHubsDirector.php
-  - src/Models/Operations/GetLibraryHubsRole.php
-  - src/Models/Operations/GetLibraryHubsWriter.php
-  - src/Models/Operations/GetLibraryHubsMetadata.php
-  - src/Models/Operations/GetLibraryHubsHub.php
-  - src/Models/Operations/GetLibraryHubsMediaContainer.php
-  - src/Models/Operations/GetLibraryHubsResponseBody.php
-  - src/Models/Operations/GetLibraryHubsResponse.php
-  - src/Models/Operations/PerformSearchRequest.php
-  - src/Models/Operations/PerformSearchResponse.php
-  - src/Models/Operations/PerformVoiceSearchRequest.php
-  - src/Models/Operations/PerformVoiceSearchResponse.php
-  - src/Models/Operations/GetSearchResultsRequest.php
-  - src/Models/Operations/GetSearchResultsPart.php
-  - src/Models/Operations/GetSearchResultsMedia.php
-  - src/Models/Operations/GetSearchResultsGenre.php
-  - src/Models/Operations/GetSearchResultsDirector.php
-  - src/Models/Operations/GetSearchResultsWriter.php
-  - src/Models/Operations/GetSearchResultsCountry.php
-  - src/Models/Operations/GetSearchResultsRole.php
-  - src/Models/Operations/GetSearchResultsMetadata.php
-  - src/Models/Operations/Provider.php
-  - src/Models/Operations/GetSearchResultsMediaContainer.php
-  - src/Models/Operations/GetSearchResultsResponseBody.php
-  - src/Models/Operations/GetSearchResultsResponse.php
-  - src/Models/Operations/GetFileHashRequest.php
-  - src/Models/Operations/GetFileHashResponse.php
-  - src/Models/Operations/Part.php
-  - src/Models/Operations/Media.php
-  - src/Models/Operations/Genre.php
-  - src/Models/Operations/Director.php
-  - src/Models/Operations/Writer.php
-  - src/Models/Operations/Country.php
-  - src/Models/Operations/Role.php
-  - src/Models/Operations/GetRecentlyAddedMetadata.php
-  - src/Models/Operations/GetRecentlyAddedMediaContainer.php
-  - src/Models/Operations/GetRecentlyAddedResponseBody.php
-  - src/Models/Operations/GetRecentlyAddedResponse.php
-  - src/Models/Operations/GetLibrariesLocation.php
-  - src/Models/Operations/GetLibrariesDirectory.php
-  - src/Models/Operations/GetLibrariesMediaContainer.php
-  - src/Models/Operations/GetLibrariesResponseBody.php
-  - src/Models/Operations/GetLibrariesResponse.php
-  - src/Models/Operations/IncludeDetails.php
-  - src/Models/Operations/GetLibraryRequest.php
-  - src/Models/Operations/GetLibraryDirectory.php
-  - src/Models/Operations/GetLibraryFilter.php
-  - src/Models/Operations/Sort.php
-  - src/Models/Operations/Field.php
-  - src/Models/Operations/GetLibraryType.php
-  - src/Models/Operations/Operator.php
-  - src/Models/Operations/FieldType.php
-  - src/Models/Operations/GetLibraryMediaContainer.php
-  - src/Models/Operations/GetLibraryResponseBody.php
-  - src/Models/Operations/GetLibraryResponse.php
-  - src/Models/Operations/DeleteLibraryRequest.php
-  - src/Models/Operations/DeleteLibraryResponse.php
-  - src/Models/Operations/Tag.php
-  - src/Models/Operations/GetLibraryItemsRequest.php
-  - src/Models/Operations/GetLibraryItemsPart.php
-  - src/Models/Operations/GetLibraryItemsMedia.php
-  - src/Models/Operations/GetLibraryItemsGenre.php
-  - src/Models/Operations/GetLibraryItemsCountry.php
-  - src/Models/Operations/GetLibraryItemsDirector.php
-  - src/Models/Operations/GetLibraryItemsWriter.php
-  - src/Models/Operations/GetLibraryItemsRole.php
-  - src/Models/Operations/GetLibraryItemsMetadata.php
-  - src/Models/Operations/GetLibraryItemsMediaContainer.php
-  - src/Models/Operations/GetLibraryItemsResponseBody.php
-  - src/Models/Operations/GetLibraryItemsResponse.php
-  - src/Models/Operations/RefreshLibraryRequest.php
-  - src/Models/Operations/RefreshLibraryResponse.php
-  - src/Models/Operations/Type.php
-  - src/Models/Operations/SearchLibraryRequest.php
-  - src/Models/Operations/SearchLibraryMetadata.php
-  - src/Models/Operations/SearchLibraryMediaContainer.php
-  - src/Models/Operations/SearchLibraryResponseBody.php
-  - src/Models/Operations/SearchLibraryResponse.php
-  - src/Models/Operations/GetMetadataRequest.php
-  - src/Models/Operations/Stream.php
-  - src/Models/Operations/GetMetadataPart.php
-  - src/Models/Operations/GetMetadataMedia.php
-  - src/Models/Operations/GetMetadataGenre.php
-  - src/Models/Operations/GetMetadataCountry.php
-  - src/Models/Operations/Guids.php
-  - src/Models/Operations/Ratings.php
-  - src/Models/Operations/GetMetadataDirector.php
-  - src/Models/Operations/GetMetadataWriter.php
-  - src/Models/Operations/GetMetadataRole.php
-  - src/Models/Operations/Producer.php
-  - src/Models/Operations/GetMetadataMetadata.php
-  - src/Models/Operations/GetMetadataMediaContainer.php
-  - src/Models/Operations/GetMetadataResponseBody.php
-  - src/Models/Operations/GetMetadataResponse.php
-  - src/Models/Operations/GetMetadataChildrenRequest.php
-  - src/Models/Operations/GetMetadataChildrenDirectory.php
-  - src/Models/Operations/GetMetadataChildrenMetadata.php
-  - src/Models/Operations/GetMetadataChildrenMediaContainer.php
-  - src/Models/Operations/GetMetadataChildrenResponseBody.php
-  - src/Models/Operations/GetMetadataChildrenResponse.php
-  - src/Models/Operations/GetTopWatchedContentRequest.php
-  - src/Models/Operations/GetTopWatchedContentGenre.php
-  - src/Models/Operations/GetTopWatchedContentCountry.php
-  - src/Models/Operations/GetTopWatchedContentGuids.php
-  - src/Models/Operations/GetTopWatchedContentRole.php
-  - src/Models/Operations/User.php
-  - src/Models/Operations/GetTopWatchedContentMetadata.php
-  - src/Models/Operations/GetTopWatchedContentMediaContainer.php
-  - src/Models/Operations/GetTopWatchedContentResponseBody.php
-  - src/Models/Operations/GetTopWatchedContentResponse.php
-  - src/Models/Operations/GetOnDeckStream.php
-  - src/Models/Operations/GetOnDeckPart.php
-  - src/Models/Operations/GetOnDeckMedia.php
-  - src/Models/Operations/GetOnDeckGuids.php
-  - src/Models/Operations/GetOnDeckMetadata.php
-  - src/Models/Operations/GetOnDeckMediaContainer.php
-  - src/Models/Operations/GetOnDeckResponseBody.php
-  - src/Models/Operations/GetOnDeckResponse.php
-  - src/Models/Operations/Level.php
-  - src/Models/Operations/LogLineRequest.php
-  - src/Models/Operations/LogLineResponse.php
-  - src/Models/Operations/LogMultiLineResponse.php
-  - src/Models/Operations/EnablePaperTrailResponse.php
-  - src/Models/Operations/QueryParamType.php
-  - src/Models/Operations/Smart.php
-  - src/Models/Operations/CreatePlaylistRequest.php
-  - src/Models/Operations/CreatePlaylistMetadata.php
-  - src/Models/Operations/CreatePlaylistMediaContainer.php
-  - src/Models/Operations/CreatePlaylistResponseBody.php
-  - src/Models/Operations/CreatePlaylistResponse.php
-  - src/Models/Operations/PlaylistType.php
-  - src/Models/Operations/QueryParamSmart.php
-  - src/Models/Operations/GetPlaylistsRequest.php
-  - src/Models/Operations/GetPlaylistsMetadata.php
-  - src/Models/Operations/GetPlaylistsMediaContainer.php
-  - src/Models/Operations/GetPlaylistsResponseBody.php
-  - src/Models/Operations/GetPlaylistsResponse.php
-  - src/Models/Operations/GetPlaylistRequest.php
-  - src/Models/Operations/GetPlaylistMetadata.php
-  - src/Models/Operations/GetPlaylistMediaContainer.php
-  - src/Models/Operations/GetPlaylistResponseBody.php
-  - src/Models/Operations/GetPlaylistResponse.php
-  - src/Models/Operations/DeletePlaylistRequest.php
-  - src/Models/Operations/DeletePlaylistResponse.php
-  - src/Models/Operations/UpdatePlaylistRequest.php
-  - src/Models/Operations/UpdatePlaylistResponse.php
-  - src/Models/Operations/GetPlaylistContentsRequest.php
-  - src/Models/Operations/GetPlaylistContentsPart.php
-  - src/Models/Operations/GetPlaylistContentsMedia.php
-  - src/Models/Operations/GetPlaylistContentsGenre.php
-  - src/Models/Operations/GetPlaylistContentsCountry.php
-  - src/Models/Operations/GetPlaylistContentsDirector.php
-  - src/Models/Operations/GetPlaylistContentsWriter.php
-  - src/Models/Operations/GetPlaylistContentsRole.php
-  - src/Models/Operations/GetPlaylistContentsMetadata.php
-  - src/Models/Operations/GetPlaylistContentsMediaContainer.php
-  - src/Models/Operations/GetPlaylistContentsResponseBody.php
-  - src/Models/Operations/GetPlaylistContentsResponse.php
-  - src/Models/Operations/ClearPlaylistContentsRequest.php
-  - src/Models/Operations/ClearPlaylistContentsResponse.php
-  - src/Models/Operations/AddPlaylistContentsRequest.php
-  - src/Models/Operations/AddPlaylistContentsMetadata.php
-  - src/Models/Operations/AddPlaylistContentsMediaContainer.php
-  - src/Models/Operations/AddPlaylistContentsResponseBody.php
-  - src/Models/Operations/AddPlaylistContentsResponse.php
-  - src/Models/Operations/Force.php
-  - src/Models/Operations/UploadPlaylistRequest.php
-  - src/Models/Operations/UploadPlaylistResponse.php
-  - src/Models/Operations/GetTransientTokenQueryParamType.php
-  - src/Models/Operations/Scope.php
-  - src/Models/Operations/GetTransientTokenRequest.php
-  - src/Models/Operations/GetTransientTokenResponse.php
-  - src/Models/Operations/GetSourceConnectionInformationRequest.php
-  - src/Models/Operations/GetSourceConnectionInformationResponse.php
-  - src/Models/Operations/GetStatisticsRequest.php
-  - src/Models/Operations/GetStatisticsDevice.php
-  - src/Models/Operations/Account.php
-  - src/Models/Operations/StatisticsMedia.php
-  - src/Models/Operations/GetStatisticsMediaContainer.php
-  - src/Models/Operations/GetStatisticsResponseBody.php
-  - src/Models/Operations/GetStatisticsResponse.php
-  - src/Models/Operations/GetResourcesStatisticsRequest.php
-  - src/Models/Operations/StatisticsResources.php
-  - src/Models/Operations/GetResourcesStatisticsMediaContainer.php
-  - src/Models/Operations/GetResourcesStatisticsResponseBody.php
-  - src/Models/Operations/GetResourcesStatisticsResponse.php
-  - src/Models/Operations/GetBandwidthStatisticsRequest.php
-  - src/Models/Operations/GetBandwidthStatisticsDevice.php
-  - src/Models/Operations/GetBandwidthStatisticsAccount.php
-  - src/Models/Operations/StatisticsBandwidth.php
-  - src/Models/Operations/GetBandwidthStatisticsMediaContainer.php
-  - src/Models/Operations/GetBandwidthStatisticsResponseBody.php
-  - src/Models/Operations/GetBandwidthStatisticsResponse.php
-  - src/Models/Operations/GetSessionsStream.php
-  - src/Models/Operations/GetSessionsPart.php
-  - src/Models/Operations/GetSessionsMedia.php
-  - src/Models/Operations/GetSessionsUser.php
-  - src/Models/Operations/Player.php
-  - src/Models/Operations/Session.php
-  - src/Models/Operations/GetSessionsMetadata.php
-  - src/Models/Operations/GetSessionsMediaContainer.php
-  - src/Models/Operations/GetSessionsResponseBody.php
-  - src/Models/Operations/GetSessionsResponse.php
-  - src/Models/Operations/Filter.php
-  - src/Models/Operations/GetSessionHistoryRequest.php
-  - src/Models/Operations/GetSessionHistoryMetadata.php
-  - src/Models/Operations/GetSessionHistoryMediaContainer.php
-  - src/Models/Operations/GetSessionHistoryResponseBody.php
-  - src/Models/Operations/GetSessionHistoryResponse.php
-  - src/Models/Operations/TranscodeSession.php
-  - src/Models/Operations/GetTranscodeSessionsMediaContainer.php
-  - src/Models/Operations/GetTranscodeSessionsResponseBody.php
-  - src/Models/Operations/GetTranscodeSessionsResponse.php
-  - src/Models/Operations/StopTranscodeSessionRequest.php
-  - src/Models/Operations/StopTranscodeSessionResponse.php
-  - src/Models/Operations/Release.php
-  - src/Models/Operations/GetUpdateStatusMediaContainer.php
-  - src/Models/Operations/GetUpdateStatusResponseBody.php
-  - src/Models/Operations/GetUpdateStatusResponse.php
-  - src/Models/Operations/Download.php
-  - src/Models/Operations/CheckForUpdatesRequest.php
-  - src/Models/Operations/CheckForUpdatesResponse.php
-  - src/Models/Operations/Tonight.php
-  - src/Models/Operations/Skip.php
-  - src/Models/Operations/ApplyUpdatesRequest.php
-  - src/Models/Operations/ApplyUpdatesResponse.php
-  - src/Models/Operations/PathParamFilter.php
-  - src/Models/Operations/Libtype.php
-  - src/Models/Operations/IncludeCollections.php
-  - src/Models/Operations/IncludeExternalMedia.php
-  - src/Models/Operations/GetWatchlistRequest.php
-  - src/Models/Operations/Image.php
-  - src/Models/Operations/Metadata.php
-  - src/Models/Operations/GetWatchlistResponseBody.php
-  - src/Models/Operations/GetWatchlistResponse.php
-  - src/Models/Errors/Errors.php
-  - src/Models/Errors/GetServerCapabilitiesResponseBody.php
-  - src/Models/Errors/GetServerPreferencesErrors.php
-  - src/Models/Errors/GetServerPreferencesResponseBody.php
-  - src/Models/Errors/GetAvailableClientsErrors.php
-  - src/Models/Errors/GetAvailableClientsResponseBody.php
-  - src/Models/Errors/GetDevicesErrors.php
-  - src/Models/Errors/GetDevicesResponseBody.php
-  - src/Models/Errors/GetServerIdentityErrors.php
-  - src/Models/Errors/GetServerIdentityResponseBody.php
-  - src/Models/Errors/GetMyPlexAccountErrors.php
-  - src/Models/Errors/GetMyPlexAccountResponseBody.php
-  - src/Models/Errors/GetResizedPhotoErrors.php
-  - src/Models/Errors/GetResizedPhotoResponseBody.php
-  - src/Models/Errors/GetServerListErrors.php
-  - src/Models/Errors/GetServerListResponseBody.php
-  - src/Models/Errors/MarkPlayedErrors.php
-  - src/Models/Errors/MarkPlayedResponseBody.php
-  - src/Models/Errors/MarkUnplayedErrors.php
-  - src/Models/Errors/MarkUnplayedResponseBody.php
-  - src/Models/Errors/UpdatePlayProgressErrors.php
-  - src/Models/Errors/UpdatePlayProgressResponseBody.php
-  - src/Models/Errors/GetTimelineErrors.php
-  - src/Models/Errors/GetTimelineResponseBody.php
-  - src/Models/Errors/StartUniversalTranscodeErrors.php
-  - src/Models/Errors/StartUniversalTranscodeResponseBody.php
-  - src/Models/Errors/GetServerActivitiesErrors.php
-  - src/Models/Errors/GetServerActivitiesResponseBody.php
-  - src/Models/Errors/CancelServerActivitiesErrors.php
-  - src/Models/Errors/CancelServerActivitiesResponseBody.php
-  - src/Models/Errors/GetButlerTasksErrors.php
-  - src/Models/Errors/GetButlerTasksResponseBody.php
-  - src/Models/Errors/StartAllTasksErrors.php
-  - src/Models/Errors/StartAllTasksResponseBody.php
-  - src/Models/Errors/StopAllTasksErrors.php
-  - src/Models/Errors/StopAllTasksResponseBody.php
-  - src/Models/Errors/StartTaskErrors.php
-  - src/Models/Errors/StartTaskResponseBody.php
-  - src/Models/Errors/StopTaskErrors.php
-  - src/Models/Errors/StopTaskResponseBody.php
-  - src/Models/Errors/GetHomeDataErrors.php
-  - src/Models/Errors/GetHomeDataResponseBody.php
-  - src/Models/Errors/GetPinErrors.php
-  - src/Models/Errors/GetPinResponseBody.php
-  - src/Models/Errors/GetTokenErrors.php
-  - src/Models/Errors/GetTokenResponseBody.php
-  - src/Models/Errors/GetGlobalHubsErrors.php
-  - src/Models/Errors/GetGlobalHubsResponseBody.php
-  - src/Models/Errors/GetLibraryHubsErrors.php
-  - src/Models/Errors/GetLibraryHubsResponseBody.php
-  - src/Models/Errors/PerformSearchErrors.php
-  - src/Models/Errors/PerformSearchResponseBody.php
-  - src/Models/Errors/PerformVoiceSearchErrors.php
-  - src/Models/Errors/PerformVoiceSearchResponseBody.php
-  - src/Models/Errors/GetSearchResultsErrors.php
-  - src/Models/Errors/GetSearchResultsResponseBody.php
-  - src/Models/Errors/GetFileHashErrors.php
-  - src/Models/Errors/GetFileHashResponseBody.php
-  - src/Models/Errors/GetRecentlyAddedErrors.php
-  - src/Models/Errors/GetRecentlyAddedResponseBody.php
-  - src/Models/Errors/GetLibrariesErrors.php
-  - src/Models/Errors/GetLibrariesResponseBody.php
-  - src/Models/Errors/GetLibraryErrors.php
-  - src/Models/Errors/GetLibraryResponseBody.php
-  - src/Models/Errors/DeleteLibraryErrors.php
-  - src/Models/Errors/DeleteLibraryResponseBody.php
-  - src/Models/Errors/GetLibraryItemsErrors.php
-  - src/Models/Errors/GetLibraryItemsResponseBody.php
-  - src/Models/Errors/RefreshLibraryErrors.php
-  - src/Models/Errors/RefreshLibraryResponseBody.php
-  - src/Models/Errors/SearchLibraryErrors.php
-  - src/Models/Errors/SearchLibraryResponseBody.php
-  - src/Models/Errors/GetMetadataErrors.php
-  - src/Models/Errors/GetMetadataResponseBody.php
-  - src/Models/Errors/GetMetadataChildrenErrors.php
-  - src/Models/Errors/GetMetadataChildrenResponseBody.php
-  - src/Models/Errors/GetOnDeckErrors.php
-  - src/Models/Errors/GetOnDeckResponseBody.php
-  - src/Models/Errors/LogLineErrors.php
-  - src/Models/Errors/LogLineResponseBody.php
-  - src/Models/Errors/LogMultiLineErrors.php
-  - src/Models/Errors/LogMultiLineResponseBody.php
-  - src/Models/Errors/EnablePaperTrailErrors.php
-  - src/Models/Errors/EnablePaperTrailResponseBody.php
-  - src/Models/Errors/CreatePlaylistErrors.php
-  - src/Models/Errors/CreatePlaylistResponseBody.php
-  - src/Models/Errors/GetPlaylistsErrors.php
-  - src/Models/Errors/GetPlaylistsResponseBody.php
-  - src/Models/Errors/GetPlaylistErrors.php
-  - src/Models/Errors/GetPlaylistResponseBody.php
-  - src/Models/Errors/DeletePlaylistErrors.php
-  - src/Models/Errors/DeletePlaylistResponseBody.php
-  - src/Models/Errors/UpdatePlaylistErrors.php
-  - src/Models/Errors/UpdatePlaylistResponseBody.php
-  - src/Models/Errors/GetPlaylistContentsErrors.php
-  - src/Models/Errors/GetPlaylistContentsResponseBody.php
-  - src/Models/Errors/ClearPlaylistContentsErrors.php
-  - src/Models/Errors/ClearPlaylistContentsResponseBody.php
-  - src/Models/Errors/AddPlaylistContentsErrors.php
-  - src/Models/Errors/AddPlaylistContentsResponseBody.php
-  - src/Models/Errors/UploadPlaylistErrors.php
-  - src/Models/Errors/UploadPlaylistResponseBody.php
-  - src/Models/Errors/GetTransientTokenErrors.php
-  - src/Models/Errors/GetTransientTokenResponseBody.php
-  - src/Models/Errors/GetSourceConnectionInformationErrors.php
-  - src/Models/Errors/GetSourceConnectionInformationResponseBody.php
-  - src/Models/Errors/GetStatisticsErrors.php
-  - src/Models/Errors/GetStatisticsResponseBody.php
-  - src/Models/Errors/GetResourcesStatisticsErrors.php
-  - src/Models/Errors/GetResourcesStatisticsResponseBody.php
-  - src/Models/Errors/GetBandwidthStatisticsErrors.php
-  - src/Models/Errors/GetBandwidthStatisticsResponseBody.php
-  - src/Models/Errors/GetSessionsErrors.php
-  - src/Models/Errors/GetSessionsResponseBody.php
-  - src/Models/Errors/GetSessionHistoryErrors.php
-  - src/Models/Errors/GetSessionHistoryResponseBody.php
-  - src/Models/Errors/GetTranscodeSessionsErrors.php
-  - src/Models/Errors/GetTranscodeSessionsResponseBody.php
-  - src/Models/Errors/StopTranscodeSessionErrors.php
-  - src/Models/Errors/StopTranscodeSessionResponseBody.php
-  - src/Models/Errors/GetUpdateStatusErrors.php
-  - src/Models/Errors/GetUpdateStatusResponseBody.php
-  - src/Models/Errors/CheckForUpdatesErrors.php
-  - src/Models/Errors/CheckForUpdatesResponseBody.php
-  - src/Models/Errors/ApplyUpdatesErrors.php
-  - src/Models/Errors/ApplyUpdatesResponseBody.php
-  - src/Models/Errors/GetWatchlistErrors.php
-  - src/Models/Errors/GetWatchlistResponseBody.php
-  - src/Models/Components/Security.php
-  - docs/Models/Operations/Directory.md
-  - docs/Models/Operations/MediaContainer.md
-  - docs/Models/Operations/GetServerCapabilitiesResponseBody.md
-  - docs/Models/Operations/GetServerCapabilitiesResponse.md
-  - docs/Models/Operations/Setting.md
-  - docs/Models/Operations/GetServerPreferencesMediaContainer.md
-  - docs/Models/Operations/GetServerPreferencesResponseBody.md
-  - docs/Models/Operations/GetServerPreferencesResponse.md
-  - docs/Models/Operations/Server.md
-  - docs/Models/Operations/GetAvailableClientsMediaContainer.md
-  - docs/Models/Operations/GetAvailableClientsResponseBody.md
-  - docs/Models/Operations/GetAvailableClientsResponse.md
-  - docs/Models/Operations/Device.md
-  - docs/Models/Operations/GetDevicesMediaContainer.md
-  - docs/Models/Operations/GetDevicesResponseBody.md
-  - docs/Models/Operations/GetDevicesResponse.md
-  - docs/Models/Operations/GetServerIdentityMediaContainer.md
-  - docs/Models/Operations/GetServerIdentityResponseBody.md
-  - docs/Models/Operations/GetServerIdentityResponse.md
-  - docs/Models/Operations/MyPlex.md
-  - docs/Models/Operations/GetMyPlexAccountResponseBody.md
-  - docs/Models/Operations/GetMyPlexAccountResponse.md
-  - docs/Models/Operations/MinSize.md
-  - docs/Models/Operations/Upscale.md
-  - docs/Models/Operations/GetResizedPhotoRequest.md
-  - docs/Models/Operations/GetResizedPhotoResponse.md
-  - docs/Models/Operations/GetServerListServer.md
-  - docs/Models/Operations/GetServerListMediaContainer.md
-  - docs/Models/Operations/GetServerListResponseBody.md
-  - docs/Models/Operations/GetServerListResponse.md
-  - docs/Models/Operations/MarkPlayedRequest.md
-  - docs/Models/Operations/MarkPlayedResponse.md
-  - docs/Models/Operations/MarkUnplayedRequest.md
-  - docs/Models/Operations/MarkUnplayedResponse.md
-  - docs/Models/Operations/UpdatePlayProgressRequest.md
-  - docs/Models/Operations/UpdatePlayProgressResponse.md
-  - docs/Models/Operations/State.md
-  - docs/Models/Operations/GetTimelineRequest.md
-  - docs/Models/Operations/GetTimelineResponse.md
-  - docs/Models/Operations/StartUniversalTranscodeRequest.md
-  - docs/Models/Operations/StartUniversalTranscodeResponse.md
-  - docs/Models/Operations/Context.md
-  - docs/Models/Operations/Activity.md
-  - docs/Models/Operations/GetServerActivitiesMediaContainer.md
-  - docs/Models/Operations/GetServerActivitiesResponseBody.md
-  - docs/Models/Operations/GetServerActivitiesResponse.md
-  - docs/Models/Operations/CancelServerActivitiesRequest.md
-  - docs/Models/Operations/CancelServerActivitiesResponse.md
-  - docs/Models/Operations/ButlerTask.md
-  - docs/Models/Operations/ButlerTasks.md
-  - docs/Models/Operations/GetButlerTasksResponseBody.md
-  - docs/Models/Operations/GetButlerTasksResponse.md
-  - docs/Models/Operations/StartAllTasksResponse.md
-  - docs/Models/Operations/StopAllTasksResponse.md
-  - docs/Models/Operations/TaskName.md
-  - docs/Models/Operations/StartTaskRequest.md
-  - docs/Models/Operations/StartTaskResponse.md
-  - docs/Models/Operations/PathParamTaskName.md
-  - docs/Models/Operations/StopTaskRequest.md
-  - docs/Models/Operations/StopTaskResponse.md
-  - docs/Models/Operations/GetHomeDataResponseBody.md
-  - docs/Models/Operations/GetHomeDataResponse.md
-  - docs/Models/Operations/GetPinRequest.md
-  - docs/Models/Operations/Location.md
-  - docs/Models/Operations/GetPinResponseBody.md
-  - docs/Models/Operations/GetPinResponse.md
-  - docs/Models/Operations/GetTokenRequest.md
-  - docs/Models/Operations/GetTokenLocation.md
-  - docs/Models/Operations/GetTokenResponseBody.md
-  - docs/Models/Operations/GetTokenResponse.md
-  - docs/Models/Operations/OnlyTransient.md
-  - docs/Models/Operations/GetGlobalHubsRequest.md
-  - docs/Models/Operations/GetGlobalHubsMetadata.md
-  - docs/Models/Operations/Hub.md
-  - docs/Models/Operations/GetGlobalHubsMediaContainer.md
-  - docs/Models/Operations/GetGlobalHubsResponseBody.md
-  - docs/Models/Operations/GetGlobalHubsResponse.md
-  - docs/Models/Operations/QueryParamOnlyTransient.md
-  - docs/Models/Operations/GetLibraryHubsRequest.md
-  - docs/Models/Operations/GetLibraryHubsPart.md
-  - docs/Models/Operations/GetLibraryHubsMedia.md
-  - docs/Models/Operations/GetLibraryHubsGenre.md
-  - docs/Models/Operations/GetLibraryHubsCountry.md
-  - docs/Models/Operations/GetLibraryHubsDirector.md
-  - docs/Models/Operations/GetLibraryHubsRole.md
-  - docs/Models/Operations/GetLibraryHubsWriter.md
-  - docs/Models/Operations/GetLibraryHubsMetadata.md
-  - docs/Models/Operations/GetLibraryHubsHub.md
-  - docs/Models/Operations/GetLibraryHubsMediaContainer.md
-  - docs/Models/Operations/GetLibraryHubsResponseBody.md
-  - docs/Models/Operations/GetLibraryHubsResponse.md
-  - docs/Models/Operations/PerformSearchRequest.md
-  - docs/Models/Operations/PerformSearchResponse.md
-  - docs/Models/Operations/PerformVoiceSearchRequest.md
-  - docs/Models/Operations/PerformVoiceSearchResponse.md
-  - docs/Models/Operations/GetSearchResultsRequest.md
-  - docs/Models/Operations/GetSearchResultsPart.md
-  - docs/Models/Operations/GetSearchResultsMedia.md
-  - docs/Models/Operations/GetSearchResultsGenre.md
-  - docs/Models/Operations/GetSearchResultsDirector.md
-  - docs/Models/Operations/GetSearchResultsWriter.md
-  - docs/Models/Operations/GetSearchResultsCountry.md
-  - docs/Models/Operations/GetSearchResultsRole.md
-  - docs/Models/Operations/GetSearchResultsMetadata.md
-  - docs/Models/Operations/Provider.md
-  - docs/Models/Operations/GetSearchResultsMediaContainer.md
-  - docs/Models/Operations/GetSearchResultsResponseBody.md
-  - docs/Models/Operations/GetSearchResultsResponse.md
-  - docs/Models/Operations/GetFileHashRequest.md
-  - docs/Models/Operations/GetFileHashResponse.md
-  - docs/Models/Operations/Part.md
-  - docs/Models/Operations/Media.md
-  - docs/Models/Operations/Genre.md
-  - docs/Models/Operations/Director.md
-  - docs/Models/Operations/Writer.md
-  - docs/Models/Operations/Country.md
-  - docs/Models/Operations/Role.md
-  - docs/Models/Operations/GetRecentlyAddedMetadata.md
-  - docs/Models/Operations/GetRecentlyAddedMediaContainer.md
-  - docs/Models/Operations/GetRecentlyAddedResponseBody.md
-  - docs/Models/Operations/GetRecentlyAddedResponse.md
-  - docs/Models/Operations/GetLibrariesLocation.md
-  - docs/Models/Operations/GetLibrariesDirectory.md
-  - docs/Models/Operations/GetLibrariesMediaContainer.md
-  - docs/Models/Operations/GetLibrariesResponseBody.md
-  - docs/Models/Operations/GetLibrariesResponse.md
-  - docs/Models/Operations/IncludeDetails.md
-  - docs/Models/Operations/GetLibraryRequest.md
-  - docs/Models/Operations/GetLibraryDirectory.md
-  - docs/Models/Operations/GetLibraryFilter.md
-  - docs/Models/Operations/Sort.md
-  - docs/Models/Operations/Field.md
-  - docs/Models/Operations/GetLibraryType.md
-  - docs/Models/Operations/Operator.md
-  - docs/Models/Operations/FieldType.md
-  - docs/Models/Operations/GetLibraryMediaContainer.md
-  - docs/Models/Operations/GetLibraryResponseBody.md
-  - docs/Models/Operations/GetLibraryResponse.md
-  - docs/Models/Operations/DeleteLibraryRequest.md
-  - docs/Models/Operations/DeleteLibraryResponse.md
-  - docs/Models/Operations/Tag.md
-  - docs/Models/Operations/GetLibraryItemsRequest.md
-  - docs/Models/Operations/LibrarySectionID.md
-  - docs/Models/Operations/GetLibraryItemsPart.md
-  - docs/Models/Operations/GetLibraryItemsMedia.md
-  - docs/Models/Operations/GetLibraryItemsGenre.md
-  - docs/Models/Operations/GetLibraryItemsCountry.md
-  - docs/Models/Operations/GetLibraryItemsDirector.md
-  - docs/Models/Operations/GetLibraryItemsWriter.md
-  - docs/Models/Operations/GetLibraryItemsRole.md
-  - docs/Models/Operations/GetLibraryItemsMetadata.md
-  - docs/Models/Operations/GetLibraryItemsMediaContainer.md
-  - docs/Models/Operations/GetLibraryItemsResponseBody.md
-  - docs/Models/Operations/GetLibraryItemsResponse.md
-  - docs/Models/Operations/RefreshLibraryRequest.md
-  - docs/Models/Operations/RefreshLibraryResponse.md
-  - docs/Models/Operations/Type.md
-  - docs/Models/Operations/SearchLibraryRequest.md
-  - docs/Models/Operations/SearchLibraryMetadata.md
-  - docs/Models/Operations/SearchLibraryMediaContainer.md
-  - docs/Models/Operations/SearchLibraryResponseBody.md
-  - docs/Models/Operations/SearchLibraryResponse.md
-  - docs/Models/Operations/GetMetadataRequest.md
-  - docs/Models/Operations/Stream.md
-  - docs/Models/Operations/GetMetadataPart.md
-  - docs/Models/Operations/GetMetadataMedia.md
-  - docs/Models/Operations/GetMetadataGenre.md
-  - docs/Models/Operations/GetMetadataCountry.md
-  - docs/Models/Operations/Guids.md
-  - docs/Models/Operations/Ratings.md
-  - docs/Models/Operations/GetMetadataDirector.md
-  - docs/Models/Operations/GetMetadataWriter.md
-  - docs/Models/Operations/GetMetadataRole.md
-  - docs/Models/Operations/Producer.md
-  - docs/Models/Operations/GetMetadataMetadata.md
-  - docs/Models/Operations/GetMetadataMediaContainer.md
-  - docs/Models/Operations/GetMetadataResponseBody.md
-  - docs/Models/Operations/GetMetadataResponse.md
-  - docs/Models/Operations/GetMetadataChildrenRequest.md
-  - docs/Models/Operations/GetMetadataChildrenDirectory.md
-  - docs/Models/Operations/GetMetadataChildrenMetadata.md
-  - docs/Models/Operations/GetMetadataChildrenMediaContainer.md
-  - docs/Models/Operations/GetMetadataChildrenResponseBody.md
-  - docs/Models/Operations/GetMetadataChildrenResponse.md
-  - docs/Models/Operations/GetTopWatchedContentRequest.md
-  - docs/Models/Operations/GetTopWatchedContentGenre.md
-  - docs/Models/Operations/GetTopWatchedContentCountry.md
-  - docs/Models/Operations/GetTopWatchedContentGuids.md
-  - docs/Models/Operations/GetTopWatchedContentRole.md
-  - docs/Models/Operations/User.md
-  - docs/Models/Operations/GetTopWatchedContentMetadata.md
-  - docs/Models/Operations/GetTopWatchedContentMediaContainer.md
-  - docs/Models/Operations/GetTopWatchedContentResponseBody.md
-  - docs/Models/Operations/GetTopWatchedContentResponse.md
-  - docs/Models/Operations/GetOnDeckStream.md
-  - docs/Models/Operations/GetOnDeckPart.md
-  - docs/Models/Operations/GetOnDeckMedia.md
-  - docs/Models/Operations/GetOnDeckGuids.md
-  - docs/Models/Operations/GetOnDeckMetadata.md
-  - docs/Models/Operations/GetOnDeckMediaContainer.md
-  - docs/Models/Operations/GetOnDeckResponseBody.md
-  - docs/Models/Operations/GetOnDeckResponse.md
-  - docs/Models/Operations/Level.md
-  - docs/Models/Operations/LogLineRequest.md
-  - docs/Models/Operations/LogLineResponse.md
-  - docs/Models/Operations/LogMultiLineResponse.md
-  - docs/Models/Operations/EnablePaperTrailResponse.md
-  - docs/Models/Operations/QueryParamType.md
-  - docs/Models/Operations/Smart.md
-  - docs/Models/Operations/CreatePlaylistRequest.md
-  - docs/Models/Operations/CreatePlaylistMetadata.md
-  - docs/Models/Operations/CreatePlaylistMediaContainer.md
-  - docs/Models/Operations/CreatePlaylistResponseBody.md
-  - docs/Models/Operations/CreatePlaylistResponse.md
-  - docs/Models/Operations/PlaylistType.md
-  - docs/Models/Operations/QueryParamSmart.md
-  - docs/Models/Operations/GetPlaylistsRequest.md
-  - docs/Models/Operations/GetPlaylistsMetadata.md
-  - docs/Models/Operations/GetPlaylistsMediaContainer.md
-  - docs/Models/Operations/GetPlaylistsResponseBody.md
-  - docs/Models/Operations/GetPlaylistsResponse.md
-  - docs/Models/Operations/GetPlaylistRequest.md
-  - docs/Models/Operations/GetPlaylistMetadata.md
-  - docs/Models/Operations/GetPlaylistMediaContainer.md
-  - docs/Models/Operations/GetPlaylistResponseBody.md
-  - docs/Models/Operations/GetPlaylistResponse.md
-  - docs/Models/Operations/DeletePlaylistRequest.md
-  - docs/Models/Operations/DeletePlaylistResponse.md
-  - docs/Models/Operations/UpdatePlaylistRequest.md
-  - docs/Models/Operations/UpdatePlaylistResponse.md
-  - docs/Models/Operations/GetPlaylistContentsRequest.md
-  - docs/Models/Operations/GetPlaylistContentsPart.md
-  - docs/Models/Operations/GetPlaylistContentsMedia.md
-  - docs/Models/Operations/GetPlaylistContentsGenre.md
-  - docs/Models/Operations/GetPlaylistContentsCountry.md
-  - docs/Models/Operations/GetPlaylistContentsDirector.md
-  - docs/Models/Operations/GetPlaylistContentsWriter.md
-  - docs/Models/Operations/GetPlaylistContentsRole.md
-  - docs/Models/Operations/GetPlaylistContentsMetadata.md
-  - docs/Models/Operations/GetPlaylistContentsMediaContainer.md
-  - docs/Models/Operations/GetPlaylistContentsResponseBody.md
-  - docs/Models/Operations/GetPlaylistContentsResponse.md
-  - docs/Models/Operations/ClearPlaylistContentsRequest.md
-  - docs/Models/Operations/ClearPlaylistContentsResponse.md
-  - docs/Models/Operations/AddPlaylistContentsRequest.md
-  - docs/Models/Operations/AddPlaylistContentsMetadata.md
-  - docs/Models/Operations/AddPlaylistContentsMediaContainer.md
-  - docs/Models/Operations/AddPlaylistContentsResponseBody.md
-  - docs/Models/Operations/AddPlaylistContentsResponse.md
-  - docs/Models/Operations/Force.md
-  - docs/Models/Operations/UploadPlaylistRequest.md
-  - docs/Models/Operations/UploadPlaylistResponse.md
-  - docs/Models/Operations/GetTransientTokenQueryParamType.md
-  - docs/Models/Operations/Scope.md
-  - docs/Models/Operations/GetTransientTokenRequest.md
-  - docs/Models/Operations/GetTransientTokenResponse.md
-  - docs/Models/Operations/GetSourceConnectionInformationRequest.md
-  - docs/Models/Operations/GetSourceConnectionInformationResponse.md
-  - docs/Models/Operations/GetStatisticsRequest.md
-  - docs/Models/Operations/GetStatisticsDevice.md
-  - docs/Models/Operations/Account.md
-  - docs/Models/Operations/StatisticsMedia.md
-  - docs/Models/Operations/GetStatisticsMediaContainer.md
-  - docs/Models/Operations/GetStatisticsResponseBody.md
-  - docs/Models/Operations/GetStatisticsResponse.md
-  - docs/Models/Operations/GetResourcesStatisticsRequest.md
-  - docs/Models/Operations/StatisticsResources.md
-  - docs/Models/Operations/GetResourcesStatisticsMediaContainer.md
-  - docs/Models/Operations/GetResourcesStatisticsResponseBody.md
-  - docs/Models/Operations/GetResourcesStatisticsResponse.md
-  - docs/Models/Operations/GetBandwidthStatisticsRequest.md
-  - docs/Models/Operations/GetBandwidthStatisticsDevice.md
-  - docs/Models/Operations/GetBandwidthStatisticsAccount.md
-  - docs/Models/Operations/StatisticsBandwidth.md
-  - docs/Models/Operations/GetBandwidthStatisticsMediaContainer.md
-  - docs/Models/Operations/GetBandwidthStatisticsResponseBody.md
-  - docs/Models/Operations/GetBandwidthStatisticsResponse.md
-  - docs/Models/Operations/GetSessionsStream.md
-  - docs/Models/Operations/GetSessionsPart.md
-  - docs/Models/Operations/GetSessionsMedia.md
-  - docs/Models/Operations/GetSessionsUser.md
-  - docs/Models/Operations/Player.md
-  - docs/Models/Operations/Session.md
-  - docs/Models/Operations/GetSessionsMetadata.md
-  - docs/Models/Operations/GetSessionsMediaContainer.md
-  - docs/Models/Operations/GetSessionsResponseBody.md
-  - docs/Models/Operations/GetSessionsResponse.md
-  - docs/Models/Operations/Filter.md
-  - docs/Models/Operations/GetSessionHistoryRequest.md
-  - docs/Models/Operations/GetSessionHistoryMetadata.md
-  - docs/Models/Operations/GetSessionHistoryMediaContainer.md
-  - docs/Models/Operations/GetSessionHistoryResponseBody.md
-  - docs/Models/Operations/GetSessionHistoryResponse.md
-  - docs/Models/Operations/TranscodeSession.md
-  - docs/Models/Operations/GetTranscodeSessionsMediaContainer.md
-  - docs/Models/Operations/GetTranscodeSessionsResponseBody.md
-  - docs/Models/Operations/GetTranscodeSessionsResponse.md
-  - docs/Models/Operations/StopTranscodeSessionRequest.md
-  - docs/Models/Operations/StopTranscodeSessionResponse.md
-  - docs/Models/Operations/Release.md
-  - docs/Models/Operations/GetUpdateStatusMediaContainer.md
-  - docs/Models/Operations/GetUpdateStatusResponseBody.md
-  - docs/Models/Operations/GetUpdateStatusResponse.md
-  - docs/Models/Operations/Download.md
-  - docs/Models/Operations/CheckForUpdatesRequest.md
-  - docs/Models/Operations/CheckForUpdatesResponse.md
-  - docs/Models/Operations/Tonight.md
-  - docs/Models/Operations/Skip.md
-  - docs/Models/Operations/ApplyUpdatesRequest.md
-  - docs/Models/Operations/ApplyUpdatesResponse.md
-  - docs/Models/Operations/PathParamFilter.md
-  - docs/Models/Operations/Libtype.md
-  - docs/Models/Operations/IncludeCollections.md
-  - docs/Models/Operations/IncludeExternalMedia.md
-  - docs/Models/Operations/GetWatchlistRequest.md
-  - docs/Models/Operations/Image.md
-  - docs/Models/Operations/Metadata.md
-  - docs/Models/Operations/GetWatchlistResponseBody.md
-  - docs/Models/Operations/GetWatchlistResponse.md
-  - docs/Models/Errors/Errors.md
-  - docs/Models/Errors/GetServerCapabilitiesResponseBody.md
-  - docs/Models/Errors/GetServerPreferencesErrors.md
-  - docs/Models/Errors/GetServerPreferencesResponseBody.md
-  - docs/Models/Errors/GetAvailableClientsErrors.md
-  - docs/Models/Errors/GetAvailableClientsResponseBody.md
-  - docs/Models/Errors/GetDevicesErrors.md
-  - docs/Models/Errors/GetDevicesResponseBody.md
-  - docs/Models/Errors/GetServerIdentityErrors.md
-  - docs/Models/Errors/GetServerIdentityResponseBody.md
-  - docs/Models/Errors/GetMyPlexAccountErrors.md
-  - docs/Models/Errors/GetMyPlexAccountResponseBody.md
-  - docs/Models/Errors/GetResizedPhotoErrors.md
-  - docs/Models/Errors/GetResizedPhotoResponseBody.md
-  - docs/Models/Errors/GetServerListErrors.md
-  - docs/Models/Errors/GetServerListResponseBody.md
-  - docs/Models/Errors/MarkPlayedErrors.md
-  - docs/Models/Errors/MarkPlayedResponseBody.md
-  - docs/Models/Errors/MarkUnplayedErrors.md
-  - docs/Models/Errors/MarkUnplayedResponseBody.md
-  - docs/Models/Errors/UpdatePlayProgressErrors.md
-  - docs/Models/Errors/UpdatePlayProgressResponseBody.md
-  - docs/Models/Errors/GetTimelineErrors.md
-  - docs/Models/Errors/GetTimelineResponseBody.md
-  - docs/Models/Errors/StartUniversalTranscodeErrors.md
-  - docs/Models/Errors/StartUniversalTranscodeResponseBody.md
-  - docs/Models/Errors/GetServerActivitiesErrors.md
-  - docs/Models/Errors/GetServerActivitiesResponseBody.md
-  - docs/Models/Errors/CancelServerActivitiesErrors.md
-  - docs/Models/Errors/CancelServerActivitiesResponseBody.md
-  - docs/Models/Errors/GetButlerTasksErrors.md
-  - docs/Models/Errors/GetButlerTasksResponseBody.md
-  - docs/Models/Errors/StartAllTasksErrors.md
-  - docs/Models/Errors/StartAllTasksResponseBody.md
-  - docs/Models/Errors/StopAllTasksErrors.md
-  - docs/Models/Errors/StopAllTasksResponseBody.md
-  - docs/Models/Errors/StartTaskErrors.md
-  - docs/Models/Errors/StartTaskResponseBody.md
-  - docs/Models/Errors/StopTaskErrors.md
-  - docs/Models/Errors/StopTaskResponseBody.md
-  - docs/Models/Errors/GetHomeDataErrors.md
-  - docs/Models/Errors/GetHomeDataResponseBody.md
-  - docs/Models/Errors/GetPinErrors.md
-  - docs/Models/Errors/GetPinResponseBody.md
-  - docs/Models/Errors/GetTokenErrors.md
-  - docs/Models/Errors/GetTokenResponseBody.md
-  - docs/Models/Errors/GetGlobalHubsErrors.md
-  - docs/Models/Errors/GetGlobalHubsResponseBody.md
-  - docs/Models/Errors/GetLibraryHubsErrors.md
-  - docs/Models/Errors/GetLibraryHubsResponseBody.md
-  - docs/Models/Errors/PerformSearchErrors.md
-  - docs/Models/Errors/PerformSearchResponseBody.md
-  - docs/Models/Errors/PerformVoiceSearchErrors.md
-  - docs/Models/Errors/PerformVoiceSearchResponseBody.md
-  - docs/Models/Errors/GetSearchResultsErrors.md
-  - docs/Models/Errors/GetSearchResultsResponseBody.md
-  - docs/Models/Errors/GetFileHashErrors.md
-  - docs/Models/Errors/GetFileHashResponseBody.md
-  - docs/Models/Errors/GetRecentlyAddedErrors.md
-  - docs/Models/Errors/GetRecentlyAddedResponseBody.md
-  - docs/Models/Errors/GetLibrariesErrors.md
-  - docs/Models/Errors/GetLibrariesResponseBody.md
-  - docs/Models/Errors/GetLibraryErrors.md
-  - docs/Models/Errors/GetLibraryResponseBody.md
-  - docs/Models/Errors/DeleteLibraryErrors.md
-  - docs/Models/Errors/DeleteLibraryResponseBody.md
-  - docs/Models/Errors/GetLibraryItemsErrors.md
-  - docs/Models/Errors/GetLibraryItemsResponseBody.md
-  - docs/Models/Errors/RefreshLibraryErrors.md
-  - docs/Models/Errors/RefreshLibraryResponseBody.md
-  - docs/Models/Errors/SearchLibraryErrors.md
-  - docs/Models/Errors/SearchLibraryResponseBody.md
-  - docs/Models/Errors/GetMetadataErrors.md
-  - docs/Models/Errors/GetMetadataResponseBody.md
-  - docs/Models/Errors/GetMetadataChildrenErrors.md
-  - docs/Models/Errors/GetMetadataChildrenResponseBody.md
-  - docs/Models/Errors/GetOnDeckErrors.md
-  - docs/Models/Errors/GetOnDeckResponseBody.md
-  - docs/Models/Errors/LogLineErrors.md
-  - docs/Models/Errors/LogLineResponseBody.md
-  - docs/Models/Errors/LogMultiLineErrors.md
-  - docs/Models/Errors/LogMultiLineResponseBody.md
-  - docs/Models/Errors/EnablePaperTrailErrors.md
-  - docs/Models/Errors/EnablePaperTrailResponseBody.md
-  - docs/Models/Errors/CreatePlaylistErrors.md
-  - docs/Models/Errors/CreatePlaylistResponseBody.md
-  - docs/Models/Errors/GetPlaylistsErrors.md
-  - docs/Models/Errors/GetPlaylistsResponseBody.md
-  - docs/Models/Errors/GetPlaylistErrors.md
-  - docs/Models/Errors/GetPlaylistResponseBody.md
-  - docs/Models/Errors/DeletePlaylistErrors.md
-  - docs/Models/Errors/DeletePlaylistResponseBody.md
-  - docs/Models/Errors/UpdatePlaylistErrors.md
-  - docs/Models/Errors/UpdatePlaylistResponseBody.md
-  - docs/Models/Errors/GetPlaylistContentsErrors.md
-  - docs/Models/Errors/GetPlaylistContentsResponseBody.md
-  - docs/Models/Errors/ClearPlaylistContentsErrors.md
-  - docs/Models/Errors/ClearPlaylistContentsResponseBody.md
-  - docs/Models/Errors/AddPlaylistContentsErrors.md
-  - docs/Models/Errors/AddPlaylistContentsResponseBody.md
-  - docs/Models/Errors/UploadPlaylistErrors.md
-  - docs/Models/Errors/UploadPlaylistResponseBody.md
-  - docs/Models/Errors/GetTransientTokenErrors.md
-  - docs/Models/Errors/GetTransientTokenResponseBody.md
-  - docs/Models/Errors/GetSourceConnectionInformationErrors.md
-  - docs/Models/Errors/GetSourceConnectionInformationResponseBody.md
-  - docs/Models/Errors/GetStatisticsErrors.md
-  - docs/Models/Errors/GetStatisticsResponseBody.md
-  - docs/Models/Errors/GetResourcesStatisticsErrors.md
-  - docs/Models/Errors/GetResourcesStatisticsResponseBody.md
-  - docs/Models/Errors/GetBandwidthStatisticsErrors.md
-  - docs/Models/Errors/GetBandwidthStatisticsResponseBody.md
-  - docs/Models/Errors/GetSessionsErrors.md
-  - docs/Models/Errors/GetSessionsResponseBody.md
-  - docs/Models/Errors/GetSessionHistoryErrors.md
-  - docs/Models/Errors/GetSessionHistoryResponseBody.md
-  - docs/Models/Errors/GetTranscodeSessionsErrors.md
-  - docs/Models/Errors/GetTranscodeSessionsResponseBody.md
-  - docs/Models/Errors/StopTranscodeSessionErrors.md
-  - docs/Models/Errors/StopTranscodeSessionResponseBody.md
-  - docs/Models/Errors/GetUpdateStatusErrors.md
-  - docs/Models/Errors/GetUpdateStatusResponseBody.md
-  - docs/Models/Errors/CheckForUpdatesErrors.md
-  - docs/Models/Errors/CheckForUpdatesResponseBody.md
-  - docs/Models/Errors/ApplyUpdatesErrors.md
-  - docs/Models/Errors/ApplyUpdatesResponseBody.md
-  - docs/Models/Errors/GetWatchlistErrors.md
-  - docs/Models/Errors/GetWatchlistResponseBody.md
-  - docs/Models/Components/Security.md
-  - docs/sdks/plexapi/README.md
-  - docs/sdks/server/README.md
-  - docs/sdks/media/README.md
-  - docs/sdks/video/README.md
-  - docs/sdks/activities/README.md
-  - docs/sdks/butler/README.md
-  - docs/sdks/plex/README.md
-  - docs/sdks/hubs/README.md
-  - docs/sdks/search/README.md
-  - docs/sdks/library/README.md
-  - docs/sdks/log/README.md
-  - docs/sdks/playlists/README.md
-  - docs/sdks/authentication/README.md
-  - docs/sdks/statistics/README.md
-  - docs/sdks/sessions/README.md
-  - docs/sdks/updater/README.md
-  - docs/sdks/watchlist/README.md
-  - USAGE.md
-  - .gitattributes
-  - CONTRIBUTING.md
+  - src/Video.php
+  - src/Watchlist.php
+examples:
+  getServerCapabilities:
+    speakeasy-default-get-server-capabilities:
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getServerPreferences:
+    speakeasy-default-get-server-preferences:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 161, "Setting": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getAvailableClients:
+    speakeasy-default-get-available-clients:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "Server": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getDevices:
+    speakeasy-default-get-devices:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 151, "identifier": "com.plexapp.system.devices", "Device": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-server-identity:
+    speakeasy-default-get-server-identity:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 0, "machineIdentifier": "96f2fe7a78c9dc1f16a16bedbe90f98149be16b4", "version": "1.31.3.6868-28fc46b27"}}
+        "408":
+          application/json: {"code": 408, "message": "The server timed out waiting for the request."}
+  getMyPlexAccount:
+    speakeasy-default-get-my-plex-account:
+      responses:
+        "200":
+          application/json: {"MyPlex": {"authToken": "Z5v-PrNASDFpsaCi3CPK7", "username": "example.email@mail.com", "mappingState": "mapped", "signInState": "ok", "publicAddress": "140.20.68.140", "publicPort": 32400, "privateAddress": "10.10.10.47", "privatePort": 32400, "subscriptionFeatures": "federated-auth,hardware_transcoding,home,hwtranscode,item_clusters,kevin-bacon,livetv,loudness,lyrics,music-analysis,music_videos,pass,photo_autotags,photos-v5,photosV6-edit,photosV6-tv-albums,premium_music_metadata,radio,server-manager,session_bandwidth_restrictions,session_kick,shared-radio,sync,trailers,tuner-sharing,type-first,unsupportedtuners,webhooks", "subscriptionState": "Active"}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getResizedPhoto:
+    speakeasy-default-get-resized-photo:
+      parameters:
+        query:
+          width: 110
+          height: 165
+          opacity: 643869
+          blur: 4000
+          minSize: 0
+          upscale: 0
+          url: "/library/metadata/49564/thumb/1654258204"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-media-providers:
+    speakeasy-default-get-media-providers:
+      parameters:
+        query:
+          X-Plex-Token: "CV5xoxjTpFKUzBTShsaf"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getServerList:
+    speakeasy-default-get-server-list:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "Server": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  markPlayed:
+    speakeasy-default-mark-played:
+      parameters:
+        query:
+          key: 59398
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  markUnplayed:
+    speakeasy-default-mark-unplayed:
+      parameters:
+        query:
+          key: 59398
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  updatePlayProgress:
+    "":
+      parameters:
+        query:
+          key: "<key>"
+          time: 90000
+          state: "played"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-banner-image:
+    speakeasy-default-get-banner-image:
+      parameters:
+        path:
+          ratingKey: 9518
+        query:
+          width: 396
+          height: 396
+          minSize: 1
+          upscale: 1
+          X-Plex-Token: "CV5xoxjTpFKUzBTShsaf"
+      responses:
+        "200":
+          image/jpeg: "0xE5A1092305"
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-thumb-image:
+    speakeasy-default-get-thumb-image:
+      parameters:
+        path:
+          ratingKey: 9518
+        query:
+          width: 396
+          height: 396
+          minSize: 1
+          upscale: 1
+          X-Plex-Token: "CV5xoxjTpFKUzBTShsaf"
+      responses:
+        "200":
+          image/jpeg: "0x4f576BaCaA"
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getTimeline:
+    "":
+      parameters:
+        query:
+          ratingKey: 23409
+          key: "/library/metadata/23409"
+          state: "playing"
+          hasMDE: 1
+          time: 2000
+          duration: 10000
+          context: "home:hub.continueWatching"
+          playQueueItemID: 1
+          playBackTime: 2000
+          row: 1
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  startUniversalTranscode:
+    "":
+      parameters:
+        query:
+          hasMDE: 1
+          path: "/library/metadata/23409"
+          mediaIndex: 0
+          partIndex: 0
+          protocol: "hls"
+          fastSeek: 0
+          directPlay: 0
+          directStream: 0
+          subtitleSize: 100
+          subtites: "burn"
+          audioBoost: 100
+          location: "lan"
+          mediaBufferSize: 102400
+          session: "zvcage8b7rkioqcm8f4uns4c"
+          addDebugOverlay: 0
+          autoAdjustQuality: 0
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getServerActivities:
+    speakeasy-default-get-server-activities:
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  cancelServerActivities:
+    "":
+      parameters:
+        path:
+          activityUUID: "25b71ed5-0f9d-461c-baa7-d404e9e10d3e"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getButlerTasks:
+    speakeasy-default-get-butler-tasks:
+      responses:
+        "200":
+          application/json: {"ButlerTasks": {"ButlerTask": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  startAllTasks:
+    speakeasy-default-start-all-tasks:
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  stopAllTasks:
+    speakeasy-default-stop-all-tasks:
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  startTask:
+    speakeasy-default-start-task:
+      parameters:
+        path:
+          taskName: "CleanOldBundles"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  stopTask:
+    speakeasy-default-stop-task:
+      parameters:
+        path:
+          taskName: "BackupDatabase"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getCompanionsData:
+    speakeasy-default-get-companions-data:
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getUserFriends:
+    speakeasy-default-get-user-friends:
+      responses:
+        "200":
+          application/json: [{"email": "username@email.com", "friendlyName": "exampleUser", "home": true, "id": 0, "restricted": false, "sharedServers": [], "sharedSources": [], "status": "accepted", "thumb": "https://plex.tv/users/7d1916e0d8f6e76b/avatar?c=1694481578", "title": "username123", "username": "username123", "uuid": "7d1916e0d8f6e76b"}]
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getGeoData:
+    speakeasy-default-get-geo-data:
+      responses:
+        "200":
+          application/json: {"code": "VI", "continent_code": "NA", "country": "United States Virgin Islands", "city": "Amsterdam", "european_union_member": true, "time_zone": "America/St_Thomas", "postal_code": 802, "in_privacy_restricted_country": true, "in_privacy_restricted_region": true, "subdivisions": "Saint Thomas", "coordinates": "18.3381, -64.8941"}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getHomeData:
+    speakeasy-default-get-home-data:
+      responses:
+        "200":
+          application/json: {"id": 1841489, "name": "Blindkitty38's home", "guestUserID": 58815432, "guestUserUUID": "f3df4e01bfca0787"}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-server-resources:
+    speakeasy-default-get-server-resources:
+      parameters:
+        query:
+          includeHttps: 1
+          includeRelay: 1
+          includeIPv6: 1
+      responses:
+        "200":
+          application/json: []
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getPin:
+    "":
+      parameters:
+        query:
+          X-Plex-Product: "Plex Web"
+      responses:
+        "200":
+          application/json: {"id": 308667304, "code": "7RQZ", "product": "0", "trusted": false, "qr": "https://plex.tv/api/v2/pins/qr/7RQZ", "clientIdentifier": "string", "location": {"code": "VI", "continent_code": "NA", "country": "United States Virgin Islands", "city": "Amsterdam", "european_union_member": true, "time_zone": "America/St_Thomas", "postal_code": 802, "in_privacy_restricted_country": true, "in_privacy_restricted_region": true, "subdivisions": "Saint Thomas", "coordinates": "18.3381, -64.8941"}, "expiresIn": 876, "createdAt": "2024-07-16T17:03:05Z", "expiresAt": "2024-07-16T17:18:05Z", "authToken": null, "newRegistration": null}
+        "400":
+          application/json: {"errors": []}
+  getTokenByPinId:
+    "":
+      parameters:
+        path:
+          pinID: 408895
+        query: {}
+      responses:
+        "404":
+          application/json: {"errors": [{"code": 1020, "message": "Code not found or expired"}]}
+  getGlobalHubs:
+    speakeasy-default-get-global-hubs:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 8, "allowSync": true, "identifier": "com.plexapp.plugins.library", "Hub": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getLibraryHubs:
+    speakeasy-default-get-library-hubs:
+      parameters:
+        path:
+          sectionId: "6728.76"
+        query: {}
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 7, "allowSync": true, "identifier": "com.plexapp.plugins.library", "librarySectionID": 1, "librarySectionTitle": "Movies", "librarySectionUUID": "322a231a-b7f7-49f5-920f-14c61199cd30", "Hub": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  performSearch:
+    speakeasy-default-perform-search:
+      parameters:
+        query:
+          query: "dylan"
+          limit: 5
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  performVoiceSearch:
+    speakeasy-default-perform-voice-search:
+      parameters:
+        query:
+          query: "dead+poop"
+          limit: 5
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getSearchResults:
+    speakeasy-default-get-search-results:
+      parameters:
+        query:
+          query: "110"
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 26, "identifier": "com.plexapp.plugins.library", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1680021154, "Metadata": [], "Provider": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getFileHash:
+    speakeasy-default-get-file-hash:
+      parameters:
+        query:
+          url: "file://C:\\Image.png&type=13"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getRecentlyAdded:
+    speakeasy-default-get-recently-added:
+      parameters:
+        query:
+          X-Plex-Container-Start: 0
+          X-Plex-Container-Size: 50
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 50, "identifier": "com.plexapp.plugins.library", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1680021154, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-all-libraries:
+    speakeasy-default-get-all-libraries:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 5, "allowSync": false, "title1": "Plex Library", "Directory": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-library-details:
+    speakeasy-default-get-library-details:
+      parameters:
+        path:
+          sectionKey: 9518
+        query: {}
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 29, "allowSync": false, "art": "/:/resources/movie-fanart.jpg", "content": "secondary", "identifier": "com.plexapp.plugins.library", "librarySectionID": 1, "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1701731894, "thumb": "/:/resources/movie.png", "title1": "Movies", "viewGroup": "secondary", "viewMode": 65592, "Directory": [], "Type": [], "FieldType": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  deleteLibrary:
+    speakeasy-default-delete-library:
+      parameters:
+        path:
+          sectionKey: 9518
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-library-items:
+    "":
+      parameters:
+        path:
+          sectionKey: 9518
+          tag: "edition"
+        query:
+          includeGuids: 1
+          includeMeta: 1
+          type: 2
+          X-Plex-Container-Start: 0
+          X-Plex-Container-Size: 50
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 70, "allowSync": true, "art": "/:/resources/movie-fanart.jpg", "identifier": "com.plexapp.plugins.library", "librarySectionTitle": "Movies", "librarySectionUUID": "322a231a-b7f7-49f5-920f-14c61199cd30", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1701731894, "thumb": "/:/resources/movie.png", "title1": "Movies", "title2": "Recently Released", "viewGroup": "movie", "viewMode": 65592, "mixedParents": true, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-refresh-library-metadata:
+    speakeasy-default-get-refresh-library-metadata:
+      parameters:
+        path:
+          sectionKey: 9518
+        query:
+          force: 0
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-search-library:
+    speakeasy-default-get-search-library:
+      parameters:
+        path:
+          sectionKey: 9518
+        query:
+          type: 2
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 2, "allowSync": false, "art": "/:/resources/show-fanart.jpg", "identifier": "com.plexapp.plugins.library", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1698860922, "nocache": true, "thumb": "/:/resources/show.png", "title1": "TV Shows", "title2": "Search for ''", "viewGroup": "season", "viewMode": 65593, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-meta-data-by-rating-key:
+    speakeasy-default-get-meta-data-by-rating-key:
+      parameters:
+        path:
+          ratingKey: 9518
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "allowSync": true, "identifier": "com.plexapp.plugins.library", "librarySectionID": 1, "librarySectionTitle": "Movies", "librarySectionUUID": "cfc899d7-3000-46f6-8489-b9592714ada5", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1698860922, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getMetadataChildren:
+    include-stream:
+      parameters:
+        path:
+          ratingKey: "1539.14"
+        query:
+          includeElements: "Stream"
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 3, "allowSync": true, "art": "/library/metadata/30072/art/1705739923", "identifier": "com.plexapp.plugins.library", "key": "30072", "librarySectionID": 2, "librarySectionTitle": "TV Shows", "librarySectionUUID": "4bb2521c-8ba9-459b-aaee-8ab8bc35eabd", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1701731894, "nocache": true, "parentIndex": 1, "parentTitle": "Reacher", "parentYear": 2022, "summary": "When retired Military Police Officer Jack Reacher is arrested for a murder he did not commit, he finds himself in the middle of a deadly conspiracy full of dirty cops, shady businessmen, and scheming politicians. With nothing but his wits, he must figure out what is happening in Margrave, Georgia.", "theme": "/library/metadata/30072/theme/1705739923", "thumb": "/library/metadata/30072/thumb/1705739923", "title1": "TV Shows", "title2": "Reacher", "viewGroup": "season", "viewMode": 65593, "Directory": [{"leafCount": 16, "thumb": "/library/metadata/30072/thumb/1705739923", "viewedLeafCount": 16, "key": "/library/metadata/30072/allLeaves", "title": "All episodes"}], "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+    include-stream-otheritem:
+      parameters:
+        path:
+          ratingKey: "8449.64"
+        query:
+          includeElements: "Stream,OtherItem"
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 3, "allowSync": true, "art": "/library/metadata/30072/art/1705739923", "identifier": "com.plexapp.plugins.library", "key": "30072", "librarySectionID": 2, "librarySectionTitle": "TV Shows", "librarySectionUUID": "4bb2521c-8ba9-459b-aaee-8ab8bc35eabd", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1701731894, "nocache": true, "parentIndex": 1, "parentTitle": "Reacher", "parentYear": 2022, "summary": "When retired Military Police Officer Jack Reacher is arrested for a murder he did not commit, he finds himself in the middle of a deadly conspiracy full of dirty cops, shady businessmen, and scheming politicians. With nothing but his wits, he must figure out what is happening in Margrave, Georgia.", "theme": "/library/metadata/30072/theme/1705739923", "thumb": "/library/metadata/30072/thumb/1705739923", "title1": "TV Shows", "title2": "Reacher", "viewGroup": "season", "viewMode": 65593, "Directory": [{"leafCount": 16, "thumb": "/library/metadata/30072/thumb/1705739923", "viewedLeafCount": 16, "key": "/library/metadata/30072/allLeaves", "title": "All episodes"}], "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+    include-stream-otheritem-anotheritem:
+      parameters:
+        path:
+          ratingKey: "5800.4"
+        query:
+          includeElements: "Stream,OtherItem,AnotherItem"
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 3, "allowSync": true, "art": "/library/metadata/30072/art/1705739923", "identifier": "com.plexapp.plugins.library", "key": "30072", "librarySectionID": 2, "librarySectionTitle": "TV Shows", "librarySectionUUID": "4bb2521c-8ba9-459b-aaee-8ab8bc35eabd", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1701731894, "nocache": true, "parentIndex": 1, "parentTitle": "Reacher", "parentYear": 2022, "summary": "When retired Military Police Officer Jack Reacher is arrested for a murder he did not commit, he finds himself in the middle of a deadly conspiracy full of dirty cops, shady businessmen, and scheming politicians. With nothing but his wits, he must figure out what is happening in Margrave, Georgia.", "theme": "/library/metadata/30072/theme/1705739923", "thumb": "/library/metadata/30072/thumb/1705739923", "title1": "TV Shows", "title2": "Reacher", "viewGroup": "season", "viewMode": 65593, "Directory": [{"leafCount": 16, "thumb": "/library/metadata/30072/thumb/1705739923", "viewedLeafCount": 16, "key": "/library/metadata/30072/allLeaves", "title": "All episodes"}], "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getTopWatchedContent:
+    "":
+      parameters:
+        query:
+          type: 2
+          includeGuids: 1
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "allowSync": true, "identifier": "com.plexapp.plugins.library", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1698860922, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getOnDeck:
+    speakeasy-default-get-on-deck:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 16, "identifier": "com.plexapp.plugins.library", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1680021154, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  get-watch-list:
+    speakeasy-default-get-watch-list:
+      parameters:
+        path:
+          filter: "available"
+        query:
+          X-Plex-Container-Start: 0
+          X-Plex-Container-Size: 50
+          X-Plex-Token: "CV5xoxjTpFKUzBTShsaf"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  logLine:
+    speakeasy-default-log-line:
+      parameters:
+        query:
+          level: 3
+          message: "Test log message"
+          source: "Postman"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  logMultiLine:
+    speakeasy-default-log-multi-line:
+      requestBody:
+        text/plain: "level=4&message=Test%20message%201&source=postman\nlevel=3&message=Test%20message%202&source=postman\nlevel=1&message=Test%20message%203&source=postman"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  enablePaperTrail:
+    speakeasy-default-enable-paper-trail:
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  createPlaylist:
+    speakeasy-default-create-playlist:
+      parameters:
+        query:
+          title: "<value>"
+          type: "photo"
+          smart: 1
+          uri: "https://inborn-brochure.biz"
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 7, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getPlaylists:
+    speakeasy-default-get-playlists:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 4, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getPlaylist:
+    speakeasy-default-get-playlist:
+      parameters:
+        path:
+          playlistID: "4109.48"
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  deletePlaylist:
+    speakeasy-default-delete-playlist:
+      parameters:
+        path:
+          playlistID: "216.22"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  updatePlaylist:
+    speakeasy-default-update-playlist:
+      parameters:
+        path:
+          playlistID: "3915"
+        query: {}
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getPlaylistContents:
+    speakeasy-default-get-playlist-contents:
+      parameters:
+        path:
+          playlistID: "5004.46"
+        query:
+          type: 2
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 2, "composite": "/playlists/95/composite/1705717521", "duration": 282, "leafCount": 2, "playlistType": "video", "ratingKey": "95", "smart": true, "title": "Smart Movie Playlist", "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  clearPlaylistContents:
+    speakeasy-default-clear-playlist-contents:
+      parameters:
+        path:
+          playlistID: "1893.18"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  addPlaylistContents:
+    speakeasy-default-add-playlist-contents:
+      parameters:
+        path:
+          playlistID: "8502.01"
+        query:
+          uri: "server://12345/com.plexapp.plugins.library/library/metadata/1"
+          playQueueID: 123
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "leafCountAdded": 1, "leafCountRequested": 1, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  uploadPlaylist:
+    speakeasy-default-upload-playlist:
+      parameters:
+        query:
+          path: "/home/barkley/playlist.m3u"
+          force: 0
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getTransientToken:
+    speakeasy-default-get-transient-token:
+      parameters:
+        query:
+          type: "delegation"
+          scope: "all"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getSourceConnectionInformation:
+    speakeasy-default-get-source-connection-information:
+      parameters:
+        query:
+          source: "server://client-identifier"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getTokenDetails:
+    speakeasy-default-get-token-details:
+      responses:
+        "200":
+          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": [], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1721154902, "locale": null, "mailingListActive": false, "mailingListStatus": "unsubscribed", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": "1", "defaultSubtitleAccessibility": "1", "defaultSubtitleForced": "0", "watchedIndicator": "1", "mediaReviewsVisibility": 0}, "protected": false, "rememberExpiresAt": 1722364046, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f"}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  post-users-sign-in-data:
+    speakeasy-default-post-users-sign-in-data:
+      requestBody:
+        application/x-www-form-urlencoded: {"login": "username@email.com", "password": "password123", "verificationCode": "123456"}
+      responses:
+        "201":
+          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": [], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1721154902, "locale": null, "mailingListActive": false, "mailingListStatus": "unsubscribed", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": "1", "defaultSubtitleAccessibility": "1", "defaultSubtitleForced": "0", "watchedIndicator": "1", "mediaReviewsVisibility": 0}, "protected": false, "rememberExpiresAt": 1722364046, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f", "pastSubscriptions": [{"id": "string", "mode": "string", "renewsAt": "string", "endsAt": "1556281940", "canceled": "0", "gracePeriod": "0", "onHold": "0", "canReactivate": "0", "canUpgrade": "0", "canDowngrade": "0", "canConvert": "0", "type": "plexpass", "transfer": "string", "state": "ended", "billing": {"paymentMethodId": 569045}}], "trials": [{}]}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getStatistics:
+    "":
+      parameters:
+        query:
+          Timespan: 4
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 5497, "Device": [], "Account": [], "StatisticsMedia": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getResourcesStatistics:
+    "":
+      parameters:
+        query:
+          Timespan: 4
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 5497, "StatisticsResources": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getBandwidthStatistics:
+    "":
+      parameters:
+        query:
+          Timespan: 4
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 5497, "Device": [], "Account": [], "StatisticsBandwidth": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getSessions:
+    speakeasy-default-get-sessions:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getSessionHistory:
+    viewed-at-descending:
+      parameters:
+        query:
+          sort: "viewedAt:desc"
+          accountId: 1
+          librarySectionID: 12
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 10855, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+    viewed-at-ascending:
+      parameters:
+        query:
+          sort: "viewedAt:asc"
+          accountId: 1
+          librarySectionID: 12
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 10855, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+    rating-descending:
+      parameters:
+        query:
+          sort: "rating:desc"
+          accountId: 1
+          librarySectionID: 12
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 10855, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+    rating-ascending:
+      parameters:
+        query:
+          sort: "rating:asc"
+          accountId: 1
+          librarySectionID: 12
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 10855, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+    "":
+      parameters:
+        query:
+          accountId: 1
+          librarySectionID: 12
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 10855, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+    ViewedAt:
+      parameters:
+        query:
+          accountId: 1
+          filter: viewedAt>=1704862818
+          librarySectionID: 12
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 10855, "Metadata": []}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getTranscodeSessions:
+    speakeasy-default-get-transcode-sessions:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "TranscodeSession": [{"key": "vv3i2q2lax92qlzul1hbd4bx", "throttled": false, "complete": false, "progress": 1.7999999523162842, "size": -22, "speed": 25.100000381469727, "error": false, "duration": 1445695, "remaining": 53, "context": "streaming", "sourceVideoCodec": "h264", "sourceAudioCodec": "aac", "videoDecision": "transcode", "audioDecision": "transcode", "subtitleDecision": "burn", "protocol": "http", "container": "mkv", "videoCodec": "h264", "audioCodec": "opus", "audioChannels": 1, "transcodeHwRequested": true, "timeStamp": 1705895805.4919229, "maxOffsetAvailable": 29.53, "minOffsetAvailable": 3.003000020980835}]}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  stopTranscodeSession:
+    speakeasy-default-stop-transcode-session:
+      parameters:
+        path:
+          sessionKey: "zz7llzqlx8w9vnrsbnwhbmep"
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  getUpdateStatus:
+    speakeasy-default-get-update-status:
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 1, "canInstall": false, "checkedAt": 1705801232, "downloadURL": "https://plex.tv/downloads/latest/5?channel=8&build=linux-x86_64&distro=redhat&X-Plex-Token=xxxxxxxxxxxxxxxxxxxx", "status": 0, "Release": [{"key": "https://plex.tv/updater/releases/5136", "version": "1.40.0.7775-456fbaf97", "added": "(PLEASE NOTE) This version makes changes to the database which will make it compatible only with server versions 1.31.2 or higher (released March 14). You will not be able to use your database on Plex Media Server versions lower than this after this update. Please also be patient when updating to this version if you have a very large database and allow the upgrade process to finish.\n(Collections) Items added to a collection from the item context menu will now lock the collection field on the items (#12793)\n(Music) Store track genres and add filtering options (#14653)\n(Music) Support ID3v2.4 null-separated tags for genres and release type (#14653)\n(View History) No longer create a view history entry for items marked as played (#10888)\n(Web) Updated to 4.118.0", "fixed": "(Agents) Changing a 'Other Videos' type library to the modern movie agent would fail (#14483)\n(Agents) It is possible that agents are not initialised during startup on rare occasions (#14654)\n(Agents) Remove the legacy OpenSubtitles agent which is no longer supported upstream (#14667)\n(Collection) Server could become unresponsive when collection membership changes (#14612)\n(DVR) Previously watched recordings could be deleted without being watched again (#13779)\n(Libraries) When performing fix match on items from certain music libraries the language would default to Arabic (#14501)\n(Library) The Content Rating not equal to None filter does not work (#14620)\n(Search) Album search results could contain all the album's tracks too (#14486)\n(Subtitles) In some circumstances, sidecar subtitles can show up for media when they're no longer available (#14674)\n(Transcoder) HW encoding would fail on devices with no rate control (#14222)\n(Transcoder) Software transcoding on Ubuntu could cause unexpected behavior (#14605)", "downloadURL": "https://plex.tv/downloads/latest/5?channel=8&build=linux-x86_64&distro=redhat&X-Plex-Token=xxxxxxxxxxxxxxxxxxxx", "state": "notify"}]}}
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  checkForUpdates:
+    "":
+      parameters:
+        query:
+          download: 1
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}
+  applyUpdates:
+    "":
+      parameters:
+        query:
+          tonight: 1
+          skip: 1
+      responses:
+        "400":
+          application/json: {"errors": []}
+        "401":
+          application/json: {"errors": []}

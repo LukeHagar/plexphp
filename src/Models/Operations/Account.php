@@ -16,7 +16,7 @@ class Account
      * @var ?int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
@@ -24,7 +24,7 @@ class Account
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class Account
      * @var ?string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
@@ -40,7 +40,7 @@ class Account
      * @var ?string $defaultAudioLanguage
      */
     #[\JMS\Serializer\Annotation\SerializedName('defaultAudioLanguage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultAudioLanguage = null;
 
     /**
@@ -48,7 +48,7 @@ class Account
      * @var ?bool $autoSelectAudio
      */
     #[\JMS\Serializer\Annotation\SerializedName('autoSelectAudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $autoSelectAudio = null;
 
     /**
@@ -56,7 +56,7 @@ class Account
      * @var ?string $defaultSubtitleLanguage
      */
     #[\JMS\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultSubtitleLanguage = null;
 
     /**
@@ -64,7 +64,7 @@ class Account
      * @var ?int $subtitleMode
      */
     #[\JMS\Serializer\Annotation\SerializedName('subtitleMode')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $subtitleMode = null;
 
     /**
@@ -72,7 +72,7 @@ class Account
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**

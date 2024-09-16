@@ -20,9 +20,9 @@ class CancelServerActivitiesRequest
     public string $activityUUID;
 
     /**
-     * @param  ?string  $activityUUID
+     * @param  string  $activityUUID
      */
-    public function __construct(?string $activityUUID = null)
+    public function __construct(string $activityUUID)
     {
         $this->activityUUID = $activityUUID;
     }

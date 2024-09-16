@@ -16,7 +16,7 @@ class StatisticsMedia
      * @var ?int $accountID
      */
     #[\JMS\Serializer\Annotation\SerializedName('accountID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $accountID = null;
 
     /**
@@ -24,7 +24,7 @@ class StatisticsMedia
      * @var ?int $deviceID
      */
     #[\JMS\Serializer\Annotation\SerializedName('deviceID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $deviceID = null;
 
     /**
@@ -32,7 +32,7 @@ class StatisticsMedia
      * @var ?int $timespan
      */
     #[\JMS\Serializer\Annotation\SerializedName('timespan')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $timespan = null;
 
     /**
@@ -40,7 +40,7 @@ class StatisticsMedia
      * @var ?int $at
      */
     #[\JMS\Serializer\Annotation\SerializedName('at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $at = null;
 
     /**
@@ -48,7 +48,7 @@ class StatisticsMedia
      * @var ?int $metadataType
      */
     #[\JMS\Serializer\Annotation\SerializedName('metadataType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $metadataType = null;
 
     /**
@@ -56,7 +56,7 @@ class StatisticsMedia
      * @var ?int $count
      */
     #[\JMS\Serializer\Annotation\SerializedName('count')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $count = null;
 
     /**
@@ -64,7 +64,7 @@ class StatisticsMedia
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**

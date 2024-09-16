@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
+/** The protocol to use for the server connection */
 enum ServerProtocol: string
 {
     case Http = 'http';

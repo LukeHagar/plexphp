@@ -43,11 +43,11 @@ class LogLineRequest
     public string $source;
 
     /**
-     * @param  ?Level  $level
-     * @param  ?string  $message
-     * @param  ?string  $source
+     * @param  Level  $level
+     * @param  string  $message
+     * @param  string  $source
      */
-    public function __construct(?Level $level = null, ?string $message = null, ?string $source = null)
+    public function __construct(Level $level, string $message, string $source)
     {
         $this->level = $level;
         $this->message = $message;

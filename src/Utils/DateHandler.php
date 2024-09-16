@@ -32,6 +32,18 @@ class DateHandler implements SubscribingHandlerInterface
                 'type' => '\\Brick\\DateTime\\LocalDate',
                 'method' => 'deserializeDateTimeToJson',
             ],
+            [
+                'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
+                'format' => 'json',
+                'type' => 'Brick\\DateTime\\LocalDate',
+                'method' => 'serializeDateTimeToJson',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => 'Brick\\DateTime\\LocalDate',
+                'method' => 'deserializeDateTimeToJson',
+            ],
         ];
     }
 

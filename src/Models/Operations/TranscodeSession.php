@@ -16,7 +16,7 @@ class TranscodeSession
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -24,7 +24,7 @@ class TranscodeSession
      * @var ?bool $throttled
      */
     #[\JMS\Serializer\Annotation\SerializedName('throttled')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $throttled = null;
 
     /**
@@ -32,7 +32,7 @@ class TranscodeSession
      * @var ?bool $complete
      */
     #[\JMS\Serializer\Annotation\SerializedName('complete')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $complete = null;
 
     /**
@@ -40,7 +40,7 @@ class TranscodeSession
      * @var ?float $progress
      */
     #[\JMS\Serializer\Annotation\SerializedName('progress')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $progress = null;
 
     /**
@@ -48,7 +48,7 @@ class TranscodeSession
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -56,7 +56,7 @@ class TranscodeSession
      * @var ?float $speed
      */
     #[\JMS\Serializer\Annotation\SerializedName('speed')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $speed = null;
 
     /**
@@ -64,7 +64,7 @@ class TranscodeSession
      * @var ?bool $error
      */
     #[\JMS\Serializer\Annotation\SerializedName('error')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $error = null;
 
     /**
@@ -72,7 +72,7 @@ class TranscodeSession
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -80,7 +80,7 @@ class TranscodeSession
      * @var ?int $remaining
      */
     #[\JMS\Serializer\Annotation\SerializedName('remaining')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $remaining = null;
 
     /**
@@ -88,7 +88,7 @@ class TranscodeSession
      * @var ?string $context
      */
     #[\JMS\Serializer\Annotation\SerializedName('context')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $context = null;
 
     /**
@@ -96,7 +96,7 @@ class TranscodeSession
      * @var ?string $sourceVideoCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('sourceVideoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceVideoCodec = null;
 
     /**
@@ -104,7 +104,7 @@ class TranscodeSession
      * @var ?string $sourceAudioCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('sourceAudioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceAudioCodec = null;
 
     /**
@@ -112,7 +112,7 @@ class TranscodeSession
      * @var ?string $videoDecision
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoDecision')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoDecision = null;
 
     /**
@@ -120,7 +120,7 @@ class TranscodeSession
      * @var ?string $audioDecision
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioDecision')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audioDecision = null;
 
     /**
@@ -128,7 +128,7 @@ class TranscodeSession
      * @var ?string $subtitleDecision
      */
     #[\JMS\Serializer\Annotation\SerializedName('subtitleDecision')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $subtitleDecision = null;
 
     /**
@@ -136,7 +136,7 @@ class TranscodeSession
      * @var ?string $protocol
      */
     #[\JMS\Serializer\Annotation\SerializedName('protocol')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $protocol = null;
 
     /**
@@ -144,7 +144,7 @@ class TranscodeSession
      * @var ?string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
@@ -152,7 +152,7 @@ class TranscodeSession
      * @var ?string $videoCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoCodec = null;
 
     /**
@@ -160,7 +160,7 @@ class TranscodeSession
      * @var ?string $audioCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audioCodec = null;
 
     /**
@@ -168,7 +168,7 @@ class TranscodeSession
      * @var ?int $audioChannels
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $audioChannels = null;
 
     /**
@@ -176,7 +176,7 @@ class TranscodeSession
      * @var ?bool $transcodeHwRequested
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcodeHwRequested')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcodeHwRequested = null;
 
     /**
@@ -184,7 +184,7 @@ class TranscodeSession
      * @var ?float $timeStamp
      */
     #[\JMS\Serializer\Annotation\SerializedName('timeStamp')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $timeStamp = null;
 
     /**
@@ -192,7 +192,7 @@ class TranscodeSession
      * @var ?float $maxOffsetAvailable
      */
     #[\JMS\Serializer\Annotation\SerializedName('maxOffsetAvailable')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $maxOffsetAvailable = null;
 
     /**
@@ -200,7 +200,7 @@ class TranscodeSession
      * @var ?float $minOffsetAvailable
      */
     #[\JMS\Serializer\Annotation\SerializedName('minOffsetAvailable')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $minOffsetAvailable = null;
 
     /**

@@ -140,11 +140,11 @@ class StartUniversalTranscodeRequest
     public ?float $autoAdjustQuality = null;
 
     /**
-     * @param  ?float  $hasMDE
-     * @param  ?string  $path
-     * @param  ?float  $mediaIndex
-     * @param  ?float  $partIndex
-     * @param  ?string  $protocol
+     * @param  float  $hasMDE
+     * @param  string  $path
+     * @param  float  $mediaIndex
+     * @param  float  $partIndex
+     * @param  string  $protocol
      * @param  ?float  $fastSeek
      * @param  ?float  $directPlay
      * @param  ?float  $directStream
@@ -157,7 +157,7 @@ class StartUniversalTranscodeRequest
      * @param  ?float  $addDebugOverlay
      * @param  ?float  $autoAdjustQuality
      */
-    public function __construct(?float $hasMDE = null, ?string $path = null, ?float $mediaIndex = null, ?float $partIndex = null, ?string $protocol = null, ?float $fastSeek = null, ?float $directPlay = null, ?float $directStream = null, ?float $subtitleSize = null, ?string $subtites = null, ?float $audioBoost = null, ?string $location = null, ?float $mediaBufferSize = null, ?string $session = null, ?float $addDebugOverlay = null, ?float $autoAdjustQuality = null)
+    public function __construct(float $hasMDE, string $path, float $mediaIndex, float $partIndex, string $protocol, ?float $fastSeek = null, ?float $directPlay = null, ?float $directStream = null, ?float $subtitleSize = null, ?string $subtites = null, ?float $audioBoost = null, ?string $location = null, ?float $mediaBufferSize = null, ?string $session = null, ?float $addDebugOverlay = null, ?float $autoAdjustQuality = null)
     {
         $this->hasMDE = $hasMDE;
         $this->path = $path;

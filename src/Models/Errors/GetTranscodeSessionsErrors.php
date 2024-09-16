@@ -13,34 +13,34 @@ class GetTranscodeSessionsErrors
 {
     /**
      *
-     * @var ?float $code
+     * @var ?int $code
      */
     #[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $code = null;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $code = null;
 
     /**
      *
      * @var ?string $message
      */
     #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $message = null;
 
     /**
      *
-     * @var ?float $status
+     * @var ?int $status
      */
     #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
-    public ?float $status = null;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $status = null;
 
     /**
-     * @param  ?float  $code
+     * @param  ?int  $code
      * @param  ?string  $message
-     * @param  ?float  $status
+     * @param  ?int  $status
      */
-    public function __construct(?float $code = null, ?string $message = null, ?float $status = null)
+    public function __construct(?int $code = null, ?string $message = null, ?int $status = null)
     {
         $this->code = $code;
         $this->message = $message;

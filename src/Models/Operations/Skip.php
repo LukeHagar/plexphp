@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Indicate that the latest version should be marked as skipped. The <Release> entry for this version will have the `state` set to `skipped`. */
+/** Indicate that the latest version should be marked as skipped. The [Release] entry for this version will have the `state` set to `skipped`. */
 enum Skip: int
 {
     case Zero = 0;

@@ -16,7 +16,7 @@ class GetServerPreferencesMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -25,8 +25,8 @@ class GetServerPreferencesMediaContainer
      * @var ?array<Setting> $setting
      */
     #[\JMS\Serializer\Annotation\SerializedName('Setting')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Setting>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Setting>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $setting = null;
 
     /**
