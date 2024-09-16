@@ -28,10 +28,10 @@ class GetTransientTokenRequest
     public Scope $scope;
 
     /**
-     * @param  ?GetTransientTokenQueryParamType  $type
-     * @param  ?Scope  $scope
+     * @param  GetTransientTokenQueryParamType  $type
+     * @param  Scope  $scope
      */
-    public function __construct(?GetTransientTokenQueryParamType $type = null, ?Scope $scope = null)
+    public function __construct(GetTransientTokenQueryParamType $type, Scope $scope)
     {
         $this->type = $type;
         $this->scope = $scope;

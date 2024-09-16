@@ -16,7 +16,7 @@ class FieldType
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -25,8 +25,8 @@ class FieldType
      * @var ?array<Operator> $operator
      */
     #[\JMS\Serializer\Annotation\SerializedName('Operator')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Operator>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Operator>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $operator = null;
 
     /**

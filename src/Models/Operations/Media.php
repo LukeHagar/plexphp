@@ -16,7 +16,7 @@ class Media
      * @var ?float $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $id = null;
 
     /**
@@ -24,7 +24,7 @@ class Media
      * @var ?float $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $duration = null;
 
     /**
@@ -32,7 +32,7 @@ class Media
      * @var ?float $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $bitrate = null;
 
     /**
@@ -40,7 +40,7 @@ class Media
      * @var ?float $width
      */
     #[\JMS\Serializer\Annotation\SerializedName('width')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $width = null;
 
     /**
@@ -48,7 +48,7 @@ class Media
      * @var ?float $height
      */
     #[\JMS\Serializer\Annotation\SerializedName('height')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $height = null;
 
     /**
@@ -56,7 +56,7 @@ class Media
      * @var ?float $aspectRatio
      */
     #[\JMS\Serializer\Annotation\SerializedName('aspectRatio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $aspectRatio = null;
 
     /**
@@ -64,7 +64,7 @@ class Media
      * @var ?float $audioChannels
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $audioChannels = null;
 
     /**
@@ -72,7 +72,7 @@ class Media
      * @var ?string $audioCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audioCodec = null;
 
     /**
@@ -80,7 +80,7 @@ class Media
      * @var ?string $videoCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoCodec = null;
 
     /**
@@ -88,7 +88,7 @@ class Media
      * @var ?float $videoResolution
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoResolution')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $videoResolution = null;
 
     /**
@@ -96,7 +96,7 @@ class Media
      * @var ?string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
@@ -104,7 +104,7 @@ class Media
      * @var ?string $videoFrameRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoFrameRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoFrameRate = null;
 
     /**
@@ -112,7 +112,7 @@ class Media
      * @var ?float $optimizedForStreaming
      */
     #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $optimizedForStreaming = null;
 
     /**
@@ -120,7 +120,7 @@ class Media
      * @var ?bool $has64bitOffsets
      */
     #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $has64bitOffsets = null;
 
     /**
@@ -128,7 +128,7 @@ class Media
      * @var ?string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoProfile = null;
 
     /**
@@ -137,8 +137,8 @@ class Media
      * @var ?array<Part> $part
      */
     #[\JMS\Serializer\Annotation\SerializedName('Part')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Part>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Part>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $part = null;
 
     /**

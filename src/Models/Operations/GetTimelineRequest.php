@@ -92,18 +92,18 @@ class GetTimelineRequest
     public float $row;
 
     /**
-     * @param  ?float  $ratingKey
-     * @param  ?string  $key
-     * @param  ?State  $state
-     * @param  ?float  $hasMDE
-     * @param  ?float  $time
-     * @param  ?float  $duration
-     * @param  ?string  $context
-     * @param  ?float  $playQueueItemID
-     * @param  ?float  $playBackTime
-     * @param  ?float  $row
+     * @param  float  $ratingKey
+     * @param  string  $key
+     * @param  State  $state
+     * @param  float  $hasMDE
+     * @param  float  $time
+     * @param  float  $duration
+     * @param  string  $context
+     * @param  float  $playQueueItemID
+     * @param  float  $playBackTime
+     * @param  float  $row
      */
-    public function __construct(?float $ratingKey = null, ?string $key = null, ?State $state = null, ?float $hasMDE = null, ?float $time = null, ?float $duration = null, ?string $context = null, ?float $playQueueItemID = null, ?float $playBackTime = null, ?float $row = null)
+    public function __construct(float $ratingKey, string $key, State $state, float $hasMDE, float $time, float $duration, string $context, float $playQueueItemID, float $playBackTime, float $row)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;

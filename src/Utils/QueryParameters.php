@@ -15,10 +15,10 @@ class QueryParameters
     /**
      * @param  string  $type
      * @param  mixed  $queryParams
-     * @param  array<string,array<string,array<string,string>>>  $globals
+     * @param  array<string,array<string,array<string,string>>>|null  $globals
      * @return ?string
      */
-    public function parseQueryParams(string $type, mixed $queryParams, array $globals): ?string
+    public function parseQueryParams(string $type, mixed $queryParams, ?array $globals = null): ?string
     {
         $parts = [];
 
@@ -26,7 +26,10 @@ class QueryParameters
 
         foreach ($fields as $field) {
             $value = $queryParams !== null ? $queryParams->{$field} : null;
-            $value = populateGlobal($value, 'queryParam', $field, $globals);
+
+            if ($globals !== null) {
+                $value = populateGlobal($value, 'queryParam', $field, $globals);
+            }
 
             if ($value === null) {
                 continue;

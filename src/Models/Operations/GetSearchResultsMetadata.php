@@ -16,7 +16,7 @@ class GetSearchResultsMetadata
      * @var ?bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
@@ -24,7 +24,7 @@ class GetSearchResultsMetadata
      * @var ?float $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $librarySectionID = null;
 
     /**
@@ -32,7 +32,7 @@ class GetSearchResultsMetadata
      * @var ?string $librarySectionTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
@@ -40,7 +40,7 @@ class GetSearchResultsMetadata
      * @var ?string $librarySectionUUID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionUUID = null;
 
     /**
@@ -48,7 +48,7 @@ class GetSearchResultsMetadata
      * @var ?bool $personal
      */
     #[\JMS\Serializer\Annotation\SerializedName('personal')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $personal = null;
 
     /**
@@ -56,7 +56,7 @@ class GetSearchResultsMetadata
      * @var ?string $sourceTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('sourceTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceTitle = null;
 
     /**
@@ -64,7 +64,7 @@ class GetSearchResultsMetadata
      * @var ?float $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $ratingKey = null;
 
     /**
@@ -72,7 +72,7 @@ class GetSearchResultsMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -80,7 +80,7 @@ class GetSearchResultsMetadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -88,7 +88,7 @@ class GetSearchResultsMetadata
      * @var ?string $studio
      */
     #[\JMS\Serializer\Annotation\SerializedName('studio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $studio = null;
 
     /**
@@ -96,7 +96,7 @@ class GetSearchResultsMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -104,7 +104,7 @@ class GetSearchResultsMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -112,7 +112,7 @@ class GetSearchResultsMetadata
      * @var ?string $contentRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('contentRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
 
     /**
@@ -120,7 +120,7 @@ class GetSearchResultsMetadata
      * @var ?string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
@@ -128,7 +128,7 @@ class GetSearchResultsMetadata
      * @var ?float $rating
      */
     #[\JMS\Serializer\Annotation\SerializedName('rating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $rating = null;
 
     /**
@@ -136,7 +136,7 @@ class GetSearchResultsMetadata
      * @var ?float $audienceRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $audienceRating = null;
 
     /**
@@ -144,7 +144,7 @@ class GetSearchResultsMetadata
      * @var ?float $year
      */
     #[\JMS\Serializer\Annotation\SerializedName('year')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $year = null;
 
     /**
@@ -152,7 +152,7 @@ class GetSearchResultsMetadata
      * @var ?string $tagline
      */
     #[\JMS\Serializer\Annotation\SerializedName('tagline')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tagline = null;
 
     /**
@@ -160,7 +160,7 @@ class GetSearchResultsMetadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -168,7 +168,7 @@ class GetSearchResultsMetadata
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -176,7 +176,7 @@ class GetSearchResultsMetadata
      * @var ?float $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $duration = null;
 
     /**
@@ -184,7 +184,7 @@ class GetSearchResultsMetadata
      * @var ?\DateTime $originallyAvailableAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $originallyAvailableAt = null;
 
     /**
@@ -192,7 +192,7 @@ class GetSearchResultsMetadata
      * @var ?float $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $addedAt = null;
 
     /**
@@ -200,7 +200,7 @@ class GetSearchResultsMetadata
      * @var ?float $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $updatedAt = null;
 
     /**
@@ -208,7 +208,7 @@ class GetSearchResultsMetadata
      * @var ?string $audienceRatingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRatingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audienceRatingImage = null;
 
     /**
@@ -216,7 +216,7 @@ class GetSearchResultsMetadata
      * @var ?string $chapterSource
      */
     #[\JMS\Serializer\Annotation\SerializedName('chapterSource')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $chapterSource = null;
 
     /**
@@ -224,7 +224,7 @@ class GetSearchResultsMetadata
      * @var ?string $primaryExtraKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('primaryExtraKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $primaryExtraKey = null;
 
     /**
@@ -232,7 +232,7 @@ class GetSearchResultsMetadata
      * @var ?string $ratingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingImage = null;
 
     /**
@@ -241,8 +241,8 @@ class GetSearchResultsMetadata
      * @var ?array<GetSearchResultsMedia> $media
      */
     #[\JMS\Serializer\Annotation\SerializedName('Media')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsMedia>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsMedia>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $media = null;
 
     /**
@@ -251,8 +251,8 @@ class GetSearchResultsMetadata
      * @var ?array<GetSearchResultsGenre> $genre
      */
     #[\JMS\Serializer\Annotation\SerializedName('Genre')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsGenre>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsGenre>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $genre = null;
 
     /**
@@ -261,8 +261,8 @@ class GetSearchResultsMetadata
      * @var ?array<GetSearchResultsDirector> $director
      */
     #[\JMS\Serializer\Annotation\SerializedName('Director')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsDirector>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsDirector>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $director = null;
 
     /**
@@ -271,8 +271,8 @@ class GetSearchResultsMetadata
      * @var ?array<GetSearchResultsWriter> $writer
      */
     #[\JMS\Serializer\Annotation\SerializedName('Writer')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsWriter>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsWriter>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $writer = null;
 
     /**
@@ -281,8 +281,8 @@ class GetSearchResultsMetadata
      * @var ?array<GetSearchResultsCountry> $country
      */
     #[\JMS\Serializer\Annotation\SerializedName('Country')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsCountry>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsCountry>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $country = null;
 
     /**
@@ -291,8 +291,8 @@ class GetSearchResultsMetadata
      * @var ?array<GetSearchResultsRole> $role
      */
     #[\JMS\Serializer\Annotation\SerializedName('Role')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsRole>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsRole>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $role = null;
 
     /**

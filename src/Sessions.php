@@ -14,7 +14,6 @@ use LukeHagar\Plex_API\Models\Operations;
 class Sessions
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -59,17 +58,26 @@ class Sessions
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 400 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetSessionsResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetSessionsBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetSessionsUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -82,7 +90,7 @@ class Sessions
      *
      * @param  ?string  $sort
      * @param  ?int  $accountId
-     * @param  ?Operations\Filter  $filter
+     * @param  ?Operations\QueryParamFilter  $filter
      * @param  ?int  $librarySectionID
      * @return Operations\GetSessionHistoryResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
@@ -90,7 +98,7 @@ class Sessions
     public function getSessionHistory(
         ?string $sort = null,
         ?int $accountId = null,
-        ?Operations\Filter $filter = null,
+        ?Operations\QueryParamFilter $filter = null,
         ?int $librarySectionID = null,
     ): Operations\GetSessionHistoryResponse {
         $request = new Operations\GetSessionHistoryRequest(
@@ -126,17 +134,26 @@ class Sessions
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 400 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetSessionHistoryResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetSessionHistoryBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetSessionHistoryUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -178,17 +195,26 @@ class Sessions
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 400 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetTranscodeSessionsResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetTranscodeSessionsBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetTranscodeSessionsUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -227,19 +253,29 @@ class Sessions
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif ($statusCode == 400 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\StopTranscodeSessionResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\StopTranscodeSessionBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\StopTranscodeSessionUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
     }
+
 }

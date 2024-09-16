@@ -7,31 +7,30 @@
     </a>
 </div>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Plex-API: An Open API Spec for interacting with Plex.tv and Plex Media Server
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Global Parameters](#global-parameters)
+* [Server Selection](#server-selection)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### Composer
+The SDK relies on [Composer](https://getcomposer.org/) to manage its dependencies.
 
-To install the SDK first add the below to your `composer.json` file:
-
-```json
-{
-    "repositories": [
-        {
-            "type": "github",
-            "url": "https://github.com/LukeHagar/plexphp.git"
-        }
-    ],
-    "require": {
-        "lukehagar/plex-api": "*"
-    }
-}
-```
-
-Then run the following command:
-
+To install the SDK and add it as a dependency to an existing `composer.json` file:
 ```bash
-composer update
+composer require "lukehagar/plex-api"
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -48,11 +47,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -70,32 +70,20 @@ try {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Server](docs/sdks/server/README.md)
-
-* [getServerCapabilities](docs/sdks/server/README.md#getservercapabilities) - Get Server Capabilities
-* [getServerPreferences](docs/sdks/server/README.md#getserverpreferences) - Get Server Preferences
-* [getAvailableClients](docs/sdks/server/README.md#getavailableclients) - Get Available Clients
-* [getDevices](docs/sdks/server/README.md#getdevices) - Get Devices
-* [getServerIdentity](docs/sdks/server/README.md#getserveridentity) - Get Server Identity
-* [getMyPlexAccount](docs/sdks/server/README.md#getmyplexaccount) - Get MyPlex Account
-* [getResizedPhoto](docs/sdks/server/README.md#getresizedphoto) - Get a Resized Photo
-* [getServerList](docs/sdks/server/README.md#getserverlist) - Get Server List
-
-### [Media](docs/sdks/media/README.md)
-
-* [markPlayed](docs/sdks/media/README.md#markplayed) - Mark Media Played
-* [markUnplayed](docs/sdks/media/README.md#markunplayed) - Mark Media Unplayed
-* [updatePlayProgress](docs/sdks/media/README.md#updateplayprogress) - Update Media Play Progress
-
-### [Video](docs/sdks/video/README.md)
-
-* [getTimeline](docs/sdks/video/README.md#gettimeline) - Get the timeline for a media item
-* [startUniversalTranscode](docs/sdks/video/README.md#startuniversaltranscode) - Start Universal Transcode
+<details open>
+<summary>Available methods</summary>
 
 ### [Activities](docs/sdks/activities/README.md)
 
 * [getServerActivities](docs/sdks/activities/README.md#getserveractivities) - Get Server Activities
 * [cancelServerActivities](docs/sdks/activities/README.md#cancelserveractivities) - Cancel Server Activities
+
+### [Authentication](docs/sdks/authentication/README.md)
+
+* [getTransientToken](docs/sdks/authentication/README.md#gettransienttoken) - Get a Transient Token
+* [getSourceConnectionInformation](docs/sdks/authentication/README.md#getsourceconnectioninformation) - Get Source Connection Information
+* [getTokenDetails](docs/sdks/authentication/README.md#gettokendetails) - Get Token Details
+* [postUsersSignInData](docs/sdks/authentication/README.md#postuserssignindata) - Get User Sign In Data
 
 ### [Butler](docs/sdks/butler/README.md)
 
@@ -105,34 +93,22 @@ try {
 * [startTask](docs/sdks/butler/README.md#starttask) - Start a single Butler task
 * [stopTask](docs/sdks/butler/README.md#stoptask) - Stop a single Butler task
 
-### [Plex](docs/sdks/plex/README.md)
-
-* [getHomeData](docs/sdks/plex/README.md#gethomedata) - Get Plex Home Data
-* [getPin](docs/sdks/plex/README.md#getpin) - Get a Pin
-* [getToken](docs/sdks/plex/README.md#gettoken) - Get Access Token
-
 ### [Hubs](docs/sdks/hubs/README.md)
 
 * [getGlobalHubs](docs/sdks/hubs/README.md#getglobalhubs) - Get Global Hubs
 * [getLibraryHubs](docs/sdks/hubs/README.md#getlibraryhubs) - Get library specific hubs
 
-### [Search](docs/sdks/search/README.md)
-
-* [performSearch](docs/sdks/search/README.md#performsearch) - Perform a search
-* [performVoiceSearch](docs/sdks/search/README.md#performvoicesearch) - Perform a voice search
-* [getSearchResults](docs/sdks/search/README.md#getsearchresults) - Get Search Results
-
 ### [Library](docs/sdks/library/README.md)
 
 * [getFileHash](docs/sdks/library/README.md#getfilehash) - Get Hash Value
 * [getRecentlyAdded](docs/sdks/library/README.md#getrecentlyadded) - Get Recently Added
-* [getLibraries](docs/sdks/library/README.md#getlibraries) - Get All Libraries
-* [getLibrary](docs/sdks/library/README.md#getlibrary) - Get Library Details
+* [getAllLibraries](docs/sdks/library/README.md#getalllibraries) - Get All Libraries
+* [getLibraryDetails](docs/sdks/library/README.md#getlibrarydetails) - Get Library Details
 * [deleteLibrary](docs/sdks/library/README.md#deletelibrary) - Delete Library Section
 * [getLibraryItems](docs/sdks/library/README.md#getlibraryitems) - Get Library Items
-* [refreshLibrary](docs/sdks/library/README.md#refreshlibrary) - Refresh Library
-* [searchLibrary](docs/sdks/library/README.md#searchlibrary) - Search Library
-* [getMetadata](docs/sdks/library/README.md#getmetadata) - Get Items Metadata
+* [getRefreshLibraryMetadata](docs/sdks/library/README.md#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
+* [getSearchLibrary](docs/sdks/library/README.md#getsearchlibrary) - Search Library
+* [getMetaDataByRatingKey](docs/sdks/library/README.md#getmetadatabyratingkey) - Get Metadata by RatingKey
 * [getMetadataChildren](docs/sdks/library/README.md#getmetadatachildren) - Get Items Children
 * [getTopWatchedContent](docs/sdks/library/README.md#gettopwatchedcontent) - Get Top Watched Content
 * [getOnDeck](docs/sdks/library/README.md#getondeck) - Get On Deck
@@ -142,6 +118,14 @@ try {
 * [logLine](docs/sdks/log/README.md#logline) - Logging a single line message.
 * [logMultiLine](docs/sdks/log/README.md#logmultiline) - Logging a multi-line message
 * [enablePaperTrail](docs/sdks/log/README.md#enablepapertrail) - Enabling Papertrail
+
+### [Media](docs/sdks/media/README.md)
+
+* [markPlayed](docs/sdks/media/README.md#markplayed) - Mark Media Played
+* [markUnplayed](docs/sdks/media/README.md#markunplayed) - Mark Media Unplayed
+* [updatePlayProgress](docs/sdks/media/README.md#updateplayprogress) - Update Media Play Progress
+* [getBannerImage](docs/sdks/media/README.md#getbannerimage) - Get Banner Image
+* [getThumbImage](docs/sdks/media/README.md#getthumbimage) - Get Thumb Image
 
 ### [Playlists](docs/sdks/playlists/README.md)
 
@@ -155,16 +139,34 @@ try {
 * [addPlaylistContents](docs/sdks/playlists/README.md#addplaylistcontents) - Adding to a Playlist
 * [uploadPlaylist](docs/sdks/playlists/README.md#uploadplaylist) - Upload Playlist
 
-### [Authentication](docs/sdks/authentication/README.md)
+### [Plex](docs/sdks/plex/README.md)
 
-* [getTransientToken](docs/sdks/authentication/README.md#gettransienttoken) - Get a Transient Token.
-* [getSourceConnectionInformation](docs/sdks/authentication/README.md#getsourceconnectioninformation) - Get Source Connection Information
+* [getCompanionsData](docs/sdks/plex/README.md#getcompanionsdata) - Get Companions Data
+* [getUserFriends](docs/sdks/plex/README.md#getuserfriends) - Get list of friends of the user logged in
+* [getGeoData](docs/sdks/plex/README.md#getgeodata) - Get Geo Data
+* [getHomeData](docs/sdks/plex/README.md#gethomedata) - Get Plex Home Data
+* [getServerResources](docs/sdks/plex/README.md#getserverresources) - Get Server Resources
+* [getPin](docs/sdks/plex/README.md#getpin) - Get a Pin
+* [getTokenByPinId](docs/sdks/plex/README.md#gettokenbypinid) - Get Access Token by PinId
 
-### [Statistics](docs/sdks/statistics/README.md)
 
-* [getStatistics](docs/sdks/statistics/README.md#getstatistics) - Get Media Statistics
-* [getResourcesStatistics](docs/sdks/statistics/README.md#getresourcesstatistics) - Get Resources Statistics
-* [getBandwidthStatistics](docs/sdks/statistics/README.md#getbandwidthstatistics) - Get Bandwidth Statistics
+### [Search](docs/sdks/search/README.md)
+
+* [performSearch](docs/sdks/search/README.md#performsearch) - Perform a search
+* [performVoiceSearch](docs/sdks/search/README.md#performvoicesearch) - Perform a voice search
+* [getSearchResults](docs/sdks/search/README.md#getsearchresults) - Get Search Results
+
+### [Server](docs/sdks/server/README.md)
+
+* [getServerCapabilities](docs/sdks/server/README.md#getservercapabilities) - Get Server Capabilities
+* [getServerPreferences](docs/sdks/server/README.md#getserverpreferences) - Get Server Preferences
+* [getAvailableClients](docs/sdks/server/README.md#getavailableclients) - Get Available Clients
+* [getDevices](docs/sdks/server/README.md#getdevices) - Get Devices
+* [getServerIdentity](docs/sdks/server/README.md#getserveridentity) - Get Server Identity
+* [getMyPlexAccount](docs/sdks/server/README.md#getmyplexaccount) - Get MyPlex Account
+* [getResizedPhoto](docs/sdks/server/README.md#getresizedphoto) - Get a Resized Photo
+* [getMediaProviders](docs/sdks/server/README.md#getmediaproviders) - Get Media Providers
+* [getServerList](docs/sdks/server/README.md#getserverlist) - Get Server List
 
 ### [Sessions](docs/sdks/sessions/README.md)
 
@@ -173,16 +175,81 @@ try {
 * [getTranscodeSessions](docs/sdks/sessions/README.md#gettranscodesessions) - Get Transcode Sessions
 * [stopTranscodeSession](docs/sdks/sessions/README.md#stoptranscodesession) - Stop a Transcode Session
 
+### [Statistics](docs/sdks/statistics/README.md)
+
+* [getStatistics](docs/sdks/statistics/README.md#getstatistics) - Get Media Statistics
+* [getResourcesStatistics](docs/sdks/statistics/README.md#getresourcesstatistics) - Get Resources Statistics
+* [getBandwidthStatistics](docs/sdks/statistics/README.md#getbandwidthstatistics) - Get Bandwidth Statistics
+
 ### [Updater](docs/sdks/updater/README.md)
 
 * [getUpdateStatus](docs/sdks/updater/README.md#getupdatestatus) - Querying status of updates
 * [checkForUpdates](docs/sdks/updater/README.md#checkforupdates) - Checking for updates
 * [applyUpdates](docs/sdks/updater/README.md#applyupdates) - Apply Updates
 
+### [Video](docs/sdks/video/README.md)
+
+* [getTimeline](docs/sdks/video/README.md#gettimeline) - Get the timeline for a media item
+* [startUniversalTranscode](docs/sdks/video/README.md#startuniversaltranscode) - Start Universal Transcode
+
 ### [Watchlist](docs/sdks/watchlist/README.md)
 
-* [getWatchlist](docs/sdks/watchlist/README.md#getwatchlist) - Get User Watchlist
+* [getWatchList](docs/sdks/watchlist/README.md#getwatchlist) - Get User Watchlist
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
+
+A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `X-Plex-Client-Identifier` to `'gcgzw5rz2xovp84b4vha3a40'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getServerResources`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available.
+
+| Name | Type | Required | Description |
+| ---- | ---- |:--------:| ----------- |
+| xPlexClientIdentifier | string |  | The unique identifier for the client application
+This is used to track the client application and its usage
+(UUID, serial number, or other number unique per device)
+ |
+
+
+### Example
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setSecurity($security)->build();
+
+try {
+
+    $response = $sdk->plex->getServerResources('gcgzw5rz2xovp84b4vha3a40', Operations\IncludeHttps::One, Operations\IncludeRelay::One, Operations\IncludeIPv6::One);
+
+    if ($response->plexDevices !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+<!-- End Global Parameters [global-parameters] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
@@ -195,14 +262,14 @@ You can override the default server globally by passing a server index to the `s
 
 | # | Server | Variables |
 | - | ------ | --------- |
-| 0 | `{protocol}://{ip}:{port}` | `protocol` (default is `http`), `ip` (default is `10.10.10.47`), `port` (default is `32400`) |
+| 0 | `{protocol}://{ip}:{port}` | `protocol` (default is `https`), `ip` (default is `10.10.10.47`), `port` (default is `32400`) |
 
 
 
 #### Variables
 
 Some of the server options above contain variables. If you want to set the values of those variables, the following optional parameters are available when initializing the SDK client instance:
- * `protocol: ServerProtocol`
+ * `protocol: Plex_API\ServerProtocol`
  * `ip: string`
  * `port: string`
 
@@ -220,16 +287,20 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
-    ->build();
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setSecurity($security)->build();
 
 try {
+    $response = $sdk->plex->getCompanionsData("https://plex.tv/api/v2/");
 
-    $response = $sdk->plex->getPin("https://plex.tv/api/v2", 'Postman', false, 'Postman');
-
-    if ($response->object !== null) {
+    if ($response->responseBodies !== null) {
         // handle response
     }
 } catch (Throwable $e) {

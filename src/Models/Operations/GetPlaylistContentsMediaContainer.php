@@ -16,7 +16,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -24,7 +24,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?string $composite
      */
     #[\JMS\Serializer\Annotation\SerializedName('composite')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $composite = null;
 
     /**
@@ -32,7 +32,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -40,7 +40,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?int $leafCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCount = null;
 
     /**
@@ -48,7 +48,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?string $playlistType
      */
     #[\JMS\Serializer\Annotation\SerializedName('playlistType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $playlistType = null;
 
     /**
@@ -56,7 +56,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -64,7 +64,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?bool $smart
      */
     #[\JMS\Serializer\Annotation\SerializedName('smart')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $smart = null;
 
     /**
@@ -72,7 +72,7 @@ class GetPlaylistContentsMediaContainer
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -81,8 +81,8 @@ class GetPlaylistContentsMediaContainer
      * @var ?array<GetPlaylistContentsMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMetadata>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetPlaylistContentsMetadata>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

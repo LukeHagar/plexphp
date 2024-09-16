@@ -20,9 +20,9 @@ class StartTaskRequest
     public TaskName $taskName;
 
     /**
-     * @param  ?TaskName  $taskName
+     * @param  TaskName  $taskName
      */
-    public function __construct(?TaskName $taskName = null)
+    public function __construct(TaskName $taskName)
     {
         $this->taskName = $taskName;
     }

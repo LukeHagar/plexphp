@@ -16,7 +16,7 @@ class GetSessionsStream
      * @var ?string $albumGain
      */
     #[\JMS\Serializer\Annotation\SerializedName('albumGain')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $albumGain = null;
 
     /**
@@ -24,7 +24,7 @@ class GetSessionsStream
      * @var ?string $albumPeak
      */
     #[\JMS\Serializer\Annotation\SerializedName('albumPeak')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $albumPeak = null;
 
     /**
@@ -32,7 +32,7 @@ class GetSessionsStream
      * @var ?string $albumRange
      */
     #[\JMS\Serializer\Annotation\SerializedName('albumRange')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $albumRange = null;
 
     /**
@@ -40,7 +40,7 @@ class GetSessionsStream
      * @var ?string $audioChannelLayout
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioChannelLayout')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audioChannelLayout = null;
 
     /**
@@ -48,7 +48,7 @@ class GetSessionsStream
      * @var ?int $bitDepth
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $bitDepth = null;
 
     /**
@@ -56,7 +56,7 @@ class GetSessionsStream
      * @var ?int $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $bitrate = null;
 
     /**
@@ -64,7 +64,7 @@ class GetSessionsStream
      * @var ?int $channels
      */
     #[\JMS\Serializer\Annotation\SerializedName('channels')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $channels = null;
 
     /**
@@ -72,7 +72,7 @@ class GetSessionsStream
      * @var ?string $codec
      */
     #[\JMS\Serializer\Annotation\SerializedName('codec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $codec = null;
 
     /**
@@ -80,7 +80,7 @@ class GetSessionsStream
      * @var ?string $displayTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $displayTitle = null;
 
     /**
@@ -88,7 +88,7 @@ class GetSessionsStream
      * @var ?string $extendedDisplayTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $extendedDisplayTitle = null;
 
     /**
@@ -96,7 +96,7 @@ class GetSessionsStream
      * @var ?string $gain
      */
     #[\JMS\Serializer\Annotation\SerializedName('gain')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $gain = null;
 
     /**
@@ -104,7 +104,7 @@ class GetSessionsStream
      * @var ?string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
@@ -112,7 +112,7 @@ class GetSessionsStream
      * @var ?int $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
@@ -120,7 +120,7 @@ class GetSessionsStream
      * @var ?string $loudness
      */
     #[\JMS\Serializer\Annotation\SerializedName('loudness')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $loudness = null;
 
     /**
@@ -128,7 +128,7 @@ class GetSessionsStream
      * @var ?string $lra
      */
     #[\JMS\Serializer\Annotation\SerializedName('lra')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $lra = null;
 
     /**
@@ -136,7 +136,7 @@ class GetSessionsStream
      * @var ?string $peak
      */
     #[\JMS\Serializer\Annotation\SerializedName('peak')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $peak = null;
 
     /**
@@ -144,7 +144,7 @@ class GetSessionsStream
      * @var ?int $samplingRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('samplingRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $samplingRate = null;
 
     /**
@@ -152,7 +152,7 @@ class GetSessionsStream
      * @var ?bool $selected
      */
     #[\JMS\Serializer\Annotation\SerializedName('selected')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $selected = null;
 
     /**
@@ -160,7 +160,7 @@ class GetSessionsStream
      * @var ?int $streamType
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $streamType = null;
 
     /**
@@ -168,7 +168,7 @@ class GetSessionsStream
      * @var ?string $location
      */
     #[\JMS\Serializer\Annotation\SerializedName('location')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $location = null;
 
     /**

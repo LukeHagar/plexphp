@@ -16,7 +16,7 @@ class GetLibraryHubsMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -24,7 +24,7 @@ class GetLibraryHubsMediaContainer
      * @var ?bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
@@ -32,7 +32,7 @@ class GetLibraryHubsMediaContainer
      * @var ?string $identifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
@@ -40,7 +40,7 @@ class GetLibraryHubsMediaContainer
      * @var ?int $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $librarySectionID = null;
 
     /**
@@ -48,7 +48,7 @@ class GetLibraryHubsMediaContainer
      * @var ?string $librarySectionTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
@@ -56,7 +56,7 @@ class GetLibraryHubsMediaContainer
      * @var ?string $librarySectionUUID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionUUID = null;
 
     /**
@@ -65,8 +65,8 @@ class GetLibraryHubsMediaContainer
      * @var ?array<GetLibraryHubsHub> $hub
      */
     #[\JMS\Serializer\Annotation\SerializedName('Hub')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryHubsHub>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryHubsHub>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $hub = null;
 
     /**

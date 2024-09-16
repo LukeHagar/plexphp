@@ -14,7 +14,6 @@ use LukeHagar\Plex_API\Models\Operations;
 class Log
 {
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
@@ -64,17 +63,26 @@ class Log
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif ($statusCode == 400 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\LogLineResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\LogLineBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\LogLineUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -136,17 +144,26 @@ class Log
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif ($statusCode == 400 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\LogMultiLineResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\LogMultiLineBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\LogMultiLineUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -181,19 +198,29 @@ class Log
                 contentType: $contentType,
                 rawResponse: $httpResponse
             );
-        } elseif ($statusCode == 400 || $statusCode == 403 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\EnablePaperTrailResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\EnablePaperTrailBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\EnablePaperTrailUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 403 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
     }
+
 }

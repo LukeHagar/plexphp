@@ -1,0 +1,21 @@
+# GetMediaProvidersDirectory
+
+
+## Fields
+
+| Field                                                       | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `hubKey`                                                    | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `title`                                                     | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `agent`                                                     | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `language`                                                  | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `refreshing`                                                | *?bool*                                                     | :heavy_minus_sign:                                          | N/A                                                         |
+| `scanner`                                                   | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `uuid`                                                      | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `id`                                                        | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `key`                                                       | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `type`                                                      | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `subtype`                                                   | *?string*                                                   | :heavy_minus_sign:                                          | N/A                                                         |
+| `updatedAt`                                                 | *?int*                                                      | :heavy_minus_sign:                                          | N/A                                                         |
+| `scannedAt`                                                 | *?int*                                                      | :heavy_minus_sign:                                          | N/A                                                         |
+| `pivot`                                                     | array<[Operations\Pivot](../../Models/Operations/Pivot.md)> | :heavy_minus_sign:                                          | N/A                                                         |

@@ -17,8 +17,8 @@ class GetServerIdentityResponseBody
      * @var ?GetServerIdentityMediaContainer $mediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetServerIdentityMediaContainer')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetServerIdentityMediaContainer|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GetServerIdentityMediaContainer $mediaContainer = null;
 
     /**

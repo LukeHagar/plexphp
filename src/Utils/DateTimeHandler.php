@@ -32,6 +32,18 @@ class DateTimeHandler implements SubscribingHandlerInterface
                 'type' => '\DateTime',
                 'method' => 'deserializeDateTimeToJson',
             ],
+            [
+                'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
+                'format' => 'json',
+                'type' => 'DateTime',
+                'method' => 'serializeDateTimeToJson',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => 'DateTime',
+                'method' => 'deserializeDateTimeToJson',
+            ],
         ];
     }
 

@@ -9,7 +9,16 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Plex content type to search for */
+/**
+ * The type of media to retrieve.
+ *
+ * 1 = movie
+ * 2 = show
+ * 3 = season
+ * 4 = episode
+ * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+ *
+ */
 enum Type: int
 {
     case One = 1;

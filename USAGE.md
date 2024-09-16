@@ -7,11 +7,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {

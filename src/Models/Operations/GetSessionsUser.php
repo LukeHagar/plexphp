@@ -16,7 +16,7 @@ class GetSessionsUser
      * @var ?string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
@@ -24,7 +24,7 @@ class GetSessionsUser
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -32,7 +32,7 @@ class GetSessionsUser
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**

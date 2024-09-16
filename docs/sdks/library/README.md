@@ -1,6 +1,5 @@
 # Library
 
-
 ## Overview
 
 API Calls interacting with Plex Media Server Libraries
@@ -10,13 +9,13 @@ API Calls interacting with Plex Media Server Libraries
 
 * [getFileHash](#getfilehash) - Get Hash Value
 * [getRecentlyAdded](#getrecentlyadded) - Get Recently Added
-* [getLibraries](#getlibraries) - Get All Libraries
-* [getLibrary](#getlibrary) - Get Library Details
+* [getAllLibraries](#getalllibraries) - Get All Libraries
+* [getLibraryDetails](#getlibrarydetails) - Get Library Details
 * [deleteLibrary](#deletelibrary) - Delete Library Section
 * [getLibraryItems](#getlibraryitems) - Get Library Items
-* [refreshLibrary](#refreshlibrary) - Refresh Library
-* [searchLibrary](#searchlibrary) - Search Library
-* [getMetadata](#getmetadata) - Get Items Metadata
+* [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
+* [getSearchLibrary](#getsearchlibrary) - Search Library
+* [getMetaDataByRatingKey](#getmetadatabyratingkey) - Get Metadata by RatingKey
 * [getMetadataChildren](#getmetadatachildren) - Get Items Children
 * [getTopWatchedContent](#gettopwatchedcontent) - Get Top Watched Content
 * [getOnDeck](#getondeck) - Get On Deck
@@ -35,11 +34,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -61,16 +61,18 @@ try {
 | `url`                                                             | *string*                                                          | :heavy_check_mark:                                                | This is the path to the local file, must be prefixed by `file://` | file://C:\Image.png&type=13                                       |
 | `type`                                                            | *float*                                                           | :heavy_minus_sign:                                                | Item type                                                         |                                                                   |
 
-
 ### Response
 
 **[?Operations\GetFileHashResponse](../../Models/Operations/GetFileHashResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetFileHashResponseBody                | 401                                           | application/json                              |
+| Errors\GetFileHashBadRequest                  | 400                                           | application/json                              |
+| Errors\GetFileHashUnauthorized                | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getRecentlyAdded
 
@@ -87,15 +89,17 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
-    $response = $sdk->library->getRecentlyAdded();
+
+    $response = $sdk->library->getRecentlyAdded(0, 50);
 
     if ($response->object !== null) {
         // handle response
@@ -105,18 +109,27 @@ try {
 }
 ```
 
+### Parameters
+
+| Parameter                                                                                                                                                                                 | Type                                                                                                                                                                                      | Required                                                                                                                                                                                  | Description                                                                                                                                                                               | Example                                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `xPlexContainerStart`                                                                                                                                                                     | *int*                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                        | The index of the first item to return. If not specified, the first item will be returned.<br/>If the number of items exceeds the limit, the response will be paginated.<br/>By default this is 0<br/> | 0                                                                                                                                                                                         |
+| `xPlexContainerSize`                                                                                                                                                                      | *int*                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                        | The number of items to return. If not specified, all items will be returned.<br/>If the number of items exceeds the limit, the response will be paginated.<br/>By default this is 50<br/> | 50                                                                                                                                                                                        |
 
 ### Response
 
 **[?Operations\GetRecentlyAddedResponse](../../Models/Operations/GetRecentlyAddedResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetRecentlyAddedResponseBody           | 401                                           | application/json                              |
+| Errors\GetRecentlyAddedBadRequest             | 400                                           | application/json                              |
+| Errors\GetRecentlyAddedUnauthorized           | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
-## getLibraries
+
+## getAllLibraries
 
 A library section (commonly referred to as just a library) is a collection of media. 
 Libraries are typed, and depending on their type provide either a flat or a hierarchical view of the media. 
@@ -136,15 +149,16 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
-    $response = $sdk->library->getLibraries();
+    $response = $sdk->library->getAllLibraries();
 
     if ($response->object !== null) {
         // handle response
@@ -154,18 +168,20 @@ try {
 }
 ```
 
-
 ### Response
 
-**[?Operations\GetLibrariesResponse](../../Models/Operations/GetLibrariesResponse.md)**
+**[?Operations\GetAllLibrariesResponse](../../Models/Operations/GetAllLibrariesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetLibrariesResponseBody               | 401                                           | application/json                              |
+| Errors\GetAllLibrariesBadRequest              | 400                                           | application/json                              |
+| Errors\GetAllLibrariesUnauthorized            | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
-## getLibrary
+
+## getLibraryDetails
 
 ## Library Details Endpoint
 
@@ -219,16 +235,17 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->library->getLibrary(1000, Operations\IncludeDetails::Zero);
+    $response = $sdk->library->getLibraryDetails(9518, Operations\IncludeDetails::Zero);
 
     if ($response->object !== null) {
         // handle response
@@ -242,23 +259,25 @@ try {
 
 | Parameter                                                                                                                                                                                  | Type                                                                                                                                                                                       | Required                                                                                                                                                                                   | Description                                                                                                                                                                                | Example                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `sectionId`                                                                                                                                                                                | *float*                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                         | the Id of the library to query                                                                                                                                                             | 1000                                                                                                                                                                                       |
+| `sectionKey`                                                                                                                                                                               | *int*                                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                         | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                      | 9518                                                                                                                                                                                       |
 | `includeDetails`                                                                                                                                                                           | [Operations\IncludeDetails](../../Models/Operations/IncludeDetails.md)                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                         | Whether or not to include details for a section (types, filters, and sorts). <br/>Only exists for backwards compatibility, media providers other than the server libraries have it on always.<br/> |                                                                                                                                                                                            |
-
 
 ### Response
 
-**[?Operations\GetLibraryResponse](../../Models/Operations/GetLibraryResponse.md)**
+**[?Operations\GetLibraryDetailsResponse](../../Models/Operations/GetLibraryDetailsResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetLibraryResponseBody                 | 401                                           | application/json                              |
+| Errors\GetLibraryDetailsBadRequest            | 400                                           | application/json                              |
+| Errors\GetLibraryDetailsUnauthorized          | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## deleteLibrary
 
-Delate a library using a specific section
+Delete a library using a specific section id
 
 ### Example Usage
 
@@ -270,16 +289,17 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->library->deleteLibrary(1000);
+    $response = $sdk->library->deleteLibrary(9518);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -291,20 +311,22 @@ try {
 
 ### Parameters
 
-| Parameter                      | Type                           | Required                       | Description                    | Example                        |
-| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `sectionId`                    | *float*                        | :heavy_check_mark:             | the Id of the library to query | 1000                           |
-
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
 
 ### Response
 
 **[?Operations\DeleteLibraryResponse](../../Models/Operations/DeleteLibraryResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\DeleteLibraryResponseBody              | 401                                           | application/json                              |
+| Errors\DeleteLibraryBadRequest                | 400                                           | application/json                              |
+| Errors\DeleteLibraryUnauthorized              | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getLibraryItems
 
@@ -341,16 +363,25 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
-
-    $response = $sdk->library->getLibraryItems('<value>', Operations\Tag::Genre, 1);
+    $request = new Operations\GetLibraryItemsRequest(
+        sectionKey: 9518,
+        tag: Operations\Tag::Edition,
+        type: Operations\Type::Two,
+        includeGuids: Operations\IncludeGuids::One,
+        includeMeta: Operations\IncludeMeta::One,
+        xPlexContainerStart: 0,
+        xPlexContainerSize: 50,
+    );
+    $response = $sdk->library->getLibraryItems($request);
 
     if ($response->object !== null) {
         // handle response
@@ -362,26 +393,26 @@ try {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           | Example                                               |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `sectionId`                                           | *mixed*                                               | :heavy_check_mark:                                    | the Id of the library to query                        |                                                       |
-| `tag`                                                 | [Operations\Tag](../../Models/Operations/Tag.md)      | :heavy_check_mark:                                    | A key representing a specific tag within the section. |                                                       |
-| `includeGuids`                                        | *int*                                                 | :heavy_minus_sign:                                    | Adds the Guids object to the response<br/>            | 1                                                     |
-
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `$request`                                                                             | [Operations\GetLibraryItemsRequest](../../Models/Operations/GetLibraryItemsRequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 ### Response
 
 **[?Operations\GetLibraryItemsResponse](../../Models/Operations/GetLibraryItemsResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetLibraryItemsResponseBody            | 401                                           | application/json                              |
+| Errors\GetLibraryItemsBadRequest              | 400                                           | application/json                              |
+| Errors\GetLibraryItemsUnauthorized            | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
-## refreshLibrary
 
-This endpoint Refreshes the library.
+## getRefreshLibraryMetadata
+
+This endpoint Refreshes all the Metadata of the library.
 
 
 ### Example Usage
@@ -393,17 +424,19 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->library->refreshLibrary(934.16);
+    $response = $sdk->library->getRefreshLibraryMetadata(9518, Operations\Force::One);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -415,22 +448,25 @@ try {
 
 ### Parameters
 
-| Parameter                        | Type                             | Required                         | Description                      |
-| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
-| `sectionId`                      | *float*                          | :heavy_check_mark:               | the Id of the library to refresh |
-
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
+| `force`                                                                                       | [Operations\Force](../../Models/Operations/Force.md)                                          | :heavy_minus_sign:                                                                            | Force the refresh even if the library is already being refreshed.                             | 0                                                                                             |
 
 ### Response
 
-**[?Operations\RefreshLibraryResponse](../../Models/Operations/RefreshLibraryResponse.md)**
+**[?Operations\GetRefreshLibraryMetadataResponse](../../Models/Operations/GetRefreshLibraryMetadataResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\RefreshLibraryResponseBody             | 401                                           | application/json                              |
+| Errors\GetRefreshLibraryMetadataBadRequest    | 400                                           | application/json                              |
+| Errors\GetRefreshLibraryMetadataUnauthorized  | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
-## searchLibrary
+
+## getSearchLibrary
 
 Search for content within a specific section of the library.
 
@@ -463,16 +499,17 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->library->searchLibrary(933505, Operations\Type::Four);
+    $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::Two);
 
     if ($response->object !== null) {
         // handle response
@@ -484,23 +521,25 @@ try {
 
 ### Parameters
 
-| Parameter                                          | Type                                               | Required                                           | Description                                        |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| `sectionId`                                        | *int*                                              | :heavy_check_mark:                                 | the Id of the library to query                     |
-| `type`                                             | [Operations\Type](../../Models/Operations/Type.md) | :heavy_check_mark:                                 | Plex content type to search for                    |
-
+| Parameter                                                                                                                                                                       | Type                                                                                                                                                                            | Required                                                                                                                                                                        | Description                                                                                                                                                                     | Example                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                    | *int*                                                                                                                                                                           | :heavy_check_mark:                                                                                                                                                              | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                           | 9518                                                                                                                                                                            |
+| `type`                                                                                                                                                                          | [Operations\QueryParamType](../../Models/Operations/QueryParamType.md)                                                                                                          | :heavy_check_mark:                                                                                                                                                              | The type of media to retrieve.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                               |
 
 ### Response
 
-**[?Operations\SearchLibraryResponse](../../Models/Operations/SearchLibraryResponse.md)**
+**[?Operations\GetSearchLibraryResponse](../../Models/Operations/GetSearchLibraryResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\SearchLibraryResponseBody              | 401                                           | application/json                              |
+| Errors\GetSearchLibraryBadRequest             | 400                                           | application/json                              |
+| Errors\GetSearchLibraryUnauthorized           | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
-## getMetadata
+
+## getMetaDataByRatingKey
 
 This endpoint will return the metadata of a library item specified with the ratingKey.
 
@@ -515,16 +554,17 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->library->getMetadata(8382.31);
+    $response = $sdk->library->getMetaDataByRatingKey(9518);
 
     if ($response->object !== null) {
         // handle response
@@ -536,20 +576,22 @@ try {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ratingKey`                                           | *float*                                               | :heavy_check_mark:                                    | the id of the library item to return the children of. |
-
+| Parameter                                             | Type                                                  | Required                                              | Description                                           | Example                                               |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ratingKey`                                           | *int*                                                 | :heavy_check_mark:                                    | the id of the library item to return the children of. | 9518                                                  |
 
 ### Response
 
-**[?Operations\GetMetadataResponse](../../Models/Operations/GetMetadataResponse.md)**
+**[?Operations\GetMetaDataByRatingKeyResponse](../../Models/Operations/GetMetaDataByRatingKeyResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetMetadataResponseBody                | 401                                           | application/json                              |
+| Errors\GetMetaDataByRatingKeyBadRequest       | 400                                           | application/json                              |
+| Errors\GetMetaDataByRatingKeyUnauthorized     | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getMetadataChildren
 
@@ -566,11 +608,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -592,16 +635,18 @@ try {
 | `ratingKey`                                                             | *float*                                                                 | :heavy_check_mark:                                                      | the id of the library item to return the children of.                   |
 | `includeElements`                                                       | *string*                                                                | :heavy_minus_sign:                                                      | Adds additional elements to the response. Supported types are (Stream)<br/> |
 
-
 ### Response
 
 **[?Operations\GetMetadataChildrenResponse](../../Models/Operations/GetMetadataChildrenResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetMetadataChildrenResponseBody        | 401                                           | application/json                              |
+| Errors\GetMetadataChildrenBadRequest          | 400                                           | application/json                              |
+| Errors\GetMetadataChildrenUnauthorized        | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getTopWatchedContent
 
@@ -617,17 +662,19 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
 
-    $response = $sdk->library->getTopWatchedContent(505531, 1);
+    $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::Two, 1);
 
     if ($response->object !== null) {
         // handle response
@@ -639,20 +686,23 @@ try {
 
 ### Parameters
 
-| Parameter                                           | Type                                                | Required                                            | Description                                         | Example                                             |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `type`                                              | *int*                                               | :heavy_check_mark:                                  | the library type (1 - movies, 2 - shows, 3 - music) |                                                     |
-| `includeGuids`                                      | *int*                                               | :heavy_minus_sign:                                  | Adds the Guids object to the response<br/>          | 1                                                   |
-
+| Parameter                                                                                                                                                                       | Type                                                                                                                                                                            | Required                                                                                                                                                                        | Description                                                                                                                                                                     | Example                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                                                          | [Operations\GetTopWatchedContentQueryParamType](../../Models/Operations/GetTopWatchedContentQueryParamType.md)                                                                  | :heavy_check_mark:                                                                                                                                                              | The type of media to retrieve.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                               |
+| `includeGuids`                                                                                                                                                                  | *int*                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                              | Adds the Guids object to the response<br/>                                                                                                                                      | 1                                                                                                                                                                               |
 
 ### Response
 
 **[?Operations\GetTopWatchedContentResponse](../../Models/Operations/GetTopWatchedContentResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetTopWatchedContentBadRequest         | 400                                           | application/json                              |
+| Errors\GetTopWatchedContentUnauthorized       | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getOnDeck
 
@@ -669,11 +719,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -687,13 +738,14 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetOnDeckResponse](../../Models/Operations/GetOnDeckResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetOnDeckResponseBody                  | 401                                           | application/json                              |
+| Errors\GetOnDeckBadRequest                    | 400                                           | application/json                              |
+| Errors\GetOnDeckUnauthorized                  | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

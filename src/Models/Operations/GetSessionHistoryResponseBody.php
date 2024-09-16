@@ -17,8 +17,8 @@ class GetSessionHistoryResponseBody
      * @var ?GetSessionHistoryMediaContainer $mediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSessionHistoryMediaContainer')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSessionHistoryMediaContainer|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?GetSessionHistoryMediaContainer $mediaContainer = null;
 
     /**

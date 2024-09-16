@@ -68,15 +68,15 @@ class GetResizedPhotoRequest
     public string $url;
 
     /**
-     * @param  ?float  $width
-     * @param  ?float  $height
-     * @param  ?int  $opacity
-     * @param  ?float  $blur
-     * @param  ?MinSize  $minSize
-     * @param  ?Upscale  $upscale
-     * @param  ?string  $url
+     * @param  float  $width
+     * @param  float  $height
+     * @param  int  $opacity
+     * @param  float  $blur
+     * @param  MinSize  $minSize
+     * @param  Upscale  $upscale
+     * @param  string  $url
      */
-    public function __construct(?float $width = null, ?float $height = null, ?int $opacity = null, ?float $blur = null, ?MinSize $minSize = null, ?Upscale $upscale = null, ?string $url = null)
+    public function __construct(float $width, float $height, int $opacity, float $blur, MinSize $minSize, Upscale $upscale, string $url)
     {
         $this->width = $width;
         $this->height = $height;

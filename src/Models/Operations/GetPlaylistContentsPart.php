@@ -16,7 +16,7 @@ class GetPlaylistContentsPart
      * @var ?int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
@@ -24,7 +24,7 @@ class GetPlaylistContentsPart
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class GetPlaylistContentsPart
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -40,7 +40,7 @@ class GetPlaylistContentsPart
      * @var ?string $file
      */
     #[\JMS\Serializer\Annotation\SerializedName('file')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $file = null;
 
     /**
@@ -48,7 +48,7 @@ class GetPlaylistContentsPart
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -56,7 +56,7 @@ class GetPlaylistContentsPart
      * @var ?string $audioProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audioProfile = null;
 
     /**
@@ -64,7 +64,7 @@ class GetPlaylistContentsPart
      * @var ?string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
@@ -72,7 +72,7 @@ class GetPlaylistContentsPart
      * @var ?bool $has64bitOffsets
      */
     #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $has64bitOffsets = null;
 
     /**
@@ -80,7 +80,7 @@ class GetPlaylistContentsPart
      * @var ?bool $optimizedForStreaming
      */
     #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $optimizedForStreaming = null;
 
     /**
@@ -88,7 +88,7 @@ class GetPlaylistContentsPart
      * @var ?string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoProfile = null;
 
     /**

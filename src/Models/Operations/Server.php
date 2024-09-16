@@ -16,7 +16,7 @@ class Server
      * @var ?string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
@@ -24,7 +24,7 @@ class Server
      * @var ?string $host
      */
     #[\JMS\Serializer\Annotation\SerializedName('host')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $host = null;
 
     /**
@@ -32,7 +32,7 @@ class Server
      * @var ?string $address
      */
     #[\JMS\Serializer\Annotation\SerializedName('address')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $address = null;
 
     /**
@@ -40,7 +40,7 @@ class Server
      * @var ?float $port
      */
     #[\JMS\Serializer\Annotation\SerializedName('port')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $port = null;
 
     /**
@@ -48,7 +48,7 @@ class Server
      * @var ?string $machineIdentifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
@@ -56,7 +56,7 @@ class Server
      * @var ?string $version
      */
     #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
@@ -64,7 +64,7 @@ class Server
      * @var ?string $protocol
      */
     #[\JMS\Serializer\Annotation\SerializedName('protocol')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $protocol = null;
 
     /**
@@ -72,7 +72,7 @@ class Server
      * @var ?string $product
      */
     #[\JMS\Serializer\Annotation\SerializedName('product')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $product = null;
 
     /**
@@ -80,7 +80,7 @@ class Server
      * @var ?string $deviceClass
      */
     #[\JMS\Serializer\Annotation\SerializedName('deviceClass')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $deviceClass = null;
 
     /**
@@ -88,7 +88,7 @@ class Server
      * @var ?float $protocolVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('protocolVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $protocolVersion = null;
 
     /**
@@ -96,7 +96,7 @@ class Server
      * @var ?string $protocolCapabilities
      */
     #[\JMS\Serializer\Annotation\SerializedName('protocolCapabilities')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $protocolCapabilities = null;
 
     /**

@@ -9,10 +9,20 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** type of playlist to create */
-enum QueryParamType: string
+/**
+ * The type of media to retrieve.
+ *
+ * 1 = movie
+ * 2 = show
+ * 3 = season
+ * 4 = episode
+ * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+ *
+ */
+enum QueryParamType: int
 {
-    case Audio = 'audio';
-    case Video = 'video';
-    case Photo = 'photo';
+    case One = 1;
+    case Two = 2;
+    case Three = 3;
+    case Four = 4;
 }

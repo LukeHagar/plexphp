@@ -16,7 +16,7 @@ class GetSessionsMedia
      * @var ?int $audioChannels
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $audioChannels = null;
 
     /**
@@ -24,7 +24,7 @@ class GetSessionsMedia
      * @var ?string $audioCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audioCodec = null;
 
     /**
@@ -32,7 +32,7 @@ class GetSessionsMedia
      * @var ?int $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $bitrate = null;
 
     /**
@@ -40,7 +40,7 @@ class GetSessionsMedia
      * @var ?string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
@@ -48,7 +48,7 @@ class GetSessionsMedia
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -56,7 +56,7 @@ class GetSessionsMedia
      * @var ?string $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
@@ -64,7 +64,7 @@ class GetSessionsMedia
      * @var ?bool $selected
      */
     #[\JMS\Serializer\Annotation\SerializedName('selected')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $selected = null;
 
     /**
@@ -73,8 +73,8 @@ class GetSessionsMedia
      * @var ?array<GetSessionsPart> $part
      */
     #[\JMS\Serializer\Annotation\SerializedName('Part')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsPart>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsPart>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $part = null;
 
     /**

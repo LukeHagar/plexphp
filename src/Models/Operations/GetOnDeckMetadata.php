@@ -16,7 +16,7 @@ class GetOnDeckMetadata
      * @var ?bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
@@ -24,7 +24,7 @@ class GetOnDeckMetadata
      * @var ?float $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $librarySectionID = null;
 
     /**
@@ -32,7 +32,7 @@ class GetOnDeckMetadata
      * @var ?string $librarySectionTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
@@ -40,7 +40,7 @@ class GetOnDeckMetadata
      * @var ?string $librarySectionUUID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionUUID = null;
 
     /**
@@ -48,7 +48,7 @@ class GetOnDeckMetadata
      * @var ?float $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $ratingKey = null;
 
     /**
@@ -56,7 +56,7 @@ class GetOnDeckMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -64,7 +64,7 @@ class GetOnDeckMetadata
      * @var ?float $parentRatingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $parentRatingKey = null;
 
     /**
@@ -72,7 +72,7 @@ class GetOnDeckMetadata
      * @var ?float $grandparentRatingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $grandparentRatingKey = null;
 
     /**
@@ -80,7 +80,7 @@ class GetOnDeckMetadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -88,7 +88,7 @@ class GetOnDeckMetadata
      * @var ?string $parentGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentGuid = null;
 
     /**
@@ -96,7 +96,7 @@ class GetOnDeckMetadata
      * @var ?string $grandparentGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentGuid = null;
 
     /**
@@ -104,7 +104,7 @@ class GetOnDeckMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -112,7 +112,7 @@ class GetOnDeckMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -120,7 +120,7 @@ class GetOnDeckMetadata
      * @var ?string $grandparentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentKey = null;
 
     /**
@@ -128,7 +128,7 @@ class GetOnDeckMetadata
      * @var ?string $parentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentKey = null;
 
     /**
@@ -136,7 +136,7 @@ class GetOnDeckMetadata
      * @var ?string $librarySectionKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionKey = null;
 
     /**
@@ -144,7 +144,7 @@ class GetOnDeckMetadata
      * @var ?string $grandparentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTitle = null;
 
     /**
@@ -152,7 +152,7 @@ class GetOnDeckMetadata
      * @var ?string $parentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTitle = null;
 
     /**
@@ -160,7 +160,7 @@ class GetOnDeckMetadata
      * @var ?string $contentRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('contentRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
 
     /**
@@ -168,7 +168,7 @@ class GetOnDeckMetadata
      * @var ?string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
@@ -176,7 +176,7 @@ class GetOnDeckMetadata
      * @var ?float $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $index = null;
 
     /**
@@ -184,7 +184,7 @@ class GetOnDeckMetadata
      * @var ?float $parentIndex
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $parentIndex = null;
 
     /**
@@ -192,7 +192,7 @@ class GetOnDeckMetadata
      * @var ?float $lastViewedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $lastViewedAt = null;
 
     /**
@@ -200,7 +200,7 @@ class GetOnDeckMetadata
      * @var ?float $year
      */
     #[\JMS\Serializer\Annotation\SerializedName('year')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $year = null;
 
     /**
@@ -208,7 +208,7 @@ class GetOnDeckMetadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -216,7 +216,7 @@ class GetOnDeckMetadata
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -224,7 +224,7 @@ class GetOnDeckMetadata
      * @var ?string $parentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentThumb = null;
 
     /**
@@ -232,7 +232,7 @@ class GetOnDeckMetadata
      * @var ?string $grandparentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentThumb = null;
 
     /**
@@ -240,7 +240,7 @@ class GetOnDeckMetadata
      * @var ?string $grandparentArt
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentArt = null;
 
     /**
@@ -248,7 +248,7 @@ class GetOnDeckMetadata
      * @var ?string $grandparentTheme
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentTheme')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTheme = null;
 
     /**
@@ -256,7 +256,7 @@ class GetOnDeckMetadata
      * @var ?float $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $duration = null;
 
     /**
@@ -264,7 +264,7 @@ class GetOnDeckMetadata
      * @var ?\DateTime $originallyAvailableAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $originallyAvailableAt = null;
 
     /**
@@ -272,7 +272,7 @@ class GetOnDeckMetadata
      * @var ?float $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $addedAt = null;
 
     /**
@@ -280,7 +280,7 @@ class GetOnDeckMetadata
      * @var ?float $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $updatedAt = null;
 
     /**
@@ -289,8 +289,8 @@ class GetOnDeckMetadata
      * @var ?array<GetOnDeckMedia> $media
      */
     #[\JMS\Serializer\Annotation\SerializedName('Media')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckMedia>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckMedia>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $media = null;
 
     /**
@@ -299,8 +299,8 @@ class GetOnDeckMetadata
      * @var ?array<GetOnDeckGuids> $guids
      */
     #[\JMS\Serializer\Annotation\SerializedName('Guid')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckGuids>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckGuids>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $guids = null;
 
     /**

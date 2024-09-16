@@ -16,7 +16,7 @@ class Metadata
      * @var ?string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
@@ -24,7 +24,7 @@ class Metadata
      * @var ?string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
@@ -32,7 +32,7 @@ class Metadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -40,7 +40,7 @@ class Metadata
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -48,7 +48,7 @@ class Metadata
      * @var ?string $studio
      */
     #[\JMS\Serializer\Annotation\SerializedName('studio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $studio = null;
 
     /**
@@ -56,7 +56,7 @@ class Metadata
      * @var ?string $tagline
      */
     #[\JMS\Serializer\Annotation\SerializedName('tagline')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tagline = null;
 
     /**
@@ -64,7 +64,7 @@ class Metadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -72,7 +72,7 @@ class Metadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -80,7 +80,7 @@ class Metadata
      * @var ?int $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $addedAt = null;
 
     /**
@@ -88,7 +88,7 @@ class Metadata
      * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
@@ -96,7 +96,7 @@ class Metadata
      * @var ?string $publicPagesURL
      */
     #[\JMS\Serializer\Annotation\SerializedName('publicPagesURL')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $publicPagesURL = null;
 
     /**
@@ -104,7 +104,7 @@ class Metadata
      * @var ?string $slug
      */
     #[\JMS\Serializer\Annotation\SerializedName('slug')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $slug = null;
 
     /**
@@ -112,7 +112,7 @@ class Metadata
      * @var ?bool $userState
      */
     #[\JMS\Serializer\Annotation\SerializedName('userState')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $userState = null;
 
     /**
@@ -120,7 +120,7 @@ class Metadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -128,7 +128,7 @@ class Metadata
      * @var ?string $contentRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('contentRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
 
     /**
@@ -136,7 +136,7 @@ class Metadata
      * @var ?LocalDate $originallyAvailableAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?LocalDate $originallyAvailableAt = null;
 
     /**
@@ -144,7 +144,7 @@ class Metadata
      * @var ?int $year
      */
     #[\JMS\Serializer\Annotation\SerializedName('year')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $year = null;
 
     /**
@@ -153,8 +153,8 @@ class Metadata
      * @var ?array<Image> $image
      */
     #[\JMS\Serializer\Annotation\SerializedName('Image')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Image>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Image>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $image = null;
 
     /**
@@ -162,7 +162,7 @@ class Metadata
      * @var ?string $banner
      */
     #[\JMS\Serializer\Annotation\SerializedName('banner')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $banner = null;
 
     /**
@@ -170,7 +170,7 @@ class Metadata
      * @var ?float $rating
      */
     #[\JMS\Serializer\Annotation\SerializedName('rating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $rating = null;
 
     /**
@@ -178,7 +178,7 @@ class Metadata
      * @var ?int $expiresAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('expiresAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $expiresAt = null;
 
     /**
@@ -186,7 +186,7 @@ class Metadata
      * @var ?string $originalTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('originalTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $originalTitle = null;
 
     /**
@@ -194,7 +194,7 @@ class Metadata
      * @var ?float $audienceRating
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $audienceRating = null;
 
     /**
@@ -202,7 +202,7 @@ class Metadata
      * @var ?string $audienceRatingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('audienceRatingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $audienceRatingImage = null;
 
     /**
@@ -210,7 +210,7 @@ class Metadata
      * @var ?string $ratingImage
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingImage')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingImage = null;
 
     /**
@@ -218,7 +218,7 @@ class Metadata
      * @var ?int $imdbRatingCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('imdbRatingCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $imdbRatingCount = null;
 
     /**
@@ -226,7 +226,7 @@ class Metadata
      * @var ?string $subtype
      */
     #[\JMS\Serializer\Annotation\SerializedName('subtype')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $subtype = null;
 
     /**
@@ -234,7 +234,7 @@ class Metadata
      * @var ?string $theme
      */
     #[\JMS\Serializer\Annotation\SerializedName('theme')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $theme = null;
 
     /**
@@ -242,7 +242,7 @@ class Metadata
      * @var ?int $leafCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCount = null;
 
     /**
@@ -250,7 +250,7 @@ class Metadata
      * @var ?int $childCount
      */
     #[\JMS\Serializer\Annotation\SerializedName('childCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $childCount = null;
 
     /**
@@ -258,7 +258,7 @@ class Metadata
      * @var ?bool $isContinuingSeries
      */
     #[\JMS\Serializer\Annotation\SerializedName('isContinuingSeries')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $isContinuingSeries = null;
 
     /**
@@ -266,7 +266,7 @@ class Metadata
      * @var ?bool $skipChildren
      */
     #[\JMS\Serializer\Annotation\SerializedName('skipChildren')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $skipChildren = null;
 
     /**
@@ -274,7 +274,7 @@ class Metadata
      * @var ?string $availabilityId
      */
     #[\JMS\Serializer\Annotation\SerializedName('availabilityId')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $availabilityId = null;
 
     /**
@@ -282,7 +282,7 @@ class Metadata
      * @var ?string $streamingMediaId
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamingMediaId')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $streamingMediaId = null;
 
     /**
@@ -290,7 +290,7 @@ class Metadata
      * @var ?string $playableKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('playableKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $playableKey = null;
 
     /**

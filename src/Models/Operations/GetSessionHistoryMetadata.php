@@ -16,7 +16,7 @@ class GetSessionHistoryMetadata
      * @var ?string $historyKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('historyKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $historyKey = null;
 
     /**
@@ -24,7 +24,7 @@ class GetSessionHistoryMetadata
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class GetSessionHistoryMetadata
      * @var ?string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
@@ -40,7 +40,7 @@ class GetSessionHistoryMetadata
      * @var ?string $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionID = null;
 
     /**
@@ -48,7 +48,7 @@ class GetSessionHistoryMetadata
      * @var ?string $parentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentKey = null;
 
     /**
@@ -56,7 +56,7 @@ class GetSessionHistoryMetadata
      * @var ?string $grandparentKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentKey = null;
 
     /**
@@ -64,7 +64,7 @@ class GetSessionHistoryMetadata
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -72,7 +72,7 @@ class GetSessionHistoryMetadata
      * @var ?string $grandparentTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTitle = null;
 
     /**
@@ -80,7 +80,7 @@ class GetSessionHistoryMetadata
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -88,7 +88,7 @@ class GetSessionHistoryMetadata
      * @var ?string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -96,7 +96,7 @@ class GetSessionHistoryMetadata
      * @var ?string $parentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $parentThumb = null;
 
     /**
@@ -104,7 +104,7 @@ class GetSessionHistoryMetadata
      * @var ?string $grandparentThumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentThumb = null;
 
     /**
@@ -112,7 +112,7 @@ class GetSessionHistoryMetadata
      * @var ?string $grandparentArt
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentArt = null;
 
     /**
@@ -120,7 +120,7 @@ class GetSessionHistoryMetadata
      * @var ?int $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
@@ -128,7 +128,7 @@ class GetSessionHistoryMetadata
      * @var ?int $parentIndex
      */
     #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $parentIndex = null;
 
     /**
@@ -136,7 +136,7 @@ class GetSessionHistoryMetadata
      * @var ?LocalDate $originallyAvailableAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?LocalDate $originallyAvailableAt = null;
 
     /**
@@ -144,7 +144,7 @@ class GetSessionHistoryMetadata
      * @var ?int $viewedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $viewedAt = null;
 
     /**
@@ -152,7 +152,7 @@ class GetSessionHistoryMetadata
      * @var ?int $accountID
      */
     #[\JMS\Serializer\Annotation\SerializedName('accountID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $accountID = null;
 
     /**
@@ -160,7 +160,7 @@ class GetSessionHistoryMetadata
      * @var ?int $deviceID
      */
     #[\JMS\Serializer\Annotation\SerializedName('deviceID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $deviceID = null;
 
     /**

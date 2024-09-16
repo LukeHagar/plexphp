@@ -16,7 +16,7 @@ class GetServerActivitiesMediaContainer
      * @var ?float $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
@@ -25,8 +25,8 @@ class GetServerActivitiesMediaContainer
      * @var ?array<Activity> $activity
      */
     #[\JMS\Serializer\Annotation\SerializedName('Activity')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Activity>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Activity>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $activity = null;
 
     /**

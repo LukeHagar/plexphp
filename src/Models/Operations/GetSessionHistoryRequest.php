@@ -37,10 +37,10 @@ class GetSessionHistoryRequest
      * (Unknown if viewedAt is the only supported column)
      *
      *
-     * @var ?Filter $filter
+     * @var ?QueryParamFilter $filter
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=filter')]
-    public ?Filter $filter = null;
+    public ?QueryParamFilter $filter = null;
 
     /**
      * Filters the results based on the id of a valid library section
@@ -55,10 +55,10 @@ class GetSessionHistoryRequest
     /**
      * @param  ?string  $sort
      * @param  ?int  $accountId
-     * @param  ?Filter  $filter
+     * @param  ?QueryParamFilter  $filter
      * @param  ?int  $librarySectionID
      */
-    public function __construct(?string $sort = null, ?int $accountId = null, ?Filter $filter = null, ?int $librarySectionID = null)
+    public function __construct(?string $sort = null, ?int $accountId = null, ?QueryParamFilter $filter = null, ?int $librarySectionID = null)
     {
         $this->sort = $sort;
         $this->accountId = $accountId;

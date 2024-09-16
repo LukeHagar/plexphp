@@ -16,7 +16,7 @@ class Activity
      * @var ?string $uuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $uuid = null;
 
     /**
@@ -24,7 +24,7 @@ class Activity
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -32,7 +32,7 @@ class Activity
      * @var ?bool $cancellable
      */
     #[\JMS\Serializer\Annotation\SerializedName('cancellable')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $cancellable = null;
 
     /**
@@ -40,7 +40,7 @@ class Activity
      * @var ?float $userID
      */
     #[\JMS\Serializer\Annotation\SerializedName('userID')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $userID = null;
 
     /**
@@ -48,7 +48,7 @@ class Activity
      * @var ?string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
@@ -56,7 +56,7 @@ class Activity
      * @var ?string $subtitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('subtitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $subtitle = null;
 
     /**
@@ -64,7 +64,7 @@ class Activity
      * @var ?float $progress
      */
     #[\JMS\Serializer\Annotation\SerializedName('progress')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $progress = null;
 
     /**
@@ -72,8 +72,8 @@ class Activity
      * @var ?Context $context
      */
     #[\JMS\Serializer\Annotation\SerializedName('Context')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Context')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Context|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?Context $context = null;
 
     /**

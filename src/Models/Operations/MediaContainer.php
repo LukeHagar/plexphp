@@ -16,7 +16,7 @@ class MediaContainer
      * @var ?float $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
@@ -24,7 +24,7 @@ class MediaContainer
      * @var ?bool $allowCameraUpload
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowCameraUpload')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowCameraUpload = null;
 
     /**
@@ -32,7 +32,7 @@ class MediaContainer
      * @var ?bool $allowChannelAccess
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowChannelAccess')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowChannelAccess = null;
 
     /**
@@ -40,7 +40,7 @@ class MediaContainer
      * @var ?bool $allowMediaDeletion
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowMediaDeletion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowMediaDeletion = null;
 
     /**
@@ -48,7 +48,7 @@ class MediaContainer
      * @var ?bool $allowSharing
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSharing')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSharing = null;
 
     /**
@@ -56,7 +56,7 @@ class MediaContainer
      * @var ?bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
@@ -64,7 +64,7 @@ class MediaContainer
      * @var ?bool $allowTuners
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowTuners')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowTuners = null;
 
     /**
@@ -72,7 +72,7 @@ class MediaContainer
      * @var ?bool $backgroundProcessing
      */
     #[\JMS\Serializer\Annotation\SerializedName('backgroundProcessing')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $backgroundProcessing = null;
 
     /**
@@ -80,7 +80,7 @@ class MediaContainer
      * @var ?bool $certificate
      */
     #[\JMS\Serializer\Annotation\SerializedName('certificate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $certificate = null;
 
     /**
@@ -88,7 +88,7 @@ class MediaContainer
      * @var ?bool $companionProxy
      */
     #[\JMS\Serializer\Annotation\SerializedName('companionProxy')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $companionProxy = null;
 
     /**
@@ -96,7 +96,7 @@ class MediaContainer
      * @var ?string $countryCode
      */
     #[\JMS\Serializer\Annotation\SerializedName('countryCode')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $countryCode = null;
 
     /**
@@ -104,7 +104,7 @@ class MediaContainer
      * @var ?string $diagnostics
      */
     #[\JMS\Serializer\Annotation\SerializedName('diagnostics')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $diagnostics = null;
 
     /**
@@ -112,7 +112,7 @@ class MediaContainer
      * @var ?bool $eventStream
      */
     #[\JMS\Serializer\Annotation\SerializedName('eventStream')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $eventStream = null;
 
     /**
@@ -120,7 +120,7 @@ class MediaContainer
      * @var ?string $friendlyName
      */
     #[\JMS\Serializer\Annotation\SerializedName('friendlyName')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $friendlyName = null;
 
     /**
@@ -128,7 +128,7 @@ class MediaContainer
      * @var ?bool $hubSearch
      */
     #[\JMS\Serializer\Annotation\SerializedName('hubSearch')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $hubSearch = null;
 
     /**
@@ -136,7 +136,7 @@ class MediaContainer
      * @var ?bool $itemClusters
      */
     #[\JMS\Serializer\Annotation\SerializedName('itemClusters')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $itemClusters = null;
 
     /**
@@ -144,7 +144,7 @@ class MediaContainer
      * @var ?float $livetv
      */
     #[\JMS\Serializer\Annotation\SerializedName('livetv')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $livetv = null;
 
     /**
@@ -152,7 +152,7 @@ class MediaContainer
      * @var ?string $machineIdentifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
@@ -160,7 +160,7 @@ class MediaContainer
      * @var ?bool $mediaProviders
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaProviders')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $mediaProviders = null;
 
     /**
@@ -168,7 +168,7 @@ class MediaContainer
      * @var ?bool $multiuser
      */
     #[\JMS\Serializer\Annotation\SerializedName('multiuser')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $multiuser = null;
 
     /**
@@ -176,7 +176,7 @@ class MediaContainer
      * @var ?float $musicAnalysis
      */
     #[\JMS\Serializer\Annotation\SerializedName('musicAnalysis')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $musicAnalysis = null;
 
     /**
@@ -184,7 +184,7 @@ class MediaContainer
      * @var ?bool $myPlex
      */
     #[\JMS\Serializer\Annotation\SerializedName('myPlex')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $myPlex = null;
 
     /**
@@ -192,7 +192,7 @@ class MediaContainer
      * @var ?string $myPlexMappingState
      */
     #[\JMS\Serializer\Annotation\SerializedName('myPlexMappingState')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $myPlexMappingState = null;
 
     /**
@@ -200,7 +200,7 @@ class MediaContainer
      * @var ?string $myPlexSigninState
      */
     #[\JMS\Serializer\Annotation\SerializedName('myPlexSigninState')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $myPlexSigninState = null;
 
     /**
@@ -208,7 +208,7 @@ class MediaContainer
      * @var ?bool $myPlexSubscription
      */
     #[\JMS\Serializer\Annotation\SerializedName('myPlexSubscription')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $myPlexSubscription = null;
 
     /**
@@ -216,7 +216,7 @@ class MediaContainer
      * @var ?string $myPlexUsername
      */
     #[\JMS\Serializer\Annotation\SerializedName('myPlexUsername')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $myPlexUsername = null;
 
     /**
@@ -224,7 +224,7 @@ class MediaContainer
      * @var ?float $offlineTranscode
      */
     #[\JMS\Serializer\Annotation\SerializedName('offlineTranscode')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $offlineTranscode = null;
 
     /**
@@ -232,7 +232,7 @@ class MediaContainer
      * @var ?string $ownerFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('ownerFeatures')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $ownerFeatures = null;
 
     /**
@@ -240,7 +240,7 @@ class MediaContainer
      * @var ?bool $photoAutoTag
      */
     #[\JMS\Serializer\Annotation\SerializedName('photoAutoTag')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $photoAutoTag = null;
 
     /**
@@ -248,7 +248,7 @@ class MediaContainer
      * @var ?string $platform
      */
     #[\JMS\Serializer\Annotation\SerializedName('platform')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $platform = null;
 
     /**
@@ -256,7 +256,7 @@ class MediaContainer
      * @var ?string $platformVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $platformVersion = null;
 
     /**
@@ -264,7 +264,7 @@ class MediaContainer
      * @var ?bool $pluginHost
      */
     #[\JMS\Serializer\Annotation\SerializedName('pluginHost')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $pluginHost = null;
 
     /**
@@ -272,7 +272,7 @@ class MediaContainer
      * @var ?bool $pushNotifications
      */
     #[\JMS\Serializer\Annotation\SerializedName('pushNotifications')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $pushNotifications = null;
 
     /**
@@ -280,7 +280,7 @@ class MediaContainer
      * @var ?bool $readOnlyLibraries
      */
     #[\JMS\Serializer\Annotation\SerializedName('readOnlyLibraries')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $readOnlyLibraries = null;
 
     /**
@@ -288,7 +288,7 @@ class MediaContainer
      * @var ?float $streamingBrainABRVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamingBrainABRVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $streamingBrainABRVersion = null;
 
     /**
@@ -296,7 +296,7 @@ class MediaContainer
      * @var ?float $streamingBrainVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamingBrainVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $streamingBrainVersion = null;
 
     /**
@@ -304,7 +304,7 @@ class MediaContainer
      * @var ?bool $sync
      */
     #[\JMS\Serializer\Annotation\SerializedName('sync')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $sync = null;
 
     /**
@@ -312,7 +312,7 @@ class MediaContainer
      * @var ?float $transcoderActiveVideoSessions
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderActiveVideoSessions')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $transcoderActiveVideoSessions = null;
 
     /**
@@ -320,7 +320,7 @@ class MediaContainer
      * @var ?bool $transcoderAudio
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderAudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderAudio = null;
 
     /**
@@ -328,7 +328,7 @@ class MediaContainer
      * @var ?bool $transcoderLyrics
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderLyrics')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderLyrics = null;
 
     /**
@@ -336,7 +336,7 @@ class MediaContainer
      * @var ?bool $transcoderPhoto
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderPhoto')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderPhoto = null;
 
     /**
@@ -344,7 +344,7 @@ class MediaContainer
      * @var ?bool $transcoderSubtitles
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderSubtitles')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderSubtitles = null;
 
     /**
@@ -352,7 +352,7 @@ class MediaContainer
      * @var ?bool $transcoderVideo
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderVideo')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderVideo = null;
 
     /**
@@ -360,7 +360,7 @@ class MediaContainer
      * @var ?string $transcoderVideoBitrates
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoBitrates')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $transcoderVideoBitrates = null;
 
     /**
@@ -368,7 +368,7 @@ class MediaContainer
      * @var ?string $transcoderVideoQualities
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoQualities')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $transcoderVideoQualities = null;
 
     /**
@@ -376,7 +376,7 @@ class MediaContainer
      * @var ?string $transcoderVideoResolutions
      */
     #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoResolutions')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $transcoderVideoResolutions = null;
 
     /**
@@ -384,7 +384,7 @@ class MediaContainer
      * @var ?float $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $updatedAt = null;
 
     /**
@@ -392,7 +392,7 @@ class MediaContainer
      * @var ?bool $updater
      */
     #[\JMS\Serializer\Annotation\SerializedName('updater')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $updater = null;
 
     /**
@@ -400,7 +400,7 @@ class MediaContainer
      * @var ?string $version
      */
     #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
@@ -408,7 +408,7 @@ class MediaContainer
      * @var ?bool $voiceSearch
      */
     #[\JMS\Serializer\Annotation\SerializedName('voiceSearch')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $voiceSearch = null;
 
     /**
@@ -417,8 +417,8 @@ class MediaContainer
      * @var ?array<Directory> $directory
      */
     #[\JMS\Serializer\Annotation\SerializedName('Directory')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Directory>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Directory>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $directory = null;
 
     /**

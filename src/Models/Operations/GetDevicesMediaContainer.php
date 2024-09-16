@@ -16,7 +16,7 @@ class GetDevicesMediaContainer
      * @var ?float $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
@@ -24,7 +24,7 @@ class GetDevicesMediaContainer
      * @var ?string $identifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
@@ -33,8 +33,8 @@ class GetDevicesMediaContainer
      * @var ?array<Device> $device
      */
     #[\JMS\Serializer\Annotation\SerializedName('Device')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Device>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Device>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $device = null;
 
     /**

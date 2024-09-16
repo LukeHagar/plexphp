@@ -16,7 +16,7 @@ class CreatePlaylistMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -25,8 +25,8 @@ class CreatePlaylistMediaContainer
      * @var ?array<CreatePlaylistMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\CreatePlaylistMetadata>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\CreatePlaylistMetadata>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

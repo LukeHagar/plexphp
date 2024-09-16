@@ -36,11 +36,11 @@ class AddPlaylistContentsRequest
     public ?float $playQueueID = null;
 
     /**
-     * @param  ?float  $playlistID
-     * @param  ?string  $uri
+     * @param  float  $playlistID
+     * @param  string  $uri
      * @param  ?float  $playQueueID
      */
-    public function __construct(?float $playlistID = null, ?string $uri = null, ?float $playQueueID = null)
+    public function __construct(float $playlistID, string $uri, ?float $playQueueID = null)
     {
         $this->playlistID = $playlistID;
         $this->uri = $uri;

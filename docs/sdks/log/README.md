@@ -1,6 +1,5 @@
 # Log
 
-
 ## Overview
 
 Submit logs to the Log Handler for Plex Media Server
@@ -28,11 +27,12 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -55,16 +55,18 @@ try {
 | `message`                                                                                                     | *string*                                                                                                      | :heavy_check_mark:                                                                                            | The text of the message to write to the log.                                                                  | Test log message                                                                                              |
 | `source`                                                                                                      | *string*                                                                                                      | :heavy_check_mark:                                                                                            | a string indicating the source of the message.                                                                | Postman                                                                                                       |
 
-
 ### Response
 
 **[?Operations\LogLineResponse](../../Models/Operations/LogLineResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\LogLineResponseBody                    | 401                                           | application/json                              |
+| Errors\LogLineBadRequest                      | 400                                           | application/json                              |
+| Errors\LogLineUnauthorized                    | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## logMultiLine
 
@@ -101,11 +103,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -128,16 +131,18 @@ try {
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | `$request`                                 | [string](../../.md)                        | :heavy_check_mark:                         | The request object to use for the request. |
 
-
 ### Response
 
 **[?Operations\LogMultiLineResponse](../../Models/Operations/LogMultiLineResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\LogMultiLineResponseBody               | 401                                           | application/json                              |
+| Errors\LogMultiLineBadRequest                 | 400                                           | application/json                              |
+| Errors\LogMultiLineUnauthorized               | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## enablePaperTrail
 
@@ -154,11 +159,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -172,13 +178,14 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\EnablePaperTrailResponse](../../Models/Operations/EnablePaperTrailResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\EnablePaperTrailResponseBody           | 401                                           | application/json                              |
+| Errors\EnablePaperTrailBadRequest             | 400                                           | application/json                              |
+| Errors\EnablePaperTrailUnauthorized           | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

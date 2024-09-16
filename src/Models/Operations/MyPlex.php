@@ -16,7 +16,7 @@ class MyPlex
      * @var ?string $authToken
      */
     #[\JMS\Serializer\Annotation\SerializedName('authToken')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $authToken = null;
 
     /**
@@ -24,7 +24,7 @@ class MyPlex
      * @var ?string $username
      */
     #[\JMS\Serializer\Annotation\SerializedName('username')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $username = null;
 
     /**
@@ -32,7 +32,7 @@ class MyPlex
      * @var ?string $mappingState
      */
     #[\JMS\Serializer\Annotation\SerializedName('mappingState')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $mappingState = null;
 
     /**
@@ -40,7 +40,7 @@ class MyPlex
      * @var ?string $mappingError
      */
     #[\JMS\Serializer\Annotation\SerializedName('mappingError')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $mappingError = null;
 
     /**
@@ -48,7 +48,7 @@ class MyPlex
      * @var ?string $signInState
      */
     #[\JMS\Serializer\Annotation\SerializedName('signInState')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $signInState = null;
 
     /**
@@ -56,7 +56,7 @@ class MyPlex
      * @var ?string $publicAddress
      */
     #[\JMS\Serializer\Annotation\SerializedName('publicAddress')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $publicAddress = null;
 
     /**
@@ -64,7 +64,7 @@ class MyPlex
      * @var ?float $publicPort
      */
     #[\JMS\Serializer\Annotation\SerializedName('publicPort')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $publicPort = null;
 
     /**
@@ -72,7 +72,7 @@ class MyPlex
      * @var ?string $privateAddress
      */
     #[\JMS\Serializer\Annotation\SerializedName('privateAddress')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $privateAddress = null;
 
     /**
@@ -80,7 +80,7 @@ class MyPlex
      * @var ?float $privatePort
      */
     #[\JMS\Serializer\Annotation\SerializedName('privatePort')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $privatePort = null;
 
     /**
@@ -88,7 +88,7 @@ class MyPlex
      * @var ?string $subscriptionFeatures
      */
     #[\JMS\Serializer\Annotation\SerializedName('subscriptionFeatures')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $subscriptionFeatures = null;
 
     /**
@@ -96,7 +96,7 @@ class MyPlex
      * @var ?bool $subscriptionActive
      */
     #[\JMS\Serializer\Annotation\SerializedName('subscriptionActive')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $subscriptionActive = null;
 
     /**
@@ -104,7 +104,7 @@ class MyPlex
      * @var ?string $subscriptionState
      */
     #[\JMS\Serializer\Annotation\SerializedName('subscriptionState')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $subscriptionState = null;
 
     /**

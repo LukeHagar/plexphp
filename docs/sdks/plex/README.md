@@ -1,6 +1,5 @@
 # Plex
 
-
 ## Overview
 
 API Calls that perform operations directly against https://Plex.tv
@@ -8,9 +7,164 @@ API Calls that perform operations directly against https://Plex.tv
 
 ### Available Operations
 
+* [getCompanionsData](#getcompanionsdata) - Get Companions Data
+* [getUserFriends](#getuserfriends) - Get list of friends of the user logged in
+* [getGeoData](#getgeodata) - Get Geo Data
 * [getHomeData](#gethomedata) - Get Plex Home Data
+* [getServerResources](#getserverresources) - Get Server Resources
 * [getPin](#getpin) - Get a Pin
-* [getToken](#gettoken) - Get Access Token
+* [getTokenByPinId](#gettokenbypinid) - Get Access Token by PinId
+
+## getCompanionsData
+
+Get Companions Data
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setSecurity($security)->build();
+
+try {
+    $response = $sdk->plex->getCompanionsData();
+
+    if ($response->responseBodies !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                      | Type                           | Required                       | Description                    |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `$serverURL`                   | *string*                       | :heavy_minus_sign:             | An optional server URL to use. |
+
+### Response
+
+**[?Operations\GetCompanionsDataResponse](../../Models/Operations/GetCompanionsDataResponse.md)**
+
+### Errors
+
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetCompanionsDataBadRequest            | 400                                           | application/json                              |
+| Errors\GetCompanionsDataUnauthorized          | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
+
+## getUserFriends
+
+Get friends of provided auth token.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setSecurity($security)->build();
+
+try {
+    $response = $sdk->plex->getUserFriends();
+
+    if ($response->friends !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                      | Type                           | Required                       | Description                    |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `$serverURL`                   | *string*                       | :heavy_minus_sign:             | An optional server URL to use. |
+
+### Response
+
+**[?Operations\GetUserFriendsResponse](../../Models/Operations/GetUserFriendsResponse.md)**
+
+### Errors
+
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetUserFriendsBadRequest               | 400                                           | application/json                              |
+| Errors\GetUserFriendsUnauthorized             | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
+
+## getGeoData
+
+Returns the geolocation and locale data of the caller
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->build();
+
+try {
+    $response = $sdk->plex->getGeoData();
+
+    if ($response->geoData !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                      | Type                           | Required                       | Description                    |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `$serverURL`                   | *string*                       | :heavy_minus_sign:             | An optional server URL to use. |
+
+### Response
+
+**[?Operations\GetGeoDataResponse](../../Models/Operations/GetGeoDataResponse.md)**
+
+### Errors
+
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetGeoDataBadRequest                   | 400                                           | application/json                              |
+| Errors\GetGeoDataUnauthorized                 | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getHomeData
 
@@ -26,11 +180,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -44,16 +199,76 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetHomeDataResponse](../../Models/Operations/GetHomeDataResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetHomeDataResponseBody                | 401                                           | application/json                              |
+| Errors\GetHomeDataBadRequest                  | 400                                           | application/json                              |
+| Errors\GetHomeDataUnauthorized                | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
+
+## getServerResources
+
+Get Plex server access tokens and server connections
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setSecurity($security)->build();
+
+try {
+
+    $response = $sdk->plex->getServerResources('gcgzw5rz2xovp84b4vha3a40', Operations\IncludeHttps::One, Operations\IncludeRelay::One, Operations\IncludeIPv6::One);
+
+    if ($response->plexDevices !== null) {
+        // handle response
+    }
+} catch (Throwable $e) {
+    // handle exception
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
+| `includeHttps`                                                                                                                                                        | [Operations\IncludeHttps](../../Models/Operations/IncludeHttps.md)                                                                                                    | :heavy_minus_sign:                                                                                                                                                    | Include Https entries in the results                                                                                                                                  | 1                                                                                                                                                                     |
+| `includeRelay`                                                                                                                                                        | [Operations\IncludeRelay](../../Models/Operations/IncludeRelay.md)                                                                                                    | :heavy_minus_sign:                                                                                                                                                    | Include Relay addresses in the results <br/>E.g: https://10-0-0-25.bbf8e10c7fa20447cacee74cd9914cde.plex.direct:32400<br/>                                            | 1                                                                                                                                                                     |
+| `includeIPv6`                                                                                                                                                         | [Operations\IncludeIPv6](../../Models/Operations/IncludeIPv6.md)                                                                                                      | :heavy_minus_sign:                                                                                                                                                    | Include IPv6 entries in the results                                                                                                                                   | 1                                                                                                                                                                     |
+| `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
+
+### Response
+
+**[?Operations\GetServerResourcesResponse](../../Models/Operations/GetServerResourcesResponse.md)**
+
+### Errors
+
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetServerResourcesBadRequest           | 400                                           | application/json                              |
+| Errors\GetServerResourcesUnauthorized         | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## getPin
 
@@ -69,14 +284,14 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->build();
 
 try {
 
-    $response = $sdk->plex->getPin('Postman', false, 'Postman');
+    $response = $sdk->plex->getPin(false, 'gcgzw5rz2xovp84b4vha3a40', 'Plex Web');
 
-    if ($response->object !== null) {
+    if ($response->authPinContainer !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -88,25 +303,26 @@ try {
 
 | Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `xPlexProduct`                                                                                                                                                        | *string*                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                    | Product name of the application shown in the list of devices<br/>                                                                                                     | Postman                                                                                                                                                               |
 | `strong`                                                                                                                                                              | *bool*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                    | Determines the kind of code returned by the API call<br/>Strong codes are used for Pin authentication flows<br/>Non-Strong codes are used for `Plex.tv/link`<br/>     |                                                                                                                                                                       |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | Postman                                                                                                                                                               |
+| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
+| `xPlexProduct`                                                                                                                                                        | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | N/A                                                                                                                                                                   | Plex Web                                                                                                                                                              |
 | `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
-
 
 ### Response
 
 **[?Operations\GetPinResponse](../../Models/Operations/GetPinResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetPinResponseBody                     | 400                                           | application/json                              |
+| Errors\GetPinBadRequest                       | 400                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
-## getToken
 
-Retrieve an Access Token from Plex.tv after the Pin has already been authenticated
+## getTokenByPinId
+
+Retrieve an Access Token from Plex.tv after the Pin has been authenticated
 
 ### Example Usage
 
@@ -118,14 +334,14 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->build();
 
 try {
 
-    $response = $sdk->plex->getToken('<value>', 'Postman');
+    $response = $sdk->plex->getTokenByPinId(408895, 'gcgzw5rz2xovp84b4vha3a40');
 
-    if ($response->object !== null) {
+    if ($response->authPinContainer !== null) {
         // handle response
     }
 } catch (Throwable $e) {
@@ -137,17 +353,18 @@ try {
 
 | Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pinID`                                                                                                                                                               | *string*                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                    | The PinID to retrieve an access token for                                                                                                                             |                                                                                                                                                                       |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | Postman                                                                                                                                                               |
+| `pinID`                                                                                                                                                               | *int*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                    | The PinID to retrieve an access token for                                                                                                                             |                                                                                                                                                                       |
+| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
 | `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
-
 
 ### Response
 
-**[?Operations\GetTokenResponse](../../Models/Operations/GetTokenResponse.md)**
+**[?Operations\GetTokenByPinIdResponse](../../Models/Operations/GetTokenByPinIdResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTokenResponseBody                   | 400                                           | application/json                              |
+| Errors\GetTokenByPinIdBadRequest              | 400                                           | application/json                              |
+| Errors\GetTokenByPinIdResponseBody            | 404                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

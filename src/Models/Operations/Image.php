@@ -16,7 +16,7 @@ class Image
      * @var ?string $alt
      */
     #[\JMS\Serializer\Annotation\SerializedName('alt')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $alt = null;
 
     /**
@@ -24,7 +24,7 @@ class Image
      * @var ?string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -32,7 +32,7 @@ class Image
      * @var ?string $url
      */
     #[\JMS\Serializer\Annotation\SerializedName('url')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $url = null;
 
     /**

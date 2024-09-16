@@ -16,7 +16,7 @@ class Release
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -24,7 +24,7 @@ class Release
      * @var ?string $version
      */
     #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
@@ -32,7 +32,7 @@ class Release
      * @var ?string $added
      */
     #[\JMS\Serializer\Annotation\SerializedName('added')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $added = null;
 
     /**
@@ -40,7 +40,7 @@ class Release
      * @var ?string $fixed
      */
     #[\JMS\Serializer\Annotation\SerializedName('fixed')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $fixed = null;
 
     /**
@@ -48,7 +48,7 @@ class Release
      * @var ?string $downloadURL
      */
     #[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $downloadURL = null;
 
     /**
@@ -56,7 +56,7 @@ class Release
      * @var ?string $state
      */
     #[\JMS\Serializer\Annotation\SerializedName('state')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $state = null;
 
     /**

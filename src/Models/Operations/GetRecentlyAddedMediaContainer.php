@@ -16,7 +16,7 @@ class GetRecentlyAddedMediaContainer
      * @var ?float $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
@@ -24,7 +24,7 @@ class GetRecentlyAddedMediaContainer
      * @var ?bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
@@ -32,7 +32,7 @@ class GetRecentlyAddedMediaContainer
      * @var ?string $identifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
@@ -40,7 +40,7 @@ class GetRecentlyAddedMediaContainer
      * @var ?string $mediaTagPrefix
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $mediaTagPrefix = null;
 
     /**
@@ -48,7 +48,7 @@ class GetRecentlyAddedMediaContainer
      * @var ?float $mediaTagVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $mediaTagVersion = null;
 
     /**
@@ -56,7 +56,7 @@ class GetRecentlyAddedMediaContainer
      * @var ?bool $mixedParents
      */
     #[\JMS\Serializer\Annotation\SerializedName('mixedParents')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $mixedParents = null;
 
     /**
@@ -65,8 +65,8 @@ class GetRecentlyAddedMediaContainer
      * @var ?array<GetRecentlyAddedMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedMetadata>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedMetadata>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

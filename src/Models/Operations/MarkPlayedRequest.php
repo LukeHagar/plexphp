@@ -20,9 +20,9 @@ class MarkPlayedRequest
     public float $key;
 
     /**
-     * @param  ?float  $key
+     * @param  float  $key
      */
-    public function __construct(?float $key = null)
+    public function __construct(float $key)
     {
         $this->key = $key;
     }

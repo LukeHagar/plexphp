@@ -1,6 +1,5 @@
 # Watchlist
 
-
 ## Overview
 
 API Calls that perform operations with Plex Media Server Watchlists
@@ -8,9 +7,9 @@ API Calls that perform operations with Plex Media Server Watchlists
 
 ### Available Operations
 
-* [getWatchlist](#getwatchlist) - Get User Watchlist
+* [getWatchList](#getwatchlist) - Get User Watchlist
 
-## getWatchlist
+## getWatchList
 
 Get User Watchlist
 
@@ -25,26 +24,22 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
-    $request = new Operations\GetWatchlistRequest(
-        filter: Operations\PathParamFilter::Released,
-        xPlexToken: '<value>',
-        sort: '<value>',
-        libtype: Operations\Libtype::Movie,
-        maxresults: 303056,
-        includeCollections: Operations\IncludeCollections::Zero,
-        includeExternalMedia: Operations\IncludeExternalMedia::One,
-        xPlexContainerStart: 406911,
-        xPlexContainerSize: 958629,
+    $request = new Operations\GetWatchListRequest(
+        filter: Operations\Filter::Available,
+        xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
+        xPlexContainerStart: 0,
+        xPlexContainerSize: 50,
     );
-    $response = $sdk->watchlist->getWatchlist($request);
+    $response = $sdk->watchlist->getWatchList($request);
 
     if ($response->object !== null) {
         // handle response
@@ -58,16 +53,17 @@ try {
 
 | Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `$request`                                                                       | [Operations\GetWatchlistRequest](../../Models/Operations/GetWatchlistRequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `$request`                                                                       | [Operations\GetWatchListRequest](../../Models/Operations/GetWatchListRequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 | `$serverURL`                                                                     | *string*                                                                         | :heavy_minus_sign:                                                               | An optional server URL to use.                                                   |
-
 
 ### Response
 
-**[?Operations\GetWatchlistResponse](../../Models/Operations/GetWatchlistResponse.md)**
+**[?Operations\GetWatchListResponse](../../Models/Operations/GetWatchListResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetWatchlistResponseBody               | 401                                           | application/json                              |
+| Errors\GetWatchListBadRequest                 | 400                                           | application/json                              |
+| Errors\GetWatchListUnauthorized               | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

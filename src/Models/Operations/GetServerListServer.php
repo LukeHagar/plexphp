@@ -16,7 +16,7 @@ class GetServerListServer
      * @var ?string $name
      */
     #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
@@ -24,7 +24,7 @@ class GetServerListServer
      * @var ?string $host
      */
     #[\JMS\Serializer\Annotation\SerializedName('host')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $host = null;
 
     /**
@@ -32,7 +32,7 @@ class GetServerListServer
      * @var ?string $address
      */
     #[\JMS\Serializer\Annotation\SerializedName('address')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $address = null;
 
     /**
@@ -40,7 +40,7 @@ class GetServerListServer
      * @var ?float $port
      */
     #[\JMS\Serializer\Annotation\SerializedName('port')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $port = null;
 
     /**
@@ -48,7 +48,7 @@ class GetServerListServer
      * @var ?string $machineIdentifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
@@ -56,7 +56,7 @@ class GetServerListServer
      * @var ?string $version
      */
     #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**

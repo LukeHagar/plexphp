@@ -16,7 +16,7 @@ class StatisticsResources
      * @var ?int $timespan
      */
     #[\JMS\Serializer\Annotation\SerializedName('timespan')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $timespan = null;
 
     /**
@@ -24,7 +24,7 @@ class StatisticsResources
      * @var ?int $at
      */
     #[\JMS\Serializer\Annotation\SerializedName('at')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $at = null;
 
     /**
@@ -32,7 +32,7 @@ class StatisticsResources
      * @var ?float $hostCpuUtilization
      */
     #[\JMS\Serializer\Annotation\SerializedName('hostCpuUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $hostCpuUtilization = null;
 
     /**
@@ -40,7 +40,7 @@ class StatisticsResources
      * @var ?float $processCpuUtilization
      */
     #[\JMS\Serializer\Annotation\SerializedName('processCpuUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $processCpuUtilization = null;
 
     /**
@@ -48,7 +48,7 @@ class StatisticsResources
      * @var ?float $hostMemoryUtilization
      */
     #[\JMS\Serializer\Annotation\SerializedName('hostMemoryUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $hostMemoryUtilization = null;
 
     /**
@@ -56,7 +56,7 @@ class StatisticsResources
      * @var ?float $processMemoryUtilization
      */
     #[\JMS\Serializer\Annotation\SerializedName('processMemoryUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $processMemoryUtilization = null;
 
     /**

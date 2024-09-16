@@ -16,7 +16,7 @@ class Stream
      * @var ?int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
@@ -24,7 +24,7 @@ class Stream
      * @var ?int $streamType
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $streamType = null;
 
     /**
@@ -32,7 +32,7 @@ class Stream
      * @var ?bool $default
      */
     #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $default = null;
 
     /**
@@ -40,7 +40,7 @@ class Stream
      * @var ?string $codec
      */
     #[\JMS\Serializer\Annotation\SerializedName('codec')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $codec = null;
 
     /**
@@ -48,7 +48,7 @@ class Stream
      * @var ?int $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
@@ -56,7 +56,7 @@ class Stream
      * @var ?int $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $bitrate = null;
 
     /**
@@ -64,7 +64,7 @@ class Stream
      * @var ?int $bitDepth
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $bitDepth = null;
 
     /**
@@ -72,7 +72,7 @@ class Stream
      * @var ?string $chromaLocation
      */
     #[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $chromaLocation = null;
 
     /**
@@ -80,7 +80,7 @@ class Stream
      * @var ?string $chromaSubsampling
      */
     #[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $chromaSubsampling = null;
 
     /**
@@ -88,7 +88,7 @@ class Stream
      * @var ?int $codedHeight
      */
     #[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $codedHeight = null;
 
     /**
@@ -96,7 +96,7 @@ class Stream
      * @var ?int $codedWidth
      */
     #[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $codedWidth = null;
 
     /**
@@ -104,7 +104,7 @@ class Stream
      * @var ?string $colorPrimaries
      */
     #[\JMS\Serializer\Annotation\SerializedName('colorPrimaries')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $colorPrimaries = null;
 
     /**
@@ -112,7 +112,7 @@ class Stream
      * @var ?string $colorRange
      */
     #[\JMS\Serializer\Annotation\SerializedName('colorRange')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $colorRange = null;
 
     /**
@@ -120,7 +120,7 @@ class Stream
      * @var ?string $colorSpace
      */
     #[\JMS\Serializer\Annotation\SerializedName('colorSpace')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $colorSpace = null;
 
     /**
@@ -128,7 +128,7 @@ class Stream
      * @var ?string $colorTrc
      */
     #[\JMS\Serializer\Annotation\SerializedName('colorTrc')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $colorTrc = null;
 
     /**
@@ -136,7 +136,7 @@ class Stream
      * @var ?int $frameRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('frameRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $frameRate = null;
 
     /**
@@ -144,7 +144,7 @@ class Stream
      * @var ?bool $hasScalingMatrix
      */
     #[\JMS\Serializer\Annotation\SerializedName('hasScalingMatrix')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $hasScalingMatrix = null;
 
     /**
@@ -152,7 +152,7 @@ class Stream
      * @var ?int $height
      */
     #[\JMS\Serializer\Annotation\SerializedName('height')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $height = null;
 
     /**
@@ -160,7 +160,7 @@ class Stream
      * @var ?int $level
      */
     #[\JMS\Serializer\Annotation\SerializedName('level')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $level = null;
 
     /**
@@ -168,7 +168,7 @@ class Stream
      * @var ?string $profile
      */
     #[\JMS\Serializer\Annotation\SerializedName('profile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $profile = null;
 
     /**
@@ -176,7 +176,7 @@ class Stream
      * @var ?int $refFrames
      */
     #[\JMS\Serializer\Annotation\SerializedName('refFrames')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $refFrames = null;
 
     /**
@@ -184,7 +184,7 @@ class Stream
      * @var ?string $scanType
      */
     #[\JMS\Serializer\Annotation\SerializedName('scanType')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $scanType = null;
 
     /**
@@ -192,7 +192,7 @@ class Stream
      * @var ?string $streamIdentifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $streamIdentifier = null;
 
     /**
@@ -200,7 +200,7 @@ class Stream
      * @var ?int $width
      */
     #[\JMS\Serializer\Annotation\SerializedName('width')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $width = null;
 
     /**
@@ -208,7 +208,7 @@ class Stream
      * @var ?string $displayTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $displayTitle = null;
 
     /**
@@ -216,7 +216,7 @@ class Stream
      * @var ?string $extendedDisplayTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $extendedDisplayTitle = null;
 
     /**
@@ -224,7 +224,7 @@ class Stream
      * @var ?bool $selected
      */
     #[\JMS\Serializer\Annotation\SerializedName('selected')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $selected = null;
 
     /**
@@ -232,7 +232,7 @@ class Stream
      * @var ?int $channels
      */
     #[\JMS\Serializer\Annotation\SerializedName('channels')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $channels = null;
 
     /**
@@ -240,7 +240,7 @@ class Stream
      * @var ?string $language
      */
     #[\JMS\Serializer\Annotation\SerializedName('language')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $language = null;
 
     /**
@@ -248,7 +248,7 @@ class Stream
      * @var ?string $languageTag
      */
     #[\JMS\Serializer\Annotation\SerializedName('languageTag')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $languageTag = null;
 
     /**
@@ -256,7 +256,7 @@ class Stream
      * @var ?string $languageCode
      */
     #[\JMS\Serializer\Annotation\SerializedName('languageCode')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $languageCode = null;
 
     /**
@@ -264,7 +264,7 @@ class Stream
      * @var ?int $samplingRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('samplingRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $samplingRate = null;
 
     /**

@@ -16,7 +16,7 @@ class GetServerIdentityMediaContainer
      * @var ?float $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
@@ -24,7 +24,7 @@ class GetServerIdentityMediaContainer
      * @var ?bool $claimed
      */
     #[\JMS\Serializer\Annotation\SerializedName('claimed')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $claimed = null;
 
     /**
@@ -32,7 +32,7 @@ class GetServerIdentityMediaContainer
      * @var ?string $machineIdentifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
@@ -40,7 +40,7 @@ class GetServerIdentityMediaContainer
      * @var ?string $version
      */
     #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**

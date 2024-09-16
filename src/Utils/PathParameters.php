@@ -26,7 +26,10 @@ class PathParameters
 
         foreach ($fields as $field) {
             $value = $pathParams !== null ? $pathParams->{$field} : null;
-            $value = populateGlobal($value, 'pathParam', $field, $globals);
+
+            if ($globals !== null) {
+                $value = populateGlobal($value, 'pathParam', $field, $globals);
+            }
 
             if ($value === null) {
                 continue;

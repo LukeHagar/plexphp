@@ -20,9 +20,9 @@ class GetSearchResultsRequest
     public string $query;
 
     /**
-     * @param  ?string  $query
+     * @param  string  $query
      */
-    public function __construct(?string $query = null)
+    public function __construct(string $query)
     {
         $this->query = $query;
     }

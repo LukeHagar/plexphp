@@ -40,12 +40,12 @@ class GetServerListResponse
     public ?GetServerListResponseBody $object = null;
 
     /**
-     * @param  ?string  $contentType
-     * @param  ?int  $statusCode
-     * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @param  string  $contentType
+     * @param  int  $statusCode
+     * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetServerListResponseBody  $object
      */
-    public function __construct(?string $contentType = null, ?int $statusCode = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null, ?GetServerListResponseBody $object = null)
+    public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetServerListResponseBody $object = null)
     {
         $this->contentType = $contentType;
         $this->statusCode = $statusCode;

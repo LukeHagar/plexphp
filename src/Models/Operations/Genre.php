@@ -16,7 +16,7 @@ class Genre
      * @var ?string $tag
      */
     #[\JMS\Serializer\Annotation\SerializedName('tag')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tag = null;
 
     /**

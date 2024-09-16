@@ -1,6 +1,5 @@
 # Activities
 
-
 ## Overview
 
 Activities are awesome. They provide a way to monitor and control asynchronous operations on the server. In order to receive real-time updates for activities, a client would normally subscribe via either EventSource or Websocket endpoints.
@@ -31,11 +30,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -49,16 +49,18 @@ try {
 }
 ```
 
-
 ### Response
 
 **[?Operations\GetServerActivitiesResponse](../../Models/Operations/GetServerActivitiesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerActivitiesResponseBody        | 401                                           | application/json                              |
+| Errors\GetServerActivitiesBadRequest          | 400                                           | application/json                              |
+| Errors\GetServerActivitiesUnauthorized        | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
 
 ## cancelServerActivities
 
@@ -74,11 +76,12 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security();
-$security->accessToken = '<YOUR_API_KEY_HERE>';
+$security = new Components\Security(
+    accessToken: "<YOUR_API_KEY_HERE>",
+);
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('Postman')
+    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
     ->setSecurity($security)->build();
 
 try {
@@ -99,13 +102,14 @@ try {
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
 | `activityUUID`                       | *string*                             | :heavy_check_mark:                   | The UUID of the activity to cancel.  | 25b71ed5-0f9d-461c-baa7-d404e9e10d3e |
 
-
 ### Response
 
 **[?Operations\CancelServerActivitiesResponse](../../Models/Operations/CancelServerActivitiesResponse.md)**
+
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\CancelServerActivitiesResponseBody     | 401                                           | application/json                              |
+| Errors\CancelServerActivitiesBadRequest       | 400                                           | application/json                              |
+| Errors\CancelServerActivitiesUnauthorized     | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |

@@ -13,22 +13,236 @@ use LukeHagar\Plex_API\Models\Operations;
 
 class Plex
 {
+    public const GET_COMPANIONS_DATA_SERVERS = [
+
+        'https://plex.tv/api/v2/',
+    ];
+    public const GET_USER_FRIENDS_SERVERS = [
+
+        'https://plex.tv/api/v2/',
+    ];
+    public const GET_GEO_DATA_SERVERS = [
+
+        'https://plex.tv/api/v2/',
+    ];
+    public const GET_SERVER_RESOURCES_SERVERS = [
+
+        'https://plex.tv/api/v2/',
+    ];
     public const GET_PIN_SERVERS = [
 
-        'https://plex.tv/api/v2',
+        'https://plex.tv/api/v2/',
     ];
-    public const GET_TOKEN_SERVERS = [
+    public const GET_TOKEN_BY_PIN_ID_SERVERS = [
 
-        'https://plex.tv/api/v2',
+        'https://plex.tv/api/v2/',
     ];
     private SDKConfiguration $sdkConfiguration;
-
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
     public function __construct(SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
+    }
+
+    /**
+     * Get Companions Data
+     *
+     * Get Companions Data
+     *
+     * @param  string  $serverURL
+     * @return Operations\GetCompanionsDataResponse
+     * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
+     */
+    public function getCompanionsData(
+        ?string $serverURL = null,
+    ): Operations\GetCompanionsDataResponse {
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_COMPANIONS_DATA_SERVERS[0], [
+        ]);
+        if (! empty($serverURL)) {
+            $baseUrl = $serverURL;
+        }
+        $url = Utils\Utils::generateUrl($baseUrl, '/companions');
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\LukeHagar\Plex_API\Models\Operations\ResponseBody>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetCompanionsDataResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    responseBodies: $obj);
+
+                return $response;
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetCompanionsDataBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetCompanionsDataUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get list of friends of the user logged in
+     *
+     * Get friends of provided auth token.
+     *
+     * @param  string  $serverURL
+     * @return Operations\GetUserFriendsResponse
+     * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
+     */
+    public function getUserFriends(
+        ?string $serverURL = null,
+    ): Operations\GetUserFriendsResponse {
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_USER_FRIENDS_SERVERS[0], [
+        ]);
+        if (! empty($serverURL)) {
+            $baseUrl = $serverURL;
+        }
+        $url = Utils\Utils::generateUrl($baseUrl, '/friends');
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\LukeHagar\Plex_API\Models\Operations\Friend>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetUserFriendsResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    friends: $obj);
+
+                return $response;
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetUserFriendsBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetUserFriendsUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get Geo Data
+     *
+     * Returns the geolocation and locale data of the caller
+     *
+     * @param  string  $serverURL
+     * @return Operations\GetGeoDataResponse
+     * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
+     */
+    public function getGeoData(
+        ?string $serverURL = null,
+    ): Operations\GetGeoDataResponse {
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_GEO_DATA_SERVERS[0], [
+        ]);
+        if (! empty($serverURL)) {
+            $baseUrl = $serverURL;
+        }
+        $url = Utils\Utils::generateUrl($baseUrl, '/geoip');
+        $options = ['http_errors' => false];
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $httpResponse = $this->sdkConfiguration->defaultClient->send($httpRequest, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetGeoDataGeoData', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetGeoDataResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    geoData: $obj);
+
+                return $response;
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetGeoDataBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetGeoDataUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
     }
 
     /**
@@ -67,17 +281,108 @@ class Plex
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
-        } elseif ($statusCode == 400 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
-            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
-        } elseif ($statusCode == 401) {
+        } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetHomeDataResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetHomeDataBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetHomeDataUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
+     * Get Server Resources
+     *
+     * Get Plex server access tokens and server connections
+     *
+     * @param  ?string  $xPlexClientIdentifier
+     * @param  ?Operations\IncludeHttps  $includeHttps
+     * @param  ?Operations\IncludeRelay  $includeRelay
+     * @param  ?Operations\IncludeIPv6  $includeIPv6
+     * @param  string  $serverURL
+     * @return Operations\GetServerResourcesResponse
+     * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
+     */
+    public function getServerResources(
+        ?string $xPlexClientIdentifier = null,
+        ?Operations\IncludeHttps $includeHttps = null,
+        ?Operations\IncludeRelay $includeRelay = null,
+        ?Operations\IncludeIPv6 $includeIPv6 = null,
+        ?string $serverURL = null,
+    ): Operations\GetServerResourcesResponse {
+        $request = new Operations\GetServerResourcesRequest(
+            xPlexClientIdentifier: $xPlexClientIdentifier,
+            includeHttps: $includeHttps,
+            includeRelay: $includeRelay,
+            includeIPv6: $includeIPv6,
+        );
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_SERVER_RESOURCES_SERVERS[0], [
+        ]);
+        if (! empty($serverURL)) {
+            $baseUrl = $serverURL;
+        }
+        $url = Utils\Utils::generateUrl($baseUrl, '/resources');
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetServerResourcesRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), 'array<\LukeHagar\Plex_API\Models\Operations\PlexDevice>', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetServerResourcesResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    plexDevices: $obj);
+
+                return $response;
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetServerResourcesBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 401) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetServerResourcesUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         } else {
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
@@ -88,23 +393,23 @@ class Plex
      *
      * Retrieve a Pin from Plex.tv for authentication flows
      *
-     * @param  string  $xPlexProduct
      * @param  ?bool  $strong
      * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $xPlexProduct
      * @param  string  $serverURL
      * @return Operations\GetPinResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getPin(
-        string $xPlexProduct,
         ?bool $strong = null,
         ?string $xPlexClientIdentifier = null,
+        ?string $xPlexProduct = null,
         ?string $serverURL = null,
     ): Operations\GetPinResponse {
         $request = new Operations\GetPinRequest(
-            xPlexProduct: $xPlexProduct,
             strong: $strong,
             xPlexClientIdentifier: $xPlexClientIdentifier,
+            xPlexProduct: $xPlexProduct,
         );
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], [
         ]);
@@ -114,10 +419,6 @@ class Plex
         $url = Utils\Utils::generateUrl($baseUrl, '/pins');
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetPinRequest::class, $request, $this->sdkConfiguration->globals));
-        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $options)) {
-            $options['headers'] = [];
-        }
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);
@@ -125,15 +426,15 @@ class Plex
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 201) {
+        if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetPinResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetPinAuthPinContainer', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $response = new Operations\GetPinResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    object: $obj);
+                    authPinContainer: $obj);
 
                 return $response;
             } else {
@@ -142,9 +443,9 @@ class Plex
         } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetPinResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetPinBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
@@ -156,36 +457,33 @@ class Plex
     }
 
     /**
-     * Get Access Token
+     * Get Access Token by PinId
      *
-     * Retrieve an Access Token from Plex.tv after the Pin has already been authenticated
+     * Retrieve an Access Token from Plex.tv after the Pin has been authenticated
      *
-     * @param  string  $pinID
+     * @param  int  $pinID
      * @param  ?string  $xPlexClientIdentifier
      * @param  string  $serverURL
-     * @return Operations\GetTokenResponse
+     * @return Operations\GetTokenByPinIdResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getToken(
-        string $pinID,
+    public function getTokenByPinId(
+        int $pinID,
         ?string $xPlexClientIdentifier = null,
         ?string $serverURL = null,
-    ): Operations\GetTokenResponse {
-        $request = new Operations\GetTokenRequest(
+    ): Operations\GetTokenByPinIdResponse {
+        $request = new Operations\GetTokenByPinIdRequest(
             pinID: $pinID,
             xPlexClientIdentifier: $xPlexClientIdentifier,
         );
-        $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_SERVERS[0], [
+        $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_BY_PIN_ID_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
             $baseUrl = $serverURL;
         }
-        $url = Utils\Utils::generateUrl($baseUrl, '/pins/{pinID}', Operations\GetTokenRequest::class, $request, $this->sdkConfiguration->globals);
+        $url = Utils\Utils::generateUrl($baseUrl, '/pins/{pinID}', Operations\GetTokenByPinIdRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
-        if (! array_key_exists('headers', $options)) {
-            $options['headers'] = [];
-        }
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetTokenByPinIdRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -196,12 +494,12 @@ class Plex
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetTokenResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetTokenResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetTokenByPinIdAuthPinContainer', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetTokenByPinIdResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
-                    object: $obj);
+                    authPinContainer: $obj);
 
                 return $response;
             } else {
@@ -210,9 +508,18 @@ class Plex
         } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetTokenResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetTokenByPinIdBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
-                throw $obj;
+                throw $obj->toException();
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 404) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetTokenByPinIdResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj->rawResponse = $httpResponse;
+                throw $obj->toException();
             } else {
                 throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
             }
@@ -222,4 +529,5 @@ class Plex
             throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
         }
     }
+
 }

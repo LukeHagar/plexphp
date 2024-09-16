@@ -16,7 +16,7 @@ class Part
      * @var ?float $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $id = null;
 
     /**
@@ -24,7 +24,7 @@ class Part
      * @var ?string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
@@ -32,7 +32,7 @@ class Part
      * @var ?float $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $duration = null;
 
     /**
@@ -40,7 +40,7 @@ class Part
      * @var ?string $file
      */
     #[\JMS\Serializer\Annotation\SerializedName('file')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $file = null;
 
     /**
@@ -48,7 +48,7 @@ class Part
      * @var ?float $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
@@ -56,7 +56,7 @@ class Part
      * @var ?string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
@@ -64,7 +64,7 @@ class Part
      * @var ?bool $has64bitOffsets
      */
     #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $has64bitOffsets = null;
 
     /**
@@ -72,7 +72,7 @@ class Part
      * @var ?float $hasThumbnail
      */
     #[\JMS\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?float $hasThumbnail = null;
 
     /**
@@ -80,7 +80,7 @@ class Part
      * @var ?bool $optimizedForStreaming
      */
     #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?bool $optimizedForStreaming = null;
 
     /**
@@ -88,7 +88,7 @@ class Part
      * @var ?string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $videoProfile = null;
 
     /**

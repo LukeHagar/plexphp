@@ -16,7 +16,7 @@ class GetBandwidthStatisticsMediaContainer
      * @var ?int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -25,8 +25,8 @@ class GetBandwidthStatisticsMediaContainer
      * @var ?array<GetBandwidthStatisticsDevice> $device
      */
     #[\JMS\Serializer\Annotation\SerializedName('Device')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsDevice>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsDevice>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $device = null;
 
     /**
@@ -35,8 +35,8 @@ class GetBandwidthStatisticsMediaContainer
      * @var ?array<GetBandwidthStatisticsAccount> $account
      */
     #[\JMS\Serializer\Annotation\SerializedName('Account')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsAccount>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsAccount>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $account = null;
 
     /**
@@ -45,8 +45,8 @@ class GetBandwidthStatisticsMediaContainer
      * @var ?array<StatisticsBandwidth> $statisticsBandwidth
      */
     #[\JMS\Serializer\Annotation\SerializedName('StatisticsBandwidth')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsBandwidth>')]
-    #[\JMS\Serializer\Annotation\SkipWhenEmpty]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsBandwidth>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $statisticsBandwidth = null;
 
     /**

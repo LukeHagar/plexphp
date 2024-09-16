@@ -20,9 +20,9 @@ class GetSourceConnectionInformationRequest
     public string $source;
 
     /**
-     * @param  ?string  $source
+     * @param  string  $source
      */
-    public function __construct(?string $source = null)
+    public function __construct(string $source)
     {
         $this->source = $source;
     }

@@ -20,18 +20,25 @@ class GetPlaylistContentsRequest
     public float $playlistID;
 
     /**
-     * the metadata type of the item to return
+     * The type of media to retrieve.
      *
-     * @var float $type
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var GetPlaylistContentsQueryParamType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public float $type;
+    public GetPlaylistContentsQueryParamType $type;
 
     /**
-     * @param  ?float  $playlistID
-     * @param  ?float  $type
+     * @param  float  $playlistID
+     * @param  GetPlaylistContentsQueryParamType  $type
      */
-    public function __construct(?float $playlistID = null, ?float $type = null)
+    public function __construct(float $playlistID, GetPlaylistContentsQueryParamType $type)
     {
         $this->playlistID = $playlistID;
         $this->type = $type;
