@@ -142,18 +142,82 @@ class PlexAPIBuilder
         return $this;
     }
     /**
-     * setXPlexClientIdentifier is used to configure the X-Plex-Client-Identifier parameter for the SDK.
+     * setClientID is used to configure the ClientID parameter for the SDK.
      *
-     * @param  string  $xPlexClientIdentifier
+     * @param  string  $clientID
      * @return PlexAPIBuilder
      */
-    public function setXPlexClientIdentifier(string $xPlexClientIdentifier): PlexAPIBuilder
+    public function setClientID(string $clientID): PlexAPIBuilder
     {
         if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
             $this->sdkConfig->globals['parameters']['queryParam'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['queryParam']['xPlexClientIdentifier'] = $xPlexClientIdentifier;
+        $this->sdkConfig->globals['parameters']['queryParam']['clientID'] = $clientID;
+
+        return $this;
+    }
+    /**
+     * setClientName is used to configure the ClientName parameter for the SDK.
+     *
+     * @param  string  $clientName
+     * @return PlexAPIBuilder
+     */
+    public function setClientName(string $clientName): PlexAPIBuilder
+    {
+        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        }
+
+        $this->sdkConfig->globals['parameters']['queryParam']['clientName'] = $clientName;
+
+        return $this;
+    }
+    /**
+     * setClientVersion is used to configure the ClientVersion parameter for the SDK.
+     *
+     * @param  string  $clientVersion
+     * @return PlexAPIBuilder
+     */
+    public function setClientVersion(string $clientVersion): PlexAPIBuilder
+    {
+        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        }
+
+        $this->sdkConfig->globals['parameters']['queryParam']['clientVersion'] = $clientVersion;
+
+        return $this;
+    }
+    /**
+     * setClientPlatform is used to configure the ClientPlatform parameter for the SDK.
+     *
+     * @param  string  $clientPlatform
+     * @return PlexAPIBuilder
+     */
+    public function setClientPlatform(string $clientPlatform): PlexAPIBuilder
+    {
+        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        }
+
+        $this->sdkConfig->globals['parameters']['queryParam']['clientPlatform'] = $clientPlatform;
+
+        return $this;
+    }
+    /**
+     * setDeviceName is used to configure the DeviceName parameter for the SDK.
+     *
+     * @param  string  $deviceName
+     * @return PlexAPIBuilder
+     */
+    public function setDeviceName(string $deviceName): PlexAPIBuilder
+    {
+        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        }
+
+        $this->sdkConfig->globals['parameters']['queryParam']['deviceName'] = $deviceName;
 
         return $this;
     }

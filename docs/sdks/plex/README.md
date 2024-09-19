@@ -34,7 +34,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -86,7 +90,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -133,7 +141,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->build();
 
 try {
@@ -185,7 +197,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -232,7 +248,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -251,7 +271,7 @@ try {
 
 | Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
+| `clientID`                                                                                                                                                            | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
 | `includeHttps`                                                                                                                                                        | [Operations\IncludeHttps](../../Models/Operations/IncludeHttps.md)                                                                                                    | :heavy_minus_sign:                                                                                                                                                    | Include Https entries in the results                                                                                                                                  | 1                                                                                                                                                                     |
 | `includeRelay`                                                                                                                                                        | [Operations\IncludeRelay](../../Models/Operations/IncludeRelay.md)                                                                                                    | :heavy_minus_sign:                                                                                                                                                    | Include Relay addresses in the results <br/>E.g: https://10-0-0-25.bbf8e10c7fa20447cacee74cd9914cde.plex.direct:32400<br/>                                            | 1                                                                                                                                                                     |
 | `includeIPv6`                                                                                                                                                         | [Operations\IncludeIPv6](../../Models/Operations/IncludeIPv6.md)                                                                                                      | :heavy_minus_sign:                                                                                                                                                    | Include IPv6 entries in the results                                                                                                                                   | 1                                                                                                                                                                     |
@@ -272,7 +292,7 @@ try {
 
 ## getPin
 
-Retrieve a Pin from Plex.tv for authentication flows
+Retrieve a Pin ID from Plex.tv to use for authentication flows
 
 ### Example Usage
 
@@ -282,14 +302,19 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->build();
 
 try {
-
-    $response = $sdk->plex->getPin(false, 'gcgzw5rz2xovp84b4vha3a40', 'Plex Web');
+    $request = new Operations\GetPinRequest();
+    $response = $sdk->plex->getPin($request);
 
     if ($response->authPinContainer !== null) {
         // handle response
@@ -301,12 +326,10 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strong`                                                                                                                                                              | *bool*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                    | Determines the kind of code returned by the API call<br/>Strong codes are used for Pin authentication flows<br/>Non-Strong codes are used for `Plex.tv/link`<br/>     |                                                                                                                                                                       |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
-| `xPlexProduct`                                                                                                                                                        | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | N/A                                                                                                                                                                   | Plex Web                                                                                                                                                              |
-| `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `$request`                                                           | [Operations\GetPinRequest](../../Models/Operations/GetPinRequest.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
+| `$serverURL`                                                         | *string*                                                             | :heavy_minus_sign:                                                   | An optional server URL to use.                                       |
 
 ### Response
 
@@ -334,7 +357,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->build();
 
 try {
@@ -354,7 +381,7 @@ try {
 | Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pinID`                                                                                                                                                               | *int*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                    | The PinID to retrieve an access token for                                                                                                                             |                                                                                                                                                                       |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
+| `clientID`                                                                                                                                                            | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
 | `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
 
 ### Response

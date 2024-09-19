@@ -63,10 +63,10 @@ class GetTokenByPinIdGeoData
     /**
      * The postal code of the location.
      *
-     * @var int $postalCode
+     * @var string $postalCode
      */
     #[\JMS\Serializer\Annotation\SerializedName('postal_code')]
-    public int $postalCode;
+    public string $postalCode;
 
     /**
      * Indicates if the country has privacy restrictions.
@@ -107,13 +107,13 @@ class GetTokenByPinIdGeoData
      * @param  string  $city
      * @param  bool  $europeanUnionMember
      * @param  string  $timeZone
-     * @param  int  $postalCode
+     * @param  string  $postalCode
      * @param  bool  $inPrivacyRestrictedCountry
      * @param  bool  $inPrivacyRestrictedRegion
      * @param  string  $subdivisions
      * @param  string  $coordinates
      */
-    public function __construct(string $code, string $continentCode, string $country, string $city, bool $europeanUnionMember, string $timeZone, int $postalCode, bool $inPrivacyRestrictedCountry, bool $inPrivacyRestrictedRegion, string $subdivisions, string $coordinates)
+    public function __construct(string $code, string $continentCode, string $country, string $city, bool $europeanUnionMember, string $timeZone, string $postalCode, bool $inPrivacyRestrictedCountry, bool $inPrivacyRestrictedRegion, string $subdivisions, string $coordinates)
     {
         $this->code = $code;
         $this->continentCode = $continentCode;

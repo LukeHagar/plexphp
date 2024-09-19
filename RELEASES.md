@@ -593,3 +593,13 @@ Based on:
 - [php v0.8.0] .
 ### Releases
 - [Composer v0.8.0] https://packagist.org/packages/lukehagar/plex-api#v0.8.0 - .
+
+## 2024-09-19 00:09:16
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.399.2 (2.416.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.8.1] .
+### Releases
+- [Composer v0.8.1] https://packagist.org/packages/lukehagar/plex-api#v0.8.1 - .

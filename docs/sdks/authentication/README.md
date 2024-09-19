@@ -33,7 +33,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -89,7 +93,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -142,7 +150,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -190,7 +202,11 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->build();
 
 try {
@@ -213,7 +229,7 @@ try {
 
 | Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `xPlexClientIdentifier`                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
+| `clientID`                                                                                                                                                            | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
 | `requestBody`                                                                                                                                                         | [Operations\PostUsersSignInDataRequestBody](../../Models/Operations/PostUsersSignInDataRequestBody.md)                                                                | :heavy_minus_sign:                                                                                                                                                    | Login credentials                                                                                                                                                     |                                                                                                                                                                       |
 | `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
 

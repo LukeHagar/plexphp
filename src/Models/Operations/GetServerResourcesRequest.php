@@ -18,10 +18,10 @@ class GetServerResourcesRequest
      * (UUID, serial number, or other number unique per device)
      *
      *
-     * @var ?string $xPlexClientIdentifier
+     * @var ?string $clientID
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
-    public ?string $xPlexClientIdentifier = null;
+    public ?string $clientID = null;
 
     /**
      * Include Https entries in the results
@@ -51,14 +51,14 @@ class GetServerResourcesRequest
     public ?IncludeIPv6 $includeIPv6 = null;
 
     /**
-     * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $clientID
      * @param  ?IncludeHttps  $includeHttps
      * @param  ?IncludeRelay  $includeRelay
      * @param  ?IncludeIPv6  $includeIPv6
      */
-    public function __construct(?string $xPlexClientIdentifier = null, ?IncludeHttps $includeHttps = null, ?IncludeRelay $includeRelay = null, ?IncludeIPv6 $includeIPv6 = null)
+    public function __construct(?string $clientID = null, ?IncludeHttps $includeHttps = null, ?IncludeRelay $includeRelay = null, ?IncludeIPv6 $includeIPv6 = null)
     {
-        $this->xPlexClientIdentifier = $xPlexClientIdentifier;
+        $this->clientID = $clientID;
         $this->includeHttps = $includeHttps;
         $this->includeRelay = $includeRelay;
         $this->includeIPv6 = $includeIPv6;

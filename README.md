@@ -52,7 +52,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -202,21 +206,25 @@ try {
 <!-- Start Global Parameters [global-parameters] -->
 ## Global Parameters
 
-A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+Certain parameters are configured globally. These parameters may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, These global values will be used as defaults on the operations that use them. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `X-Plex-Client-Identifier` to `'gcgzw5rz2xovp84b4vha3a40'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getServerResources`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `ClientID` to `'gcgzw5rz2xovp84b4vha3a40'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getServerResources`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
 
-The following global parameter is available.
+The following global parameters are available.
 
 | Name | Type | Required | Description |
 | ---- | ---- |:--------:| ----------- |
-| xPlexClientIdentifier | string |  | The unique identifier for the client application
+| clientID | string |  | The unique identifier for the client application
 This is used to track the client application and its usage
 (UUID, serial number, or other number unique per device)
  |
+| clientName | string |  | The clientName parameter. |
+| clientVersion | string |  | The clientVersion parameter. |
+| clientPlatform | string |  | The clientPlatform parameter. |
+| deviceName | string |  | The deviceName parameter. |
 
 
 ### Example
@@ -235,7 +243,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -294,7 +306,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
