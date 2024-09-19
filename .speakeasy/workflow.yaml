@@ -10,7 +10,7 @@ targets:
         source: plexapi
         publish:
             packagist:
-                username: LukeHagar
+                username: lukehagar
                 token: $packagist_token
         codeSamples:
             output: codeSamples.yaml
