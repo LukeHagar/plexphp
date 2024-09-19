@@ -26,18 +26,18 @@ class GetTokenByPinIdRequest
      * (UUID, serial number, or other number unique per device)
      *
      *
-     * @var ?string $xPlexClientIdentifier
+     * @var ?string $clientID
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
-    public ?string $xPlexClientIdentifier = null;
+    public ?string $clientID = null;
 
     /**
      * @param  int  $pinID
-     * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $clientID
      */
-    public function __construct(int $pinID, ?string $xPlexClientIdentifier = null)
+    public function __construct(int $pinID, ?string $clientID = null)
     {
         $this->pinID = $pinID;
-        $this->xPlexClientIdentifier = $xPlexClientIdentifier;
+        $this->clientID = $clientID;
     }
 }

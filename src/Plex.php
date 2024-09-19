@@ -311,7 +311,7 @@ class Plex
      *
      * Get Plex server access tokens and server connections
      *
-     * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $clientID
      * @param  ?Operations\IncludeHttps  $includeHttps
      * @param  ?Operations\IncludeRelay  $includeRelay
      * @param  ?Operations\IncludeIPv6  $includeIPv6
@@ -320,14 +320,14 @@ class Plex
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getServerResources(
-        ?string $xPlexClientIdentifier = null,
+        ?string $clientID = null,
         ?Operations\IncludeHttps $includeHttps = null,
         ?Operations\IncludeRelay $includeRelay = null,
         ?Operations\IncludeIPv6 $includeIPv6 = null,
         ?string $serverURL = null,
     ): Operations\GetServerResourcesResponse {
         $request = new Operations\GetServerResourcesRequest(
-            xPlexClientIdentifier: $xPlexClientIdentifier,
+            clientID: $clientID,
             includeHttps: $includeHttps,
             includeRelay: $includeRelay,
             includeIPv6: $includeIPv6,
@@ -391,26 +391,17 @@ class Plex
     /**
      * Get a Pin
      *
-     * Retrieve a Pin from Plex.tv for authentication flows
+     * Retrieve a Pin ID from Plex.tv to use for authentication flows
      *
-     * @param  ?bool  $strong
-     * @param  ?string  $xPlexClientIdentifier
-     * @param  ?string  $xPlexProduct
+     * @param  Operations\GetPinRequest  $request
      * @param  string  $serverURL
      * @return Operations\GetPinResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getPin(
-        ?bool $strong = null,
-        ?string $xPlexClientIdentifier = null,
-        ?string $xPlexProduct = null,
+        ?Operations\GetPinRequest $request,
         ?string $serverURL = null,
     ): Operations\GetPinResponse {
-        $request = new Operations\GetPinRequest(
-            strong: $strong,
-            xPlexClientIdentifier: $xPlexClientIdentifier,
-            xPlexProduct: $xPlexProduct,
-        );
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -426,7 +417,7 @@ class Plex
         $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
 
         $statusCode = $httpResponse->getStatusCode();
-        if ($statusCode == 200) {
+        if ($statusCode == 201) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
                 $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetPinAuthPinContainer', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
@@ -462,19 +453,19 @@ class Plex
      * Retrieve an Access Token from Plex.tv after the Pin has been authenticated
      *
      * @param  int  $pinID
-     * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $clientID
      * @param  string  $serverURL
      * @return Operations\GetTokenByPinIdResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getTokenByPinId(
         int $pinID,
-        ?string $xPlexClientIdentifier = null,
+        ?string $clientID = null,
         ?string $serverURL = null,
     ): Operations\GetTokenByPinIdResponse {
         $request = new Operations\GetTokenByPinIdRequest(
             pinID: $pinID,
-            xPlexClientIdentifier: $xPlexClientIdentifier,
+            clientID: $clientID,
         );
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_BY_PIN_ID_SERVERS[0], [
         ]);

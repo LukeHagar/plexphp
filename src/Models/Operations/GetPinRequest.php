@@ -30,27 +30,54 @@ class GetPinRequest
      * (UUID, serial number, or other number unique per device)
      *
      *
-     * @var ?string $xPlexClientIdentifier
+     * @var ?string $clientID
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
-    public ?string $xPlexClientIdentifier = null;
+    public ?string $clientID = null;
 
     /**
      *
-     * @var ?string $xPlexProduct
+     * @var ?string $clientName
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Product')]
-    public ?string $xPlexProduct = null;
+    public ?string $clientName = null;
+
+    /**
+     *
+     * @var ?string $deviceName
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Device')]
+    public ?string $deviceName = null;
+
+    /**
+     *
+     * @var ?string $clientVersion
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Version')]
+    public ?string $clientVersion = null;
+
+    /**
+     *
+     * @var ?string $clientPlatform
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Platform')]
+    public ?string $clientPlatform = null;
 
     /**
      * @param  ?bool  $strong
-     * @param  ?string  $xPlexClientIdentifier
-     * @param  ?string  $xPlexProduct
+     * @param  ?string  $clientID
+     * @param  ?string  $clientName
+     * @param  ?string  $deviceName
+     * @param  ?string  $clientVersion
+     * @param  ?string  $clientPlatform
      */
-    public function __construct(?bool $strong = null, ?string $xPlexClientIdentifier = null, ?string $xPlexProduct = null)
+    public function __construct(?bool $strong = null, ?string $clientID = null, ?string $clientName = null, ?string $deviceName = null, ?string $clientVersion = null, ?string $clientPlatform = null)
     {
         $this->strong = $strong;
-        $this->xPlexClientIdentifier = $xPlexClientIdentifier;
-        $this->xPlexProduct = $xPlexProduct;
+        $this->clientID = $clientID;
+        $this->clientName = $clientName;
+        $this->deviceName = $deviceName;
+        $this->clientVersion = $clientVersion;
+        $this->clientPlatform = $clientPlatform;
     }
 }

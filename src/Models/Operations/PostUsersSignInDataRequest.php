@@ -18,10 +18,10 @@ class PostUsersSignInDataRequest
      * (UUID, serial number, or other number unique per device)
      *
      *
-     * @var ?string $xPlexClientIdentifier
+     * @var ?string $clientID
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
-    public ?string $xPlexClientIdentifier = null;
+    public ?string $clientID = null;
 
     /**
      * Login credentials
@@ -32,12 +32,12 @@ class PostUsersSignInDataRequest
     public ?PostUsersSignInDataRequestBody $requestBody = null;
 
     /**
-     * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $clientID
      * @param  ?PostUsersSignInDataRequestBody  $requestBody
      */
-    public function __construct(?string $xPlexClientIdentifier = null, ?PostUsersSignInDataRequestBody $requestBody = null)
+    public function __construct(?string $clientID = null, ?PostUsersSignInDataRequestBody $requestBody = null)
     {
-        $this->xPlexClientIdentifier = $xPlexClientIdentifier;
+        $this->clientID = $clientID;
         $this->requestBody = $requestBody;
     }
 }

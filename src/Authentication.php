@@ -226,19 +226,19 @@ class Authentication
      *
      * Sign in user with username and password and return user data with Plex authentication token
      *
-     * @param  ?string  $xPlexClientIdentifier
+     * @param  ?string  $clientID
      * @param  ?Operations\PostUsersSignInDataRequestBody  $requestBody
      * @param  string  $serverURL
      * @return Operations\PostUsersSignInDataResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function postUsersSignInData(
-        ?string $xPlexClientIdentifier = null,
+        ?string $clientID = null,
         ?Operations\PostUsersSignInDataRequestBody $requestBody = null,
         ?string $serverURL = null,
     ): Operations\PostUsersSignInDataResponse {
         $request = new Operations\PostUsersSignInDataRequest(
-            xPlexClientIdentifier: $xPlexClientIdentifier,
+            clientID: $clientID,
             requestBody: $requestBody,
         );
         $baseUrl = Utils\Utils::templateUrl(Authentication::POST_USERS_SIGN_IN_DATA_SERVERS[0], [

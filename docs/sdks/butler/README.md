@@ -32,7 +32,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -83,7 +87,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -130,7 +138,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -182,7 +194,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {
@@ -237,7 +253,11 @@ $security = new Components\Security(
 );
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setXPlexClientIdentifier('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
 try {

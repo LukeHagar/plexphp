@@ -88,12 +88,11 @@ class GetPinAuthPinContainer
 
     /**
      *
-     * @var mixed $authToken
+     * @var ?string $authToken
      */
     #[\JMS\Serializer\Annotation\SerializedName('authToken')]
-    #[\JMS\Serializer\Annotation\Type('mixed')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public mixed $authToken = null;
+    public ?string $authToken = null;
 
     /**
      *
@@ -115,10 +114,10 @@ class GetPinAuthPinContainer
      * @param  int  $expiresIn
      * @param  \DateTime  $createdAt
      * @param  \DateTime  $expiresAt
-     * @param  mixed  $authToken
+     * @param  ?string  $authToken
      * @param  mixed  $newRegistration
      */
-    public function __construct(int $id, string $code, string $product, bool $trusted, string $qr, string $clientIdentifier, GeoData $location, int $expiresIn, \DateTime $createdAt, \DateTime $expiresAt, mixed $authToken = null, mixed $newRegistration = null)
+    public function __construct(int $id, string $code, string $product, bool $trusted, string $qr, string $clientIdentifier, GeoData $location, int $expiresIn, \DateTime $createdAt, \DateTime $expiresAt, ?string $authToken = null, mixed $newRegistration = null)
     {
         $this->id = $id;
         $this->code = $code;
