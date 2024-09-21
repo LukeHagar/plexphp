@@ -35,20 +35,19 @@ class GetAllLibrariesMediaContainer
     /**
      * $directory
      *
-     * @var ?array<GetAllLibrariesDirectory> $directory
+     * @var array<GetAllLibrariesDirectory> $directory
      */
     #[\JMS\Serializer\Annotation\SerializedName('Directory')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesDirectory>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?array $directory = null;
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesDirectory>')]
+    public array $directory;
 
     /**
      * @param  int  $size
      * @param  bool  $allowSync
      * @param  string  $title1
-     * @param  ?array<GetAllLibrariesDirectory>  $directory
+     * @param  array<GetAllLibrariesDirectory>  $directory
      */
-    public function __construct(int $size, bool $allowSync, string $title1, ?array $directory = null)
+    public function __construct(int $size, bool $allowSync, string $title1, array $directory)
     {
         $this->size = $size;
         $this->allowSync = $allowSync;

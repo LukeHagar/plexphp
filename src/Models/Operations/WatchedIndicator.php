@@ -9,8 +9,9 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-enum WatchedIndicator: string
+/** Whether or not media watched indicators are enabled (little orange dot on media) */
+enum WatchedIndicator: int
 {
-    case Zero = '0';
-    case One = '1';
+    case Disable = 0;
+    case Enable = 1;
 }

@@ -568,16 +568,19 @@ class Playlists
      *
      * @param  string  $path
      * @param  Operations\QueryParamForce  $force
+     * @param  int  $sectionID
      * @return Operations\UploadPlaylistResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function uploadPlaylist(
         string $path,
         Operations\QueryParamForce $force,
+        int $sectionID,
     ): Operations\UploadPlaylistResponse {
         $request = new Operations\UploadPlaylistRequest(
             path: $path,
             force: $force,
+            sectionID: $sectionID,
         );
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists/upload');

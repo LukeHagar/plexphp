@@ -344,9 +344,9 @@ try {
         width: 110,
         height: 165,
         opacity: 643869,
-        blur: 0,
-        minSize: Operations\MinSize::Zero,
-        upscale: Operations\Upscale::One,
+        blur: 4000,
+        minSize: Operations\MinSize::One,
+        upscale: Operations\Upscale::Zero,
         url: '/library/metadata/49564/thumb/1654258204',
     );
     $response = $sdk->server->getResizedPhoto($request);

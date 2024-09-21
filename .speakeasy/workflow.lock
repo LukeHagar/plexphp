@@ -1,4 +1,4 @@
-speakeasyVersion: 1.399.2
+speakeasyVersion: 1.401.2
 sources:
     my-source:
         sourceNamespace: my-source
@@ -9,8 +9,8 @@ sources:
             - main
     plexapi:
         sourceNamespace: plexapi
-        sourceRevisionDigest: sha256:327e4a83099f910e042784ecc571fcbc4c9a6d8ba169b4ba181afb890a9936cc
-        sourceBlobDigest: sha256:a652fa39754f0c22a1454f628fe84983b34662ee8a153a3461d50b833f8bc5c2
+        sourceRevisionDigest: sha256:5aa71ad96ca6de91143ee513c9880e08e555e7748fb4b5f8d069c6ab0c8f3069
+        sourceBlobDigest: sha256:1cbef844e2856c2eabba4bd6d677d96c572fed13b27978d0d953aa06b224c02f
         tags:
             - latest
             - main
@@ -18,10 +18,10 @@ targets:
     plexphp:
         source: plexapi
         sourceNamespace: plexapi
-        sourceRevisionDigest: sha256:327e4a83099f910e042784ecc571fcbc4c9a6d8ba169b4ba181afb890a9936cc
-        sourceBlobDigest: sha256:a652fa39754f0c22a1454f628fe84983b34662ee8a153a3461d50b833f8bc5c2
+        sourceRevisionDigest: sha256:5aa71ad96ca6de91143ee513c9880e08e555e7748fb4b5f8d069c6ab0c8f3069
+        sourceBlobDigest: sha256:1cbef844e2856c2eabba4bd6d677d96c572fed13b27978d0d953aa06b224c02f
         codeSamplesNamespace: code-samples-php-plexphp
-        codeSamplesRevisionDigest: sha256:a2463615fc3539369b1f3f0ba5ac302f6ff3566f1ddbd0194adf7a4a8dc098c0
+        codeSamplesRevisionDigest: sha256:31c36f98b0d052576648992aa27009ef7e202960cecc266347879d0f7cb26855
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -35,7 +35,7 @@ workflow:
             source: plexapi
             publish:
                 packagist:
-                    username: LukeHagar
+                    username: lukehagar
                     token: $packagist_token
             codeSamples:
                 output: codeSamples.yaml

@@ -13,108 +13,95 @@ class GetLibraryItemsMediaContainer
 {
     /**
      *
-     * @var ?int $size
+     * @var int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $size = null;
+    public int $size;
 
     /**
      *
-     * @var ?bool $allowSync
+     * @var bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $allowSync = null;
+    public bool $allowSync;
 
     /**
      *
-     * @var ?string $art
+     * @var string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $art = null;
+    public string $art;
 
     /**
      *
-     * @var ?string $identifier
+     * @var string $identifier
      */
     #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $identifier = null;
+    public string $identifier;
 
     /**
      *
-     * @var int|string|null $librarySectionID
+     * @var int|string $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
     #[\JMS\Serializer\Annotation\Type('int|string')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public int|string|null $librarySectionID = null;
+    public int|string $librarySectionID;
 
     /**
      *
-     * @var ?string $librarySectionTitle
+     * @var string $librarySectionTitle
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $librarySectionTitle = null;
+    public string $librarySectionTitle;
 
     /**
      *
-     * @var ?string $librarySectionUUID
+     * @var string $librarySectionUUID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $librarySectionUUID = null;
+    public string $librarySectionUUID;
 
     /**
      *
-     * @var ?string $mediaTagPrefix
+     * @var string $mediaTagPrefix
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $mediaTagPrefix = null;
+    public string $mediaTagPrefix;
 
     /**
      *
-     * @var ?int $mediaTagVersion
+     * @var int $mediaTagVersion
      */
     #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $mediaTagVersion = null;
+    public int $mediaTagVersion;
 
     /**
      *
-     * @var ?string $thumb
+     * @var string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $thumb = null;
+    public string $thumb;
 
     /**
      *
-     * @var ?string $title1
+     * @var string $title1
      */
     #[\JMS\Serializer\Annotation\SerializedName('title1')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title1 = null;
+    public string $title1;
 
     /**
      *
-     * @var ?string $title2
+     * @var string $title2
      */
     #[\JMS\Serializer\Annotation\SerializedName('title2')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title2 = null;
+    public string $title2;
 
     /**
      *
-     * @var ?string $viewGroup
+     * @var string $viewGroup
      */
     #[\JMS\Serializer\Annotation\SerializedName('viewGroup')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $viewGroup = null;
+    public string $viewGroup;
 
     /**
      *
@@ -143,24 +130,37 @@ class GetLibraryItemsMediaContainer
     public ?array $metadata = null;
 
     /**
-     * @param  ?int  $size
-     * @param  ?bool  $allowSync
-     * @param  ?string  $art
-     * @param  ?string  $identifier
-     * @param  int|string|null  $librarySectionID
-     * @param  ?string  $librarySectionTitle
-     * @param  ?string  $librarySectionUUID
-     * @param  ?string  $mediaTagPrefix
-     * @param  ?int  $mediaTagVersion
-     * @param  ?string  $thumb
-     * @param  ?string  $title1
-     * @param  ?string  $title2
-     * @param  ?string  $viewGroup
+     * The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
+     *
+     *
+     *
+     * @var ?Meta $meta
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Meta')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Meta|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?Meta $meta = null;
+
+    /**
+     * @param  int  $size
+     * @param  bool  $allowSync
+     * @param  string  $art
+     * @param  string  $identifier
+     * @param  int|string  $librarySectionID
+     * @param  string  $librarySectionTitle
+     * @param  string  $librarySectionUUID
+     * @param  string  $mediaTagPrefix
+     * @param  int  $mediaTagVersion
+     * @param  string  $thumb
+     * @param  string  $title1
+     * @param  string  $title2
+     * @param  string  $viewGroup
      * @param  ?int  $viewMode
      * @param  ?bool  $mixedParents
      * @param  ?array<GetLibraryItemsMetadata>  $metadata
+     * @param  ?Meta  $meta
      */
-    public function __construct(?int $size = null, ?bool $allowSync = null, ?string $art = null, ?string $identifier = null, int|string|null $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?string $thumb = null, ?string $title1 = null, ?string $title2 = null, ?string $viewGroup = null, ?int $viewMode = null, ?bool $mixedParents = null, ?array $metadata = null)
+    public function __construct(int $size, bool $allowSync, string $art, string $identifier, int|string $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, ?int $viewMode = null, ?bool $mixedParents = null, ?array $metadata = null, ?Meta $meta = null)
     {
         $this->size = $size;
         $this->allowSync = $allowSync;
@@ -178,5 +178,6 @@ class GetLibraryItemsMediaContainer
         $this->viewMode = $viewMode;
         $this->mixedParents = $mixedParents;
         $this->metadata = $metadata;
+        $this->meta = $meta;
     }
 }

@@ -208,7 +208,7 @@ try {
 
 Certain parameters are configured globally. These parameters may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, These global values will be used as defaults on the operations that use them. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `ClientID` to `'gcgzw5rz2xovp84b4vha3a40'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getServerResources`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `ClientID` to `'gcgzw5rz2xovp84b4vha3a40'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getPin`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -235,12 +235,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
-
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -248,13 +243,13 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setClientVersion('4.133.0')
     ->setClientPlatform('Chrome')
     ->setDeviceName('Linux')
-    ->setSecurity($security)->build();
+    ->build();
 
 try {
+    $request = new Operations\GetPinRequest();
+    $response = $sdk->plex->getPin($request);
 
-    $response = $sdk->plex->getServerResources('gcgzw5rz2xovp84b4vha3a40', Operations\IncludeHttps::One, Operations\IncludeRelay::One, Operations\IncludeIPv6::One);
-
-    if ($response->plexDevices !== null) {
+    if ($response->authPinContainer !== null) {
         // handle response
     }
 } catch (Throwable $e) {

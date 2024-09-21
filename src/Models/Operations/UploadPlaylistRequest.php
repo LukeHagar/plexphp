@@ -40,12 +40,22 @@ class UploadPlaylistRequest
     public QueryParamForce $force;
 
     /**
+     * Possibly the section ID to upload the playlist to, we are not certain.
+     *
+     * @var int $sectionID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=sectionID')]
+    public int $sectionID;
+
+    /**
      * @param  string  $path
      * @param  QueryParamForce  $force
+     * @param  int  $sectionID
      */
-    public function __construct(string $path, QueryParamForce $force)
+    public function __construct(string $path, QueryParamForce $force, int $sectionID)
     {
         $this->path = $path;
         $this->force = $force;
+        $this->sectionID = $sectionID;
     }
 }

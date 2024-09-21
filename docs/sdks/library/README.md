@@ -399,9 +399,9 @@ try {
     $request = new Operations\GetLibraryItemsRequest(
         sectionKey: 9518,
         tag: Operations\Tag::Edition,
-        type: Operations\Type::Two,
-        includeGuids: Operations\IncludeGuids::One,
-        includeMeta: Operations\IncludeMeta::One,
+        type: Operations\Type::Show,
+        includeGuids: Operations\IncludeGuids::Enable,
+        includeMeta: Operations\IncludeMeta::Enable,
         xPlexContainerStart: 0,
         xPlexContainerSize: 50,
     );
@@ -541,7 +541,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::Two);
+    $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::Show);
 
     if ($response->object !== null) {
         // handle response
@@ -658,7 +658,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->library->getMetadataChildren(1539.14, '<value>');
+    $response = $sdk->library->getMetadataChildren(1539.15, '<value>');
 
     if ($response->object !== null) {
         // handle response
@@ -718,7 +718,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::Two, 1);
+    $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::Show, 1);
 
     if ($response->object !== null) {
         // handle response

@@ -21,8 +21,8 @@ namespace LukeHagar\Plex_API\Models\Operations;
  */
 enum Type: int
 {
-    case One = 1;
-    case Two = 2;
-    case Three = 3;
-    case Four = 4;
+    case Movie = 1;
+    case Show = 2;
+    case Season = 3;
+    case Episode = 4;
 }

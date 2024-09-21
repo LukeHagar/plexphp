@@ -12,6 +12,6 @@ namespace LukeHagar\Plex_API\Models\Operations;
 /** Include IPv6 entries in the results */
 enum IncludeIPv6: int
 {
-    case Zero = 0;
-    case One = 1;
+    case Disable = 0;
+    case Enable = 1;
 }

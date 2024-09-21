@@ -12,13 +12,16 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Connections
 {
     /**
+     * The protocol used for the connection (http, https, etc)
      *
-     * @var string $protocol
+     * @var Protocol $protocol
      */
     #[\JMS\Serializer\Annotation\SerializedName('protocol')]
-    public string $protocol;
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Protocol')]
+    public Protocol $protocol;
 
     /**
+     * The (ip) address or domain name used for the connection
      *
      * @var string $address
      */
@@ -26,13 +29,15 @@ class Connections
     public string $address;
 
     /**
+     * The port used for the connection
      *
-     * @var float $port
+     * @var int $port
      */
     #[\JMS\Serializer\Annotation\SerializedName('port')]
-    public float $port;
+    public int $port;
 
     /**
+     * The full URI of the connection
      *
      * @var string $uri
      */
@@ -40,6 +45,7 @@ class Connections
     public string $uri;
 
     /**
+     * If the connection is local address
      *
      * @var bool $local
      */
@@ -47,6 +53,7 @@ class Connections
     public bool $local;
 
     /**
+     * If the connection is relayed through plex.direct
      *
      * @var bool $relay
      */
@@ -54,6 +61,7 @@ class Connections
     public bool $relay;
 
     /**
+     * If the connection is using IPv6
      *
      * @var bool $iPv6
      */
@@ -61,15 +69,15 @@ class Connections
     public bool $iPv6;
 
     /**
-     * @param  string  $protocol
+     * @param  Protocol  $protocol
      * @param  string  $address
-     * @param  float  $port
+     * @param  int  $port
      * @param  string  $uri
      * @param  bool  $local
      * @param  bool  $relay
      * @param  bool  $iPv6
      */
-    public function __construct(string $protocol, string $address, float $port, string $uri, bool $local, bool $relay, bool $iPv6)
+    public function __construct(Protocol $protocol, string $address, int $port, string $uri, bool $local, bool $relay, bool $iPv6)
     {
         $this->protocol = $protocol;
         $this->address = $address;

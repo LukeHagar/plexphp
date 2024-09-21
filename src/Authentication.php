@@ -226,21 +226,15 @@ class Authentication
      *
      * Sign in user with username and password and return user data with Plex authentication token
      *
-     * @param  ?string  $clientID
-     * @param  ?Operations\PostUsersSignInDataRequestBody  $requestBody
+     * @param  Operations\PostUsersSignInDataRequestBody  $request
      * @param  string  $serverURL
      * @return Operations\PostUsersSignInDataResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function postUsersSignInData(
-        ?string $clientID = null,
-        ?Operations\PostUsersSignInDataRequestBody $requestBody = null,
+        ?Operations\PostUsersSignInDataRequestBody $request,
         ?string $serverURL = null,
     ): Operations\PostUsersSignInDataResponse {
-        $request = new Operations\PostUsersSignInDataRequest(
-            clientID: $clientID,
-            requestBody: $requestBody,
-        );
         $baseUrl = Utils\Utils::templateUrl(Authentication::POST_USERS_SIGN_IN_DATA_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -248,11 +242,10 @@ class Authentication
         }
         $url = Utils\Utils::generateUrl($baseUrl, '/users/signin');
         $options = ['http_errors' => false];
-        $body = Utils\Utils::serializeRequestBody($request, 'requestBody', 'form');
+        $body = Utils\Utils::serializeRequestBody($request, 'request', 'form');
         if ($body !== null) {
             $options = array_merge_recursive($options, $body);
         }
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\PostUsersSignInDataRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('POST', $url);

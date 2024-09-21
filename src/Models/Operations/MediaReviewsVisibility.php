@@ -9,8 +9,9 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/** Whether or not the account has media reviews visibility enabled */
 enum MediaReviewsVisibility: int
 {
-    case Zero = 0;
-    case One = 1;
+    case Disable = 0;
+    case Enable = 1;
 }

@@ -13,201 +13,180 @@ class GetAllLibrariesDirectory
 {
     /**
      *
-     * @var ?bool $allowSync
+     * @var bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $allowSync = null;
+    public bool $allowSync;
 
     /**
      *
-     * @var ?string $art
+     * @var string $art
      */
     #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $art = null;
+    public string $art;
 
     /**
      *
-     * @var ?string $composite
+     * @var string $composite
      */
     #[\JMS\Serializer\Annotation\SerializedName('composite')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $composite = null;
+    public string $composite;
 
     /**
      *
-     * @var ?bool $filters
+     * @var bool $filters
      */
     #[\JMS\Serializer\Annotation\SerializedName('filters')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $filters = null;
+    public bool $filters;
 
     /**
      *
-     * @var ?bool $refreshing
+     * @var bool $refreshing
      */
     #[\JMS\Serializer\Annotation\SerializedName('refreshing')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $refreshing = null;
+    public bool $refreshing;
 
     /**
      *
-     * @var ?string $thumb
+     * @var string $thumb
      */
     #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $thumb = null;
+    public string $thumb;
 
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?string $type
+     * @var string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $type = null;
+    public string $type;
 
     /**
      *
-     * @var ?string $title
+     * @var string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title = null;
+    public string $title;
 
     /**
      *
-     * @var ?string $agent
+     * @var string $agent
      */
     #[\JMS\Serializer\Annotation\SerializedName('agent')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $agent = null;
+    public string $agent;
 
     /**
      *
-     * @var ?string $scanner
+     * @var string $scanner
      */
     #[\JMS\Serializer\Annotation\SerializedName('scanner')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $scanner = null;
+    public string $scanner;
 
     /**
      *
-     * @var ?string $language
+     * @var string $language
      */
     #[\JMS\Serializer\Annotation\SerializedName('language')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $language = null;
+    public string $language;
 
     /**
      *
-     * @var ?string $uuid
+     * @var string $uuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $uuid = null;
+    public string $uuid;
 
     /**
-     * Unix epoch datetime
+     * Unix epoch datetime in seconds
      *
-     * @var ?int $updatedAt
+     * @var int $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $updatedAt = null;
+    public int $updatedAt;
 
     /**
-     * Unix epoch datetime
+     * Unix epoch datetime in seconds
      *
-     * @var ?int $createdAt
+     * @var int $createdAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $createdAt = null;
+    public int $createdAt;
 
     /**
-     * Unix epoch datetime
+     * Unix epoch datetime in seconds
      *
-     * @var ?int $scannedAt
+     * @var int $scannedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('scannedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $scannedAt = null;
+    public int $scannedAt;
 
     /**
      *
-     * @var ?bool $content
+     * @var bool $content
      */
     #[\JMS\Serializer\Annotation\SerializedName('content')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $content = null;
+    public bool $content;
 
     /**
      *
-     * @var ?bool $directory
+     * @var bool $directory
      */
     #[\JMS\Serializer\Annotation\SerializedName('directory')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $directory = null;
+    public bool $directory;
 
     /**
      *
-     * @var ?int $contentChangedAt
+     * @var int $contentChangedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('contentChangedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $contentChangedAt = null;
+    public int $contentChangedAt;
 
     /**
      *
-     * @var ?int $hidden
+     * @var int $hidden
      */
     #[\JMS\Serializer\Annotation\SerializedName('hidden')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $hidden = null;
+    public int $hidden;
 
     /**
      * $location
      *
-     * @var ?array<Location> $location
+     * @var array<Location> $location
      */
     #[\JMS\Serializer\Annotation\SerializedName('Location')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Location>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?array $location = null;
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Location>')]
+    public array $location;
 
     /**
-     * @param  ?bool  $allowSync
-     * @param  ?string  $art
-     * @param  ?string  $composite
-     * @param  ?bool  $filters
-     * @param  ?bool  $refreshing
-     * @param  ?string  $thumb
-     * @param  ?string  $key
-     * @param  ?string  $type
-     * @param  ?string  $title
-     * @param  ?string  $agent
-     * @param  ?string  $scanner
-     * @param  ?string  $language
-     * @param  ?string  $uuid
-     * @param  ?int  $updatedAt
-     * @param  ?int  $createdAt
-     * @param  ?int  $scannedAt
-     * @param  ?bool  $content
-     * @param  ?bool  $directory
-     * @param  ?int  $contentChangedAt
-     * @param  ?int  $hidden
-     * @param  ?array<Location>  $location
+     * @param  bool  $allowSync
+     * @param  string  $art
+     * @param  string  $composite
+     * @param  bool  $filters
+     * @param  bool  $refreshing
+     * @param  string  $thumb
+     * @param  string  $key
+     * @param  string  $type
+     * @param  string  $title
+     * @param  string  $agent
+     * @param  string  $scanner
+     * @param  string  $language
+     * @param  string  $uuid
+     * @param  int  $updatedAt
+     * @param  int  $createdAt
+     * @param  int  $scannedAt
+     * @param  bool  $content
+     * @param  bool  $directory
+     * @param  int  $contentChangedAt
+     * @param  int  $hidden
+     * @param  array<Location>  $location
      */
-    public function __construct(?bool $allowSync = null, ?string $art = null, ?string $composite = null, ?bool $filters = null, ?bool $refreshing = null, ?string $thumb = null, ?string $key = null, ?string $type = null, ?string $title = null, ?string $agent = null, ?string $scanner = null, ?string $language = null, ?string $uuid = null, ?int $updatedAt = null, ?int $createdAt = null, ?int $scannedAt = null, ?bool $content = null, ?bool $directory = null, ?int $contentChangedAt = null, ?int $hidden = null, ?array $location = null)
+    public function __construct(bool $allowSync, string $art, string $composite, bool $filters, bool $refreshing, string $thumb, string $key, string $type, string $title, string $agent, string $scanner, string $language, string $uuid, int $updatedAt, int $createdAt, int $scannedAt, bool $content, bool $directory, int $contentChangedAt, int $hidden, array $location)
     {
         $this->allowSync = $allowSync;
         $this->art = $art;

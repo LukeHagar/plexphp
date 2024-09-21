@@ -14,17 +14,16 @@ class GetAllLibrariesResponseBody
 {
     /**
      *
-     * @var ?GetAllLibrariesMediaContainer $mediaContainer
+     * @var GetAllLibrariesMediaContainer $mediaContainer
      */
     #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesMediaContainer|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?GetAllLibrariesMediaContainer $mediaContainer = null;
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesMediaContainer')]
+    public GetAllLibrariesMediaContainer $mediaContainer;
 
     /**
-     * @param  ?GetAllLibrariesMediaContainer  $mediaContainer
+     * @param  GetAllLibrariesMediaContainer  $mediaContainer
      */
-    public function __construct(?GetAllLibrariesMediaContainer $mediaContainer = null)
+    public function __construct(GetAllLibrariesMediaContainer $mediaContainer)
     {
         $this->mediaContainer = $mediaContainer;
     }

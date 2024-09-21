@@ -20,24 +20,10 @@ class GetTokenByPinIdRequest
     public int $pinID;
 
     /**
-     * The unique identifier for the client application
-     *
-     * This is used to track the client application and its usage
-     * (UUID, serial number, or other number unique per device)
-     *
-     *
-     * @var ?string $clientID
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
-    public ?string $clientID = null;
-
-    /**
      * @param  int  $pinID
-     * @param  ?string  $clientID
      */
-    public function __construct(int $pinID, ?string $clientID = null)
+    public function __construct(int $pinID)
     {
         $this->pinID = $pinID;
-        $this->clientID = $clientID;
     }
 }

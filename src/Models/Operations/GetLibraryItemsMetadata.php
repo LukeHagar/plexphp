@@ -13,27 +13,24 @@ class GetLibraryItemsMetadata
 {
     /**
      *
-     * @var ?string $ratingKey
+     * @var string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $ratingKey = null;
+    public string $ratingKey;
 
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?string $guid
+     * @var string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $guid = null;
+    public string $guid;
 
     /**
      *
@@ -45,19 +42,17 @@ class GetLibraryItemsMetadata
 
     /**
      *
-     * @var ?string $type
+     * @var string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $type = null;
+    public string $type;
 
     /**
      *
-     * @var ?string $title
+     * @var string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title = null;
+    public string $title;
 
     /**
      *
@@ -93,11 +88,10 @@ class GetLibraryItemsMetadata
 
     /**
      *
-     * @var ?int $year
+     * @var int $year
      */
     #[\JMS\Serializer\Annotation\SerializedName('year')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $year = null;
+    public int $year;
 
     /**
      *
@@ -125,11 +119,10 @@ class GetLibraryItemsMetadata
 
     /**
      *
-     * @var ?int $duration
+     * @var int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $duration = null;
+    public int $duration;
 
     /**
      *
@@ -246,12 +239,11 @@ class GetLibraryItemsMetadata
     /**
      * $media
      *
-     * @var ?array<GetLibraryItemsMedia> $media
+     * @var array<GetLibraryItemsMedia> $media
      */
     #[\JMS\Serializer\Annotation\SerializedName('Media')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMedia>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?array $media = null;
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMedia>')]
+    public array $media;
 
     /**
      * $genre
@@ -302,6 +294,18 @@ class GetLibraryItemsMetadata
     #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsRole>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $role = null;
+
+    /**
+     * The Guid object is only included in the response if the `includeGuids` parameter is set to `1`.
+     *
+     *
+     *
+     * @var ?array<MediaGuid> $mediaGuid
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Guid')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MediaGuid>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $mediaGuid = null;
 
     /**
      *
@@ -480,21 +484,22 @@ class GetLibraryItemsMetadata
     public ?string $parentTheme = null;
 
     /**
-     * @param  ?string  $ratingKey
-     * @param  ?string  $key
-     * @param  ?string  $guid
+     * @param  string  $ratingKey
+     * @param  string  $key
+     * @param  string  $guid
+     * @param  string  $type
+     * @param  string  $title
+     * @param  int  $year
+     * @param  int  $duration
+     * @param  array<GetLibraryItemsMedia>  $media
      * @param  ?string  $studio
-     * @param  ?string  $type
-     * @param  ?string  $title
      * @param  ?string  $contentRating
      * @param  ?string  $summary
      * @param  ?float  $rating
      * @param  ?float  $audienceRating
-     * @param  ?int  $year
      * @param  ?string  $tagline
      * @param  ?string  $thumb
      * @param  ?string  $art
-     * @param  ?int  $duration
      * @param  ?LocalDate  $originallyAvailableAt
      * @param  ?int  $addedAt
      * @param  ?int  $updatedAt
@@ -509,12 +514,12 @@ class GetLibraryItemsMetadata
      * @param  ?string  $grandparentThumb
      * @param  ?string  $grandparentArt
      * @param  ?string  $grandparentTheme
-     * @param  ?array<GetLibraryItemsMedia>  $media
      * @param  ?array<GetLibraryItemsGenre>  $genre
      * @param  ?array<GetLibraryItemsCountry>  $country
      * @param  ?array<GetLibraryItemsDirector>  $director
      * @param  ?array<GetLibraryItemsWriter>  $writer
      * @param  ?array<GetLibraryItemsRole>  $role
+     * @param  ?array<MediaGuid>  $mediaGuid
      * @param  ?string  $titleSort
      * @param  ?int  $viewCount
      * @param  ?int  $lastViewedAt
@@ -538,23 +543,24 @@ class GetLibraryItemsMetadata
      * @param  ?string  $parentThumb
      * @param  ?string  $parentTheme
      */
-    public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $addedAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
+    public function __construct(string $ratingKey, string $key, string $guid, string $type, string $title, int $year, int $duration, array $media, ?string $studio = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?LocalDate $originallyAvailableAt = null, ?int $addedAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $mediaGuid = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
         $this->guid = $guid;
-        $this->studio = $studio;
         $this->type = $type;
         $this->title = $title;
+        $this->year = $year;
+        $this->duration = $duration;
+        $this->media = $media;
+        $this->studio = $studio;
         $this->contentRating = $contentRating;
         $this->summary = $summary;
         $this->rating = $rating;
         $this->audienceRating = $audienceRating;
-        $this->year = $year;
         $this->tagline = $tagline;
         $this->thumb = $thumb;
         $this->art = $art;
-        $this->duration = $duration;
         $this->originallyAvailableAt = $originallyAvailableAt;
         $this->addedAt = $addedAt;
         $this->updatedAt = $updatedAt;
@@ -569,12 +575,12 @@ class GetLibraryItemsMetadata
         $this->grandparentThumb = $grandparentThumb;
         $this->grandparentArt = $grandparentArt;
         $this->grandparentTheme = $grandparentTheme;
-        $this->media = $media;
         $this->genre = $genre;
         $this->country = $country;
         $this->director = $director;
         $this->writer = $writer;
         $this->role = $role;
+        $this->mediaGuid = $mediaGuid;
         $this->titleSort = $titleSort;
         $this->viewCount = $viewCount;
         $this->lastViewedAt = $lastViewedAt;

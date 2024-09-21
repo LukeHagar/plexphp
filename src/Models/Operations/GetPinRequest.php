@@ -24,18 +24,6 @@ class GetPinRequest
     public ?bool $strong = null;
 
     /**
-     * The unique identifier for the client application
-     *
-     * This is used to track the client application and its usage
-     * (UUID, serial number, or other number unique per device)
-     *
-     *
-     * @var ?string $clientID
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
-    public ?string $clientID = null;
-
-    /**
      *
      * @var ?string $clientName
      */
@@ -65,16 +53,14 @@ class GetPinRequest
 
     /**
      * @param  ?bool  $strong
-     * @param  ?string  $clientID
      * @param  ?string  $clientName
      * @param  ?string  $deviceName
      * @param  ?string  $clientVersion
      * @param  ?string  $clientPlatform
      */
-    public function __construct(?bool $strong = null, ?string $clientID = null, ?string $clientName = null, ?string $deviceName = null, ?string $clientVersion = null, ?string $clientPlatform = null)
+    public function __construct(?bool $strong = null, ?string $clientName = null, ?string $deviceName = null, ?string $clientVersion = null, ?string $clientPlatform = null)
     {
         $this->strong = $strong;
-        $this->clientID = $clientID;
         $this->clientName = $clientName;
         $this->deviceName = $deviceName;
         $this->clientVersion = $clientVersion;

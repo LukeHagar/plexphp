@@ -166,7 +166,7 @@ class GetTokenDetailsUserPlexAccount
     public int $id;
 
     /**
-     * Unix epoch datetime
+     * Unix epoch datetime in seconds
      *
      * @var int $joinedAt
      */
@@ -233,7 +233,7 @@ class GetTokenDetailsUserPlexAccount
     public bool $protected;
 
     /**
-     * Unix epoch datetime
+     * Unix epoch datetime in seconds
      *
      * @var int $rememberExpiresAt
      */

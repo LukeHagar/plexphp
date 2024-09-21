@@ -12,6 +12,6 @@ namespace LukeHagar\Plex_API\Models\Operations;
 /** Include Https entries in the results */
 enum IncludeHttps: int
 {
-    case Zero = 0;
-    case One = 1;
+    case Disable = 0;
+    case Enable = 1;
 }

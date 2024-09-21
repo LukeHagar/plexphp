@@ -10,8 +10,8 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /** The auto-select subtitle mode (0 = Manually selected, 1 = Shown with foreign audio, 2 = Always enabled) */
-enum AutoSelectSubtitle: string
+enum AutoSelectSubtitle: int
 {
-    case Zero = '0';
-    case One = '1';
+    case Disable = 0;
+    case Enable = 1;
 }

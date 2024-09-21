@@ -99,7 +99,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->hubs->getLibraryHubs(6728.76, 9010.22, Operations\QueryParamOnlyTransient::Zero);
+    $response = $sdk->hubs->getLibraryHubs(6728.76, 639.24, Operations\QueryParamOnlyTransient::One);
 
     if ($response->object !== null) {
         // handle response

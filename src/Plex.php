@@ -311,7 +311,6 @@ class Plex
      *
      * Get Plex server access tokens and server connections
      *
-     * @param  ?string  $clientID
      * @param  ?Operations\IncludeHttps  $includeHttps
      * @param  ?Operations\IncludeRelay  $includeRelay
      * @param  ?Operations\IncludeIPv6  $includeIPv6
@@ -320,14 +319,12 @@ class Plex
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getServerResources(
-        ?string $clientID = null,
         ?Operations\IncludeHttps $includeHttps = null,
         ?Operations\IncludeRelay $includeRelay = null,
         ?Operations\IncludeIPv6 $includeIPv6 = null,
         ?string $serverURL = null,
     ): Operations\GetServerResourcesResponse {
         $request = new Operations\GetServerResourcesRequest(
-            clientID: $clientID,
             includeHttps: $includeHttps,
             includeRelay: $includeRelay,
             includeIPv6: $includeIPv6,
@@ -453,19 +450,16 @@ class Plex
      * Retrieve an Access Token from Plex.tv after the Pin has been authenticated
      *
      * @param  int  $pinID
-     * @param  ?string  $clientID
      * @param  string  $serverURL
      * @return Operations\GetTokenByPinIdResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getTokenByPinId(
         int $pinID,
-        ?string $clientID = null,
         ?string $serverURL = null,
     ): Operations\GetTokenByPinIdResponse {
         $request = new Operations\GetTokenByPinIdRequest(
             pinID: $pinID,
-            clientID: $clientID,
         );
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_BY_PIN_ID_SERVERS[0], [
         ]);
@@ -474,7 +468,6 @@ class Plex
         }
         $url = Utils\Utils::generateUrl($baseUrl, '/pins/{pinID}', Operations\GetTokenByPinIdRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetTokenByPinIdRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

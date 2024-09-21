@@ -51,7 +51,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->search->performSearch('arnold', 9372.7, 5);
+    $response = $sdk->search->performSearch('dylan', 5838.67, 5);
 
     if ($response->statusCode === 200) {
         // handle response
@@ -114,7 +114,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->search->performVoiceSearch('dead+poop', 4094.8, 5);
+    $response = $sdk->search->performVoiceSearch('dead+poop', 4094.80, 5);
 
     if ($response->statusCode === 200) {
         // handle response

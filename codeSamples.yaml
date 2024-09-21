@@ -728,7 +728,7 @@ actions:
 
             try {
 
-                $response = $sdk->search->performSearch('arnold', 9372.7, 5);
+                $response = $sdk->search->performSearch('dylan', 5838.67, 5);
 
                 if ($response->statusCode === 200) {
                     // handle response
@@ -763,7 +763,7 @@ actions:
 
             try {
 
-                $response = $sdk->search->performVoiceSearch('dead+poop', 4094.8, 5);
+                $response = $sdk->search->performVoiceSearch('dead+poop', 4094.80, 5);
 
                 if ($response->statusCode === 200) {
                     // handle response
@@ -799,7 +799,7 @@ actions:
 
             try {
 
-                $response = $sdk->hubs->getLibraryHubs(6728.76, 9010.22, Operations\QueryParamOnlyTransient::Zero);
+                $response = $sdk->hubs->getLibraryHubs(6728.76, 639.24, Operations\QueryParamOnlyTransient::One);
 
                 if ($response->object !== null) {
                     // handle response
@@ -864,7 +864,7 @@ actions:
 
             try {
 
-                $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::Two, 1);
+                $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::Show, 1);
 
                 if ($response->object !== null) {
                     // handle response
@@ -1012,7 +1012,7 @@ actions:
 
             try {
 
-                $response = $sdk->library->getMetadataChildren(1539.14, '<value>');
+                $response = $sdk->library->getMetadataChildren(1539.15, '<value>');
 
                 if ($response->object !== null) {
                     // handle response
@@ -1342,7 +1342,7 @@ actions:
 
             try {
 
-                $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::Two);
+                $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::Show);
 
                 if ($response->object !== null) {
                     // handle response
@@ -1380,9 +1380,9 @@ actions:
                 $request = new Operations\GetLibraryItemsRequest(
                     sectionKey: 9518,
                     tag: Operations\Tag::Edition,
-                    includeGuids: Operations\IncludeGuids::One,
-                    includeMeta: Operations\IncludeMeta::One,
-                    type: Operations\Type::Two,
+                    includeGuids: Operations\IncludeGuids::Enable,
+                    includeMeta: Operations\IncludeMeta::Enable,
+                    type: Operations\Type::Show,
                     xPlexContainerStart: 0,
                     xPlexContainerSize: 50,
                 );
@@ -1601,9 +1601,9 @@ actions:
                     width: 110,
                     height: 165,
                     opacity: 643869,
-                    blur: 0,
-                    minSize: Operations\MinSize::Zero,
-                    upscale: Operations\Upscale::One,
+                    blur: 4000,
+                    minSize: Operations\MinSize::One,
+                    upscale: Operations\Upscale::Zero,
                     url: '/library/metadata/49564/thumb/1654258204',
                 );
                 $response = $sdk->server->getResizedPhoto($request);
@@ -1667,7 +1667,7 @@ actions:
 
             try {
 
-                $response = $sdk->plex->getTokenByPinId(408895, 'gcgzw5rz2xovp84b4vha3a40');
+                $response = $sdk->plex->getTokenByPinId(408895);
 
                 if ($response->authPinContainer !== null) {
                     // handle response
@@ -1742,7 +1742,7 @@ actions:
                     title: '<value>',
                     type: Operations\CreatePlaylistQueryParamType::Photo,
                     smart: Operations\Smart::One,
-                    uri: 'https://inborn-brochure.biz',
+                    uri: 'https://hoarse-testing.info/',
                 );
                 $response = $sdk->playlists->createPlaylist($request);
 
@@ -1780,7 +1780,7 @@ actions:
 
             try {
 
-                $response = $sdk->playlists->uploadPlaylist('/home/barkley/playlist.m3u', Operations\QueryParamForce::Zero);
+                $response = $sdk->playlists->uploadPlaylist('/home/barkley/playlist.m3u', Operations\QueryParamForce::Zero, 1);
 
                 if ($response->statusCode === 200) {
                     // handle response
@@ -1885,7 +1885,7 @@ actions:
 
             try {
 
-                $response = $sdk->playlists->updatePlaylist(3915, '<value>', '<value>');
+                $response = $sdk->playlists->updatePlaylist(3915.00, '<value>', '<value>');
 
                 if ($response->statusCode === 200) {
                     // handle response
@@ -1956,7 +1956,7 @@ actions:
 
             try {
 
-                $response = $sdk->playlists->getPlaylistContents(5004.46, Operations\GetPlaylistContentsQueryParamType::Two);
+                $response = $sdk->playlists->getPlaylistContents(5004.46, Operations\GetPlaylistContentsQueryParamType::Show);
 
                 if ($response->object !== null) {
                     // handle response
@@ -1991,7 +1991,7 @@ actions:
 
             try {
 
-                $response = $sdk->playlists->addPlaylistContents(8502.01, 'server://12345/com.plexapp.plugins.library/library/metadata/1', 123);
+                $response = $sdk->playlists->addPlaylistContents(8502.00, 'server://12345/com.plexapp.plugins.library/library/metadata/1', 123);
 
                 if ($response->object !== null) {
                     // handle response
@@ -2027,7 +2027,7 @@ actions:
 
             try {
 
-                $response = $sdk->plex->getServerResources('gcgzw5rz2xovp84b4vha3a40', Operations\IncludeHttps::One, Operations\IncludeRelay::One, Operations\IncludeIPv6::One);
+                $response = $sdk->plex->getServerResources(Operations\IncludeHttps::Enable, Operations\IncludeRelay::Enable, Operations\IncludeIPv6::Enable);
 
                 if ($response->plexDevices !== null) {
                     // handle response
@@ -2097,7 +2097,7 @@ actions:
 
             try {
 
-                $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');
+                $response = $sdk->authentication->getSourceConnectionInformation('provider://provider-identifier');
 
                 if ($response->statusCode === 200) {
                     // handle response
@@ -2581,12 +2581,12 @@ actions:
                 ->build();
 
             try {
-                $requestBody = new Operations\PostUsersSignInDataRequestBody(
+                $request = new Operations\PostUsersSignInDataRequestBody(
                     login: 'username@email.com',
                     password: 'password123',
                     verificationCode: '123456',
                 );
-                $response = $sdk->authentication->postUsersSignInData('gcgzw5rz2xovp84b4vha3a40', $requestBody);
+                $response = $sdk->authentication->postUsersSignInData($request);
 
                 if ($response->userPlexAccount !== null) {
                     // handle response

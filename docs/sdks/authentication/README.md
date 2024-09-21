@@ -102,7 +102,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');
+    $response = $sdk->authentication->getSourceConnectionInformation('provider://provider-identifier');
 
     if ($response->statusCode === 200) {
         // handle response
@@ -210,12 +210,12 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 try {
-    $requestBody = new Operations\PostUsersSignInDataRequestBody(
+    $request = new Operations\PostUsersSignInDataRequestBody(
         login: 'username@email.com',
         password: 'password123',
         verificationCode: '123456',
     );
-    $response = $sdk->authentication->postUsersSignInData('gcgzw5rz2xovp84b4vha3a40', $requestBody);
+    $response = $sdk->authentication->postUsersSignInData($request);
 
     if ($response->userPlexAccount !== null) {
         // handle response
@@ -227,11 +227,10 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `clientID`                                                                                                                                                            | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
-| `requestBody`                                                                                                                                                         | [Operations\PostUsersSignInDataRequestBody](../../Models/Operations/PostUsersSignInDataRequestBody.md)                                                                | :heavy_minus_sign:                                                                                                                                                    | Login credentials                                                                                                                                                     |                                                                                                                                                                       |
-| `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                             | [Operations\PostUsersSignInDataRequestBody](../../Models/Operations/PostUsersSignInDataRequestBody.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `$serverURL`                                                                                           | *string*                                                                                               | :heavy_minus_sign:                                                                                     | An optional server URL to use.                                                                         |
 
 ### Response
 

@@ -13,25 +13,23 @@ class Location
 {
     /**
      *
-     * @var ?int $id
+     * @var int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $id = null;
+    public int $id;
 
     /**
      *
-     * @var ?string $path
+     * @var string $path
      */
     #[\JMS\Serializer\Annotation\SerializedName('path')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $path = null;
+    public string $path;
 
     /**
-     * @param  ?int  $id
-     * @param  ?string  $path
+     * @param  int  $id
+     * @param  string  $path
      */
-    public function __construct(?int $id = null, ?string $path = null)
+    public function __construct(int $id, string $path)
     {
         $this->id = $id;
         $this->path = $path;

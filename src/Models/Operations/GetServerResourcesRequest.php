@@ -12,18 +12,6 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetServerResourcesRequest
 {
     /**
-     * The unique identifier for the client application
-     *
-     * This is used to track the client application and its usage
-     * (UUID, serial number, or other number unique per device)
-     *
-     *
-     * @var ?string $clientID
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
-    public ?string $clientID = null;
-
-    /**
      * Include Https entries in the results
      *
      * @var ?IncludeHttps $includeHttps
@@ -51,14 +39,12 @@ class GetServerResourcesRequest
     public ?IncludeIPv6 $includeIPv6 = null;
 
     /**
-     * @param  ?string  $clientID
      * @param  ?IncludeHttps  $includeHttps
      * @param  ?IncludeRelay  $includeRelay
      * @param  ?IncludeIPv6  $includeIPv6
      */
-    public function __construct(?string $clientID = null, ?IncludeHttps $includeHttps = null, ?IncludeRelay $includeRelay = null, ?IncludeIPv6 $includeIPv6 = null)
+    public function __construct(?IncludeHttps $includeHttps = null, ?IncludeRelay $includeRelay = null, ?IncludeIPv6 $includeIPv6 = null)
     {
-        $this->clientID = $clientID;
         $this->includeHttps = $includeHttps;
         $this->includeRelay = $includeRelay;
         $this->includeIPv6 = $includeIPv6;
