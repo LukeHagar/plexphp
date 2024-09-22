@@ -21,11 +21,34 @@ class Feature
 
     /**
      *
-     * @var ?string $type
+     * @var string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
+    public string $type;
+
+    /**
+     *
+     * @var ?string $flavor
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('flavor')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $type = null;
+    public ?string $flavor = null;
+
+    /**
+     *
+     * @var ?string $scrobbleKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('scrobbleKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $scrobbleKey = null;
+
+    /**
+     *
+     * @var ?string $unscrobbleKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('unscrobbleKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $unscrobbleKey = null;
 
     /**
      * $directory
@@ -38,14 +61,32 @@ class Feature
     public ?array $directory = null;
 
     /**
-     * @param  ?string  $key
-     * @param  ?string  $type
-     * @param  ?array<GetMediaProvidersDirectory>  $directory
+     * $action
+     *
+     * @var ?array<Action> $action
      */
-    public function __construct(?string $key = null, ?string $type = null, ?array $directory = null)
+    #[\JMS\Serializer\Annotation\SerializedName('Action')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Action>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $action = null;
+
+    /**
+     * @param  string  $type
+     * @param  ?string  $key
+     * @param  ?string  $flavor
+     * @param  ?string  $scrobbleKey
+     * @param  ?string  $unscrobbleKey
+     * @param  ?array<GetMediaProvidersDirectory>  $directory
+     * @param  ?array<Action>  $action
+     */
+    public function __construct(string $type, ?string $key = null, ?string $flavor = null, ?string $scrobbleKey = null, ?string $unscrobbleKey = null, ?array $directory = null, ?array $action = null)
     {
-        $this->key = $key;
         $this->type = $type;
+        $this->key = $key;
+        $this->flavor = $flavor;
+        $this->scrobbleKey = $scrobbleKey;
+        $this->unscrobbleKey = $unscrobbleKey;
         $this->directory = $directory;
+        $this->action = $action;
     }
 }

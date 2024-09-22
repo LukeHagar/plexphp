@@ -20,10 +20,39 @@ class GetLibraryItemsMediaContainer
 
     /**
      *
+     * @var int $totalSize
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('totalSize')]
+    public int $totalSize;
+
+    /**
+     *
+     * @var int $offset
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('offset')]
+    public int $offset;
+
+    /**
+     *
+     * @var string $content
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('content')]
+    public string $content;
+
+    /**
+     *
      * @var bool $allowSync
      */
     #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
     public bool $allowSync;
+
+    /**
+     *
+     * @var ?bool $nocache
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('nocache')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $nocache = null;
 
     /**
      *
@@ -122,12 +151,11 @@ class GetLibraryItemsMediaContainer
     /**
      * $metadata
      *
-     * @var ?array<GetLibraryItemsMetadata> $metadata
+     * @var array<GetLibraryItemsMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?array $metadata = null;
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>')]
+    public array $metadata;
 
     /**
      * The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
@@ -143,6 +171,9 @@ class GetLibraryItemsMediaContainer
 
     /**
      * @param  int  $size
+     * @param  int  $totalSize
+     * @param  int  $offset
+     * @param  string  $content
      * @param  bool  $allowSync
      * @param  string  $art
      * @param  string  $identifier
@@ -155,14 +186,18 @@ class GetLibraryItemsMediaContainer
      * @param  string  $title1
      * @param  string  $title2
      * @param  string  $viewGroup
+     * @param  array<GetLibraryItemsMetadata>  $metadata
+     * @param  ?bool  $nocache
      * @param  ?int  $viewMode
      * @param  ?bool  $mixedParents
-     * @param  ?array<GetLibraryItemsMetadata>  $metadata
      * @param  ?Meta  $meta
      */
-    public function __construct(int $size, bool $allowSync, string $art, string $identifier, int|string $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, ?int $viewMode = null, ?bool $mixedParents = null, ?array $metadata = null, ?Meta $meta = null)
+    public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, string $art, string $identifier, int|string $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, array $metadata, ?bool $nocache = null, ?int $viewMode = null, ?bool $mixedParents = null, ?Meta $meta = null)
     {
         $this->size = $size;
+        $this->totalSize = $totalSize;
+        $this->offset = $offset;
+        $this->content = $content;
         $this->allowSync = $allowSync;
         $this->art = $art;
         $this->identifier = $identifier;
@@ -175,9 +210,10 @@ class GetLibraryItemsMediaContainer
         $this->title1 = $title1;
         $this->title2 = $title2;
         $this->viewGroup = $viewGroup;
+        $this->metadata = $metadata;
+        $this->nocache = $nocache;
         $this->viewMode = $viewMode;
         $this->mixedParents = $mixedParents;
-        $this->metadata = $metadata;
         $this->meta = $meta;
     }
 }

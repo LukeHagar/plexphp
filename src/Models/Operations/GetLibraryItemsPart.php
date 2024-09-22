@@ -13,70 +13,94 @@ class GetLibraryItemsPart
 {
     /**
      *
-     * @var ?int $id
+     * @var int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $id = null;
+    public int $id;
 
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?int $duration
+     * @var int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $duration = null;
+    public int $duration;
 
     /**
      *
-     * @var ?string $file
+     * @var string $file
      */
     #[\JMS\Serializer\Annotation\SerializedName('file')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $file = null;
+    public string $file;
 
     /**
      *
-     * @var ?int $size
+     * @var int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $size = null;
+    public int $size;
 
     /**
+     * The container format of the media file.
      *
-     * @var ?string $container
+     *
+     *
+     * @var string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $container = null;
+    public string $container;
 
     /**
      *
-     * @var ?string $videoProfile
+     * @var ?string $audioProfile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
+    #[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoProfile = null;
+    public ?string $audioProfile = null;
 
     /**
-     * @param  ?int  $id
-     * @param  ?string  $key
-     * @param  ?int  $duration
-     * @param  ?string  $file
-     * @param  ?int  $size
-     * @param  ?string  $container
-     * @param  ?string  $videoProfile
+     *
+     * @var string $videoProfile
      */
-    public function __construct(?int $id = null, ?string $key = null, ?int $duration = null, ?string $file = null, ?int $size = null, ?string $container = null, ?string $videoProfile = null)
+    #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
+    public string $videoProfile;
+
+    /**
+     *
+     * @var ?string $indexes
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('indexes')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $indexes = null;
+
+    /**
+     *
+     * @var ?HasThumbnail $hasThumbnail
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\HasThumbnail|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?HasThumbnail $hasThumbnail = null;
+
+    /**
+     * @param  int  $id
+     * @param  string  $key
+     * @param  int  $duration
+     * @param  string  $file
+     * @param  int  $size
+     * @param  string  $container
+     * @param  string  $videoProfile
+     * @param  ?string  $audioProfile
+     * @param  ?string  $indexes
+     * @param  ?HasThumbnail  $hasThumbnail
+     */
+    public function __construct(int $id, string $key, int $duration, string $file, int $size, string $container, string $videoProfile, ?string $audioProfile = null, ?string $indexes = null, ?HasThumbnail $hasThumbnail = null)
     {
         $this->id = $id;
         $this->key = $key;
@@ -85,5 +109,8 @@ class GetLibraryItemsPart
         $this->size = $size;
         $this->container = $container;
         $this->videoProfile = $videoProfile;
+        $this->audioProfile = $audioProfile;
+        $this->indexes = $indexes;
+        $this->hasThumbnail = $hasThumbnail;
     }
 }

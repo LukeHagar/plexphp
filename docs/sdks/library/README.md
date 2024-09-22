@@ -399,9 +399,9 @@ try {
     $request = new Operations\GetLibraryItemsRequest(
         sectionKey: 9518,
         tag: Operations\Tag::Edition,
-        type: Operations\Type::Show,
         includeGuids: Operations\IncludeGuids::Enable,
         includeMeta: Operations\IncludeMeta::Enable,
+        type: Operations\Type::TvShow,
         xPlexContainerStart: 0,
         xPlexContainerSize: 50,
     );
@@ -541,7 +541,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::Show);
+    $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::TvShow);
 
     if ($response->object !== null) {
         // handle response
@@ -718,7 +718,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::Show, 1);
+    $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::TvShow, 1);
 
     if ($response->object !== null) {
         // handle response

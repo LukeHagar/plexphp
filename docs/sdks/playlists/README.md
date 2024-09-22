@@ -355,7 +355,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->playlists->getPlaylistContents(5004.46, Operations\GetPlaylistContentsQueryParamType::Show);
+    $response = $sdk->playlists->getPlaylistContents(5004.46, Operations\GetPlaylistContentsQueryParamType::TvShow);
 
     if ($response->object !== null) {
         // handle response

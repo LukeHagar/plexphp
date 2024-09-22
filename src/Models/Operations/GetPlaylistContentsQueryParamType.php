@@ -22,7 +22,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 enum GetPlaylistContentsQueryParamType: int
 {
     case Movie = 1;
-    case Show = 2;
+    case TvShow = 2;
     case Season = 3;
     case Episode = 4;
 }

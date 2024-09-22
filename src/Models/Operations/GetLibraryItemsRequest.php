@@ -60,10 +60,10 @@ class GetLibraryItemsRequest
      * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
      *
      *
-     * @var Type $type
+     * @var ?Type $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public Type $type;
+    public ?Type $type = null;
 
     /**
      * The index of the first item to return. If not specified, the first item will be returned.
@@ -92,19 +92,19 @@ class GetLibraryItemsRequest
     /**
      * @param  int  $sectionKey
      * @param  Tag  $tag
-     * @param  Type  $type
      * @param  ?IncludeGuids  $includeGuids
      * @param  ?IncludeMeta  $includeMeta
+     * @param  ?Type  $type
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      */
-    public function __construct(int $sectionKey, Tag $tag, Type $type, ?IncludeGuids $includeGuids = null, ?IncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
+    public function __construct(int $sectionKey, Tag $tag, ?IncludeGuids $includeGuids = null, ?IncludeMeta $includeMeta = null, ?Type $type = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
     {
         $this->sectionKey = $sectionKey;
         $this->tag = $tag;
-        $this->type = $type;
         $this->includeGuids = $includeGuids;
         $this->includeMeta = $includeMeta;
+        $this->type = $type;
         $this->xPlexContainerStart = $xPlexContainerStart;
         $this->xPlexContainerSize = $xPlexContainerSize;
     }

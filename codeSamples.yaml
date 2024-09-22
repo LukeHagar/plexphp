@@ -864,7 +864,7 @@ actions:
 
             try {
 
-                $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::Show, 1);
+                $response = $sdk->library->getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType::TvShow, 1);
 
                 if ($response->object !== null) {
                     // handle response
@@ -1342,7 +1342,7 @@ actions:
 
             try {
 
-                $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::Show);
+                $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::TvShow);
 
                 if ($response->object !== null) {
                     // handle response
@@ -1382,7 +1382,7 @@ actions:
                     tag: Operations\Tag::Edition,
                     includeGuids: Operations\IncludeGuids::Enable,
                     includeMeta: Operations\IncludeMeta::Enable,
-                    type: Operations\Type::Show,
+                    type: Operations\Type::TvShow,
                     xPlexContainerStart: 0,
                     xPlexContainerSize: 50,
                 );
@@ -1956,7 +1956,7 @@ actions:
 
             try {
 
-                $response = $sdk->playlists->getPlaylistContents(5004.46, Operations\GetPlaylistContentsQueryParamType::Show);
+                $response = $sdk->playlists->getPlaylistContents(5004.46, Operations\GetPlaylistContentsQueryParamType::TvShow);
 
                 if ($response->object !== null) {
                     // handle response

@@ -342,6 +342,13 @@ class GetTokenDetailsUserPlexAccount
     public string $uuid;
 
     /**
+     *
+     * @var ?string $attributionPartner
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('attributionPartner')]
+    public ?string $attributionPartner;
+
+    /**
      * @param  string  $authToken
      * @param  bool  $backupCodesCreated
      * @param  bool  $confirmed
@@ -382,8 +389,9 @@ class GetTokenDetailsUserPlexAccount
      * @param  ?string  $pin
      * @param  ?array<string>  $roles
      * @param  ?string  $subscriptionDescription
+     * @param  ?string  $attributionPartner
      */
-    public function __construct(string $authToken, bool $backupCodesCreated, bool $confirmed, string $country, string $email, bool $emailOnlyAuth, bool $experimentalFeatures, string $friendlyName, array $entitlements, bool $guest, bool $hasPassword, bool $home, bool $homeAdmin, int $homeSize, int $id, int $joinedAt, bool $mailingListActive, MailingListStatus $mailingListStatus, int $maxHomeSize, UserProfile $profile, bool $protected, int $rememberExpiresAt, bool $restricted, string $scrobbleTypes, array $services, Subscription $subscription, array $subscriptions, string $thumb, string $title, bool $twoFactorEnabled, string $username, string $uuid, ?bool $adsConsent = null, ?\DateTime $adsConsentReminderAt = null, ?\DateTime $adsConsentSetAt = null, ?bool $anonymous = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null)
+    public function __construct(string $authToken, bool $backupCodesCreated, bool $confirmed, string $country, string $email, bool $emailOnlyAuth, bool $experimentalFeatures, string $friendlyName, array $entitlements, bool $guest, bool $hasPassword, bool $home, bool $homeAdmin, int $homeSize, int $id, int $joinedAt, bool $mailingListActive, MailingListStatus $mailingListStatus, int $maxHomeSize, UserProfile $profile, bool $protected, int $rememberExpiresAt, bool $restricted, string $scrobbleTypes, array $services, Subscription $subscription, array $subscriptions, string $thumb, string $title, bool $twoFactorEnabled, string $username, string $uuid, ?bool $adsConsent = null, ?\DateTime $adsConsentReminderAt = null, ?\DateTime $adsConsentSetAt = null, ?bool $anonymous = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?string $attributionPartner = null)
     {
         $this->authToken = $authToken;
         $this->backupCodesCreated = $backupCodesCreated;
@@ -425,5 +433,6 @@ class GetTokenDetailsUserPlexAccount
         $this->pin = $pin;
         $this->roles = $roles;
         $this->subscriptionDescription = $subscriptionDescription;
+        $this->attributionPartner = $attributionPartner;
     }
 }

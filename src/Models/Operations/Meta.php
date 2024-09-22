@@ -19,10 +19,10 @@ class Meta
     /**
      * $type
      *
-     * @var ?array<GetLibraryItemsType> $type
+     * @var ?array<GetLibraryItemsLibraryType> $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('Type')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryType>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $type = null;
 
@@ -37,7 +37,7 @@ class Meta
     public ?array $fieldType = null;
 
     /**
-     * @param  ?array<GetLibraryItemsType>  $type
+     * @param  ?array<GetLibraryItemsLibraryType>  $type
      * @param  ?array<GetLibraryItemsFieldType>  $fieldType
      */
     public function __construct(?array $type = null, ?array $fieldType = null)

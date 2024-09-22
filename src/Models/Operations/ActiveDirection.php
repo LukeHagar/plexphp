@@ -10,14 +10,12 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * The type of media content
+ * The direction of the sort. Can be either `asc` or `desc`.
  *
  *
  */
-enum GetLibraryItemsType: string
+enum ActiveDirection: string
 {
-    case Movie = 'movie';
-    case TvShow = 'show';
-    case Season = 'season';
-    case Episode = 'episode';
+    case Ascending = 'asc';
+    case Descending = 'desc';
 }

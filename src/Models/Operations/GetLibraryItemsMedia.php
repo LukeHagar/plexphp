@@ -13,135 +13,139 @@ class GetLibraryItemsMedia
 {
     /**
      *
-     * @var ?int $id
+     * @var int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $id = null;
+    public int $id;
 
     /**
      *
-     * @var ?int $duration
+     * @var int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $duration = null;
+    public int $duration;
 
     /**
      *
-     * @var ?int $bitrate
+     * @var int $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $bitrate = null;
+    public int $bitrate;
 
     /**
      *
-     * @var ?int $width
+     * @var int $width
      */
     #[\JMS\Serializer\Annotation\SerializedName('width')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $width = null;
+    public int $width;
 
     /**
      *
-     * @var ?int $height
+     * @var int $height
      */
     #[\JMS\Serializer\Annotation\SerializedName('height')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $height = null;
+    public int $height;
 
     /**
      *
-     * @var ?float $aspectRatio
+     * @var float $aspectRatio
      */
     #[\JMS\Serializer\Annotation\SerializedName('aspectRatio')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $aspectRatio = null;
+    public float $aspectRatio;
 
     /**
      *
-     * @var ?int $audioChannels
+     * @var ?string $audioProfile
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $audioProfile = null;
+
+    /**
+     *
+     * @var int $audioChannels
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $audioChannels = null;
+    public int $audioChannels;
 
     /**
      *
-     * @var ?string $audioCodec
+     * @var string $audioCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $audioCodec = null;
+    public string $audioCodec;
 
     /**
      *
-     * @var ?string $videoCodec
+     * @var string $videoCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoCodec = null;
+    public string $videoCodec;
 
     /**
      *
-     * @var ?string $videoResolution
+     * @var string $videoResolution
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoResolution')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoResolution = null;
+    public string $videoResolution;
 
     /**
      *
-     * @var ?string $container
+     * @var string $container
      */
     #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $container = null;
+    public string $container;
 
     /**
      *
-     * @var ?string $videoFrameRate
+     * @var string $videoFrameRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoFrameRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoFrameRate = null;
+    public string $videoFrameRate;
 
     /**
      *
-     * @var ?string $videoProfile
+     * @var string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
+    public string $videoProfile;
+
+    /**
+     *
+     * @var ?bool $hasVoiceActivity
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('hasVoiceActivity')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoProfile = null;
+    public ?bool $hasVoiceActivity = null;
 
     /**
      * $part
      *
-     * @var ?array<GetLibraryItemsPart> $part
+     * @var array<GetLibraryItemsPart> $part
      */
     #[\JMS\Serializer\Annotation\SerializedName('Part')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsPart>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?array $part = null;
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsPart>')]
+    public array $part;
 
     /**
-     * @param  ?int  $id
-     * @param  ?int  $duration
-     * @param  ?int  $bitrate
-     * @param  ?int  $width
-     * @param  ?int  $height
-     * @param  ?float  $aspectRatio
-     * @param  ?int  $audioChannels
-     * @param  ?string  $audioCodec
-     * @param  ?string  $videoCodec
-     * @param  ?string  $videoResolution
-     * @param  ?string  $container
-     * @param  ?string  $videoFrameRate
-     * @param  ?string  $videoProfile
-     * @param  ?array<GetLibraryItemsPart>  $part
+     * @param  int  $id
+     * @param  int  $duration
+     * @param  int  $bitrate
+     * @param  int  $width
+     * @param  int  $height
+     * @param  float  $aspectRatio
+     * @param  int  $audioChannels
+     * @param  string  $audioCodec
+     * @param  string  $videoCodec
+     * @param  string  $videoResolution
+     * @param  string  $container
+     * @param  string  $videoFrameRate
+     * @param  string  $videoProfile
+     * @param  array<GetLibraryItemsPart>  $part
+     * @param  ?string  $audioProfile
+     * @param  ?bool  $hasVoiceActivity
      */
-    public function __construct(?int $id = null, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?int $audioChannels = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?array $part = null)
+    public function __construct(int $id, int $duration, int $bitrate, int $width, int $height, float $aspectRatio, int $audioChannels, string $audioCodec, string $videoCodec, string $videoResolution, string $container, string $videoFrameRate, string $videoProfile, array $part, ?string $audioProfile = null, ?bool $hasVoiceActivity = null)
     {
         $this->id = $id;
         $this->duration = $duration;
@@ -157,5 +161,7 @@ class GetLibraryItemsMedia
         $this->videoFrameRate = $videoFrameRate;
         $this->videoProfile = $videoProfile;
         $this->part = $part;
+        $this->audioProfile = $audioProfile;
+        $this->hasVoiceActivity = $hasVoiceActivity;
     }
 }

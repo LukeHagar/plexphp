@@ -21,10 +21,34 @@ class GetLibraryItemsSort
 
     /**
      *
-     * @var string $defaultDirection
+     * @var ?bool $active
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('active')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $active = null;
+
+    /**
+     * The direction of the sort. Can be either `asc` or `desc`.
+     *
+     *
+     *
+     * @var ?ActiveDirection $activeDirection
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('activeDirection')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ActiveDirection|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?ActiveDirection $activeDirection = null;
+
+    /**
+     * The direction of the sort. Can be either `asc` or `desc`.
+     *
+     *
+     *
+     * @var DefaultDirection $defaultDirection
      */
     #[\JMS\Serializer\Annotation\SerializedName('defaultDirection')]
-    public string $defaultDirection;
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\DefaultDirection')]
+    public DefaultDirection $defaultDirection;
 
     /**
      *
@@ -57,19 +81,23 @@ class GetLibraryItemsSort
     public string $title;
 
     /**
-     * @param  string  $defaultDirection
+     * @param  DefaultDirection  $defaultDirection
      * @param  string  $key
      * @param  string  $title
      * @param  ?string  $default
+     * @param  ?bool  $active
+     * @param  ?ActiveDirection  $activeDirection
      * @param  ?string  $descKey
      * @param  ?string  $firstCharacterKey
      */
-    public function __construct(string $defaultDirection, string $key, string $title, ?string $default = null, ?string $descKey = null, ?string $firstCharacterKey = null)
+    public function __construct(DefaultDirection $defaultDirection, string $key, string $title, ?string $default = null, ?bool $active = null, ?ActiveDirection $activeDirection = null, ?string $descKey = null, ?string $firstCharacterKey = null)
     {
         $this->defaultDirection = $defaultDirection;
         $this->key = $key;
         $this->title = $title;
         $this->default = $default;
+        $this->active = $active;
+        $this->activeDirection = $activeDirection;
         $this->descKey = $descKey;
         $this->firstCharacterKey = $firstCharacterKey;
     }

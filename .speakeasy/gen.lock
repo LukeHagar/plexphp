@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 1b63d7c28734a44b0339f405b186b290
+  docChecksum: 82a4a9784fb0e66e1c64f130701cdd08
   docVersion: 0.0.3
   speakeasyVersion: 1.401.2
   generationVersion: 2.421.3
-  releaseVersion: 0.9.0
-  configChecksum: 29b7adf1314f56c915e639b553b51899
+  releaseVersion: 0.9.1
+  configChecksum: 21ef7be3198d51c3f3393a34f95241db
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -325,6 +325,8 @@ generatedFiles:
   - docs/Models/Errors/UploadPlaylistPlaylistsErrors.md
   - docs/Models/Errors/UploadPlaylistUnauthorized.md
   - docs/Models/Operations/Account.md
+  - docs/Models/Operations/Action.md
+  - docs/Models/Operations/ActiveDirection.md
   - docs/Models/Operations/Activity.md
   - docs/Models/Operations/AddPlaylistContentsMediaContainer.md
   - docs/Models/Operations/AddPlaylistContentsMetadata.md
@@ -343,6 +345,7 @@ generatedFiles:
   - docs/Models/Operations/CheckForUpdatesResponse.md
   - docs/Models/Operations/ClearPlaylistContentsRequest.md
   - docs/Models/Operations/ClearPlaylistContentsResponse.md
+  - docs/Models/Operations/Collection.md
   - docs/Models/Operations/Connections.md
   - docs/Models/Operations/Context.md
   - docs/Models/Operations/Country.md
@@ -352,6 +355,7 @@ generatedFiles:
   - docs/Models/Operations/CreatePlaylistRequest.md
   - docs/Models/Operations/CreatePlaylistResponse.md
   - docs/Models/Operations/CreatePlaylistResponseBody.md
+  - docs/Models/Operations/DefaultDirection.md
   - docs/Models/Operations/DefaultSubtitleAccessibility.md
   - docs/Models/Operations/DefaultSubtitleForced.md
   - docs/Models/Operations/DeleteLibraryRequest.md
@@ -368,6 +372,7 @@ generatedFiles:
   - docs/Models/Operations/Field.md
   - docs/Models/Operations/FieldType.md
   - docs/Models/Operations/Filter.md
+  - docs/Models/Operations/FlattenSeasons.md
   - docs/Models/Operations/Force.md
   - docs/Models/Operations/Friend.md
   - docs/Models/Operations/Genre.md
@@ -430,6 +435,9 @@ generatedFiles:
   - docs/Models/Operations/GetLibraryItemsFieldType.md
   - docs/Models/Operations/GetLibraryItemsFilter.md
   - docs/Models/Operations/GetLibraryItemsGenre.md
+  - docs/Models/Operations/GetLibraryItemsImage.md
+  - docs/Models/Operations/GetLibraryItemsLibraryResponseType.md
+  - docs/Models/Operations/GetLibraryItemsLibraryType.md
   - docs/Models/Operations/GetLibraryItemsMedia.md
   - docs/Models/Operations/GetLibraryItemsMediaContainer.md
   - docs/Models/Operations/GetLibraryItemsMetadata.md
@@ -607,6 +615,7 @@ generatedFiles:
   - docs/Models/Operations/GetWatchListResponse.md
   - docs/Models/Operations/GetWatchListResponseBody.md
   - docs/Models/Operations/Guids.md
+  - docs/Models/Operations/HasThumbnail.md
   - docs/Models/Operations/Hub.md
   - docs/Models/Operations/Image.md
   - docs/Models/Operations/IncludeCollections.md
@@ -690,6 +699,7 @@ generatedFiles:
   - docs/Models/Operations/Setting.md
   - docs/Models/Operations/SharedServers.md
   - docs/Models/Operations/SharedSources.md
+  - docs/Models/Operations/ShowOrdering.md
   - docs/Models/Operations/Skip.md
   - docs/Models/Operations/Smart.md
   - docs/Models/Operations/Sort.md
@@ -716,6 +726,7 @@ generatedFiles:
   - docs/Models/Operations/TranscodeSession.md
   - docs/Models/Operations/Trials.md
   - docs/Models/Operations/Type.md
+  - docs/Models/Operations/UltraBlurColors.md
   - docs/Models/Operations/UpdatePlayProgressRequest.md
   - docs/Models/Operations/UpdatePlayProgressResponse.md
   - docs/Models/Operations/UpdatePlaylistRequest.md
@@ -1195,6 +1206,8 @@ generatedFiles:
   - src/Models/Errors/UploadPlaylistUnauthorized.php
   - src/Models/Errors/UploadPlaylistUnauthorizedThrowable.php
   - src/Models/Operations/Account.php
+  - src/Models/Operations/Action.php
+  - src/Models/Operations/ActiveDirection.php
   - src/Models/Operations/Activity.php
   - src/Models/Operations/AddPlaylistContentsMediaContainer.php
   - src/Models/Operations/AddPlaylistContentsMetadata.php
@@ -1213,6 +1226,7 @@ generatedFiles:
   - src/Models/Operations/CheckForUpdatesResponse.php
   - src/Models/Operations/ClearPlaylistContentsRequest.php
   - src/Models/Operations/ClearPlaylistContentsResponse.php
+  - src/Models/Operations/Collection.php
   - src/Models/Operations/Connections.php
   - src/Models/Operations/Context.php
   - src/Models/Operations/Country.php
@@ -1222,6 +1236,7 @@ generatedFiles:
   - src/Models/Operations/CreatePlaylistRequest.php
   - src/Models/Operations/CreatePlaylistResponse.php
   - src/Models/Operations/CreatePlaylistResponseBody.php
+  - src/Models/Operations/DefaultDirection.php
   - src/Models/Operations/DefaultSubtitleAccessibility.php
   - src/Models/Operations/DefaultSubtitleForced.php
   - src/Models/Operations/DeleteLibraryRequest.php
@@ -1238,6 +1253,7 @@ generatedFiles:
   - src/Models/Operations/Field.php
   - src/Models/Operations/FieldType.php
   - src/Models/Operations/Filter.php
+  - src/Models/Operations/FlattenSeasons.php
   - src/Models/Operations/Force.php
   - src/Models/Operations/Friend.php
   - src/Models/Operations/Genre.php
@@ -1300,6 +1316,9 @@ generatedFiles:
   - src/Models/Operations/GetLibraryItemsFieldType.php
   - src/Models/Operations/GetLibraryItemsFilter.php
   - src/Models/Operations/GetLibraryItemsGenre.php
+  - src/Models/Operations/GetLibraryItemsImage.php
+  - src/Models/Operations/GetLibraryItemsLibraryResponseType.php
+  - src/Models/Operations/GetLibraryItemsLibraryType.php
   - src/Models/Operations/GetLibraryItemsMedia.php
   - src/Models/Operations/GetLibraryItemsMediaContainer.php
   - src/Models/Operations/GetLibraryItemsMetadata.php
@@ -1477,6 +1496,7 @@ generatedFiles:
   - src/Models/Operations/GetWatchListResponse.php
   - src/Models/Operations/GetWatchListResponseBody.php
   - src/Models/Operations/Guids.php
+  - src/Models/Operations/HasThumbnail.php
   - src/Models/Operations/Hub.php
   - src/Models/Operations/Image.php
   - src/Models/Operations/IncludeCollections.php
@@ -1559,6 +1579,7 @@ generatedFiles:
   - src/Models/Operations/Setting.php
   - src/Models/Operations/SharedServers.php
   - src/Models/Operations/SharedSources.php
+  - src/Models/Operations/ShowOrdering.php
   - src/Models/Operations/Skip.php
   - src/Models/Operations/Smart.php
   - src/Models/Operations/Sort.php
@@ -1585,6 +1606,7 @@ generatedFiles:
   - src/Models/Operations/TranscodeSession.php
   - src/Models/Operations/Trials.php
   - src/Models/Operations/Type.php
+  - src/Models/Operations/UltraBlurColors.php
   - src/Models/Operations/UpdatePlayProgressRequest.php
   - src/Models/Operations/UpdatePlayProgressResponse.php
   - src/Models/Operations/UpdatePlaylistRequest.php
@@ -1711,7 +1733,8 @@ examples:
           application/json: {"errors": []}
         "401":
           application/json: {"errors": []}
-        "200": {}
+        "200":
+          application/json: {"MediaContainer": {"MediaProvider": [{"Feature": [{"type": "<value>", "flavor": "global", "scrobbleKey": "/:/scrobble/new", "unscrobbleKey": "/:/unscrobble/new", "Action": []}, {"type": "<value>", "flavor": "global", "scrobbleKey": "/:/scrobble/new", "unscrobbleKey": "/:/unscrobble/new", "Action": [{"id": "addToContinueWatching", "key": "/actions/addToContinueWatching"}, {"id": "addToContinueWatching", "key": "/actions/addToContinueWatching"}]}, {"type": "<value>", "flavor": "global", "scrobbleKey": "/:/scrobble/new", "unscrobbleKey": "/:/unscrobble/new", "Action": [{"id": "addToContinueWatching", "key": "/actions/addToContinueWatching"}, {"id": "addToContinueWatching", "key": "/actions/addToContinueWatching"}]}]}]}}
   getServerList:
     speakeasy-default-get-server-list:
       responses:
@@ -2111,7 +2134,7 @@ examples:
           X-Plex-Container-Size: 50
       responses:
         "200":
-          application/json: {"MediaContainer": {"size": 70, "allowSync": true, "art": "/:/resources/movie-fanart.jpg", "identifier": "com.plexapp.plugins.library", "librarySectionID": "<value>", "librarySectionTitle": "Movies", "librarySectionUUID": "322a231a-b7f7-49f5-920f-14c61199cd30", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1701731894, "thumb": "/:/resources/movie.png", "title1": "Movies", "title2": "Recently Released", "viewGroup": "movie", "viewMode": 65592, "mixedParents": true, "Metadata": [{"ratingKey": "58683", "key": "/library/metadata/58683", "guid": "plex://movie/5d7768ba96b655001fdc0408", "studio": "20th Century Studios", "type": "movie", "title": "Avatar: The Way of Water", "contentRating": "PG-13", "summary": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.", "rating": 7.6, "audienceRating": 9.2, "year": 2022, "tagline": "Return to Pandora.", "thumb": "/library/metadata/58683/thumb/1703239236", "art": "/library/metadata/58683/art/1703239236", "duration": 11558112, "originallyAvailableAt": "2022-12-14T00:00:00Z", "addedAt": 1680457607, "updatedAt": 1703239236, "audienceRatingImage": "rottentomatoes://image.rating.upright", "chapterSource": "media", "primaryExtraKey": "/library/metadata/58684", "ratingImage": "rottentomatoes://image.rating.ripe", "grandparentRatingKey": "66", "grandparentGuid": "plex://show/5d9c081b170e24001f2a7be4", "grandparentKey": "/library/metadata/66", "grandparentTitle": "Caprica", "grandparentThumb": "/library/metadata/66/thumb/1705716261", "grandparentArt": "/library/metadata/66/art/1705716261", "grandparentTheme": "/library/metadata/66/theme/1705716261", "Media": [{"id": 119534, "duration": 11558112, "bitrate": 25025, "width": 3840, "height": 2072, "aspectRatio": 1.85, "audioChannels": 6, "audioCodec": "eac3", "videoCodec": "hevc", "videoResolution": "4k", "container": "mkv", "videoFrameRate": "24p", "videoProfile": "main 10", "Part": [{"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "videoProfile": "main 10"}, {"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "videoProfile": "main 10"}, {"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "videoProfile": "main 10"}]}], "Genre": [{"tag": "Adventure"}, {"tag": "Adventure"}, {"tag": "Adventure"}], "Country": [{"tag": "United States of America"}, {"tag": "United States of America"}], "Director": [{"tag": "James Cameron"}, {"tag": "James Cameron"}], "Writer": [{"tag": "James Cameron"}], "Role": [{"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}], "Guid": [{"id": "imdb://tt13015952"}], "titleSort": "Whale", "viewCount": 1, "lastViewedAt": 1682752242, "originalTitle": "映画 ブラッククローバー 魔法帝の剣", "viewOffset": 5222500, "skipCount": 1, "index": 1, "theme": "/library/metadata/1/theme/1705636920", "leafCount": 14, "viewedLeafCount": 0, "childCount": 1, "hasPremiumExtras": "1", "hasPremiumPrimaryExtra": "1", "parentRatingKey": "66", "parentGuid": "plex://show/5d9c081b170e24001f2a7be4", "parentStudio": "UCP", "parentKey": "/library/metadata/66", "parentTitle": "Caprica", "parentIndex": 1, "parentYear": 2010, "parentThumb": "/library/metadata/66/thumb/1705716261", "parentTheme": "/library/metadata/66/theme/1705716261"}, {"ratingKey": "58683", "key": "/library/metadata/58683", "guid": "plex://movie/5d7768ba96b655001fdc0408", "studio": "20th Century Studios", "type": "movie", "title": "Avatar: The Way of Water", "contentRating": "PG-13", "summary": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.", "rating": 7.6, "audienceRating": 9.2, "year": 2022, "tagline": "Return to Pandora.", "thumb": "/library/metadata/58683/thumb/1703239236", "art": "/library/metadata/58683/art/1703239236", "duration": 11558112, "originallyAvailableAt": "2022-12-14T00:00:00Z", "addedAt": 1680457607, "updatedAt": 1703239236, "audienceRatingImage": "rottentomatoes://image.rating.upright", "chapterSource": "media", "primaryExtraKey": "/library/metadata/58684", "ratingImage": "rottentomatoes://image.rating.ripe", "grandparentRatingKey": "66", "grandparentGuid": "plex://show/5d9c081b170e24001f2a7be4", "grandparentKey": "/library/metadata/66", "grandparentTitle": "Caprica", "grandparentThumb": "/library/metadata/66/thumb/1705716261", "grandparentArt": "/library/metadata/66/art/1705716261", "grandparentTheme": "/library/metadata/66/theme/1705716261", "Media": [{"id": 119534, "duration": 11558112, "bitrate": 25025, "width": 3840, "height": 2072, "aspectRatio": 1.85, "audioChannels": 6, "audioCodec": "eac3", "videoCodec": "hevc", "videoResolution": "4k", "container": "mkv", "videoFrameRate": "24p", "videoProfile": "main 10", "Part": [{"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "videoProfile": "main 10"}]}], "Genre": [], "Country": [{"tag": "United States of America"}], "Director": [{"tag": "James Cameron"}, {"tag": "James Cameron"}, {"tag": "James Cameron"}], "Writer": [{"tag": "James Cameron"}], "Role": [{"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}], "Guid": [{"id": "imdb://tt13015952"}], "titleSort": "Whale", "viewCount": 1, "lastViewedAt": 1682752242, "originalTitle": "映画 ブラッククローバー 魔法帝の剣", "viewOffset": 5222500, "skipCount": 1, "index": 1, "theme": "/library/metadata/1/theme/1705636920", "leafCount": 14, "viewedLeafCount": 0, "childCount": 1, "hasPremiumExtras": "1", "hasPremiumPrimaryExtra": "1", "parentRatingKey": "66", "parentGuid": "plex://show/5d9c081b170e24001f2a7be4", "parentStudio": "UCP", "parentKey": "/library/metadata/66", "parentTitle": "Caprica", "parentIndex": 1, "parentYear": 2010, "parentThumb": "/library/metadata/66/thumb/1705716261", "parentTheme": "/library/metadata/66/theme/1705716261"}], "Meta": {"Type": [{"key": "/library/sections/2/all?type=2", "type": "show", "title": "TV Shows", "active": false, "Filter": [], "Sort": [], "Field": [{"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}, {"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}]}, {"key": "/library/sections/2/all?type=2", "type": "show", "title": "TV Shows", "active": false, "Filter": [{"filter": "genre", "filterType": "string", "key": "/library/sections/2/genre?type=2", "title": "Genre", "type": "filter"}, {"filter": "genre", "filterType": "string", "key": "/library/sections/2/genre?type=2", "title": "Genre", "type": "filter"}, {"filter": "genre", "filterType": "string", "key": "/library/sections/2/genre?type=2", "title": "Genre", "type": "filter"}], "Sort": [], "Field": [{"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}, {"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}, {"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}]}], "FieldType": [{"type": "tag", "Operator": [{"key": "=", "title": "is"}]}, {"type": "tag", "Operator": [{"key": "=", "title": "is"}, {"key": "=", "title": "is"}]}, {"type": "tag", "Operator": [{"key": "=", "title": "is"}, {"key": "=", "title": "is"}]}]}}}
+          application/json: {"MediaContainer": {"size": 70, "totalSize": 170, "offset": 0, "content": "secondary", "allowSync": true, "nocache": true, "art": "/:/resources/movie-fanart.jpg", "identifier": "com.plexapp.plugins.library", "librarySectionID": "<value>", "librarySectionTitle": "Movies", "librarySectionUUID": "322a231a-b7f7-49f5-920f-14c61199cd30", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1701731894, "thumb": "/:/resources/movie.png", "title1": "Movies", "title2": "Recently Released", "viewGroup": "movie", "viewMode": 65592, "mixedParents": true, "Metadata": [{"ratingKey": "58683", "key": "/library/metadata/58683", "guid": "plex://movie/5d7768ba96b655001fdc0408", "studio": "20th Century Studios", "skipChildren": false, "type": "movie", "title": "Avatar: The Way of Water", "slug": "4-for-texas", "contentRating": "PG-13", "summary": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.", "rating": 7.6, "audienceRating": 9.2, "year": 2022, "seasonCount": 2022, "tagline": "Return to Pandora.", "flattenSeasons": "1", "showOrdering": "dvd", "thumb": "/library/metadata/58683/thumb/1703239236", "art": "/library/metadata/58683/art/1703239236", "banner": "/library/metadata/58683/banner/1703239236", "duration": 11558112, "originallyAvailableAt": "2022-12-14T00:00:00Z", "addedAt": 1556281940, "updatedAt": 1556281940, "audienceRatingImage": "rottentomatoes://image.rating.upright", "chapterSource": "media", "primaryExtraKey": "/library/metadata/58684", "ratingImage": "rottentomatoes://image.rating.ripe", "grandparentRatingKey": "66", "grandparentGuid": "plex://show/5d9c081b170e24001f2a7be4", "grandparentKey": "/library/metadata/66", "grandparentTitle": "Caprica", "grandparentThumb": "/library/metadata/66/thumb/1705716261", "grandparentSlug": "alice-in-borderland-2020", "grandparentArt": "/library/metadata/66/art/1705716261", "grandparentTheme": "/library/metadata/66/theme/1705716261", "Media": [{"id": 119534, "duration": 11558112, "bitrate": 25025, "width": 3840, "height": 2072, "aspectRatio": 1.85, "audioProfile": "dts", "audioChannels": 6, "audioCodec": "eac3", "videoCodec": "hevc", "videoResolution": "4k", "container": "mkv", "videoFrameRate": "24p", "videoProfile": "main 10", "hasVoiceActivity": false, "Part": [{"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "audioProfile": "dts", "videoProfile": "main 10", "indexes": "sd", "hasThumbnail": "1"}, {"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "audioProfile": "dts", "videoProfile": "main 10", "indexes": "sd", "hasThumbnail": "1"}, {"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "audioProfile": "dts", "videoProfile": "main 10", "indexes": "sd", "hasThumbnail": "1"}]}], "Genre": [{"tag": "Adventure"}, {"tag": "Adventure"}, {"tag": "Adventure"}], "Country": [{"tag": "United States of America"}, {"tag": "United States of America"}], "Director": [{"tag": "James Cameron"}, {"tag": "James Cameron"}], "Writer": [{"tag": "James Cameron"}], "Collection": [{"tag": "Working NL Subs"}], "Role": [{"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}], "Guid": [{"id": "imdb://tt13015952"}], "UltraBlurColors": {"topLeft": "11333b", "topRight": "0a232d", "bottomRight": "73958", "bottomLeft": "1f5066"}, "Image": [{"alt": "Episode 1", "type": "background", "url": "/library/metadata/45521/thumb/1644710589"}, {"alt": "Episode 1", "type": "background", "url": "/library/metadata/45521/thumb/1644710589"}], "titleSort": "Whale", "viewCount": 1, "lastViewedAt": 1682752242, "originalTitle": "映画 ブラッククローバー 魔法帝の剣", "viewOffset": 5222500, "skipCount": 1, "index": 1, "theme": "/library/metadata/1/theme/1705636920", "leafCount": 14, "viewedLeafCount": 0, "childCount": 1, "hasPremiumExtras": "1", "hasPremiumPrimaryExtra": "1", "parentRatingKey": "66", "parentGuid": "plex://show/5d9c081b170e24001f2a7be4", "parentStudio": "UCP", "parentKey": "/library/metadata/66", "parentTitle": "Caprica", "parentIndex": 1, "parentYear": 2010, "parentThumb": "/library/metadata/66/thumb/1705716261", "parentTheme": "/library/metadata/66/theme/1705716261"}, {"ratingKey": "58683", "key": "/library/metadata/58683", "guid": "plex://movie/5d7768ba96b655001fdc0408", "studio": "20th Century Studios", "skipChildren": false, "type": "movie", "title": "Avatar: The Way of Water", "slug": "4-for-texas", "contentRating": "PG-13", "summary": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.", "rating": 7.6, "audienceRating": 9.2, "year": 2022, "seasonCount": 2022, "tagline": "Return to Pandora.", "flattenSeasons": "1", "showOrdering": "dvd", "thumb": "/library/metadata/58683/thumb/1703239236", "art": "/library/metadata/58683/art/1703239236", "banner": "/library/metadata/58683/banner/1703239236", "duration": 11558112, "originallyAvailableAt": "2022-12-14T00:00:00Z", "addedAt": 1556281940, "updatedAt": 1556281940, "audienceRatingImage": "rottentomatoes://image.rating.upright", "chapterSource": "media", "primaryExtraKey": "/library/metadata/58684", "ratingImage": "rottentomatoes://image.rating.ripe", "grandparentRatingKey": "66", "grandparentGuid": "plex://show/5d9c081b170e24001f2a7be4", "grandparentKey": "/library/metadata/66", "grandparentTitle": "Caprica", "grandparentThumb": "/library/metadata/66/thumb/1705716261", "grandparentSlug": "alice-in-borderland-2020", "grandparentArt": "/library/metadata/66/art/1705716261", "grandparentTheme": "/library/metadata/66/theme/1705716261", "Media": [{"id": 119534, "duration": 11558112, "bitrate": 25025, "width": 3840, "height": 2072, "aspectRatio": 1.85, "audioProfile": "dts", "audioChannels": 6, "audioCodec": "eac3", "videoCodec": "hevc", "videoResolution": "4k", "container": "mkv", "videoFrameRate": "24p", "videoProfile": "main 10", "hasVoiceActivity": false, "Part": [{"id": 119542, "key": "/library/parts/119542/1680457526/file.mkv", "duration": 11558112, "file": "/movies/Avatar The Way of Water (2022)/Avatar.The.Way.of.Water.2022.2160p.WEB-DL.DDP5.1.Atmos.DV.HDR10.HEVC-CMRG.mkv", "size": 36158371307, "container": "mkv", "audioProfile": "dts", "videoProfile": "main 10", "indexes": "sd", "hasThumbnail": "1"}]}], "Genre": [], "Country": [{"tag": "United States of America"}], "Director": [{"tag": "James Cameron"}, {"tag": "James Cameron"}, {"tag": "James Cameron"}], "Writer": [{"tag": "James Cameron"}], "Collection": [{"tag": "Working NL Subs"}, {"tag": "Working NL Subs"}], "Role": [{"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}, {"tag": "Sigourney Weaver"}], "Guid": [{"id": "imdb://tt13015952"}], "UltraBlurColors": {"topLeft": "11333b", "topRight": "0a232d", "bottomRight": "73958", "bottomLeft": "1f5066"}, "Image": [{"alt": "Episode 1", "type": "background", "url": "/library/metadata/45521/thumb/1644710589"}], "titleSort": "Whale", "viewCount": 1, "lastViewedAt": 1682752242, "originalTitle": "映画 ブラッククローバー 魔法帝の剣", "viewOffset": 5222500, "skipCount": 1, "index": 1, "theme": "/library/metadata/1/theme/1705636920", "leafCount": 14, "viewedLeafCount": 0, "childCount": 1, "hasPremiumExtras": "1", "hasPremiumPrimaryExtra": "1", "parentRatingKey": "66", "parentGuid": "plex://show/5d9c081b170e24001f2a7be4", "parentStudio": "UCP", "parentKey": "/library/metadata/66", "parentTitle": "Caprica", "parentIndex": 1, "parentYear": 2010, "parentThumb": "/library/metadata/66/thumb/1705716261", "parentTheme": "/library/metadata/66/theme/1705716261"}], "Meta": {"Type": [{"key": "/library/sections/2/all?type=2", "type": "show", "title": "TV Shows", "active": false, "Filter": [], "Sort": [], "Field": [{"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}, {"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}]}, {"key": "/library/sections/2/all?type=2", "type": "show", "title": "TV Shows", "active": false, "Filter": [{"filter": "genre", "filterType": "string", "key": "/library/sections/2/genre?type=2", "title": "Genre", "type": "filter"}, {"filter": "genre", "filterType": "string", "key": "/library/sections/2/genre?type=2", "title": "Genre", "type": "filter"}, {"filter": "genre", "filterType": "string", "key": "/library/sections/2/genre?type=2", "title": "Genre", "type": "filter"}], "Sort": [], "Field": [{"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}, {"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}, {"key": "show.title", "title": "Show Title", "type": "string", "subType": "rating"}]}], "FieldType": [{"type": "tag", "Operator": [{"key": "=", "title": "is"}]}, {"type": "tag", "Operator": [{"key": "=", "title": "is"}, {"key": "=", "title": "is"}]}, {"type": "tag", "Operator": [{"key": "=", "title": "is"}, {"key": "=", "title": "is"}]}]}}}
         "400":
           application/json: {"errors": [{"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}]}
         "401":
@@ -2392,7 +2415,7 @@ examples:
     speakeasy-default-get-token-details:
       responses:
         "200":
-          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": ["[]"], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1556281940, "locale": null, "mailingListActive": false, "mailingListStatus": "unsubscribed", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": 1, "defaultSubtitleAccessibility": 1, "defaultSubtitleForced": 1, "watchedIndicator": 1, "mediaReviewsVisibility": 1}, "protected": false, "rememberExpiresAt": 1556281940, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f"}
+          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": ["[]"], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1556281940, "locale": null, "mailingListActive": false, "mailingListStatus": "unsubscribed", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": 1, "defaultSubtitleAccessibility": 1, "defaultSubtitleForced": 1, "watchedIndicator": 1, "mediaReviewsVisibility": 1}, "protected": false, "rememberExpiresAt": 1556281940, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f", "attributionPartner": null}
         "400":
           application/json: {"errors": []}
         "401":
@@ -2403,7 +2426,7 @@ examples:
         application/x-www-form-urlencoded: {"login": "username@email.com", "password": "password123", "verificationCode": "123456"}
       responses:
         "201":
-          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": ["[]"], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1556281940, "locale": null, "mailingListActive": false, "mailingListStatus": "unsubscribed", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": 1, "defaultSubtitleAccessibility": 1, "defaultSubtitleForced": 1, "watchedIndicator": 1, "mediaReviewsVisibility": 1}, "protected": false, "rememberExpiresAt": 1556281940, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f", "pastSubscriptions": [{"id": "string", "mode": "string", "renewsAt": 1556281940, "endsAt": 1556281940, "canceled": false, "gracePeriod": false, "onHold": false, "canReactivate": false, "canUpgrade": false, "canDowngrade": false, "canConvert": false, "type": "plexpass", "transfer": "string", "state": "ended", "billing": {"paymentMethodId": 481656}}], "trials": [{}]}
+          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": ["[]"], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1556281940, "locale": null, "mailingListActive": false, "mailingListStatus": "unsubscribed", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": 1, "defaultSubtitleAccessibility": 1, "defaultSubtitleForced": 1, "watchedIndicator": 1, "mediaReviewsVisibility": 1}, "protected": false, "rememberExpiresAt": 1556281940, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f", "attributionPartner": null, "pastSubscriptions": [{"id": "string", "mode": "string", "renewsAt": 1556281940, "endsAt": 1556281940, "canceled": false, "gracePeriod": false, "onHold": false, "canReactivate": false, "canUpgrade": false, "canDowngrade": false, "canConvert": false, "type": "plexpass", "transfer": "string", "state": "ended", "billing": {"paymentMethodId": 481656}}], "trials": [{}]}
         "400":
           application/json: {"errors": []}
         "401":
