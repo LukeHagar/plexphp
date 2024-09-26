@@ -13,27 +13,24 @@ class Field
 {
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?string $title
+     * @var string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title = null;
+    public string $title;
 
     /**
      *
-     * @var ?string $type
+     * @var string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $type = null;
+    public string $type;
 
     /**
      *
@@ -44,12 +41,12 @@ class Field
     public ?string $subType = null;
 
     /**
-     * @param  ?string  $key
-     * @param  ?string  $title
-     * @param  ?string  $type
+     * @param  string  $key
+     * @param  string  $title
+     * @param  string  $type
      * @param  ?string  $subType
      */
-    public function __construct(?string $key = null, ?string $title = null, ?string $type = null, ?string $subType = null)
+    public function __construct(string $key, string $title, string $type, ?string $subType = null)
     {
         $this->key = $key;
         $this->title = $title;

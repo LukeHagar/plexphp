@@ -13,21 +13,21 @@ class Stream
 {
     /**
      *
-     * @var ?int $id
+     * @var int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $id = null;
+    public int $id;
 
     /**
+     * Type of stream (1 = video, 2 = audio, 3 = subtitle)
      *
-     * @var ?int $streamType
+     * @var int $streamType
      */
     #[\JMS\Serializer\Annotation\SerializedName('streamType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $streamType = null;
+    public int $streamType;
 
     /**
+     * Indicates if this is the default stream
      *
      * @var ?bool $default
      */
@@ -36,22 +36,32 @@ class Stream
     public ?bool $default = null;
 
     /**
+     * Indicates if the stream is selected
      *
-     * @var ?string $codec
+     * @var ?bool $selected
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('selected')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $selected = null;
+
+    /**
+     * Codec used by the stream
+     *
+     * @var string $codec
      */
     #[\JMS\Serializer\Annotation\SerializedName('codec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $codec = null;
+    public string $codec;
 
     /**
+     * The index of the stream
      *
-     * @var ?int $index
+     * @var int $index
      */
     #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $index = null;
+    public int $index;
 
     /**
+     * The bitrate of the stream in kbps
      *
      * @var ?int $bitrate
      */
@@ -60,46 +70,7 @@ class Stream
     public ?int $bitrate = null;
 
     /**
-     *
-     * @var ?int $bitDepth
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $bitDepth = null;
-
-    /**
-     *
-     * @var ?string $chromaLocation
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $chromaLocation = null;
-
-    /**
-     *
-     * @var ?string $chromaSubsampling
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $chromaSubsampling = null;
-
-    /**
-     *
-     * @var ?int $codedHeight
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $codedHeight = null;
-
-    /**
-     *
-     * @var ?int $codedWidth
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $codedWidth = null;
-
-    /**
+     * The color primaries of the video stream
      *
      * @var ?string $colorPrimaries
      */
@@ -108,6 +79,7 @@ class Stream
     public ?string $colorPrimaries = null;
 
     /**
+     * The color range of the video stream
      *
      * @var ?string $colorRange
      */
@@ -116,6 +88,7 @@ class Stream
     public ?string $colorRange = null;
 
     /**
+     * The color space of the video stream
      *
      * @var ?string $colorSpace
      */
@@ -124,6 +97,7 @@ class Stream
     public ?string $colorSpace = null;
 
     /**
+     * The transfer characteristics (TRC) of the video stream
      *
      * @var ?string $colorTrc
      */
@@ -132,14 +106,70 @@ class Stream
     public ?string $colorTrc = null;
 
     /**
+     * The bit depth of the video stream
      *
-     * @var ?int $frameRate
+     * @var ?int $bitDepth
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $bitDepth = null;
+
+    /**
+     * The chroma location of the video stream
+     *
+     * @var ?string $chromaLocation
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $chromaLocation = null;
+
+    /**
+     * The identifier of the video stream
+     *
+     * @var ?string $streamIdentifier
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('streamIdentifier')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $streamIdentifier = null;
+
+    /**
+     * The chroma subsampling format
+     *
+     * @var ?string $chromaSubsampling
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $chromaSubsampling = null;
+
+    /**
+     * The coded height of the video stream
+     *
+     * @var ?int $codedHeight
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $codedHeight = null;
+
+    /**
+     * The coded width of the video stream
+     *
+     * @var ?int $codedWidth
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $codedWidth = null;
+
+    /**
+     * The frame rate of the video stream
+     *
+     * @var ?float $frameRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('frameRate')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?int $frameRate = null;
+    public ?float $frameRate = null;
 
     /**
+     * Indicates if the stream has a scaling matrix
      *
      * @var ?bool $hasScalingMatrix
      */
@@ -149,6 +179,31 @@ class Stream
 
     /**
      *
+     * @var ?bool $hearingImpaired
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('hearingImpaired')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $hearingImpaired = null;
+
+    /**
+     *
+     * @var ?bool $closedCaptions
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('closedCaptions')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $closedCaptions = null;
+
+    /**
+     *
+     * @var ?string $embeddedInVideo
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('embeddedInVideo')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $embeddedInVideo = null;
+
+    /**
+     * The height of the video stream
+     *
      * @var ?int $height
      */
     #[\JMS\Serializer\Annotation\SerializedName('height')]
@@ -156,6 +211,7 @@ class Stream
     public ?int $height = null;
 
     /**
+     * The level of the video codec
      *
      * @var ?int $level
      */
@@ -164,6 +220,7 @@ class Stream
     public ?int $level = null;
 
     /**
+     * The profile of the video codec
      *
      * @var ?string $profile
      */
@@ -172,6 +229,7 @@ class Stream
     public ?string $profile = null;
 
     /**
+     * Number of reference frames
      *
      * @var ?int $refFrames
      */
@@ -180,6 +238,7 @@ class Stream
     public ?int $refFrames = null;
 
     /**
+     * The scan type (progressive or interlaced)
      *
      * @var ?string $scanType
      */
@@ -188,14 +247,7 @@ class Stream
     public ?string $scanType = null;
 
     /**
-     *
-     * @var ?string $streamIdentifier
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('streamIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $streamIdentifier = null;
-
-    /**
+     * The width of the video stream
      *
      * @var ?int $width
      */
@@ -204,6 +256,7 @@ class Stream
     public ?int $width = null;
 
     /**
+     * Display title of the stream
      *
      * @var ?string $displayTitle
      */
@@ -212,6 +265,7 @@ class Stream
     public ?string $displayTitle = null;
 
     /**
+     * Extended display title of the stream
      *
      * @var ?string $extendedDisplayTitle
      */
@@ -220,14 +274,7 @@ class Stream
     public ?string $extendedDisplayTitle = null;
 
     /**
-     *
-     * @var ?bool $selected
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('selected')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $selected = null;
-
-    /**
+     * Number of audio channels (for audio streams)
      *
      * @var ?int $channels
      */
@@ -236,6 +283,7 @@ class Stream
     public ?int $channels = null;
 
     /**
+     * The language of the stream (for audio/subtitle streams)
      *
      * @var ?string $language
      */
@@ -244,6 +292,7 @@ class Stream
     public ?string $language = null;
 
     /**
+     * Language tag of the stream
      *
      * @var ?string $languageTag
      */
@@ -252,6 +301,7 @@ class Stream
     public ?string $languageTag = null;
 
     /**
+     * Language code of the stream
      *
      * @var ?string $languageCode
      */
@@ -260,6 +310,16 @@ class Stream
     public ?string $languageCode = null;
 
     /**
+     * The audio channel layout
+     *
+     * @var ?string $audioChannelLayout
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('audioChannelLayout')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $audioChannelLayout = null;
+
+    /**
+     * Sampling rate of the audio stream in Hz
      *
      * @var ?int $samplingRate
      */
@@ -268,72 +328,102 @@ class Stream
     public ?int $samplingRate = null;
 
     /**
-     * @param  ?int  $id
-     * @param  ?int  $streamType
+     * Title of the subtitle track (for subtitle streams)
+     *
+     * @var ?string $title
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $title = null;
+
+    /**
+     * Indicates if the subtitle stream can auto-sync
+     *
+     * @var ?bool $canAutoSync
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('canAutoSync')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $canAutoSync = null;
+
+    /**
+     * @param  int  $id
+     * @param  int  $streamType
+     * @param  string  $codec
+     * @param  int  $index
      * @param  ?bool  $default
-     * @param  ?string  $codec
-     * @param  ?int  $index
+     * @param  ?bool  $selected
      * @param  ?int  $bitrate
-     * @param  ?int  $bitDepth
-     * @param  ?string  $chromaLocation
-     * @param  ?string  $chromaSubsampling
-     * @param  ?int  $codedHeight
-     * @param  ?int  $codedWidth
      * @param  ?string  $colorPrimaries
      * @param  ?string  $colorRange
      * @param  ?string  $colorSpace
      * @param  ?string  $colorTrc
-     * @param  ?int  $frameRate
+     * @param  ?int  $bitDepth
+     * @param  ?string  $chromaLocation
+     * @param  ?string  $streamIdentifier
+     * @param  ?string  $chromaSubsampling
+     * @param  ?int  $codedHeight
+     * @param  ?int  $codedWidth
+     * @param  ?float  $frameRate
      * @param  ?bool  $hasScalingMatrix
+     * @param  ?bool  $hearingImpaired
+     * @param  ?bool  $closedCaptions
+     * @param  ?string  $embeddedInVideo
      * @param  ?int  $height
      * @param  ?int  $level
      * @param  ?string  $profile
      * @param  ?int  $refFrames
      * @param  ?string  $scanType
-     * @param  ?string  $streamIdentifier
      * @param  ?int  $width
      * @param  ?string  $displayTitle
      * @param  ?string  $extendedDisplayTitle
-     * @param  ?bool  $selected
      * @param  ?int  $channels
      * @param  ?string  $language
      * @param  ?string  $languageTag
      * @param  ?string  $languageCode
+     * @param  ?string  $audioChannelLayout
      * @param  ?int  $samplingRate
+     * @param  ?string  $title
+     * @param  ?bool  $canAutoSync
      */
-    public function __construct(?int $id = null, ?int $streamType = null, ?bool $default = null, ?string $codec = null, ?int $index = null, ?int $bitrate = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?int $frameRate = null, ?bool $hasScalingMatrix = null, ?int $height = null, ?int $level = null, ?string $profile = null, ?int $refFrames = null, ?string $scanType = null, ?string $streamIdentifier = null, ?int $width = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null, ?bool $selected = null, ?int $channels = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?int $samplingRate = null)
+    public function __construct(int $id, int $streamType, string $codec, int $index, ?bool $default = null, ?bool $selected = null, ?int $bitrate = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $streamIdentifier = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?float $frameRate = null, ?bool $hasScalingMatrix = null, ?bool $hearingImpaired = null, ?bool $closedCaptions = null, ?string $embeddedInVideo = null, ?int $height = null, ?int $level = null, ?string $profile = null, ?int $refFrames = null, ?string $scanType = null, ?int $width = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null, ?int $channels = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?string $title = null, ?bool $canAutoSync = null)
     {
         $this->id = $id;
         $this->streamType = $streamType;
-        $this->default = $default;
         $this->codec = $codec;
         $this->index = $index;
+        $this->default = $default;
+        $this->selected = $selected;
         $this->bitrate = $bitrate;
-        $this->bitDepth = $bitDepth;
-        $this->chromaLocation = $chromaLocation;
-        $this->chromaSubsampling = $chromaSubsampling;
-        $this->codedHeight = $codedHeight;
-        $this->codedWidth = $codedWidth;
         $this->colorPrimaries = $colorPrimaries;
         $this->colorRange = $colorRange;
         $this->colorSpace = $colorSpace;
         $this->colorTrc = $colorTrc;
+        $this->bitDepth = $bitDepth;
+        $this->chromaLocation = $chromaLocation;
+        $this->streamIdentifier = $streamIdentifier;
+        $this->chromaSubsampling = $chromaSubsampling;
+        $this->codedHeight = $codedHeight;
+        $this->codedWidth = $codedWidth;
         $this->frameRate = $frameRate;
         $this->hasScalingMatrix = $hasScalingMatrix;
+        $this->hearingImpaired = $hearingImpaired;
+        $this->closedCaptions = $closedCaptions;
+        $this->embeddedInVideo = $embeddedInVideo;
         $this->height = $height;
         $this->level = $level;
         $this->profile = $profile;
         $this->refFrames = $refFrames;
         $this->scanType = $scanType;
-        $this->streamIdentifier = $streamIdentifier;
         $this->width = $width;
         $this->displayTitle = $displayTitle;
         $this->extendedDisplayTitle = $extendedDisplayTitle;
-        $this->selected = $selected;
         $this->channels = $channels;
         $this->language = $language;
         $this->languageTag = $languageTag;
         $this->languageCode = $languageCode;
+        $this->audioChannelLayout = $audioChannelLayout;
         $this->samplingRate = $samplingRate;
+        $this->title = $title;
+        $this->canAutoSync = $canAutoSync;
     }
 }

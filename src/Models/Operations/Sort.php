@@ -21,11 +21,34 @@ class Sort
 
     /**
      *
-     * @var ?string $defaultDirection
+     * @var ?bool $active
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('active')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $active = null;
+
+    /**
+     * The direction of the sort. Can be either `asc` or `desc`.
+     *
+     *
+     *
+     * @var ?ActiveDirection $activeDirection
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('activeDirection')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ActiveDirection|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?ActiveDirection $activeDirection = null;
+
+    /**
+     * The direction of the sort. Can be either `asc` or `desc`.
+     *
+     *
+     *
+     * @var DefaultDirection $defaultDirection
      */
     #[\JMS\Serializer\Annotation\SerializedName('defaultDirection')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $defaultDirection = null;
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\DefaultDirection')]
+    public DefaultDirection $defaultDirection;
 
     /**
      *
@@ -45,35 +68,37 @@ class Sort
 
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?string $title
+     * @var string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title = null;
+    public string $title;
 
     /**
+     * @param  DefaultDirection  $defaultDirection
+     * @param  string  $key
+     * @param  string  $title
      * @param  ?string  $default
-     * @param  ?string  $defaultDirection
+     * @param  ?bool  $active
+     * @param  ?ActiveDirection  $activeDirection
      * @param  ?string  $descKey
      * @param  ?string  $firstCharacterKey
-     * @param  ?string  $key
-     * @param  ?string  $title
      */
-    public function __construct(?string $default = null, ?string $defaultDirection = null, ?string $descKey = null, ?string $firstCharacterKey = null, ?string $key = null, ?string $title = null)
+    public function __construct(DefaultDirection $defaultDirection, string $key, string $title, ?string $default = null, ?bool $active = null, ?ActiveDirection $activeDirection = null, ?string $descKey = null, ?string $firstCharacterKey = null)
     {
-        $this->default = $default;
         $this->defaultDirection = $defaultDirection;
-        $this->descKey = $descKey;
-        $this->firstCharacterKey = $firstCharacterKey;
         $this->key = $key;
         $this->title = $title;
+        $this->default = $default;
+        $this->active = $active;
+        $this->activeDirection = $activeDirection;
+        $this->descKey = $descKey;
+        $this->firstCharacterKey = $firstCharacterKey;
     }
 }

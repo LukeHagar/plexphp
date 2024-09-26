@@ -9,10 +9,83 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-enum GetLibraryItemsLibraryResponseType: string
+class GetLibraryItemsLibraryResponseType
 {
-    case CoverPoster = 'coverPoster';
-    case Background = 'background';
-    case Snapshot = 'snapshot';
-    case ClearLogo = 'clearLogo';
+    /**
+     *
+     * @var string $key
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    public string $key;
+
+    /**
+     *
+     * @var string $type
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    public string $type;
+
+    /**
+     *
+     * @var string $title
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    public string $title;
+
+    /**
+     *
+     * @var bool $active
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('active')]
+    public bool $active;
+
+    /**
+     * $filter
+     *
+     * @var ?array<GetLibraryItemsLibraryFilter> $filter
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Filter')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryFilter>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $filter = null;
+
+    /**
+     * $sort
+     *
+     * @var ?array<GetLibraryItemsLibrarySort> $sort
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Sort')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibrarySort>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $sort = null;
+
+    /**
+     * $field
+     *
+     * @var ?array<GetLibraryItemsLibraryField> $field
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Field')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryField>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $field = null;
+
+    /**
+     * @param  string  $key
+     * @param  string  $type
+     * @param  string  $title
+     * @param  bool  $active
+     * @param  ?array<GetLibraryItemsLibraryFilter>  $filter
+     * @param  ?array<GetLibraryItemsLibrarySort>  $sort
+     * @param  ?array<GetLibraryItemsLibraryField>  $field
+     */
+    public function __construct(string $key, string $type, string $title, bool $active, ?array $filter = null, ?array $sort = null, ?array $field = null)
+    {
+        $this->key = $key;
+        $this->type = $type;
+        $this->title = $title;
+        $this->active = $active;
+        $this->filter = $filter;
+        $this->sort = $sort;
+        $this->field = $field;
+    }
 }

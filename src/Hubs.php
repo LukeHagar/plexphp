@@ -93,6 +93,53 @@ class Hubs
     }
 
     /**
+     * Get Recently Added
+     *
+     * This endpoint will return the recently added content.
+     *
+     *
+     * @param  Operations\GetRecentlyAddedRequest  $request
+     * @return Operations\GetRecentlyAddedResponse
+     * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
+     */
+    public function getRecentlyAdded(
+        ?Operations\GetRecentlyAddedRequest $request,
+    ): Operations\GetRecentlyAddedResponse {
+        $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
+        $url = Utils\Utils::generateUrl($baseUrl, '/hubs/home/recentlyAdded');
+        $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetRecentlyAddedRequest::class, $request, $this->sdkConfiguration->globals));
+        $options['headers']['Accept'] = 'application/json';
+        $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
+        $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
+
+
+        $httpResponse = $this->sdkConfiguration->securityClient->send($httpRequest, $options);
+        $contentType = $httpResponse->getHeader('Content-Type')[0] ?? '';
+
+        $statusCode = $httpResponse->getStatusCode();
+        if ($statusCode == 200) {
+            if (Utils\Utils::matchContentType($contentType, 'application/json')) {
+                $serializer = Utils\JSON::createSerializer();
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetRecentlyAddedResponse(
+                    statusCode: $statusCode,
+                    contentType: $contentType,
+                    rawResponse: $httpResponse,
+                    object: $obj);
+
+                return $response;
+            } else {
+                throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown content type received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+            }
+        } elseif ($statusCode == 400 || $statusCode == 401 || $statusCode >= 400 && $statusCode < 500 || $statusCode >= 500 && $statusCode < 600) {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('API error occurred', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        } else {
+            throw new \LukeHagar\Plex_API\Models\Errors\SDKException('Unknown status code received', $statusCode, $httpResponse->getBody()->getContents(), $httpResponse);
+        }
+    }
+
+    /**
      * Get library specific hubs
      *
      * This endpoint will return a list of library specific hubs

@@ -102,7 +102,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->authentication->getSourceConnectionInformation('provider://provider-identifier');
+    $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');
 
     if ($response->statusCode === 200) {
         // handle response
@@ -210,10 +210,12 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 try {
-    $request = new Operations\PostUsersSignInDataRequestBody(
-        login: 'username@email.com',
-        password: 'password123',
-        verificationCode: '123456',
+    $request = new Operations\PostUsersSignInDataRequest(
+        requestBody: new Operations\PostUsersSignInDataRequestBody(
+            login: 'username@email.com',
+            password: 'password123',
+            verificationCode: '123456',
+        ),
     );
     $response = $sdk->authentication->postUsersSignInData($request);
 
@@ -227,10 +229,10 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `$request`                                                                                             | [Operations\PostUsersSignInDataRequestBody](../../Models/Operations/PostUsersSignInDataRequestBody.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `$serverURL`                                                                                           | *string*                                                                                               | :heavy_minus_sign:                                                                                     | An optional server URL to use.                                                                         |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `$request`                                                                                     | [Operations\PostUsersSignInDataRequest](../../Models/Operations/PostUsersSignInDataRequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `$serverURL`                                                                                   | *string*                                                                                       | :heavy_minus_sign:                                                                             | An optional server URL to use.                                                                 |
 
 ### Response
 

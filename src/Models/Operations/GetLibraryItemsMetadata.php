@@ -53,15 +53,39 @@ class GetLibraryItemsMetadata
     public ?bool $skipChildren = null;
 
     /**
+     *
+     * @var ?int $librarySectionID
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $librarySectionID = null;
+
+    /**
+     *
+     * @var ?string $librarySectionTitle
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionTitle = null;
+
+    /**
+     *
+     * @var ?string $librarySectionKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionKey = null;
+
+    /**
      * The type of media content
      *
      *
      *
-     * @var GetLibraryItemsType $type
+     * @var GetLibraryItemsLibraryType $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType')]
-    public GetLibraryItemsType $type;
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryType')]
+    public GetLibraryItemsLibraryType $type;
 
     /**
      *
@@ -135,12 +159,12 @@ class GetLibraryItemsMetadata
 
     /**
      *
-     * @var ?FlattenSeasons $flattenSeasons
+     * @var ?GetLibraryItemsFlattenSeasons $flattenSeasons
      */
     #[\JMS\Serializer\Annotation\SerializedName('flattenSeasons')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\FlattenSeasons|null')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFlattenSeasons|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?FlattenSeasons $flattenSeasons = null;
+    public ?GetLibraryItemsFlattenSeasons $flattenSeasons = null;
 
     /**
      * Setting that indicates the episode ordering for the show 
@@ -152,12 +176,12 @@ class GetLibraryItemsMetadata
      * absolute = TheTVDB (Absolute)).
      *
      *
-     * @var ?ShowOrdering $showOrdering
+     * @var ?GetLibraryItemsShowOrdering $showOrdering
      */
     #[\JMS\Serializer\Annotation\SerializedName('showOrdering')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ShowOrdering|null')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsShowOrdering|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?ShowOrdering $showOrdering = null;
+    public ?GetLibraryItemsShowOrdering $showOrdering = null;
 
     /**
      *
@@ -290,6 +314,14 @@ class GetLibraryItemsMetadata
 
     /**
      *
+     * @var ?string $parentSlug
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentSlug')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentSlug = null;
+
+    /**
+     *
      * @var ?string $grandparentSlug
      */
     #[\JMS\Serializer\Annotation\SerializedName('grandparentSlug')]
@@ -367,10 +399,10 @@ class GetLibraryItemsMetadata
     /**
      * $collection
      *
-     * @var ?array<Collection> $collection
+     * @var ?array<GetLibraryItemsCollection> $collection
      */
     #[\JMS\Serializer\Annotation\SerializedName('Collection')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Collection>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsCollection>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $collection = null;
 
@@ -389,21 +421,31 @@ class GetLibraryItemsMetadata
      *
      *
      *
-     * @var ?array<MediaGuid> $mediaGuid
+     * @var ?array<GetLibraryItemsMediaGuid> $mediaGuid
      */
     #[\JMS\Serializer\Annotation\SerializedName('Guid')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MediaGuid>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMediaGuid>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $mediaGuid = null;
 
     /**
      *
-     * @var ?UltraBlurColors $ultraBlurColors
+     * @var ?GetLibraryItemsUltraBlurColors $ultraBlurColors
      */
     #[\JMS\Serializer\Annotation\SerializedName('UltraBlurColors')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\UltraBlurColors|null')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsUltraBlurColors|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?UltraBlurColors $ultraBlurColors = null;
+    public ?GetLibraryItemsUltraBlurColors $ultraBlurColors = null;
+
+    /**
+     * $metaDataRating
+     *
+     * @var ?array<GetLibraryItemsMetaDataRating> $metaDataRating
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Rating')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetaDataRating>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $metaDataRating = null;
 
     /**
      * $image
@@ -598,12 +640,15 @@ class GetLibraryItemsMetadata
      * @param  string  $ratingKey
      * @param  string  $key
      * @param  string  $guid
-     * @param  GetLibraryItemsType  $type
+     * @param  GetLibraryItemsLibraryType  $type
      * @param  string  $title
      * @param  string  $summary
      * @param  int  $addedAt
      * @param  ?string  $studio
      * @param  ?bool  $skipChildren
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionTitle
+     * @param  ?string  $librarySectionKey
      * @param  ?string  $slug
      * @param  ?string  $contentRating
      * @param  ?float  $rating
@@ -611,8 +656,8 @@ class GetLibraryItemsMetadata
      * @param  ?int  $year
      * @param  ?int  $seasonCount
      * @param  ?string  $tagline
-     * @param  ?FlattenSeasons  $flattenSeasons
-     * @param  ?ShowOrdering  $showOrdering
+     * @param  ?GetLibraryItemsFlattenSeasons  $flattenSeasons
+     * @param  ?GetLibraryItemsShowOrdering  $showOrdering
      * @param  ?string  $thumb
      * @param  ?string  $art
      * @param  ?string  $banner
@@ -628,6 +673,7 @@ class GetLibraryItemsMetadata
      * @param  ?string  $grandparentKey
      * @param  ?string  $grandparentTitle
      * @param  ?string  $grandparentThumb
+     * @param  ?string  $parentSlug
      * @param  ?string  $grandparentSlug
      * @param  ?string  $grandparentArt
      * @param  ?string  $grandparentTheme
@@ -636,10 +682,11 @@ class GetLibraryItemsMetadata
      * @param  ?array<GetLibraryItemsCountry>  $country
      * @param  ?array<GetLibraryItemsDirector>  $director
      * @param  ?array<GetLibraryItemsWriter>  $writer
-     * @param  ?array<Collection>  $collection
+     * @param  ?array<GetLibraryItemsCollection>  $collection
      * @param  ?array<GetLibraryItemsRole>  $role
-     * @param  ?array<MediaGuid>  $mediaGuid
-     * @param  ?UltraBlurColors  $ultraBlurColors
+     * @param  ?array<GetLibraryItemsMediaGuid>  $mediaGuid
+     * @param  ?GetLibraryItemsUltraBlurColors  $ultraBlurColors
+     * @param  ?array<GetLibraryItemsMetaDataRating>  $metaDataRating
      * @param  ?array<GetLibraryItemsImage>  $image
      * @param  ?string  $titleSort
      * @param  ?int  $viewCount
@@ -664,7 +711,7 @@ class GetLibraryItemsMetadata
      * @param  ?string  $parentThumb
      * @param  ?string  $parentTheme
      */
-    public function __construct(string $ratingKey, string $key, string $guid, GetLibraryItemsType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?FlattenSeasons $flattenSeasons = null, ?ShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $mediaGuid = null, ?UltraBlurColors $ultraBlurColors = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
+    public function __construct(string $ratingKey, string $key, string $guid, GetLibraryItemsLibraryType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?GetLibraryItemsFlattenSeasons $flattenSeasons = null, ?GetLibraryItemsShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $mediaGuid = null, ?GetLibraryItemsUltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -675,6 +722,9 @@ class GetLibraryItemsMetadata
         $this->addedAt = $addedAt;
         $this->studio = $studio;
         $this->skipChildren = $skipChildren;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
+        $this->librarySectionKey = $librarySectionKey;
         $this->slug = $slug;
         $this->contentRating = $contentRating;
         $this->rating = $rating;
@@ -699,6 +749,7 @@ class GetLibraryItemsMetadata
         $this->grandparentKey = $grandparentKey;
         $this->grandparentTitle = $grandparentTitle;
         $this->grandparentThumb = $grandparentThumb;
+        $this->parentSlug = $parentSlug;
         $this->grandparentSlug = $grandparentSlug;
         $this->grandparentArt = $grandparentArt;
         $this->grandparentTheme = $grandparentTheme;
@@ -711,6 +762,7 @@ class GetLibraryItemsMetadata
         $this->role = $role;
         $this->mediaGuid = $mediaGuid;
         $this->ultraBlurColors = $ultraBlurColors;
+        $this->metaDataRating = $metaDataRating;
         $this->image = $image;
         $this->titleSort = $titleSort;
         $this->viewCount = $viewCount;

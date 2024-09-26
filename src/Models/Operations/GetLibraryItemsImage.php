@@ -20,11 +20,11 @@ class GetLibraryItemsImage
 
     /**
      *
-     * @var GetLibraryItemsLibraryResponseType $type
+     * @var GetLibraryItemsLibraryResponse200Type $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryResponseType')]
-    public GetLibraryItemsLibraryResponseType $type;
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryResponse200Type')]
+    public GetLibraryItemsLibraryResponse200Type $type;
 
     /**
      *
@@ -35,10 +35,10 @@ class GetLibraryItemsImage
 
     /**
      * @param  string  $alt
-     * @param  GetLibraryItemsLibraryResponseType  $type
+     * @param  GetLibraryItemsLibraryResponse200Type  $type
      * @param  string  $url
      */
-    public function __construct(string $alt, GetLibraryItemsLibraryResponseType $type, string $url)
+    public function __construct(string $alt, GetLibraryItemsLibraryResponse200Type $type, string $url)
     {
         $this->alt = $alt;
         $this->type = $type;

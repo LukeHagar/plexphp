@@ -8,64 +8,33 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Operations;
 
-
+use Brick\DateTime\LocalDate;
 class GetRecentlyAddedMetadata
 {
     /**
+     * The rating key (Media ID) of this media item.
      *
-     * @var ?bool $allowSync
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $allowSync = null;
-
-    /**
+     * Note: This is always an integer, but is represented as a string in the API.
      *
-     * @var ?float $librarySectionID
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $librarySectionID = null;
-
-    /**
      *
-     * @var ?string $librarySectionTitle
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $librarySectionTitle = null;
-
-    /**
-     *
-     * @var ?string $librarySectionUUID
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $librarySectionUUID = null;
-
-    /**
-     *
-     * @var ?float $ratingKey
+     * @var string $ratingKey
      */
     #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $ratingKey = null;
+    public string $ratingKey;
 
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?string $guid
+     * @var string $guid
      */
     #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $guid = null;
+    public string $guid;
 
     /**
      *
@@ -77,19 +46,61 @@ class GetRecentlyAddedMetadata
 
     /**
      *
-     * @var ?string $type
+     * @var ?bool $skipChildren
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\JMS\Serializer\Annotation\SerializedName('skipChildren')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $type = null;
+    public ?bool $skipChildren = null;
 
     /**
      *
-     * @var ?string $title
+     * @var ?int $librarySectionID
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $librarySectionID = null;
+
+    /**
+     *
+     * @var ?string $librarySectionTitle
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionTitle = null;
+
+    /**
+     *
+     * @var ?string $librarySectionKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('librarySectionKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionKey = null;
+
+    /**
+     * The type of media content
+     *
+     *
+     *
+     * @var GetRecentlyAddedHubsType $type
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedHubsType')]
+    public GetRecentlyAddedHubsType $type;
+
+    /**
+     *
+     * @var string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
+    public string $title;
+
+    /**
+     *
+     * @var ?string $slug
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('slug')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title = null;
+    public ?string $slug = null;
 
     /**
      *
@@ -101,11 +112,10 @@ class GetRecentlyAddedMetadata
 
     /**
      *
-     * @var ?string $summary
+     * @var string $summary
      */
     #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $summary = null;
+    public string $summary;
 
     /**
      *
@@ -125,11 +135,19 @@ class GetRecentlyAddedMetadata
 
     /**
      *
-     * @var ?float $year
+     * @var ?int $year
      */
     #[\JMS\Serializer\Annotation\SerializedName('year')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $year = null;
+    public ?int $year = null;
+
+    /**
+     *
+     * @var ?int $seasonCount
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('seasonCount')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $seasonCount = null;
 
     /**
      *
@@ -138,6 +156,32 @@ class GetRecentlyAddedMetadata
     #[\JMS\Serializer\Annotation\SerializedName('tagline')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?string $tagline = null;
+
+    /**
+     *
+     * @var ?FlattenSeasons $flattenSeasons
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('flattenSeasons')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\FlattenSeasons|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?FlattenSeasons $flattenSeasons = null;
+
+    /**
+     * Setting that indicates the episode ordering for the show 
+     *
+     * None = Library default, 
+     * tmdbAiring = The Movie Database (Aired), 
+     * aired = TheTVDB (Aired), 
+     * dvd = TheTVDB (DVD), 
+     * absolute = TheTVDB (Absolute)).
+     *
+     *
+     * @var ?ShowOrdering $showOrdering
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('showOrdering')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ShowOrdering|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?ShowOrdering $showOrdering = null;
 
     /**
      *
@@ -157,35 +201,44 @@ class GetRecentlyAddedMetadata
 
     /**
      *
-     * @var ?float $duration
+     * @var ?string $banner
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('banner')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $banner = null;
+
+    /**
+     *
+     * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $duration = null;
+    public ?int $duration = null;
 
     /**
      *
-     * @var ?\DateTime $originallyAvailableAt
+     * @var ?LocalDate $originallyAvailableAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?\DateTime $originallyAvailableAt = null;
+    public ?LocalDate $originallyAvailableAt = null;
 
     /**
+     * Unix epoch datetime in seconds
      *
-     * @var ?float $addedAt
+     * @var int $addedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $addedAt = null;
+    public int $addedAt;
 
     /**
+     * Unix epoch datetime in seconds
      *
-     * @var ?float $updatedAt
+     * @var ?int $updatedAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $updatedAt = null;
+    public ?int $updatedAt = null;
 
     /**
      *
@@ -220,7 +273,81 @@ class GetRecentlyAddedMetadata
     public ?string $ratingImage = null;
 
     /**
-     * $media
+     *
+     * @var ?string $grandparentRatingKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentRatingKey = null;
+
+    /**
+     *
+     * @var ?string $grandparentGuid
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentGuid = null;
+
+    /**
+     *
+     * @var ?string $grandparentKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentKey = null;
+
+    /**
+     *
+     * @var ?string $grandparentTitle
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentTitle = null;
+
+    /**
+     *
+     * @var ?string $grandparentThumb
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentThumb = null;
+
+    /**
+     *
+     * @var ?string $parentSlug
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentSlug')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentSlug = null;
+
+    /**
+     *
+     * @var ?string $grandparentSlug
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentSlug')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentSlug = null;
+
+    /**
+     *
+     * @var ?string $grandparentArt
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentArt = null;
+
+    /**
+     *
+     * @var ?string $grandparentTheme
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('grandparentTheme')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentTheme = null;
+
+    /**
+     * The Media object is only included when type query is `4` or higher.
+     *
+     *
      *
      * @var ?array<Media> $media
      */
@@ -238,6 +365,16 @@ class GetRecentlyAddedMetadata
     #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Genre>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $genre = null;
+
+    /**
+     * $country
+     *
+     * @var ?array<Country> $country
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Country')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Country>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $country = null;
 
     /**
      * $director
@@ -260,14 +397,14 @@ class GetRecentlyAddedMetadata
     public ?array $writer = null;
 
     /**
-     * $country
+     * $collection
      *
-     * @var ?array<Country> $country
+     * @var ?array<Collection> $collection
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Country')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Country>|null')]
+    #[\JMS\Serializer\Annotation\SerializedName('Collection')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Collection>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?array $country = null;
+    public ?array $collection = null;
 
     /**
      * $role
@@ -280,72 +417,374 @@ class GetRecentlyAddedMetadata
     public ?array $role = null;
 
     /**
-     * @param  ?bool  $allowSync
-     * @param  ?float  $librarySectionID
-     * @param  ?string  $librarySectionTitle
-     * @param  ?string  $librarySectionUUID
-     * @param  ?float  $ratingKey
-     * @param  ?string  $key
-     * @param  ?string  $guid
+     * The Guid object is only included in the response if the `includeGuids` parameter is set to `1`.
+     *
+     *
+     *
+     * @var ?array<MediaGuid> $mediaGuid
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Guid')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MediaGuid>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $mediaGuid = null;
+
+    /**
+     *
+     * @var ?UltraBlurColors $ultraBlurColors
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('UltraBlurColors')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\UltraBlurColors|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?UltraBlurColors $ultraBlurColors = null;
+
+    /**
+     * $metaDataRating
+     *
+     * @var ?array<MetaDataRating> $metaDataRating
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Rating')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MetaDataRating>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $metaDataRating = null;
+
+    /**
+     * $image
+     *
+     * @var ?array<GetRecentlyAddedImage> $image
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Image')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedImage>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $image = null;
+
+    /**
+     *
+     * @var ?string $titleSort
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('titleSort')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $titleSort = null;
+
+    /**
+     *
+     * @var ?int $viewCount
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('viewCount')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $viewCount = null;
+
+    /**
+     *
+     * @var ?int $lastViewedAt
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $lastViewedAt = null;
+
+    /**
+     *
+     * @var ?string $originalTitle
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('originalTitle')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $originalTitle = null;
+
+    /**
+     *
+     * @var ?int $viewOffset
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('viewOffset')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $viewOffset = null;
+
+    /**
+     *
+     * @var ?int $skipCount
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('skipCount')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $skipCount = null;
+
+    /**
+     *
+     * @var ?int $index
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('index')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $index = null;
+
+    /**
+     *
+     * @var ?string $theme
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('theme')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $theme = null;
+
+    /**
+     *
+     * @var ?int $leafCount
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $leafCount = null;
+
+    /**
+     *
+     * @var ?int $viewedLeafCount
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $viewedLeafCount = null;
+
+    /**
+     *
+     * @var ?int $childCount
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('childCount')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $childCount = null;
+
+    /**
+     *
+     * @var ?string $hasPremiumExtras
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('hasPremiumExtras')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $hasPremiumExtras = null;
+
+    /**
+     *
+     * @var ?string $hasPremiumPrimaryExtra
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('hasPremiumPrimaryExtra')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $hasPremiumPrimaryExtra = null;
+
+    /**
+     * The rating key of the parent item.
+     *
+     *
+     *
+     * @var ?string $parentRatingKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentRatingKey = null;
+
+    /**
+     *
+     * @var ?string $parentGuid
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentGuid = null;
+
+    /**
+     *
+     * @var ?string $parentStudio
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentStudio = null;
+
+    /**
+     *
+     * @var ?string $parentKey
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentKey = null;
+
+    /**
+     *
+     * @var ?string $parentTitle
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentTitle = null;
+
+    /**
+     *
+     * @var ?int $parentIndex
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $parentIndex = null;
+
+    /**
+     *
+     * @var ?int $parentYear
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentYear')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $parentYear = null;
+
+    /**
+     *
+     * @var ?string $parentThumb
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentThumb = null;
+
+    /**
+     *
+     * @var ?string $parentTheme
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('parentTheme')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentTheme = null;
+
+    /**
+     * @param  string  $ratingKey
+     * @param  string  $key
+     * @param  string  $guid
+     * @param  GetRecentlyAddedHubsType  $type
+     * @param  string  $title
+     * @param  string  $summary
+     * @param  int  $addedAt
      * @param  ?string  $studio
-     * @param  ?string  $type
-     * @param  ?string  $title
+     * @param  ?bool  $skipChildren
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionTitle
+     * @param  ?string  $librarySectionKey
+     * @param  ?string  $slug
      * @param  ?string  $contentRating
-     * @param  ?string  $summary
      * @param  ?float  $rating
      * @param  ?float  $audienceRating
-     * @param  ?float  $year
+     * @param  ?int  $year
+     * @param  ?int  $seasonCount
      * @param  ?string  $tagline
+     * @param  ?FlattenSeasons  $flattenSeasons
+     * @param  ?ShowOrdering  $showOrdering
      * @param  ?string  $thumb
      * @param  ?string  $art
-     * @param  ?float  $duration
-     * @param  ?\DateTime  $originallyAvailableAt
-     * @param  ?float  $addedAt
-     * @param  ?float  $updatedAt
+     * @param  ?string  $banner
+     * @param  ?int  $duration
+     * @param  ?LocalDate  $originallyAvailableAt
+     * @param  ?int  $updatedAt
      * @param  ?string  $audienceRatingImage
      * @param  ?string  $chapterSource
      * @param  ?string  $primaryExtraKey
      * @param  ?string  $ratingImage
+     * @param  ?string  $grandparentRatingKey
+     * @param  ?string  $grandparentGuid
+     * @param  ?string  $grandparentKey
+     * @param  ?string  $grandparentTitle
+     * @param  ?string  $grandparentThumb
+     * @param  ?string  $parentSlug
+     * @param  ?string  $grandparentSlug
+     * @param  ?string  $grandparentArt
+     * @param  ?string  $grandparentTheme
      * @param  ?array<Media>  $media
      * @param  ?array<Genre>  $genre
+     * @param  ?array<Country>  $country
      * @param  ?array<Director>  $director
      * @param  ?array<Writer>  $writer
-     * @param  ?array<Country>  $country
+     * @param  ?array<Collection>  $collection
      * @param  ?array<Role>  $role
+     * @param  ?array<MediaGuid>  $mediaGuid
+     * @param  ?UltraBlurColors  $ultraBlurColors
+     * @param  ?array<MetaDataRating>  $metaDataRating
+     * @param  ?array<GetRecentlyAddedImage>  $image
+     * @param  ?string  $titleSort
+     * @param  ?int  $viewCount
+     * @param  ?int  $lastViewedAt
+     * @param  ?string  $originalTitle
+     * @param  ?int  $viewOffset
+     * @param  ?int  $skipCount
+     * @param  ?int  $index
+     * @param  ?string  $theme
+     * @param  ?int  $leafCount
+     * @param  ?int  $viewedLeafCount
+     * @param  ?int  $childCount
+     * @param  ?string  $hasPremiumExtras
+     * @param  ?string  $hasPremiumPrimaryExtra
+     * @param  ?string  $parentRatingKey
+     * @param  ?string  $parentGuid
+     * @param  ?string  $parentStudio
+     * @param  ?string  $parentKey
+     * @param  ?string  $parentTitle
+     * @param  ?int  $parentIndex
+     * @param  ?int  $parentYear
+     * @param  ?string  $parentThumb
+     * @param  ?string  $parentTheme
      */
-    public function __construct(?bool $allowSync = null, ?float $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?float $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?float $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?float $duration = null, ?\DateTime $originallyAvailableAt = null, ?float $addedAt = null, ?float $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?array $media = null, ?array $genre = null, ?array $director = null, ?array $writer = null, ?array $country = null, ?array $role = null)
+    public function __construct(string $ratingKey, string $key, string $guid, GetRecentlyAddedHubsType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?FlattenSeasons $flattenSeasons = null, ?ShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $mediaGuid = null, ?UltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
     {
-        $this->allowSync = $allowSync;
-        $this->librarySectionID = $librarySectionID;
-        $this->librarySectionTitle = $librarySectionTitle;
-        $this->librarySectionUUID = $librarySectionUUID;
         $this->ratingKey = $ratingKey;
         $this->key = $key;
         $this->guid = $guid;
-        $this->studio = $studio;
         $this->type = $type;
         $this->title = $title;
-        $this->contentRating = $contentRating;
         $this->summary = $summary;
+        $this->addedAt = $addedAt;
+        $this->studio = $studio;
+        $this->skipChildren = $skipChildren;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
+        $this->librarySectionKey = $librarySectionKey;
+        $this->slug = $slug;
+        $this->contentRating = $contentRating;
         $this->rating = $rating;
         $this->audienceRating = $audienceRating;
         $this->year = $year;
+        $this->seasonCount = $seasonCount;
         $this->tagline = $tagline;
+        $this->flattenSeasons = $flattenSeasons;
+        $this->showOrdering = $showOrdering;
         $this->thumb = $thumb;
         $this->art = $art;
+        $this->banner = $banner;
         $this->duration = $duration;
         $this->originallyAvailableAt = $originallyAvailableAt;
-        $this->addedAt = $addedAt;
         $this->updatedAt = $updatedAt;
         $this->audienceRatingImage = $audienceRatingImage;
         $this->chapterSource = $chapterSource;
         $this->primaryExtraKey = $primaryExtraKey;
         $this->ratingImage = $ratingImage;
+        $this->grandparentRatingKey = $grandparentRatingKey;
+        $this->grandparentGuid = $grandparentGuid;
+        $this->grandparentKey = $grandparentKey;
+        $this->grandparentTitle = $grandparentTitle;
+        $this->grandparentThumb = $grandparentThumb;
+        $this->parentSlug = $parentSlug;
+        $this->grandparentSlug = $grandparentSlug;
+        $this->grandparentArt = $grandparentArt;
+        $this->grandparentTheme = $grandparentTheme;
         $this->media = $media;
         $this->genre = $genre;
+        $this->country = $country;
         $this->director = $director;
         $this->writer = $writer;
-        $this->country = $country;
+        $this->collection = $collection;
         $this->role = $role;
+        $this->mediaGuid = $mediaGuid;
+        $this->ultraBlurColors = $ultraBlurColors;
+        $this->metaDataRating = $metaDataRating;
+        $this->image = $image;
+        $this->titleSort = $titleSort;
+        $this->viewCount = $viewCount;
+        $this->lastViewedAt = $lastViewedAt;
+        $this->originalTitle = $originalTitle;
+        $this->viewOffset = $viewOffset;
+        $this->skipCount = $skipCount;
+        $this->index = $index;
+        $this->theme = $theme;
+        $this->leafCount = $leafCount;
+        $this->viewedLeafCount = $viewedLeafCount;
+        $this->childCount = $childCount;
+        $this->hasPremiumExtras = $hasPremiumExtras;
+        $this->hasPremiumPrimaryExtra = $hasPremiumPrimaryExtra;
+        $this->parentRatingKey = $parentRatingKey;
+        $this->parentGuid = $parentGuid;
+        $this->parentStudio = $parentStudio;
+        $this->parentKey = $parentKey;
+        $this->parentTitle = $parentTitle;
+        $this->parentIndex = $parentIndex;
+        $this->parentYear = $parentYear;
+        $this->parentThumb = $parentThumb;
+        $this->parentTheme = $parentTheme;
     }
 }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** GetRecentlyAddedResponseBody - The recently added content */
+/** GetRecentlyAddedResponseBody - A successful response with recently added content. */
 class GetRecentlyAddedResponseBody
 {
     /**

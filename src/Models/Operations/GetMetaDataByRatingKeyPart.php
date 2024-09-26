@@ -94,10 +94,10 @@ class GetMetaDataByRatingKeyPart
     /**
      * $stream
      *
-     * @var ?array<Stream> $stream
+     * @var ?array<GetMetaDataByRatingKeyStream> $stream
      */
     #[\JMS\Serializer\Annotation\SerializedName('Stream')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Stream>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMetaDataByRatingKeyStream>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $stream = null;
 
@@ -112,7 +112,7 @@ class GetMetaDataByRatingKeyPart
      * @param  ?bool  $has64bitOffsets
      * @param  ?bool  $optimizedForStreaming
      * @param  ?string  $videoProfile
-     * @param  ?array<Stream>  $stream
+     * @param  ?array<GetMetaDataByRatingKeyStream>  $stream
      */
     public function __construct(?int $id = null, ?string $key = null, ?int $duration = null, ?string $file = null, ?int $size = null, ?string $audioProfile = null, ?string $container = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null, ?array $stream = null)
     {

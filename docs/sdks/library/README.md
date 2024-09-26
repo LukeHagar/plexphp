@@ -8,7 +8,7 @@ API Calls interacting with Plex Media Server Libraries
 ### Available Operations
 
 * [getFileHash](#getfilehash) - Get Hash Value
-* [getRecentlyAdded](#getrecentlyadded) - Get Recently Added
+* [getRecentlyAddedLibrary](#getrecentlyaddedlibrary) - Get Recently Added
 * [getAllLibraries](#getalllibraries) - Get All Libraries
 * [getLibraryDetails](#getlibrarydetails) - Get Library Details
 * [deleteLibrary](#deletelibrary) - Delete Library Section
@@ -78,7 +78,7 @@ try {
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 
-## getRecentlyAdded
+## getRecentlyAddedLibrary
 
 This endpoint will return the recently added content.
 
@@ -92,6 +92,7 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Components;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = new Components\Security(
     accessToken: "<YOUR_API_KEY_HERE>",
@@ -106,8 +107,29 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity($security)->build();
 
 try {
-
-    $response = $sdk->library->getRecentlyAdded(0, 50);
+    $request = new Operations\GetRecentlyAddedLibraryRequest(
+        type: Operations\QueryParamType::TvShow,
+        contentDirectoryID: 2,
+        pinnedContentDirectoryID: [
+            3,
+            5,
+            7,
+            13,
+            12,
+            1,
+            6,
+            14,
+            2,
+            10,
+            16,
+            17,
+        ],
+        sectionID: 2,
+        includeMeta: Operations\QueryParamIncludeMeta::Enable,
+        xPlexContainerStart: 0,
+        xPlexContainerSize: 50,
+    );
+    $response = $sdk->library->getRecentlyAddedLibrary($request);
 
     if ($response->object !== null) {
         // handle response
@@ -119,21 +141,20 @@ try {
 
 ### Parameters
 
-| Parameter                                                                                                                                                                                 | Type                                                                                                                                                                                      | Required                                                                                                                                                                                  | Description                                                                                                                                                                               | Example                                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `xPlexContainerStart`                                                                                                                                                                     | *int*                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                        | The index of the first item to return. If not specified, the first item will be returned.<br/>If the number of items exceeds the limit, the response will be paginated.<br/>By default this is 0<br/> | 0                                                                                                                                                                                         |
-| `xPlexContainerSize`                                                                                                                                                                      | *int*                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                        | The number of items to return. If not specified, all items will be returned.<br/>If the number of items exceeds the limit, the response will be paginated.<br/>By default this is 50<br/> | 50                                                                                                                                                                                        |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                             | [Operations\GetRecentlyAddedLibraryRequest](../../Models/Operations/GetRecentlyAddedLibraryRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 ### Response
 
-**[?Operations\GetRecentlyAddedResponse](../../Models/Operations/GetRecentlyAddedResponse.md)**
+**[?Operations\GetRecentlyAddedLibraryResponse](../../Models/Operations/GetRecentlyAddedLibraryResponse.md)**
 
 ### Errors
 
 | Error Object                                  | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetRecentlyAddedBadRequest             | 400                                           | application/json                              |
-| Errors\GetRecentlyAddedUnauthorized           | 401                                           | application/json                              |
+| Errors\GetRecentlyAddedLibraryBadRequest      | 400                                           | application/json                              |
+| Errors\GetRecentlyAddedLibraryUnauthorized    | 401                                           | application/json                              |
 | LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 
@@ -400,8 +421,8 @@ try {
         sectionKey: 9518,
         tag: Operations\Tag::Edition,
         includeGuids: Operations\IncludeGuids::Enable,
-        includeMeta: Operations\IncludeMeta::Enable,
-        type: Operations\Type::TvShow,
+        type: Operations\GetLibraryItemsQueryParamType::TvShow,
+        includeMeta: Operations\GetLibraryItemsQueryParamIncludeMeta::Enable,
         xPlexContainerStart: 0,
         xPlexContainerSize: 50,
     );
@@ -541,7 +562,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::TvShow);
+    $response = $sdk->library->getSearchLibrary(9518, Operations\GetSearchLibraryQueryParamType::TvShow);
 
     if ($response->object !== null) {
         // handle response
@@ -556,7 +577,7 @@ try {
 | Parameter                                                                                                                                                                       | Type                                                                                                                                                                            | Required                                                                                                                                                                        | Description                                                                                                                                                                     | Example                                                                                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sectionKey`                                                                                                                                                                    | *int*                                                                                                                                                                           | :heavy_check_mark:                                                                                                                                                              | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                           | 9518                                                                                                                                                                            |
-| `type`                                                                                                                                                                          | [Operations\QueryParamType](../../Models/Operations/QueryParamType.md)                                                                                                          | :heavy_check_mark:                                                                                                                                                              | The type of media to retrieve.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                               |
+| `type`                                                                                                                                                                          | [Operations\GetSearchLibraryQueryParamType](../../Models/Operations/GetSearchLibraryQueryParamType.md)                                                                          | :heavy_check_mark:                                                                                                                                                              | The type of media to retrieve.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                               |
 
 ### Response
 

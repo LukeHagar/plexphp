@@ -141,6 +141,7 @@ class GetAllLibrariesDirectory
     public bool $directory;
 
     /**
+     * Unix epoch datetime in seconds
      *
      * @var int $contentChangedAt
      */

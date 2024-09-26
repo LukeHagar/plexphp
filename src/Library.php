@@ -90,23 +90,17 @@ class Library
      * This endpoint will return the recently added content.
      *
      *
-     * @param  ?int  $xPlexContainerStart
-     * @param  ?int  $xPlexContainerSize
-     * @return Operations\GetRecentlyAddedResponse
+     * @param  Operations\GetRecentlyAddedLibraryRequest  $request
+     * @return Operations\GetRecentlyAddedLibraryResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getRecentlyAdded(
-        ?int $xPlexContainerStart = null,
-        ?int $xPlexContainerSize = null,
-    ): Operations\GetRecentlyAddedResponse {
-        $request = new Operations\GetRecentlyAddedRequest(
-            xPlexContainerStart: $xPlexContainerStart,
-            xPlexContainerSize: $xPlexContainerSize,
-        );
+    public function getRecentlyAddedLibrary(
+        ?Operations\GetRecentlyAddedLibraryRequest $request,
+    ): Operations\GetRecentlyAddedLibraryResponse {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/recentlyAdded');
         $options = ['http_errors' => false];
-        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetRecentlyAddedRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetRecentlyAddedLibraryRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -119,8 +113,8 @@ class Library
         if ($statusCode == 200) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
-                $response = new Operations\GetRecentlyAddedResponse(
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedLibraryResponseBody', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $response = new Operations\GetRecentlyAddedLibraryResponse(
                     statusCode: $statusCode,
                     contentType: $contentType,
                     rawResponse: $httpResponse,
@@ -133,7 +127,7 @@ class Library
         } elseif ($statusCode == 400) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetRecentlyAddedBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetRecentlyAddedLibraryBadRequest', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
                 throw $obj->toException();
             } else {
@@ -142,7 +136,7 @@ class Library
         } elseif ($statusCode == 401) {
             if (Utils\Utils::matchContentType($contentType, 'application/json')) {
                 $serializer = Utils\JSON::createSerializer();
-                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetRecentlyAddedUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
+                $obj = $serializer->deserialize((string) $httpResponse->getBody(), '\LukeHagar\Plex_API\Models\Errors\GetRecentlyAddedLibraryUnauthorized', 'json', DeserializationContext::create()->setRequireAllRequiredProperties(true));
                 $obj->rawResponse = $httpResponse;
                 throw $obj->toException();
             } else {
@@ -560,13 +554,13 @@ class Library
      *
      *
      * @param  int  $sectionKey
-     * @param  Operations\QueryParamType  $type
+     * @param  Operations\GetSearchLibraryQueryParamType  $type
      * @return Operations\GetSearchLibraryResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getSearchLibrary(
         int $sectionKey,
-        Operations\QueryParamType $type,
+        Operations\GetSearchLibraryQueryParamType $type,
     ): Operations\GetSearchLibraryResponse {
         $request = new Operations\GetSearchLibraryRequest(
             sectionKey: $sectionKey,

@@ -32,16 +32,16 @@ class GetSearchLibraryRequest
      * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
      *
      *
-     * @var QueryParamType $type
+     * @var GetSearchLibraryQueryParamType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public QueryParamType $type;
+    public GetSearchLibraryQueryParamType $type;
 
     /**
      * @param  int  $sectionKey
-     * @param  QueryParamType  $type
+     * @param  GetSearchLibraryQueryParamType  $type
      */
-    public function __construct(int $sectionKey, QueryParamType $type)
+    public function __construct(int $sectionKey, GetSearchLibraryQueryParamType $type)
     {
         $this->sectionKey = $sectionKey;
         $this->type = $type;

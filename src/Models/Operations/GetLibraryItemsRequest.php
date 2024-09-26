@@ -41,16 +41,6 @@ class GetLibraryItemsRequest
     public ?IncludeGuids $includeGuids = null;
 
     /**
-     * Adds the Meta object to the response
-     *
-     *
-     *
-     * @var ?IncludeMeta $includeMeta
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeMeta')]
-    public ?IncludeMeta $includeMeta = null;
-
-    /**
      * The type of media to retrieve.
      *
      * 1 = movie
@@ -60,10 +50,20 @@ class GetLibraryItemsRequest
      * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
      *
      *
-     * @var ?Type $type
+     * @var ?GetLibraryItemsQueryParamType $type
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public ?Type $type = null;
+    public ?GetLibraryItemsQueryParamType $type = null;
+
+    /**
+     * Adds the Meta object to the response
+     *
+     *
+     *
+     * @var ?GetLibraryItemsQueryParamIncludeMeta $includeMeta
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeMeta')]
+    public ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = null;
 
     /**
      * The index of the first item to return. If not specified, the first item will be returned.
@@ -93,18 +93,18 @@ class GetLibraryItemsRequest
      * @param  int  $sectionKey
      * @param  Tag  $tag
      * @param  ?IncludeGuids  $includeGuids
-     * @param  ?IncludeMeta  $includeMeta
-     * @param  ?Type  $type
+     * @param  ?GetLibraryItemsQueryParamType  $type
+     * @param  ?GetLibraryItemsQueryParamIncludeMeta  $includeMeta
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      */
-    public function __construct(int $sectionKey, Tag $tag, ?IncludeGuids $includeGuids = null, ?IncludeMeta $includeMeta = null, ?Type $type = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
+    public function __construct(int $sectionKey, Tag $tag, ?IncludeGuids $includeGuids = null, ?GetLibraryItemsQueryParamType $type = null, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
     {
         $this->sectionKey = $sectionKey;
         $this->tag = $tag;
         $this->includeGuids = $includeGuids;
-        $this->includeMeta = $includeMeta;
         $this->type = $type;
+        $this->includeMeta = $includeMeta;
         $this->xPlexContainerStart = $xPlexContainerStart;
         $this->xPlexContainerSize = $xPlexContainerSize;
     }

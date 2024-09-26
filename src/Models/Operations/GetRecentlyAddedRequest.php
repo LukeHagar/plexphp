@@ -12,6 +12,55 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetRecentlyAddedRequest
 {
     /**
+     * The content directory ID.
+     *
+     * @var int $contentDirectoryID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=contentDirectoryID')]
+    public int $contentDirectoryID;
+
+    /**
+     * Comma-separated list of pinned content directory IDs.
+     *
+     * @var ?string $pinnedContentDirectoryID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=pinnedContentDirectoryID')]
+    public ?string $pinnedContentDirectoryID = null;
+
+    /**
+     * The library section ID for filtering content.
+     *
+     * @var ?int $sectionID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=sectionID')]
+    public ?int $sectionID = null;
+
+    /**
+     * The type of media to retrieve.
+     *
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var Type $type
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    public Type $type;
+
+    /**
+     * Adds the Meta object to the response
+     *
+     *
+     *
+     * @var ?IncludeMeta $includeMeta
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeMeta')]
+    public ?IncludeMeta $includeMeta = null;
+
+    /**
      * The index of the first item to return. If not specified, the first item will be returned.
      *
      * If the number of items exceeds the limit, the response will be paginated.
@@ -36,11 +85,21 @@ class GetRecentlyAddedRequest
     public ?int $xPlexContainerSize = null;
 
     /**
+     * @param  int  $contentDirectoryID
+     * @param  Type  $type
+     * @param  ?string  $pinnedContentDirectoryID
+     * @param  ?int  $sectionID
+     * @param  ?IncludeMeta  $includeMeta
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      */
-    public function __construct(?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
+    public function __construct(int $contentDirectoryID, Type $type, ?string $pinnedContentDirectoryID = null, ?int $sectionID = null, ?IncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
     {
+        $this->contentDirectoryID = $contentDirectoryID;
+        $this->type = $type;
+        $this->pinnedContentDirectoryID = $pinnedContentDirectoryID;
+        $this->sectionID = $sectionID;
+        $this->includeMeta = $includeMeta;
         $this->xPlexContainerStart = $xPlexContainerStart;
         $this->xPlexContainerSize = $xPlexContainerSize;
     }

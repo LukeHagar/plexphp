@@ -32,23 +32,23 @@ class GetLibraryItemsSort
      *
      *
      *
-     * @var ?ActiveDirection $activeDirection
+     * @var ?GetLibraryItemsActiveDirection $activeDirection
      */
     #[\JMS\Serializer\Annotation\SerializedName('activeDirection')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ActiveDirection|null')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsActiveDirection|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?ActiveDirection $activeDirection = null;
+    public ?GetLibraryItemsActiveDirection $activeDirection = null;
 
     /**
      * The direction of the sort. Can be either `asc` or `desc`.
      *
      *
      *
-     * @var DefaultDirection $defaultDirection
+     * @var GetLibraryItemsDefaultDirection $defaultDirection
      */
     #[\JMS\Serializer\Annotation\SerializedName('defaultDirection')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\DefaultDirection')]
-    public DefaultDirection $defaultDirection;
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsDefaultDirection')]
+    public GetLibraryItemsDefaultDirection $defaultDirection;
 
     /**
      *
@@ -81,16 +81,16 @@ class GetLibraryItemsSort
     public string $title;
 
     /**
-     * @param  DefaultDirection  $defaultDirection
+     * @param  GetLibraryItemsDefaultDirection  $defaultDirection
      * @param  string  $key
      * @param  string  $title
      * @param  ?string  $default
      * @param  ?bool  $active
-     * @param  ?ActiveDirection  $activeDirection
+     * @param  ?GetLibraryItemsActiveDirection  $activeDirection
      * @param  ?string  $descKey
      * @param  ?string  $firstCharacterKey
      */
-    public function __construct(DefaultDirection $defaultDirection, string $key, string $title, ?string $default = null, ?bool $active = null, ?ActiveDirection $activeDirection = null, ?string $descKey = null, ?string $firstCharacterKey = null)
+    public function __construct(GetLibraryItemsDefaultDirection $defaultDirection, string $key, string $title, ?string $default = null, ?bool $active = null, ?GetLibraryItemsActiveDirection $activeDirection = null, ?string $descKey = null, ?string $firstCharacterKey = null)
     {
         $this->defaultDirection = $defaultDirection;
         $this->key = $key;

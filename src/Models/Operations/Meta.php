@@ -19,26 +19,26 @@ class Meta
     /**
      * $type
      *
-     * @var ?array<GetLibraryItemsLibraryType> $type
+     * @var ?array<GetRecentlyAddedType> $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('Type')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryType>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedType>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $type = null;
 
     /**
      * $fieldType
      *
-     * @var ?array<GetLibraryItemsFieldType> $fieldType
+     * @var ?array<GetRecentlyAddedFieldType> $fieldType
      */
     #[\JMS\Serializer\Annotation\SerializedName('FieldType')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedFieldType>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $fieldType = null;
 
     /**
-     * @param  ?array<GetLibraryItemsLibraryType>  $type
-     * @param  ?array<GetLibraryItemsFieldType>  $fieldType
+     * @param  ?array<GetRecentlyAddedType>  $type
+     * @param  ?array<GetRecentlyAddedFieldType>  $fieldType
      */
     public function __construct(?array $type = null, ?array $fieldType = null)
     {

@@ -13,51 +13,56 @@ class Part
 {
     /**
      *
-     * @var ?float $id
+     * @var int $id
      */
     #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $id = null;
+    public int $id;
 
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?float $duration
+     * @var int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $duration = null;
+    public int $duration;
 
     /**
      *
-     * @var ?string $file
+     * @var string $file
      */
     #[\JMS\Serializer\Annotation\SerializedName('file')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $file = null;
+    public string $file;
 
     /**
      *
-     * @var ?float $size
+     * @var int $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $size = null;
+    public int $size;
+
+    /**
+     * The container format of the media file.
+     *
+     *
+     *
+     * @var string $container
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('container')]
+    public string $container;
 
     /**
      *
-     * @var ?string $container
+     * @var ?string $audioProfile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('container')]
+    #[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $container = null;
+    public ?string $audioProfile = null;
 
     /**
      *
@@ -69,14 +74,6 @@ class Part
 
     /**
      *
-     * @var ?float $hasThumbnail
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $hasThumbnail = null;
-
-    /**
-     *
      * @var ?bool $optimizedForStreaming
      */
     #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
@@ -85,25 +82,54 @@ class Part
 
     /**
      *
-     * @var ?string $videoProfile
+     * @var string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoProfile = null;
+    public string $videoProfile;
 
     /**
-     * @param  ?float  $id
-     * @param  ?string  $key
-     * @param  ?float  $duration
-     * @param  ?string  $file
-     * @param  ?float  $size
-     * @param  ?string  $container
-     * @param  ?bool  $has64bitOffsets
-     * @param  ?float  $hasThumbnail
-     * @param  ?bool  $optimizedForStreaming
-     * @param  ?string  $videoProfile
+     *
+     * @var ?string $indexes
      */
-    public function __construct(?float $id = null, ?string $key = null, ?float $duration = null, ?string $file = null, ?float $size = null, ?string $container = null, ?bool $has64bitOffsets = null, ?float $hasThumbnail = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null)
+    #[\JMS\Serializer\Annotation\SerializedName('indexes')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $indexes = null;
+
+    /**
+     *
+     * @var ?HasThumbnail $hasThumbnail
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\HasThumbnail|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?HasThumbnail $hasThumbnail = null;
+
+    /**
+     * $stream
+     *
+     * @var ?array<Stream> $stream
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Stream')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Stream>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $stream = null;
+
+    /**
+     * @param  int  $id
+     * @param  string  $key
+     * @param  int  $duration
+     * @param  string  $file
+     * @param  int  $size
+     * @param  string  $container
+     * @param  string  $videoProfile
+     * @param  ?string  $audioProfile
+     * @param  ?bool  $has64bitOffsets
+     * @param  ?bool  $optimizedForStreaming
+     * @param  ?string  $indexes
+     * @param  ?HasThumbnail  $hasThumbnail
+     * @param  ?array<Stream>  $stream
+     */
+    public function __construct(int $id, string $key, int $duration, string $file, int $size, string $container, string $videoProfile, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $indexes = null, ?HasThumbnail $hasThumbnail = null, ?array $stream = null)
     {
         $this->id = $id;
         $this->key = $key;
@@ -111,9 +137,12 @@ class Part
         $this->file = $file;
         $this->size = $size;
         $this->container = $container;
-        $this->has64bitOffsets = $has64bitOffsets;
-        $this->hasThumbnail = $hasThumbnail;
-        $this->optimizedForStreaming = $optimizedForStreaming;
         $this->videoProfile = $videoProfile;
+        $this->audioProfile = $audioProfile;
+        $this->has64bitOffsets = $has64bitOffsets;
+        $this->optimizedForStreaming = $optimizedForStreaming;
+        $this->indexes = $indexes;
+        $this->hasThumbnail = $hasThumbnail;
+        $this->stream = $stream;
     }
 }

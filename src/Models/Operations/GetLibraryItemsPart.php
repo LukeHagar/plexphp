@@ -66,6 +66,22 @@ class GetLibraryItemsPart
 
     /**
      *
+     * @var ?bool $has64bitOffsets
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $has64bitOffsets = null;
+
+    /**
+     *
+     * @var ?bool $optimizedForStreaming
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $optimizedForStreaming = null;
+
+    /**
+     *
      * @var string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
@@ -81,12 +97,22 @@ class GetLibraryItemsPart
 
     /**
      *
-     * @var ?HasThumbnail $hasThumbnail
+     * @var ?GetLibraryItemsHasThumbnail $hasThumbnail
      */
     #[\JMS\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\HasThumbnail|null')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsHasThumbnail|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?HasThumbnail $hasThumbnail = null;
+    public ?GetLibraryItemsHasThumbnail $hasThumbnail = null;
+
+    /**
+     * $stream
+     *
+     * @var ?array<GetLibraryItemsStream> $stream
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Stream')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsStream>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $stream = null;
 
     /**
      * @param  int  $id
@@ -97,10 +123,13 @@ class GetLibraryItemsPart
      * @param  string  $container
      * @param  string  $videoProfile
      * @param  ?string  $audioProfile
+     * @param  ?bool  $has64bitOffsets
+     * @param  ?bool  $optimizedForStreaming
      * @param  ?string  $indexes
-     * @param  ?HasThumbnail  $hasThumbnail
+     * @param  ?GetLibraryItemsHasThumbnail  $hasThumbnail
+     * @param  ?array<GetLibraryItemsStream>  $stream
      */
-    public function __construct(int $id, string $key, int $duration, string $file, int $size, string $container, string $videoProfile, ?string $audioProfile = null, ?string $indexes = null, ?HasThumbnail $hasThumbnail = null)
+    public function __construct(int $id, string $key, int $duration, string $file, int $size, string $container, string $videoProfile, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $indexes = null, ?GetLibraryItemsHasThumbnail $hasThumbnail = null, ?array $stream = null)
     {
         $this->id = $id;
         $this->key = $key;
@@ -110,7 +139,10 @@ class GetLibraryItemsPart
         $this->container = $container;
         $this->videoProfile = $videoProfile;
         $this->audioProfile = $audioProfile;
+        $this->has64bitOffsets = $has64bitOffsets;
+        $this->optimizedForStreaming = $optimizedForStreaming;
         $this->indexes = $indexes;
         $this->hasThumbnail = $hasThumbnail;
+        $this->stream = $stream;
     }
 }

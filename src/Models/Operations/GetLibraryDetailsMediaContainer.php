@@ -130,10 +130,10 @@ class GetLibraryDetailsMediaContainer
     /**
      * $fieldType
      *
-     * @var ?array<FieldType> $fieldType
+     * @var ?array<GetLibraryDetailsFieldType> $fieldType
      */
     #[\JMS\Serializer\Annotation\SerializedName('FieldType')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\FieldType>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryDetailsFieldType>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $fieldType = null;
 
@@ -152,7 +152,7 @@ class GetLibraryDetailsMediaContainer
      * @param  ?int  $viewMode
      * @param  ?array<GetLibraryDetailsDirectory>  $directory
      * @param  ?array<GetLibraryDetailsType>  $type
-     * @param  ?array<FieldType>  $fieldType
+     * @param  ?array<GetLibraryDetailsFieldType>  $fieldType
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $art = null, ?string $content = null, ?string $identifier = null, ?int $librarySectionID = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?string $thumb = null, ?string $title1 = null, ?string $viewGroup = null, ?int $viewMode = null, ?array $directory = null, ?array $type = null, ?array $fieldType = null)
     {

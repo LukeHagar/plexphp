@@ -13,19 +13,26 @@ class GetRecentlyAddedMediaContainer
 {
     /**
      *
-     * @var ?float $size
+     * @var float $size
      */
     #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $size = null;
+    public float $size;
 
     /**
      *
-     * @var ?bool $allowSync
+     * @var ?int $offset
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+    #[\JMS\Serializer\Annotation\SerializedName('offset')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $allowSync = null;
+    public ?int $offset = null;
+
+    /**
+     *
+     * @var ?int $totalSize
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('totalSize')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $totalSize = null;
 
     /**
      *
@@ -37,27 +44,23 @@ class GetRecentlyAddedMediaContainer
 
     /**
      *
-     * @var ?string $mediaTagPrefix
+     * @var ?bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
+    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $mediaTagPrefix = null;
+    public ?bool $allowSync = null;
 
     /**
+     * The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
      *
-     * @var ?float $mediaTagVersion
-     */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?float $mediaTagVersion = null;
-
-    /**
      *
-     * @var ?bool $mixedParents
+     *
+     * @var ?Meta $meta
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mixedParents')]
+    #[\JMS\Serializer\Annotation\SerializedName('Meta')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Meta|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?bool $mixedParents = null;
+    public ?Meta $meta = null;
 
     /**
      * $metadata
@@ -70,22 +73,22 @@ class GetRecentlyAddedMediaContainer
     public ?array $metadata = null;
 
     /**
-     * @param  ?float  $size
-     * @param  ?bool  $allowSync
+     * @param  float  $size
+     * @param  ?int  $offset
+     * @param  ?int  $totalSize
      * @param  ?string  $identifier
-     * @param  ?string  $mediaTagPrefix
-     * @param  ?float  $mediaTagVersion
-     * @param  ?bool  $mixedParents
+     * @param  ?bool  $allowSync
+     * @param  ?Meta  $meta
      * @param  ?array<GetRecentlyAddedMetadata>  $metadata
      */
-    public function __construct(?float $size = null, ?bool $allowSync = null, ?string $identifier = null, ?string $mediaTagPrefix = null, ?float $mediaTagVersion = null, ?bool $mixedParents = null, ?array $metadata = null)
+    public function __construct(float $size, ?int $offset = null, ?int $totalSize = null, ?string $identifier = null, ?bool $allowSync = null, ?Meta $meta = null, ?array $metadata = null)
     {
         $this->size = $size;
-        $this->allowSync = $allowSync;
+        $this->offset = $offset;
+        $this->totalSize = $totalSize;
         $this->identifier = $identifier;
-        $this->mediaTagPrefix = $mediaTagPrefix;
-        $this->mediaTagVersion = $mediaTagVersion;
-        $this->mixedParents = $mixedParents;
+        $this->allowSync = $allowSync;
+        $this->meta = $meta;
         $this->metadata = $metadata;
     }
 }

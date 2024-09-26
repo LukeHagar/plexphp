@@ -119,6 +119,23 @@ class GetLibraryItemsMedia
     public ?bool $hasVoiceActivity = null;
 
     /**
+     *
+     * @var ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsOptimizedForStreaming|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming = null;
+
+    /**
+     *
+     * @var ?bool $has64bitOffsets
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?bool $has64bitOffsets = null;
+
+    /**
      * $part
      *
      * @var array<GetLibraryItemsPart> $part
@@ -144,8 +161,10 @@ class GetLibraryItemsMedia
      * @param  array<GetLibraryItemsPart>  $part
      * @param  ?string  $audioProfile
      * @param  ?bool  $hasVoiceActivity
+     * @param  ?GetLibraryItemsOptimizedForStreaming  $optimizedForStreaming
+     * @param  ?bool  $has64bitOffsets
      */
-    public function __construct(int $id, int $duration, int $bitrate, int $width, int $height, float $aspectRatio, int $audioChannels, string $audioCodec, string $videoCodec, string $videoResolution, string $container, string $videoFrameRate, string $videoProfile, array $part, ?string $audioProfile = null, ?bool $hasVoiceActivity = null)
+    public function __construct(int $id, int $duration, int $bitrate, int $width, int $height, float $aspectRatio, int $audioChannels, string $audioCodec, string $videoCodec, string $videoResolution, string $container, string $videoFrameRate, string $videoProfile, array $part, ?string $audioProfile = null, ?bool $hasVoiceActivity = null, ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming = null, ?bool $has64bitOffsets = null)
     {
         $this->id = $id;
         $this->duration = $duration;
@@ -163,5 +182,7 @@ class GetLibraryItemsMedia
         $this->part = $part;
         $this->audioProfile = $audioProfile;
         $this->hasVoiceActivity = $hasVoiceActivity;
+        $this->optimizedForStreaming = $optimizedForStreaming;
+        $this->has64bitOffsets = $has64bitOffsets;
     }
 }

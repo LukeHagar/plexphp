@@ -33,7 +33,7 @@ class GetRecentlyAddedResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * The recently added content
+     * A successful response with recently added content.
      *
      * @var ?GetRecentlyAddedResponseBody $object
      */

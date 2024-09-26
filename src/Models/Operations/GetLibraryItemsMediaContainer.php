@@ -9,8 +9,33 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/**
+ * GetLibraryItemsMediaContainer - The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
+ *
+ *
+ */
 class GetLibraryItemsMediaContainer
 {
+    /**
+     * $type
+     *
+     * @var ?array<GetLibraryItemsType> $type
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Type')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $type = null;
+
+    /**
+     * $fieldType
+     *
+     * @var ?array<GetLibraryItemsFieldType> $fieldType
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('FieldType')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $fieldType = null;
+
     /**
      *
      * @var int $size
@@ -70,11 +95,10 @@ class GetLibraryItemsMediaContainer
 
     /**
      *
-     * @var int|string $librarySectionID
+     * @var int $librarySectionID
      */
     #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\Type('int|string')]
-    public int|string $librarySectionID;
+    public int $librarySectionID;
 
     /**
      *
@@ -162,12 +186,12 @@ class GetLibraryItemsMediaContainer
      *
      *
      *
-     * @var ?Meta $meta
+     * @var ?GetLibraryItemsMeta $meta
      */
     #[\JMS\Serializer\Annotation\SerializedName('Meta')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Meta|null')]
+    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMeta|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?Meta $meta = null;
+    public ?GetLibraryItemsMeta $meta = null;
 
     /**
      * @param  int  $size
@@ -177,7 +201,7 @@ class GetLibraryItemsMediaContainer
      * @param  bool  $allowSync
      * @param  string  $art
      * @param  string  $identifier
-     * @param  int|string  $librarySectionID
+     * @param  int  $librarySectionID
      * @param  string  $librarySectionTitle
      * @param  string  $librarySectionUUID
      * @param  string  $mediaTagPrefix
@@ -187,12 +211,14 @@ class GetLibraryItemsMediaContainer
      * @param  string  $title2
      * @param  string  $viewGroup
      * @param  array<GetLibraryItemsMetadata>  $metadata
+     * @param  ?array<GetLibraryItemsType>  $type
+     * @param  ?array<GetLibraryItemsFieldType>  $fieldType
      * @param  ?bool  $nocache
      * @param  ?int  $viewMode
      * @param  ?bool  $mixedParents
-     * @param  ?Meta  $meta
+     * @param  ?GetLibraryItemsMeta  $meta
      */
-    public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, string $art, string $identifier, int|string $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, array $metadata, ?bool $nocache = null, ?int $viewMode = null, ?bool $mixedParents = null, ?Meta $meta = null)
+    public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, string $art, string $identifier, int $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, array $metadata, ?array $type = null, ?array $fieldType = null, ?bool $nocache = null, ?int $viewMode = null, ?bool $mixedParents = null, ?GetLibraryItemsMeta $meta = null)
     {
         $this->size = $size;
         $this->totalSize = $totalSize;
@@ -211,6 +237,8 @@ class GetLibraryItemsMediaContainer
         $this->title2 = $title2;
         $this->viewGroup = $viewGroup;
         $this->metadata = $metadata;
+        $this->type = $type;
+        $this->fieldType = $fieldType;
         $this->nocache = $nocache;
         $this->viewMode = $viewMode;
         $this->mixedParents = $mixedParents;

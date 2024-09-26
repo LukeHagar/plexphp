@@ -13,27 +13,25 @@ class FieldType
 {
     /**
      *
-     * @var ?string $type
+     * @var string $type
      */
     #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $type = null;
+    public string $type;
 
     /**
      * $operator
      *
-     * @var ?array<Operator> $operator
+     * @var array<Operator> $operator
      */
     #[\JMS\Serializer\Annotation\SerializedName('Operator')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Operator>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?array $operator = null;
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Operator>')]
+    public array $operator;
 
     /**
-     * @param  ?string  $type
-     * @param  ?array<Operator>  $operator
+     * @param  string  $type
+     * @param  array<Operator>  $operator
      */
-    public function __construct(?string $type = null, ?array $operator = null)
+    public function __construct(string $type, array $operator)
     {
         $this->type = $type;
         $this->operator = $operator;

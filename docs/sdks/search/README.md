@@ -51,7 +51,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 try {
 
-    $response = $sdk->search->performSearch('dylan', 5838.67, 5);
+    $response = $sdk->search->performSearch('dylan', 9372.69, 5);
 
     if ($response->statusCode === 200) {
         // handle response

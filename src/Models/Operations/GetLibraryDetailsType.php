@@ -56,20 +56,20 @@ class GetLibraryDetailsType
     /**
      * $sort
      *
-     * @var ?array<Sort> $sort
+     * @var ?array<GetLibraryDetailsSort> $sort
      */
     #[\JMS\Serializer\Annotation\SerializedName('Sort')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Sort>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryDetailsSort>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $sort = null;
 
     /**
      * $field
      *
-     * @var ?array<Field> $field
+     * @var ?array<GetLibraryDetailsField> $field
      */
     #[\JMS\Serializer\Annotation\SerializedName('Field')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Field>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryDetailsField>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $field = null;
 
@@ -79,8 +79,8 @@ class GetLibraryDetailsType
      * @param  ?string  $title
      * @param  ?bool  $active
      * @param  ?array<GetLibraryDetailsFilter>  $filter
-     * @param  ?array<Sort>  $sort
-     * @param  ?array<Field>  $field
+     * @param  ?array<GetLibraryDetailsSort>  $sort
+     * @param  ?array<GetLibraryDetailsField>  $field
      */
     public function __construct(?string $key = null, ?string $type = null, ?string $title = null, ?bool $active = null, ?array $filter = null, ?array $sort = null, ?array $field = null)
     {

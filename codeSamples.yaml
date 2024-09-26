@@ -701,6 +701,49 @@ actions:
             } catch (Throwable $e) {
                 // handle exception
             }
+  - target: $["paths"]["/hubs/home/recentlyAdded"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: added
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use LukeHagar\Plex_API;
+            use LukeHagar\Plex_API\Models\Components;
+            use LukeHagar\Plex_API\Models\Operations;
+
+            $security = new Components\Security(
+                accessToken: "<YOUR_API_KEY_HERE>",
+            );
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+                ->setClientName('Plex Web')
+                ->setClientVersion('4.133.0')
+                ->setClientPlatform('Chrome')
+                ->setDeviceName('Linux')
+                ->setSecurity($security)->build();
+
+            try {
+                $request = new Operations\GetRecentlyAddedRequest(
+                    contentDirectoryID: 470161,
+                    sectionID: 2,
+                    type: Operations\Type::TvShow,
+                    includeMeta: Operations\IncludeMeta::Enable,
+                    xPlexContainerStart: 0,
+                    xPlexContainerSize: 50,
+                );
+                $response = $sdk->hubs->getRecentlyAdded($request);
+
+                if ($response->object !== null) {
+                    // handle response
+                }
+            } catch (Throwable $e) {
+                // handle exception
+            }
   - target: $["paths"]["/hubs/search"]["get"]
     update:
       x-codeSamples:
@@ -728,7 +771,7 @@ actions:
 
             try {
 
-                $response = $sdk->search->performSearch('dylan', 5838.67, 5);
+                $response = $sdk->search->performSearch('dylan', 9372.69, 5);
 
                 if ($response->statusCode === 200) {
                     // handle response
@@ -1101,7 +1144,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: getRecentlyAdded
+          label: library
           source: |-
             declare(strict_types=1);
 
@@ -1109,6 +1152,7 @@ actions:
 
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Components;
+            use LukeHagar\Plex_API\Models\Operations;
 
             $security = new Components\Security(
                 accessToken: "<YOUR_API_KEY_HERE>",
@@ -1123,8 +1167,29 @@ actions:
                 ->setSecurity($security)->build();
 
             try {
-
-                $response = $sdk->library->getRecentlyAdded(0, 50);
+                $request = new Operations\GetRecentlyAddedLibraryRequest(
+                    contentDirectoryID: 2,
+                    pinnedContentDirectoryID: [
+                        3,
+                        5,
+                        7,
+                        13,
+                        12,
+                        1,
+                        6,
+                        14,
+                        2,
+                        10,
+                        16,
+                        17,
+                    ],
+                    sectionID: 2,
+                    type: Operations\QueryParamType::TvShow,
+                    includeMeta: Operations\QueryParamIncludeMeta::Enable,
+                    xPlexContainerStart: 0,
+                    xPlexContainerSize: 50,
+                );
+                $response = $sdk->library->getRecentlyAddedLibrary($request);
 
                 if ($response->object !== null) {
                     // handle response
@@ -1342,7 +1407,7 @@ actions:
 
             try {
 
-                $response = $sdk->library->getSearchLibrary(9518, Operations\QueryParamType::TvShow);
+                $response = $sdk->library->getSearchLibrary(9518, Operations\GetSearchLibraryQueryParamType::TvShow);
 
                 if ($response->object !== null) {
                     // handle response
@@ -1381,8 +1446,8 @@ actions:
                     sectionKey: 9518,
                     tag: Operations\Tag::Edition,
                     includeGuids: Operations\IncludeGuids::Enable,
-                    includeMeta: Operations\IncludeMeta::Enable,
-                    type: Operations\Type::TvShow,
+                    type: Operations\GetLibraryItemsQueryParamType::TvShow,
+                    includeMeta: Operations\GetLibraryItemsQueryParamIncludeMeta::Enable,
                     xPlexContainerStart: 0,
                     xPlexContainerSize: 50,
                 );
@@ -1601,9 +1666,9 @@ actions:
                     width: 110,
                     height: 165,
                     opacity: 643869,
-                    blur: 4000,
+                    blur: 0,
                     minSize: Operations\MinSize::One,
-                    upscale: Operations\Upscale::Zero,
+                    upscale: Operations\Upscale::One,
                     url: '/library/metadata/49564/thumb/1654258204',
                 );
                 $response = $sdk->server->getResizedPhoto($request);
@@ -2097,7 +2162,7 @@ actions:
 
             try {
 
-                $response = $sdk->authentication->getSourceConnectionInformation('provider://provider-identifier');
+                $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');
 
                 if ($response->statusCode === 200) {
                     // handle response
@@ -2581,10 +2646,12 @@ actions:
                 ->build();
 
             try {
-                $request = new Operations\PostUsersSignInDataRequestBody(
-                    login: 'username@email.com',
-                    password: 'password123',
-                    verificationCode: '123456',
+                $request = new Operations\PostUsersSignInDataRequest(
+                    requestBody: new Operations\PostUsersSignInDataRequestBody(
+                        login: 'username@email.com',
+                        password: 'password123',
+                        verificationCode: '123456',
+                    ),
                 );
                 $response = $sdk->authentication->postUsersSignInData($request);
 

@@ -13,25 +13,23 @@ class Operator
 {
     /**
      *
-     * @var ?string $key
+     * @var string $key
      */
     #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $key = null;
+    public string $key;
 
     /**
      *
-     * @var ?string $title
+     * @var string $title
      */
     #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
-    public ?string $title = null;
+    public string $title;
 
     /**
-     * @param  ?string  $key
-     * @param  ?string  $title
+     * @param  string  $key
+     * @param  string  $title
      */
-    public function __construct(?string $key = null, ?string $title = null)
+    public function __construct(string $key, string $title)
     {
         $this->key = $key;
         $this->title = $title;

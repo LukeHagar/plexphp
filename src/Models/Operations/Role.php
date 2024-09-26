@@ -12,6 +12,34 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Role
 {
     /**
+     * The ID of the tag or actor.
+     *
+     * @var ?int $id
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $id = null;
+
+    /**
+     * The filter used to find the actor or tag.
+     *
+     * @var ?string $filter
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('filter')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $filter = null;
+
+    /**
+     * The thumbnail of the actor
+     *
+     * @var ?string $thumb
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $thumb = null;
+
+    /**
+     * The name of the tag or actor.
      *
      * @var ?string $tag
      */
@@ -20,10 +48,38 @@ class Role
     public ?string $tag = null;
 
     /**
-     * @param  ?string  $tag
+     * Unique identifier for the tag.
+     *
+     * @var ?string $tagKey
      */
-    public function __construct(?string $tag = null)
+    #[\JMS\Serializer\Annotation\SerializedName('tagKey')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $tagKey = null;
+
+    /**
+     * The role of the actor or tag in the media.
+     *
+     * @var ?string $role
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('role')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $role = null;
+
+    /**
+     * @param  ?int  $id
+     * @param  ?string  $filter
+     * @param  ?string  $thumb
+     * @param  ?string  $tag
+     * @param  ?string  $tagKey
+     * @param  ?string  $role
+     */
+    public function __construct(?int $id = null, ?string $filter = null, ?string $thumb = null, ?string $tag = null, ?string $tagKey = null, ?string $role = null)
     {
+        $this->id = $id;
+        $this->filter = $filter;
+        $this->thumb = $thumb;
         $this->tag = $tag;
+        $this->tagKey = $tagKey;
+        $this->role = $role;
     }
 }
