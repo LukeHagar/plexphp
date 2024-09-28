@@ -1,4 +1,5 @@
 # Server
+(*server*)
 
 ## Overview
 
@@ -29,11 +30,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -43,14 +41,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->server->getServerCapabilities();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getServerCapabilities(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -79,11 +77,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -93,14 +88,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->server->getServerPreferences();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getServerPreferences(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -129,11 +124,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -143,14 +135,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->server->getAvailableClients();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getAvailableClients(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -179,11 +171,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -193,14 +182,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->server->getDevices();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getDevices(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -238,14 +227,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->build();
 
-try {
-    $response = $sdk->server->getServerIdentity();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getServerIdentity(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -273,11 +262,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -287,14 +273,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->server->getMyPlexAccount();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getMyPlexAccount(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -324,12 +310,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -339,23 +322,22 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\GetResizedPhotoRequest(
-        width: 110,
-        height: 165,
-        opacity: 643869,
-        blur: 0,
-        minSize: Operations\MinSize::One,
-        upscale: Operations\Upscale::One,
-        url: '/library/metadata/49564/thumb/1654258204',
-    );
-    $response = $sdk->server->getResizedPhoto($request);
+$request = new Operations\GetResizedPhotoRequest(
+    width: 110,
+    height: 165,
+    opacity: 643869,
+    blur: 0,
+    minSize: Operations\MinSize::One,
+    upscale: Operations\Upscale::One,
+    url: '/library/metadata/49564/thumb/1654258204',
+);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->server->getResizedPhoto(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -390,11 +372,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -404,15 +383,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->server->getMediaProviders('CV5xoxjTpFKUzBTShsaf');
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->server->getMediaProviders(
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -447,11 +425,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -461,14 +436,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->server->getServerList();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getServerList(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 

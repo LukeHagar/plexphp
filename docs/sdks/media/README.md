@@ -1,4 +1,5 @@
 # Media
+(*media*)
 
 ## Overview
 
@@ -25,11 +26,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -39,15 +37,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->media->markPlayed(59398);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->media->markPlayed(
+    key: 59398
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -82,11 +79,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -96,15 +90,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->media->markUnplayed(59398);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->media->markUnplayed(
+    key: 59398
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -140,11 +133,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -154,15 +144,17 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->media->updatePlayProgress('<key>', 90000, 'played');
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->media->updatePlayProgress(
+    key: '<key>',
+    time: 90000,
+    state: 'played'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -199,12 +191,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -214,22 +203,21 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\GetBannerImageRequest(
-        ratingKey: 9518,
-        width: 396,
-        height: 396,
-        minSize: 1,
-        upscale: 1,
-        xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
-    );
-    $response = $sdk->media->getBannerImage($request);
+$request = new Operations\GetBannerImageRequest(
+    ratingKey: 9518,
+    width: 396,
+    height: 396,
+    minSize: 1,
+    upscale: 1,
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
+);
 
-    if ($response->bytes !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->media->getBannerImage(
+    request: $request
+);
+
+if ($response->bytes !== null) {
+    // handle response
 }
 ```
 
@@ -264,12 +252,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -279,22 +264,21 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\GetThumbImageRequest(
-        ratingKey: 9518,
-        width: 396,
-        height: 396,
-        minSize: 1,
-        upscale: 1,
-        xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
-    );
-    $response = $sdk->media->getThumbImage($request);
+$request = new Operations\GetThumbImageRequest(
+    ratingKey: 9518,
+    width: 396,
+    height: 396,
+    minSize: 1,
+    upscale: 1,
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
+);
 
-    if ($response->bytes !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->media->getThumbImage(
+    request: $request
+);
+
+if ($response->bytes !== null) {
+    // handle response
 }
 ```
 

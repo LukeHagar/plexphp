@@ -1,4 +1,5 @@
 # Sessions
+(*sessions*)
 
 ## Overview
 
@@ -24,11 +25,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -38,14 +36,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->sessions->getSessions();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->sessions->getSessions(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -74,12 +72,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -89,15 +84,18 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $filter = new Operations\QueryParamFilter();
-    $response = $sdk->sessions->getSessionHistory('<value>', 1, $filter, 12);
+$filter = new Operations\QueryParamFilter();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->sessions->getSessionHistory(
+    sort: '<value>',
+    accountId: 1,
+    filter: $filter,
+    librarySectionID: 12
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -135,11 +133,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -149,14 +144,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->sessions->getTranscodeSessions();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->sessions->getTranscodeSessions(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -185,11 +180,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -199,15 +191,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->sessions->stopTranscodeSession('zz7llzqlx8w9vnrsbnwhbmep');
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->sessions->stopTranscodeSession(
+    sessionKey: 'zz7llzqlx8w9vnrsbnwhbmep'
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

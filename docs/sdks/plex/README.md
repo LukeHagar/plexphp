@@ -1,4 +1,5 @@
 # Plex
+(*plex*)
 
 ## Overview
 
@@ -27,11 +28,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -41,14 +39,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->plex->getCompanionsData();
 
-    if ($response->responseBodies !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->plex->getCompanionsData(
+
+);
+
+if ($response->responseBodies !== null) {
+    // handle response
 }
 ```
 
@@ -83,11 +81,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -97,14 +92,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->plex->getUserFriends();
 
-    if ($response->friends !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->plex->getUserFriends(
+
+);
+
+if ($response->friends !== null) {
+    // handle response
 }
 ```
 
@@ -148,14 +143,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->build();
 
-try {
-    $response = $sdk->plex->getGeoData();
 
-    if ($response->geoData !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->plex->getGeoData(
+
+);
+
+if ($response->geoData !== null) {
+    // handle response
 }
 ```
 
@@ -190,11 +185,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -204,14 +196,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->plex->getHomeData();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->plex->getHomeData(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -240,12 +232,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -255,15 +244,17 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->plex->getServerResources(Operations\IncludeHttps::Enable, Operations\IncludeRelay::Enable, Operations\IncludeIPv6::Enable);
 
-    if ($response->plexDevices !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->plex->getServerResources(
+    includeHttps: Operations\IncludeHttps::Enable,
+    includeRelay: Operations\IncludeRelay::Enable,
+    includeIPv6: Operations\IncludeIPv6::Enable
+
+);
+
+if ($response->plexDevices !== null) {
+    // handle response
 }
 ```
 
@@ -311,15 +302,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->build();
 
-try {
-    $request = new Operations\GetPinRequest();
-    $response = $sdk->plex->getPin($request);
+$request = new Operations\GetPinRequest();
 
-    if ($response->authPinContainer !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->plex->getPin(
+    request: $request
+);
+
+if ($response->authPinContainer !== null) {
+    // handle response
 }
 ```
 
@@ -354,6 +344,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -363,24 +354,25 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->build();
 
-try {
+$request = new Operations\GetTokenByPinIdRequest(
+    pinID: 408895,
+);
 
-    $response = $sdk->plex->getTokenByPinId(408895);
+$response = $sdk->plex->getTokenByPinId(
+    request: $request
+);
 
-    if ($response->authPinContainer !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+if ($response->authPinContainer !== null) {
+    // handle response
 }
 ```
 
 ### Parameters
 
-| Parameter                                 | Type                                      | Required                                  | Description                               |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| `pinID`                                   | *int*                                     | :heavy_check_mark:                        | The PinID to retrieve an access token for |
-| `$serverURL`                              | *string*                                  | :heavy_minus_sign:                        | An optional server URL to use.            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `$request`                                                                             | [Operations\GetTokenByPinIdRequest](../../Models/Operations/GetTokenByPinIdRequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `$serverURL`                                                                           | *string*                                                                               | :heavy_minus_sign:                                                                     | An optional server URL to use.                                                         |
 
 ### Response
 

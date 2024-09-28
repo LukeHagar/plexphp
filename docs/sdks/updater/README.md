@@ -1,4 +1,5 @@
 # Updater
+(*updater*)
 
 ## Overview
 
@@ -24,11 +25,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -38,14 +36,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->updater->getUpdateStatus();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->updater->getUpdateStatus(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -74,12 +72,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -89,15 +84,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->updater->checkForUpdates(Operations\Download::One);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->updater->checkForUpdates(
+    download: Operations\Download::One
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -133,12 +127,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -148,15 +139,16 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->updater->applyUpdates(Operations\Tonight::One, Operations\Skip::One);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->updater->applyUpdates(
+    tonight: Operations\Tonight::One,
+    skip: Operations\Skip::One
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

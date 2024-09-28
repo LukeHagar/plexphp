@@ -15,11 +15,11 @@ class Authentication
 {
     public const GET_TOKEN_DETAILS_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     public const POST_USERS_SIGN_IN_DATA_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     private SDKConfiguration $sdkConfiguration;
     /**

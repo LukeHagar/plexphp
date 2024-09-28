@@ -1,4 +1,5 @@
 # Video
+(*video*)
 
 ## Overview
 
@@ -22,12 +23,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -37,26 +35,25 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\GetTimelineRequest(
-        ratingKey: 23409,
-        key: '/library/metadata/23409',
-        state: Operations\State::Playing,
-        hasMDE: 1,
-        time: 2000,
-        duration: 10000,
-        context: 'home:hub.continueWatching',
-        playQueueItemID: 1,
-        playBackTime: 2000,
-        row: 1,
-    );
-    $response = $sdk->video->getTimeline($request);
+$request = new Operations\GetTimelineRequest(
+    ratingKey: 23409,
+    key: '/library/metadata/23409',
+    state: Operations\State::Playing,
+    hasMDE: 1,
+    time: 2000,
+    duration: 10000,
+    context: 'home:hub.continueWatching',
+    playQueueItemID: 1,
+    playBackTime: 2000,
+    row: 1,
+);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->video->getTimeline(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -91,12 +88,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -106,32 +100,31 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\StartUniversalTranscodeRequest(
-        hasMDE: 1,
-        path: '/library/metadata/23409',
-        mediaIndex: 0,
-        partIndex: 0,
-        protocol: 'hls',
-        fastSeek: 0,
-        directPlay: 0,
-        directStream: 0,
-        subtitleSize: 100,
-        subtites: 'burn',
-        audioBoost: 100,
-        location: 'lan',
-        mediaBufferSize: 102400,
-        session: 'zvcage8b7rkioqcm8f4uns4c',
-        addDebugOverlay: 0,
-        autoAdjustQuality: 0,
-    );
-    $response = $sdk->video->startUniversalTranscode($request);
+$request = new Operations\StartUniversalTranscodeRequest(
+    hasMDE: 1,
+    path: '/library/metadata/23409',
+    mediaIndex: 0,
+    partIndex: 0,
+    protocol: 'hls',
+    fastSeek: 0,
+    directPlay: 0,
+    directStream: 0,
+    subtitleSize: 100,
+    subtites: 'burn',
+    audioBoost: 100,
+    location: 'lan',
+    mediaBufferSize: 102400,
+    session: 'zvcage8b7rkioqcm8f4uns4c',
+    addDebugOverlay: 0,
+    autoAdjustQuality: 0,
+);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->video->startUniversalTranscode(
+    request: $request
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

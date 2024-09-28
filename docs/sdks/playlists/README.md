@@ -1,4 +1,5 @@
 # Playlists
+(*playlists*)
 
 ## Overview
 
@@ -35,12 +36,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -50,20 +48,19 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\CreatePlaylistRequest(
-        title: '<value>',
-        type: Operations\CreatePlaylistQueryParamType::Photo,
-        smart: Operations\Smart::One,
-        uri: 'https://hoarse-testing.info/',
-    );
-    $response = $sdk->playlists->createPlaylist($request);
+$request = new Operations\CreatePlaylistRequest(
+    title: '<value>',
+    type: Operations\CreatePlaylistQueryParamType::Photo,
+    smart: Operations\Smart::One,
+    uri: 'https://hoarse-testing.info/',
+);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->createPlaylist(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -98,12 +95,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -113,15 +107,16 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->getPlaylists(Operations\PlaylistType::Audio, Operations\QueryParamSmart::Zero);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->getPlaylists(
+    playlistType: Operations\PlaylistType::Audio,
+    smart: Operations\QueryParamSmart::Zero
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -159,11 +154,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -173,15 +165,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->getPlaylist(4109.48);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->getPlaylist(
+    playlistID: 4109.48
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -217,11 +208,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -231,15 +219,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->deletePlaylist(216.22);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->deletePlaylist(
+    playlistID: 216.22
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -275,11 +262,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -289,15 +273,17 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->updatePlaylist(3915.00, '<value>', '<value>');
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->updatePlaylist(
+    playlistID: 3915.00,
+    title: '<value>',
+    summary: '<value>'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -338,12 +324,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -353,15 +336,16 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->getPlaylistContents(5004.46, Operations\GetPlaylistContentsQueryParamType::TvShow);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->getPlaylistContents(
+    playlistID: 5004.46,
+    type: Operations\GetPlaylistContentsQueryParamType::TvShow
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -398,11 +382,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -412,15 +393,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->clearPlaylistContents(1893.18);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->clearPlaylistContents(
+    playlistID: 1893.18
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -457,11 +437,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -471,15 +448,17 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->addPlaylistContents(8502.00, 'server://12345/com.plexapp.plugins.library/library/metadata/1', 123);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->addPlaylistContents(
+    playlistID: 8502.00,
+    uri: 'server://12345/com.plexapp.plugins.library/library/metadata/1',
+    playQueueID: 123
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -517,12 +496,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -532,15 +508,17 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->playlists->uploadPlaylist('/home/barkley/playlist.m3u', Operations\QueryParamForce::Zero, 1);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->playlists->uploadPlaylist(
+    path: '/home/barkley/playlist.m3u',
+    force: Operations\QueryParamForce::Zero,
+    sectionID: 1
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 

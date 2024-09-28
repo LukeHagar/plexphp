@@ -11,6 +11,31 @@
 ## Summary
 
 Plex-API: An Open API Spec for interacting with Plex.tv and Plex Media Server
+
+# Plex Media Server OpenAPI Specification
+
+An Open Source OpenAPI Specification for Plex Media Server
+
+Automation and SDKs provided by [Speakeasy](https://speakeasyapi.dev/)
+
+## Documentation
+
+[API Documentation](https://plexapi.dev)
+
+## SDKs
+
+The following SDKs are generated from the OpenAPI Specification. They are automatically generated and may not be fully tested. If you find any issues, please open an issue on the respective repository.
+
+| Language              | Repository                                        | Releases                                                                                         | Other                                                   |
+| --------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| Python                | [GitHub](https://github.com/LukeHagar/plexpy)     | [PyPI](https://pypi.org/project/plex-api-client/)                                                | -                                                       |
+| JavaScript/TypeScript | [GitHub](https://github.com/LukeHagar/plexjs)     | [NPM](https://www.npmjs.com/package/@lukehagar/plexjs) \ [JSR](https://jsr.io/@lukehagar/plexjs) | -                                                       |
+| Go                    | [GitHub](https://github.com/LukeHagar/plexgo)     | [Releases](https://github.com/LukeHagar/plexgo/releases)                                         | [GoDoc](https://pkg.go.dev/github.com/LukeHagar/plexgo) |
+| Ruby                  | [GitHub](https://github.com/LukeHagar/plexruby)   | [Releases](https://github.com/LukeHagar/plexruby/releases)                                       | -                                                       |
+| Swift                 | [GitHub](https://github.com/LukeHagar/plexswift)  | [Releases](https://github.com/LukeHagar/plexswift/releases)                                      | -                                                       |
+| PHP                   | [GitHub](https://github.com/LukeHagar/plexphp)    | [Releases](https://github.com/LukeHagar/plexphp/releases)                                        | -                                                       |
+| Java                  | [GitHub](https://github.com/LukeHagar/plexjava)   | [Releases](https://github.com/LukeHagar/plexjava/releases)                                       | -                                                       |
+| C#                    | [GitHub](https://github.com/LukeHagar/plexcsharp) | [Releases](https://github.com/LukeHagar/plexcsharp/releases)                                     | -
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -20,6 +45,7 @@ Plex-API: An Open API Spec for interacting with Plex.tv and Plex Media Server
 * [SDK Example Usage](#sdk-example-usage)
 * [Available Resources and Operations](#available-resources-and-operations)
 * [Global Parameters](#global-parameters)
+* [Error Handling](#error-handling)
 * [Server Selection](#server-selection)
 <!-- End Table of Contents [toc] -->
 
@@ -45,11 +71,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -59,14 +82,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->server->getServerCapabilities();
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->server->getServerCapabilities(
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 <!-- End SDK Example Usage [usage] -->
@@ -77,19 +100,19 @@ try {
 <details open>
 <summary>Available methods</summary>
 
-### [Activities](docs/sdks/activities/README.md)
+### [activities](docs/sdks/activities/README.md)
 
 * [getServerActivities](docs/sdks/activities/README.md#getserveractivities) - Get Server Activities
 * [cancelServerActivities](docs/sdks/activities/README.md#cancelserveractivities) - Cancel Server Activities
 
-### [Authentication](docs/sdks/authentication/README.md)
+### [authentication](docs/sdks/authentication/README.md)
 
 * [getTransientToken](docs/sdks/authentication/README.md#gettransienttoken) - Get a Transient Token
 * [getSourceConnectionInformation](docs/sdks/authentication/README.md#getsourceconnectioninformation) - Get Source Connection Information
 * [getTokenDetails](docs/sdks/authentication/README.md#gettokendetails) - Get Token Details
 * [postUsersSignInData](docs/sdks/authentication/README.md#postuserssignindata) - Get User Sign In Data
 
-### [Butler](docs/sdks/butler/README.md)
+### [butler](docs/sdks/butler/README.md)
 
 * [getButlerTasks](docs/sdks/butler/README.md#getbutlertasks) - Get Butler tasks
 * [startAllTasks](docs/sdks/butler/README.md#startalltasks) - Start all Butler tasks
@@ -97,13 +120,13 @@ try {
 * [startTask](docs/sdks/butler/README.md#starttask) - Start a single Butler task
 * [stopTask](docs/sdks/butler/README.md#stoptask) - Stop a single Butler task
 
-### [Hubs](docs/sdks/hubs/README.md)
+### [hubs](docs/sdks/hubs/README.md)
 
 * [getGlobalHubs](docs/sdks/hubs/README.md#getglobalhubs) - Get Global Hubs
 * [getRecentlyAdded](docs/sdks/hubs/README.md#getrecentlyadded) - Get Recently Added
 * [getLibraryHubs](docs/sdks/hubs/README.md#getlibraryhubs) - Get library specific hubs
 
-### [Library](docs/sdks/library/README.md)
+### [library](docs/sdks/library/README.md)
 
 * [getFileHash](docs/sdks/library/README.md#getfilehash) - Get Hash Value
 * [getRecentlyAddedLibrary](docs/sdks/library/README.md#getrecentlyaddedlibrary) - Get Recently Added
@@ -118,13 +141,13 @@ try {
 * [getTopWatchedContent](docs/sdks/library/README.md#gettopwatchedcontent) - Get Top Watched Content
 * [getOnDeck](docs/sdks/library/README.md#getondeck) - Get On Deck
 
-### [Log](docs/sdks/log/README.md)
+### [log](docs/sdks/log/README.md)
 
 * [logLine](docs/sdks/log/README.md#logline) - Logging a single line message.
 * [logMultiLine](docs/sdks/log/README.md#logmultiline) - Logging a multi-line message
 * [enablePaperTrail](docs/sdks/log/README.md#enablepapertrail) - Enabling Papertrail
 
-### [Media](docs/sdks/media/README.md)
+### [media](docs/sdks/media/README.md)
 
 * [markPlayed](docs/sdks/media/README.md#markplayed) - Mark Media Played
 * [markUnplayed](docs/sdks/media/README.md#markunplayed) - Mark Media Unplayed
@@ -132,7 +155,7 @@ try {
 * [getBannerImage](docs/sdks/media/README.md#getbannerimage) - Get Banner Image
 * [getThumbImage](docs/sdks/media/README.md#getthumbimage) - Get Thumb Image
 
-### [Playlists](docs/sdks/playlists/README.md)
+### [playlists](docs/sdks/playlists/README.md)
 
 * [createPlaylist](docs/sdks/playlists/README.md#createplaylist) - Create a Playlist
 * [getPlaylists](docs/sdks/playlists/README.md#getplaylists) - Get All Playlists
@@ -144,7 +167,7 @@ try {
 * [addPlaylistContents](docs/sdks/playlists/README.md#addplaylistcontents) - Adding to a Playlist
 * [uploadPlaylist](docs/sdks/playlists/README.md#uploadplaylist) - Upload Playlist
 
-### [Plex](docs/sdks/plex/README.md)
+### [plex](docs/sdks/plex/README.md)
 
 * [getCompanionsData](docs/sdks/plex/README.md#getcompanionsdata) - Get Companions Data
 * [getUserFriends](docs/sdks/plex/README.md#getuserfriends) - Get list of friends of the user logged in
@@ -155,13 +178,13 @@ try {
 * [getTokenByPinId](docs/sdks/plex/README.md#gettokenbypinid) - Get Access Token by PinId
 
 
-### [Search](docs/sdks/search/README.md)
+### [search](docs/sdks/search/README.md)
 
 * [performSearch](docs/sdks/search/README.md#performsearch) - Perform a search
 * [performVoiceSearch](docs/sdks/search/README.md#performvoicesearch) - Perform a voice search
 * [getSearchResults](docs/sdks/search/README.md#getsearchresults) - Get Search Results
 
-### [Server](docs/sdks/server/README.md)
+### [server](docs/sdks/server/README.md)
 
 * [getServerCapabilities](docs/sdks/server/README.md#getservercapabilities) - Get Server Capabilities
 * [getServerPreferences](docs/sdks/server/README.md#getserverpreferences) - Get Server Preferences
@@ -173,31 +196,31 @@ try {
 * [getMediaProviders](docs/sdks/server/README.md#getmediaproviders) - Get Media Providers
 * [getServerList](docs/sdks/server/README.md#getserverlist) - Get Server List
 
-### [Sessions](docs/sdks/sessions/README.md)
+### [sessions](docs/sdks/sessions/README.md)
 
 * [getSessions](docs/sdks/sessions/README.md#getsessions) - Get Active Sessions
 * [getSessionHistory](docs/sdks/sessions/README.md#getsessionhistory) - Get Session History
 * [getTranscodeSessions](docs/sdks/sessions/README.md#gettranscodesessions) - Get Transcode Sessions
 * [stopTranscodeSession](docs/sdks/sessions/README.md#stoptranscodesession) - Stop a Transcode Session
 
-### [Statistics](docs/sdks/statistics/README.md)
+### [statistics](docs/sdks/statistics/README.md)
 
 * [getStatistics](docs/sdks/statistics/README.md#getstatistics) - Get Media Statistics
 * [getResourcesStatistics](docs/sdks/statistics/README.md#getresourcesstatistics) - Get Resources Statistics
 * [getBandwidthStatistics](docs/sdks/statistics/README.md#getbandwidthstatistics) - Get Bandwidth Statistics
 
-### [Updater](docs/sdks/updater/README.md)
+### [updater](docs/sdks/updater/README.md)
 
 * [getUpdateStatus](docs/sdks/updater/README.md#getupdatestatus) - Querying status of updates
 * [checkForUpdates](docs/sdks/updater/README.md#checkforupdates) - Checking for updates
 * [applyUpdates](docs/sdks/updater/README.md#applyupdates) - Apply Updates
 
-### [Video](docs/sdks/video/README.md)
+### [video](docs/sdks/video/README.md)
 
 * [getTimeline](docs/sdks/video/README.md#gettimeline) - Get the timeline for a media item
 * [startUniversalTranscode](docs/sdks/video/README.md#startuniversaltranscode) - Start Universal Transcode
 
-### [Watchlist](docs/sdks/watchlist/README.md)
+### [watchlist](docs/sdks/watchlist/README.md)
 
 * [getWatchList](docs/sdks/watchlist/README.md#getwatchlist) - Get User Watchlist
 
@@ -246,18 +269,79 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->build();
 
-try {
-    $request = new Operations\GetPinRequest();
-    $response = $sdk->plex->getPin($request);
+$request = new Operations\GetPinRequest();
 
-    if ($response->authPinContainer !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->plex->getPin(
+    request: $request
+);
+
+if ($response->authPinContainer !== null) {
+    // handle response
 }
 ```
 <!-- End Global Parameters [global-parameters] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
+
+By default an API error will raise a `Errors\SDKException` exception, which has the following properties:
+
+| Property       | Type                                    | Description           |
+|----------------|-----------------------------------------|-----------------------|
+| `$message`     | *string*                                | The error message     |
+| `$statusCode`  | *int*                                   | The HTTP status code  |
+| `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
+| `$body`        | *string*                                | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `getServerCapabilities` method throws the following exceptions:
+
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Errors\GetServerCapabilitiesBadRequest        | 400                                           | application/json                              |
+| Errors\GetServerCapabilitiesUnauthorized      | 401                                           | application/json                              |
+| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+
+### Example
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
+    ->setClientName('Plex Web')
+    ->setClientVersion('4.133.0')
+    ->setClientPlatform('Chrome')
+    ->setDeviceName('Linux')
+    ->setSecurity($security)->build();
+
+try {
+    $response = $sdk->server->getServerCapabilities(
+
+    );
+
+    if ($response->object !== null) {
+        // handle response
+    }
+} catch (Errors\GetServerCapabilitiesBadRequestThrowable $e) {
+    // handle $e->$container data
+    throw $e;
+} catch (Errors\GetServerCapabilitiesUnauthorizedThrowable $e) {
+    // handle $e->$container data
+    throw $e;
+} catch (Errors\SDKException $e) {
+    // handle default exception
+    throw $e;
+}
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
@@ -295,11 +379,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -309,14 +390,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->plex->getCompanionsData("https://plex.tv/api/v2/");
 
-    if ($response->responseBodies !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->plex->getCompanionsData(
+    "https://plex.tv/api/v2"
+);
+
+if ($response->responseBodies !== null) {
+    // handle response
 }
 ```
 <!-- End Server Selection [server] -->

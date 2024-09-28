@@ -15,27 +15,27 @@ class Plex
 {
     public const GET_COMPANIONS_DATA_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     public const GET_USER_FRIENDS_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     public const GET_GEO_DATA_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     public const GET_SERVER_RESOURCES_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     public const GET_PIN_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     public const GET_TOKEN_BY_PIN_ID_SERVERS = [
 
-        'https://plex.tv/api/v2/',
+        'https://plex.tv/api/v2',
     ];
     private SDKConfiguration $sdkConfiguration;
     /**
@@ -449,18 +449,15 @@ class Plex
      *
      * Retrieve an Access Token from Plex.tv after the Pin has been authenticated
      *
-     * @param  int  $pinID
+     * @param  Operations\GetTokenByPinIdRequest  $request
      * @param  string  $serverURL
      * @return Operations\GetTokenByPinIdResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
     public function getTokenByPinId(
-        int $pinID,
+        ?Operations\GetTokenByPinIdRequest $request,
         ?string $serverURL = null,
     ): Operations\GetTokenByPinIdResponse {
-        $request = new Operations\GetTokenByPinIdRequest(
-            pinID: $pinID,
-        );
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_BY_PIN_ID_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -468,6 +465,7 @@ class Plex
         }
         $url = Utils\Utils::generateUrl($baseUrl, '/pins/{pinID}', Operations\GetTokenByPinIdRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
+        $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetTokenByPinIdRequest::class, $request, $this->sdkConfiguration->globals));
         $options['headers']['Accept'] = 'application/json';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

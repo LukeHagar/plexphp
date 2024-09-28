@@ -1,4 +1,5 @@
 # Hubs
+(*hubs*)
 
 ## Overview
 
@@ -23,12 +24,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -38,15 +36,16 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->hubs->getGlobalHubs(1262.49, Operations\OnlyTransient::One);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->hubs->getGlobalHubs(
+    count: 1262.49,
+    onlyTransient: Operations\OnlyTransient::One
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -83,12 +82,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -98,22 +94,21 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\GetRecentlyAddedRequest(
-        contentDirectoryID: 470161,
-        type: Operations\Type::TvShow,
-        sectionID: 2,
-        includeMeta: Operations\IncludeMeta::Enable,
-        xPlexContainerStart: 0,
-        xPlexContainerSize: 50,
-    );
-    $response = $sdk->hubs->getRecentlyAdded($request);
+$request = new Operations\GetRecentlyAddedRequest(
+    contentDirectoryID: 470161,
+    type: Operations\Type::TvShow,
+    sectionID: 2,
+    includeMeta: Operations\IncludeMeta::Enable,
+    xPlexContainerStart: 0,
+    xPlexContainerSize: 50,
+);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->hubs->getRecentlyAdded(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 
@@ -147,12 +142,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -162,15 +154,17 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->hubs->getLibraryHubs(6728.76, 639.24, Operations\QueryParamOnlyTransient::One);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->hubs->getLibraryHubs(
+    sectionId: 6728.76,
+    count: 639.24,
+    onlyTransient: Operations\QueryParamOnlyTransient::One
+
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 

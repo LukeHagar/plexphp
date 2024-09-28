@@ -190,7 +190,7 @@ class GetTokenDetailsUserPlexAccount
     public bool $mailingListActive;
 
     /**
-     * Your current mailing list status
+     * Your current mailing list status (active or unsubscribed)
      *
      * @var MailingListStatus $mailingListStatus
      */

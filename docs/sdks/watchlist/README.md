@@ -1,4 +1,5 @@
 # Watchlist
+(*watchlist*)
 
 ## Overview
 
@@ -21,12 +22,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -36,20 +34,19 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $request = new Operations\GetWatchListRequest(
-        filter: Operations\Filter::Available,
-        xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
-        xPlexContainerStart: 0,
-        xPlexContainerSize: 50,
-    );
-    $response = $sdk->watchlist->getWatchList($request);
+$request = new Operations\GetWatchListRequest(
+    filter: Operations\Filter::Available,
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
+    xPlexContainerStart: 0,
+    xPlexContainerSize: 50,
+);
 
-    if ($response->object !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->watchlist->getWatchList(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
 }
 ```
 

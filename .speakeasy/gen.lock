@@ -1,22 +1,22 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 5e039359563b41bbe118fc6701ba22dc
+  docChecksum: e7673f3f46e5b0bf495c378378aa7ad6
   docVersion: 0.0.3
-  speakeasyVersion: 1.402.14
-  generationVersion: 2.422.22
-  releaseVersion: 0.10.0
-  configChecksum: 2922b9b3b78b0220103ba0c17b1ed6fa
+  speakeasyVersion: 1.404.5
+  generationVersion: 2.426.2
+  releaseVersion: 0.10.1
+  configChecksum: 91b2dd16663efb6b9ea6649cf44a1618
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
   published: true
 features:
   php:
-    core: 3.4.5
+    core: 3.4.8
     deprecations: 2.81.1
     enums: 2.81.1
-    errors: 0.1.2
+    errors: 0.1.3
     flattening: 2.81.1
     globalSecurity: 2.81.7
     globalSecurityFlattening: 0.1.1
@@ -2100,7 +2100,12 @@ examples:
       parameters:
         path:
           pinID: 408895
-        query: {}
+        query:
+          X-Plex-Client-Identifier: "gcgzw5rz2xovp84b4vha3a40"
+          X-Plex-Product: "Plex Web"
+          X-Plex-Device: "Linux"
+          X-Plex-Version: "4.133.0"
+          X-Plex-Platform: "Chrome"
       responses:
         "404":
           application/json: {"errors": [{"code": 1020, "message": "Code not found or expired"}]}
@@ -2528,7 +2533,7 @@ examples:
     speakeasy-default-get-token-details:
       responses:
         "200":
-          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": ["[]"], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1556281940, "locale": null, "mailingListActive": false, "mailingListStatus": "unsubscribed", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": 1, "defaultSubtitleAccessibility": 1, "defaultSubtitleForced": 1, "watchedIndicator": 1, "mediaReviewsVisibility": 1}, "protected": false, "rememberExpiresAt": 1556281940, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f", "attributionPartner": null}
+          application/json: {"adsConsent": true, "adsConsentReminderAt": "2019-08-24T14:15:22Z", "adsConsentSetAt": "2019-08-24T14:15:22Z", "anonymous": false, "authToken": "CxoUzBTSV5hsxjTpFKaf", "backupCodesCreated": false, "confirmed": false, "country": "US", "email": "username@email.com", "emailOnlyAuth": false, "experimentalFeatures": false, "friendlyName": "friendlyUsername", "entitlements": ["[]"], "guest": false, "hasPassword": true, "home": false, "homeAdmin": false, "homeSize": 1, "id": 13692262, "joinedAt": 1556281940, "locale": null, "mailingListActive": false, "mailingListStatus": "active", "maxHomeSize": 15, "pin": "string", "profile": {"autoSelectAudio": true, "defaultAudioLanguage": "ja", "defaultSubtitleLanguage": "en", "autoSelectSubtitle": 1, "defaultSubtitleAccessibility": 1, "defaultSubtitleForced": 1, "watchedIndicator": 1, "mediaReviewsVisibility": 1}, "protected": false, "rememberExpiresAt": 1556281940, "restricted": false, "roles": ["string"], "scrobbleTypes": "", "services": [{"identifier": "metadata-dev", "endpoint": "https://epg.provider.plex.tv", "token": "DjoMtqFAGRL1uVtCyF1dKIorTbShJeqv", "secret": "string", "status": "online"}], "subscription": {"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}, "subscriptionDescription": "string", "subscriptions": [{"features": ["Android - Dolby Vision"], "active": true, "subscribedAt": "2021-04-12T18:21:12Z", "status": "Inactive", "paymentService": "string", "plan": "string"}], "thumb": "https://plex.tv/users/a4f43c1ebfde43a5/avatar?c=8372075101", "title": "UsernameTitle", "twoFactorEnabled": false, "username": "Username", "uuid": "dae343c1f45beb4f", "attributionPartner": null}
         "400":
           application/json: {"errors": []}
         "401":

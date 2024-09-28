@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Your current mailing list status */
+/** Your current mailing list status (active or unsubscribed) */
 enum MailingListStatus: string
 {
     case Active = 'active';

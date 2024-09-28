@@ -1,4 +1,5 @@
 # Authentication
+(*authentication*)
 
 ## Overview
 
@@ -25,12 +26,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -40,15 +38,16 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->authentication->getTransientToken(Operations\GetTransientTokenQueryParamType::Delegation, Operations\Scope::All);
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->authentication->getTransientToken(
+    type: Operations\GetTransientTokenQueryParamType::Delegation,
+    scope: Operations\Scope::All
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -86,11 +85,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -100,15 +96,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
 
-    $response = $sdk->authentication->getSourceConnectionInformation('server://client-identifier');
 
-    if ($response->statusCode === 200) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->authentication->getSourceConnectionInformation(
+    source: 'server://client-identifier'
+);
+
+if ($response->statusCode === 200) {
+    // handle response
 }
 ```
 
@@ -143,11 +138,8 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Components;
 
-$security = new Components\Security(
-    accessToken: "<YOUR_API_KEY_HERE>",
-);
+$security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setClientID('gcgzw5rz2xovp84b4vha3a40')
@@ -157,14 +149,14 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->setSecurity($security)->build();
 
-try {
-    $response = $sdk->authentication->getTokenDetails();
 
-    if ($response->userPlexAccount !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+
+$response = $sdk->authentication->getTokenDetails(
+
+);
+
+if ($response->userPlexAccount !== null) {
+    // handle response
 }
 ```
 
@@ -209,21 +201,20 @@ $sdk = Plex_API\PlexAPI::builder()
     ->setDeviceName('Linux')
     ->build();
 
-try {
-    $request = new Operations\PostUsersSignInDataRequest(
-        requestBody: new Operations\PostUsersSignInDataRequestBody(
-            login: 'username@email.com',
-            password: 'password123',
-            verificationCode: '123456',
-        ),
-    );
-    $response = $sdk->authentication->postUsersSignInData($request);
+$request = new Operations\PostUsersSignInDataRequest(
+    requestBody: new Operations\PostUsersSignInDataRequestBody(
+        login: 'username@email.com',
+        password: 'password123',
+        verificationCode: '123456',
+    ),
+);
 
-    if ($response->userPlexAccount !== null) {
-        // handle response
-    }
-} catch (Throwable $e) {
-    // handle exception
+$response = $sdk->authentication->postUsersSignInData(
+    request: $request
+);
+
+if ($response->userPlexAccount !== null) {
+    // handle response
 }
 ```
 

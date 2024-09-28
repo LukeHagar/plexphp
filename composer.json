@@ -15,7 +15,7 @@
     "phpdocumentor/type-resolver": "^1.8"
   },
   "require-dev": {
-    "laravel/pint": "^1.15",
+    "laravel/pint": "^1.18.1",
     "phpstan/phpstan": "^1.9",
     "phpunit/phpunit": "^10",
     "rector/rector": "^0.18.13",
