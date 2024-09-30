@@ -1938,7 +1938,8 @@ actions:
             $response = $sdk->plex->getServerResources(
                 includeHttps: Operations\IncludeHttps::Enable,
                 includeRelay: Operations\IncludeRelay::Enable,
-                includeIPv6: Operations\IncludeIPv6::Enable
+                includeIPv6: Operations\IncludeIPv6::Enable,
+                clientID: 'gcgzw5rz2xovp84b4vha3a40'
 
             );
 

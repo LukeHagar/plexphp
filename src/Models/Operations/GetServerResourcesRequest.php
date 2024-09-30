@@ -39,14 +39,28 @@ class GetServerResourcesRequest
     public ?IncludeIPv6 $includeIPv6 = null;
 
     /**
+     * The unique identifier for the client application
+     *
+     * This is used to track the client application and its usage
+     * (UUID, serial number, or other number unique per device)
+     *
+     *
+     * @var ?string $clientID
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
+    public ?string $clientID = null;
+
+    /**
      * @param  ?IncludeHttps  $includeHttps
      * @param  ?IncludeRelay  $includeRelay
      * @param  ?IncludeIPv6  $includeIPv6
+     * @param  ?string  $clientID
      */
-    public function __construct(?IncludeHttps $includeHttps = null, ?IncludeRelay $includeRelay = null, ?IncludeIPv6 $includeIPv6 = null)
+    public function __construct(?IncludeHttps $includeHttps = null, ?IncludeRelay $includeRelay = null, ?IncludeIPv6 $includeIPv6 = null, ?string $clientID = null)
     {
         $this->includeHttps = $includeHttps;
         $this->includeRelay = $includeRelay;
         $this->includeIPv6 = $includeIPv6;
+        $this->clientID = $clientID;
     }
 }

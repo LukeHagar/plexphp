@@ -314,6 +314,7 @@ class Plex
      * @param  ?Operations\IncludeHttps  $includeHttps
      * @param  ?Operations\IncludeRelay  $includeRelay
      * @param  ?Operations\IncludeIPv6  $includeIPv6
+     * @param  ?string  $clientID
      * @param  string  $serverURL
      * @return Operations\GetServerResourcesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
@@ -322,12 +323,14 @@ class Plex
         ?Operations\IncludeHttps $includeHttps = null,
         ?Operations\IncludeRelay $includeRelay = null,
         ?Operations\IncludeIPv6 $includeIPv6 = null,
+        ?string $clientID = null,
         ?string $serverURL = null,
     ): Operations\GetServerResourcesResponse {
         $request = new Operations\GetServerResourcesRequest(
             includeHttps: $includeHttps,
             includeRelay: $includeRelay,
             includeIPv6: $includeIPv6,
+            clientID: $clientID,
         );
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_SERVER_RESOURCES_SERVERS[0], [
         ]);
