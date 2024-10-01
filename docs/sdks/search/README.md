@@ -75,12 +75,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\PerformSearchBadRequest                | 400                                           | application/json                              |
-| Errors\PerformSearchUnauthorized              | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\PerformSearchBadRequest   | 400                              | application/json                 |
+| Errors\PerformSearchUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## performVoiceSearch
 
@@ -137,12 +136,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\PerformVoiceSearchBadRequest           | 400                                           | application/json                              |
-| Errors\PerformVoiceSearchUnauthorized         | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Errors\PerformVoiceSearchBadRequest   | 400                                   | application/json                      |
+| Errors\PerformVoiceSearchUnauthorized | 401                                   | application/json                      |
+| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
 
 ## getSearchResults
 
@@ -190,8 +188,8 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetSearchResultsBadRequest             | 400                                           | application/json                              |
-| Errors\GetSearchResultsUnauthorized           | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetSearchResultsBadRequest   | 400                                 | application/json                    |
+| Errors\GetSearchResultsUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |

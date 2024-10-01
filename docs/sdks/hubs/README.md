@@ -62,12 +62,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetGlobalHubsBadRequest                | 400                                           | application/json                              |
-| Errors\GetGlobalHubsUnauthorized              | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\GetGlobalHubsBadRequest   | 400                              | application/json                 |
+| Errors\GetGlobalHubsUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## getRecentlyAdded
 
@@ -124,10 +123,9 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
 ## getLibraryHubs
 
@@ -182,8 +180,8 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetLibraryHubsBadRequest               | 400                                           | application/json                              |
-| Errors\GetLibraryHubsUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\GetLibraryHubsBadRequest   | 400                               | application/json                  |
+| Errors\GetLibraryHubsUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |

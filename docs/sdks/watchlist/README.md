@@ -63,8 +63,8 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetWatchListBadRequest                 | 400                                           | application/json                              |
-| Errors\GetWatchListUnauthorized               | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\GetWatchListBadRequest   | 400                             | application/json                |
+| Errors\GetWatchListUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |

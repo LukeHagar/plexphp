@@ -64,12 +64,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTransientTokenBadRequest            | 400                                           | application/json                              |
-| Errors\GetTransientTokenUnauthorized          | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetTransientTokenBadRequest   | 400                                  | application/json                     |
+| Errors\GetTransientTokenUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## getSourceConnectionInformation
 
@@ -119,12 +118,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                      | Status Code                                       | Content Type                                      |
+| Error Type                                        | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | Errors\GetSourceConnectionInformationBadRequest   | 400                                               | application/json                                  |
 | Errors\GetSourceConnectionInformationUnauthorized | 401                                               | application/json                                  |
-| LukeHagar\Plex_API\Models\Errors.SDKException     | 4xx-5xx                                           | */*                                               |
-
+| Errors\SDKException                               | 4XX, 5XX                                          | \*/\*                                             |
 
 ## getTokenDetails
 
@@ -172,12 +170,11 @@ if ($response->userPlexAccount !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTokenDetailsBadRequest              | 400                                           | application/json                              |
-| Errors\GetTokenDetailsUnauthorized            | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GetTokenDetailsBadRequest   | 400                                | application/json                   |
+| Errors\GetTokenDetailsUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
 ## postUsersSignInData
 
@@ -231,8 +228,8 @@ if ($response->userPlexAccount !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\PostUsersSignInDataBadRequest          | 400                                           | application/json                              |
-| Errors\PostUsersSignInDataUnauthorized        | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\PostUsersSignInDataBadRequest   | 400                                    | application/json                       |
+| Errors\PostUsersSignInDataUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |

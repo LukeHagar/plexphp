@@ -53,12 +53,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetUpdateStatusBadRequest              | 400                                           | application/json                              |
-| Errors\GetUpdateStatusUnauthorized            | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GetUpdateStatusBadRequest   | 400                                | application/json                   |
+| Errors\GetUpdateStatusUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
 ## checkForUpdates
 
@@ -107,12 +106,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\CheckForUpdatesBadRequest              | 400                                           | application/json                              |
-| Errors\CheckForUpdatesUnauthorized            | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\CheckForUpdatesBadRequest   | 400                                | application/json                   |
+| Errors\CheckForUpdatesUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
 ## applyUpdates
 
@@ -165,8 +163,8 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\ApplyUpdatesBadRequest                 | 400                                           | application/json                              |
-| Errors\ApplyUpdatesUnauthorized               | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\ApplyUpdatesBadRequest   | 400                             | application/json                |
+| Errors\ApplyUpdatesUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |

@@ -60,12 +60,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\MarkPlayedBadRequest                   | 400                                           | application/json                              |
-| Errors\MarkPlayedUnauthorized                 | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| Errors\MarkPlayedBadRequest   | 400                           | application/json              |
+| Errors\MarkPlayedUnauthorized | 401                           | application/json              |
+| Errors\SDKException           | 4XX, 5XX                      | \*/\*                         |
 
 ## markUnplayed
 
@@ -113,12 +112,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\MarkUnplayedBadRequest                 | 400                                           | application/json                              |
-| Errors\MarkUnplayedUnauthorized               | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\MarkUnplayedBadRequest   | 400                             | application/json                |
+| Errors\MarkUnplayedUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
 
 ## updatePlayProgress
 
@@ -172,12 +170,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\UpdatePlayProgressBadRequest           | 400                                           | application/json                              |
-| Errors\UpdatePlayProgressUnauthorized         | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Errors\UpdatePlayProgressBadRequest   | 400                                   | application/json                      |
+| Errors\UpdatePlayProgressUnauthorized | 401                                   | application/json                      |
+| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
 
 ## getBannerImage
 
@@ -233,12 +230,11 @@ if ($response->bytes !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetBannerImageBadRequest               | 400                                           | application/json                              |
-| Errors\GetBannerImageUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\GetBannerImageBadRequest   | 400                               | application/json                  |
+| Errors\GetBannerImageUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
 ## getThumbImage
 
@@ -294,8 +290,8 @@ if ($response->bytes !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetThumbImageBadRequest                | 400                                           | application/json                              |
-| Errors\GetThumbImageUnauthorized              | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\GetThumbImageBadRequest   | 400                              | application/json                 |
+| Errors\GetThumbImageUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |

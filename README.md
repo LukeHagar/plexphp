@@ -241,10 +241,7 @@ The following global parameters are available.
 
 | Name | Type | Required | Description |
 | ---- | ---- |:--------:| ----------- |
-| clientID | string |  | The unique identifier for the client application
-This is used to track the client application and its usage
-(UUID, serial number, or other number unique per device)
- |
+| clientID | string |  | The unique identifier for the client application. This is used to track the client application and its usage. (UUID, serial number, or other number unique per device) |
 | clientName | string |  | The clientName parameter. |
 | clientVersion | string |  | The clientVersion parameter. |
 | clientPlatform | string |  | The clientPlatform parameter. |
@@ -303,11 +300,11 @@ By default an API error will raise a `Errors\SDKException` exception, which has 
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `getServerCapabilities` method throws the following exceptions:
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerCapabilitiesBadRequest        | 400                                           | application/json                              |
-| Errors\GetServerCapabilitiesUnauthorized      | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\GetServerCapabilitiesBadRequest   | 400                                      | application/json                         |
+| Errors\GetServerCapabilitiesUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
 ### Example
 

@@ -69,12 +69,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTimelineBadRequest                  | 400                                           | application/json                              |
-| Errors\GetTimelineUnauthorized                | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetTimelineBadRequest   | 400                            | application/json               |
+| Errors\GetTimelineUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## startUniversalTranscode
 
@@ -140,8 +139,8 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StartUniversalTranscodeBadRequest      | 400                                           | application/json                              |
-| Errors\StartUniversalTranscodeUnauthorized    | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Errors\StartUniversalTranscodeBadRequest   | 400                                        | application/json                           |
+| Errors\StartUniversalTranscodeUnauthorized | 401                                        | application/json                           |
+| Errors\SDKException                        | 4XX, 5XX                                   | \*/\*                                      |

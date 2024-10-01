@@ -70,12 +70,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetFileHashBadRequest                  | 400                                           | application/json                              |
-| Errors\GetFileHashUnauthorized                | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetFileHashBadRequest   | 400                            | application/json               |
+| Errors\GetFileHashUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## getRecentlyAddedLibrary
 
@@ -146,12 +145,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetRecentlyAddedLibraryBadRequest      | 400                                           | application/json                              |
-| Errors\GetRecentlyAddedLibraryUnauthorized    | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Errors\GetRecentlyAddedLibraryBadRequest   | 400                                        | application/json                           |
+| Errors\GetRecentlyAddedLibraryUnauthorized | 401                                        | application/json                           |
+| Errors\SDKException                        | 4XX, 5XX                                   | \*/\*                                      |
 
 ## getAllLibraries
 
@@ -199,12 +197,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetAllLibrariesBadRequest              | 400                                           | application/json                              |
-| Errors\GetAllLibrariesUnauthorized            | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GetAllLibrariesBadRequest   | 400                                | application/json                   |
+| Errors\GetAllLibrariesUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
 ## getLibraryDetails
 
@@ -295,12 +292,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetLibraryDetailsBadRequest            | 400                                           | application/json                              |
-| Errors\GetLibraryDetailsUnauthorized          | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetLibraryDetailsBadRequest   | 400                                  | application/json                     |
+| Errors\GetLibraryDetailsUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## deleteLibrary
 
@@ -348,12 +344,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\DeleteLibraryBadRequest                | 400                                           | application/json                              |
-| Errors\DeleteLibraryUnauthorized              | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\DeleteLibraryBadRequest   | 400                              | application/json                 |
+| Errors\DeleteLibraryUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## getLibraryItems
 
@@ -430,12 +425,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetLibraryItemsBadRequest              | 400                                           | application/json                              |
-| Errors\GetLibraryItemsUnauthorized            | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GetLibraryItemsBadRequest   | 400                                | application/json                   |
+| Errors\GetLibraryItemsUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
 ## getRefreshLibraryMetadata
 
@@ -488,12 +482,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetRefreshLibraryMetadataBadRequest    | 400                                           | application/json                              |
-| Errors\GetRefreshLibraryMetadataUnauthorized  | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                                   | Status Code                                  | Content Type                                 |
+| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| Errors\GetRefreshLibraryMetadataBadRequest   | 400                                          | application/json                             |
+| Errors\GetRefreshLibraryMetadataUnauthorized | 401                                          | application/json                             |
+| Errors\SDKException                          | 4XX, 5XX                                     | \*/\*                                        |
 
 ## getSearchLibrary
 
@@ -563,12 +556,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetSearchLibraryBadRequest             | 400                                           | application/json                              |
-| Errors\GetSearchLibraryUnauthorized           | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetSearchLibraryBadRequest   | 400                                 | application/json                    |
+| Errors\GetSearchLibraryUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## getMetaDataByRatingKey
 
@@ -617,12 +609,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetMetaDataByRatingKeyBadRequest       | 400                                           | application/json                              |
-| Errors\GetMetaDataByRatingKeyUnauthorized     | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Errors\GetMetaDataByRatingKeyBadRequest   | 400                                       | application/json                          |
+| Errors\GetMetaDataByRatingKeyUnauthorized | 401                                       | application/json                          |
+| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
 
 ## getMetadataChildren
 
@@ -674,12 +665,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetMetadataChildrenBadRequest          | 400                                           | application/json                              |
-| Errors\GetMetadataChildrenUnauthorized        | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetMetadataChildrenBadRequest   | 400                                    | application/json                       |
+| Errors\GetMetadataChildrenUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## getTopWatchedContent
 
@@ -732,12 +722,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTopWatchedContentBadRequest         | 400                                           | application/json                              |
-| Errors\GetTopWatchedContentUnauthorized       | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Errors\GetTopWatchedContentBadRequest   | 400                                     | application/json                        |
+| Errors\GetTopWatchedContentUnauthorized | 401                                     | application/json                        |
+| Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |
 
 ## getOnDeck
 
@@ -780,8 +769,8 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetOnDeckBadRequest                    | 400                                           | application/json                              |
-| Errors\GetOnDeckUnauthorized                  | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| Errors\GetOnDeckBadRequest   | 400                          | application/json             |
+| Errors\GetOnDeckUnauthorized | 401                          | application/json             |
+| Errors\SDKException          | 4XX, 5XX                     | \*/\*                        |

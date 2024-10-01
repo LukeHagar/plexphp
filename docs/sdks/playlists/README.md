@@ -76,12 +76,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\CreatePlaylistBadRequest               | 400                                           | application/json                              |
-| Errors\CreatePlaylistUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\CreatePlaylistBadRequest   | 400                               | application/json                  |
+| Errors\CreatePlaylistUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
 ## getPlaylists
 
@@ -133,12 +132,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetPlaylistsBadRequest                 | 400                                           | application/json                              |
-| Errors\GetPlaylistsUnauthorized               | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\GetPlaylistsBadRequest   | 400                             | application/json                |
+| Errors\GetPlaylistsUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
 
 ## getPlaylist
 
@@ -188,12 +186,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetPlaylistBadRequest                  | 400                                           | application/json                              |
-| Errors\GetPlaylistUnauthorized                | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetPlaylistBadRequest   | 400                            | application/json               |
+| Errors\GetPlaylistUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## deletePlaylist
 
@@ -242,12 +239,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\DeletePlaylistBadRequest               | 400                                           | application/json                              |
-| Errors\DeletePlaylistUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\DeletePlaylistBadRequest   | 400                               | application/json                  |
+| Errors\DeletePlaylistUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
 ## updatePlaylist
 
@@ -301,12 +297,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\UpdatePlaylistBadRequest               | 400                                           | application/json                              |
-| Errors\UpdatePlaylistUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\UpdatePlaylistBadRequest   | 400                               | application/json                  |
+| Errors\UpdatePlaylistUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
 ## getPlaylistContents
 
@@ -362,12 +357,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetPlaylistContentsBadRequest          | 400                                           | application/json                              |
-| Errors\GetPlaylistContentsUnauthorized        | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetPlaylistContentsBadRequest   | 400                                    | application/json                       |
+| Errors\GetPlaylistContentsUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## clearPlaylistContents
 
@@ -416,12 +410,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\ClearPlaylistContentsBadRequest        | 400                                           | application/json                              |
-| Errors\ClearPlaylistContentsUnauthorized      | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\ClearPlaylistContentsBadRequest   | 400                                      | application/json                         |
+| Errors\ClearPlaylistContentsUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
 ## addPlaylistContents
 
@@ -476,12 +469,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\AddPlaylistContentsBadRequest          | 400                                           | application/json                              |
-| Errors\AddPlaylistContentsUnauthorized        | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\AddPlaylistContentsBadRequest   | 400                                    | application/json                       |
+| Errors\AddPlaylistContentsUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## uploadPlaylist
 
@@ -536,8 +528,8 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\UploadPlaylistBadRequest               | 400                                           | application/json                              |
-| Errors\UploadPlaylistUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\UploadPlaylistBadRequest   | 400                               | application/json                  |
+| Errors\UploadPlaylistUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |

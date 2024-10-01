@@ -39,11 +39,7 @@ class GetServerResourcesRequest
     public ?IncludeIPv6 $includeIPv6 = null;
 
     /**
-     * The unique identifier for the client application
-     *
-     * This is used to track the client application and its usage
-     * (UUID, serial number, or other number unique per device)
-     *
+     * The unique identifier for the client application. This is used to track the client application and its usage. (UUID, serial number, or other number unique per device)
      *
      * @var ?string $clientID
      */

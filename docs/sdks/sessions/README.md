@@ -53,12 +53,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetSessionsBadRequest                  | 400                                           | application/json                              |
-| Errors\GetSessionsUnauthorized                | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetSessionsBadRequest   | 400                            | application/json               |
+| Errors\GetSessionsUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## getSessionHistory
 
@@ -114,12 +113,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetSessionHistoryBadRequest            | 400                                           | application/json                              |
-| Errors\GetSessionHistoryUnauthorized          | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetSessionHistoryBadRequest   | 400                                  | application/json                     |
+| Errors\GetSessionHistoryUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## getTranscodeSessions
 
@@ -161,12 +159,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTranscodeSessionsBadRequest         | 400                                           | application/json                              |
-| Errors\GetTranscodeSessionsUnauthorized       | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Errors\GetTranscodeSessionsBadRequest   | 400                                     | application/json                        |
+| Errors\GetTranscodeSessionsUnauthorized | 401                                     | application/json                        |
+| Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |
 
 ## stopTranscodeSession
 
@@ -214,8 +211,8 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StopTranscodeSessionBadRequest         | 400                                           | application/json                              |
-| Errors\StopTranscodeSessionUnauthorized       | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Errors\StopTranscodeSessionBadRequest   | 400                                     | application/json                        |
+| Errors\StopTranscodeSessionUnauthorized | 401                                     | application/json                        |
+| Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |

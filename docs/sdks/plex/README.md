@@ -62,12 +62,11 @@ if ($response->responseBodies !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetCompanionsDataBadRequest            | 400                                           | application/json                              |
-| Errors\GetCompanionsDataUnauthorized          | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetCompanionsDataBadRequest   | 400                                  | application/json                     |
+| Errors\GetCompanionsDataUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## getUserFriends
 
@@ -115,12 +114,11 @@ if ($response->friends !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetUserFriendsBadRequest               | 400                                           | application/json                              |
-| Errors\GetUserFriendsUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\GetUserFriendsBadRequest   | 400                               | application/json                  |
+| Errors\GetUserFriendsUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
 ## getGeoData
 
@@ -166,12 +164,11 @@ if ($response->geoData !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetGeoDataBadRequest                   | 400                                           | application/json                              |
-| Errors\GetGeoDataUnauthorized                 | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| Errors\GetGeoDataBadRequest   | 400                           | application/json              |
+| Errors\GetGeoDataUnauthorized | 401                           | application/json              |
+| Errors\SDKException           | 4XX, 5XX                      | \*/\*                         |
 
 ## getHomeData
 
@@ -213,12 +210,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetHomeDataBadRequest                  | 400                                           | application/json                              |
-| Errors\GetHomeDataUnauthorized                | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetHomeDataBadRequest   | 400                            | application/json               |
+| Errors\GetHomeDataUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## getServerResources
 
@@ -261,13 +257,13 @@ if ($response->plexDevices !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                                                                             | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `includeHttps`                                                                                                                                                        | [Operations\IncludeHttps](../../Models/Operations/IncludeHttps.md)                                                                                                    | :heavy_minus_sign:                                                                                                                                                    | Include Https entries in the results                                                                                                                                  | 1                                                                                                                                                                     |
-| `includeRelay`                                                                                                                                                        | [Operations\IncludeRelay](../../Models/Operations/IncludeRelay.md)                                                                                                    | :heavy_minus_sign:                                                                                                                                                    | Include Relay addresses in the results <br/>E.g: https://10-0-0-25.bbf8e10c7fa20447cacee74cd9914cde.plex.direct:32400<br/>                                            | 1                                                                                                                                                                     |
-| `includeIPv6`                                                                                                                                                         | [Operations\IncludeIPv6](../../Models/Operations/IncludeIPv6.md)                                                                                                      | :heavy_minus_sign:                                                                                                                                                    | Include IPv6 entries in the results                                                                                                                                   | 1                                                                                                                                                                     |
-| `clientID`                                                                                                                                                            | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The unique identifier for the client application<br/>This is used to track the client application and its usage<br/>(UUID, serial number, or other number unique per device)<br/> | gcgzw5rz2xovp84b4vha3a40                                                                                                                                              |
-| `$serverURL`                                                                                                                                                          | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | An optional server URL to use.                                                                                                                                        | http://localhost:8080                                                                                                                                                 |
+| Parameter                                                                                                                                                              | Type                                                                                                                                                                   | Required                                                                                                                                                               | Description                                                                                                                                                            | Example                                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `includeHttps`                                                                                                                                                         | [Operations\IncludeHttps](../../Models/Operations/IncludeHttps.md)                                                                                                     | :heavy_minus_sign:                                                                                                                                                     | Include Https entries in the results                                                                                                                                   | 1                                                                                                                                                                      |
+| `includeRelay`                                                                                                                                                         | [Operations\IncludeRelay](../../Models/Operations/IncludeRelay.md)                                                                                                     | :heavy_minus_sign:                                                                                                                                                     | Include Relay addresses in the results <br/>E.g: https://10-0-0-25.bbf8e10c7fa20447cacee74cd9914cde.plex.direct:32400<br/>                                             | 1                                                                                                                                                                      |
+| `includeIPv6`                                                                                                                                                          | [Operations\IncludeIPv6](../../Models/Operations/IncludeIPv6.md)                                                                                                       | :heavy_minus_sign:                                                                                                                                                     | Include IPv6 entries in the results                                                                                                                                    | 1                                                                                                                                                                      |
+| `clientID`                                                                                                                                                             | *string*                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                     | The unique identifier for the client application. This is used to track the client application and its usage. (UUID, serial number, or other number unique per device) | gcgzw5rz2xovp84b4vha3a40                                                                                                                                               |
+| `$serverURL`                                                                                                                                                           | *string*                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                     | An optional server URL to use.                                                                                                                                         | http://localhost:8080                                                                                                                                                  |
 
 ### Response
 
@@ -275,12 +271,11 @@ if ($response->plexDevices !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerResourcesBadRequest           | 400                                           | application/json                              |
-| Errors\GetServerResourcesUnauthorized         | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Errors\GetServerResourcesBadRequest   | 400                                   | application/json                      |
+| Errors\GetServerResourcesUnauthorized | 401                                   | application/json                      |
+| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
 
 ## getPin
 
@@ -328,11 +323,10 @@ if ($response->authPinContainer !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetPinBadRequest                       | 400                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| Errors\GetPinBadRequest | 400                     | application/json        |
+| Errors\SDKException     | 4XX, 5XX                | \*/\*                   |
 
 ## getTokenByPinId
 
@@ -382,8 +376,8 @@ if ($response->authPinContainer !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetTokenByPinIdBadRequest              | 400                                           | application/json                              |
-| Errors\GetTokenByPinIdResponseBody            | 404                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GetTokenByPinIdBadRequest   | 400                                | application/json                   |
+| Errors\GetTokenByPinIdResponseBody | 404                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |

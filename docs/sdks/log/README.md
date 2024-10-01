@@ -65,12 +65,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\LogLineBadRequest                      | 400                                           | application/json                              |
-| Errors\LogLineUnauthorized                    | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| Errors\LogLineBadRequest   | 400                        | application/json           |
+| Errors\LogLineUnauthorized | 401                        | application/json           |
+| Errors\SDKException        | 4XX, 5XX                   | \*/\*                      |
 
 ## logMultiLine
 
@@ -141,12 +140,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\LogMultiLineBadRequest                 | 400                                           | application/json                              |
-| Errors\LogMultiLineUnauthorized               | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\LogMultiLineBadRequest   | 400                             | application/json                |
+| Errors\LogMultiLineUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
 
 ## enablePaperTrail
 
@@ -189,8 +187,8 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\EnablePaperTrailBadRequest             | 400                                           | application/json                              |
-| Errors\EnablePaperTrailUnauthorized           | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\EnablePaperTrailBadRequest   | 400                                 | application/json                    |
+| Errors\EnablePaperTrailUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |

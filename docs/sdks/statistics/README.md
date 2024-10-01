@@ -58,12 +58,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetStatisticsBadRequest                | 400                                           | application/json                              |
-| Errors\GetStatisticsUnauthorized              | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\GetStatisticsBadRequest   | 400                              | application/json                 |
+| Errors\GetStatisticsUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## getResourcesStatistics
 
@@ -111,12 +110,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetResourcesStatisticsBadRequest       | 400                                           | application/json                              |
-| Errors\GetResourcesStatisticsUnauthorized     | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Errors\GetResourcesStatisticsBadRequest   | 400                                       | application/json                          |
+| Errors\GetResourcesStatisticsUnauthorized | 401                                       | application/json                          |
+| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
 
 ## getBandwidthStatistics
 
@@ -164,8 +162,8 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetBandwidthStatisticsBadRequest       | 400                                           | application/json                              |
-| Errors\GetBandwidthStatisticsUnauthorized     | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Errors\GetBandwidthStatisticsBadRequest   | 400                                       | application/json                          |
+| Errors\GetBandwidthStatisticsUnauthorized | 401                                       | application/json                          |
+| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |

@@ -54,12 +54,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetButlerTasksBadRequest               | 400                                           | application/json                              |
-| Errors\GetButlerTasksUnauthorized             | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\GetButlerTasksBadRequest   | 400                               | application/json                  |
+| Errors\GetButlerTasksUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
 ## startAllTasks
 
@@ -106,12 +105,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StartAllTasksBadRequest                | 400                                           | application/json                              |
-| Errors\StartAllTasksUnauthorized              | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\StartAllTasksBadRequest   | 400                              | application/json                 |
+| Errors\StartAllTasksUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## stopAllTasks
 
@@ -154,12 +152,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StopAllTasksBadRequest                 | 400                                           | application/json                              |
-| Errors\StopAllTasksUnauthorized               | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\StopAllTasksBadRequest   | 400                             | application/json                |
+| Errors\StopAllTasksUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
 
 ## startTask
 
@@ -213,12 +210,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StartTaskBadRequest                    | 400                                           | application/json                              |
-| Errors\StartTaskUnauthorized                  | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| Errors\StartTaskBadRequest   | 400                          | application/json             |
+| Errors\StartTaskUnauthorized | 401                          | application/json             |
+| Errors\SDKException          | 4XX, 5XX                     | \*/\*                        |
 
 ## stopTask
 
@@ -268,8 +264,8 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\StopTaskBadRequest                     | 400                                           | application/json                              |
-| Errors\StopTaskUnauthorized                   | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| Errors\StopTaskBadRequest   | 400                         | application/json            |
+| Errors\StopTaskUnauthorized | 401                         | application/json            |
+| Errors\SDKException         | 4XX, 5XX                    | \*/\*                       |

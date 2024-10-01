@@ -58,12 +58,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerCapabilitiesBadRequest        | 400                                           | application/json                              |
-| Errors\GetServerCapabilitiesUnauthorized      | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\GetServerCapabilitiesBadRequest   | 400                                      | application/json                         |
+| Errors\GetServerCapabilitiesUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
 ## getServerPreferences
 
@@ -105,12 +104,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerPreferencesBadRequest         | 400                                           | application/json                              |
-| Errors\GetServerPreferencesUnauthorized       | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Errors\GetServerPreferencesBadRequest   | 400                                     | application/json                        |
+| Errors\GetServerPreferencesUnauthorized | 401                                     | application/json                        |
+| Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |
 
 ## getAvailableClients
 
@@ -152,12 +150,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetAvailableClientsBadRequest          | 400                                           | application/json                              |
-| Errors\GetAvailableClientsUnauthorized        | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetAvailableClientsBadRequest   | 400                                    | application/json                       |
+| Errors\GetAvailableClientsUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## getDevices
 
@@ -199,12 +196,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetDevicesBadRequest                   | 400                                           | application/json                              |
-| Errors\GetDevicesUnauthorized                 | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| Errors\GetDevicesBadRequest   | 400                           | application/json              |
+| Errors\GetDevicesUnauthorized | 401                           | application/json              |
+| Errors\SDKException           | 4XX, 5XX                      | \*/\*                         |
 
 ## getServerIdentity
 
@@ -244,11 +240,10 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerIdentityRequestTimeout        | 408                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetServerIdentityRequestTimeout | 408                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## getMyPlexAccount
 
@@ -290,12 +285,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetMyPlexAccountBadRequest             | 400                                           | application/json                              |
-| Errors\GetMyPlexAccountUnauthorized           | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetMyPlexAccountBadRequest   | 400                                 | application/json                    |
+| Errors\GetMyPlexAccountUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## getResizedPhoto
 
@@ -353,12 +347,11 @@ if ($response->statusCode === 200) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetResizedPhotoBadRequest              | 400                                           | application/json                              |
-| Errors\GetResizedPhotoUnauthorized            | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GetResizedPhotoBadRequest   | 400                                | application/json                   |
+| Errors\GetResizedPhotoUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
 ## getMediaProviders
 
@@ -406,12 +399,11 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetMediaProvidersBadRequest            | 400                                           | application/json                              |
-| Errors\GetMediaProvidersUnauthorized          | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
-
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetMediaProvidersBadRequest   | 400                                  | application/json                     |
+| Errors\GetMediaProvidersUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## getServerList
 
@@ -453,8 +445,8 @@ if ($response->object !== null) {
 
 ### Errors
 
-| Error Object                                  | Status Code                                   | Content Type                                  |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| Errors\GetServerListBadRequest                | 400                                           | application/json                              |
-| Errors\GetServerListUnauthorized              | 401                                           | application/json                              |
-| LukeHagar\Plex_API\Models\Errors.SDKException | 4xx-5xx                                       | */*                                           |
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\GetServerListBadRequest   | 400                              | application/json                 |
+| Errors\GetServerListUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
