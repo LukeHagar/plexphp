@@ -41,11 +41,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 $request = new Operations\CreatePlaylistRequest(
@@ -99,11 +99,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -121,10 +121,10 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `playlistType`                                                           | [Operations\PlaylistType](../../Models/Operations/PlaylistType.md)       | :heavy_minus_sign:                                                       | limit to a type of playlist.                                             |
-| `smart`                                                                  | [Operations\QueryParamSmart](../../Models/Operations/QueryParamSmart.md) | :heavy_minus_sign:                                                       | type of playlists to return (default is all).                            |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `playlistType`                                                            | [?Operations\PlaylistType](../../Models/Operations/PlaylistType.md)       | :heavy_minus_sign:                                                        | limit to a type of playlist.                                              |
+| `smart`                                                                   | [?Operations\QueryParamSmart](../../Models/Operations/QueryParamSmart.md) | :heavy_minus_sign:                                                        | type of playlists to return (default is all).                             |
 
 ### Response
 
@@ -156,11 +156,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -209,11 +209,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -262,11 +262,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -288,8 +288,8 @@ if ($response->statusCode === 200) {
 | Parameter                           | Type                                | Required                            | Description                         |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | `playlistID`                        | *float*                             | :heavy_check_mark:                  | the ID of the playlist              |
-| `title`                             | *string*                            | :heavy_minus_sign:                  | name of the playlist                |
-| `summary`                           | *string*                            | :heavy_minus_sign:                  | summary description of the playlist |
+| `title`                             | *?string*                           | :heavy_minus_sign:                  | name of the playlist                |
+| `summary`                           | *?string*                           | :heavy_minus_sign:                  | summary description of the playlist |
 
 ### Response
 
@@ -324,11 +324,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -380,11 +380,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -434,11 +434,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -461,7 +461,7 @@ if ($response->object !== null) {
 | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
 | `playlistID`                                                  | *float*                                                       | :heavy_check_mark:                                            | the ID of the playlist                                        |                                                               |
 | `uri`                                                         | *string*                                                      | :heavy_check_mark:                                            | the content URI for the playlist                              | server://12345/com.plexapp.plugins.library/library/metadata/1 |
-| `playQueueID`                                                 | *float*                                                       | :heavy_minus_sign:                                            | the play queue to add to a playlist                           | 123                                                           |
+| `playQueueID`                                                 | *?float*                                                      | :heavy_minus_sign:                                            | the play queue to add to a playlist                           | 123                                                           |
 
 ### Response
 
@@ -493,11 +493,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 

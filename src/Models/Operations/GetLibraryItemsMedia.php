@@ -20,38 +20,43 @@ class GetLibraryItemsMedia
 
     /**
      *
-     * @var int $duration
+     * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    public int $duration;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $duration = null;
 
     /**
      *
-     * @var int $bitrate
+     * @var ?int $bitrate
      */
     #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    public int $bitrate;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $bitrate = null;
 
     /**
      *
-     * @var int $width
+     * @var ?int $width
      */
     #[\JMS\Serializer\Annotation\SerializedName('width')]
-    public int $width;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $width = null;
 
     /**
      *
-     * @var int $height
+     * @var ?int $height
      */
     #[\JMS\Serializer\Annotation\SerializedName('height')]
-    public int $height;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $height = null;
 
     /**
      *
-     * @var float $aspectRatio
+     * @var ?float $aspectRatio
      */
     #[\JMS\Serializer\Annotation\SerializedName('aspectRatio')]
-    public float $aspectRatio;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?float $aspectRatio = null;
 
     /**
      *
@@ -63,31 +68,35 @@ class GetLibraryItemsMedia
 
     /**
      *
-     * @var int $audioChannels
+     * @var ?int $audioChannels
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    public int $audioChannels;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $audioChannels = null;
 
     /**
      *
-     * @var string $audioCodec
+     * @var ?string $audioCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    public string $audioCodec;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $audioCodec = null;
 
     /**
      *
-     * @var string $videoCodec
+     * @var ?string $videoCodec
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
-    public string $videoCodec;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoCodec = null;
 
     /**
      *
-     * @var string $videoResolution
+     * @var ?string $videoResolution
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoResolution')]
-    public string $videoResolution;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoResolution = null;
 
     /**
      *
@@ -98,17 +107,19 @@ class GetLibraryItemsMedia
 
     /**
      *
-     * @var string $videoFrameRate
+     * @var ?string $videoFrameRate
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoFrameRate')]
-    public string $videoFrameRate;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoFrameRate = null;
 
     /**
      *
-     * @var string $videoProfile
+     * @var ?string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    public string $videoProfile;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoProfile = null;
 
     /**
      *
@@ -146,41 +157,41 @@ class GetLibraryItemsMedia
 
     /**
      * @param  int  $id
-     * @param  int  $duration
-     * @param  int  $bitrate
-     * @param  int  $width
-     * @param  int  $height
-     * @param  float  $aspectRatio
-     * @param  int  $audioChannels
-     * @param  string  $audioCodec
-     * @param  string  $videoCodec
-     * @param  string  $videoResolution
      * @param  string  $container
-     * @param  string  $videoFrameRate
-     * @param  string  $videoProfile
      * @param  array<GetLibraryItemsPart>  $part
+     * @param  ?int  $duration
+     * @param  ?int  $bitrate
+     * @param  ?int  $width
+     * @param  ?int  $height
+     * @param  ?float  $aspectRatio
      * @param  ?string  $audioProfile
+     * @param  ?int  $audioChannels
+     * @param  ?string  $audioCodec
+     * @param  ?string  $videoCodec
+     * @param  ?string  $videoResolution
+     * @param  ?string  $videoFrameRate
+     * @param  ?string  $videoProfile
      * @param  ?bool  $hasVoiceActivity
      * @param  ?GetLibraryItemsOptimizedForStreaming  $optimizedForStreaming
      * @param  ?bool  $has64bitOffsets
      */
-    public function __construct(int $id, int $duration, int $bitrate, int $width, int $height, float $aspectRatio, int $audioChannels, string $audioCodec, string $videoCodec, string $videoResolution, string $container, string $videoFrameRate, string $videoProfile, array $part, ?string $audioProfile = null, ?bool $hasVoiceActivity = null, ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming = null, ?bool $has64bitOffsets = null)
+    public function __construct(int $id, string $container, array $part, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?string $audioProfile = null, ?int $audioChannels = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?bool $hasVoiceActivity = null, ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming = null, ?bool $has64bitOffsets = null)
     {
         $this->id = $id;
+        $this->container = $container;
+        $this->part = $part;
         $this->duration = $duration;
         $this->bitrate = $bitrate;
         $this->width = $width;
         $this->height = $height;
         $this->aspectRatio = $aspectRatio;
+        $this->audioProfile = $audioProfile;
         $this->audioChannels = $audioChannels;
         $this->audioCodec = $audioCodec;
         $this->videoCodec = $videoCodec;
         $this->videoResolution = $videoResolution;
-        $this->container = $container;
         $this->videoFrameRate = $videoFrameRate;
         $this->videoProfile = $videoProfile;
-        $this->part = $part;
-        $this->audioProfile = $audioProfile;
         $this->hasVoiceActivity = $hasVoiceActivity;
         $this->optimizedForStreaming = $optimizedForStreaming;
         $this->has64bitOffsets = $has64bitOffsets;

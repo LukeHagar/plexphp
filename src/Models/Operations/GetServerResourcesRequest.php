@@ -39,11 +39,11 @@ class GetServerResourcesRequest
     public ?IncludeIPv6 $includeIPv6 = null;
 
     /**
-     * The unique identifier for the client application. This is used to track the client application and its usage. (UUID, serial number, or other number unique per device)
+     * An opaque identifier unique to the client (UUID, serial number, or other unique device ID)
      *
      * @var ?string $clientID
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
     public ?string $clientID = null;
 
     /**

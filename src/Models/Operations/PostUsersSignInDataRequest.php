@@ -12,40 +12,44 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class PostUsersSignInDataRequest
 {
     /**
-     * The unique identifier for the client application. This is used to track the client application and its usage. (UUID, serial number, or other number unique per device)
+     * An opaque identifier unique to the client (UUID, serial number, or other unique device ID)
      *
      * @var ?string $clientID
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Client-Identifier')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
     public ?string $clientID = null;
 
     /**
+     * The name of the client application. (Plex Web, Plex Media Server, etc.)
      *
      * @var ?string $clientName
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Product')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Product')]
     public ?string $clientName = null;
 
     /**
+     * A relatively friendly name for the client device
      *
-     * @var ?string $deviceName
+     * @var ?string $deviceNickname
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Device')]
-    public ?string $deviceName = null;
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Device')]
+    public ?string $deviceNickname = null;
 
     /**
+     * The version of the client application.
      *
      * @var ?string $clientVersion
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Version')]
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Version')]
     public ?string $clientVersion = null;
 
     /**
+     * The platform of the client application.
      *
-     * @var ?string $clientPlatform
+     * @var ?string $platform
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Platform')]
-    public ?string $clientPlatform = null;
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Platform')]
+    public ?string $platform = null;
 
     /**
      * Login credentials
@@ -58,18 +62,18 @@ class PostUsersSignInDataRequest
     /**
      * @param  ?string  $clientID
      * @param  ?string  $clientName
-     * @param  ?string  $deviceName
+     * @param  ?string  $deviceNickname
      * @param  ?string  $clientVersion
-     * @param  ?string  $clientPlatform
+     * @param  ?string  $platform
      * @param  ?PostUsersSignInDataRequestBody  $requestBody
      */
-    public function __construct(?string $clientID = null, ?string $clientName = null, ?string $deviceName = null, ?string $clientVersion = null, ?string $clientPlatform = null, ?PostUsersSignInDataRequestBody $requestBody = null)
+    public function __construct(?string $clientID = null, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null, ?PostUsersSignInDataRequestBody $requestBody = null)
     {
         $this->clientID = $clientID;
         $this->clientName = $clientName;
-        $this->deviceName = $deviceName;
+        $this->deviceNickname = $deviceNickname;
         $this->clientVersion = $clientVersion;
-        $this->clientPlatform = $clientPlatform;
+        $this->platform = $platform;
         $this->requestBody = $requestBody;
     }
 }

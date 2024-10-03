@@ -222,6 +222,10 @@ class Media
         $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}/banner', Operations\GetBannerImageRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetBannerImageRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        if (! array_key_exists('headers', $options)) {
+            $options['headers'] = [];
+        }
         $options['headers']['Accept'] = 'image/jpeg';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);
@@ -285,6 +289,10 @@ class Media
         $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}/thumb', Operations\GetThumbImageRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
         $options = array_merge_recursive($options, Utils\Utils::getQueryParams(Operations\GetThumbImageRequest::class, $request, $this->sdkConfiguration->globals));
+        $options = array_merge_recursive($options, Utils\Utils::getHeaders($request, $this->sdkConfiguration->globals));
+        if (! array_key_exists('headers', $options)) {
+            $options['headers'] = [];
+        }
         $options['headers']['Accept'] = 'image/jpeg';
         $options['headers']['user-agent'] = $this->sdkConfiguration->userAgent;
         $httpRequest = new \GuzzleHttp\Psr7\Request('GET', $url);

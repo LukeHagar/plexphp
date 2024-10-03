@@ -158,10 +158,10 @@ class GetAllLibrariesDirectory
     /**
      * $location
      *
-     * @var array<Location> $location
+     * @var array<GetAllLibrariesLocation> $location
      */
     #[\JMS\Serializer\Annotation\SerializedName('Location')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Location>')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesLocation>')]
     public array $location;
 
     /**
@@ -185,7 +185,7 @@ class GetAllLibrariesDirectory
      * @param  bool  $directory
      * @param  int  $contentChangedAt
      * @param  int  $hidden
-     * @param  array<Location>  $location
+     * @param  array<GetAllLibrariesLocation>  $location
      */
     public function __construct(bool $allowSync, string $art, string $composite, bool $filters, bool $refreshing, string $thumb, string $key, string $type, string $title, string $agent, string $scanner, string $language, string $uuid, int $updatedAt, int $createdAt, int $scannedAt, bool $content, bool $directory, int $contentChangedAt, int $hidden, array $location)
     {

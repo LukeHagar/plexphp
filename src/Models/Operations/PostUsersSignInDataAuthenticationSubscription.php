@@ -14,10 +14,10 @@ class PostUsersSignInDataAuthenticationSubscription
     /**
      * List of features allowed on your Plex Pass subscription
      *
-     * @var ?array<PostUsersSignInDataAuthenticationFeatures> $features
+     * @var ?array<string> $features
      */
     #[\JMS\Serializer\Annotation\SerializedName('features')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataAuthenticationFeatures>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $features = null;
 
@@ -68,7 +68,7 @@ class PostUsersSignInDataAuthenticationSubscription
     public ?string $plan = null;
 
     /**
-     * @param  ?array<PostUsersSignInDataAuthenticationFeatures>  $features
+     * @param  ?array<string>  $features
      * @param  ?bool  $active
      * @param  ?PostUsersSignInDataAuthenticationResponseStatus  $status
      * @param  ?string  $subscribedAt

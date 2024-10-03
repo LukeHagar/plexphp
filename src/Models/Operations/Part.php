@@ -27,10 +27,11 @@ class Part
 
     /**
      *
-     * @var int $duration
+     * @var ?int $duration
      */
     #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    public int $duration;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?int $duration = null;
 
     /**
      *
@@ -82,10 +83,11 @@ class Part
 
     /**
      *
-     * @var string $videoProfile
+     * @var ?string $videoProfile
      */
     #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    public string $videoProfile;
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoProfile = null;
 
     /**
      *
@@ -117,30 +119,30 @@ class Part
     /**
      * @param  int  $id
      * @param  string  $key
-     * @param  int  $duration
      * @param  string  $file
      * @param  int  $size
      * @param  string  $container
-     * @param  string  $videoProfile
+     * @param  ?int  $duration
      * @param  ?string  $audioProfile
      * @param  ?bool  $has64bitOffsets
      * @param  ?bool  $optimizedForStreaming
+     * @param  ?string  $videoProfile
      * @param  ?string  $indexes
      * @param  ?HasThumbnail  $hasThumbnail
      * @param  ?array<Stream>  $stream
      */
-    public function __construct(int $id, string $key, int $duration, string $file, int $size, string $container, string $videoProfile, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $indexes = null, ?HasThumbnail $hasThumbnail = null, ?array $stream = null)
+    public function __construct(int $id, string $key, string $file, int $size, string $container, ?int $duration = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null, ?string $indexes = null, ?HasThumbnail $hasThumbnail = null, ?array $stream = null)
     {
         $this->id = $id;
         $this->key = $key;
-        $this->duration = $duration;
         $this->file = $file;
         $this->size = $size;
         $this->container = $container;
-        $this->videoProfile = $videoProfile;
+        $this->duration = $duration;
         $this->audioProfile = $audioProfile;
         $this->has64bitOffsets = $has64bitOffsets;
         $this->optimizedForStreaming = $optimizedForStreaming;
+        $this->videoProfile = $videoProfile;
         $this->indexes = $indexes;
         $this->hasThumbnail = $hasThumbnail;
         $this->stream = $stream;

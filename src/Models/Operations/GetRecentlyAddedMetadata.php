@@ -417,6 +417,16 @@ class GetRecentlyAddedMetadata
     public ?array $role = null;
 
     /**
+     * $location
+     *
+     * @var ?array<Location> $location
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Location')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Location>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $location = null;
+
+    /**
      * The Guid object is only included in the response if the `includeGuids` parameter is set to `1`.
      *
      *
@@ -684,6 +694,7 @@ class GetRecentlyAddedMetadata
      * @param  ?array<Writer>  $writer
      * @param  ?array<Collection>  $collection
      * @param  ?array<Role>  $role
+     * @param  ?array<Location>  $location
      * @param  ?array<MediaGuid>  $mediaGuid
      * @param  ?UltraBlurColors  $ultraBlurColors
      * @param  ?array<MetaDataRating>  $metaDataRating
@@ -711,7 +722,7 @@ class GetRecentlyAddedMetadata
      * @param  ?string  $parentThumb
      * @param  ?string  $parentTheme
      */
-    public function __construct(string $ratingKey, string $key, string $guid, GetRecentlyAddedHubsType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?FlattenSeasons $flattenSeasons = null, ?ShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $mediaGuid = null, ?UltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
+    public function __construct(string $ratingKey, string $key, string $guid, GetRecentlyAddedHubsType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?FlattenSeasons $flattenSeasons = null, ?ShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $location = null, ?array $mediaGuid = null, ?UltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -760,6 +771,7 @@ class GetRecentlyAddedMetadata
         $this->writer = $writer;
         $this->collection = $collection;
         $this->role = $role;
+        $this->location = $location;
         $this->mediaGuid = $mediaGuid;
         $this->ultraBlurColors = $ultraBlurColors;
         $this->metaDataRating = $metaDataRating;

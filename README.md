@@ -44,7 +44,6 @@ The following SDKs are generated from the OpenAPI Specification. They are automa
 * [SDK Installation](#sdk-installation)
 * [SDK Example Usage](#sdk-example-usage)
 * [Available Resources and Operations](#available-resources-and-operations)
-* [Global Parameters](#global-parameters)
 * [Error Handling](#error-handling)
 * [Server Selection](#server-selection)
 <!-- End Table of Contents [toc] -->
@@ -75,11 +74,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -136,6 +135,7 @@ if ($response->object !== null) {
 * [getLibraryItems](docs/sdks/library/README.md#getlibraryitems) - Get Library Items
 * [getRefreshLibraryMetadata](docs/sdks/library/README.md#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
 * [getSearchLibrary](docs/sdks/library/README.md#getsearchlibrary) - Search Library
+* [getSearchAllLibraries](docs/sdks/library/README.md#getsearchalllibraries) - Search All Libraries
 * [getMetaDataByRatingKey](docs/sdks/library/README.md#getmetadatabyratingkey) - Get Metadata by RatingKey
 * [getMetadataChildren](docs/sdks/library/README.md#getmetadatachildren) - Get Items Children
 * [getTopWatchedContent](docs/sdks/library/README.md#gettopwatchedcontent) - Get Top Watched Content
@@ -227,63 +227,6 @@ if ($response->object !== null) {
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Global Parameters [global-parameters] -->
-## Global Parameters
-
-Certain parameters are configured globally. These parameters may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, These global values will be used as defaults on the operations that use them. When such operations are called, there is a place in each to override the global value, if needed.
-
-For example, you can set `ClientID` to `'gcgzw5rz2xovp84b4vha3a40'` at SDK initialization and then you do not have to pass the same value on calls to operations like `getServerResources`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
-
-
-### Available Globals
-
-The following global parameters are available.
-
-| Name | Type | Required | Description |
-| ---- | ---- |:--------:| ----------- |
-| clientID | string |  | The unique identifier for the client application. This is used to track the client application and its usage. (UUID, serial number, or other number unique per device) |
-| clientName | string |  | The clientName parameter. |
-| clientVersion | string |  | The clientVersion parameter. |
-| clientPlatform | string |  | The clientPlatform parameter. |
-| deviceName | string |  | The deviceName parameter. |
-
-
-### Example
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->plex->getServerResources(
-    includeHttps: Operations\IncludeHttps::Enable,
-    includeRelay: Operations\IncludeRelay::Enable,
-    includeIPv6: Operations\IncludeIPv6::Enable,
-    clientID: 'gcgzw5rz2xovp84b4vha3a40'
-
-);
-
-if ($response->plexDevices !== null) {
-    // handle response
-}
-```
-<!-- End Global Parameters [global-parameters] -->
-
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
@@ -318,11 +261,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 try {
@@ -386,11 +329,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 

@@ -15,10 +15,10 @@ class Subscription
     /**
      * List of features allowed on your Plex Pass subscription
      *
-     * @var ?array<Features> $features
+     * @var ?array<string> $features
      */
     #[\JMS\Serializer\Annotation\SerializedName('features')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Features>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $features = null;
 
@@ -69,7 +69,7 @@ class Subscription
     public ?string $plan = null;
 
     /**
-     * @param  ?array<Features>  $features
+     * @param  ?array<string>  $features
      * @param  ?bool  $active
      * @param  ?GetTokenDetailsAuthenticationStatus  $status
      * @param  ?string  $subscribedAt

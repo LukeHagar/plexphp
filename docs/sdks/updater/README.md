@@ -29,11 +29,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -76,11 +76,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -98,7 +98,7 @@ if ($response->statusCode === 200) {
 
 | Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `download`                                                  | [Operations\Download](../../Models/Operations/Download.md)  | :heavy_minus_sign:                                          | Indicate that you want to start download any updates found. | 1                                                           |
+| `download`                                                  | [?Operations\Download](../../Models/Operations/Download.md) | :heavy_minus_sign:                                          | Indicate that you want to start download any updates found. | 1                                                           |
 
 ### Response
 
@@ -130,11 +130,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -154,8 +154,8 @@ if ($response->statusCode === 200) {
 
 | Parameter                                                                                                                                                | Type                                                                                                                                                     | Required                                                                                                                                                 | Description                                                                                                                                              | Example                                                                                                                                                  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tonight`                                                                                                                                                | [Operations\Tonight](../../Models/Operations/Tonight.md)                                                                                                 | :heavy_minus_sign:                                                                                                                                       | Indicate that you want the update to run during the next Butler execution. Omitting this or setting it to false indicates that the update should install | 1                                                                                                                                                        |
-| `skip`                                                                                                                                                   | [Operations\Skip](../../Models/Operations/Skip.md)                                                                                                       | :heavy_minus_sign:                                                                                                                                       | Indicate that the latest version should be marked as skipped. The [Release] entry for this version will have the `state` set to `skipped`.               | 1                                                                                                                                                        |
+| `tonight`                                                                                                                                                | [?Operations\Tonight](../../Models/Operations/Tonight.md)                                                                                                | :heavy_minus_sign:                                                                                                                                       | Indicate that you want the update to run during the next Butler execution. Omitting this or setting it to false indicates that the update should install | 1                                                                                                                                                        |
+| `skip`                                                                                                                                                   | [?Operations\Skip](../../Models/Operations/Skip.md)                                                                                                      | :heavy_minus_sign:                                                                                                                                       | Indicate that the latest version should be marked as skipped. The [Release] entry for this version will have the `state` set to `skipped`.               | 1                                                                                                                                                        |
 
 ### Response
 

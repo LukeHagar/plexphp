@@ -30,11 +30,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -81,11 +81,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -128,11 +128,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -180,11 +180,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -234,11 +234,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 

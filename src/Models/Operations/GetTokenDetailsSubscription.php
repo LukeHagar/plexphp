@@ -14,10 +14,10 @@ class GetTokenDetailsSubscription
     /**
      * List of features allowed on your Plex Pass subscription
      *
-     * @var ?array<GetTokenDetailsFeatures> $features
+     * @var ?array<string> $features
      */
     #[\JMS\Serializer\Annotation\SerializedName('features')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsFeatures>|null')]
+    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
     #[\JMS\Serializer\Annotation\SkipWhenNull]
     public ?array $features = null;
 
@@ -68,7 +68,7 @@ class GetTokenDetailsSubscription
     public ?string $plan = null;
 
     /**
-     * @param  ?array<GetTokenDetailsFeatures>  $features
+     * @param  ?array<string>  $features
      * @param  ?bool  $active
      * @param  ?GetTokenDetailsAuthenticationResponseStatus  $status
      * @param  ?string  $subscribedAt

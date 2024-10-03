@@ -32,11 +32,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -84,11 +84,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -134,11 +134,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->build();
 
 
@@ -186,11 +186,11 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -233,11 +233,11 @@ use LukeHagar\Plex_API\Models\Operations;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->setSecurity($security)->build();
 
 
@@ -246,7 +246,7 @@ $response = $sdk->plex->getServerResources(
     includeHttps: Operations\IncludeHttps::Enable,
     includeRelay: Operations\IncludeRelay::Enable,
     includeIPv6: Operations\IncludeIPv6::Enable,
-    clientID: 'gcgzw5rz2xovp84b4vha3a40'
+    clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58'
 
 );
 
@@ -257,13 +257,13 @@ if ($response->plexDevices !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                                                                              | Type                                                                                                                                                                   | Required                                                                                                                                                               | Description                                                                                                                                                            | Example                                                                                                                                                                |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `includeHttps`                                                                                                                                                         | [Operations\IncludeHttps](../../Models/Operations/IncludeHttps.md)                                                                                                     | :heavy_minus_sign:                                                                                                                                                     | Include Https entries in the results                                                                                                                                   | 1                                                                                                                                                                      |
-| `includeRelay`                                                                                                                                                         | [Operations\IncludeRelay](../../Models/Operations/IncludeRelay.md)                                                                                                     | :heavy_minus_sign:                                                                                                                                                     | Include Relay addresses in the results <br/>E.g: https://10-0-0-25.bbf8e10c7fa20447cacee74cd9914cde.plex.direct:32400<br/>                                             | 1                                                                                                                                                                      |
-| `includeIPv6`                                                                                                                                                          | [Operations\IncludeIPv6](../../Models/Operations/IncludeIPv6.md)                                                                                                       | :heavy_minus_sign:                                                                                                                                                     | Include IPv6 entries in the results                                                                                                                                    | 1                                                                                                                                                                      |
-| `clientID`                                                                                                                                                             | *string*                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                     | The unique identifier for the client application. This is used to track the client application and its usage. (UUID, serial number, or other number unique per device) | gcgzw5rz2xovp84b4vha3a40                                                                                                                                               |
-| `$serverURL`                                                                                                                                                           | *string*                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                     | An optional server URL to use.                                                                                                                                         | http://localhost:8080                                                                                                                                                  |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        | Example                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `includeHttps`                                                                                                     | [?Operations\IncludeHttps](../../Models/Operations/IncludeHttps.md)                                                | :heavy_minus_sign:                                                                                                 | Include Https entries in the results                                                                               | 1                                                                                                                  |
+| `includeRelay`                                                                                                     | [?Operations\IncludeRelay](../../Models/Operations/IncludeRelay.md)                                                | :heavy_minus_sign:                                                                                                 | Include Relay addresses in the results <br/>E.g: https://10-0-0-25.bbf8e10c7fa20447cacee74cd9914cde.plex.direct:32400<br/> | 1                                                                                                                  |
+| `includeIPv6`                                                                                                      | [?Operations\IncludeIPv6](../../Models/Operations/IncludeIPv6.md)                                                  | :heavy_minus_sign:                                                                                                 | Include IPv6 entries in the results                                                                                | 1                                                                                                                  |
+| `clientID`                                                                                                         | *?string*                                                                                                          | :heavy_minus_sign:                                                                                                 | An opaque identifier unique to the client (UUID, serial number, or other unique device ID)                         | 3381b62b-9ab7-4e37-827b-203e9809eb58                                                                               |
+| `$serverURL`                                                                                                       | *string*                                                                                                           | :heavy_minus_sign:                                                                                                 | An optional server URL to use.                                                                                     | http://localhost:8080                                                                                              |
 
 ### Response
 
@@ -292,11 +292,11 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->build();
 
 $request = new Operations\GetPinRequest();
@@ -343,11 +343,11 @@ use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('gcgzw5rz2xovp84b4vha3a40')
-    ->setClientName('Plex Web')
-    ->setClientVersion('4.133.0')
-    ->setClientPlatform('Chrome')
-    ->setDeviceName('Linux')
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
     ->build();
 
 $request = new Operations\GetTokenByPinIdRequest(

@@ -149,11 +149,11 @@ class PlexAPIBuilder
      */
     public function setClientID(string $clientID): PlexAPIBuilder
     {
-        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['header'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['queryParam']['clientID'] = $clientID;
+        $this->sdkConfig->globals['parameters']['header']['clientID'] = $clientID;
 
         return $this;
     }
@@ -165,11 +165,11 @@ class PlexAPIBuilder
      */
     public function setClientName(string $clientName): PlexAPIBuilder
     {
-        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['header'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['queryParam']['clientName'] = $clientName;
+        $this->sdkConfig->globals['parameters']['header']['clientName'] = $clientName;
 
         return $this;
     }
@@ -181,43 +181,43 @@ class PlexAPIBuilder
      */
     public function setClientVersion(string $clientVersion): PlexAPIBuilder
     {
-        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['header'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['queryParam']['clientVersion'] = $clientVersion;
+        $this->sdkConfig->globals['parameters']['header']['clientVersion'] = $clientVersion;
 
         return $this;
     }
     /**
-     * setClientPlatform is used to configure the ClientPlatform parameter for the SDK.
+     * setPlatform is used to configure the Platform parameter for the SDK.
      *
-     * @param  string  $clientPlatform
+     * @param  string  $platform
      * @return PlexAPIBuilder
      */
-    public function setClientPlatform(string $clientPlatform): PlexAPIBuilder
+    public function setPlatform(string $platform): PlexAPIBuilder
     {
-        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['header'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['queryParam']['clientPlatform'] = $clientPlatform;
+        $this->sdkConfig->globals['parameters']['header']['platform'] = $platform;
 
         return $this;
     }
     /**
-     * setDeviceName is used to configure the DeviceName parameter for the SDK.
+     * setDeviceNickname is used to configure the DeviceNickname parameter for the SDK.
      *
-     * @param  string  $deviceName
+     * @param  string  $deviceNickname
      * @return PlexAPIBuilder
      */
-    public function setDeviceName(string $deviceName): PlexAPIBuilder
+    public function setDeviceNickname(string $deviceNickname): PlexAPIBuilder
     {
-        if (! array_key_exists('queryParam', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['queryParam'] = [];
+        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
+            $this->sdkConfig->globals['parameters']['header'] = [];
         }
 
-        $this->sdkConfig->globals['parameters']['queryParam']['deviceName'] = $deviceName;
+        $this->sdkConfig->globals['parameters']['header']['deviceNickname'] = $deviceNickname;
 
         return $this;
     }

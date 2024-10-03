@@ -417,6 +417,16 @@ class GetLibraryItemsMetadata
     public ?array $role = null;
 
     /**
+     * $location
+     *
+     * @var ?array<GetLibraryItemsLocation> $location
+     */
+    #[\JMS\Serializer\Annotation\SerializedName('Location')]
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLocation>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $location = null;
+
+    /**
      * The Guid object is only included in the response if the `includeGuids` parameter is set to `1`.
      *
      *
@@ -684,6 +694,7 @@ class GetLibraryItemsMetadata
      * @param  ?array<GetLibraryItemsWriter>  $writer
      * @param  ?array<GetLibraryItemsCollection>  $collection
      * @param  ?array<GetLibraryItemsRole>  $role
+     * @param  ?array<GetLibraryItemsLocation>  $location
      * @param  ?array<GetLibraryItemsMediaGuid>  $mediaGuid
      * @param  ?GetLibraryItemsUltraBlurColors  $ultraBlurColors
      * @param  ?array<GetLibraryItemsMetaDataRating>  $metaDataRating
@@ -711,7 +722,7 @@ class GetLibraryItemsMetadata
      * @param  ?string  $parentThumb
      * @param  ?string  $parentTheme
      */
-    public function __construct(string $ratingKey, string $key, string $guid, GetLibraryItemsLibraryType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?GetLibraryItemsFlattenSeasons $flattenSeasons = null, ?GetLibraryItemsShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $mediaGuid = null, ?GetLibraryItemsUltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
+    public function __construct(string $ratingKey, string $key, string $guid, GetLibraryItemsLibraryType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?GetLibraryItemsFlattenSeasons $flattenSeasons = null, ?GetLibraryItemsShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $location = null, ?array $mediaGuid = null, ?GetLibraryItemsUltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -760,6 +771,7 @@ class GetLibraryItemsMetadata
         $this->writer = $writer;
         $this->collection = $collection;
         $this->role = $role;
+        $this->location = $location;
         $this->mediaGuid = $mediaGuid;
         $this->ultraBlurColors = $ultraBlurColors;
         $this->metaDataRating = $metaDataRating;

@@ -12,17 +12,6 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetLibraryItemsRequest
 {
     /**
-     * The unique key of the Plex library. 
-     *
-     * Note: This is unique in the context of the Plex server.
-     *
-     *
-     * @var int $sectionKey
-     */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionKey')]
-    public int $sectionKey;
-
-    /**
      * A key representing a specific tag within the section.
      *
      * @var Tag $tag
@@ -54,6 +43,17 @@ class GetLibraryItemsRequest
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
     public ?GetLibraryItemsQueryParamType $type = null;
+
+    /**
+     * The unique key of the Plex library. 
+     *
+     * Note: This is unique in the context of the Plex server.
+     *
+     *
+     * @var int $sectionKey
+     */
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionKey')]
+    public int $sectionKey;
 
     /**
      * Adds the Meta object to the response
@@ -90,18 +90,18 @@ class GetLibraryItemsRequest
     public ?int $xPlexContainerSize = null;
 
     /**
-     * @param  int  $sectionKey
      * @param  Tag  $tag
+     * @param  int  $sectionKey
      * @param  ?IncludeGuids  $includeGuids
      * @param  ?GetLibraryItemsQueryParamType  $type
      * @param  ?GetLibraryItemsQueryParamIncludeMeta  $includeMeta
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      */
-    public function __construct(int $sectionKey, Tag $tag, ?IncludeGuids $includeGuids = null, ?GetLibraryItemsQueryParamType $type = null, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
+    public function __construct(Tag $tag, int $sectionKey, ?IncludeGuids $includeGuids = null, ?GetLibraryItemsQueryParamType $type = null, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
     {
-        $this->sectionKey = $sectionKey;
         $this->tag = $tag;
+        $this->sectionKey = $sectionKey;
         $this->includeGuids = $includeGuids;
         $this->type = $type;
         $this->includeMeta = $includeMeta;
