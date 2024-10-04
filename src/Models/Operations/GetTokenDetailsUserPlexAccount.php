@@ -21,20 +21,18 @@ class GetTokenDetailsUserPlexAccount
     public ?bool $adsConsent;
 
     /**
-     * Unknown
      *
-     * @var ?\DateTime $adsConsentReminderAt
+     * @var ?int $adsConsentReminderAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('adsConsentReminderAt')]
-    public ?\DateTime $adsConsentReminderAt;
+    public ?int $adsConsentReminderAt;
 
     /**
-     * Unknown
      *
-     * @var ?\DateTime $adsConsentSetAt
+     * @var ?int $adsConsentSetAt
      */
     #[\JMS\Serializer\Annotation\SerializedName('adsConsentSetAt')]
-    public ?\DateTime $adsConsentSetAt;
+    public ?int $adsConsentSetAt;
 
     /**
      * Unknown
@@ -382,8 +380,8 @@ class GetTokenDetailsUserPlexAccount
      * @param  string  $username
      * @param  string  $uuid
      * @param  ?bool  $adsConsent
-     * @param  ?\DateTime  $adsConsentReminderAt
-     * @param  ?\DateTime  $adsConsentSetAt
+     * @param  ?int  $adsConsentReminderAt
+     * @param  ?int  $adsConsentSetAt
      * @param  ?bool  $anonymous
      * @param  ?string  $locale
      * @param  ?string  $pin
@@ -391,7 +389,7 @@ class GetTokenDetailsUserPlexAccount
      * @param  ?string  $subscriptionDescription
      * @param  ?string  $attributionPartner
      */
-    public function __construct(string $authToken, bool $backupCodesCreated, bool $confirmed, string $country, string $email, bool $emailOnlyAuth, bool $experimentalFeatures, string $friendlyName, array $entitlements, bool $guest, bool $hasPassword, bool $home, bool $homeAdmin, int $homeSize, int $id, int $joinedAt, bool $mailingListActive, MailingListStatus $mailingListStatus, int $maxHomeSize, UserProfile $profile, bool $protected, int $rememberExpiresAt, bool $restricted, string $scrobbleTypes, array $services, Subscription $subscription, array $subscriptions, string $thumb, string $title, bool $twoFactorEnabled, string $username, string $uuid, ?bool $adsConsent = null, ?\DateTime $adsConsentReminderAt = null, ?\DateTime $adsConsentSetAt = null, ?bool $anonymous = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?string $attributionPartner = null)
+    public function __construct(string $authToken, bool $backupCodesCreated, bool $confirmed, string $country, string $email, bool $emailOnlyAuth, bool $experimentalFeatures, string $friendlyName, array $entitlements, bool $guest, bool $hasPassword, bool $home, bool $homeAdmin, int $homeSize, int $id, int $joinedAt, bool $mailingListActive, MailingListStatus $mailingListStatus, int $maxHomeSize, UserProfile $profile, bool $protected, int $rememberExpiresAt, bool $restricted, string $scrobbleTypes, array $services, Subscription $subscription, array $subscriptions, string $thumb, string $title, bool $twoFactorEnabled, string $username, string $uuid, ?bool $adsConsent = null, ?int $adsConsentReminderAt = null, ?int $adsConsentSetAt = null, ?bool $anonymous = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?string $attributionPartner = null)
     {
         $this->authToken = $authToken;
         $this->backupCodesCreated = $backupCodesCreated;

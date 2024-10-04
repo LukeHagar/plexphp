@@ -175,11 +175,12 @@ class GetLibraryItemsMediaContainer
     /**
      * $metadata
      *
-     * @var array<GetLibraryItemsMetadata> $metadata
+     * @var ?array<GetLibraryItemsMetadata> $metadata
      */
     #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>')]
-    public array $metadata;
+    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>|null')]
+    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    public ?array $metadata = null;
 
     /**
      * The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
@@ -210,15 +211,15 @@ class GetLibraryItemsMediaContainer
      * @param  string  $title1
      * @param  string  $title2
      * @param  string  $viewGroup
-     * @param  array<GetLibraryItemsMetadata>  $metadata
      * @param  ?array<GetLibraryItemsType>  $type
      * @param  ?array<GetLibraryItemsFieldType>  $fieldType
      * @param  ?bool  $nocache
      * @param  ?int  $viewMode
      * @param  ?bool  $mixedParents
+     * @param  ?array<GetLibraryItemsMetadata>  $metadata
      * @param  ?GetLibraryItemsMeta  $meta
      */
-    public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, string $art, string $identifier, int $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, array $metadata, ?array $type = null, ?array $fieldType = null, ?bool $nocache = null, ?int $viewMode = null, ?bool $mixedParents = null, ?GetLibraryItemsMeta $meta = null)
+    public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, string $art, string $identifier, int $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, ?array $type = null, ?array $fieldType = null, ?bool $nocache = null, ?int $viewMode = null, ?bool $mixedParents = null, ?array $metadata = null, ?GetLibraryItemsMeta $meta = null)
     {
         $this->size = $size;
         $this->totalSize = $totalSize;
@@ -236,12 +237,12 @@ class GetLibraryItemsMediaContainer
         $this->title1 = $title1;
         $this->title2 = $title2;
         $this->viewGroup = $viewGroup;
-        $this->metadata = $metadata;
         $this->type = $type;
         $this->fieldType = $fieldType;
         $this->nocache = $nocache;
         $this->viewMode = $viewMode;
         $this->mixedParents = $mixedParents;
+        $this->metadata = $metadata;
         $this->meta = $meta;
     }
 }
