@@ -17,9 +17,9 @@ class PostUsersSignInDataSubscription
      *
      * @var ?array<string> $features
      */
-    #[\JMS\Serializer\Annotation\SerializedName('features')]
-    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('features')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $features = null;
 
     /**
@@ -27,8 +27,8 @@ class PostUsersSignInDataSubscription
      *
      * @var ?bool $active
      */
-    #[\JMS\Serializer\Annotation\SerializedName('active')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $active = null;
 
     /**
@@ -36,8 +36,8 @@ class PostUsersSignInDataSubscription
      *
      * @var ?string $subscribedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscribedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscribedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subscribedAt = null;
 
     /**
@@ -45,9 +45,9 @@ class PostUsersSignInDataSubscription
      *
      * @var ?PostUsersSignInDataAuthenticationStatus $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataAuthenticationStatus|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataAuthenticationStatus|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PostUsersSignInDataAuthenticationStatus $status = null;
 
     /**
@@ -55,8 +55,8 @@ class PostUsersSignInDataSubscription
      *
      * @var ?string $paymentService
      */
-    #[\JMS\Serializer\Annotation\SerializedName('paymentService')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentService')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $paymentService = null;
 
     /**
@@ -64,8 +64,8 @@ class PostUsersSignInDataSubscription
      *
      * @var ?string $plan
      */
-    #[\JMS\Serializer\Annotation\SerializedName('plan')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('plan')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $plan = null;
 
     /**

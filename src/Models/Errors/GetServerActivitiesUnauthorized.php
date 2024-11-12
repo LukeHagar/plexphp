@@ -18,9 +18,9 @@ class GetServerActivitiesUnauthorized
      *
      * @var ?array<GetServerActivitiesActivitiesErrors> $errors
      */
-    #[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Errors\GetServerActivitiesActivitiesErrors>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('errors')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Errors\GetServerActivitiesActivitiesErrors>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $errors = null;
 
     /**
@@ -28,7 +28,7 @@ class GetServerActivitiesUnauthorized
      *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-    #[\JMS\Serializer\Annotation\Exclude]
+    #[\Speakeasy\Serializer\Annotation\Exclude]
 
     public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
 

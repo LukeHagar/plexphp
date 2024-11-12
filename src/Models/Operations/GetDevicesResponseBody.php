@@ -16,9 +16,9 @@ class GetDevicesResponseBody
      *
      * @var ?GetDevicesMediaContainer $mediaContainer
      */
-    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetDevicesMediaContainer|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetDevicesMediaContainer|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?GetDevicesMediaContainer $mediaContainer = null;
 
     /**

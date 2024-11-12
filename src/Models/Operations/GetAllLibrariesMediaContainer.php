@@ -15,21 +15,21 @@ class GetAllLibrariesMediaContainer
      *
      * @var int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
     public int $size;
 
     /**
      *
      * @var bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
     public bool $allowSync;
 
     /**
      *
      * @var string $title1
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title1')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title1')]
     public string $title1;
 
     /**
@@ -37,8 +37,8 @@ class GetAllLibrariesMediaContainer
      *
      * @var array<GetAllLibrariesDirectory> $directory
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Directory')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesDirectory>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Directory')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesDirectory>')]
     public array $directory;
 
     /**

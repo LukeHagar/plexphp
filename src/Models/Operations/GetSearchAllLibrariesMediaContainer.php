@@ -15,7 +15,7 @@ class GetSearchAllLibrariesMediaContainer
      *
      * @var float $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
     public float $size;
 
     /**
@@ -23,8 +23,8 @@ class GetSearchAllLibrariesMediaContainer
      *
      * @var array<SearchResult> $searchResult
      */
-    #[\JMS\Serializer\Annotation\SerializedName('SearchResult')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\SearchResult>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('SearchResult')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\SearchResult>')]
     public array $searchResult;
 
     /**

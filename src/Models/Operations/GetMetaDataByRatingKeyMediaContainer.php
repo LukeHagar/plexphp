@@ -15,64 +15,64 @@ class GetMetaDataByRatingKeyMediaContainer
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
      *
      * @var ?string $identifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
      *
      * @var ?int $librarySectionID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $librarySectionID = null;
 
     /**
      *
      * @var ?string $librarySectionTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
      *
      * @var ?string $librarySectionUUID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionUUID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionUUID = null;
 
     /**
      *
      * @var ?string $mediaTagPrefix
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagPrefix')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mediaTagPrefix = null;
 
     /**
      *
      * @var ?int $mediaTagVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $mediaTagVersion = null;
 
     /**
@@ -80,9 +80,9 @@ class GetMetaDataByRatingKeyMediaContainer
      *
      * @var ?array<GetMetaDataByRatingKeyMetadata> $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMetaDataByRatingKeyMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMetaDataByRatingKeyMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

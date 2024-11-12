@@ -15,8 +15,8 @@ class GetBandwidthStatisticsMediaContainer
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -24,9 +24,9 @@ class GetBandwidthStatisticsMediaContainer
      *
      * @var ?array<GetBandwidthStatisticsDevice> $device
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Device')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsDevice>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Device')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsDevice>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $device = null;
 
     /**
@@ -34,9 +34,9 @@ class GetBandwidthStatisticsMediaContainer
      *
      * @var ?array<GetBandwidthStatisticsAccount> $account
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Account')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsAccount>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Account')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetBandwidthStatisticsAccount>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $account = null;
 
     /**
@@ -44,9 +44,9 @@ class GetBandwidthStatisticsMediaContainer
      *
      * @var ?array<StatisticsBandwidth> $statisticsBandwidth
      */
-    #[\JMS\Serializer\Annotation\SerializedName('StatisticsBandwidth')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsBandwidth>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('StatisticsBandwidth')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsBandwidth>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $statisticsBandwidth = null;
 
     /**

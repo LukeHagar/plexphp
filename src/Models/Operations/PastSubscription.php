@@ -15,117 +15,117 @@ class PastSubscription
      *
      * @var ?string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public ?string $id;
 
     /**
      *
      * @var ?string $mode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mode')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mode')]
     public ?string $mode;
 
     /**
      *
      * @var ?int $renewsAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('renewsAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('renewsAt')]
     public ?int $renewsAt;
 
     /**
      *
      * @var ?int $endsAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('endsAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('endsAt')]
     public ?int $endsAt;
 
     /**
      *
-     * @var bool $canceled
+     * @var ?bool $canceled
      */
-    #[\JMS\Serializer\Annotation\SerializedName('canceled')]
-    public bool $canceled;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('canceled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $canceled = null;
 
     /**
      *
-     * @var bool $gracePeriod
+     * @var ?bool $gracePeriod
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gracePeriod')]
-    public bool $gracePeriod;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gracePeriod')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $gracePeriod = null;
 
     /**
      *
-     * @var bool $onHold
+     * @var ?bool $onHold
      */
-    #[\JMS\Serializer\Annotation\SerializedName('onHold')]
-    public bool $onHold;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('onHold')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $onHold = null;
 
     /**
      *
-     * @var bool $canReactivate
+     * @var ?bool $canReactivate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('canReactivate')]
-    public bool $canReactivate;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('canReactivate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $canReactivate = null;
 
     /**
      *
-     * @var bool $canUpgrade
+     * @var ?bool $canUpgrade
      */
-    #[\JMS\Serializer\Annotation\SerializedName('canUpgrade')]
-    public bool $canUpgrade;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('canUpgrade')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $canUpgrade = null;
 
     /**
      *
-     * @var bool $canDowngrade
+     * @var ?bool $canDowngrade
      */
-    #[\JMS\Serializer\Annotation\SerializedName('canDowngrade')]
-    public bool $canDowngrade;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('canDowngrade')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $canDowngrade = null;
 
     /**
      *
-     * @var bool $canConvert
+     * @var ?bool $canConvert
      */
-    #[\JMS\Serializer\Annotation\SerializedName('canConvert')]
-    public bool $canConvert;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('canConvert')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $canConvert = null;
 
     /**
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**
      *
      * @var ?string $transfer
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transfer')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transfer')]
     public ?string $transfer;
 
     /**
      *
      * @var PostUsersSignInDataState $state
      */
-    #[\JMS\Serializer\Annotation\SerializedName('state')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataState')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataState')]
     public PostUsersSignInDataState $state;
 
     /**
      *
      * @var Billing $billing
      */
-    #[\JMS\Serializer\Annotation\SerializedName('billing')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Billing')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billing')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Billing')]
     public Billing $billing;
 
     /**
-     * @param  bool  $canceled
-     * @param  bool  $gracePeriod
-     * @param  bool  $onHold
-     * @param  bool  $canReactivate
-     * @param  bool  $canUpgrade
-     * @param  bool  $canDowngrade
-     * @param  bool  $canConvert
      * @param  string  $type
      * @param  PostUsersSignInDataState  $state
      * @param  Billing  $billing
@@ -133,17 +133,17 @@ class PastSubscription
      * @param  ?string  $mode
      * @param  ?int  $renewsAt
      * @param  ?int  $endsAt
+     * @param  ?bool  $canceled
+     * @param  ?bool  $gracePeriod
+     * @param  ?bool  $onHold
+     * @param  ?bool  $canReactivate
+     * @param  ?bool  $canUpgrade
+     * @param  ?bool  $canDowngrade
+     * @param  ?bool  $canConvert
      * @param  ?string  $transfer
      */
-    public function __construct(bool $canceled, bool $gracePeriod, bool $onHold, bool $canReactivate, bool $canUpgrade, bool $canDowngrade, bool $canConvert, string $type, PostUsersSignInDataState $state, Billing $billing, ?string $id = null, ?string $mode = null, ?int $renewsAt = null, ?int $endsAt = null, ?string $transfer = null)
+    public function __construct(string $type, PostUsersSignInDataState $state, Billing $billing, ?string $id = null, ?string $mode = null, ?int $renewsAt = null, ?int $endsAt = null, ?string $transfer = null, ?bool $canceled = false, ?bool $gracePeriod = false, ?bool $onHold = false, ?bool $canReactivate = false, ?bool $canUpgrade = false, ?bool $canDowngrade = false, ?bool $canConvert = false)
     {
-        $this->canceled = $canceled;
-        $this->gracePeriod = $gracePeriod;
-        $this->onHold = $onHold;
-        $this->canReactivate = $canReactivate;
-        $this->canUpgrade = $canUpgrade;
-        $this->canDowngrade = $canDowngrade;
-        $this->canConvert = $canConvert;
         $this->type = $type;
         $this->state = $state;
         $this->billing = $billing;
@@ -151,6 +151,13 @@ class PastSubscription
         $this->mode = $mode;
         $this->renewsAt = $renewsAt;
         $this->endsAt = $endsAt;
+        $this->canceled = $canceled;
+        $this->gracePeriod = $gracePeriod;
+        $this->onHold = $onHold;
+        $this->canReactivate = $canReactivate;
+        $this->canUpgrade = $canUpgrade;
+        $this->canDowngrade = $canDowngrade;
+        $this->canConvert = $canConvert;
         $this->transfer = $transfer;
     }
 }

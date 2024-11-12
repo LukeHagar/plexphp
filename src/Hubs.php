@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Hubs
 {
@@ -17,7 +17,7 @@ class Hubs
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -32,10 +32,8 @@ class Hubs
      * @return Operations\GetGlobalHubsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getGlobalHubs(
-        ?float $count = null,
-        ?Operations\OnlyTransient $onlyTransient = null,
-    ): Operations\GetGlobalHubsResponse {
+    public function getGlobalHubs(?float $count = null, ?Operations\OnlyTransient $onlyTransient = null): Operations\GetGlobalHubsResponse
+    {
         $request = new Operations\GetGlobalHubsRequest(
             count: $count,
             onlyTransient: $onlyTransient,
@@ -102,9 +100,8 @@ class Hubs
      * @return Operations\GetRecentlyAddedResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getRecentlyAdded(
-        ?Operations\GetRecentlyAddedRequest $request,
-    ): Operations\GetRecentlyAddedResponse {
+    public function getRecentlyAdded(Operations\GetRecentlyAddedRequest $request): Operations\GetRecentlyAddedResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/hubs/home/recentlyAdded');
         $options = ['http_errors' => false];
@@ -151,11 +148,8 @@ class Hubs
      * @return Operations\GetLibraryHubsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getLibraryHubs(
-        float $sectionId,
-        ?float $count = null,
-        ?Operations\QueryParamOnlyTransient $onlyTransient = null,
-    ): Operations\GetLibraryHubsResponse {
+    public function getLibraryHubs(float $sectionId, ?float $count = null, ?Operations\QueryParamOnlyTransient $onlyTransient = null): Operations\GetLibraryHubsResponse
+    {
         $request = new Operations\GetLibraryHubsRequest(
             sectionId: $sectionId,
             count: $count,

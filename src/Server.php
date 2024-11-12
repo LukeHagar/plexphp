@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Server
 {
@@ -17,7 +17,7 @@ class Server
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -30,8 +30,8 @@ class Server
      * @return Operations\GetServerCapabilitiesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getServerCapabilities(
-    ): Operations\GetServerCapabilitiesResponse {
+    public function getServerCapabilities(): Operations\GetServerCapabilitiesResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/');
         $options = ['http_errors' => false];
@@ -91,8 +91,8 @@ class Server
      * @return Operations\GetServerPreferencesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getServerPreferences(
-    ): Operations\GetServerPreferencesResponse {
+    public function getServerPreferences(): Operations\GetServerPreferencesResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/:/prefs');
         $options = ['http_errors' => false];
@@ -152,8 +152,8 @@ class Server
      * @return Operations\GetAvailableClientsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getAvailableClients(
-    ): Operations\GetAvailableClientsResponse {
+    public function getAvailableClients(): Operations\GetAvailableClientsResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/clients');
         $options = ['http_errors' => false];
@@ -213,8 +213,8 @@ class Server
      * @return Operations\GetDevicesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getDevices(
-    ): Operations\GetDevicesResponse {
+    public function getDevices(): Operations\GetDevicesResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/devices');
         $options = ['http_errors' => false];
@@ -274,8 +274,8 @@ class Server
      * @return Operations\GetServerIdentityResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getServerIdentity(
-    ): Operations\GetServerIdentityResponse {
+    public function getServerIdentity(): Operations\GetServerIdentityResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/identity');
         $options = ['http_errors' => false];
@@ -324,8 +324,8 @@ class Server
      * @return Operations\GetMyPlexAccountResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getMyPlexAccount(
-    ): Operations\GetMyPlexAccountResponse {
+    public function getMyPlexAccount(): Operations\GetMyPlexAccountResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/myplex/account');
         $options = ['http_errors' => false];
@@ -387,9 +387,8 @@ class Server
      * @return Operations\GetResizedPhotoResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getResizedPhoto(
-        ?Operations\GetResizedPhotoRequest $request,
-    ): Operations\GetResizedPhotoResponse {
+    public function getResizedPhoto(Operations\GetResizedPhotoRequest $request): Operations\GetResizedPhotoResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/photo/:/transcode');
         $options = ['http_errors' => false];
@@ -443,9 +442,8 @@ class Server
      * @return Operations\GetMediaProvidersResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getMediaProviders(
-        string $xPlexToken,
-    ): Operations\GetMediaProvidersResponse {
+    public function getMediaProviders(string $xPlexToken): Operations\GetMediaProvidersResponse
+    {
         $request = new Operations\GetMediaProvidersRequest(
             xPlexToken: $xPlexToken,
         );
@@ -512,8 +510,8 @@ class Server
      * @return Operations\GetServerListResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getServerList(
-    ): Operations\GetServerListResponse {
+    public function getServerList(): Operations\GetServerListResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/servers');
         $options = ['http_errors' => false];

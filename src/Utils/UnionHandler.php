@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Utils;
 
-use JMS\Serializer\Context;
-use JMS\Serializer\DeserializationContext;
-use JMS\Serializer\Exception\NonFloatCastableTypeException;
-use JMS\Serializer\Exception\NonIntCastableTypeException;
-use JMS\Serializer\Exception\NonStringCastableTypeException;
-use JMS\Serializer\Exception\NonVisitableTypeException;
-use JMS\Serializer\Exception\PropertyMissingException;
-use JMS\Serializer\Exception\RuntimeException;
-use JMS\Serializer\GraphNavigatorInterface;
-use JMS\Serializer\Handler\SubscribingHandlerInterface;
-use JMS\Serializer\SerializationContext;
-use JMS\Serializer\Visitor\DeserializationVisitorInterface;
-use JMS\Serializer\Visitor\SerializationVisitorInterface;
+use Speakeasy\Serializer\Context;
+use Speakeasy\Serializer\DeserializationContext;
+use Speakeasy\Serializer\Exception\NonFloatCastableTypeException;
+use Speakeasy\Serializer\Exception\NonIntCastableTypeException;
+use Speakeasy\Serializer\Exception\NonStringCastableTypeException;
+use Speakeasy\Serializer\Exception\NonVisitableTypeException;
+use Speakeasy\Serializer\Exception\PropertyMissingException;
+use Speakeasy\Serializer\Exception\RuntimeException;
+use Speakeasy\Serializer\GraphNavigatorInterface;
+use Speakeasy\Serializer\Handler\SubscribingHandlerInterface;
+use Speakeasy\Serializer\SerializationContext;
+use Speakeasy\Serializer\Visitor\DeserializationVisitorInterface;
+use Speakeasy\Serializer\Visitor\SerializationVisitorInterface;
 
 final class UnionHandler implements SubscribingHandlerInterface
 {
@@ -187,6 +187,8 @@ final class UnionHandler implements SubscribingHandlerInterface
             } catch (NonIntCastableTypeException $e) {
                 continue;
             } catch (NonFloatCastableTypeException $e) {
+                continue;
+            } catch (\Brick\Math\Exception\NumberFormatException $e) {
                 continue;
             } catch (RuntimeException $e) {
                 continue;

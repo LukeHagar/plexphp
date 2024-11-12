@@ -15,40 +15,40 @@ class GetLibraryDetailsFilter
      *
      * @var ?string $filter
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filter')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $filter = null;
 
     /**
      *
      * @var ?string $filterType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filterType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filterType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $filterType = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**

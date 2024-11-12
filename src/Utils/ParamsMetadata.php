@@ -17,6 +17,7 @@ class ParamsMetadata
         public string $name,
         public string $serialization,
         public string $dateTimeFormat,
+        public bool $serializeToString
     ) {
     }
 
@@ -36,6 +37,7 @@ class ParamsMetadata
         $name = '';
         $serialization = '';
         $dateTimeFormat = '';
+        $serializeToString = false;
 
         switch ($type) {
             case 'queryParam':
@@ -66,6 +68,7 @@ class ParamsMetadata
                 'explode' => $explode = $parts[1] === 'true',
                 'serialization' => $serialization = $parts[1],
                 'dateTimeFormat' => $dateTimeFormat = $parts[1],
+                'serializeToString' => $serializeToString = $parts[1] === 'true',
                 default => throw new \RuntimeException('Failed to parse options'),
             };
         }
@@ -77,6 +80,7 @@ class ParamsMetadata
             name: $name,
             serialization: $serialization,
             dateTimeFormat: $dateTimeFormat,
+            serializeToString: $serializeToString
         );
     }
 }

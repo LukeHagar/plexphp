@@ -15,80 +15,80 @@ class GetLibraryHubsPart
      *
      * @var ?int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?int $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
      *
      * @var ?string $file
      */
-    #[\JMS\Serializer\Annotation\SerializedName('file')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $file = null;
 
     /**
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?string $audioProfile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $audioProfile = null;
 
     /**
      *
      * @var ?string $container
      */
-    #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
      *
      * @var ?bool $has64bitOffsets
      */
-    #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('has64bitOffsets')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $has64bitOffsets = null;
 
     /**
      *
      * @var ?bool $optimizedForStreaming
      */
-    #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $optimizedForStreaming = null;
 
     /**
      *
      * @var ?string $videoProfile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $videoProfile = null;
 
     /**

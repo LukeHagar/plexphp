@@ -82,9 +82,9 @@ class PathParameters
                     }
 
                     if ($metadata->explode) {
-                        $vals[] = sprintf('%s=%s', $fieldMetadata->name, valToString($fieldValue, $fieldMetadata->dateTimeFormat));
+                        $vals[] = sprintf('%s=%s', $fieldMetadata->name, valToString($fieldValue, ['dateTimeFormat' => $fieldMetadata->dateTimeFormat]));
                     } else {
-                        $vals[] = sprintf('%s,%s', $fieldMetadata->name, valToString($fieldValue, $fieldMetadata->dateTimeFormat));
+                        $vals[] = sprintf('%s,%s', $fieldMetadata->name, valToString($fieldValue, ['dateTimeFormat' => $fieldMetadata->dateTimeFormat]));
                     }
                 }
 
@@ -95,14 +95,14 @@ class PathParameters
 
                 if (array_is_list($value)) {
                     foreach ($value as $val) {
-                        $vals[] = valToString($val);
+                        $vals[] = valToString($val, []);
                     }
                 } else {
                     foreach ($value as $key => $val) {
                         if ($metadata->explode) {
-                            $vals[] = sprintf('%s=%s', $key, valToString($val));
+                            $vals[] = sprintf('%s=%s', $key, valToString($val, []));
                         } else {
-                            $vals[] = sprintf('%s,%s', $key, valToString($val));
+                            $vals[] = sprintf('%s,%s', $key, valToString($val, []));
                         }
                     }
                 }
@@ -110,7 +110,7 @@ class PathParameters
                 $pathParams[$metadata->name] = implode(',', $vals);
                 break;
             default:
-                $pathParams[$metadata->name] = valToString($value);
+                $pathParams[$metadata->name] = valToString($value, []);
                 break;
         }
 

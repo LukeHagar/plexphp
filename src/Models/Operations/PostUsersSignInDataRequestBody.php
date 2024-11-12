@@ -46,7 +46,7 @@ class PostUsersSignInDataRequestBody
      * @param  ?bool  $rememberMe
      * @param  ?string  $verificationCode
      */
-    public function __construct(string $login, string $password, ?bool $rememberMe = null, ?string $verificationCode = null)
+    public function __construct(string $login, string $password, ?string $verificationCode = null, ?bool $rememberMe = false)
     {
         $this->login = $login;
         $this->password = $password;

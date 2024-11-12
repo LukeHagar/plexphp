@@ -15,272 +15,272 @@ class GetOnDeckMetadata
      *
      * @var ?bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
      *
      * @var ?float $librarySectionID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $librarySectionID = null;
 
     /**
      *
      * @var ?string $librarySectionTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionTitle = null;
 
     /**
      *
      * @var ?string $librarySectionUUID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionUUID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionUUID = null;
 
     /**
      *
      * @var ?float $ratingKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ratingKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $ratingKey = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?float $parentRatingKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentRatingKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $parentRatingKey = null;
 
     /**
      *
      * @var ?float $grandparentRatingKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('grandparentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentRatingKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $grandparentRatingKey = null;
 
     /**
      *
      * @var ?string $guid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('guid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
      *
      * @var ?string $parentGuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentGuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentGuid = null;
 
     /**
      *
      * @var ?string $grandparentGuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('grandparentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentGuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentGuid = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $grandparentKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('grandparentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentKey = null;
 
     /**
      *
      * @var ?string $parentKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentKey = null;
 
     /**
      *
      * @var ?string $librarySectionKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $librarySectionKey = null;
 
     /**
      *
      * @var ?string $grandparentTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('grandparentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTitle = null;
 
     /**
      *
      * @var ?string $parentTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTitle = null;
 
     /**
      *
      * @var ?string $contentRating
      */
-    #[\JMS\Serializer\Annotation\SerializedName('contentRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('contentRating')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
 
     /**
      *
      * @var ?string $summary
      */
-    #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
      *
      * @var ?float $index
      */
-    #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $index = null;
 
     /**
      *
      * @var ?float $parentIndex
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentIndex')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $parentIndex = null;
 
     /**
      *
      * @var ?float $lastViewedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lastViewedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $lastViewedAt = null;
 
     /**
      *
      * @var ?float $year
      */
-    #[\JMS\Serializer\Annotation\SerializedName('year')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('year')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $year = null;
 
     /**
      *
      * @var ?string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
      *
      * @var ?string $art
      */
-    #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('art')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
      *
      * @var ?string $parentThumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentThumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentThumb = null;
 
     /**
      *
      * @var ?string $grandparentThumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('grandparentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentThumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentThumb = null;
 
     /**
      *
      * @var ?string $grandparentArt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('grandparentArt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentArt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentArt = null;
 
     /**
      *
      * @var ?string $grandparentTheme
      */
-    #[\JMS\Serializer\Annotation\SerializedName('grandparentTheme')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentTheme')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentTheme = null;
 
     /**
      *
      * @var ?float $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $duration = null;
 
     /**
      *
      * @var ?\DateTime $originallyAvailableAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?\DateTime $originallyAvailableAt = null;
 
     /**
      *
      * @var ?float $addedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('addedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $addedAt = null;
 
     /**
      *
      * @var ?float $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $updatedAt = null;
 
     /**
@@ -288,9 +288,9 @@ class GetOnDeckMetadata
      *
      * @var ?array<GetOnDeckMedia> $media
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Media')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckMedia>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Media')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckMedia>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $media = null;
 
     /**
@@ -298,9 +298,9 @@ class GetOnDeckMetadata
      *
      * @var ?array<GetOnDeckGuids> $guids
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Guid')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckGuids>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetOnDeckGuids>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $guids = null;
 
     /**

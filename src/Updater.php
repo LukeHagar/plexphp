@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Updater
 {
@@ -17,7 +17,7 @@ class Updater
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -30,8 +30,8 @@ class Updater
      * @return Operations\GetUpdateStatusResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getUpdateStatus(
-    ): Operations\GetUpdateStatusResponse {
+    public function getUpdateStatus(): Operations\GetUpdateStatusResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/updater/status');
         $options = ['http_errors' => false];
@@ -92,9 +92,8 @@ class Updater
      * @return Operations\CheckForUpdatesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function checkForUpdates(
-        ?Operations\Download $download = null,
-    ): Operations\CheckForUpdatesResponse {
+    public function checkForUpdates(?Operations\Download $download = null): Operations\CheckForUpdatesResponse
+    {
         $request = new Operations\CheckForUpdatesRequest(
             download: $download,
         );
@@ -153,10 +152,8 @@ class Updater
      * @return Operations\ApplyUpdatesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function applyUpdates(
-        ?Operations\Tonight $tonight = null,
-        ?Operations\Skip $skip = null,
-    ): Operations\ApplyUpdatesResponse {
+    public function applyUpdates(?Operations\Tonight $tonight = null, ?Operations\Skip $skip = null): Operations\ApplyUpdatesResponse
+    {
         $request = new Operations\ApplyUpdatesRequest(
             tonight: $tonight,
             skip: $skip,

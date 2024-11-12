@@ -15,48 +15,48 @@ class Release
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $version
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
      *
      * @var ?string $added
      */
-    #[\JMS\Serializer\Annotation\SerializedName('added')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('added')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $added = null;
 
     /**
      *
      * @var ?string $fixed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('fixed')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('fixed')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $fixed = null;
 
     /**
      *
      * @var ?string $downloadURL
      */
-    #[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('downloadURL')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $downloadURL = null;
 
     /**
      *
      * @var ?string $state
      */
-    #[\JMS\Serializer\Annotation\SerializedName('state')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $state = null;
 
     /**

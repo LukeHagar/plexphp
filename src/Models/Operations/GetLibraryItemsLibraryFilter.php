@@ -15,35 +15,35 @@ class GetLibraryItemsLibraryFilter
      *
      * @var string $filter
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filter')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
     public string $filter;
 
     /**
      *
      * @var string $filterType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filterType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filterType')]
     public string $filterType;
 
     /**
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**

@@ -15,40 +15,40 @@ class GetLibraryDetailsDirectory
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?bool $secondary
      */
-    #[\JMS\Serializer\Annotation\SerializedName('secondary')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('secondary')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $secondary = null;
 
     /**
      *
      * @var ?string $prompt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('prompt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('prompt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $prompt = null;
 
     /**
      *
      * @var ?bool $search
      */
-    #[\JMS\Serializer\Annotation\SerializedName('search')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('search')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $search = null;
 
     /**

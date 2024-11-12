@@ -52,7 +52,7 @@ class GetServerResourcesRequest
      * @param  ?IncludeIPv6  $includeIPv6
      * @param  ?string  $clientID
      */
-    public function __construct(?IncludeHttps $includeHttps = null, ?IncludeRelay $includeRelay = null, ?IncludeIPv6 $includeIPv6 = null, ?string $clientID = null)
+    public function __construct(?string $clientID = null, ?IncludeHttps $includeHttps = IncludeHttps::Disable, ?IncludeRelay $includeRelay = IncludeRelay::Disable, ?IncludeIPv6 $includeIPv6 = IncludeIPv6::Disable)
     {
         $this->includeHttps = $includeHttps;
         $this->includeRelay = $includeRelay;

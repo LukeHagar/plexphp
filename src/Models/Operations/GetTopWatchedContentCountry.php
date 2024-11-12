@@ -15,24 +15,24 @@ class GetTopWatchedContentCountry
      *
      * @var ?int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
      *
      * @var ?string $filter
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filter')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $filter = null;
 
     /**
      *
      * @var ?string $tag
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tag')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $tag = null;
 
     /**

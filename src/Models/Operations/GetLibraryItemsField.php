@@ -15,29 +15,29 @@ class GetLibraryItemsField
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**
      *
      * @var ?string $subType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subType = null;
 
     /**

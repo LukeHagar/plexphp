@@ -15,40 +15,40 @@ class GetUpdateStatusMediaContainer
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?bool $canInstall
      */
-    #[\JMS\Serializer\Annotation\SerializedName('canInstall')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('canInstall')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $canInstall = null;
 
     /**
      *
      * @var ?int $checkedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('checkedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('checkedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $checkedAt = null;
 
     /**
      *
      * @var ?string $downloadURL
      */
-    #[\JMS\Serializer\Annotation\SerializedName('downloadURL')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('downloadURL')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $downloadURL = null;
 
     /**
      *
      * @var ?int $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $status = null;
 
     /**
@@ -56,9 +56,9 @@ class GetUpdateStatusMediaContainer
      *
      * @var ?array<Release> $release
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Release')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Release>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Release')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Release>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $release = null;
 
     /**

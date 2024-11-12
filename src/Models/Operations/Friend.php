@@ -16,7 +16,7 @@ class Friend
      *
      * @var string $email
      */
-    #[\JMS\Serializer\Annotation\SerializedName('email')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
     public string $email;
 
     /**
@@ -24,7 +24,7 @@ class Friend
      *
      * @var ?string $friendlyName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('friendlyName')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('friendlyName')]
     public ?string $friendlyName;
 
     /**
@@ -32,7 +32,7 @@ class Friend
      *
      * @var bool $home
      */
-    #[\JMS\Serializer\Annotation\SerializedName('home')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('home')]
     public bool $home;
 
     /**
@@ -40,24 +40,25 @@ class Friend
      *
      * @var int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public int $id;
 
     /**
      * If the account is a Plex Home managed user
      *
-     * @var bool $restricted
+     * @var ?bool $restricted
      */
-    #[\JMS\Serializer\Annotation\SerializedName('restricted')]
-    public bool $restricted;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('restricted')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $restricted = null;
 
     /**
      * $sharedServers
      *
      * @var array<SharedServers> $sharedServers
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sharedServers')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\SharedServers>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sharedServers')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\SharedServers>')]
     public array $sharedServers;
 
     /**
@@ -65,8 +66,8 @@ class Friend
      *
      * @var array<SharedSources> $sharedSources
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sharedSources')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\SharedSources>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sharedSources')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\SharedSources>')]
     public array $sharedSources;
 
     /**
@@ -74,8 +75,8 @@ class Friend
      *
      * @var Status $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Status')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Status')]
     public Status $status;
 
     /**
@@ -83,7 +84,7 @@ class Friend
      *
      * @var string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
     public string $thumb;
 
     /**
@@ -91,7 +92,7 @@ class Friend
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
@@ -99,7 +100,7 @@ class Friend
      *
      * @var string $username
      */
-    #[\JMS\Serializer\Annotation\SerializedName('username')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('username')]
     public string $username;
 
     /**
@@ -107,14 +108,13 @@ class Friend
      *
      * @var string $uuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('uuid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
     public string $uuid;
 
     /**
      * @param  string  $email
      * @param  bool  $home
      * @param  int  $id
-     * @param  bool  $restricted
      * @param  array<SharedServers>  $sharedServers
      * @param  array<SharedSources>  $sharedSources
      * @param  Status  $status
@@ -123,13 +123,13 @@ class Friend
      * @param  string  $username
      * @param  string  $uuid
      * @param  ?string  $friendlyName
+     * @param  ?bool  $restricted
      */
-    public function __construct(string $email, bool $home, int $id, bool $restricted, array $sharedServers, array $sharedSources, Status $status, string $thumb, string $title, string $username, string $uuid, ?string $friendlyName = null)
+    public function __construct(string $email, bool $home, int $id, array $sharedServers, array $sharedSources, Status $status, string $thumb, string $title, string $username, string $uuid, ?string $friendlyName = null, ?bool $restricted = false)
     {
         $this->email = $email;
         $this->home = $home;
         $this->id = $id;
-        $this->restricted = $restricted;
         $this->sharedServers = $sharedServers;
         $this->sharedSources = $sharedSources;
         $this->status = $status;
@@ -138,5 +138,6 @@ class Friend
         $this->username = $username;
         $this->uuid = $uuid;
         $this->friendlyName = $friendlyName;
+        $this->restricted = $restricted;
     }
 }

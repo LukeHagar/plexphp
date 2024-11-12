@@ -15,96 +15,96 @@ class MyPlex
      *
      * @var ?string $authToken
      */
-    #[\JMS\Serializer\Annotation\SerializedName('authToken')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authToken')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $authToken = null;
 
     /**
      *
      * @var ?string $username
      */
-    #[\JMS\Serializer\Annotation\SerializedName('username')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('username')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $username = null;
 
     /**
      *
      * @var ?string $mappingState
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mappingState')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mappingState')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mappingState = null;
 
     /**
      *
      * @var ?string $mappingError
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mappingError')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mappingError')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mappingError = null;
 
     /**
      *
      * @var ?string $signInState
      */
-    #[\JMS\Serializer\Annotation\SerializedName('signInState')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('signInState')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $signInState = null;
 
     /**
      *
      * @var ?string $publicAddress
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publicAddress')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publicAddress')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $publicAddress = null;
 
     /**
      *
      * @var ?float $publicPort
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publicPort')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publicPort')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $publicPort = null;
 
     /**
      *
      * @var ?string $privateAddress
      */
-    #[\JMS\Serializer\Annotation\SerializedName('privateAddress')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('privateAddress')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $privateAddress = null;
 
     /**
      *
      * @var ?float $privatePort
      */
-    #[\JMS\Serializer\Annotation\SerializedName('privatePort')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('privatePort')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $privatePort = null;
 
     /**
      *
      * @var ?string $subscriptionFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscriptionFeatures')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptionFeatures')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subscriptionFeatures = null;
 
     /**
      *
      * @var ?bool $subscriptionActive
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscriptionActive')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptionActive')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $subscriptionActive = null;
 
     /**
      *
      * @var ?string $subscriptionState
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscriptionState')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptionState')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subscriptionState = null;
 
     /**

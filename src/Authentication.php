@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Authentication
 {
@@ -25,7 +25,7 @@ class Authentication
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -41,10 +41,8 @@ class Authentication
      * @return Operations\GetTransientTokenResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getTransientToken(
-        Operations\GetTransientTokenQueryParamType $type,
-        Operations\Scope $scope,
-    ): Operations\GetTransientTokenResponse {
+    public function getTransientToken(Operations\GetTransientTokenQueryParamType $type, Operations\Scope $scope): Operations\GetTransientTokenResponse
+    {
         $request = new Operations\GetTransientTokenRequest(
             type: $type,
             scope: $scope,
@@ -104,9 +102,8 @@ class Authentication
      * @return Operations\GetSourceConnectionInformationResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getSourceConnectionInformation(
-        string $source,
-    ): Operations\GetSourceConnectionInformationResponse {
+    public function getSourceConnectionInformation(string $source): Operations\GetSourceConnectionInformationResponse
+    {
         $request = new Operations\GetSourceConnectionInformationRequest(
             source: $source,
         );
@@ -163,9 +160,8 @@ class Authentication
      * @return Operations\GetTokenDetailsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getTokenDetails(
-        ?string $serverURL = null,
-    ): Operations\GetTokenDetailsResponse {
+    public function getTokenDetails(?string $serverURL = null): Operations\GetTokenDetailsResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Authentication::GET_TOKEN_DETAILS_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -226,15 +222,13 @@ class Authentication
      *
      * Sign in user with username and password and return user data with Plex authentication token
      *
-     * @param  Operations\PostUsersSignInDataRequest  $request
+     * @param  ?Operations\PostUsersSignInDataRequest  $request
      * @param  string  $serverURL
      * @return Operations\PostUsersSignInDataResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function postUsersSignInData(
-        ?Operations\PostUsersSignInDataRequest $request,
-        ?string $serverURL = null,
-    ): Operations\PostUsersSignInDataResponse {
+    public function postUsersSignInData(?Operations\PostUsersSignInDataRequest $request = null, ?string $serverURL = null): Operations\PostUsersSignInDataResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Authentication::POST_USERS_SIGN_IN_DATA_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {

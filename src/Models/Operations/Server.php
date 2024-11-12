@@ -15,88 +15,88 @@ class Server
      *
      * @var ?string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
      *
      * @var ?string $host
      */
-    #[\JMS\Serializer\Annotation\SerializedName('host')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('host')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $host = null;
 
     /**
      *
      * @var ?string $address
      */
-    #[\JMS\Serializer\Annotation\SerializedName('address')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $address = null;
 
     /**
      *
      * @var ?float $port
      */
-    #[\JMS\Serializer\Annotation\SerializedName('port')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('port')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $port = null;
 
     /**
      *
      * @var ?string $machineIdentifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('machineIdentifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
      *
      * @var ?string $version
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
      *
      * @var ?string $protocol
      */
-    #[\JMS\Serializer\Annotation\SerializedName('protocol')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('protocol')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $protocol = null;
 
     /**
      *
      * @var ?string $product
      */
-    #[\JMS\Serializer\Annotation\SerializedName('product')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('product')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $product = null;
 
     /**
      *
      * @var ?string $deviceClass
      */
-    #[\JMS\Serializer\Annotation\SerializedName('deviceClass')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('deviceClass')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $deviceClass = null;
 
     /**
      *
      * @var ?float $protocolVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('protocolVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('protocolVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $protocolVersion = null;
 
     /**
      *
      * @var ?string $protocolCapabilities
      */
-    #[\JMS\Serializer\Annotation\SerializedName('protocolCapabilities')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('protocolCapabilities')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $protocolCapabilities = null;
 
     /**

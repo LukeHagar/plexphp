@@ -11,9 +11,11 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 php:
-  version: 0.10.6
+  version: 0.11.0
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKException
   flattenGlobalSecurity: true
   imports:
     option: openapi
@@ -24,7 +26,11 @@ php:
       shared: Models/Components
       webhooks: Models/Webhooks
   inputModelSuffix: input
+  laravelServiceProvider:
+    enabled: false
+    svcName: openapi
   maxMethodParams: 4
+  methodArguments: infer-optional-args
   namespace: LukeHagar\Plex_API
   outputModelSuffix: output
   packageName: lukehagar/plex-api

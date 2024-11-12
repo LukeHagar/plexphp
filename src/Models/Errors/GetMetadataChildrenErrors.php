@@ -15,24 +15,24 @@ class GetMetadataChildrenErrors
      *
      * @var ?int $code
      */
-    #[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('code')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $code = null;
 
     /**
      *
      * @var ?string $message
      */
-    #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $message = null;
 
     /**
      *
      * @var ?int $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $status = null;
 
     /**

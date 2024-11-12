@@ -214,7 +214,7 @@ class PlexAPI
      * @param  SDKConfiguration  $sdkConfiguration
      */
     public function __construct(
-        private SDKConfiguration $sdkConfiguration,
+        public SDKConfiguration $sdkConfiguration,
     ) {
         $this->server = new Server($this->sdkConfiguration);
         $this->media = new Media($this->sdkConfiguration);

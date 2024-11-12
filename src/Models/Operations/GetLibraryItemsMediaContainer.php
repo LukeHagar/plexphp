@@ -21,9 +21,9 @@ class GetLibraryItemsMediaContainer
      *
      * @var ?array<GetLibraryItemsType> $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Type')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Type')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $type = null;
 
     /**
@@ -31,145 +31,145 @@ class GetLibraryItemsMediaContainer
      *
      * @var ?array<GetLibraryItemsFieldType> $fieldType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('FieldType')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('FieldType')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $fieldType = null;
 
     /**
      *
      * @var int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
     public int $size;
 
     /**
      *
      * @var int $totalSize
      */
-    #[\JMS\Serializer\Annotation\SerializedName('totalSize')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('totalSize')]
     public int $totalSize;
 
     /**
      *
      * @var int $offset
      */
-    #[\JMS\Serializer\Annotation\SerializedName('offset')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('offset')]
     public int $offset;
 
     /**
      *
      * @var string $content
      */
-    #[\JMS\Serializer\Annotation\SerializedName('content')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('content')]
     public string $content;
 
     /**
      *
      * @var bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
     public bool $allowSync;
 
     /**
      *
      * @var ?bool $nocache
      */
-    #[\JMS\Serializer\Annotation\SerializedName('nocache')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nocache')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $nocache = null;
 
     /**
      *
      * @var string $art
      */
-    #[\JMS\Serializer\Annotation\SerializedName('art')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('art')]
     public string $art;
 
     /**
      *
      * @var string $identifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
     public string $identifier;
 
     /**
      *
      * @var int $librarySectionID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
     public int $librarySectionID;
 
     /**
      *
      * @var string $librarySectionTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
     public string $librarySectionTitle;
 
     /**
      *
      * @var string $librarySectionUUID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('librarySectionUUID')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionUUID')]
     public string $librarySectionUUID;
 
     /**
      *
      * @var string $mediaTagPrefix
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagPrefix')]
     public string $mediaTagPrefix;
 
     /**
      *
      * @var int $mediaTagVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagVersion')]
     public int $mediaTagVersion;
 
     /**
      *
      * @var string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
     public string $thumb;
 
     /**
      *
      * @var string $title1
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title1')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title1')]
     public string $title1;
 
     /**
      *
      * @var string $title2
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title2')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title2')]
     public string $title2;
 
     /**
      *
      * @var string $viewGroup
      */
-    #[\JMS\Serializer\Annotation\SerializedName('viewGroup')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('viewGroup')]
     public string $viewGroup;
 
     /**
      *
      * @var ?int $viewMode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('viewMode')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('viewMode')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $viewMode = null;
 
     /**
      *
      * @var ?bool $mixedParents
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mixedParents')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mixedParents')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $mixedParents = null;
 
     /**
@@ -177,9 +177,9 @@ class GetLibraryItemsMediaContainer
      *
      * @var ?array<GetLibraryItemsMetadata> $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**
@@ -189,9 +189,9 @@ class GetLibraryItemsMediaContainer
      *
      * @var ?GetLibraryItemsMeta $meta
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Meta')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMeta|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Meta')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMeta|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?GetLibraryItemsMeta $meta = null;
 
     /**

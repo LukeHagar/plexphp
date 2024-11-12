@@ -122,13 +122,13 @@ class RequestBodies
                     foreach ($value as $item) {
                         $options['multipart'][] = [
                             'name' => $metadata->name.'[]',
-                            'contents' => valToString($item, $dateTimeFormat),
+                            'contents' => valToString($item, ['dateTimeFormat' => $dateTimeFormat]),
                         ];
                     }
                 } else {
                     $options['multipart'][] = [
                         'name' => $metadata->name,
-                        'contents' => valToString($val, $dateTimeFormat),
+                        'contents' => valToString($val, ['dateTimeFormat' => $dateTimeFormat]),
                     ];
                 }
             }
@@ -225,7 +225,7 @@ class RequestBodies
                     throw new \Exception("Invalid request body type for field $fieldName");
                 } else {
                     foreach ($value as $k => $v) {
-                        $options['form_params'][$k] = valToString($v);
+                        $options['form_params'][$k] = valToString($v, []);
                     }
                 }
                 break;
@@ -246,17 +246,22 @@ class RequestBodies
         $values = [];
 
         $dateTimeFormat = $metadata->dateTimeFormat;
+        $serializeToString = $metadata->serializeToString;
 
         switch (gettype($value)) {
             case 'object':
                 switch ($value::class) {
                     case 'Brick\DateTime\LocalDate':
                     case 'DateTime':
-                        $values[$metadata->name] = valToString($value, $dateTimeFormat);
+                        $values[$metadata->name] = valToString($value, ['dateTimeFormat' => $dateTimeFormat]);
+                        break;
+                    case 'Brick\Math\BigInteger':
+                    case 'Brick\Math\BigDecimal':
+                        $values[$metadata->name] = valToString($value, ['serializeToString' => $serializeToString]);
                         break;
                     default:
                         if (is_a($value, \BackedEnum::class, true)) {
-                            $values[$metadata->name] = valToString($value);
+                            $values[$metadata->name] = valToString($value, []);
                         } else {
                             $items = [];
 
@@ -271,9 +276,9 @@ class RequestBodies
                                 }
 
                                 if ($metadata->explode) {
-                                    $values[$fieldMetadata->name] = valToString($val, $fieldMetadata->dateTimeFormat);
+                                    $values[$fieldMetadata->name] = valToString($val, ['dateTimeFormat' => $fieldMetadata->dateTimeFormat]);
                                 } else {
-                                    $items[] = sprintf('%s,%s', $fieldMetadata->name, valToString($val));
+                                    $items[] = sprintf('%s,%s', $fieldMetadata->name, valToString($val, []));
                                 }
                             }
 
@@ -287,16 +292,16 @@ class RequestBodies
             case 'array':
                 if (array_is_list($value)) {
                     foreach ($value as $v) {
-                        $values[$metadata->name] = valToString($v, $dateTimeFormat);
+                        $values[$metadata->name] = valToString($v, ['dateTimeFormat' => $dateTimeFormat]);
                     }
                 } else {
                     $items = [];
 
                     foreach ($value as $k => $v) {
                         if ($metadata->explode) {
-                            $values[$k] = valToString($v, $dateTimeFormat);
+                            $values[$k] = valToString($v, ['dateTimeFormat' => $dateTimeFormat]);
                         } else {
-                            $items[] = sprintf('%s,%s', $k, valToString($v, $dateTimeFormat));
+                            $items[] = sprintf('%s,%s', $k, valToString($v, ['dateTimeFormat' => $dateTimeFormat]));
                         }
                     }
 
@@ -306,7 +311,7 @@ class RequestBodies
                 }
                 break;
             default:
-                $values[$metadata->name] = valToString($value, $dateTimeFormat);
+                $values[$metadata->name] = valToString($value, ['dateTimeFormat' => $dateTimeFormat]);
                 break;
         }
 

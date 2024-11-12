@@ -15,91 +15,91 @@ class GetAllLibrariesDirectory
      *
      * @var bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
     public bool $allowSync;
 
     /**
      *
      * @var string $art
      */
-    #[\JMS\Serializer\Annotation\SerializedName('art')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('art')]
     public string $art;
 
     /**
      *
      * @var string $composite
      */
-    #[\JMS\Serializer\Annotation\SerializedName('composite')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('composite')]
     public string $composite;
 
     /**
      *
      * @var bool $filters
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filters')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filters')]
     public bool $filters;
 
     /**
      *
      * @var bool $refreshing
      */
-    #[\JMS\Serializer\Annotation\SerializedName('refreshing')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('refreshing')]
     public bool $refreshing;
 
     /**
      *
      * @var string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
     public string $thumb;
 
     /**
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
      *
      * @var string $agent
      */
-    #[\JMS\Serializer\Annotation\SerializedName('agent')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('agent')]
     public string $agent;
 
     /**
      *
      * @var string $scanner
      */
-    #[\JMS\Serializer\Annotation\SerializedName('scanner')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scanner')]
     public string $scanner;
 
     /**
      *
      * @var string $language
      */
-    #[\JMS\Serializer\Annotation\SerializedName('language')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
     public string $language;
 
     /**
      *
      * @var string $uuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('uuid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
     public string $uuid;
 
     /**
@@ -107,7 +107,7 @@ class GetAllLibrariesDirectory
      *
      * @var int $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
     public int $updatedAt;
 
     /**
@@ -115,7 +115,7 @@ class GetAllLibrariesDirectory
      *
      * @var int $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAt')]
     public int $createdAt;
 
     /**
@@ -123,21 +123,21 @@ class GetAllLibrariesDirectory
      *
      * @var int $scannedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('scannedAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scannedAt')]
     public int $scannedAt;
 
     /**
      *
      * @var bool $content
      */
-    #[\JMS\Serializer\Annotation\SerializedName('content')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('content')]
     public bool $content;
 
     /**
      *
      * @var bool $directory
      */
-    #[\JMS\Serializer\Annotation\SerializedName('directory')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('directory')]
     public bool $directory;
 
     /**
@@ -145,14 +145,14 @@ class GetAllLibrariesDirectory
      *
      * @var int $contentChangedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('contentChangedAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('contentChangedAt')]
     public int $contentChangedAt;
 
     /**
      *
      * @var int $hidden
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hidden')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hidden')]
     public int $hidden;
 
     /**
@@ -160,8 +160,8 @@ class GetAllLibrariesDirectory
      *
      * @var array<GetAllLibrariesLocation> $location
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Location')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesLocation>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Location')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesLocation>')]
     public array $location;
 
     /**

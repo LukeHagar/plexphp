@@ -15,40 +15,40 @@ class GetMetadataChildrenDirectory
      *
      * @var ?int $leafCount
      */
-    #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('leafCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCount = null;
 
     /**
      *
      * @var ?string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
      *
      * @var ?int $viewedLeafCount
      */
-    #[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('viewedLeafCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $viewedLeafCount = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**

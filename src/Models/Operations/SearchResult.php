@@ -15,15 +15,15 @@ class SearchResult
      *
      * @var float $score
      */
-    #[\JMS\Serializer\Annotation\SerializedName('score')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('score')]
     public float $score;
 
     /**
      *
      * @var GetSearchAllLibrariesMetadata $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesMetadata')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesMetadata')]
     public GetSearchAllLibrariesMetadata $metadata;
 
     /**

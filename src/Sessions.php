@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Sessions
 {
@@ -17,7 +17,7 @@ class Sessions
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -30,8 +30,8 @@ class Sessions
      * @return Operations\GetSessionsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getSessions(
-    ): Operations\GetSessionsResponse {
+    public function getSessions(): Operations\GetSessionsResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/status/sessions');
         $options = ['http_errors' => false];
@@ -95,12 +95,8 @@ class Sessions
      * @return Operations\GetSessionHistoryResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getSessionHistory(
-        ?string $sort = null,
-        ?int $accountId = null,
-        ?Operations\QueryParamFilter $filter = null,
-        ?int $librarySectionID = null,
-    ): Operations\GetSessionHistoryResponse {
+    public function getSessionHistory(?string $sort = null, ?int $accountId = null, ?Operations\QueryParamFilter $filter = null, ?int $librarySectionID = null): Operations\GetSessionHistoryResponse
+    {
         $request = new Operations\GetSessionHistoryRequest(
             sort: $sort,
             accountId: $accountId,
@@ -167,8 +163,8 @@ class Sessions
      * @return Operations\GetTranscodeSessionsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getTranscodeSessions(
-    ): Operations\GetTranscodeSessionsResponse {
+    public function getTranscodeSessions(): Operations\GetTranscodeSessionsResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/transcode/sessions');
         $options = ['http_errors' => false];
@@ -229,9 +225,8 @@ class Sessions
      * @return Operations\StopTranscodeSessionResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function stopTranscodeSession(
-        string $sessionKey,
-    ): Operations\StopTranscodeSessionResponse {
+    public function stopTranscodeSession(string $sessionKey): Operations\StopTranscodeSessionResponse
+    {
         $request = new Operations\StopTranscodeSessionRequest(
             sessionKey: $sessionKey,
         );

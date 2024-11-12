@@ -110,10 +110,10 @@ class QueryParameters
 
                     if (is_array($val) && array_is_list($val)) {
                         foreach ($val as $item) {
-                            $items[] = valToString($item, $dateTimeFormat);
+                            $items[] = valToString($item, ['dateTimeFormat' => $dateTimeFormat]);
                         }
                     } else {
-                        $queryParams[$metadata->name.'['.$fieldMetaData->name.']'] = valToString($val, $dateTimeFormat);
+                        $queryParams[$metadata->name.'['.$fieldMetaData->name.']'] = valToString($val, ['dateTimeFormat' => $dateTimeFormat]);
                     }
 
                     if (count($items) > 0) {
@@ -132,10 +132,10 @@ class QueryParameters
 
                         if (is_array($val) && array_is_list($val)) {
                             foreach ($val as $item) {
-                                $items[] = valToString($item, $dateTimeFormat);
+                                $items[] = valToString($item, ['dateTimeFormat' => $dateTimeFormat]);
                             }
                         } else {
-                            $queryParams[$metadata->name.'['.$key.']'] = valToString($val, $dateTimeFormat);
+                            $queryParams[$metadata->name.'['.$key.']'] = valToString($val, ['dateTimeFormat' => $dateTimeFormat]);
                         }
 
                         if (count($items) > 0) {
@@ -178,9 +178,9 @@ class QueryParameters
                     $dateTimeFormat = $fieldMetaData->dateTimeFormat;
 
                     if ($metadata->explode) {
-                        $queryParams[$fieldMetaData->name] = valToString($val, $dateTimeFormat);
+                        $queryParams[$fieldMetaData->name] = valToString($val, ['dateTimeFormat' => $dateTimeFormat]);
                     } else {
-                        $items[] = $fieldMetaData->name.$delimiter.valToString($val, $dateTimeFormat);
+                        $items[] = $fieldMetaData->name.$delimiter.valToString($val, ['dateTimeFormat' => $dateTimeFormat]);
                     }
                 }
 
@@ -195,9 +195,9 @@ class QueryParameters
 
                     foreach ($value as $item) {
                         if ($metadata->explode) {
-                            $values[] = valToString($item, $dateTimeFormat);
+                            $values[] = valToString($item, ['dateTimeFormat' => $dateTimeFormat]);
                         } else {
-                            $items[] = valToString($item, $dateTimeFormat);
+                            $items[] = valToString($item, ['dateTimeFormat' => $dateTimeFormat]);
                         }
                     }
 
@@ -215,9 +215,9 @@ class QueryParameters
                         }
 
                         if ($metadata->explode) {
-                            $queryParams[$key] = valToString($val, $dateTimeFormat);
+                            $queryParams[$key] = valToString($val, ['dateTimeFormat' => $dateTimeFormat]);
                         } else {
-                            $items[] = $key.$delimiter.valToString($val, $dateTimeFormat);
+                            $items[] = $key.$delimiter.valToString($val, ['dateTimeFormat' => $dateTimeFormat]);
                         }
                     }
 
@@ -227,7 +227,7 @@ class QueryParameters
                 }
                 break;
             default:
-                $queryParams[$metadata->name] = valToString($value, $dateTimeFormat);
+                $queryParams[$metadata->name] = valToString($value, ['dateTimeFormat' => $dateTimeFormat]);
         }
 
         return $this->buildQueryString($queryParams);

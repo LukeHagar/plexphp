@@ -15,192 +15,192 @@ class TranscodeSession
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?bool $throttled
      */
-    #[\JMS\Serializer\Annotation\SerializedName('throttled')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('throttled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $throttled = null;
 
     /**
      *
      * @var ?bool $complete
      */
-    #[\JMS\Serializer\Annotation\SerializedName('complete')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('complete')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $complete = null;
 
     /**
      *
      * @var ?float $progress
      */
-    #[\JMS\Serializer\Annotation\SerializedName('progress')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('progress')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $progress = null;
 
     /**
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?float $speed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('speed')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('speed')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $speed = null;
 
     /**
      *
      * @var ?bool $error
      */
-    #[\JMS\Serializer\Annotation\SerializedName('error')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('error')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $error = null;
 
     /**
      *
      * @var ?int $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
      *
      * @var ?int $remaining
      */
-    #[\JMS\Serializer\Annotation\SerializedName('remaining')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remaining')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $remaining = null;
 
     /**
      *
      * @var ?string $context
      */
-    #[\JMS\Serializer\Annotation\SerializedName('context')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('context')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $context = null;
 
     /**
      *
      * @var ?string $sourceVideoCodec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sourceVideoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sourceVideoCodec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceVideoCodec = null;
 
     /**
      *
      * @var ?string $sourceAudioCodec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sourceAudioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sourceAudioCodec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $sourceAudioCodec = null;
 
     /**
      *
      * @var ?string $videoDecision
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoDecision')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoDecision')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $videoDecision = null;
 
     /**
      *
      * @var ?string $audioDecision
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioDecision')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioDecision')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $audioDecision = null;
 
     /**
      *
      * @var ?string $subtitleDecision
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subtitleDecision')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subtitleDecision')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subtitleDecision = null;
 
     /**
      *
      * @var ?string $protocol
      */
-    #[\JMS\Serializer\Annotation\SerializedName('protocol')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('protocol')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $protocol = null;
 
     /**
      *
      * @var ?string $container
      */
-    #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
      *
      * @var ?string $videoCodec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoCodec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $videoCodec = null;
 
     /**
      *
      * @var ?string $audioCodec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioCodec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $audioCodec = null;
 
     /**
      *
      * @var ?int $audioChannels
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioChannels')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $audioChannels = null;
 
     /**
      *
      * @var ?bool $transcodeHwRequested
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcodeHwRequested')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcodeHwRequested')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcodeHwRequested = null;
 
     /**
      *
      * @var ?float $timeStamp
      */
-    #[\JMS\Serializer\Annotation\SerializedName('timeStamp')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('timeStamp')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $timeStamp = null;
 
     /**
      *
      * @var ?float $maxOffsetAvailable
      */
-    #[\JMS\Serializer\Annotation\SerializedName('maxOffsetAvailable')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('maxOffsetAvailable')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $maxOffsetAvailable = null;
 
     /**
      *
      * @var ?float $minOffsetAvailable
      */
-    #[\JMS\Serializer\Annotation\SerializedName('minOffsetAvailable')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('minOffsetAvailable')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $minOffsetAvailable = null;
 
     /**

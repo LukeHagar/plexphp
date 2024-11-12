@@ -15,35 +15,35 @@ class ResponseBody
      *
      * @var string $identifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
     public string $identifier;
 
     /**
      *
      * @var string $baseURL
      */
-    #[\JMS\Serializer\Annotation\SerializedName('baseURL')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('baseURL')]
     public string $baseURL;
 
     /**
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
      *
      * @var string $linkURL
      */
-    #[\JMS\Serializer\Annotation\SerializedName('linkURL')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('linkURL')]
     public string $linkURL;
 
     /**
      *
      * @var string $provides
      */
-    #[\JMS\Serializer\Annotation\SerializedName('provides')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('provides')]
     public string $provides;
 
     /**
@@ -51,7 +51,7 @@ class ResponseBody
      *
      * @var string $token
      */
-    #[\JMS\Serializer\Annotation\SerializedName('token')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
     public string $token;
 
     /**

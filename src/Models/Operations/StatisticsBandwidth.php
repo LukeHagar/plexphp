@@ -15,48 +15,48 @@ class StatisticsBandwidth
      *
      * @var ?int $accountID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('accountID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accountID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $accountID = null;
 
     /**
      *
      * @var ?int $deviceID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('deviceID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('deviceID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $deviceID = null;
 
     /**
      *
      * @var ?int $timespan
      */
-    #[\JMS\Serializer\Annotation\SerializedName('timespan')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('timespan')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $timespan = null;
 
     /**
      *
      * @var ?int $at
      */
-    #[\JMS\Serializer\Annotation\SerializedName('at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $at = null;
 
     /**
      *
      * @var ?bool $lan
      */
-    #[\JMS\Serializer\Annotation\SerializedName('lan')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lan')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $lan = null;
 
     /**
      *
      * @var ?int $bytes
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bytes')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bytes')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $bytes = null;
 
     /**

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Video
 {
@@ -17,7 +17,7 @@ class Video
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -31,9 +31,8 @@ class Video
      * @return Operations\GetTimelineResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getTimeline(
-        ?Operations\GetTimelineRequest $request,
-    ): Operations\GetTimelineResponse {
+    public function getTimeline(Operations\GetTimelineRequest $request): Operations\GetTimelineResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/:/timeline');
         $options = ['http_errors' => false];
@@ -87,9 +86,8 @@ class Video
      * @return Operations\StartUniversalTranscodeResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function startUniversalTranscode(
-        ?Operations\StartUniversalTranscodeRequest $request,
-    ): Operations\StartUniversalTranscodeResponse {
+    public function startUniversalTranscode(Operations\StartUniversalTranscodeRequest $request): Operations\StartUniversalTranscodeResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/video/:/transcode/universal/start.mpd');
         $options = ['http_errors' => false];

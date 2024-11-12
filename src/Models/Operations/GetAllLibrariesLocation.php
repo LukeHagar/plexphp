@@ -15,14 +15,14 @@ class GetAllLibrariesLocation
      *
      * @var int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public int $id;
 
     /**
      *
      * @var string $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('path')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
     public string $path;
 
     /**

@@ -15,80 +15,80 @@ class Hub
      *
      * @var ?string $hubKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hubKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hubKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $hubKey = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
      *
      * @var ?string $hubIdentifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hubIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hubIdentifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $hubIdentifier = null;
 
     /**
      *
      * @var ?string $context
      */
-    #[\JMS\Serializer\Annotation\SerializedName('context')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('context')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $context = null;
 
     /**
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?bool $more
      */
-    #[\JMS\Serializer\Annotation\SerializedName('more')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('more')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $more = null;
 
     /**
      *
      * @var ?string $style
      */
-    #[\JMS\Serializer\Annotation\SerializedName('style')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('style')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $style = null;
 
     /**
      *
      * @var ?bool $promoted
      */
-    #[\JMS\Serializer\Annotation\SerializedName('promoted')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('promoted')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $promoted = null;
 
     /**
@@ -96,9 +96,9 @@ class Hub
      *
      * @var ?array<GetGlobalHubsMetadata> $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

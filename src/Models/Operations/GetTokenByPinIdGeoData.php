@@ -17,7 +17,7 @@ class GetTokenByPinIdGeoData
      *
      * @var string $code
      */
-    #[\JMS\Serializer\Annotation\SerializedName('code')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('code')]
     public string $code;
 
     /**
@@ -25,7 +25,7 @@ class GetTokenByPinIdGeoData
      *
      * @var string $continentCode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('continent_code')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('continent_code')]
     public string $continentCode;
 
     /**
@@ -33,7 +33,7 @@ class GetTokenByPinIdGeoData
      *
      * @var string $country
      */
-    #[\JMS\Serializer\Annotation\SerializedName('country')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('country')]
     public string $country;
 
     /**
@@ -41,23 +41,24 @@ class GetTokenByPinIdGeoData
      *
      * @var string $city
      */
-    #[\JMS\Serializer\Annotation\SerializedName('city')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('city')]
     public string $city;
 
     /**
      * Indicates if the country is a member of the European Union.
      *
-     * @var bool $europeanUnionMember
+     * @var ?bool $europeanUnionMember
      */
-    #[\JMS\Serializer\Annotation\SerializedName('european_union_member')]
-    public bool $europeanUnionMember;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('european_union_member')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $europeanUnionMember = null;
 
     /**
      * The time zone of the country.
      *
      * @var string $timeZone
      */
-    #[\JMS\Serializer\Annotation\SerializedName('time_zone')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('time_zone')]
     public string $timeZone;
 
     /**
@@ -65,31 +66,33 @@ class GetTokenByPinIdGeoData
      *
      * @var string $postalCode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('postal_code')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('postal_code')]
     public string $postalCode;
 
     /**
      * Indicates if the country has privacy restrictions.
      *
-     * @var bool $inPrivacyRestrictedCountry
+     * @var ?bool $inPrivacyRestrictedCountry
      */
-    #[\JMS\Serializer\Annotation\SerializedName('in_privacy_restricted_country')]
-    public bool $inPrivacyRestrictedCountry;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('in_privacy_restricted_country')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $inPrivacyRestrictedCountry = null;
 
     /**
      * Indicates if the region has privacy restrictions.
      *
-     * @var bool $inPrivacyRestrictedRegion
+     * @var ?bool $inPrivacyRestrictedRegion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('in_privacy_restricted_region')]
-    public bool $inPrivacyRestrictedRegion;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('in_privacy_restricted_region')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $inPrivacyRestrictedRegion = null;
 
     /**
      * The name of the primary administrative subdivision.
      *
      * @var string $subdivisions
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subdivisions')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subdivisions')]
     public string $subdivisions;
 
     /**
@@ -97,7 +100,7 @@ class GetTokenByPinIdGeoData
      *
      * @var string $coordinates
      */
-    #[\JMS\Serializer\Annotation\SerializedName('coordinates')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('coordinates')]
     public string $coordinates;
 
     /**
@@ -105,26 +108,26 @@ class GetTokenByPinIdGeoData
      * @param  string  $continentCode
      * @param  string  $country
      * @param  string  $city
-     * @param  bool  $europeanUnionMember
      * @param  string  $timeZone
      * @param  string  $postalCode
-     * @param  bool  $inPrivacyRestrictedCountry
-     * @param  bool  $inPrivacyRestrictedRegion
      * @param  string  $subdivisions
      * @param  string  $coordinates
+     * @param  ?bool  $europeanUnionMember
+     * @param  ?bool  $inPrivacyRestrictedCountry
+     * @param  ?bool  $inPrivacyRestrictedRegion
      */
-    public function __construct(string $code, string $continentCode, string $country, string $city, bool $europeanUnionMember, string $timeZone, string $postalCode, bool $inPrivacyRestrictedCountry, bool $inPrivacyRestrictedRegion, string $subdivisions, string $coordinates)
+    public function __construct(string $code, string $continentCode, string $country, string $city, string $timeZone, string $postalCode, string $subdivisions, string $coordinates, ?bool $europeanUnionMember = false, ?bool $inPrivacyRestrictedCountry = false, ?bool $inPrivacyRestrictedRegion = false)
     {
         $this->code = $code;
         $this->continentCode = $continentCode;
         $this->country = $country;
         $this->city = $city;
-        $this->europeanUnionMember = $europeanUnionMember;
         $this->timeZone = $timeZone;
         $this->postalCode = $postalCode;
-        $this->inPrivacyRestrictedCountry = $inPrivacyRestrictedCountry;
-        $this->inPrivacyRestrictedRegion = $inPrivacyRestrictedRegion;
         $this->subdivisions = $subdivisions;
         $this->coordinates = $coordinates;
+        $this->europeanUnionMember = $europeanUnionMember;
+        $this->inPrivacyRestrictedCountry = $inPrivacyRestrictedCountry;
+        $this->inPrivacyRestrictedRegion = $inPrivacyRestrictedRegion;
     }
 }

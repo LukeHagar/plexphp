@@ -243,11 +243,11 @@ By default an API error will raise a `Errors\SDKException` exception, which has 
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `getServerCapabilities` method throws the following exceptions:
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Errors\GetServerCapabilitiesBadRequest   | 400                                      | application/json                         |
-| Errors\GetServerCapabilitiesUnauthorized | 401                                      | application/json                         |
-| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                               | Status Code | Content Type     |
+| ---------------------------------------- | ----------- | ---------------- |
+| Errors\GetServerCapabilitiesBadRequest   | 400         | application/json |
+| Errors\GetServerCapabilitiesUnauthorized | 401         | application/json |
+| Errors\SDKException                      | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -292,29 +292,44 @@ try {
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
+### Server Variables
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `{protocol}://{ip}:{port}` | `protocol` (default is `https`), `ip` (default is `10.10.10.47`), `port` (default is `32400`) |
-
-
-
-#### Variables
-
-Some of the server options above contain variables. If you want to set the values of those variables, the following optional parameters are available when initializing the SDK client instance:
- * `protocol: Plex_API\ServerProtocol`
- * `ip: string`
- * `port: string`
+The default server `{protocol}://{ip}:{port}` contains variables and is set to `https://10.10.10.47:32400` by default. To override default values, the following builder methods are available when initializing the SDK client instance:
+ * `setProtocol(Plex_API\ServerProtocol protocol)`
+ * `setIp(string ip)`
+ * `setPort(string port)`
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally using the `setServerUrl(string $serverUrl)` builder method when initializing the SDK client instance. For example:
+```php
+declare(strict_types=1);
 
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setServerURL("https://10.10.10.47:32400")
+    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
+    ->setClientName('Plex for Roku')
+    ->setClientVersion('2.4.1')
+    ->setPlatform('Roku')
+    ->setDeviceNickname('Roku 3')
+    ->setSecurity($security)->build();
+
+
+
+$response = $sdk->server->getServerCapabilities(
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
 
 ### Override Server URL Per-Operation
 

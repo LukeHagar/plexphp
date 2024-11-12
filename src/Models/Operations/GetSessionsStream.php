@@ -15,160 +15,160 @@ class GetSessionsStream
      *
      * @var ?string $albumGain
      */
-    #[\JMS\Serializer\Annotation\SerializedName('albumGain')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('albumGain')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $albumGain = null;
 
     /**
      *
      * @var ?string $albumPeak
      */
-    #[\JMS\Serializer\Annotation\SerializedName('albumPeak')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('albumPeak')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $albumPeak = null;
 
     /**
      *
      * @var ?string $albumRange
      */
-    #[\JMS\Serializer\Annotation\SerializedName('albumRange')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('albumRange')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $albumRange = null;
 
     /**
      *
      * @var ?string $audioChannelLayout
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioChannelLayout')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioChannelLayout')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $audioChannelLayout = null;
 
     /**
      *
      * @var ?int $bitDepth
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bitDepth')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $bitDepth = null;
 
     /**
      *
      * @var ?int $bitrate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bitrate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $bitrate = null;
 
     /**
      *
      * @var ?int $channels
      */
-    #[\JMS\Serializer\Annotation\SerializedName('channels')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('channels')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $channels = null;
 
     /**
      *
      * @var ?string $codec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('codec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('codec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $codec = null;
 
     /**
      *
      * @var ?string $displayTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('displayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $displayTitle = null;
 
     /**
      *
      * @var ?string $extendedDisplayTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $extendedDisplayTitle = null;
 
     /**
      *
      * @var ?string $gain
      */
-    #[\JMS\Serializer\Annotation\SerializedName('gain')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('gain')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $gain = null;
 
     /**
      *
      * @var ?string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
      *
      * @var ?int $index
      */
-    #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
      *
      * @var ?string $loudness
      */
-    #[\JMS\Serializer\Annotation\SerializedName('loudness')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('loudness')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $loudness = null;
 
     /**
      *
      * @var ?string $lra
      */
-    #[\JMS\Serializer\Annotation\SerializedName('lra')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lra')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $lra = null;
 
     /**
      *
      * @var ?string $peak
      */
-    #[\JMS\Serializer\Annotation\SerializedName('peak')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('peak')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $peak = null;
 
     /**
      *
      * @var ?int $samplingRate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('samplingRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('samplingRate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $samplingRate = null;
 
     /**
      *
      * @var ?bool $selected
      */
-    #[\JMS\Serializer\Annotation\SerializedName('selected')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('selected')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $selected = null;
 
     /**
      *
      * @var ?int $streamType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('streamType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('streamType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $streamType = null;
 
     /**
      *
      * @var ?string $location
      */
-    #[\JMS\Serializer\Annotation\SerializedName('location')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('location')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $location = null;
 
     /**

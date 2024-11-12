@@ -16,9 +16,9 @@ class GetGlobalHubsResponseBody
      *
      * @var ?GetGlobalHubsMediaContainer $mediaContainer
      */
-    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsMediaContainer|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetGlobalHubsMediaContainer|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?GetGlobalHubsMediaContainer $mediaContainer = null;
 
     /**

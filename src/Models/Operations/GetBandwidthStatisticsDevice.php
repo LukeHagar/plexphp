@@ -15,40 +15,40 @@ class GetBandwidthStatisticsDevice
      *
      * @var ?int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
      *
      * @var ?string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
      *
      * @var ?string $platform
      */
-    #[\JMS\Serializer\Annotation\SerializedName('platform')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $platform = null;
 
     /**
      *
      * @var ?string $clientIdentifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('clientIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('clientIdentifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $clientIdentifier = null;
 
     /**
      *
      * @var ?int $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $createdAt = null;
 
     /**

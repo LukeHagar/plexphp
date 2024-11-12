@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Media
 {
@@ -17,7 +17,7 @@ class Media
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -31,9 +31,8 @@ class Media
      * @return Operations\MarkPlayedResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function markPlayed(
-        float $key,
-    ): Operations\MarkPlayedResponse {
+    public function markPlayed(float $key): Operations\MarkPlayedResponse
+    {
         $request = new Operations\MarkPlayedRequest(
             key: $key,
         );
@@ -90,9 +89,8 @@ class Media
      * @return Operations\MarkUnplayedResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function markUnplayed(
-        float $key,
-    ): Operations\MarkUnplayedResponse {
+    public function markUnplayed(float $key): Operations\MarkUnplayedResponse
+    {
         $request = new Operations\MarkUnplayedRequest(
             key: $key,
         );
@@ -152,11 +150,8 @@ class Media
      * @return Operations\UpdatePlayProgressResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function updatePlayProgress(
-        string $key,
-        float $time,
-        string $state,
-    ): Operations\UpdatePlayProgressResponse {
+    public function updatePlayProgress(string $key, float $time, string $state): Operations\UpdatePlayProgressResponse
+    {
         $request = new Operations\UpdatePlayProgressRequest(
             key: $key,
             time: $time,
@@ -215,9 +210,8 @@ class Media
      * @return Operations\GetBannerImageResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getBannerImage(
-        ?Operations\GetBannerImageRequest $request,
-    ): Operations\GetBannerImageResponse {
+    public function getBannerImage(Operations\GetBannerImageRequest $request): Operations\GetBannerImageResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}/banner', Operations\GetBannerImageRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -282,9 +276,8 @@ class Media
      * @return Operations\GetThumbImageResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getThumbImage(
-        ?Operations\GetThumbImageRequest $request,
-    ): Operations\GetThumbImageResponse {
+    public function getThumbImage(Operations\GetThumbImageRequest $request): Operations\GetThumbImageResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/metadata/{ratingKey}/thumb', Operations\GetThumbImageRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];

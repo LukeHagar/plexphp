@@ -15,80 +15,80 @@ class Setting
      *
      * @var ?string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
      *
      * @var ?string $label
      */
-    #[\JMS\Serializer\Annotation\SerializedName('label')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('label')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $label = null;
 
     /**
      *
      * @var ?string $summary
      */
-    #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
      *
      * @var ?bool $default
      */
-    #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('default')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $default = null;
 
     /**
      *
      * @var ?bool $value
      */
-    #[\JMS\Serializer\Annotation\SerializedName('value')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $value = null;
 
     /**
      *
      * @var ?bool $hidden
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hidden')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hidden')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $hidden = null;
 
     /**
      *
      * @var ?bool $advanced
      */
-    #[\JMS\Serializer\Annotation\SerializedName('advanced')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('advanced')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $advanced = null;
 
     /**
      *
      * @var ?string $group
      */
-    #[\JMS\Serializer\Annotation\SerializedName('group')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('group')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $group = null;
 
     /**
      *
      * @var ?string $enumValues
      */
-    #[\JMS\Serializer\Annotation\SerializedName('enumValues')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('enumValues')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $enumValues = null;
 
     /**

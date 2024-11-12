@@ -16,8 +16,8 @@ class GetSearchAllLibrariesResponseBody
      *
      * @var GetSearchAllLibrariesMediaContainer $mediaContainer
      */
-    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesMediaContainer')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesMediaContainer')]
     public GetSearchAllLibrariesMediaContainer $mediaContainer;
 
     /**

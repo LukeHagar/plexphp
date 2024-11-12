@@ -17,21 +17,21 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var ?bool $adsConsent
      */
-    #[\JMS\Serializer\Annotation\SerializedName('adsConsent')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('adsConsent')]
     public ?bool $adsConsent;
 
     /**
      *
      * @var ?int $adsConsentReminderAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('adsConsentReminderAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('adsConsentReminderAt')]
     public ?int $adsConsentReminderAt;
 
     /**
      *
      * @var ?int $adsConsentSetAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('adsConsentSetAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('adsConsentSetAt')]
     public ?int $adsConsentSetAt;
 
     /**
@@ -39,39 +39,42 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var ?bool $anonymous
      */
-    #[\JMS\Serializer\Annotation\SerializedName('anonymous')]
-    public ?bool $anonymous;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('anonymous')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $anonymous = null;
 
     /**
      * The account token
      *
      * @var string $authToken
      */
-    #[\JMS\Serializer\Annotation\SerializedName('authToken')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authToken')]
     public string $authToken;
 
     /**
      * If the two-factor authentication backup codes have been created
      *
-     * @var bool $backupCodesCreated
+     * @var ?bool $backupCodesCreated
      */
-    #[\JMS\Serializer\Annotation\SerializedName('backupCodesCreated')]
-    public bool $backupCodesCreated;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('backupCodesCreated')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $backupCodesCreated = null;
 
     /**
      * If the account has been confirmed
      *
-     * @var bool $confirmed
+     * @var ?bool $confirmed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('confirmed')]
-    public bool $confirmed;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('confirmed')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $confirmed = null;
 
     /**
      * The account country
      *
      * @var string $country
      */
-    #[\JMS\Serializer\Annotation\SerializedName('country')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('country')]
     public string $country;
 
     /**
@@ -79,31 +82,33 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var string $email
      */
-    #[\JMS\Serializer\Annotation\SerializedName('email')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
     public string $email;
 
     /**
      * If login with email only is enabled
      *
-     * @var bool $emailOnlyAuth
+     * @var ?bool $emailOnlyAuth
      */
-    #[\JMS\Serializer\Annotation\SerializedName('emailOnlyAuth')]
-    public bool $emailOnlyAuth;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('emailOnlyAuth')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $emailOnlyAuth = null;
 
     /**
      * If experimental features are enabled
      *
-     * @var bool $experimentalFeatures
+     * @var ?bool $experimentalFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('experimentalFeatures')]
-    public bool $experimentalFeatures;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('experimentalFeatures')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $experimentalFeatures = null;
 
     /**
      * Your account full name
      *
      * @var string $friendlyName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('friendlyName')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('friendlyName')]
     public string $friendlyName;
 
     /**
@@ -111,48 +116,52 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var array<string> $entitlements
      */
-    #[\JMS\Serializer\Annotation\SerializedName('entitlements')]
-    #[\JMS\Serializer\Annotation\Type('array<string>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('entitlements')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
     public array $entitlements;
 
     /**
      * If the account is a Plex Home guest user
      *
-     * @var bool $guest
+     * @var ?bool $guest
      */
-    #[\JMS\Serializer\Annotation\SerializedName('guest')]
-    public bool $guest;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('guest')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $guest = null;
 
     /**
      * If the account has a password
      *
-     * @var bool $hasPassword
+     * @var ?bool $hasPassword
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hasPassword')]
-    public bool $hasPassword;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasPassword')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $hasPassword = null;
 
     /**
      * If the account is a Plex Home user
      *
-     * @var bool $home
+     * @var ?bool $home
      */
-    #[\JMS\Serializer\Annotation\SerializedName('home')]
-    public bool $home;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('home')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $home = null;
 
     /**
      * If the account is the Plex Home admin
      *
-     * @var bool $homeAdmin
+     * @var ?bool $homeAdmin
      */
-    #[\JMS\Serializer\Annotation\SerializedName('homeAdmin')]
-    public bool $homeAdmin;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('homeAdmin')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $homeAdmin = null;
 
     /**
      * The number of accounts in the Plex Home
      *
      * @var int $homeSize
      */
-    #[\JMS\Serializer\Annotation\SerializedName('homeSize')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('homeSize')]
     public int $homeSize;
 
     /**
@@ -160,7 +169,7 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public int $id;
 
     /**
@@ -168,7 +177,7 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var int $joinedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('joinedAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('joinedAt')]
     public int $joinedAt;
 
     /**
@@ -176,24 +185,25 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var ?string $locale
      */
-    #[\JMS\Serializer\Annotation\SerializedName('locale')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('locale')]
     public ?string $locale;
 
     /**
      * If you are subscribed to the Plex newsletter
      *
-     * @var bool $mailingListActive
+     * @var ?bool $mailingListActive
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mailingListActive')]
-    public bool $mailingListActive;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mailingListActive')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $mailingListActive = null;
 
     /**
      * Your current mailing list status (active or unsubscribed)
      *
      * @var MailingListStatus $mailingListStatus
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mailingListStatus')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MailingListStatus')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mailingListStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MailingListStatus')]
     public MailingListStatus $mailingListStatus;
 
     /**
@@ -201,7 +211,7 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var int $maxHomeSize
      */
-    #[\JMS\Serializer\Annotation\SerializedName('maxHomeSize')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('maxHomeSize')]
     public int $maxHomeSize;
 
     /**
@@ -210,50 +220,52 @@ class GetTokenDetailsUserPlexAccount
      * @var ?string $pin
      * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    #[\JMS\Serializer\Annotation\SerializedName('pin')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pin')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $pin = null;
 
     /**
      *
      * @var UserProfile $profile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('profile')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\UserProfile')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\UserProfile')]
     public UserProfile $profile;
 
     /**
      * If the account has a Plex Home PIN enabled
      *
-     * @var bool $protected
+     * @var ?bool $protected
      */
-    #[\JMS\Serializer\Annotation\SerializedName('protected')]
-    public bool $protected;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('protected')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $protected = null;
 
     /**
      * Unix epoch datetime in seconds
      *
      * @var int $rememberExpiresAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('rememberExpiresAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('rememberExpiresAt')]
     public int $rememberExpiresAt;
 
     /**
      * If the account is a Plex Home managed user
      *
-     * @var bool $restricted
+     * @var ?bool $restricted
      */
-    #[\JMS\Serializer\Annotation\SerializedName('restricted')]
-    public bool $restricted;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('restricted')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $restricted = null;
 
     /**
      * [Might be removed] List of account roles. Plexpass membership listed here
      *
      * @var ?array<string> $roles
      */
-    #[\JMS\Serializer\Annotation\SerializedName('roles')]
-    #[\JMS\Serializer\Annotation\Type('array<string>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('roles')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $roles = null;
 
     /**
@@ -261,7 +273,7 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var string $scrobbleTypes
      */
-    #[\JMS\Serializer\Annotation\SerializedName('scrobbleTypes')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scrobbleTypes')]
     public string $scrobbleTypes;
 
     /**
@@ -269,8 +281,8 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var array<Services> $services
      */
-    #[\JMS\Serializer\Annotation\SerializedName('services')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Services>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('services')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Services>')]
     public array $services;
 
     /**
@@ -278,8 +290,8 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var Subscription $subscription
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscription')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Subscription')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscription')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Subscription')]
     public Subscription $subscription;
 
     /**
@@ -287,7 +299,7 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var ?string $subscriptionDescription
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscriptionDescription')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptionDescription')]
     public ?string $subscriptionDescription;
 
     /**
@@ -295,8 +307,8 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var array<GetTokenDetailsSubscription> $subscriptions
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subscriptions')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsSubscription>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptions')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsSubscription>')]
     public array $subscriptions;
 
     /**
@@ -304,7 +316,7 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
     public string $thumb;
 
     /**
@@ -312,23 +324,24 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
      * If two-factor authentication is enabled
      *
-     * @var bool $twoFactorEnabled
+     * @var ?bool $twoFactorEnabled
      */
-    #[\JMS\Serializer\Annotation\SerializedName('twoFactorEnabled')]
-    public bool $twoFactorEnabled;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('twoFactorEnabled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $twoFactorEnabled = null;
 
     /**
      * The account username
      *
      * @var string $username
      */
-    #[\JMS\Serializer\Annotation\SerializedName('username')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('username')]
     public string $username;
 
     /**
@@ -336,101 +349,101 @@ class GetTokenDetailsUserPlexAccount
      *
      * @var string $uuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('uuid')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
     public string $uuid;
 
     /**
      *
      * @var ?string $attributionPartner
      */
-    #[\JMS\Serializer\Annotation\SerializedName('attributionPartner')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('attributionPartner')]
     public ?string $attributionPartner;
 
     /**
      * @param  string  $authToken
-     * @param  bool  $backupCodesCreated
-     * @param  bool  $confirmed
      * @param  string  $country
      * @param  string  $email
-     * @param  bool  $emailOnlyAuth
-     * @param  bool  $experimentalFeatures
      * @param  string  $friendlyName
      * @param  array<string>  $entitlements
-     * @param  bool  $guest
-     * @param  bool  $hasPassword
-     * @param  bool  $home
-     * @param  bool  $homeAdmin
      * @param  int  $homeSize
      * @param  int  $id
      * @param  int  $joinedAt
-     * @param  bool  $mailingListActive
      * @param  MailingListStatus  $mailingListStatus
      * @param  int  $maxHomeSize
      * @param  UserProfile  $profile
-     * @param  bool  $protected
      * @param  int  $rememberExpiresAt
-     * @param  bool  $restricted
      * @param  string  $scrobbleTypes
      * @param  array<Services>  $services
      * @param  Subscription  $subscription
      * @param  array<GetTokenDetailsSubscription>  $subscriptions
      * @param  string  $thumb
      * @param  string  $title
-     * @param  bool  $twoFactorEnabled
      * @param  string  $username
      * @param  string  $uuid
      * @param  ?bool  $adsConsent
      * @param  ?int  $adsConsentReminderAt
      * @param  ?int  $adsConsentSetAt
-     * @param  ?bool  $anonymous
+     * @param  ?bool  $backupCodesCreated
+     * @param  ?bool  $confirmed
+     * @param  ?bool  $emailOnlyAuth
+     * @param  ?bool  $experimentalFeatures
+     * @param  ?bool  $guest
+     * @param  ?bool  $hasPassword
+     * @param  ?bool  $home
+     * @param  ?bool  $homeAdmin
      * @param  ?string  $locale
+     * @param  ?bool  $mailingListActive
      * @param  ?string  $pin
+     * @param  ?bool  $protected
+     * @param  ?bool  $restricted
      * @param  ?array<string>  $roles
      * @param  ?string  $subscriptionDescription
+     * @param  ?bool  $twoFactorEnabled
      * @param  ?string  $attributionPartner
+     * @param  ?bool  $anonymous
      */
-    public function __construct(string $authToken, bool $backupCodesCreated, bool $confirmed, string $country, string $email, bool $emailOnlyAuth, bool $experimentalFeatures, string $friendlyName, array $entitlements, bool $guest, bool $hasPassword, bool $home, bool $homeAdmin, int $homeSize, int $id, int $joinedAt, bool $mailingListActive, MailingListStatus $mailingListStatus, int $maxHomeSize, UserProfile $profile, bool $protected, int $rememberExpiresAt, bool $restricted, string $scrobbleTypes, array $services, Subscription $subscription, array $subscriptions, string $thumb, string $title, bool $twoFactorEnabled, string $username, string $uuid, ?bool $adsConsent = null, ?int $adsConsentReminderAt = null, ?int $adsConsentSetAt = null, ?bool $anonymous = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?string $attributionPartner = null)
+    public function __construct(string $authToken, string $country, string $email, string $friendlyName, array $entitlements, int $homeSize, int $id, int $joinedAt, MailingListStatus $mailingListStatus, int $maxHomeSize, UserProfile $profile, int $rememberExpiresAt, string $scrobbleTypes, array $services, Subscription $subscription, array $subscriptions, string $thumb, string $title, string $username, string $uuid, ?bool $adsConsent = null, ?int $adsConsentReminderAt = null, ?int $adsConsentSetAt = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?string $attributionPartner = null, ?bool $backupCodesCreated = false, ?bool $confirmed = false, ?bool $emailOnlyAuth = false, ?bool $experimentalFeatures = false, ?bool $guest = false, ?bool $hasPassword = true, ?bool $home = false, ?bool $homeAdmin = false, ?bool $mailingListActive = false, ?bool $protected = false, ?bool $restricted = false, ?bool $twoFactorEnabled = false, ?bool $anonymous = false)
     {
         $this->authToken = $authToken;
-        $this->backupCodesCreated = $backupCodesCreated;
-        $this->confirmed = $confirmed;
         $this->country = $country;
         $this->email = $email;
-        $this->emailOnlyAuth = $emailOnlyAuth;
-        $this->experimentalFeatures = $experimentalFeatures;
         $this->friendlyName = $friendlyName;
         $this->entitlements = $entitlements;
-        $this->guest = $guest;
-        $this->hasPassword = $hasPassword;
-        $this->home = $home;
-        $this->homeAdmin = $homeAdmin;
         $this->homeSize = $homeSize;
         $this->id = $id;
         $this->joinedAt = $joinedAt;
-        $this->mailingListActive = $mailingListActive;
         $this->mailingListStatus = $mailingListStatus;
         $this->maxHomeSize = $maxHomeSize;
         $this->profile = $profile;
-        $this->protected = $protected;
         $this->rememberExpiresAt = $rememberExpiresAt;
-        $this->restricted = $restricted;
         $this->scrobbleTypes = $scrobbleTypes;
         $this->services = $services;
         $this->subscription = $subscription;
         $this->subscriptions = $subscriptions;
         $this->thumb = $thumb;
         $this->title = $title;
-        $this->twoFactorEnabled = $twoFactorEnabled;
         $this->username = $username;
         $this->uuid = $uuid;
         $this->adsConsent = $adsConsent;
         $this->adsConsentReminderAt = $adsConsentReminderAt;
         $this->adsConsentSetAt = $adsConsentSetAt;
-        $this->anonymous = $anonymous;
+        $this->backupCodesCreated = $backupCodesCreated;
+        $this->confirmed = $confirmed;
+        $this->emailOnlyAuth = $emailOnlyAuth;
+        $this->experimentalFeatures = $experimentalFeatures;
+        $this->guest = $guest;
+        $this->hasPassword = $hasPassword;
+        $this->home = $home;
+        $this->homeAdmin = $homeAdmin;
         $this->locale = $locale;
+        $this->mailingListActive = $mailingListActive;
         $this->pin = $pin;
+        $this->protected = $protected;
+        $this->restricted = $restricted;
         $this->roles = $roles;
         $this->subscriptionDescription = $subscriptionDescription;
+        $this->twoFactorEnabled = $twoFactorEnabled;
         $this->attributionPartner = $attributionPartner;
+        $this->anonymous = $anonymous;
     }
 }

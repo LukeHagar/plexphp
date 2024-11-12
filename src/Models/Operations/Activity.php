@@ -15,65 +15,65 @@ class Activity
      *
      * @var ?string $uuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $uuid = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
      *
      * @var ?bool $cancellable
      */
-    #[\JMS\Serializer\Annotation\SerializedName('cancellable')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('cancellable')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $cancellable = null;
 
     /**
      *
      * @var ?float $userID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('userID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('userID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $userID = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $subtitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subtitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subtitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subtitle = null;
 
     /**
      *
      * @var ?float $progress
      */
-    #[\JMS\Serializer\Annotation\SerializedName('progress')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('progress')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $progress = null;
 
     /**
      *
      * @var ?Context $context
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Context')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Context|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Context')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Context|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Context $context = null;
 
     /**

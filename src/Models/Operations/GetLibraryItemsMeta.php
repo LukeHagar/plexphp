@@ -21,9 +21,9 @@ class GetLibraryItemsMeta
      *
      * @var ?array<GetLibraryItemsLibraryResponseType> $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Type')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryResponseType>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Type')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryResponseType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $type = null;
 
     /**
@@ -31,9 +31,9 @@ class GetLibraryItemsMeta
      *
      * @var ?array<GetLibraryItemsLibraryFieldType> $fieldType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('FieldType')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryFieldType>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('FieldType')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryFieldType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $fieldType = null;
 
     /**

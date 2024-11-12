@@ -15,22 +15,22 @@ class GetLibraryItemsImage
      *
      * @var string $alt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('alt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('alt')]
     public string $alt;
 
     /**
      *
      * @var GetLibraryItemsLibraryResponse200Type $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryResponse200Type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryResponse200Type')]
     public GetLibraryItemsLibraryResponse200Type $type;
 
     /**
      *
      * @var string $url
      */
-    #[\JMS\Serializer\Annotation\SerializedName('url')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('url')]
     public string $url;
 
     /**

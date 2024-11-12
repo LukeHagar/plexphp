@@ -15,32 +15,32 @@ class MediaProvider
      *
      * @var ?string $identifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $types
      */
-    #[\JMS\Serializer\Annotation\SerializedName('types')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('types')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $types = null;
 
     /**
      *
      * @var ?string $protocols
      */
-    #[\JMS\Serializer\Annotation\SerializedName('protocols')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('protocols')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $protocols = null;
 
     /**
@@ -48,9 +48,9 @@ class MediaProvider
      *
      * @var ?array<Feature> $feature
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Feature')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Feature>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Feature')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Feature>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $feature = null;
 
     /**

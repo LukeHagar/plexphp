@@ -15,184 +15,184 @@ class GetOnDeckStream
      *
      * @var ?float $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $id = null;
 
     /**
      *
      * @var ?float $streamType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('streamType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('streamType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $streamType = null;
 
     /**
      *
      * @var ?bool $default
      */
-    #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('default')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $default = null;
 
     /**
      *
      * @var ?string $codec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('codec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('codec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $codec = null;
 
     /**
      *
      * @var ?float $index
      */
-    #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $index = null;
 
     /**
      *
      * @var ?float $bitrate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bitrate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $bitrate = null;
 
     /**
      *
      * @var ?string $language
      */
-    #[\JMS\Serializer\Annotation\SerializedName('language')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $language = null;
 
     /**
      *
      * @var ?string $languageTag
      */
-    #[\JMS\Serializer\Annotation\SerializedName('languageTag')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('languageTag')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $languageTag = null;
 
     /**
      *
      * @var ?string $languageCode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('languageCode')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('languageCode')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $languageCode = null;
 
     /**
      *
      * @var ?float $bitDepth
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bitDepth')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bitDepth')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $bitDepth = null;
 
     /**
      *
      * @var ?string $chromaLocation
      */
-    #[\JMS\Serializer\Annotation\SerializedName('chromaLocation')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('chromaLocation')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $chromaLocation = null;
 
     /**
      *
      * @var ?string $chromaSubsampling
      */
-    #[\JMS\Serializer\Annotation\SerializedName('chromaSubsampling')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('chromaSubsampling')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $chromaSubsampling = null;
 
     /**
      *
      * @var ?float $codedHeight
      */
-    #[\JMS\Serializer\Annotation\SerializedName('codedHeight')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('codedHeight')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $codedHeight = null;
 
     /**
      *
      * @var ?float $codedWidth
      */
-    #[\JMS\Serializer\Annotation\SerializedName('codedWidth')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('codedWidth')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $codedWidth = null;
 
     /**
      *
      * @var ?string $colorRange
      */
-    #[\JMS\Serializer\Annotation\SerializedName('colorRange')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('colorRange')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $colorRange = null;
 
     /**
      *
      * @var ?float $frameRate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('frameRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('frameRate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $frameRate = null;
 
     /**
      *
      * @var ?float $height
      */
-    #[\JMS\Serializer\Annotation\SerializedName('height')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('height')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $height = null;
 
     /**
      *
      * @var ?float $level
      */
-    #[\JMS\Serializer\Annotation\SerializedName('level')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('level')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $level = null;
 
     /**
      *
      * @var ?string $profile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('profile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $profile = null;
 
     /**
      *
      * @var ?float $refFrames
      */
-    #[\JMS\Serializer\Annotation\SerializedName('refFrames')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('refFrames')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $refFrames = null;
 
     /**
      *
      * @var ?float $width
      */
-    #[\JMS\Serializer\Annotation\SerializedName('width')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('width')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $width = null;
 
     /**
      *
      * @var ?string $displayTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('displayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('displayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $displayTitle = null;
 
     /**
      *
      * @var ?string $extendedDisplayTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $extendedDisplayTitle = null;
 
     /**

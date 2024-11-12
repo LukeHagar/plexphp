@@ -16,9 +16,9 @@ class GetButlerTasksResponseBody
      *
      * @var ?ButlerTasks $butlerTasks
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ButlerTasks')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ButlerTasks|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ButlerTasks')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ButlerTasks|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?ButlerTasks $butlerTasks = null;
 
     /**

@@ -15,70 +15,70 @@ class PlexDevice
      *
      * @var string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
     public string $name;
 
     /**
      *
      * @var string $product
      */
-    #[\JMS\Serializer\Annotation\SerializedName('product')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('product')]
     public string $product;
 
     /**
      *
      * @var string $productVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('productVersion')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('productVersion')]
     public string $productVersion;
 
     /**
      *
      * @var ?string $platform
      */
-    #[\JMS\Serializer\Annotation\SerializedName('platform')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
     public ?string $platform;
 
     /**
      *
      * @var ?string $platformVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platformVersion')]
     public ?string $platformVersion;
 
     /**
      *
      * @var ?string $device
      */
-    #[\JMS\Serializer\Annotation\SerializedName('device')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('device')]
     public ?string $device;
 
     /**
      *
      * @var string $clientIdentifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('clientIdentifier')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('clientIdentifier')]
     public string $clientIdentifier;
 
     /**
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAt')]
     public \DateTime $createdAt;
 
     /**
      *
      * @var \DateTime $lastSeenAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('lastSeenAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lastSeenAt')]
     public \DateTime $lastSeenAt;
 
     /**
      *
      * @var string $provides
      */
-    #[\JMS\Serializer\Annotation\SerializedName('provides')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('provides')]
     public string $provides;
 
     /**
@@ -86,91 +86,91 @@ class PlexDevice
      *
      * @var ?int $ownerId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ownerId')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ownerId')]
     public ?int $ownerId;
 
     /**
      *
      * @var ?string $sourceTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sourceTitle')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sourceTitle')]
     public ?string $sourceTitle;
 
     /**
      *
      * @var string $publicAddress
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publicAddress')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publicAddress')]
     public string $publicAddress;
 
     /**
      *
      * @var string $accessToken
      */
-    #[\JMS\Serializer\Annotation\SerializedName('accessToken')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accessToken')]
     public string $accessToken;
 
     /**
      *
      * @var bool $owned
      */
-    #[\JMS\Serializer\Annotation\SerializedName('owned')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('owned')]
     public bool $owned;
 
     /**
      *
      * @var bool $home
      */
-    #[\JMS\Serializer\Annotation\SerializedName('home')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('home')]
     public bool $home;
 
     /**
      *
      * @var bool $synced
      */
-    #[\JMS\Serializer\Annotation\SerializedName('synced')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('synced')]
     public bool $synced;
 
     /**
      *
      * @var bool $relay
      */
-    #[\JMS\Serializer\Annotation\SerializedName('relay')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('relay')]
     public bool $relay;
 
     /**
      *
      * @var bool $presence
      */
-    #[\JMS\Serializer\Annotation\SerializedName('presence')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('presence')]
     public bool $presence;
 
     /**
      *
      * @var bool $httpsRequired
      */
-    #[\JMS\Serializer\Annotation\SerializedName('httpsRequired')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('httpsRequired')]
     public bool $httpsRequired;
 
     /**
      *
      * @var bool $publicAddressMatches
      */
-    #[\JMS\Serializer\Annotation\SerializedName('publicAddressMatches')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('publicAddressMatches')]
     public bool $publicAddressMatches;
 
     /**
      *
      * @var bool $dnsRebindingProtection
      */
-    #[\JMS\Serializer\Annotation\SerializedName('dnsRebindingProtection')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('dnsRebindingProtection')]
     public bool $dnsRebindingProtection;
 
     /**
      *
      * @var bool $natLoopbackSupported
      */
-    #[\JMS\Serializer\Annotation\SerializedName('natLoopbackSupported')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('natLoopbackSupported')]
     public bool $natLoopbackSupported;
 
     /**
@@ -178,8 +178,8 @@ class PlexDevice
      *
      * @var array<Connections> $connections
      */
-    #[\JMS\Serializer\Annotation\SerializedName('connections')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Connections>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('connections')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Connections>')]
     public array $connections;
 
     /**

@@ -15,120 +15,120 @@ class GetRecentlyAddedLibraryMedia
      *
      * @var ?float $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $id = null;
 
     /**
      *
      * @var ?float $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $duration = null;
 
     /**
      *
      * @var ?float $bitrate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bitrate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $bitrate = null;
 
     /**
      *
      * @var ?float $width
      */
-    #[\JMS\Serializer\Annotation\SerializedName('width')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('width')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $width = null;
 
     /**
      *
      * @var ?float $height
      */
-    #[\JMS\Serializer\Annotation\SerializedName('height')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('height')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $height = null;
 
     /**
      *
      * @var ?float $aspectRatio
      */
-    #[\JMS\Serializer\Annotation\SerializedName('aspectRatio')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('aspectRatio')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $aspectRatio = null;
 
     /**
      *
      * @var ?float $audioChannels
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioChannels')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $audioChannels = null;
 
     /**
      *
      * @var ?string $audioCodec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioCodec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $audioCodec = null;
 
     /**
      *
      * @var ?string $videoCodec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoCodec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $videoCodec = null;
 
     /**
      *
      * @var ?float $videoResolution
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoResolution')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoResolution')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $videoResolution = null;
 
     /**
      *
      * @var ?string $container
      */
-    #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
      *
      * @var ?string $videoFrameRate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoFrameRate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoFrameRate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $videoFrameRate = null;
 
     /**
      *
      * @var ?float $optimizedForStreaming
      */
-    #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $optimizedForStreaming = null;
 
     /**
      *
      * @var ?bool $has64bitOffsets
      */
-    #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('has64bitOffsets')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $has64bitOffsets = null;
 
     /**
      *
      * @var ?string $videoProfile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $videoProfile = null;
 
     /**
@@ -136,9 +136,9 @@ class GetRecentlyAddedLibraryMedia
      *
      * @var ?array<GetRecentlyAddedLibraryPart> $part
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Part')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedLibraryPart>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedLibraryPart>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $part = null;
 
     /**

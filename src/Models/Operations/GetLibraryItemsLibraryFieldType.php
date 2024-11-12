@@ -15,7 +15,7 @@ class GetLibraryItemsLibraryFieldType
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**
@@ -23,8 +23,8 @@ class GetLibraryItemsLibraryFieldType
      *
      * @var array<GetLibraryItemsLibraryOperator> $operator
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Operator')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryOperator>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Operator')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryOperator>')]
     public array $operator;
 
     /**

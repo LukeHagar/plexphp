@@ -15,32 +15,32 @@ class GetSearchResultsMediaContainer
      *
      * @var ?float $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
      *
      * @var ?string $identifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
      *
      * @var ?string $mediaTagPrefix
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagPrefix')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagPrefix')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $mediaTagPrefix = null;
 
     /**
      *
      * @var ?float $mediaTagVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaTagVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $mediaTagVersion = null;
 
     /**
@@ -48,9 +48,9 @@ class GetSearchResultsMediaContainer
      *
      * @var ?array<GetSearchResultsMetadata> $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchResultsMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**
@@ -58,9 +58,9 @@ class GetSearchResultsMediaContainer
      *
      * @var ?array<Provider> $provider
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Provider')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Provider>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Provider')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Provider>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $provider = null;
 
     /**

@@ -16,9 +16,9 @@ class GetAvailableClientsResponseBody
      *
      * @var ?GetAvailableClientsMediaContainer $mediaContainer
      */
-    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetAvailableClientsMediaContainer|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetAvailableClientsMediaContainer|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?GetAvailableClientsMediaContainer $mediaContainer = null;
 
     /**

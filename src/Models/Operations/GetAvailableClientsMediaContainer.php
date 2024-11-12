@@ -15,8 +15,8 @@ class GetAvailableClientsMediaContainer
      *
      * @var ?float $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $size = null;
 
     /**
@@ -24,9 +24,9 @@ class GetAvailableClientsMediaContainer
      *
      * @var ?array<Server> $server
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Server')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Server>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Server')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Server>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $server = null;
 
     /**

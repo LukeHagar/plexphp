@@ -15,120 +15,120 @@ class Player
      *
      * @var ?string $address
      */
-    #[\JMS\Serializer\Annotation\SerializedName('address')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $address = null;
 
     /**
      *
      * @var ?string $machineIdentifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('machineIdentifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
      *
      * @var ?string $model
      */
-    #[\JMS\Serializer\Annotation\SerializedName('model')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('model')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $model = null;
 
     /**
      *
      * @var ?string $platform
      */
-    #[\JMS\Serializer\Annotation\SerializedName('platform')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $platform = null;
 
     /**
      *
      * @var ?string $platformVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platformVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $platformVersion = null;
 
     /**
      *
      * @var ?string $product
      */
-    #[\JMS\Serializer\Annotation\SerializedName('product')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('product')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $product = null;
 
     /**
      *
      * @var ?string $profile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('profile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $profile = null;
 
     /**
      *
      * @var ?string $remotePublicAddress
      */
-    #[\JMS\Serializer\Annotation\SerializedName('remotePublicAddress')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('remotePublicAddress')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $remotePublicAddress = null;
 
     /**
      *
      * @var ?string $state
      */
-    #[\JMS\Serializer\Annotation\SerializedName('state')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $state = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $version
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
      *
      * @var ?bool $local
      */
-    #[\JMS\Serializer\Annotation\SerializedName('local')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('local')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $local = null;
 
     /**
      *
      * @var ?bool $relayed
      */
-    #[\JMS\Serializer\Annotation\SerializedName('relayed')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('relayed')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $relayed = null;
 
     /**
      *
      * @var ?bool $secure
      */
-    #[\JMS\Serializer\Annotation\SerializedName('secure')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('secure')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $secure = null;
 
     /**
      *
      * @var ?int $userID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('userID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('userID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $userID = null;
 
     /**

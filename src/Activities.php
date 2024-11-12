@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Activities
 {
@@ -17,7 +17,7 @@ class Activities
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -30,8 +30,8 @@ class Activities
      * @return Operations\GetServerActivitiesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getServerActivities(
-    ): Operations\GetServerActivitiesResponse {
+    public function getServerActivities(): Operations\GetServerActivitiesResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/activities');
         $options = ['http_errors' => false];
@@ -92,9 +92,8 @@ class Activities
      * @return Operations\CancelServerActivitiesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function cancelServerActivities(
-        string $activityUUID,
-    ): Operations\CancelServerActivitiesResponse {
+    public function cancelServerActivities(string $activityUUID): Operations\CancelServerActivitiesResponse
+    {
         $request = new Operations\CancelServerActivitiesRequest(
             activityUUID: $activityUUID,
         );

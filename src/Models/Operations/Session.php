@@ -15,24 +15,24 @@ class Session
      *
      * @var ?string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
      *
      * @var ?int $bandwidth
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bandwidth')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bandwidth')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $bandwidth = null;
 
     /**
      *
      * @var ?string $location
      */
-    #[\JMS\Serializer\Annotation\SerializedName('location')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('location')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $location = null;
 
     /**

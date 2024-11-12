@@ -16,9 +16,9 @@ class ButlerTasks
      *
      * @var ?array<ButlerTask> $butlerTask
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ButlerTask')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\ButlerTask>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ButlerTask')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\ButlerTask>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $butlerTask = null;
 
     /**

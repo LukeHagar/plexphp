@@ -68,17 +68,17 @@ class Headers
                     }
 
                     if ($metadata->explode) {
-                        $items[] = $fieldMetadata->name.'='.valToString($fieldValue, $fieldMetadata->dateTimeFormat);
+                        $items[] = $fieldMetadata->name.'='.valToString($fieldValue, ['dateTimeFormat' => $fieldMetadata->dateTimeFormat]);
                     } else {
                         $items[] = $fieldMetadata->name;
-                        $items[] = valToString($fieldValue, $fieldMetadata->dateTimeFormat);
+                        $items[] = valToString($fieldValue, ['dateTimeFormat' => $fieldMetadata->dateTimeFormat]);
                     }
                 }
 
                 return implode(',', $items);
             case 'array':
                 if (array_is_list($value)) {
-                    return implode(',', array_map(fn ($v) => valToString($v), $value));
+                    return implode(',', array_map(fn ($v) => valToString($v, []), $value));
                 } else {
                     $items = [];
 
@@ -88,17 +88,17 @@ class Headers
                         }
 
                         if ($metadata->explode) {
-                            $items[] = $field.'='.valToString($fieldValue);
+                            $items[] = $field.'='.valToString($fieldValue, []);
                         } else {
                             $items[] = $field;
-                            $items[] = valToString($fieldValue);
+                            $items[] = valToString($fieldValue, []);
                         }
                     }
 
                     return implode(',', $items);
                 }
             default:
-                return valToString($value);
+                return valToString($value, []);
         }
     }
 

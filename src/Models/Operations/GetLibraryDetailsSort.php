@@ -15,48 +15,48 @@ class GetLibraryDetailsSort
      *
      * @var ?string $default
      */
-    #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('default')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $default = null;
 
     /**
      *
      * @var ?string $defaultDirection
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultDirection')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultDirection')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultDirection = null;
 
     /**
      *
      * @var ?string $descKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('descKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('descKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $descKey = null;
 
     /**
      *
      * @var ?string $firstCharacterKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('firstCharacterKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('firstCharacterKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $firstCharacterKey = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**

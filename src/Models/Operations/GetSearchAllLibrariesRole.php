@@ -16,8 +16,8 @@ class GetSearchAllLibrariesRole
      *
      * @var ?int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
@@ -25,8 +25,8 @@ class GetSearchAllLibrariesRole
      *
      * @var ?string $filter
      */
-    #[\JMS\Serializer\Annotation\SerializedName('filter')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $filter = null;
 
     /**
@@ -34,8 +34,8 @@ class GetSearchAllLibrariesRole
      *
      * @var ?string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
@@ -43,8 +43,8 @@ class GetSearchAllLibrariesRole
      *
      * @var ?string $tag
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tag')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $tag = null;
 
     /**
@@ -52,8 +52,8 @@ class GetSearchAllLibrariesRole
      *
      * @var ?string $tagKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tagKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $tagKey = null;
 
     /**
@@ -61,8 +61,8 @@ class GetSearchAllLibrariesRole
      *
      * @var ?string $role
      */
-    #[\JMS\Serializer\Annotation\SerializedName('role')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('role')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $role = null;
 
     /**

@@ -15,28 +15,28 @@ class GetLibraryItemsUltraBlurColors
      *
      * @var string $topLeft
      */
-    #[\JMS\Serializer\Annotation\SerializedName('topLeft')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('topLeft')]
     public string $topLeft;
 
     /**
      *
      * @var string $topRight
      */
-    #[\JMS\Serializer\Annotation\SerializedName('topRight')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('topRight')]
     public string $topRight;
 
     /**
      *
      * @var string $bottomRight
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bottomRight')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bottomRight')]
     public string $bottomRight;
 
     /**
      *
      * @var string $bottomLeft
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bottomLeft')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bottomLeft')]
     public string $bottomLeft;
 
     /**

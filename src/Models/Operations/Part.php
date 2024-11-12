@@ -15,36 +15,36 @@ class Part
      *
      * @var int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public int $id;
 
     /**
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
      *
      * @var ?int $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
      *
      * @var string $file
      */
-    #[\JMS\Serializer\Annotation\SerializedName('file')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
     public string $file;
 
     /**
      *
      * @var int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
     public int $size;
 
     /**
@@ -54,56 +54,56 @@ class Part
      *
      * @var string $container
      */
-    #[\JMS\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
     public string $container;
 
     /**
      *
      * @var ?string $audioProfile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $audioProfile = null;
 
     /**
      *
      * @var ?bool $has64bitOffsets
      */
-    #[\JMS\Serializer\Annotation\SerializedName('has64bitOffsets')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('has64bitOffsets')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $has64bitOffsets = null;
 
     /**
      *
      * @var ?bool $optimizedForStreaming
      */
-    #[\JMS\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $optimizedForStreaming = null;
 
     /**
      *
      * @var ?string $videoProfile
      */
-    #[\JMS\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $videoProfile = null;
 
     /**
      *
      * @var ?string $indexes
      */
-    #[\JMS\Serializer\Annotation\SerializedName('indexes')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('indexes')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $indexes = null;
 
     /**
      *
      * @var ?HasThumbnail $hasThumbnail
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\HasThumbnail|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\HasThumbnail|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?HasThumbnail $hasThumbnail = null;
 
     /**
@@ -111,9 +111,9 @@ class Part
      *
      * @var ?array<Stream> $stream
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Stream')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Stream>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Stream')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Stream>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $stream = null;
 
     /**
@@ -131,7 +131,7 @@ class Part
      * @param  ?HasThumbnail  $hasThumbnail
      * @param  ?array<Stream>  $stream
      */
-    public function __construct(int $id, string $key, string $file, int $size, string $container, ?int $duration = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null, ?string $indexes = null, ?HasThumbnail $hasThumbnail = null, ?array $stream = null)
+    public function __construct(int $id, string $key, string $file, int $size, string $container, ?int $duration = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null, ?string $indexes = null, ?array $stream = null, ?HasThumbnail $hasThumbnail = HasThumbnail::False)
     {
         $this->id = $id;
         $this->key = $key;

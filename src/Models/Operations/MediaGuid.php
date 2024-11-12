@@ -19,7 +19,7 @@ class MediaGuid
      *
      * @var string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public string $id;
 
     /**

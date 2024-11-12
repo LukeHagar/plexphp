@@ -98,7 +98,7 @@ class GetLibraryItemsRequest
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      */
-    public function __construct(Tag $tag, int $sectionKey, ?IncludeGuids $includeGuids = null, ?GetLibraryItemsQueryParamType $type = null, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
+    public function __construct(Tag $tag, int $sectionKey, ?GetLibraryItemsQueryParamType $type = null, ?IncludeGuids $includeGuids = IncludeGuids::Disable, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = GetLibraryItemsQueryParamIncludeMeta::Disable, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {
         $this->tag = $tag;
         $this->sectionKey = $sectionKey;

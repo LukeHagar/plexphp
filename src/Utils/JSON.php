@@ -9,17 +9,17 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Utils;
 
 
-use JMS\Serializer\Handler\ArrayCollectionHandler;
-use JMS\Serializer\Handler\HandlerRegistry;
-use JMS\Serializer\Handler\IteratorHandler;
-use JMS\Serializer\Handler\StdClassHandler;
-use JMS\Serializer\SerializationContext;
-use JMS\Serializer\SerializerBuilder;
+use Speakeasy\Serializer\Handler\ArrayCollectionHandler;
+use Speakeasy\Serializer\Handler\HandlerRegistry;
+use Speakeasy\Serializer\Handler\IteratorHandler;
+use Speakeasy\Serializer\Handler\StdClassHandler;
+use Speakeasy\Serializer\SerializationContext;
+use Speakeasy\Serializer\SerializerBuilder;
 
 
 class JSON
 {
-    public static function createSerializer(): \JMS\Serializer\Serializer
+    public static function createSerializer(): \Speakeasy\Serializer\Serializer
     {
         return SerializerBuilder::create()->configureHandlers(
             static function (HandlerRegistry $registry): void {
@@ -31,6 +31,8 @@ class JSON
                 $registry->registerSubscribingHandler(new DateTimeHandler());
                 $registry->registerSubscribingHandler(new DateHandler());
                 $registry->registerSubscribingHandler(new UnionHandler());
+                $registry->registerSubscribingHandler(new BigIntHandler());
+                $registry->registerSubscribingHandler(new BigDecimalHandler());
             },
         )->setTypeParser(new PhpDocTypeParser()
         )->setSerializationContextFactory(function () {

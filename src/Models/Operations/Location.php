@@ -15,8 +15,8 @@ class Location
      *
      * @var ?string $path
      */
-    #[\JMS\Serializer\Annotation\SerializedName('path')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $path = null;
 
     /**

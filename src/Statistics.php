@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Statistics
 {
@@ -17,7 +17,7 @@ class Statistics
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -31,9 +31,8 @@ class Statistics
      * @return Operations\GetStatisticsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getStatistics(
-        ?int $timespan = null,
-    ): Operations\GetStatisticsResponse {
+    public function getStatistics(?int $timespan = null): Operations\GetStatisticsResponse
+    {
         $request = new Operations\GetStatisticsRequest(
             timespan: $timespan,
         );
@@ -98,9 +97,8 @@ class Statistics
      * @return Operations\GetResourcesStatisticsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getResourcesStatistics(
-        ?int $timespan = null,
-    ): Operations\GetResourcesStatisticsResponse {
+    public function getResourcesStatistics(?int $timespan = null): Operations\GetResourcesStatisticsResponse
+    {
         $request = new Operations\GetResourcesStatisticsRequest(
             timespan: $timespan,
         );
@@ -165,9 +163,8 @@ class Statistics
      * @return Operations\GetBandwidthStatisticsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getBandwidthStatistics(
-        ?int $timespan = null,
-    ): Operations\GetBandwidthStatisticsResponse {
+    public function getBandwidthStatistics(?int $timespan = null): Operations\GetBandwidthStatisticsResponse
+    {
         $request = new Operations\GetBandwidthStatisticsRequest(
             timespan: $timespan,
         );

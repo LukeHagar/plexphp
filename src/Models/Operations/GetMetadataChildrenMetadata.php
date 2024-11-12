@@ -15,216 +15,216 @@ class GetMetadataChildrenMetadata
      *
      * @var ?string $ratingKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ratingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ratingKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ratingKey = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $parentRatingKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentRatingKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentRatingKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentRatingKey = null;
 
     /**
      *
      * @var ?string $guid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('guid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('guid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $guid = null;
 
     /**
      *
      * @var ?string $parentGuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentGuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentGuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentGuid = null;
 
     /**
      *
      * @var ?string $parentStudio
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentStudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentStudio')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentStudio = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $parentKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentKey = null;
 
     /**
      *
      * @var ?string $parentTitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentTitle')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTitle = null;
 
     /**
      *
      * @var ?string $summary
      */
-    #[\JMS\Serializer\Annotation\SerializedName('summary')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $summary = null;
 
     /**
      *
      * @var ?int $index
      */
-    #[\JMS\Serializer\Annotation\SerializedName('index')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $index = null;
 
     /**
      *
      * @var ?int $parentIndex
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentIndex')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentIndex')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $parentIndex = null;
 
     /**
      *
      * @var ?int $viewCount
      */
-    #[\JMS\Serializer\Annotation\SerializedName('viewCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('viewCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $viewCount = null;
 
     /**
      *
      * @var ?int $lastViewedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('lastViewedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lastViewedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $lastViewedAt = null;
 
     /**
      *
      * @var ?int $parentYear
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentYear')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentYear')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $parentYear = null;
 
     /**
      *
      * @var ?string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**
      *
      * @var ?string $art
      */
-    #[\JMS\Serializer\Annotation\SerializedName('art')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('art')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $art = null;
 
     /**
      *
      * @var ?string $parentThumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentThumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentThumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentThumb = null;
 
     /**
      *
      * @var ?string $parentTheme
      */
-    #[\JMS\Serializer\Annotation\SerializedName('parentTheme')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentTheme')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $parentTheme = null;
 
     /**
      *
      * @var ?int $leafCount
      */
-    #[\JMS\Serializer\Annotation\SerializedName('leafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('leafCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCount = null;
 
     /**
      *
      * @var ?int $viewedLeafCount
      */
-    #[\JMS\Serializer\Annotation\SerializedName('viewedLeafCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('viewedLeafCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $viewedLeafCount = null;
 
     /**
      *
      * @var ?int $addedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('addedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('addedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $addedAt = null;
 
     /**
      *
      * @var ?int $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**
      *
      * @var ?int $userRating
      */
-    #[\JMS\Serializer\Annotation\SerializedName('userRating')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('userRating')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $userRating = null;
 
     /**
      *
      * @var ?int $skipCount
      */
-    #[\JMS\Serializer\Annotation\SerializedName('skipCount')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('skipCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $skipCount = null;
 
     /**
      *
      * @var ?int $lastRatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('lastRatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lastRatedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $lastRatedAt = null;
 
     /**

@@ -15,36 +15,36 @@ class Services
      *
      * @var string $identifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
     public string $identifier;
 
     /**
      *
      * @var string $endpoint
      */
-    #[\JMS\Serializer\Annotation\SerializedName('endpoint')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('endpoint')]
     public string $endpoint;
 
     /**
      *
      * @var ?string $token
      */
-    #[\JMS\Serializer\Annotation\SerializedName('token')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
     public ?string $token;
 
     /**
      *
      * @var ?string $secret
      */
-    #[\JMS\Serializer\Annotation\SerializedName('secret')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('secret')]
     public ?string $secret;
 
     /**
      *
      * @var GetTokenDetailsStatus $status
      */
-    #[\JMS\Serializer\Annotation\SerializedName('status')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsStatus')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsStatus')]
     public GetTokenDetailsStatus $status;
 
     /**

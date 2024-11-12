@@ -71,7 +71,7 @@ class GetPinRequest
      * @param  ?string  $clientVersion
      * @param  ?string  $platform
      */
-    public function __construct(?bool $strong = null, ?string $clientID = null, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null)
+    public function __construct(?string $clientID = null, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null, ?bool $strong = false)
     {
         $this->strong = $strong;
         $this->clientID = $clientID;

@@ -15,39 +15,39 @@ class Feature
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**
      *
      * @var ?string $flavor
      */
-    #[\JMS\Serializer\Annotation\SerializedName('flavor')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('flavor')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $flavor = null;
 
     /**
      *
      * @var ?string $scrobbleKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('scrobbleKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scrobbleKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $scrobbleKey = null;
 
     /**
      *
      * @var ?string $unscrobbleKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('unscrobbleKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('unscrobbleKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $unscrobbleKey = null;
 
     /**
@@ -55,9 +55,9 @@ class Feature
      *
      * @var ?array<GetMediaProvidersDirectory> $directory
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Directory')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaProvidersDirectory>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Directory')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaProvidersDirectory>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $directory = null;
 
     /**
@@ -65,9 +65,9 @@ class Feature
      *
      * @var ?array<Action> $action
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Action')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Action>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Action')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Action>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $action = null;
 
     /**

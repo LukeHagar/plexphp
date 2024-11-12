@@ -15,104 +15,104 @@ class GetMediaProvidersDirectory
      *
      * @var ?string $hubKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hubKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hubKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $hubKey = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $agent
      */
-    #[\JMS\Serializer\Annotation\SerializedName('agent')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('agent')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $agent = null;
 
     /**
      *
      * @var ?string $language
      */
-    #[\JMS\Serializer\Annotation\SerializedName('language')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $language = null;
 
     /**
      *
      * @var ?bool $refreshing
      */
-    #[\JMS\Serializer\Annotation\SerializedName('refreshing')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('refreshing')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $refreshing = null;
 
     /**
      *
      * @var ?string $scanner
      */
-    #[\JMS\Serializer\Annotation\SerializedName('scanner')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scanner')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $scanner = null;
 
     /**
      *
      * @var ?string $uuid
      */
-    #[\JMS\Serializer\Annotation\SerializedName('uuid')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $uuid = null;
 
     /**
      *
      * @var ?string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
      *
      * @var ?string $subtype
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subtype')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subtype')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $subtype = null;
 
     /**
      *
      * @var ?int $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**
      *
      * @var ?int $scannedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('scannedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scannedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $scannedAt = null;
 
     /**
@@ -120,9 +120,9 @@ class GetMediaProvidersDirectory
      *
      * @var ?array<Pivot> $pivot
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Pivot')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Pivot>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Pivot')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Pivot>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $pivot = null;
 
     /**

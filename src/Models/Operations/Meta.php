@@ -21,9 +21,9 @@ class Meta
      *
      * @var ?array<GetRecentlyAddedType> $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Type')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedType>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Type')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $type = null;
 
     /**
@@ -31,9 +31,9 @@ class Meta
      *
      * @var ?array<GetRecentlyAddedFieldType> $fieldType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('FieldType')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedFieldType>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('FieldType')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedFieldType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $fieldType = null;
 
     /**

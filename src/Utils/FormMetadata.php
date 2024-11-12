@@ -16,6 +16,7 @@ class FormMetadata
         public string $style,
         public bool $explode,
         public string $dateTimeFormat,
+        public bool $serializeToString
     ) {
     }
 
@@ -32,6 +33,7 @@ class FormMetadata
         $style = 'form';
         $explode = true;
         $dateTimeFormat = '';
+        $serializeToString = false;
 
         $options = explode(',', $metadata);
 
@@ -47,6 +49,7 @@ class FormMetadata
                 'style' => $style = $parts[1],
                 'explode' => $explode = $parts[1] === 'true',
                 'dateTimeFormat' => $dateTimeFormat = $parts[1],
+                'serializeToString' => $serializeToString = $parts[1] === 'true',
                 default => throw new \RuntimeException('Invalid part'),
             };
         }
@@ -57,6 +60,7 @@ class FormMetadata
             style: $style,
             explode: $explode,
             dateTimeFormat: $dateTimeFormat,
+            serializeToString: $serializeToString
         );
     }
 }

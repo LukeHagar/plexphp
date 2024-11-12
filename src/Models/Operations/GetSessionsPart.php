@@ -15,72 +15,72 @@ class GetSessionsPart
      *
      * @var ?string $container
      */
-    #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
      *
      * @var ?int $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
      *
      * @var ?string $file
      */
-    #[\JMS\Serializer\Annotation\SerializedName('file')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $file = null;
 
     /**
      *
      * @var ?string $hasThumbnail
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $hasThumbnail = null;
 
     /**
      *
      * @var ?string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?string $decision
      */
-    #[\JMS\Serializer\Annotation\SerializedName('decision')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('decision')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $decision = null;
 
     /**
      *
      * @var ?bool $selected
      */
-    #[\JMS\Serializer\Annotation\SerializedName('selected')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('selected')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $selected = null;
 
     /**
@@ -88,9 +88,9 @@ class GetSessionsPart
      *
      * @var ?array<GetSessionsStream> $stream
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Stream')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsStream>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Stream')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsStream>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $stream = null;
 
     /**

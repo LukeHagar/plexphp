@@ -15,24 +15,24 @@ class Ratings
      *
      * @var ?string $image
      */
-    #[\JMS\Serializer\Annotation\SerializedName('image')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('image')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $image = null;
 
     /**
      *
      * @var ?float $value
      */
-    #[\JMS\Serializer\Annotation\SerializedName('value')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $value = null;
 
     /**
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**

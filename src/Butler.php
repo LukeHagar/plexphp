@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Butler
 {
@@ -17,7 +17,7 @@ class Butler
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -30,8 +30,8 @@ class Butler
      * @return Operations\GetButlerTasksResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getButlerTasks(
-    ): Operations\GetButlerTasksResponse {
+    public function getButlerTasks(): Operations\GetButlerTasksResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler');
         $options = ['http_errors' => false];
@@ -96,8 +96,8 @@ class Butler
      * @return Operations\StartAllTasksResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function startAllTasks(
-    ): Operations\StartAllTasksResponse {
+    public function startAllTasks(): Operations\StartAllTasksResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler');
         $options = ['http_errors' => false];
@@ -150,8 +150,8 @@ class Butler
      * @return Operations\StopAllTasksResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function stopAllTasks(
-    ): Operations\StopAllTasksResponse {
+    public function stopAllTasks(): Operations\StopAllTasksResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/butler');
         $options = ['http_errors' => false];
@@ -209,9 +209,8 @@ class Butler
      * @return Operations\StartTaskResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function startTask(
-        Operations\TaskName $taskName,
-    ): Operations\StartTaskResponse {
+    public function startTask(Operations\TaskName $taskName): Operations\StartTaskResponse
+    {
         $request = new Operations\StartTaskRequest(
             taskName: $taskName,
         );
@@ -268,9 +267,8 @@ class Butler
      * @return Operations\StopTaskResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function stopTask(
-        Operations\PathParamTaskName $taskName,
-    ): Operations\StopTaskResponse {
+    public function stopTask(Operations\PathParamTaskName $taskName): Operations\StopTaskResponse
+    {
         $request = new Operations\StopTaskRequest(
             taskName: $taskName,
         );

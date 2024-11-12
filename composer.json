@@ -8,17 +8,18 @@
   },
   "license": "MIT",
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
     "guzzlehttp/guzzle": "^7.0",
-    "speakeasy/serializer": "^3.40.0",
+    "speakeasy/serializer": "^4.0.0",
     "brick/date-time": "^0.7.0",
-    "phpdocumentor/type-resolver": "^1.8"
+    "phpdocumentor/type-resolver": "^1.8",
+    "brick/math": "^0.12.1"
   },
   "require-dev": {
     "laravel/pint": "^1.18.1",
-    "phpstan/phpstan": "^1.9",
+    "phpstan/phpstan": "^1.12",
     "phpunit/phpunit": "^10",
-    "rector/rector": "^0.18.13",
+    "rector/rector": "^0.19",
     "roave/security-advisories": "dev-latest"
   },
   "minimum-stability": "stable",

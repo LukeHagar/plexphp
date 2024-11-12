@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Library
 {
@@ -17,7 +17,7 @@ class Library
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -32,10 +32,8 @@ class Library
      * @return Operations\GetFileHashResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getFileHash(
-        string $url,
-        ?float $type = null,
-    ): Operations\GetFileHashResponse {
+    public function getFileHash(string $url, ?float $type = null): Operations\GetFileHashResponse
+    {
         $request = new Operations\GetFileHashRequest(
             url: $url,
             type: $type,
@@ -94,9 +92,8 @@ class Library
      * @return Operations\GetRecentlyAddedLibraryResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getRecentlyAddedLibrary(
-        ?Operations\GetRecentlyAddedLibraryRequest $request,
-    ): Operations\GetRecentlyAddedLibraryResponse {
+    public function getRecentlyAddedLibrary(Operations\GetRecentlyAddedLibraryRequest $request): Operations\GetRecentlyAddedLibraryResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/recentlyAdded');
         $options = ['http_errors' => false];
@@ -163,8 +160,8 @@ class Library
      * @return Operations\GetAllLibrariesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getAllLibraries(
-    ): Operations\GetAllLibrariesResponse {
+    public function getAllLibraries(): Operations\GetAllLibrariesResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/sections');
         $options = ['http_errors' => false];
@@ -265,10 +262,8 @@ class Library
      * @return Operations\GetLibraryDetailsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getLibraryDetails(
-        int $sectionKey,
-        ?Operations\IncludeDetails $includeDetails = null,
-    ): Operations\GetLibraryDetailsResponse {
+    public function getLibraryDetails(int $sectionKey, ?Operations\IncludeDetails $includeDetails = null): Operations\GetLibraryDetailsResponse
+    {
         $request = new Operations\GetLibraryDetailsRequest(
             sectionKey: $sectionKey,
             includeDetails: $includeDetails,
@@ -334,9 +329,8 @@ class Library
      * @return Operations\DeleteLibraryResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function deleteLibrary(
-        int $sectionKey,
-    ): Operations\DeleteLibraryResponse {
+    public function deleteLibrary(int $sectionKey): Operations\DeleteLibraryResponse
+    {
         $request = new Operations\DeleteLibraryRequest(
             sectionKey: $sectionKey,
         );
@@ -412,9 +406,8 @@ class Library
      * @return Operations\GetLibraryItemsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getLibraryItems(
-        ?Operations\GetLibraryItemsRequest $request,
-    ): Operations\GetLibraryItemsResponse {
+    public function getLibraryItems(Operations\GetLibraryItemsRequest $request): Operations\GetLibraryItemsResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/sections/{sectionKey}/{tag}', Operations\GetLibraryItemsRequest::class, $request, $this->sdkConfiguration->globals);
         $options = ['http_errors' => false];
@@ -478,10 +471,8 @@ class Library
      * @return Operations\GetRefreshLibraryMetadataResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getRefreshLibraryMetadata(
-        int $sectionKey,
-        ?Operations\Force $force = null,
-    ): Operations\GetRefreshLibraryMetadataResponse {
+    public function getRefreshLibraryMetadata(int $sectionKey, ?Operations\Force $force = null): Operations\GetRefreshLibraryMetadataResponse
+    {
         $request = new Operations\GetRefreshLibraryMetadataRequest(
             sectionKey: $sectionKey,
             force: $force,
@@ -558,10 +549,8 @@ class Library
      * @return Operations\GetSearchLibraryResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getSearchLibrary(
-        int $sectionKey,
-        Operations\GetSearchLibraryQueryParamType $type,
-    ): Operations\GetSearchLibraryResponse {
+    public function getSearchLibrary(int $sectionKey, Operations\GetSearchLibraryQueryParamType $type): Operations\GetSearchLibraryResponse
+    {
         $request = new Operations\GetSearchLibraryRequest(
             sectionKey: $sectionKey,
             type: $type,
@@ -628,9 +617,8 @@ class Library
      * @return Operations\GetSearchAllLibrariesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getSearchAllLibraries(
-        ?Operations\GetSearchAllLibrariesRequest $request,
-    ): Operations\GetSearchAllLibrariesResponse {
+    public function getSearchAllLibraries(Operations\GetSearchAllLibrariesRequest $request): Operations\GetSearchAllLibrariesResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/search');
         $options = ['http_errors' => false];
@@ -697,9 +685,8 @@ class Library
      * @return Operations\GetMetaDataByRatingKeyResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getMetaDataByRatingKey(
-        int $ratingKey,
-    ): Operations\GetMetaDataByRatingKeyResponse {
+    public function getMetaDataByRatingKey(int $ratingKey): Operations\GetMetaDataByRatingKeyResponse
+    {
         $request = new Operations\GetMetaDataByRatingKeyRequest(
             ratingKey: $ratingKey,
         );
@@ -765,10 +752,8 @@ class Library
      * @return Operations\GetMetadataChildrenResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getMetadataChildren(
-        float $ratingKey,
-        ?string $includeElements = null,
-    ): Operations\GetMetadataChildrenResponse {
+    public function getMetadataChildren(float $ratingKey, ?string $includeElements = null): Operations\GetMetadataChildrenResponse
+    {
         $request = new Operations\GetMetadataChildrenRequest(
             ratingKey: $ratingKey,
             includeElements: $includeElements,
@@ -836,10 +821,8 @@ class Library
      * @return Operations\GetTopWatchedContentResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getTopWatchedContent(
-        Operations\GetTopWatchedContentQueryParamType $type,
-        ?int $includeGuids = null,
-    ): Operations\GetTopWatchedContentResponse {
+    public function getTopWatchedContent(Operations\GetTopWatchedContentQueryParamType $type, ?int $includeGuids = null): Operations\GetTopWatchedContentResponse
+    {
         $request = new Operations\GetTopWatchedContentRequest(
             type: $type,
             includeGuids: $includeGuids,
@@ -905,8 +888,8 @@ class Library
      * @return Operations\GetOnDeckResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getOnDeck(
-    ): Operations\GetOnDeckResponse {
+    public function getOnDeck(): Operations\GetOnDeckResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/library/onDeck');
         $options = ['http_errors' => false];

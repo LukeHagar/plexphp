@@ -16,9 +16,9 @@ class CreatePlaylistResponseBody
      *
      * @var ?CreatePlaylistMediaContainer $mediaContainer
      */
-    #[\JMS\Serializer\Annotation\SerializedName('MediaContainer')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\CreatePlaylistMediaContainer|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('MediaContainer')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\CreatePlaylistMediaContainer|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?CreatePlaylistMediaContainer $mediaContainer = null;
 
     /**

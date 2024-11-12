@@ -12,14 +12,15 @@ use GuzzleHttp\ClientInterface;
 
 class Utils
 {
+
     /**
-     * little function to adjust the return type from DateTime|false to DateTime|null
+     * little function to adjust the return type from DateTime|false to DateTime
      */
-    public static function parseDateTime(string $dateTimeString): ?\DateTime
+    public static function parseDateTime(string $dateTimeString): \DateTime
     {
         $val = \DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $dateTimeString);
         if ($val === false) {
-            return null;
+            throw new \InvalidArgumentException('Invalid date time string: '.$dateTimeString);
         }
 
         return $val;
@@ -193,8 +194,12 @@ function removeSuffix(string $text, string $suffix): string
 
     return $text;
 }
-
-function valToString(mixed $val, string $dateTimeFormat = ''): string
+/**
+ * @param  mixed  $val
+ * @param  array<string, mixed>  $extras
+ * @return string
+ */
+function valToString(mixed $val, array $extras): string
 {
     switch (gettype($val)) {
         case 'string':
@@ -202,13 +207,26 @@ function valToString(mixed $val, string $dateTimeFormat = ''): string
         case 'object':
             switch (get_class($val)) {
                 case 'DateTime':
-                    if (empty($dateTimeFormat)) {
-                        $dateTimeFormat = 'Y-m-d\TH:i:s.up';
+                    $dateTimeFormat = $dateTimeFormat = 'Y-m-d\TH:i:s.up';
+                    if (array_key_exists('dateTimeFormat', $extras)) {
+                        $dateTimeFormat = $extras['dateTimeFormat'];
                     }
 
                     return $val->format($dateTimeFormat);
                 case 'Brick\DateTime\LocalDate':
                     return $val->jsonSerialize();
+                case 'Brick\Math\BigInteger':
+                    if (array_key_exists('serializeToString', $extras) && $extras['serializeToString']) {
+                        return '"'.$val->toBase(10).'"';
+                    }
+
+                    return $val->toBase(10);
+                case 'Brick\Math\BigDecimal':
+                    if (array_key_exists('serializeToString', $extras) && $extras['serializeToString']) {
+                        return '"'.$val->__toString().'"';
+                    }
+
+                    return $val->__toString();
                 default:
                     if (is_a($val, \BackedEnum::class, true)) {
                         $enumVal = $val->value;

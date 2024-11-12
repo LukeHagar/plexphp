@@ -16,35 +16,36 @@ class GetPinAuthPinContainer
      *
      * @var int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public int $id;
 
     /**
      *
      * @var string $code
      */
-    #[\JMS\Serializer\Annotation\SerializedName('code')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('code')]
     public string $code;
 
     /**
      *
      * @var string $product
      */
-    #[\JMS\Serializer\Annotation\SerializedName('product')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('product')]
     public string $product;
 
     /**
      *
-     * @var bool $trusted
+     * @var ?bool $trusted
      */
-    #[\JMS\Serializer\Annotation\SerializedName('trusted')]
-    public bool $trusted;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('trusted')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $trusted = null;
 
     /**
      *
      * @var string $qr
      */
-    #[\JMS\Serializer\Annotation\SerializedName('qr')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('qr')]
     public string $qr;
 
     /**
@@ -52,7 +53,7 @@ class GetPinAuthPinContainer
      *
      * @var string $clientIdentifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('clientIdentifier')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('clientIdentifier')]
     public string $clientIdentifier;
 
     /**
@@ -60,75 +61,76 @@ class GetPinAuthPinContainer
      *
      * @var GeoData $location
      */
-    #[\JMS\Serializer\Annotation\SerializedName('location')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GeoData')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('location')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GeoData')]
     public GeoData $location;
 
     /**
      * The number of seconds this pin expires, by default 900 seconds
      *
-     * @var int $expiresIn
+     * @var ?int $expiresIn
      */
-    #[\JMS\Serializer\Annotation\SerializedName('expiresIn')]
-    public int $expiresIn;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('expiresIn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $expiresIn = null;
 
     /**
      *
      * @var \DateTime $createdAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('createdAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAt')]
     public \DateTime $createdAt;
 
     /**
      *
      * @var \DateTime $expiresAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('expiresAt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('expiresAt')]
     public \DateTime $expiresAt;
 
     /**
      *
      * @var ?string $authToken
      */
-    #[\JMS\Serializer\Annotation\SerializedName('authToken')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authToken')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $authToken = null;
 
     /**
      *
      * @var mixed $newRegistration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('newRegistration')]
-    #[\JMS\Serializer\Annotation\Type('mixed')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('newRegistration')]
+    #[\Speakeasy\Serializer\Annotation\Type('mixed')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public mixed $newRegistration = null;
 
     /**
      * @param  int  $id
      * @param  string  $code
      * @param  string  $product
-     * @param  bool  $trusted
      * @param  string  $qr
      * @param  string  $clientIdentifier
      * @param  GeoData  $location
-     * @param  int  $expiresIn
      * @param  \DateTime  $createdAt
      * @param  \DateTime  $expiresAt
+     * @param  ?bool  $trusted
+     * @param  ?int  $expiresIn
      * @param  ?string  $authToken
      * @param  mixed  $newRegistration
      */
-    public function __construct(int $id, string $code, string $product, bool $trusted, string $qr, string $clientIdentifier, GeoData $location, int $expiresIn, \DateTime $createdAt, \DateTime $expiresAt, ?string $authToken = null, mixed $newRegistration = null)
+    public function __construct(int $id, string $code, string $product, string $qr, string $clientIdentifier, GeoData $location, \DateTime $createdAt, \DateTime $expiresAt, ?string $authToken = null, mixed $newRegistration = null, ?bool $trusted = false, ?int $expiresIn = 900)
     {
         $this->id = $id;
         $this->code = $code;
         $this->product = $product;
-        $this->trusted = $trusted;
         $this->qr = $qr;
         $this->clientIdentifier = $clientIdentifier;
         $this->location = $location;
-        $this->expiresIn = $expiresIn;
         $this->createdAt = $createdAt;
         $this->expiresAt = $expiresAt;
+        $this->trusted = $trusted;
+        $this->expiresIn = $expiresIn;
         $this->authToken = $authToken;
         $this->newRegistration = $newRegistration;
     }

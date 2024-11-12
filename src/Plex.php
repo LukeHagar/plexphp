@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Plex
 {
@@ -41,7 +41,7 @@ class Plex
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -55,9 +55,8 @@ class Plex
      * @return Operations\GetCompanionsDataResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getCompanionsData(
-        ?string $serverURL = null,
-    ): Operations\GetCompanionsDataResponse {
+    public function getCompanionsData(?string $serverURL = null): Operations\GetCompanionsDataResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_COMPANIONS_DATA_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -122,9 +121,8 @@ class Plex
      * @return Operations\GetUserFriendsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getUserFriends(
-        ?string $serverURL = null,
-    ): Operations\GetUserFriendsResponse {
+    public function getUserFriends(?string $serverURL = null): Operations\GetUserFriendsResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_USER_FRIENDS_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -189,9 +187,8 @@ class Plex
      * @return Operations\GetGeoDataResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getGeoData(
-        ?string $serverURL = null,
-    ): Operations\GetGeoDataResponse {
+    public function getGeoData(?string $serverURL = null): Operations\GetGeoDataResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_GEO_DATA_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -253,8 +250,8 @@ class Plex
      * @return Operations\GetHomeDataResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getHomeData(
-    ): Operations\GetHomeDataResponse {
+    public function getHomeData(): Operations\GetHomeDataResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/home');
         $options = ['http_errors' => false];
@@ -319,13 +316,8 @@ class Plex
      * @return Operations\GetServerResourcesResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getServerResources(
-        ?Operations\IncludeHttps $includeHttps = null,
-        ?Operations\IncludeRelay $includeRelay = null,
-        ?Operations\IncludeIPv6 $includeIPv6 = null,
-        ?string $clientID = null,
-        ?string $serverURL = null,
-    ): Operations\GetServerResourcesResponse {
+    public function getServerResources(?Operations\IncludeHttps $includeHttps = null, ?Operations\IncludeRelay $includeRelay = null, ?Operations\IncludeIPv6 $includeIPv6 = null, ?string $clientID = null, ?string $serverURL = null): Operations\GetServerResourcesResponse
+    {
         $request = new Operations\GetServerResourcesRequest(
             includeHttps: $includeHttps,
             includeRelay: $includeRelay,
@@ -397,15 +389,13 @@ class Plex
      *
      * Retrieve a Pin ID from Plex.tv to use for authentication flows
      *
-     * @param  Operations\GetPinRequest  $request
+     * @param  ?Operations\GetPinRequest  $request
      * @param  string  $serverURL
      * @return Operations\GetPinResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getPin(
-        ?Operations\GetPinRequest $request,
-        ?string $serverURL = null,
-    ): Operations\GetPinResponse {
+    public function getPin(?Operations\GetPinRequest $request = null, ?string $serverURL = null): Operations\GetPinResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_PIN_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {
@@ -465,10 +455,8 @@ class Plex
      * @return Operations\GetTokenByPinIdResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getTokenByPinId(
-        ?Operations\GetTokenByPinIdRequest $request,
-        ?string $serverURL = null,
-    ): Operations\GetTokenByPinIdResponse {
+    public function getTokenByPinId(Operations\GetTokenByPinIdRequest $request, ?string $serverURL = null): Operations\GetTokenByPinIdResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Plex::GET_TOKEN_BY_PIN_ID_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {

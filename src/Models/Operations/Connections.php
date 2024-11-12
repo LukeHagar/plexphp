@@ -16,8 +16,8 @@ class Connections
      *
      * @var Protocol $protocol
      */
-    #[\JMS\Serializer\Annotation\SerializedName('protocol')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Protocol')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('protocol')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Protocol')]
     public Protocol $protocol;
 
     /**
@@ -25,7 +25,7 @@ class Connections
      *
      * @var string $address
      */
-    #[\JMS\Serializer\Annotation\SerializedName('address')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('address')]
     public string $address;
 
     /**
@@ -33,7 +33,7 @@ class Connections
      *
      * @var int $port
      */
-    #[\JMS\Serializer\Annotation\SerializedName('port')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('port')]
     public int $port;
 
     /**
@@ -41,7 +41,7 @@ class Connections
      *
      * @var string $uri
      */
-    #[\JMS\Serializer\Annotation\SerializedName('uri')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('uri')]
     public string $uri;
 
     /**
@@ -49,7 +49,7 @@ class Connections
      *
      * @var bool $local
      */
-    #[\JMS\Serializer\Annotation\SerializedName('local')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('local')]
     public bool $local;
 
     /**
@@ -57,7 +57,7 @@ class Connections
      *
      * @var bool $relay
      */
-    #[\JMS\Serializer\Annotation\SerializedName('relay')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('relay')]
     public bool $relay;
 
     /**
@@ -65,7 +65,7 @@ class Connections
      *
      * @var bool $iPv6
      */
-    #[\JMS\Serializer\Annotation\SerializedName('IPv6')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('IPv6')]
     public bool $iPv6;
 
     /**

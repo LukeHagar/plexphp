@@ -69,7 +69,7 @@ class GetSearchAllLibrariesRequest
      * @param  ?QueryParamIncludeCollections  $includeCollections
      * @param  ?QueryParamIncludeExternalMedia  $includeExternalMedia
      */
-    public function __construct(string $query, ?string $clientID = null, ?int $limit = null, ?array $searchTypes = null, ?QueryParamIncludeCollections $includeCollections = null, ?QueryParamIncludeExternalMedia $includeExternalMedia = null)
+    public function __construct(string $query, ?string $clientID = null, ?int $limit = null, ?array $searchTypes = null, ?QueryParamIncludeCollections $includeCollections = QueryParamIncludeCollections::Disable, ?QueryParamIncludeExternalMedia $includeExternalMedia = QueryParamIncludeExternalMedia::Disable)
     {
         $this->query = $query;
         $this->clientID = $clientID;

@@ -37,7 +37,7 @@ class GetLibraryDetailsRequest
      * @param  int  $sectionKey
      * @param  ?IncludeDetails  $includeDetails
      */
-    public function __construct(int $sectionKey, ?IncludeDetails $includeDetails = null)
+    public function __construct(int $sectionKey, ?IncludeDetails $includeDetails = IncludeDetails::Zero)
     {
         $this->sectionKey = $sectionKey;
         $this->includeDetails = $includeDetails;

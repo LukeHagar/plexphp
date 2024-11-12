@@ -15,48 +15,48 @@ class StatisticsResources
      *
      * @var ?int $timespan
      */
-    #[\JMS\Serializer\Annotation\SerializedName('timespan')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('timespan')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $timespan = null;
 
     /**
      *
      * @var ?int $at
      */
-    #[\JMS\Serializer\Annotation\SerializedName('at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $at = null;
 
     /**
      *
      * @var ?float $hostCpuUtilization
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hostCpuUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hostCpuUtilization')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $hostCpuUtilization = null;
 
     /**
      *
      * @var ?float $processCpuUtilization
      */
-    #[\JMS\Serializer\Annotation\SerializedName('processCpuUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('processCpuUtilization')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $processCpuUtilization = null;
 
     /**
      *
      * @var ?float $hostMemoryUtilization
      */
-    #[\JMS\Serializer\Annotation\SerializedName('hostMemoryUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hostMemoryUtilization')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $hostMemoryUtilization = null;
 
     /**
      *
      * @var ?float $processMemoryUtilization
      */
-    #[\JMS\Serializer\Annotation\SerializedName('processMemoryUtilization')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('processMemoryUtilization')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $processMemoryUtilization = null;
 
     /**

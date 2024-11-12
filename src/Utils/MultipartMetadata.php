@@ -16,6 +16,7 @@ class MultipartMetadata
         public bool $content,
         public bool $json,
         public string $dateTimeFormat,
+        public bool $serializeToString
     ) {
     }
 
@@ -32,6 +33,7 @@ class MultipartMetadata
         $content = false;
         $json = false;
         $dateTimeFormat = '';
+        $serializeToString = false;
 
         $options = explode(',', $metadata);
 
@@ -47,6 +49,7 @@ class MultipartMetadata
                 'content' => $content = $parts[1] === 'true',
                 'json' => $json = $parts[1] === 'true',
                 'dateTimeFormat' => $dateTimeFormat = $parts[1],
+                'serializeToString' => $serializeToString = $parts[1] === 'true',
                 default => throw new \RuntimeException('Failed to parse options.'),
             };
         }
@@ -57,6 +60,7 @@ class MultipartMetadata
             content: $content,
             json: $json,
             dateTimeFormat: $dateTimeFormat,
+            serializeToString: $serializeToString
         );
     }
 }

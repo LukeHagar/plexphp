@@ -15,8 +15,8 @@ class GetSearchAllLibrariesCollection
      *
      * @var ?string $tag
      */
-    #[\JMS\Serializer\Annotation\SerializedName('tag')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $tag = null;
 
     /**

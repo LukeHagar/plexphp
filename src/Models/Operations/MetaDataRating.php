@@ -16,7 +16,7 @@ class MetaDataRating
      *
      * @var string $image
      */
-    #[\JMS\Serializer\Annotation\SerializedName('image')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('image')]
     public string $image;
 
     /**
@@ -24,7 +24,7 @@ class MetaDataRating
      *
      * @var float $value
      */
-    #[\JMS\Serializer\Annotation\SerializedName('value')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('value')]
     public float $value;
 
     /**
@@ -32,7 +32,7 @@ class MetaDataRating
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**

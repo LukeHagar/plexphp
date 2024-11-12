@@ -15,64 +15,64 @@ class Account
      *
      * @var ?int $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $id = null;
 
     /**
      *
      * @var ?string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
 
     /**
      *
      * @var ?string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
      *
      * @var ?string $defaultAudioLanguage
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultAudioLanguage')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultAudioLanguage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultAudioLanguage = null;
 
     /**
      *
      * @var ?bool $autoSelectAudio
      */
-    #[\JMS\Serializer\Annotation\SerializedName('autoSelectAudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('autoSelectAudio')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $autoSelectAudio = null;
 
     /**
      *
      * @var ?string $defaultSubtitleLanguage
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $defaultSubtitleLanguage = null;
 
     /**
      *
      * @var ?int $subtitleMode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('subtitleMode')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subtitleMode')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $subtitleMode = null;
 
     /**
      *
      * @var ?string $thumb
      */
-    #[\JMS\Serializer\Annotation\SerializedName('thumb')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $thumb = null;
 
     /**

@@ -15,16 +15,16 @@ class GetRecentlyAddedSort
      *
      * @var ?string $default
      */
-    #[\JMS\Serializer\Annotation\SerializedName('default')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('default')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $default = null;
 
     /**
      *
      * @var ?bool $active
      */
-    #[\JMS\Serializer\Annotation\SerializedName('active')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $active = null;
 
     /**
@@ -34,9 +34,9 @@ class GetRecentlyAddedSort
      *
      * @var ?GetRecentlyAddedActiveDirection $activeDirection
      */
-    #[\JMS\Serializer\Annotation\SerializedName('activeDirection')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedActiveDirection|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('activeDirection')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedActiveDirection|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?GetRecentlyAddedActiveDirection $activeDirection = null;
 
     /**
@@ -44,60 +44,61 @@ class GetRecentlyAddedSort
      *
      *
      *
-     * @var GetRecentlyAddedDefaultDirection $defaultDirection
+     * @var ?GetRecentlyAddedDefaultDirection $defaultDirection
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultDirection')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedDefaultDirection')]
-    public GetRecentlyAddedDefaultDirection $defaultDirection;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultDirection')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedDefaultDirection|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetRecentlyAddedDefaultDirection $defaultDirection = null;
 
     /**
      *
      * @var ?string $descKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('descKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('descKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $descKey = null;
 
     /**
      *
      * @var ?string $firstCharacterKey
      */
-    #[\JMS\Serializer\Annotation\SerializedName('firstCharacterKey')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('firstCharacterKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $firstCharacterKey = null;
 
     /**
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
-     * @param  GetRecentlyAddedDefaultDirection  $defaultDirection
      * @param  string  $key
      * @param  string  $title
      * @param  ?string  $default
      * @param  ?bool  $active
      * @param  ?GetRecentlyAddedActiveDirection  $activeDirection
+     * @param  ?GetRecentlyAddedDefaultDirection  $defaultDirection
      * @param  ?string  $descKey
      * @param  ?string  $firstCharacterKey
      */
-    public function __construct(GetRecentlyAddedDefaultDirection $defaultDirection, string $key, string $title, ?string $default = null, ?bool $active = null, ?GetRecentlyAddedActiveDirection $activeDirection = null, ?string $descKey = null, ?string $firstCharacterKey = null)
+    public function __construct(string $key, string $title, ?string $default = null, ?bool $active = null, ?string $descKey = null, ?string $firstCharacterKey = null, ?GetRecentlyAddedActiveDirection $activeDirection = GetRecentlyAddedActiveDirection::Ascending, ?GetRecentlyAddedDefaultDirection $defaultDirection = GetRecentlyAddedDefaultDirection::Ascending)
     {
-        $this->defaultDirection = $defaultDirection;
         $this->key = $key;
         $this->title = $title;
         $this->default = $default;
         $this->active = $active;
         $this->activeDirection = $activeDirection;
+        $this->defaultDirection = $defaultDirection;
         $this->descKey = $descKey;
         $this->firstCharacterKey = $firstCharacterKey;
     }

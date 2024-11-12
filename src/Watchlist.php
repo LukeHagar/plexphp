@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Watchlist
 {
@@ -21,7 +21,7 @@ class Watchlist
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -36,10 +36,8 @@ class Watchlist
      * @return Operations\GetWatchListResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getWatchList(
-        ?Operations\GetWatchListRequest $request,
-        ?string $serverURL = null,
-    ): Operations\GetWatchListResponse {
+    public function getWatchList(Operations\GetWatchListRequest $request, ?string $serverURL = null): Operations\GetWatchListResponse
+    {
         $baseUrl = Utils\Utils::templateUrl(Watchlist::GET_WATCH_LIST_SERVERS[0], [
         ]);
         if (! empty($serverURL)) {

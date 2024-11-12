@@ -15,344 +15,344 @@ class GetMediaProvidersMediaContainer
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?bool $allowCameraUpload
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowCameraUpload')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowCameraUpload')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowCameraUpload = null;
 
     /**
      *
      * @var ?bool $allowChannelAccess
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowChannelAccess')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowChannelAccess')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowChannelAccess = null;
 
     /**
      *
      * @var ?bool $allowSharing
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSharing')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSharing')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSharing = null;
 
     /**
      *
      * @var ?bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
      *
      * @var ?bool $allowTuners
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowTuners')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowTuners')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowTuners = null;
 
     /**
      *
      * @var ?bool $backgroundProcessing
      */
-    #[\JMS\Serializer\Annotation\SerializedName('backgroundProcessing')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('backgroundProcessing')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $backgroundProcessing = null;
 
     /**
      *
      * @var ?bool $certificate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('certificate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('certificate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $certificate = null;
 
     /**
      *
      * @var ?bool $companionProxy
      */
-    #[\JMS\Serializer\Annotation\SerializedName('companionProxy')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('companionProxy')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $companionProxy = null;
 
     /**
      *
      * @var ?string $countryCode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('countryCode')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('countryCode')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $countryCode = null;
 
     /**
      *
      * @var ?string $diagnostics
      */
-    #[\JMS\Serializer\Annotation\SerializedName('diagnostics')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('diagnostics')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $diagnostics = null;
 
     /**
      *
      * @var ?bool $eventStream
      */
-    #[\JMS\Serializer\Annotation\SerializedName('eventStream')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('eventStream')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $eventStream = null;
 
     /**
      *
      * @var ?string $friendlyName
      */
-    #[\JMS\Serializer\Annotation\SerializedName('friendlyName')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('friendlyName')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $friendlyName = null;
 
     /**
      *
      * @var ?int $livetv
      */
-    #[\JMS\Serializer\Annotation\SerializedName('livetv')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('livetv')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $livetv = null;
 
     /**
      *
      * @var ?string $machineIdentifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('machineIdentifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('machineIdentifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $machineIdentifier = null;
 
     /**
      *
      * @var ?int $musicAnalysis
      */
-    #[\JMS\Serializer\Annotation\SerializedName('musicAnalysis')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('musicAnalysis')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $musicAnalysis = null;
 
     /**
      *
      * @var ?bool $myPlex
      */
-    #[\JMS\Serializer\Annotation\SerializedName('myPlex')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('myPlex')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $myPlex = null;
 
     /**
      *
      * @var ?string $myPlexMappingState
      */
-    #[\JMS\Serializer\Annotation\SerializedName('myPlexMappingState')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('myPlexMappingState')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $myPlexMappingState = null;
 
     /**
      *
      * @var ?string $myPlexSigninState
      */
-    #[\JMS\Serializer\Annotation\SerializedName('myPlexSigninState')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('myPlexSigninState')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $myPlexSigninState = null;
 
     /**
      *
      * @var ?bool $myPlexSubscription
      */
-    #[\JMS\Serializer\Annotation\SerializedName('myPlexSubscription')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('myPlexSubscription')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $myPlexSubscription = null;
 
     /**
      *
      * @var ?string $myPlexUsername
      */
-    #[\JMS\Serializer\Annotation\SerializedName('myPlexUsername')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('myPlexUsername')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $myPlexUsername = null;
 
     /**
      *
      * @var ?int $offlineTranscode
      */
-    #[\JMS\Serializer\Annotation\SerializedName('offlineTranscode')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('offlineTranscode')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $offlineTranscode = null;
 
     /**
      *
      * @var ?string $ownerFeatures
      */
-    #[\JMS\Serializer\Annotation\SerializedName('ownerFeatures')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ownerFeatures')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $ownerFeatures = null;
 
     /**
      *
      * @var ?string $platform
      */
-    #[\JMS\Serializer\Annotation\SerializedName('platform')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $platform = null;
 
     /**
      *
      * @var ?string $platformVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('platformVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platformVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $platformVersion = null;
 
     /**
      *
      * @var ?bool $pluginHost
      */
-    #[\JMS\Serializer\Annotation\SerializedName('pluginHost')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pluginHost')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $pluginHost = null;
 
     /**
      *
      * @var ?bool $pushNotifications
      */
-    #[\JMS\Serializer\Annotation\SerializedName('pushNotifications')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pushNotifications')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $pushNotifications = null;
 
     /**
      *
      * @var ?bool $readOnlyLibraries
      */
-    #[\JMS\Serializer\Annotation\SerializedName('readOnlyLibraries')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('readOnlyLibraries')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $readOnlyLibraries = null;
 
     /**
      *
      * @var ?int $streamingBrainABRVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('streamingBrainABRVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('streamingBrainABRVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $streamingBrainABRVersion = null;
 
     /**
      *
      * @var ?int $streamingBrainVersion
      */
-    #[\JMS\Serializer\Annotation\SerializedName('streamingBrainVersion')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('streamingBrainVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $streamingBrainVersion = null;
 
     /**
      *
      * @var ?bool $sync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('sync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sync')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $sync = null;
 
     /**
      *
      * @var ?int $transcoderActiveVideoSessions
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderActiveVideoSessions')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderActiveVideoSessions')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $transcoderActiveVideoSessions = null;
 
     /**
      *
      * @var ?bool $transcoderAudio
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderAudio')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderAudio')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderAudio = null;
 
     /**
      *
      * @var ?bool $transcoderLyrics
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderLyrics')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderLyrics')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderLyrics = null;
 
     /**
      *
      * @var ?bool $transcoderSubtitles
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderSubtitles')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderSubtitles')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderSubtitles = null;
 
     /**
      *
      * @var ?bool $transcoderVideo
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideo')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderVideo')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $transcoderVideo = null;
 
     /**
      *
      * @var ?string $transcoderVideoBitrates
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoBitrates')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderVideoBitrates')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $transcoderVideoBitrates = null;
 
     /**
      *
      * @var ?string $transcoderVideoQualities
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoQualities')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderVideoQualities')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $transcoderVideoQualities = null;
 
     /**
      *
      * @var ?string $transcoderVideoResolutions
      */
-    #[\JMS\Serializer\Annotation\SerializedName('transcoderVideoResolutions')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transcoderVideoResolutions')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $transcoderVideoResolutions = null;
 
     /**
      *
      * @var ?int $updatedAt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updatedAt')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $updatedAt = null;
 
     /**
      *
      * @var ?bool $updater
      */
-    #[\JMS\Serializer\Annotation\SerializedName('updater')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updater')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $updater = null;
 
     /**
      *
      * @var ?string $version
      */
-    #[\JMS\Serializer\Annotation\SerializedName('version')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('version')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $version = null;
 
     /**
      *
      * @var ?bool $voiceSearch
      */
-    #[\JMS\Serializer\Annotation\SerializedName('voiceSearch')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('voiceSearch')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $voiceSearch = null;
 
     /**
@@ -360,9 +360,9 @@ class GetMediaProvidersMediaContainer
      *
      * @var ?array<MediaProvider> $mediaProvider
      */
-    #[\JMS\Serializer\Annotation\SerializedName('MediaProvider')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MediaProvider>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('MediaProvider')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MediaProvider>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $mediaProvider = null;
 
     /**

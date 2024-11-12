@@ -15,56 +15,56 @@ class StatisticsMedia
      *
      * @var ?int $accountID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('accountID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accountID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $accountID = null;
 
     /**
      *
      * @var ?int $deviceID
      */
-    #[\JMS\Serializer\Annotation\SerializedName('deviceID')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('deviceID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $deviceID = null;
 
     /**
      *
      * @var ?int $timespan
      */
-    #[\JMS\Serializer\Annotation\SerializedName('timespan')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('timespan')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $timespan = null;
 
     /**
      *
      * @var ?int $at
      */
-    #[\JMS\Serializer\Annotation\SerializedName('at')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('at')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $at = null;
 
     /**
      *
      * @var ?int $metadataType
      */
-    #[\JMS\Serializer\Annotation\SerializedName('metadataType')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('metadataType')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $metadataType = null;
 
     /**
      *
      * @var ?int $count
      */
-    #[\JMS\Serializer\Annotation\SerializedName('count')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('count')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $count = null;
 
     /**
      *
      * @var ?int $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**

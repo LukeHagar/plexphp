@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Log
 {
@@ -17,7 +17,7 @@ class Log
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -34,11 +34,8 @@ class Log
      * @return Operations\LogLineResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function logLine(
-        Operations\Level $level,
-        string $message,
-        string $source,
-    ): Operations\LogLineResponse {
+    public function logLine(Operations\Level $level, string $message, string $source): Operations\LogLineResponse
+    {
         $request = new Operations\LogLineRequest(
             level: $level,
             message: $message,
@@ -118,9 +115,8 @@ class Log
      * @return Operations\LogMultiLineResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function logMultiLine(
-        string $request,
-    ): Operations\LogMultiLineResponse {
+    public function logMultiLine(string $request): Operations\LogMultiLineResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/log');
         $options = ['http_errors' => false];
@@ -178,8 +174,8 @@ class Log
      * @return Operations\EnablePaperTrailResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function enablePaperTrail(
-    ): Operations\EnablePaperTrailResponse {
+    public function enablePaperTrail(): Operations\EnablePaperTrailResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/log/networked');
         $options = ['http_errors' => false];

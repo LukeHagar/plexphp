@@ -15,56 +15,56 @@ class GetSessionsMedia
      *
      * @var ?int $audioChannels
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioChannels')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioChannels')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $audioChannels = null;
 
     /**
      *
      * @var ?string $audioCodec
      */
-    #[\JMS\Serializer\Annotation\SerializedName('audioCodec')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioCodec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $audioCodec = null;
 
     /**
      *
      * @var ?int $bitrate
      */
-    #[\JMS\Serializer\Annotation\SerializedName('bitrate')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bitrate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $bitrate = null;
 
     /**
      *
      * @var ?string $container
      */
-    #[\JMS\Serializer\Annotation\SerializedName('container')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $container = null;
 
     /**
      *
      * @var ?int $duration
      */
-    #[\JMS\Serializer\Annotation\SerializedName('duration')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
 
     /**
      *
      * @var ?string $id
      */
-    #[\JMS\Serializer\Annotation\SerializedName('id')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $id = null;
 
     /**
      *
      * @var ?bool $selected
      */
-    #[\JMS\Serializer\Annotation\SerializedName('selected')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('selected')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $selected = null;
 
     /**
@@ -72,9 +72,9 @@ class GetSessionsMedia
      *
      * @var ?array<GetSessionsPart> $part
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Part')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsPart>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSessionsPart>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $part = null;
 
     /**

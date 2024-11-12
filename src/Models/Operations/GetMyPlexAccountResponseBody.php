@@ -16,9 +16,9 @@ class GetMyPlexAccountResponseBody
      *
      * @var ?MyPlex $myPlex
      */
-    #[\JMS\Serializer\Annotation\SerializedName('MyPlex')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MyPlex|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('MyPlex')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MyPlex|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?MyPlex $myPlex = null;
 
     /**

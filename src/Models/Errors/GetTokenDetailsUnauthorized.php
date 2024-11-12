@@ -18,9 +18,9 @@ class GetTokenDetailsUnauthorized
      *
      * @var ?array<GetTokenDetailsAuthenticationErrors> $errors
      */
-    #[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Errors\GetTokenDetailsAuthenticationErrors>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('errors')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Errors\GetTokenDetailsAuthenticationErrors>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $errors = null;
 
     /**
@@ -28,7 +28,7 @@ class GetTokenDetailsUnauthorized
      *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-    #[\JMS\Serializer\Annotation\Exclude]
+    #[\Speakeasy\Serializer\Annotation\Exclude]
 
     public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
 

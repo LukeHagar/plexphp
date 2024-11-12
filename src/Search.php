@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Search
 {
@@ -17,7 +17,7 @@ class Search
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -45,11 +45,8 @@ class Search
      * @return Operations\PerformSearchResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function performSearch(
-        string $query,
-        ?float $sectionId = null,
-        ?float $limit = null,
-    ): Operations\PerformSearchResponse {
+    public function performSearch(string $query, ?float $sectionId = null, ?float $limit = null): Operations\PerformSearchResponse
+    {
         $request = new Operations\PerformSearchRequest(
             query: $query,
             sectionId: $sectionId,
@@ -114,11 +111,8 @@ class Search
      * @return Operations\PerformVoiceSearchResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function performVoiceSearch(
-        string $query,
-        ?float $sectionId = null,
-        ?float $limit = null,
-    ): Operations\PerformVoiceSearchResponse {
+    public function performVoiceSearch(string $query, ?float $sectionId = null, ?float $limit = null): Operations\PerformVoiceSearchResponse
+    {
         $request = new Operations\PerformVoiceSearchRequest(
             query: $query,
             sectionId: $sectionId,
@@ -177,9 +171,8 @@ class Search
      * @return Operations\GetSearchResultsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getSearchResults(
-        string $query,
-    ): Operations\GetSearchResultsResponse {
+    public function getSearchResults(string $query): Operations\GetSearchResultsResponse
+    {
         $request = new Operations\GetSearchResultsRequest(
             query: $query,
         );

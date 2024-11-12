@@ -15,8 +15,8 @@ class GetResourcesStatisticsMediaContainer
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
@@ -24,9 +24,9 @@ class GetResourcesStatisticsMediaContainer
      *
      * @var ?array<StatisticsResources> $statisticsResources
      */
-    #[\JMS\Serializer\Annotation\SerializedName('StatisticsResources')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsResources>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('StatisticsResources')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\StatisticsResources>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $statisticsResources = null;
 
     /**

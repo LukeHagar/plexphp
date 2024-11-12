@@ -15,39 +15,39 @@ class GetRecentlyAddedMediaContainer
      *
      * @var float $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
     public float $size;
 
     /**
      *
      * @var ?int $offset
      */
-    #[\JMS\Serializer\Annotation\SerializedName('offset')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('offset')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $offset = null;
 
     /**
      *
      * @var ?int $totalSize
      */
-    #[\JMS\Serializer\Annotation\SerializedName('totalSize')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('totalSize')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $totalSize = null;
 
     /**
      *
      * @var ?string $identifier
      */
-    #[\JMS\Serializer\Annotation\SerializedName('identifier')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $identifier = null;
 
     /**
      *
      * @var ?bool $allowSync
      */
-    #[\JMS\Serializer\Annotation\SerializedName('allowSync')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $allowSync = null;
 
     /**
@@ -57,9 +57,9 @@ class GetRecentlyAddedMediaContainer
      *
      * @var ?Meta $meta
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Meta')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Meta|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Meta')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Meta|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?Meta $meta = null;
 
     /**
@@ -67,9 +67,9 @@ class GetRecentlyAddedMediaContainer
      *
      * @var ?array<GetRecentlyAddedMetadata> $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

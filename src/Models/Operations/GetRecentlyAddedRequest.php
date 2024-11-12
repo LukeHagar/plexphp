@@ -93,7 +93,7 @@ class GetRecentlyAddedRequest
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      */
-    public function __construct(int $contentDirectoryID, Type $type, ?string $pinnedContentDirectoryID = null, ?int $sectionID = null, ?IncludeMeta $includeMeta = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
+    public function __construct(int $contentDirectoryID, Type $type, ?string $pinnedContentDirectoryID = null, ?int $sectionID = null, ?IncludeMeta $includeMeta = IncludeMeta::Disable, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {
         $this->contentDirectoryID = $contentDirectoryID;
         $this->type = $type;

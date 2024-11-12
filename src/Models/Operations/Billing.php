@@ -15,15 +15,15 @@ class Billing
      *
      * @var InternalPaymentMethod $internalPaymentMethod
      */
-    #[\JMS\Serializer\Annotation\SerializedName('internalPaymentMethod')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\InternalPaymentMethod')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('internalPaymentMethod')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\InternalPaymentMethod')]
     public InternalPaymentMethod $internalPaymentMethod;
 
     /**
      *
      * @var ?int $paymentMethodId
      */
-    #[\JMS\Serializer\Annotation\SerializedName('paymentMethodId')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('paymentMethodId')]
     public ?int $paymentMethodId;
 
     /**

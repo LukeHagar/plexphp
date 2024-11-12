@@ -15,48 +15,48 @@ class ButlerTask
      *
      * @var ?string $name
      */
-    #[\JMS\Serializer\Annotation\SerializedName('name')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('name')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $name = null;
 
     /**
      *
      * @var ?float $interval
      */
-    #[\JMS\Serializer\Annotation\SerializedName('interval')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('interval')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?float $interval = null;
 
     /**
      *
      * @var ?bool $scheduleRandomized
      */
-    #[\JMS\Serializer\Annotation\SerializedName('scheduleRandomized')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scheduleRandomized')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $scheduleRandomized = null;
 
     /**
      *
      * @var ?bool $enabled
      */
-    #[\JMS\Serializer\Annotation\SerializedName('enabled')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('enabled')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $enabled = null;
 
     /**
      *
      * @var ?string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $title = null;
 
     /**
      *
      * @var ?string $description
      */
-    #[\JMS\Serializer\Annotation\SerializedName('description')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('description')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $description = null;
 
     /**

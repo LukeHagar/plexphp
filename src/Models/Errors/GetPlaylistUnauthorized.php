@@ -18,9 +18,9 @@ class GetPlaylistUnauthorized
      *
      * @var ?array<GetPlaylistPlaylistsErrors> $errors
      */
-    #[\JMS\Serializer\Annotation\SerializedName('errors')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Errors\GetPlaylistPlaylistsErrors>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('errors')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Errors\GetPlaylistPlaylistsErrors>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $errors = null;
 
     /**
@@ -28,7 +28,7 @@ class GetPlaylistUnauthorized
      *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-    #[\JMS\Serializer\Annotation\Exclude]
+    #[\Speakeasy\Serializer\Annotation\Exclude]
 
     public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
 

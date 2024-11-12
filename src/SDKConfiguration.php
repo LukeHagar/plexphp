@@ -36,11 +36,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.0.3';
 
-    public string $sdkVersion = '0.10.6';
+    public string $sdkVersion = '0.11.0';
 
-    public string $genVersion = '2.429.0';
+    public string $genVersion = '2.457.2';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.10.6 2.429.0 0.0.3 lukehagar/plex-api';
+    public string $userAgent = 'speakeasy-sdk/php 0.11.0 2.457.2 0.0.3 lukehagar/plex-api';
     /** @var array<string, array<string, array<string, mixed>>> */
     public ?array $globals = [
         'parameters' => [],
@@ -53,7 +53,11 @@ class SDKConfiguration
             return $this->serverUrl;
         }
 
-        return PlexAPI::SERVERS[$this->serverIndex];
+        if (isset(PlexAPI::SERVERS[$this->serverIndex])) {
+            return PlexAPI::SERVERS[$this->serverIndex];
+        } else {
+            throw new \OutOfBoundsException('Server index '.$this->serverIndex.' is out of bounds');
+        }
     }
 
     /**

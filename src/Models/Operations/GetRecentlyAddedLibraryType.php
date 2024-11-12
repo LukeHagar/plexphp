@@ -15,28 +15,28 @@ class GetRecentlyAddedLibraryType
      *
      * @var string $key
      */
-    #[\JMS\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     public string $key;
 
     /**
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**
      *
      * @var string $title
      */
-    #[\JMS\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
 
     /**
      *
      * @var bool $active
      */
-    #[\JMS\Serializer\Annotation\SerializedName('active')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
     public bool $active;
 
     /**
@@ -44,9 +44,9 @@ class GetRecentlyAddedLibraryType
      *
      * @var ?array<GetRecentlyAddedLibraryFilter> $filter
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Filter')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedLibraryFilter>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Filter')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedLibraryFilter>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $filter = null;
 
     /**
@@ -54,9 +54,9 @@ class GetRecentlyAddedLibraryType
      *
      * @var ?array<Sort> $sort
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Sort')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Sort>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Sort')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Sort>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $sort = null;
 
     /**
@@ -64,9 +64,9 @@ class GetRecentlyAddedLibraryType
      *
      * @var ?array<Field> $field
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Field')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Field>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Field')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Field>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $field = null;
 
     /**

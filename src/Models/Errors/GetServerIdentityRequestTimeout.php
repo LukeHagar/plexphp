@@ -17,16 +17,16 @@ class GetServerIdentityRequestTimeout
      *
      * @var ?int $code
      */
-    #[\JMS\Serializer\Annotation\SerializedName('code')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('code')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $code = null;
 
     /**
      *
      * @var ?string $message
      */
-    #[\JMS\Serializer\Annotation\SerializedName('message')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('message')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $message = null;
 
     /**
@@ -34,7 +34,7 @@ class GetServerIdentityRequestTimeout
      *
      * @var ?\Psr\Http\Message\ResponseInterface $rawResponse
      */
-    #[\JMS\Serializer\Annotation\Exclude]
+    #[\Speakeasy\Serializer\Annotation\Exclude]
 
     public ?\Psr\Http\Message\ResponseInterface $rawResponse = null;
 

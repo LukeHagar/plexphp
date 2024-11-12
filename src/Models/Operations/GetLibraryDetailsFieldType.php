@@ -15,8 +15,8 @@ class GetLibraryDetailsFieldType
      *
      * @var ?string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $type = null;
 
     /**
@@ -24,9 +24,9 @@ class GetLibraryDetailsFieldType
      *
      * @var ?array<GetLibraryDetailsOperator> $operator
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Operator')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryDetailsOperator>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Operator')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryDetailsOperator>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $operator = null;
 
     /**

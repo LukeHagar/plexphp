@@ -15,24 +15,24 @@ class AddPlaylistContentsMediaContainer
      *
      * @var ?int $size
      */
-    #[\JMS\Serializer\Annotation\SerializedName('size')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $size = null;
 
     /**
      *
      * @var ?int $leafCountAdded
      */
-    #[\JMS\Serializer\Annotation\SerializedName('leafCountAdded')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('leafCountAdded')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCountAdded = null;
 
     /**
      *
      * @var ?int $leafCountRequested
      */
-    #[\JMS\Serializer\Annotation\SerializedName('leafCountRequested')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('leafCountRequested')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $leafCountRequested = null;
 
     /**
@@ -40,9 +40,9 @@ class AddPlaylistContentsMediaContainer
      *
      * @var ?array<AddPlaylistContentsMetadata> $metadata
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Metadata')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsMetadata>|null')]
-    #[\JMS\Serializer\Annotation\SkipWhenNull]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\AddPlaylistContentsMetadata>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metadata = null;
 
     /**

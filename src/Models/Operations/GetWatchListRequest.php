@@ -115,7 +115,7 @@ class GetWatchListRequest
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      */
-    public function __construct(Filter $filter, string $xPlexToken, ?string $sort = null, ?Libtype $libtype = null, ?int $maxresults = null, ?IncludeCollections $includeCollections = null, ?IncludeExternalMedia $includeExternalMedia = null, ?int $xPlexContainerStart = null, ?int $xPlexContainerSize = null)
+    public function __construct(Filter $filter, string $xPlexToken, ?string $sort = null, ?Libtype $libtype = null, ?int $maxresults = null, ?IncludeCollections $includeCollections = null, ?IncludeExternalMedia $includeExternalMedia = null, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {
         $this->filter = $filter;
         $this->xPlexToken = $xPlexToken;

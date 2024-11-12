@@ -15,7 +15,7 @@ class FieldType
      *
      * @var string $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
     public string $type;
 
     /**
@@ -23,8 +23,8 @@ class FieldType
      *
      * @var array<Operator> $operator
      */
-    #[\JMS\Serializer\Annotation\SerializedName('Operator')]
-    #[\JMS\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Operator>')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Operator')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Operator>')]
     public array $operator;
 
     /**

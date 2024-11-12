@@ -15,22 +15,22 @@ class GetRecentlyAddedImage
      *
      * @var string $alt
      */
-    #[\JMS\Serializer\Annotation\SerializedName('alt')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('alt')]
     public string $alt;
 
     /**
      *
      * @var GetRecentlyAddedHubsResponseType $type
      */
-    #[\JMS\Serializer\Annotation\SerializedName('type')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedHubsResponseType')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedHubsResponseType')]
     public GetRecentlyAddedHubsResponseType $type;
 
     /**
      *
      * @var string $url
      */
-    #[\JMS\Serializer\Annotation\SerializedName('url')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('url')]
     public string $url;
 
     /**

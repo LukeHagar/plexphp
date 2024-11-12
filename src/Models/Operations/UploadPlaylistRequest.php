@@ -52,7 +52,7 @@ class UploadPlaylistRequest
      * @param  QueryParamForce  $force
      * @param  int  $sectionID
      */
-    public function __construct(string $path, QueryParamForce $force, int $sectionID)
+    public function __construct(string $path, QueryParamForce $force, int $sectionID = 1)
     {
         $this->path = $path;
         $this->force = $force;

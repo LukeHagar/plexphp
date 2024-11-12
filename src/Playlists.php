@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
-use JMS\Serializer\DeserializationContext;
 use LukeHagar\Plex_API\Models\Operations;
+use Speakeasy\Serializer\DeserializationContext;
 
 class Playlists
 {
@@ -17,7 +17,7 @@ class Playlists
     /**
      * @param  SDKConfiguration  $sdkConfig
      */
-    public function __construct(SDKConfiguration $sdkConfig)
+    public function __construct(public SDKConfiguration $sdkConfig)
     {
         $this->sdkConfiguration = $sdkConfig;
     }
@@ -34,9 +34,8 @@ class Playlists
      * @return Operations\CreatePlaylistResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function createPlaylist(
-        ?Operations\CreatePlaylistRequest $request,
-    ): Operations\CreatePlaylistResponse {
+    public function createPlaylist(Operations\CreatePlaylistRequest $request): Operations\CreatePlaylistResponse
+    {
         $baseUrl = Utils\Utils::templateUrl($this->sdkConfiguration->getServerUrl(), $this->sdkConfiguration->getServerDefaults());
         $url = Utils\Utils::generateUrl($baseUrl, '/playlists');
         $options = ['http_errors' => false];
@@ -99,10 +98,8 @@ class Playlists
      * @return Operations\GetPlaylistsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getPlaylists(
-        ?Operations\PlaylistType $playlistType = null,
-        ?Operations\QueryParamSmart $smart = null,
-    ): Operations\GetPlaylistsResponse {
+    public function getPlaylists(?Operations\PlaylistType $playlistType = null, ?Operations\QueryParamSmart $smart = null): Operations\GetPlaylistsResponse
+    {
         $request = new Operations\GetPlaylistsRequest(
             playlistType: $playlistType,
             smart: $smart,
@@ -170,9 +167,8 @@ class Playlists
      * @return Operations\GetPlaylistResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getPlaylist(
-        float $playlistID,
-    ): Operations\GetPlaylistResponse {
+    public function getPlaylist(float $playlistID): Operations\GetPlaylistResponse
+    {
         $request = new Operations\GetPlaylistRequest(
             playlistID: $playlistID,
         );
@@ -237,9 +233,8 @@ class Playlists
      * @return Operations\DeletePlaylistResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function deletePlaylist(
-        float $playlistID,
-    ): Operations\DeletePlaylistResponse {
+    public function deletePlaylist(float $playlistID): Operations\DeletePlaylistResponse
+    {
         $request = new Operations\DeletePlaylistRequest(
             playlistID: $playlistID,
         );
@@ -298,11 +293,8 @@ class Playlists
      * @return Operations\UpdatePlaylistResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function updatePlaylist(
-        float $playlistID,
-        ?string $title = null,
-        ?string $summary = null,
-    ): Operations\UpdatePlaylistResponse {
+    public function updatePlaylist(float $playlistID, ?string $title = null, ?string $summary = null): Operations\UpdatePlaylistResponse
+    {
         $request = new Operations\UpdatePlaylistRequest(
             playlistID: $playlistID,
             title: $title,
@@ -366,10 +358,8 @@ class Playlists
      * @return Operations\GetPlaylistContentsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function getPlaylistContents(
-        float $playlistID,
-        Operations\GetPlaylistContentsQueryParamType $type,
-    ): Operations\GetPlaylistContentsResponse {
+    public function getPlaylistContents(float $playlistID, Operations\GetPlaylistContentsQueryParamType $type): Operations\GetPlaylistContentsResponse
+    {
         $request = new Operations\GetPlaylistContentsRequest(
             playlistID: $playlistID,
             type: $type,
@@ -436,9 +426,8 @@ class Playlists
      * @return Operations\ClearPlaylistContentsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function clearPlaylistContents(
-        float $playlistID,
-    ): Operations\ClearPlaylistContentsResponse {
+    public function clearPlaylistContents(float $playlistID): Operations\ClearPlaylistContentsResponse
+    {
         $request = new Operations\ClearPlaylistContentsRequest(
             playlistID: $playlistID,
         );
@@ -498,11 +487,8 @@ class Playlists
      * @return Operations\AddPlaylistContentsResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function addPlaylistContents(
-        float $playlistID,
-        string $uri,
-        ?float $playQueueID = null,
-    ): Operations\AddPlaylistContentsResponse {
+    public function addPlaylistContents(float $playlistID, string $uri, ?float $playQueueID = null): Operations\AddPlaylistContentsResponse
+    {
         $request = new Operations\AddPlaylistContentsRequest(
             playlistID: $playlistID,
             uri: $uri,
@@ -572,11 +558,8 @@ class Playlists
      * @return Operations\UploadPlaylistResponse
      * @throws \LukeHagar\Plex_API\Models\Errors\SDKException
      */
-    public function uploadPlaylist(
-        string $path,
-        Operations\QueryParamForce $force,
-        int $sectionID,
-    ): Operations\UploadPlaylistResponse {
+    public function uploadPlaylist(string $path, Operations\QueryParamForce $force, int $sectionID): Operations\UploadPlaylistResponse
+    {
         $request = new Operations\UploadPlaylistRequest(
             path: $path,
             force: $force,

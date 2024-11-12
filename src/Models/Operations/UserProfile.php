@@ -14,17 +14,18 @@ class UserProfile
     /**
      * If the account has automatically select audio and subtitle tracks enabled
      *
-     * @var bool $autoSelectAudio
+     * @var ?bool $autoSelectAudio
      */
-    #[\JMS\Serializer\Annotation\SerializedName('autoSelectAudio')]
-    public bool $autoSelectAudio;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('autoSelectAudio')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $autoSelectAudio = null;
 
     /**
      * The preferred audio language for the account
      *
      * @var ?string $defaultAudioLanguage
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultAudioLanguage')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultAudioLanguage')]
     public ?string $defaultAudioLanguage;
 
     /**
@@ -32,68 +33,73 @@ class UserProfile
      *
      * @var ?string $defaultSubtitleLanguage
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
     public ?string $defaultSubtitleLanguage;
 
     /**
      *
-     * @var AutoSelectSubtitle $autoSelectSubtitle
+     * @var ?AutoSelectSubtitle $autoSelectSubtitle
      */
-    #[\JMS\Serializer\Annotation\SerializedName('autoSelectSubtitle')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\AutoSelectSubtitle')]
-    public AutoSelectSubtitle $autoSelectSubtitle;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('autoSelectSubtitle')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\AutoSelectSubtitle|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?AutoSelectSubtitle $autoSelectSubtitle = null;
 
     /**
      *
-     * @var DefaultSubtitleAccessibility $defaultSubtitleAccessibility
+     * @var ?DefaultSubtitleAccessibility $defaultSubtitleAccessibility
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultSubtitleAccessibility')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\DefaultSubtitleAccessibility')]
-    public DefaultSubtitleAccessibility $defaultSubtitleAccessibility;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultSubtitleAccessibility')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\DefaultSubtitleAccessibility|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?DefaultSubtitleAccessibility $defaultSubtitleAccessibility = null;
 
     /**
      *
-     * @var DefaultSubtitleForced $defaultSubtitleForced
+     * @var ?DefaultSubtitleForced $defaultSubtitleForced
      */
-    #[\JMS\Serializer\Annotation\SerializedName('defaultSubtitleForced')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\DefaultSubtitleForced')]
-    public DefaultSubtitleForced $defaultSubtitleForced;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('defaultSubtitleForced')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\DefaultSubtitleForced|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?DefaultSubtitleForced $defaultSubtitleForced = null;
 
     /**
      *
-     * @var WatchedIndicator $watchedIndicator
+     * @var ?WatchedIndicator $watchedIndicator
      */
-    #[\JMS\Serializer\Annotation\SerializedName('watchedIndicator')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\WatchedIndicator')]
-    public WatchedIndicator $watchedIndicator;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('watchedIndicator')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\WatchedIndicator|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?WatchedIndicator $watchedIndicator = null;
 
     /**
      *
-     * @var MediaReviewsVisibility $mediaReviewsVisibility
+     * @var ?MediaReviewsVisibility $mediaReviewsVisibility
      */
-    #[\JMS\Serializer\Annotation\SerializedName('mediaReviewsVisibility')]
-    #[\JMS\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MediaReviewsVisibility')]
-    public MediaReviewsVisibility $mediaReviewsVisibility;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaReviewsVisibility')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MediaReviewsVisibility|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?MediaReviewsVisibility $mediaReviewsVisibility = null;
 
     /**
-     * @param  bool  $autoSelectAudio
-     * @param  AutoSelectSubtitle  $autoSelectSubtitle
-     * @param  DefaultSubtitleAccessibility  $defaultSubtitleAccessibility
-     * @param  DefaultSubtitleForced  $defaultSubtitleForced
-     * @param  WatchedIndicator  $watchedIndicator
-     * @param  MediaReviewsVisibility  $mediaReviewsVisibility
+     * @param  ?bool  $autoSelectAudio
      * @param  ?string  $defaultAudioLanguage
      * @param  ?string  $defaultSubtitleLanguage
+     * @param  ?AutoSelectSubtitle  $autoSelectSubtitle
+     * @param  ?DefaultSubtitleAccessibility  $defaultSubtitleAccessibility
+     * @param  ?DefaultSubtitleForced  $defaultSubtitleForced
+     * @param  ?WatchedIndicator  $watchedIndicator
+     * @param  ?MediaReviewsVisibility  $mediaReviewsVisibility
      */
-    public function __construct(bool $autoSelectAudio, AutoSelectSubtitle $autoSelectSubtitle, DefaultSubtitleAccessibility $defaultSubtitleAccessibility, DefaultSubtitleForced $defaultSubtitleForced, WatchedIndicator $watchedIndicator, MediaReviewsVisibility $mediaReviewsVisibility, ?string $defaultAudioLanguage = null, ?string $defaultSubtitleLanguage = null)
+    public function __construct(?string $defaultAudioLanguage = null, ?string $defaultSubtitleLanguage = null, ?bool $autoSelectAudio = true, ?AutoSelectSubtitle $autoSelectSubtitle = AutoSelectSubtitle::Disable, ?DefaultSubtitleAccessibility $defaultSubtitleAccessibility = DefaultSubtitleAccessibility::Disable, ?DefaultSubtitleForced $defaultSubtitleForced = DefaultSubtitleForced::Disable, ?WatchedIndicator $watchedIndicator = WatchedIndicator::Disable, ?MediaReviewsVisibility $mediaReviewsVisibility = MediaReviewsVisibility::Disable)
     {
         $this->autoSelectAudio = $autoSelectAudio;
+        $this->defaultAudioLanguage = $defaultAudioLanguage;
+        $this->defaultSubtitleLanguage = $defaultSubtitleLanguage;
         $this->autoSelectSubtitle = $autoSelectSubtitle;
         $this->defaultSubtitleAccessibility = $defaultSubtitleAccessibility;
         $this->defaultSubtitleForced = $defaultSubtitleForced;
         $this->watchedIndicator = $watchedIndicator;
         $this->mediaReviewsVisibility = $mediaReviewsVisibility;
-        $this->defaultAudioLanguage = $defaultAudioLanguage;
-        $this->defaultSubtitleLanguage = $defaultSubtitleLanguage;
     }
 }
