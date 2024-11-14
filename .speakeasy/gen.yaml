@@ -13,7 +13,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 php:
-  version: 0.11.0
+  version: 0.11.1
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKException
   flattenGlobalSecurity: true

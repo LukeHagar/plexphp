@@ -19,7 +19,7 @@ class GetStatisticsRequest
      *
      * @var ?int $timespan
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=Timespan')]
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=timespan')]
     public ?int $timespan = null;
 
     /**
