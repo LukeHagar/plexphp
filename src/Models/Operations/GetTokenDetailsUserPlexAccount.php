@@ -13,6 +13,171 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetTokenDetailsUserPlexAccount
 {
     /**
+     * The account token
+     *
+     * @var string $authToken
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('authToken')]
+    public string $authToken;
+
+    /**
+     * The account country
+     *
+     * @var string $country
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('country')]
+    public string $country;
+
+    /**
+     * The account email address
+     *
+     * @var string $email
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
+    public string $email;
+
+    /**
+     * Your account full name
+     *
+     * @var string $friendlyName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('friendlyName')]
+    public string $friendlyName;
+
+    /**
+     * List of devices your allowed to use with this account
+     *
+     * @var array<string> $entitlements
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('entitlements')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
+    public array $entitlements;
+
+    /**
+     * The number of accounts in the Plex Home
+     *
+     * @var int $homeSize
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('homeSize')]
+    public int $homeSize;
+
+    /**
+     * The Plex account ID
+     *
+     * @var int $id
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public int $id;
+
+    /**
+     * Unix epoch datetime in seconds
+     *
+     * @var int $joinedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('joinedAt')]
+    public int $joinedAt;
+
+    /**
+     * Your current mailing list status (active or unsubscribed)
+     *
+     * @var MailingListStatus $mailingListStatus
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mailingListStatus')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MailingListStatus')]
+    public MailingListStatus $mailingListStatus;
+
+    /**
+     * The maximum number of accounts allowed in the Plex Home
+     *
+     * @var int $maxHomeSize
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('maxHomeSize')]
+    public int $maxHomeSize;
+
+    /**
+     *
+     * @var UserProfile $profile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\UserProfile')]
+    public UserProfile $profile;
+
+    /**
+     * Unix epoch datetime in seconds
+     *
+     * @var int $rememberExpiresAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('rememberExpiresAt')]
+    public int $rememberExpiresAt;
+
+    /**
+     * Unknown
+     *
+     * @var string $scrobbleTypes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('scrobbleTypes')]
+    public string $scrobbleTypes;
+
+    /**
+     * $services
+     *
+     * @var array<Services> $services
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('services')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Services>')]
+    public array $services;
+
+    /**
+     * If the account’s Plex Pass subscription is active
+     *
+     * @var Subscription $subscription
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscription')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Subscription')]
+    public Subscription $subscription;
+
+    /**
+     * $subscriptions
+     *
+     * @var array<GetTokenDetailsSubscription> $subscriptions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptions')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsSubscription>')]
+    public array $subscriptions;
+
+    /**
+     * URL of the account thumbnail
+     *
+     * @var string $thumb
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    public string $thumb;
+
+    /**
+     * The title of the account (username or friendly name)
+     *
+     * @var string $title
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    public string $title;
+
+    /**
+     * The account username
+     *
+     * @var string $username
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('username')]
+    public string $username;
+
+    /**
+     * The account UUID
+     *
+     * @var string $uuid
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
+    public string $uuid;
+
+    /**
      * Unknown
      *
      * @var ?bool $adsConsent
@@ -35,21 +200,47 @@ class GetTokenDetailsUserPlexAccount
     public ?int $adsConsentSetAt;
 
     /**
-     * Unknown
+     * The account locale
      *
-     * @var ?bool $anonymous
+     * @var ?string $locale
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('anonymous')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $anonymous = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('locale')]
+    public ?string $locale;
 
     /**
-     * The account token
+     * [Might be removed] The hashed Plex Home PIN 
      *
-     * @var string $authToken
+     * @var ?string $pin
+     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('authToken')]
-    public string $authToken;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('pin')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $pin = null;
+
+    /**
+     * [Might be removed] List of account roles. Plexpass membership listed here
+     *
+     * @var ?array<string> $roles
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('roles')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $roles = null;
+
+    /**
+     * Description of the Plex Pass subscription
+     *
+     * @var ?string $subscriptionDescription
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptionDescription')]
+    public ?string $subscriptionDescription;
+
+    /**
+     *
+     * @var ?string $attributionPartner
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('attributionPartner')]
+    public ?string $attributionPartner;
 
     /**
      * If the two-factor authentication backup codes have been created
@@ -70,22 +261,6 @@ class GetTokenDetailsUserPlexAccount
     public ?bool $confirmed = null;
 
     /**
-     * The account country
-     *
-     * @var string $country
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('country')]
-    public string $country;
-
-    /**
-     * The account email address
-     *
-     * @var string $email
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('email')]
-    public string $email;
-
-    /**
      * If login with email only is enabled
      *
      * @var ?bool $emailOnlyAuth
@@ -102,23 +277,6 @@ class GetTokenDetailsUserPlexAccount
     #[\Speakeasy\Serializer\Annotation\SerializedName('experimentalFeatures')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $experimentalFeatures = null;
-
-    /**
-     * Your account full name
-     *
-     * @var string $friendlyName
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('friendlyName')]
-    public string $friendlyName;
-
-    /**
-     * List of devices your allowed to use with this account
-     *
-     * @var array<string> $entitlements
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('entitlements')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string>')]
-    public array $entitlements;
 
     /**
      * If the account is a Plex Home guest user
@@ -157,38 +315,6 @@ class GetTokenDetailsUserPlexAccount
     public ?bool $homeAdmin = null;
 
     /**
-     * The number of accounts in the Plex Home
-     *
-     * @var int $homeSize
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('homeSize')]
-    public int $homeSize;
-
-    /**
-     * The Plex account ID
-     *
-     * @var int $id
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    public int $id;
-
-    /**
-     * Unix epoch datetime in seconds
-     *
-     * @var int $joinedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('joinedAt')]
-    public int $joinedAt;
-
-    /**
-     * The account locale
-     *
-     * @var ?string $locale
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('locale')]
-    public ?string $locale;
-
-    /**
      * If you are subscribed to the Plex newsletter
      *
      * @var ?bool $mailingListActive
@@ -196,41 +322,6 @@ class GetTokenDetailsUserPlexAccount
     #[\Speakeasy\Serializer\Annotation\SerializedName('mailingListActive')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $mailingListActive = null;
-
-    /**
-     * Your current mailing list status (active or unsubscribed)
-     *
-     * @var MailingListStatus $mailingListStatus
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('mailingListStatus')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\MailingListStatus')]
-    public MailingListStatus $mailingListStatus;
-
-    /**
-     * The maximum number of accounts allowed in the Plex Home
-     *
-     * @var int $maxHomeSize
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('maxHomeSize')]
-    public int $maxHomeSize;
-
-    /**
-     * [Might be removed] The hashed Plex Home PIN 
-     *
-     * @var ?string $pin
-     * @deprecated  field: This will be removed in a future release, please migrate away from it as soon as possible.
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('pin')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $pin = null;
-
-    /**
-     *
-     * @var UserProfile $profile
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('profile')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\UserProfile')]
-    public UserProfile $profile;
 
     /**
      * If the account has a Plex Home PIN enabled
@@ -242,14 +333,6 @@ class GetTokenDetailsUserPlexAccount
     public ?bool $protected = null;
 
     /**
-     * Unix epoch datetime in seconds
-     *
-     * @var int $rememberExpiresAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('rememberExpiresAt')]
-    public int $rememberExpiresAt;
-
-    /**
      * If the account is a Plex Home managed user
      *
      * @var ?bool $restricted
@@ -257,75 +340,6 @@ class GetTokenDetailsUserPlexAccount
     #[\Speakeasy\Serializer\Annotation\SerializedName('restricted')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $restricted = null;
-
-    /**
-     * [Might be removed] List of account roles. Plexpass membership listed here
-     *
-     * @var ?array<string> $roles
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('roles')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<string>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $roles = null;
-
-    /**
-     * Unknown
-     *
-     * @var string $scrobbleTypes
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('scrobbleTypes')]
-    public string $scrobbleTypes;
-
-    /**
-     * $services
-     *
-     * @var array<Services> $services
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('services')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Services>')]
-    public array $services;
-
-    /**
-     * If the account’s Plex Pass subscription is active
-     *
-     * @var Subscription $subscription
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('subscription')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Subscription')]
-    public Subscription $subscription;
-
-    /**
-     * Description of the Plex Pass subscription
-     *
-     * @var ?string $subscriptionDescription
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptionDescription')]
-    public ?string $subscriptionDescription;
-
-    /**
-     * $subscriptions
-     *
-     * @var array<GetTokenDetailsSubscription> $subscriptions
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptions')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsSubscription>')]
-    public array $subscriptions;
-
-    /**
-     * URL of the account thumbnail
-     *
-     * @var string $thumb
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
-    public string $thumb;
-
-    /**
-     * The title of the account (username or friendly name)
-     *
-     * @var string $title
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
-    public string $title;
 
     /**
      * If two-factor authentication is enabled
@@ -337,27 +351,13 @@ class GetTokenDetailsUserPlexAccount
     public ?bool $twoFactorEnabled = null;
 
     /**
-     * The account username
+     * Unknown
      *
-     * @var string $username
+     * @var ?bool $anonymous
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('username')]
-    public string $username;
-
-    /**
-     * The account UUID
-     *
-     * @var string $uuid
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
-    public string $uuid;
-
-    /**
-     *
-     * @var ?string $attributionPartner
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('attributionPartner')]
-    public ?string $attributionPartner;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('anonymous')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $anonymous = null;
 
     /**
      * @param  string  $authToken
@@ -427,6 +427,11 @@ class GetTokenDetailsUserPlexAccount
         $this->adsConsent = $adsConsent;
         $this->adsConsentReminderAt = $adsConsentReminderAt;
         $this->adsConsentSetAt = $adsConsentSetAt;
+        $this->locale = $locale;
+        $this->pin = $pin;
+        $this->roles = $roles;
+        $this->subscriptionDescription = $subscriptionDescription;
+        $this->attributionPartner = $attributionPartner;
         $this->backupCodesCreated = $backupCodesCreated;
         $this->confirmed = $confirmed;
         $this->emailOnlyAuth = $emailOnlyAuth;
@@ -435,15 +440,10 @@ class GetTokenDetailsUserPlexAccount
         $this->hasPassword = $hasPassword;
         $this->home = $home;
         $this->homeAdmin = $homeAdmin;
-        $this->locale = $locale;
         $this->mailingListActive = $mailingListActive;
-        $this->pin = $pin;
         $this->protected = $protected;
         $this->restricted = $restricted;
-        $this->roles = $roles;
-        $this->subscriptionDescription = $subscriptionDescription;
         $this->twoFactorEnabled = $twoFactorEnabled;
-        $this->attributionPartner = $attributionPartner;
         $this->anonymous = $anonymous;
     }
 }

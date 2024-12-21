@@ -12,15 +12,6 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class PostUsersSignInDataUserProfile
 {
     /**
-     * If the account has automatically select audio and subtitle tracks enabled
-     *
-     * @var ?bool $autoSelectAudio
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('autoSelectAudio')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $autoSelectAudio = null;
-
-    /**
      * The preferred audio language for the account
      *
      * @var ?string $defaultAudioLanguage
@@ -35,6 +26,15 @@ class PostUsersSignInDataUserProfile
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('defaultSubtitleLanguage')]
     public ?string $defaultSubtitleLanguage;
+
+    /**
+     * If the account has automatically select audio and subtitle tracks enabled
+     *
+     * @var ?bool $autoSelectAudio
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('autoSelectAudio')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $autoSelectAudio = null;
 
     /**
      *
@@ -93,9 +93,9 @@ class PostUsersSignInDataUserProfile
      */
     public function __construct(?string $defaultAudioLanguage = null, ?string $defaultSubtitleLanguage = null, ?bool $autoSelectAudio = true, ?PostUsersSignInDataAutoSelectSubtitle $autoSelectSubtitle = PostUsersSignInDataAutoSelectSubtitle::Disable, ?PostUsersSignInDataDefaultSubtitleAccessibility $defaultSubtitleAccessibility = PostUsersSignInDataDefaultSubtitleAccessibility::Disable, ?PostUsersSignInDataDefaultSubtitleForced $defaultSubtitleForced = PostUsersSignInDataDefaultSubtitleForced::Disable, ?PostUsersSignInDataWatchedIndicator $watchedIndicator = PostUsersSignInDataWatchedIndicator::Disable, ?PostUsersSignInDataMediaReviewsVisibility $mediaReviewsVisibility = PostUsersSignInDataMediaReviewsVisibility::Disable)
     {
-        $this->autoSelectAudio = $autoSelectAudio;
         $this->defaultAudioLanguage = $defaultAudioLanguage;
         $this->defaultSubtitleLanguage = $defaultSubtitleLanguage;
+        $this->autoSelectAudio = $autoSelectAudio;
         $this->autoSelectSubtitle = $autoSelectSubtitle;
         $this->defaultSubtitleAccessibility = $defaultSubtitleAccessibility;
         $this->defaultSubtitleForced = $defaultSubtitleForced;

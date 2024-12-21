@@ -8,9 +8,50 @@ Submit logs to the Log Handler for Plex Media Server
 
 ### Available Operations
 
+* [enablePaperTrail](#enablepapertrail) - Enabling Papertrail
 * [logLine](#logline) - Logging a single line message.
 * [logMultiLine](#logmultiline) - Logging a multi-line message
-* [enablePaperTrail](#enablepapertrail) - Enabling Papertrail
+
+## enablePaperTrail
+
+This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail networked logging site for a period of time.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->log->enablePaperTrail(
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\EnablePaperTrailResponse](../../Models/Operations/EnablePaperTrailResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\EnablePaperTrailBadRequest   | 400                                 | application/json                    |
+| Errors\EnablePaperTrailUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## logLine
 
@@ -29,13 +70,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -107,13 +142,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 $request = 'level=4&message=Test%20message%201&source=postman
 level=3&message=Test%20message%202&source=postman
@@ -145,50 +174,3 @@ if ($response->statusCode === 200) {
 | Errors\LogMultiLineBadRequest   | 400                             | application/json                |
 | Errors\LogMultiLineUnauthorized | 401                             | application/json                |
 | Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
-
-## enablePaperTrail
-
-This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail networked logging site for a period of time.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->log->enablePaperTrail(
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\EnablePaperTrailResponse](../../Models/Operations/EnablePaperTrailResponse.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Errors\EnablePaperTrailBadRequest   | 400                                 | application/json                    |
-| Errors\EnablePaperTrailUnauthorized | 401                                 | application/json                    |
-| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |

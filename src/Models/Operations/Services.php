@@ -27,6 +27,14 @@ class Services
 
     /**
      *
+     * @var GetTokenDetailsStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsStatus')]
+    public GetTokenDetailsStatus $status;
+
+    /**
+     *
      * @var ?string $token
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
@@ -38,14 +46,6 @@ class Services
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('secret')]
     public ?string $secret;
-
-    /**
-     *
-     * @var GetTokenDetailsStatus $status
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetTokenDetailsStatus')]
-    public GetTokenDetailsStatus $status;
 
     /**
      * @param  string  $identifier

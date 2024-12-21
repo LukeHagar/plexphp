@@ -8,13 +8,13 @@ API Calls that perform operations with Plex Media Server Statistics
 
 ### Available Operations
 
-* [getStatistics](#getstatistics) - Get Media Statistics
-* [getResourcesStatistics](#getresourcesstatistics) - Get Resources Statistics
 * [getBandwidthStatistics](#getbandwidthstatistics) - Get Bandwidth Statistics
+* [getResourcesStatistics](#getresourcesstatistics) - Get Resources Statistics
+* [getStatistics](#getstatistics) - Get Media Statistics
 
-## getStatistics
+## getBandwidthStatistics
 
-This will return the media statistics for the server
+This will return the bandwidth statistics for the server
 
 ### Example Usage
 
@@ -27,17 +27,11 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
-$response = $sdk->statistics->getStatistics(
+$response = $sdk->statistics->getBandwidthStatistics(
     timespan: 4
 );
 
@@ -54,15 +48,15 @@ if ($response->object !== null) {
 
 ### Response
 
-**[?Operations\GetStatisticsResponse](../../Models/Operations/GetStatisticsResponse.md)**
+**[?Operations\GetBandwidthStatisticsResponse](../../Models/Operations/GetBandwidthStatisticsResponse.md)**
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| Errors\GetStatisticsBadRequest   | 400                              | application/json                 |
-| Errors\GetStatisticsUnauthorized | 401                              | application/json                 |
-| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Errors\GetBandwidthStatisticsBadRequest   | 400                                       | application/json                          |
+| Errors\GetBandwidthStatisticsUnauthorized | 401                                       | application/json                          |
+| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
 
 ## getResourcesStatistics
 
@@ -79,13 +73,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -116,9 +104,9 @@ if ($response->object !== null) {
 | Errors\GetResourcesStatisticsUnauthorized | 401                                       | application/json                          |
 | Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
 
-## getBandwidthStatistics
+## getStatistics
 
-This will return the bandwidth statistics for the server
+This will return the media statistics for the server
 
 ### Example Usage
 
@@ -131,17 +119,11 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
-$response = $sdk->statistics->getBandwidthStatistics(
+$response = $sdk->statistics->getStatistics(
     timespan: 4
 );
 
@@ -158,12 +140,12 @@ if ($response->object !== null) {
 
 ### Response
 
-**[?Operations\GetBandwidthStatisticsResponse](../../Models/Operations/GetBandwidthStatisticsResponse.md)**
+**[?Operations\GetStatisticsResponse](../../Models/Operations/GetStatisticsResponse.md)**
 
 ### Errors
 
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Errors\GetBandwidthStatisticsBadRequest   | 400                                       | application/json                          |
-| Errors\GetBandwidthStatisticsUnauthorized | 401                                       | application/json                          |
-| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\GetStatisticsBadRequest   | 400                              | application/json                 |
+| Errors\GetStatisticsUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |

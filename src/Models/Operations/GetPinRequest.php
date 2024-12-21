@@ -12,24 +12,12 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetPinRequest
 {
     /**
-     * Determines the kind of code returned by the API call
-     *
-     * Strong codes are used for Pin authentication flows
-     * Non-Strong codes are used for `Plex.tv/link`
-     *
-     *
-     * @var ?bool $strong
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=strong')]
-    public ?bool $strong = null;
-
-    /**
      * An opaque identifier unique to the client (UUID, serial number, or other unique device ID)
      *
-     * @var ?string $clientID
+     * @var string $clientID
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
-    public ?string $clientID = null;
+    public string $clientID;
 
     /**
      * The name of the client application. (Plex Web, Plex Media Server, etc.)
@@ -64,20 +52,32 @@ class GetPinRequest
     public ?string $platform = null;
 
     /**
+     * Determines the kind of code returned by the API call
+     *
+     * Strong codes are used for Pin authentication flows
+     * Non-Strong codes are used for `Plex.tv/link`
+     *
+     *
+     * @var ?bool $strong
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=strong')]
+    public ?bool $strong = null;
+
+    /**
+     * @param  string  $clientID
      * @param  ?bool  $strong
-     * @param  ?string  $clientID
      * @param  ?string  $clientName
      * @param  ?string  $deviceNickname
      * @param  ?string  $clientVersion
      * @param  ?string  $platform
      */
-    public function __construct(?string $clientID = null, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null, ?bool $strong = false)
+    public function __construct(string $clientID, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null, ?bool $strong = false)
     {
-        $this->strong = $strong;
         $this->clientID = $clientID;
         $this->clientName = $clientName;
         $this->deviceNickname = $deviceNickname;
         $this->clientVersion = $clientVersion;
         $this->platform = $platform;
+        $this->strong = $strong;
     }
 }

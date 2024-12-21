@@ -12,6 +12,14 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetServerResourcesRequest
 {
     /**
+     * An opaque identifier unique to the client (UUID, serial number, or other unique device ID)
+     *
+     * @var string $clientID
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
+    public string $clientID;
+
+    /**
      * Include Https entries in the results
      *
      * @var ?IncludeHttps $includeHttps
@@ -39,24 +47,16 @@ class GetServerResourcesRequest
     public ?IncludeIPv6 $includeIPv6 = null;
 
     /**
-     * An opaque identifier unique to the client (UUID, serial number, or other unique device ID)
-     *
-     * @var ?string $clientID
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
-    public ?string $clientID = null;
-
-    /**
+     * @param  string  $clientID
      * @param  ?IncludeHttps  $includeHttps
      * @param  ?IncludeRelay  $includeRelay
      * @param  ?IncludeIPv6  $includeIPv6
-     * @param  ?string  $clientID
      */
-    public function __construct(?string $clientID = null, ?IncludeHttps $includeHttps = IncludeHttps::Disable, ?IncludeRelay $includeRelay = IncludeRelay::Disable, ?IncludeIPv6 $includeIPv6 = IncludeIPv6::Disable)
+    public function __construct(string $clientID, ?IncludeHttps $includeHttps = IncludeHttps::Disable, ?IncludeRelay $includeRelay = IncludeRelay::Disable, ?IncludeIPv6 $includeIPv6 = IncludeIPv6::Disable)
     {
+        $this->clientID = $clientID;
         $this->includeHttps = $includeHttps;
         $this->includeRelay = $includeRelay;
         $this->includeIPv6 = $includeIPv6;
-        $this->clientID = $clientID;
     }
 }

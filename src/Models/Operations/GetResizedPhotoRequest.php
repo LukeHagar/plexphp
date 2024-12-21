@@ -28,14 +28,6 @@ class GetResizedPhotoRequest
     public float $height;
 
     /**
-     * The opacity for the resized photo
-     *
-     * @var int $opacity
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=opacity')]
-    public int $opacity;
-
-    /**
      * The width for the resized photo
      *
      * @var float $blur
@@ -68,6 +60,14 @@ class GetResizedPhotoRequest
     public string $url;
 
     /**
+     * The opacity for the resized photo
+     *
+     * @var int $opacity
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=opacity')]
+    public int $opacity;
+
+    /**
      * @param  float  $width
      * @param  float  $height
      * @param  int  $opacity
@@ -80,10 +80,10 @@ class GetResizedPhotoRequest
     {
         $this->width = $width;
         $this->height = $height;
-        $this->opacity = $opacity;
         $this->blur = $blur;
         $this->minSize = $minSize;
         $this->upscale = $upscale;
         $this->url = $url;
+        $this->opacity = $opacity;
     }
 }

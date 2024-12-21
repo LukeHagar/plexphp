@@ -22,10 +22,10 @@ class GetTokenByPinIdRequest
     /**
      * An opaque identifier unique to the client (UUID, serial number, or other unique device ID)
      *
-     * @var ?string $clientID
+     * @var string $clientID
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
-    public ?string $clientID = null;
+    public string $clientID;
 
     /**
      * The name of the client application. (Plex Web, Plex Media Server, etc.)
@@ -61,13 +61,13 @@ class GetTokenByPinIdRequest
 
     /**
      * @param  int  $pinID
-     * @param  ?string  $clientID
+     * @param  string  $clientID
      * @param  ?string  $clientName
      * @param  ?string  $deviceNickname
      * @param  ?string  $clientVersion
      * @param  ?string  $platform
      */
-    public function __construct(int $pinID, ?string $clientID = null, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null)
+    public function __construct(int $pinID, string $clientID, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null)
     {
         $this->pinID = $pinID;
         $this->clientID = $clientID;

@@ -27,13 +27,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 $request = new Operations\GetTimelineRequest(
     ratingKey: 23409,
@@ -91,13 +85,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 $request = new Operations\StartUniversalTranscodeRequest(
     hasMDE: 1,

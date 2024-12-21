@@ -13,6 +13,29 @@ class PastSubscription
 {
     /**
      *
+     * @var string $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    public string $type;
+
+    /**
+     *
+     * @var PostUsersSignInDataState $state
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataState')]
+    public PostUsersSignInDataState $state;
+
+    /**
+     *
+     * @var Billing $billing
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('billing')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Billing')]
+    public Billing $billing;
+
+    /**
+     *
      * @var ?string $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
@@ -38,6 +61,13 @@ class PastSubscription
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('endsAt')]
     public ?int $endsAt;
+
+    /**
+     *
+     * @var ?string $transfer
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('transfer')]
+    public ?string $transfer;
 
     /**
      *
@@ -96,36 +126,6 @@ class PastSubscription
     public ?bool $canConvert = null;
 
     /**
-     *
-     * @var string $type
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    public string $type;
-
-    /**
-     *
-     * @var ?string $transfer
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('transfer')]
-    public ?string $transfer;
-
-    /**
-     *
-     * @var PostUsersSignInDataState $state
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('state')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataState')]
-    public PostUsersSignInDataState $state;
-
-    /**
-     *
-     * @var Billing $billing
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('billing')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Billing')]
-    public Billing $billing;
-
-    /**
      * @param  string  $type
      * @param  PostUsersSignInDataState  $state
      * @param  Billing  $billing
@@ -151,6 +151,7 @@ class PastSubscription
         $this->mode = $mode;
         $this->renewsAt = $renewsAt;
         $this->endsAt = $endsAt;
+        $this->transfer = $transfer;
         $this->canceled = $canceled;
         $this->gracePeriod = $gracePeriod;
         $this->onHold = $onHold;
@@ -158,6 +159,5 @@ class PastSubscription
         $this->canUpgrade = $canUpgrade;
         $this->canDowngrade = $canDowngrade;
         $this->canConvert = $canConvert;
-        $this->transfer = $transfer;
     }
 }

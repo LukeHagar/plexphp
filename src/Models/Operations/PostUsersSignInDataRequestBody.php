@@ -28,17 +28,17 @@ class PostUsersSignInDataRequestBody
 
     /**
      *
-     * @var ?bool $rememberMe
-     */
-    #[SpeakeasyMetadata('form:name=rememberMe')]
-    public ?bool $rememberMe = null;
-
-    /**
-     *
      * @var ?string $verificationCode
      */
     #[SpeakeasyMetadata('form:name=verificationCode')]
     public ?string $verificationCode = null;
+
+    /**
+     *
+     * @var ?bool $rememberMe
+     */
+    #[SpeakeasyMetadata('form:name=rememberMe')]
+    public ?bool $rememberMe = null;
 
     /**
      * @param  string  $login
@@ -50,7 +50,7 @@ class PostUsersSignInDataRequestBody
     {
         $this->login = $login;
         $this->password = $password;
-        $this->rememberMe = $rememberMe;
         $this->verificationCode = $verificationCode;
+        $this->rememberMe = $rememberMe;
     }
 }

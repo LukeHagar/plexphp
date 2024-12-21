@@ -20,6 +20,14 @@ class GetWatchListRequest
     public Filter $filter;
 
     /**
+     * An authentication token, obtained from plex.tv
+     *
+     * @var string $xPlexToken
+     */
+    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Token')]
+    public string $xPlexToken;
+
+    /**
      * In the format "field:dir". Available fields are "watchlistedAt" (Added At),
      *
      * "titleSort" (Title), "originallyAvailableAt" (Release Date), or "rating" (Critic Rating).
@@ -95,14 +103,6 @@ class GetWatchListRequest
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=X-Plex-Container-Size')]
     public ?int $xPlexContainerSize = null;
-
-    /**
-     * An authentication token, obtained from plex.tv
-     *
-     * @var string $xPlexToken
-     */
-    #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Token')]
-    public string $xPlexToken;
 
     /**
      * @param  Filter  $filter

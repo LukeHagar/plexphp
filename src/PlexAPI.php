@@ -232,5 +232,7 @@ class PlexAPI
         $this->statistics = new Statistics($this->sdkConfiguration);
         $this->sessions = new Sessions($this->sdkConfiguration);
         $this->updater = new Updater($this->sdkConfiguration);
+        $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);
+
     }
 }

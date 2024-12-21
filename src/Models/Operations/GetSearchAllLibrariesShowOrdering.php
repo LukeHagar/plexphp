@@ -10,20 +10,20 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * Setting that indicates the episode ordering for the show 
+ * Setting that indicates the episode ordering for the show
  *
- * None = Library default, 
- * tmdbAiring = The Movie Database (Aired), 
- * aired = TheTVDB (Aired), 
- * dvd = TheTVDB (DVD), 
- * absolute = TheTVDB (Absolute)).
+ * None = Library default,
+ * tmdbAiring = The Movie Database (Aired),
+ * tvdbAiring = TheTVDB (Aired),
+ * tvdbDvd = TheTVDB (DVD),
+ * tvdbAbsolute = TheTVDB (Absolute)).
  *
  */
 enum GetSearchAllLibrariesShowOrdering: string
 {
     case None = 'None';
     case TmdbAiring = 'tmdbAiring';
-    case Aired = 'aired';
-    case Dvd = 'dvd';
-    case Absolute = 'absolute';
+    case TvdbAiring = 'tvdbAiring';
+    case TvdbDvd = 'tvdbDvd';
+    case TvdbAbsolute = 'tvdbAbsolute';
 }

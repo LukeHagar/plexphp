@@ -20,6 +20,21 @@ class GetRecentlyAddedRequest
     public int $contentDirectoryID;
 
     /**
+     * The type of media to retrieve.
+     *
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var Type $type
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    public Type $type;
+
+    /**
      * Comma-separated list of pinned content directory IDs.
      *
      * @var ?string $pinnedContentDirectoryID
@@ -34,21 +49,6 @@ class GetRecentlyAddedRequest
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=sectionID')]
     public ?int $sectionID = null;
-
-    /**
-     * The type of media to retrieve.
-     *
-     * 1 = movie
-     * 2 = show
-     * 3 = season
-     * 4 = episode
-     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
-     *
-     *
-     * @var Type $type
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public Type $type;
 
     /**
      * Adds the Meta object to the response

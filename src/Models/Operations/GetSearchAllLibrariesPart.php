@@ -27,14 +27,6 @@ class GetSearchAllLibrariesPart
 
     /**
      *
-     * @var ?int $duration
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $duration = null;
-
-    /**
-     *
      * @var string $file
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
@@ -56,6 +48,14 @@ class GetSearchAllLibrariesPart
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
     public string $container;
+
+    /**
+     *
+     * @var ?int $duration
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $duration = null;
 
     /**
      *
@@ -98,15 +98,6 @@ class GetSearchAllLibrariesPart
     public ?string $indexes = null;
 
     /**
-     *
-     * @var ?GetSearchAllLibrariesHasThumbnail $hasThumbnail
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesHasThumbnail|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetSearchAllLibrariesHasThumbnail $hasThumbnail = null;
-
-    /**
      * $stream
      *
      * @var ?array<GetSearchAllLibrariesStream> $stream
@@ -115,6 +106,15 @@ class GetSearchAllLibrariesPart
     #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesStream>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $stream = null;
+
+    /**
+     *
+     * @var ?GetSearchAllLibrariesHasThumbnail $hasThumbnail
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesHasThumbnail|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetSearchAllLibrariesHasThumbnail $hasThumbnail = null;
 
     /**
      * @param  int  $id
@@ -144,7 +144,7 @@ class GetSearchAllLibrariesPart
         $this->optimizedForStreaming = $optimizedForStreaming;
         $this->videoProfile = $videoProfile;
         $this->indexes = $indexes;
-        $this->hasThumbnail = $hasThumbnail;
         $this->stream = $stream;
+        $this->hasThumbnail = $hasThumbnail;
     }
 }

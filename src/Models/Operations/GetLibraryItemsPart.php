@@ -27,14 +27,6 @@ class GetLibraryItemsPart
 
     /**
      *
-     * @var ?int $duration
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $duration = null;
-
-    /**
-     *
      * @var string $file
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
@@ -56,6 +48,14 @@ class GetLibraryItemsPart
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
     public string $container;
+
+    /**
+     *
+     * @var ?int $duration
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $duration = null;
 
     /**
      *
@@ -98,15 +98,6 @@ class GetLibraryItemsPart
     public ?string $indexes = null;
 
     /**
-     *
-     * @var ?GetLibraryItemsHasThumbnail $hasThumbnail
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsHasThumbnail|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetLibraryItemsHasThumbnail $hasThumbnail = null;
-
-    /**
      * $stream
      *
      * @var ?array<GetLibraryItemsStream> $stream
@@ -115,6 +106,15 @@ class GetLibraryItemsPart
     #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsStream>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $stream = null;
+
+    /**
+     *
+     * @var ?GetLibraryItemsHasThumbnail $hasThumbnail
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsHasThumbnail|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetLibraryItemsHasThumbnail $hasThumbnail = null;
 
     /**
      * @param  int  $id
@@ -144,7 +144,7 @@ class GetLibraryItemsPart
         $this->optimizedForStreaming = $optimizedForStreaming;
         $this->videoProfile = $videoProfile;
         $this->indexes = $indexes;
-        $this->hasThumbnail = $hasThumbnail;
         $this->stream = $stream;
+        $this->hasThumbnail = $hasThumbnail;
     }
 }

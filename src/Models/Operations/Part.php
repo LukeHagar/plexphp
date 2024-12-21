@@ -27,14 +27,6 @@ class Part
 
     /**
      *
-     * @var ?int $duration
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $duration = null;
-
-    /**
-     *
      * @var string $file
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
@@ -56,6 +48,14 @@ class Part
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
     public string $container;
+
+    /**
+     *
+     * @var ?int $duration
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $duration = null;
 
     /**
      *
@@ -98,15 +98,6 @@ class Part
     public ?string $indexes = null;
 
     /**
-     *
-     * @var ?HasThumbnail $hasThumbnail
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\HasThumbnail|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?HasThumbnail $hasThumbnail = null;
-
-    /**
      * $stream
      *
      * @var ?array<Stream> $stream
@@ -115,6 +106,15 @@ class Part
     #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Stream>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $stream = null;
+
+    /**
+     *
+     * @var ?HasThumbnail $hasThumbnail
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\HasThumbnail|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?HasThumbnail $hasThumbnail = null;
 
     /**
      * @param  int  $id
@@ -144,7 +144,7 @@ class Part
         $this->optimizedForStreaming = $optimizedForStreaming;
         $this->videoProfile = $videoProfile;
         $this->indexes = $indexes;
-        $this->hasThumbnail = $hasThumbnail;
         $this->stream = $stream;
+        $this->hasThumbnail = $hasThumbnail;
     }
 }

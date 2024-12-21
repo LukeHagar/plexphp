@@ -13,18 +13,18 @@ class Feature
 {
     /**
      *
+     * @var string $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    public string $type;
+
+    /**
+     *
      * @var ?string $key
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $key = null;
-
-    /**
-     *
-     * @var string $type
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    public string $type;
 
     /**
      *

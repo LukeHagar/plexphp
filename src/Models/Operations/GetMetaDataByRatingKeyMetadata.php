@@ -84,6 +84,51 @@ class GetMetaDataByRatingKeyMetadata
     public ?string $librarySectionKey = null;
 
     /**
+     * The name of the album artist for the track when audio, and the name of the TV show for the episode when video.
+     *
+     * @var ?string $grandparentTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentTitle = null;
+
+    /**
+     * The name of the album for the track when audio, and the name of the season for the episode when TV show.
+     *
+     * @var ?string $parentTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentTitle = null;
+
+    /**
+     * The orginal untranslated name of the media item when non-english.
+     *
+     * @var ?string $originalTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originalTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $originalTitle = null;
+
+    /**
+     * The index starting from 0 of this media item in the MetaData array.
+     *
+     * @var ?int $index
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $index = null;
+
+    /**
+     * The parent index starting from 0 of this media item in the parent MetaData array.
+     *
+     * @var ?int $parentIndex
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentIndex')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $parentIndex = null;
+
+    /**
      *
      * @var ?string $contentRating
      */
@@ -303,6 +348,11 @@ class GetMetaDataByRatingKeyMetadata
      * @param  ?string  $librarySectionTitle
      * @param  ?int  $librarySectionID
      * @param  ?string  $librarySectionKey
+     * @param  ?string  $grandparentTitle
+     * @param  ?string  $parentTitle
+     * @param  ?string  $originalTitle
+     * @param  ?int  $index
+     * @param  ?int  $parentIndex
      * @param  ?string  $contentRating
      * @param  ?string  $summary
      * @param  ?float  $rating
@@ -328,7 +378,7 @@ class GetMetaDataByRatingKeyMetadata
      * @param  ?array<GetMetaDataByRatingKeyRole>  $role
      * @param  ?array<Producer>  $producer
      */
-    public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $librarySectionTitle = null, ?int $librarySectionID = null, ?string $librarySectionKey = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $addedAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $hasPremiumPrimaryExtra = null, ?string $ratingImage = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $guids = null, ?array $ratings = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $producer = null)
+    public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $librarySectionTitle = null, ?int $librarySectionID = null, ?string $librarySectionKey = null, ?string $grandparentTitle = null, ?string $parentTitle = null, ?string $originalTitle = null, ?int $index = null, ?int $parentIndex = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $addedAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $hasPremiumPrimaryExtra = null, ?string $ratingImage = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $guids = null, ?array $ratings = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $producer = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -339,6 +389,11 @@ class GetMetaDataByRatingKeyMetadata
         $this->librarySectionTitle = $librarySectionTitle;
         $this->librarySectionID = $librarySectionID;
         $this->librarySectionKey = $librarySectionKey;
+        $this->grandparentTitle = $grandparentTitle;
+        $this->parentTitle = $parentTitle;
+        $this->originalTitle = $originalTitle;
+        $this->index = $index;
+        $this->parentIndex = $parentIndex;
         $this->contentRating = $contentRating;
         $this->summary = $summary;
         $this->rating = $rating;

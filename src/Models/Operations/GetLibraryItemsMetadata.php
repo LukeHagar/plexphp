@@ -37,6 +37,39 @@ class GetLibraryItemsMetadata
     public string $guid;
 
     /**
+     * The type of media content
+     *
+     *
+     *
+     * @var GetLibraryItemsLibraryType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryType')]
+    public GetLibraryItemsLibraryType $type;
+
+    /**
+     *
+     * @var string $title
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    public string $title;
+
+    /**
+     *
+     * @var string $summary
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
+    public string $summary;
+
+    /**
+     * Unix epoch datetime in seconds
+     *
+     * @var int $addedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('addedAt')]
+    public int $addedAt;
+
+    /**
      *
      * @var ?string $studio
      */
@@ -77,24 +110,6 @@ class GetLibraryItemsMetadata
     public ?string $librarySectionKey = null;
 
     /**
-     * The type of media content
-     *
-     *
-     *
-     * @var GetLibraryItemsLibraryType $type
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryType')]
-    public GetLibraryItemsLibraryType $type;
-
-    /**
-     *
-     * @var string $title
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
-    public string $title;
-
-    /**
      *
      * @var ?string $slug
      */
@@ -109,13 +124,6 @@ class GetLibraryItemsMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('contentRating')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
-
-    /**
-     *
-     * @var string $summary
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
-    public string $summary;
 
     /**
      *
@@ -158,22 +166,13 @@ class GetLibraryItemsMetadata
     public ?string $tagline = null;
 
     /**
+     * Setting that indicates the episode ordering for the show
      *
-     * @var ?GetLibraryItemsFlattenSeasons $flattenSeasons
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('flattenSeasons')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFlattenSeasons|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetLibraryItemsFlattenSeasons $flattenSeasons = null;
-
-    /**
-     * Setting that indicates the episode ordering for the show 
-     *
-     * None = Library default, 
-     * tmdbAiring = The Movie Database (Aired), 
-     * aired = TheTVDB (Aired), 
-     * dvd = TheTVDB (DVD), 
-     * absolute = TheTVDB (Absolute)).
+     * None = Library default,
+     * tmdbAiring = The Movie Database (Aired),
+     * tvdbAiring = TheTVDB (Aired),
+     * tvdbDvd = TheTVDB (DVD),
+     * tvdbAbsolute = TheTVDB (Absolute)).
      *
      *
      * @var ?GetLibraryItemsShowOrdering $showOrdering
@@ -222,14 +221,6 @@ class GetLibraryItemsMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?LocalDate $originallyAvailableAt = null;
-
-    /**
-     * Unix epoch datetime in seconds
-     *
-     * @var int $addedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('addedAt')]
-    public int $addedAt;
 
     /**
      * Unix epoch datetime in seconds
@@ -647,6 +638,15 @@ class GetLibraryItemsMetadata
     public ?string $parentTheme = null;
 
     /**
+     *
+     * @var ?GetLibraryItemsFlattenSeasons $flattenSeasons
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('flattenSeasons')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFlattenSeasons|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetLibraryItemsFlattenSeasons $flattenSeasons = null;
+
+    /**
      * @param  string  $ratingKey
      * @param  string  $key
      * @param  string  $guid
@@ -743,7 +743,6 @@ class GetLibraryItemsMetadata
         $this->year = $year;
         $this->seasonCount = $seasonCount;
         $this->tagline = $tagline;
-        $this->flattenSeasons = $flattenSeasons;
         $this->showOrdering = $showOrdering;
         $this->thumb = $thumb;
         $this->art = $art;
@@ -798,5 +797,6 @@ class GetLibraryItemsMetadata
         $this->parentYear = $parentYear;
         $this->parentThumb = $parentThumb;
         $this->parentTheme = $parentTheme;
+        $this->flattenSeasons = $flattenSeasons;
     }
 }

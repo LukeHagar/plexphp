@@ -27,6 +27,14 @@ class PostUsersSignInDataServices
 
     /**
      *
+     * @var PostUsersSignInDataStatus $status
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataStatus')]
+    public PostUsersSignInDataStatus $status;
+
+    /**
+     *
      * @var ?string $token
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('token')]
@@ -38,14 +46,6 @@ class PostUsersSignInDataServices
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('secret')]
     public ?string $secret;
-
-    /**
-     *
-     * @var PostUsersSignInDataStatus $status
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('status')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataStatus')]
-    public PostUsersSignInDataStatus $status;
 
     /**
      * @param  string  $identifier

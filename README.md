@@ -40,12 +40,20 @@ The following SDKs are generated from the OpenAPI Specification. They are automa
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [lukehagar/plex-api](#lukehagarplex-api)
+* [Plex Media Server OpenAPI Specification](#plex-media-server-openapi-specification)
+  * [Documentation](#documentation)
+  * [SDKs](#sdks)
+  * [SDK Installation](#sdk-installation)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+* [Development](#development)
+  * [Maturity](#maturity)
+  * [Contributions](#contributions)
 
-* [SDK Installation](#sdk-installation)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -73,13 +81,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -101,119 +103,119 @@ if ($response->object !== null) {
 
 ### [activities](docs/sdks/activities/README.md)
 
-* [getServerActivities](docs/sdks/activities/README.md#getserveractivities) - Get Server Activities
 * [cancelServerActivities](docs/sdks/activities/README.md#cancelserveractivities) - Cancel Server Activities
+* [getServerActivities](docs/sdks/activities/README.md#getserveractivities) - Get Server Activities
 
 ### [authentication](docs/sdks/authentication/README.md)
 
-* [getTransientToken](docs/sdks/authentication/README.md#gettransienttoken) - Get a Transient Token
 * [getSourceConnectionInformation](docs/sdks/authentication/README.md#getsourceconnectioninformation) - Get Source Connection Information
 * [getTokenDetails](docs/sdks/authentication/README.md#gettokendetails) - Get Token Details
+* [getTransientToken](docs/sdks/authentication/README.md#gettransienttoken) - Get a Transient Token
 * [postUsersSignInData](docs/sdks/authentication/README.md#postuserssignindata) - Get User Sign In Data
 
 ### [butler](docs/sdks/butler/README.md)
 
 * [getButlerTasks](docs/sdks/butler/README.md#getbutlertasks) - Get Butler tasks
 * [startAllTasks](docs/sdks/butler/README.md#startalltasks) - Start all Butler tasks
-* [stopAllTasks](docs/sdks/butler/README.md#stopalltasks) - Stop all Butler tasks
 * [startTask](docs/sdks/butler/README.md#starttask) - Start a single Butler task
+* [stopAllTasks](docs/sdks/butler/README.md#stopalltasks) - Stop all Butler tasks
 * [stopTask](docs/sdks/butler/README.md#stoptask) - Stop a single Butler task
 
 ### [hubs](docs/sdks/hubs/README.md)
 
-* [getGlobalHubs](docs/sdks/hubs/README.md#getglobalhubs) - Get Global Hubs
 * [getRecentlyAdded](docs/sdks/hubs/README.md#getrecentlyadded) - Get Recently Added
+* [getGlobalHubs](docs/sdks/hubs/README.md#getglobalhubs) - Get Global Hubs
 * [getLibraryHubs](docs/sdks/hubs/README.md#getlibraryhubs) - Get library specific hubs
 
 ### [library](docs/sdks/library/README.md)
 
-* [getFileHash](docs/sdks/library/README.md#getfilehash) - Get Hash Value
-* [getRecentlyAddedLibrary](docs/sdks/library/README.md#getrecentlyaddedlibrary) - Get Recently Added
+* [deleteLibrary](docs/sdks/library/README.md#deletelibrary) - Delete Library Section
 * [getAllLibraries](docs/sdks/library/README.md#getalllibraries) - Get All Libraries
 * [getLibraryDetails](docs/sdks/library/README.md#getlibrarydetails) - Get Library Details
-* [deleteLibrary](docs/sdks/library/README.md#deletelibrary) - Delete Library Section
 * [getLibraryItems](docs/sdks/library/README.md#getlibraryitems) - Get Library Items
-* [getRefreshLibraryMetadata](docs/sdks/library/README.md#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
-* [getSearchLibrary](docs/sdks/library/README.md#getsearchlibrary) - Search Library
-* [getSearchAllLibraries](docs/sdks/library/README.md#getsearchalllibraries) - Search All Libraries
 * [getMetaDataByRatingKey](docs/sdks/library/README.md#getmetadatabyratingkey) - Get Metadata by RatingKey
+* [getRecentlyAddedLibrary](docs/sdks/library/README.md#getrecentlyaddedlibrary) - Get Recently Added
+* [getRefreshLibraryMetadata](docs/sdks/library/README.md#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
+* [getSearchAllLibraries](docs/sdks/library/README.md#getsearchalllibraries) - Search All Libraries
+* [getSearchLibrary](docs/sdks/library/README.md#getsearchlibrary) - Search Library
+* [getFileHash](docs/sdks/library/README.md#getfilehash) - Get Hash Value
 * [getMetadataChildren](docs/sdks/library/README.md#getmetadatachildren) - Get Items Children
-* [getTopWatchedContent](docs/sdks/library/README.md#gettopwatchedcontent) - Get Top Watched Content
 * [getOnDeck](docs/sdks/library/README.md#getondeck) - Get On Deck
+* [getTopWatchedContent](docs/sdks/library/README.md#gettopwatchedcontent) - Get Top Watched Content
 
 ### [log](docs/sdks/log/README.md)
 
+* [enablePaperTrail](docs/sdks/log/README.md#enablepapertrail) - Enabling Papertrail
 * [logLine](docs/sdks/log/README.md#logline) - Logging a single line message.
 * [logMultiLine](docs/sdks/log/README.md#logmultiline) - Logging a multi-line message
-* [enablePaperTrail](docs/sdks/log/README.md#enablepapertrail) - Enabling Papertrail
 
 ### [media](docs/sdks/media/README.md)
 
+* [getBannerImage](docs/sdks/media/README.md#getbannerimage) - Get Banner Image
+* [getThumbImage](docs/sdks/media/README.md#getthumbimage) - Get Thumb Image
 * [markPlayed](docs/sdks/media/README.md#markplayed) - Mark Media Played
 * [markUnplayed](docs/sdks/media/README.md#markunplayed) - Mark Media Unplayed
 * [updatePlayProgress](docs/sdks/media/README.md#updateplayprogress) - Update Media Play Progress
-* [getBannerImage](docs/sdks/media/README.md#getbannerimage) - Get Banner Image
-* [getThumbImage](docs/sdks/media/README.md#getthumbimage) - Get Thumb Image
 
 ### [playlists](docs/sdks/playlists/README.md)
 
-* [createPlaylist](docs/sdks/playlists/README.md#createplaylist) - Create a Playlist
-* [getPlaylists](docs/sdks/playlists/README.md#getplaylists) - Get All Playlists
-* [getPlaylist](docs/sdks/playlists/README.md#getplaylist) - Retrieve Playlist
-* [deletePlaylist](docs/sdks/playlists/README.md#deleteplaylist) - Deletes a Playlist
-* [updatePlaylist](docs/sdks/playlists/README.md#updateplaylist) - Update a Playlist
-* [getPlaylistContents](docs/sdks/playlists/README.md#getplaylistcontents) - Retrieve Playlist Contents
-* [clearPlaylistContents](docs/sdks/playlists/README.md#clearplaylistcontents) - Delete Playlist Contents
 * [addPlaylistContents](docs/sdks/playlists/README.md#addplaylistcontents) - Adding to a Playlist
+* [clearPlaylistContents](docs/sdks/playlists/README.md#clearplaylistcontents) - Delete Playlist Contents
+* [createPlaylist](docs/sdks/playlists/README.md#createplaylist) - Create a Playlist
+* [deletePlaylist](docs/sdks/playlists/README.md#deleteplaylist) - Deletes a Playlist
+* [getPlaylist](docs/sdks/playlists/README.md#getplaylist) - Retrieve Playlist
+* [getPlaylistContents](docs/sdks/playlists/README.md#getplaylistcontents) - Retrieve Playlist Contents
+* [getPlaylists](docs/sdks/playlists/README.md#getplaylists) - Get All Playlists
+* [updatePlaylist](docs/sdks/playlists/README.md#updateplaylist) - Update a Playlist
 * [uploadPlaylist](docs/sdks/playlists/README.md#uploadplaylist) - Upload Playlist
 
 ### [plex](docs/sdks/plex/README.md)
 
+* [getServerResources](docs/sdks/plex/README.md#getserverresources) - Get Server Resources
 * [getCompanionsData](docs/sdks/plex/README.md#getcompanionsdata) - Get Companions Data
-* [getUserFriends](docs/sdks/plex/README.md#getuserfriends) - Get list of friends of the user logged in
 * [getGeoData](docs/sdks/plex/README.md#getgeodata) - Get Geo Data
 * [getHomeData](docs/sdks/plex/README.md#gethomedata) - Get Plex Home Data
-* [getServerResources](docs/sdks/plex/README.md#getserverresources) - Get Server Resources
 * [getPin](docs/sdks/plex/README.md#getpin) - Get a Pin
 * [getTokenByPinId](docs/sdks/plex/README.md#gettokenbypinid) - Get Access Token by PinId
+* [getUserFriends](docs/sdks/plex/README.md#getuserfriends) - Get list of friends of the user logged in
 
 
 ### [search](docs/sdks/search/README.md)
 
+* [getSearchResults](docs/sdks/search/README.md#getsearchresults) - Get Search Results
 * [performSearch](docs/sdks/search/README.md#performsearch) - Perform a search
 * [performVoiceSearch](docs/sdks/search/README.md#performvoicesearch) - Perform a voice search
-* [getSearchResults](docs/sdks/search/README.md#getsearchresults) - Get Search Results
 
 ### [server](docs/sdks/server/README.md)
 
-* [getServerCapabilities](docs/sdks/server/README.md#getservercapabilities) - Get Server Capabilities
-* [getServerPreferences](docs/sdks/server/README.md#getserverpreferences) - Get Server Preferences
+* [getMediaProviders](docs/sdks/server/README.md#getmediaproviders) - Get Media Providers
+* [getServerIdentity](docs/sdks/server/README.md#getserveridentity) - Get Server Identity
 * [getAvailableClients](docs/sdks/server/README.md#getavailableclients) - Get Available Clients
 * [getDevices](docs/sdks/server/README.md#getdevices) - Get Devices
-* [getServerIdentity](docs/sdks/server/README.md#getserveridentity) - Get Server Identity
 * [getMyPlexAccount](docs/sdks/server/README.md#getmyplexaccount) - Get MyPlex Account
 * [getResizedPhoto](docs/sdks/server/README.md#getresizedphoto) - Get a Resized Photo
-* [getMediaProviders](docs/sdks/server/README.md#getmediaproviders) - Get Media Providers
+* [getServerCapabilities](docs/sdks/server/README.md#getservercapabilities) - Get Server Capabilities
 * [getServerList](docs/sdks/server/README.md#getserverlist) - Get Server List
+* [getServerPreferences](docs/sdks/server/README.md#getserverpreferences) - Get Server Preferences
 
 ### [sessions](docs/sdks/sessions/README.md)
 
-* [getSessions](docs/sdks/sessions/README.md#getsessions) - Get Active Sessions
 * [getSessionHistory](docs/sdks/sessions/README.md#getsessionhistory) - Get Session History
+* [getSessions](docs/sdks/sessions/README.md#getsessions) - Get Active Sessions
 * [getTranscodeSessions](docs/sdks/sessions/README.md#gettranscodesessions) - Get Transcode Sessions
 * [stopTranscodeSession](docs/sdks/sessions/README.md#stoptranscodesession) - Stop a Transcode Session
 
 ### [statistics](docs/sdks/statistics/README.md)
 
-* [getStatistics](docs/sdks/statistics/README.md#getstatistics) - Get Media Statistics
-* [getResourcesStatistics](docs/sdks/statistics/README.md#getresourcesstatistics) - Get Resources Statistics
 * [getBandwidthStatistics](docs/sdks/statistics/README.md#getbandwidthstatistics) - Get Bandwidth Statistics
+* [getResourcesStatistics](docs/sdks/statistics/README.md#getresourcesstatistics) - Get Resources Statistics
+* [getStatistics](docs/sdks/statistics/README.md#getstatistics) - Get Media Statistics
 
 ### [updater](docs/sdks/updater/README.md)
 
-* [getUpdateStatus](docs/sdks/updater/README.md#getupdatestatus) - Querying status of updates
-* [checkForUpdates](docs/sdks/updater/README.md#checkforupdates) - Checking for updates
 * [applyUpdates](docs/sdks/updater/README.md#applyupdates) - Apply Updates
+* [checkForUpdates](docs/sdks/updater/README.md#checkforupdates) - Checking for updates
+* [getUpdateStatus](docs/sdks/updater/README.md#getupdatestatus) - Querying status of updates
 
 ### [video](docs/sdks/video/README.md)
 
@@ -241,13 +243,13 @@ By default an API error will raise a `Errors\SDKException` exception, which has 
 | `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
 | `$body`        | *string*                                | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `getServerCapabilities` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `getMediaProviders` method throws the following exceptions:
 
-| Error Type                               | Status Code | Content Type     |
-| ---------------------------------------- | ----------- | ---------------- |
-| Errors\GetServerCapabilitiesBadRequest   | 400         | application/json |
-| Errors\GetServerCapabilitiesUnauthorized | 401         | application/json |
-| Errors\SDKException                      | 4XX, 5XX    | \*/\*            |
+| Error Type                           | Status Code | Content Type     |
+| ------------------------------------ | ----------- | ---------------- |
+| Errors\GetMediaProvidersBadRequest   | 400         | application/json |
+| Errors\GetMediaProvidersUnauthorized | 401         | application/json |
+| Errors\SDKException                  | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -260,26 +262,20 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 try {
-    $response = $sdk->server->getServerCapabilities(
-
+    $response = $sdk->server->getMediaProviders(
+        xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
     );
 
     if ($response->object !== null) {
         // handle response
     }
-} catch (Errors\GetServerCapabilitiesBadRequestThrowable $e) {
+} catch (Errors\GetMediaProvidersBadRequestThrowable $e) {
     // handle $e->$container data
     throw $e;
-} catch (Errors\GetServerCapabilitiesUnauthorizedThrowable $e) {
+} catch (Errors\GetMediaProvidersUnauthorizedThrowable $e) {
     // handle $e->$container data
     throw $e;
 } catch (Errors\SDKException $e) {
@@ -312,18 +308,13 @@ use LukeHagar\Plex_API;
 $security = '<YOUR_API_KEY_HERE>';
 
 $sdk = Plex_API\PlexAPI::builder()
-    ->setServerURL("https://10.10.10.47:32400")
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
+    ->setServerURL('https://10.10.10.47:32400')
     ->setSecurity($security)->build();
 
 
 
-$response = $sdk->server->getServerCapabilities(
-
+$response = $sdk->server->getMediaProviders(
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
 );
 
 if ($response->object !== null) {
@@ -340,24 +331,24 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
-$response = $sdk->plex->getCompanionsData(
-    "https://plex.tv/api/v2"
+$response = $sdk->plex->getServerResources(
+    'https://plex.tv/api/v2',
+    clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
+    includeHttps: Operations\IncludeHttps::Enable,
+    includeRelay: Operations\IncludeRelay::Enable,
+    includeIPv6: Operations\IncludeIPv6::Enable
+
 );
 
-if ($response->responseBodies !== null) {
+if ($response->plexDevices !== null) {
     // handle response
 }
 ```

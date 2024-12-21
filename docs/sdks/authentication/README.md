@@ -8,67 +8,10 @@ API Calls regarding authentication for Plex Media Server
 
 ### Available Operations
 
-* [getTransientToken](#gettransienttoken) - Get a Transient Token
 * [getSourceConnectionInformation](#getsourceconnectioninformation) - Get Source Connection Information
 * [getTokenDetails](#gettokendetails) - Get Token Details
+* [getTransientToken](#gettransienttoken) - Get a Transient Token
 * [postUsersSignInData](#postuserssignindata) - Get User Sign In Data
-
-## getTransientToken
-
-This endpoint provides the caller with a temporary token with the same access level as the caller's token. These tokens are valid for up to 48 hours and are destroyed if the server instance is restarted.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->authentication->getTransientToken(
-    type: Operations\GetTransientTokenQueryParamType::Delegation,
-    scope: Operations\Scope::All
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                   | [Operations\GetTransientTokenQueryParamType](../../Models/Operations/GetTransientTokenQueryParamType.md) | :heavy_check_mark:                                                                                       | `delegation` - This is the only supported `type` parameter.                                              |
-| `scope`                                                                                                  | [Operations\Scope](../../Models/Operations/Scope.md)                                                     | :heavy_check_mark:                                                                                       | `all` - This is the only supported `scope` parameter.                                                    |
-
-### Response
-
-**[?Operations\GetTransientTokenResponse](../../Models/Operations/GetTransientTokenResponse.md)**
-
-### Errors
-
-| Error Type                           | Status Code                          | Content Type                         |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Errors\GetTransientTokenBadRequest   | 400                                  | application/json                     |
-| Errors\GetTransientTokenUnauthorized | 401                                  | application/json                     |
-| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## getSourceConnectionInformation
 
@@ -87,13 +30,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -139,13 +76,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -176,6 +107,57 @@ if ($response->userPlexAccount !== null) {
 | Errors\GetTokenDetailsUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
+## getTransientToken
+
+This endpoint provides the caller with a temporary token with the same access level as the caller's token. These tokens are valid for up to 48 hours and are destroyed if the server instance is restarted.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->authentication->getTransientToken(
+    type: Operations\GetTransientTokenQueryParamType::Delegation,
+    scope: Operations\Scope::All
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                   | [Operations\GetTransientTokenQueryParamType](../../Models/Operations/GetTransientTokenQueryParamType.md) | :heavy_check_mark:                                                                                       | `delegation` - This is the only supported `type` parameter.                                              |
+| `scope`                                                                                                  | [Operations\Scope](../../Models/Operations/Scope.md)                                                     | :heavy_check_mark:                                                                                       | `all` - This is the only supported `scope` parameter.                                                    |
+
+### Response
+
+**[?Operations\GetTransientTokenResponse](../../Models/Operations/GetTransientTokenResponse.md)**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetTransientTokenBadRequest   | 400                                  | application/json                     |
+| Errors\GetTransientTokenUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
+
 ## postUsersSignInData
 
 Sign in user with username and password and return user data with Plex authentication token
@@ -190,15 +172,14 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->build();
+$sdk = Plex_API\PlexAPI::builder()->build();
 
 $request = new Operations\PostUsersSignInDataRequest(
+    clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
+    clientName: 'Plex for Roku',
+    deviceNickname: 'Roku 3',
+    clientVersion: '2.4.1',
+    platform: 'Roku',
     requestBody: new Operations\PostUsersSignInDataRequestBody(
         login: 'username@email.com',
         password: 'password123',

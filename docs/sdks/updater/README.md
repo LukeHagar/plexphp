@@ -9,108 +9,9 @@ Updates to the status can be observed via the Event API.
 
 ### Available Operations
 
-* [getUpdateStatus](#getupdatestatus) - Querying status of updates
-* [checkForUpdates](#checkforupdates) - Checking for updates
 * [applyUpdates](#applyupdates) - Apply Updates
-
-## getUpdateStatus
-
-Querying status of updates
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->updater->getUpdateStatus(
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetUpdateStatusResponse](../../Models/Operations/GetUpdateStatusResponse.md)**
-
-### Errors
-
-| Error Type                         | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Errors\GetUpdateStatusBadRequest   | 400                                | application/json                   |
-| Errors\GetUpdateStatusUnauthorized | 401                                | application/json                   |
-| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
-
-## checkForUpdates
-
-Checking for updates
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->updater->checkForUpdates(
-    download: Operations\Download::One
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `download`                                                  | [?Operations\Download](../../Models/Operations/Download.md) | :heavy_minus_sign:                                          | Indicate that you want to start download any updates found. | 1                                                           |
-
-### Response
-
-**[?Operations\CheckForUpdatesResponse](../../Models/Operations/CheckForUpdatesResponse.md)**
-
-### Errors
-
-| Error Type                         | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Errors\CheckForUpdatesBadRequest   | 400                                | application/json                   |
-| Errors\CheckForUpdatesUnauthorized | 401                                | application/json                   |
-| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+* [checkForUpdates](#checkforupdates) - Checking for updates
+* [getUpdateStatus](#getupdatestatus) - Querying status of updates
 
 ## applyUpdates
 
@@ -129,13 +30,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -168,3 +63,90 @@ if ($response->statusCode === 200) {
 | Errors\ApplyUpdatesBadRequest   | 400                             | application/json                |
 | Errors\ApplyUpdatesUnauthorized | 401                             | application/json                |
 | Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
+
+## checkForUpdates
+
+Checking for updates
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->updater->checkForUpdates(
+    download: Operations\Download::One
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `download`                                                  | [?Operations\Download](../../Models/Operations/Download.md) | :heavy_minus_sign:                                          | Indicate that you want to start download any updates found. | 1                                                           |
+
+### Response
+
+**[?Operations\CheckForUpdatesResponse](../../Models/Operations/CheckForUpdatesResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\CheckForUpdatesBadRequest   | 400                                | application/json                   |
+| Errors\CheckForUpdatesUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## getUpdateStatus
+
+Querying status of updates
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->updater->getUpdateStatus(
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetUpdateStatusResponse](../../Models/Operations/GetUpdateStatusResponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| Errors\GetUpdateStatusBadRequest   | 400                                | application/json                   |
+| Errors\GetUpdateStatusUnauthorized | 401                                | application/json                   |
+| Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |

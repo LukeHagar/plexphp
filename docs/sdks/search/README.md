@@ -8,9 +8,55 @@ API Calls that perform search operations with Plex Media Server
 
 ### Available Operations
 
+* [getSearchResults](#getsearchresults) - Get Search Results
 * [performSearch](#performsearch) - Perform a search
 * [performVoiceSearch](#performvoicesearch) - Perform a voice search
-* [getSearchResults](#getsearchresults) - Get Search Results
+
+## getSearchResults
+
+This will search the database for the string provided.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->search->getSearchResults(
+    query: '110'
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                      | Type                           | Required                       | Description                    | Example                        |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `query`                        | *string*                       | :heavy_check_mark:             | The search query string to use | 110                            |
+
+### Response
+
+**[?Operations\GetSearchResultsResponse](../../Models/Operations/GetSearchResultsResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetSearchResultsBadRequest   | 400                                 | application/json                    |
+| Errors\GetSearchResultsUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## performSearch
 
@@ -39,13 +85,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -100,13 +140,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -141,55 +175,3 @@ if ($response->statusCode === 200) {
 | Errors\PerformVoiceSearchBadRequest   | 400                                   | application/json                      |
 | Errors\PerformVoiceSearchUnauthorized | 401                                   | application/json                      |
 | Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
-
-## getSearchResults
-
-This will search the database for the string provided.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->search->getSearchResults(
-    query: '110'
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                      | Type                           | Required                       | Description                    | Example                        |
-| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `query`                        | *string*                       | :heavy_check_mark:             | The search query string to use | 110                            |
-
-### Response
-
-**[?Operations\GetSearchResultsResponse](../../Models/Operations/GetSearchResultsResponse.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Errors\GetSearchResultsBadRequest   | 400                                 | application/json                    |
-| Errors\GetSearchResultsUnauthorized | 401                                 | application/json                    |
-| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |

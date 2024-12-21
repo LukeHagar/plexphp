@@ -26,4 +26,6 @@ enum GetPlaylistContentsQueryParamType: int
     case Season = 3;
     case Episode = 4;
     case Audio = 8;
+    case Album = 9;
+    case Track = 10;
 }

@@ -8,173 +8,11 @@ API Calls interacting with Plex Media Server Media
 
 ### Available Operations
 
+* [getBannerImage](#getbannerimage) - Get Banner Image
+* [getThumbImage](#getthumbimage) - Get Thumb Image
 * [markPlayed](#markplayed) - Mark Media Played
 * [markUnplayed](#markunplayed) - Mark Media Unplayed
 * [updatePlayProgress](#updateplayprogress) - Update Media Play Progress
-* [getBannerImage](#getbannerimage) - Get Banner Image
-* [getThumbImage](#getthumbimage) - Get Thumb Image
-
-## markPlayed
-
-This will mark the provided media key as Played.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->media->markPlayed(
-    key: 59398
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                       | Type                            | Required                        | Description                     | Example                         |
-| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
-| `key`                           | *float*                         | :heavy_check_mark:              | The media key to mark as played | 59398                           |
-
-### Response
-
-**[?Operations\MarkPlayedResponse](../../Models/Operations/MarkPlayedResponse.md)**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| Errors\MarkPlayedBadRequest   | 400                           | application/json              |
-| Errors\MarkPlayedUnauthorized | 401                           | application/json              |
-| Errors\SDKException           | 4XX, 5XX                      | \*/\*                         |
-
-## markUnplayed
-
-This will mark the provided media key as Unplayed.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->media->markUnplayed(
-    key: 59398
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                         | Type                              | Required                          | Description                       | Example                           |
-| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| `key`                             | *float*                           | :heavy_check_mark:                | The media key to mark as Unplayed | 59398                             |
-
-### Response
-
-**[?Operations\MarkUnplayedResponse](../../Models/Operations/MarkUnplayedResponse.md)**
-
-### Errors
-
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| Errors\MarkUnplayedBadRequest   | 400                             | application/json                |
-| Errors\MarkUnplayedUnauthorized | 401                             | application/json                |
-| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
-
-## updatePlayProgress
-
-This API command can be used to update the play progress of a media item.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->media->updatePlayProgress(
-    key: '<key>',
-    time: 90000,
-    state: 'played'
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `key`                                                               | *string*                                                            | :heavy_check_mark:                                                  | the media key                                                       |                                                                     |
-| `time`                                                              | *float*                                                             | :heavy_check_mark:                                                  | The time, in milliseconds, used to set the media playback progress. | 90000                                                               |
-| `state`                                                             | *string*                                                            | :heavy_check_mark:                                                  | The playback state of the media item.                               | played                                                              |
-
-### Response
-
-**[?Operations\UpdatePlayProgressResponse](../../Models/Operations/UpdatePlayProgressResponse.md)**
-
-### Errors
-
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Errors\UpdatePlayProgressBadRequest   | 400                                   | application/json                      |
-| Errors\UpdatePlayProgressUnauthorized | 401                                   | application/json                      |
-| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
 
 ## getBannerImage
 
@@ -192,13 +30,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 $request = new Operations\GetBannerImageRequest(
     ratingKey: 9518,
@@ -252,13 +84,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 $request = new Operations\GetThumbImageRequest(
     ratingKey: 9518,
@@ -295,3 +121,147 @@ if ($response->bytes !== null) {
 | Errors\GetThumbImageBadRequest   | 400                              | application/json                 |
 | Errors\GetThumbImageUnauthorized | 401                              | application/json                 |
 | Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
+
+## markPlayed
+
+This will mark the provided media key as Played.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->media->markPlayed(
+    key: 59398
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                       | Type                            | Required                        | Description                     | Example                         |
+| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
+| `key`                           | *float*                         | :heavy_check_mark:              | The media key to mark as played | 59398                           |
+
+### Response
+
+**[?Operations\MarkPlayedResponse](../../Models/Operations/MarkPlayedResponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| Errors\MarkPlayedBadRequest   | 400                           | application/json              |
+| Errors\MarkPlayedUnauthorized | 401                           | application/json              |
+| Errors\SDKException           | 4XX, 5XX                      | \*/\*                         |
+
+## markUnplayed
+
+This will mark the provided media key as Unplayed.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->media->markUnplayed(
+    key: 59398
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                         | Type                              | Required                          | Description                       | Example                           |
+| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
+| `key`                             | *float*                           | :heavy_check_mark:                | The media key to mark as Unplayed | 59398                             |
+
+### Response
+
+**[?Operations\MarkUnplayedResponse](../../Models/Operations/MarkUnplayedResponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\MarkUnplayedBadRequest   | 400                             | application/json                |
+| Errors\MarkUnplayedUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
+
+## updatePlayProgress
+
+This API command can be used to update the play progress of a media item.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->media->updatePlayProgress(
+    key: '<key>',
+    time: 90000,
+    state: 'played'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `key`                                                               | *string*                                                            | :heavy_check_mark:                                                  | the media key                                                       |                                                                     |
+| `time`                                                              | *float*                                                             | :heavy_check_mark:                                                  | The time, in milliseconds, used to set the media playback progress. | 90000                                                               |
+| `state`                                                             | *string*                                                            | :heavy_check_mark:                                                  | The playback state of the media item.                               | played                                                              |
+
+### Response
+
+**[?Operations\UpdatePlayProgressResponse](../../Models/Operations/UpdatePlayProgressResponse.md)**
+
+### Errors
+
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Errors\UpdatePlayProgressBadRequest   | 400                                   | application/json                      |
+| Errors\UpdatePlayProgressUnauthorized | 401                                   | application/json                      |
+| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |

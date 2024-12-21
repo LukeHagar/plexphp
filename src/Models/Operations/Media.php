@@ -20,6 +20,22 @@ class Media
 
     /**
      *
+     * @var string $container
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    public string $container;
+
+    /**
+     * $part
+     *
+     * @var array<Part> $part
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Part>')]
+    public array $part;
+
+    /**
+     *
      * @var ?int $duration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
@@ -100,13 +116,6 @@ class Media
 
     /**
      *
-     * @var string $container
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
-    public string $container;
-
-    /**
-     *
      * @var ?string $videoFrameRate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('videoFrameRate')]
@@ -131,15 +140,6 @@ class Media
 
     /**
      *
-     * @var ?OptimizedForStreaming $optimizedForStreaming
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\OptimizedForStreaming|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?OptimizedForStreaming $optimizedForStreaming = null;
-
-    /**
-     *
      * @var ?bool $has64bitOffsets
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('has64bitOffsets')]
@@ -147,13 +147,13 @@ class Media
     public ?bool $has64bitOffsets = null;
 
     /**
-     * $part
      *
-     * @var array<Part> $part
+     * @var ?OptimizedForStreaming $optimizedForStreaming
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Part>')]
-    public array $part;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\OptimizedForStreaming|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?OptimizedForStreaming $optimizedForStreaming = null;
 
     /**
      * @param  int  $id
@@ -193,7 +193,7 @@ class Media
         $this->videoFrameRate = $videoFrameRate;
         $this->videoProfile = $videoProfile;
         $this->hasVoiceActivity = $hasVoiceActivity;
-        $this->optimizedForStreaming = $optimizedForStreaming;
         $this->has64bitOffsets = $has64bitOffsets;
+        $this->optimizedForStreaming = $optimizedForStreaming;
     }
 }

@@ -8,23 +8,23 @@ API Calls interacting with Plex Media Server Libraries
 
 ### Available Operations
 
-* [getFileHash](#getfilehash) - Get Hash Value
-* [getRecentlyAddedLibrary](#getrecentlyaddedlibrary) - Get Recently Added
+* [deleteLibrary](#deletelibrary) - Delete Library Section
 * [getAllLibraries](#getalllibraries) - Get All Libraries
 * [getLibraryDetails](#getlibrarydetails) - Get Library Details
-* [deleteLibrary](#deletelibrary) - Delete Library Section
 * [getLibraryItems](#getlibraryitems) - Get Library Items
-* [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
-* [getSearchLibrary](#getsearchlibrary) - Search Library
-* [getSearchAllLibraries](#getsearchalllibraries) - Search All Libraries
 * [getMetaDataByRatingKey](#getmetadatabyratingkey) - Get Metadata by RatingKey
+* [getRecentlyAddedLibrary](#getrecentlyaddedlibrary) - Get Recently Added
+* [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
+* [getSearchAllLibraries](#getsearchalllibraries) - Search All Libraries
+* [getSearchLibrary](#getsearchlibrary) - Search Library
+* [getFileHash](#getfilehash) - Get Hash Value
 * [getMetadataChildren](#getmetadatachildren) - Get Items Children
-* [getTopWatchedContent](#gettopwatchedcontent) - Get Top Watched Content
 * [getOnDeck](#getondeck) - Get On Deck
+* [getTopWatchedContent](#gettopwatchedcontent) - Get Top Watched Content
 
-## getFileHash
+## deleteLibrary
 
-This resource returns hash values for local files
+Delete a library using a specific section id
 
 ### Example Usage
 
@@ -37,20 +37,12 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
-$response = $sdk->library->getFileHash(
-    url: 'file://C:\Image.png&type=13',
-    type: 4462.17
-
+$response = $sdk->library->deleteLibrary(
+    sectionKey: 9518
 );
 
 if ($response->statusCode === 200) {
@@ -60,97 +52,21 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `url`                                                             | *string*                                                          | :heavy_check_mark:                                                | This is the path to the local file, must be prefixed by `file://` | file://C:\Image.png&type=13                                       |
-| `type`                                                            | *?float*                                                          | :heavy_minus_sign:                                                | Item type                                                         |                                                                   |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
 
 ### Response
 
-**[?Operations\GetFileHashResponse](../../Models/Operations/GetFileHashResponse.md)**
+**[?Operations\DeleteLibraryResponse](../../Models/Operations/DeleteLibraryResponse.md)**
 
 ### Errors
 
-| Error Type                     | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\GetFileHashBadRequest   | 400                            | application/json               |
-| Errors\GetFileHashUnauthorized | 401                            | application/json               |
-| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
-
-## getRecentlyAddedLibrary
-
-This endpoint will return the recently added content.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-$request = new Operations\GetRecentlyAddedLibraryRequest(
-    type: Operations\QueryParamType::TvShow,
-    contentDirectoryID: 2,
-    pinnedContentDirectoryID: [
-        3,
-        5,
-        7,
-        13,
-        12,
-        1,
-        6,
-        14,
-        2,
-        10,
-        16,
-        17,
-    ],
-    sectionID: 2,
-    includeMeta: Operations\QueryParamIncludeMeta::Enable,
-    xPlexContainerStart: 0,
-    xPlexContainerSize: 50,
-);
-
-$response = $sdk->library->getRecentlyAddedLibrary(
-    request: $request
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `$request`                                                                                             | [Operations\GetRecentlyAddedLibraryRequest](../../Models/Operations/GetRecentlyAddedLibraryRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-
-### Response
-
-**[?Operations\GetRecentlyAddedLibraryResponse](../../Models/Operations/GetRecentlyAddedLibraryResponse.md)**
-
-### Errors
-
-| Error Type                                 | Status Code                                | Content Type                               |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Errors\GetRecentlyAddedLibraryBadRequest   | 400                                        | application/json                           |
-| Errors\GetRecentlyAddedLibraryUnauthorized | 401                                        | application/json                           |
-| Errors\SDKException                        | 4XX, 5XX                                   | \*/\*                                      |
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\DeleteLibraryBadRequest   | 400                              | application/json                 |
+| Errors\DeleteLibraryUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## getAllLibraries
 
@@ -173,13 +89,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -259,13 +169,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -299,58 +203,6 @@ if ($response->object !== null) {
 | Errors\GetLibraryDetailsUnauthorized | 401                                  | application/json                     |
 | Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
-## deleteLibrary
-
-Delete a library using a specific section id
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->library->deleteLibrary(
-    sectionKey: 9518
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
-
-### Response
-
-**[?Operations\DeleteLibraryResponse](../../Models/Operations/DeleteLibraryResponse.md)**
-
-### Errors
-
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| Errors\DeleteLibraryBadRequest   | 400                              | application/json                 |
-| Errors\DeleteLibraryUnauthorized | 401                              | application/json                 |
-| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
-
 ## getLibraryItems
 
 Fetches details from a specific section of the library identified by a section key and a tag. The tag parameter accepts the following values:
@@ -373,6 +225,7 @@ Fetches details from a specific section of the library identified by a section k
 - `resolution`: Items categorized by resolution.
 - `firstCharacter`: Items categorized by the first letter.
 - `folder`: Items categorized by folder.
+- `albums`: Items categorized by album.
 
 
 ### Example Usage
@@ -387,13 +240,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 $request = new Operations\GetLibraryItemsRequest(
     tag: Operations\Tag::Edition,
@@ -432,6 +279,122 @@ if ($response->object !== null) {
 | Errors\GetLibraryItemsUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
+## getMetaDataByRatingKey
+
+This endpoint will return the metadata of a library item specified with the ratingKey.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->library->getMetaDataByRatingKey(
+    ratingKey: 9518
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                             | Type                                                  | Required                                              | Description                                           | Example                                               |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ratingKey`                                           | *int*                                                 | :heavy_check_mark:                                    | the id of the library item to return the children of. | 9518                                                  |
+
+### Response
+
+**[?Operations\GetMetaDataByRatingKeyResponse](../../Models/Operations/GetMetaDataByRatingKeyResponse.md)**
+
+### Errors
+
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Errors\GetMetaDataByRatingKeyBadRequest   | 400                                       | application/json                          |
+| Errors\GetMetaDataByRatingKeyUnauthorized | 401                                       | application/json                          |
+| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
+
+## getRecentlyAddedLibrary
+
+This endpoint will return the recently added content.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+$request = new Operations\GetRecentlyAddedLibraryRequest(
+    type: Operations\QueryParamType::TvShow,
+    contentDirectoryID: 2,
+    pinnedContentDirectoryID: [
+        3,
+        5,
+        7,
+        13,
+        12,
+        1,
+        6,
+        14,
+        2,
+        10,
+        16,
+        17,
+    ],
+    sectionID: 2,
+    includeMeta: Operations\QueryParamIncludeMeta::Enable,
+    xPlexContainerStart: 0,
+    xPlexContainerSize: 50,
+);
+
+$response = $sdk->library->getRecentlyAddedLibrary(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                             | [Operations\GetRecentlyAddedLibraryRequest](../../Models/Operations/GetRecentlyAddedLibraryRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+
+### Response
+
+**[?Operations\GetRecentlyAddedLibraryResponse](../../Models/Operations/GetRecentlyAddedLibraryResponse.md)**
+
+### Errors
+
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Errors\GetRecentlyAddedLibraryBadRequest   | 400                                        | application/json                           |
+| Errors\GetRecentlyAddedLibraryUnauthorized | 401                                        | application/json                           |
+| Errors\SDKException                        | 4XX, 5XX                                   | \*/\*                                      |
+
 ## getRefreshLibraryMetadata
 
 This endpoint Refreshes all the Metadata of the library.
@@ -449,13 +412,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -488,6 +445,62 @@ if ($response->statusCode === 200) {
 | Errors\GetRefreshLibraryMetadataBadRequest   | 400                                          | application/json                             |
 | Errors\GetRefreshLibraryMetadataUnauthorized | 401                                          | application/json                             |
 | Errors\SDKException                          | 4XX, 5XX                                     | \*/\*                                        |
+
+## getSearchAllLibraries
+
+Search the provided query across all library sections, or a single section, and return matches as hubs, split up by type.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+$request = new Operations\GetSearchAllLibrariesRequest(
+    query: '<value>',
+    clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
+    searchTypes: [
+        Operations\SearchTypes::People,
+    ],
+    includeCollections: Operations\QueryParamIncludeCollections::Enable,
+    includeExternalMedia: Operations\QueryParamIncludeExternalMedia::Enable,
+);
+
+$response = $sdk->library->getSearchAllLibraries(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                         | [Operations\GetSearchAllLibrariesRequest](../../Models/Operations/GetSearchAllLibrariesRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+
+### Response
+
+**[?Operations\GetSearchAllLibrariesResponse](../../Models/Operations/GetSearchAllLibrariesResponse.md)**
+
+### Errors
+
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\GetSearchAllLibrariesBadRequest   | 400                                      | application/json                         |
+| Errors\GetSearchAllLibrariesUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
 ## getSearchLibrary
 
@@ -523,13 +536,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -563,71 +570,9 @@ if ($response->object !== null) {
 | Errors\GetSearchLibraryUnauthorized | 401                                 | application/json                    |
 | Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
-## getSearchAllLibraries
+## getFileHash
 
-Search the provided query across all library sections, or a single section, and return matches as hubs, split up by type.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-$request = new Operations\GetSearchAllLibrariesRequest(
-    query: '<value>',
-    searchTypes: [
-        Operations\SearchTypes::People,
-    ],
-    includeCollections: Operations\QueryParamIncludeCollections::Enable,
-    includeExternalMedia: Operations\QueryParamIncludeExternalMedia::Enable,
-);
-
-$response = $sdk->library->getSearchAllLibraries(
-    request: $request
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                         | [Operations\GetSearchAllLibrariesRequest](../../Models/Operations/GetSearchAllLibrariesRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-
-### Response
-
-**[?Operations\GetSearchAllLibrariesResponse](../../Models/Operations/GetSearchAllLibrariesResponse.md)**
-
-### Errors
-
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Errors\GetSearchAllLibrariesBadRequest   | 400                                      | application/json                         |
-| Errors\GetSearchAllLibrariesUnauthorized | 401                                      | application/json                         |
-| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
-
-## getMetaDataByRatingKey
-
-This endpoint will return the metadata of a library item specified with the ratingKey.
-
+This resource returns hash values for local files
 
 ### Example Usage
 
@@ -640,42 +585,39 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
-$response = $sdk->library->getMetaDataByRatingKey(
-    ratingKey: 9518
+$response = $sdk->library->getFileHash(
+    url: 'file://C:\Image.png&type=13',
+    type: 4462.17
+
 );
 
-if ($response->object !== null) {
+if ($response->statusCode === 200) {
     // handle response
 }
 ```
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           | Example                                               |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ratingKey`                                           | *int*                                                 | :heavy_check_mark:                                    | the id of the library item to return the children of. | 9518                                                  |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `url`                                                             | *string*                                                          | :heavy_check_mark:                                                | This is the path to the local file, must be prefixed by `file://` | file://C:\Image.png&type=13                                       |
+| `type`                                                            | *?float*                                                          | :heavy_minus_sign:                                                | Item type                                                         |                                                                   |
 
 ### Response
 
-**[?Operations\GetMetaDataByRatingKeyResponse](../../Models/Operations/GetMetaDataByRatingKeyResponse.md)**
+**[?Operations\GetFileHashResponse](../../Models/Operations/GetFileHashResponse.md)**
 
 ### Errors
 
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Errors\GetMetaDataByRatingKeyBadRequest   | 400                                       | application/json                          |
-| Errors\GetMetaDataByRatingKeyUnauthorized | 401                                       | application/json                          |
-| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetFileHashBadRequest   | 400                            | application/json               |
+| Errors\GetFileHashUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## getMetadataChildren
 
@@ -693,13 +635,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -733,6 +669,47 @@ if ($response->object !== null) {
 | Errors\GetMetadataChildrenUnauthorized | 401                                    | application/json                       |
 | Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
+## getOnDeck
+
+This endpoint will return the on deck content.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->library->getOnDeck(
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetOnDeckResponse](../../Models/Operations/GetOnDeckResponse.md)**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| Errors\GetOnDeckBadRequest   | 400                          | application/json             |
+| Errors\GetOnDeckUnauthorized | 401                          | application/json             |
+| Errors\SDKException          | 4XX, 5XX                     | \*/\*                        |
+
 ## getTopWatchedContent
 
 This endpoint will return the top watched content from libraries of a certain type
@@ -750,13 +727,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -789,50 +760,3 @@ if ($response->object !== null) {
 | Errors\GetTopWatchedContentBadRequest   | 400                                     | application/json                        |
 | Errors\GetTopWatchedContentUnauthorized | 401                                     | application/json                        |
 | Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |
-
-## getOnDeck
-
-This endpoint will return the on deck content.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->library->getOnDeck(
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetOnDeckResponse](../../Models/Operations/GetOnDeckResponse.md)**
-
-### Errors
-
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| Errors\GetOnDeckBadRequest   | 400                          | application/json             |
-| Errors\GetOnDeckUnauthorized | 401                          | application/json             |
-| Errors\SDKException          | 4XX, 5XX                     | \*/\*                        |

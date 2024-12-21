@@ -20,14 +20,15 @@ class GetLibraryItemsRequest
     public Tag $tag;
 
     /**
-     * Adds the Guids object to the response
+     * The unique key of the Plex library. 
+     *
+     * Note: This is unique in the context of the Plex server.
      *
      *
-     *
-     * @var ?IncludeGuids $includeGuids
+     * @var int $sectionKey
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeGuids')]
-    public ?IncludeGuids $includeGuids = null;
+    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionKey')]
+    public int $sectionKey;
 
     /**
      * The type of media to retrieve.
@@ -45,15 +46,14 @@ class GetLibraryItemsRequest
     public ?GetLibraryItemsQueryParamType $type = null;
 
     /**
-     * The unique key of the Plex library. 
-     *
-     * Note: This is unique in the context of the Plex server.
+     * Adds the Guids object to the response
      *
      *
-     * @var int $sectionKey
+     *
+     * @var ?IncludeGuids $includeGuids
      */
-    #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionKey')]
-    public int $sectionKey;
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeGuids')]
+    public ?IncludeGuids $includeGuids = null;
 
     /**
      * Adds the Meta object to the response
@@ -102,8 +102,8 @@ class GetLibraryItemsRequest
     {
         $this->tag = $tag;
         $this->sectionKey = $sectionKey;
-        $this->includeGuids = $includeGuids;
         $this->type = $type;
+        $this->includeGuids = $includeGuids;
         $this->includeMeta = $includeMeta;
         $this->xPlexContainerStart = $xPlexContainerStart;
         $this->xPlexContainerSize = $xPlexContainerSize;

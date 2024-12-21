@@ -20,6 +20,22 @@ class GetLibraryItemsMedia
 
     /**
      *
+     * @var string $container
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    public string $container;
+
+    /**
+     * $part
+     *
+     * @var array<GetLibraryItemsPart> $part
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsPart>')]
+    public array $part;
+
+    /**
+     *
      * @var ?int $duration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
@@ -100,13 +116,6 @@ class GetLibraryItemsMedia
 
     /**
      *
-     * @var string $container
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
-    public string $container;
-
-    /**
-     *
      * @var ?string $videoFrameRate
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('videoFrameRate')]
@@ -131,15 +140,6 @@ class GetLibraryItemsMedia
 
     /**
      *
-     * @var ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsOptimizedForStreaming|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming = null;
-
-    /**
-     *
      * @var ?bool $has64bitOffsets
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('has64bitOffsets')]
@@ -147,13 +147,13 @@ class GetLibraryItemsMedia
     public ?bool $has64bitOffsets = null;
 
     /**
-     * $part
      *
-     * @var array<GetLibraryItemsPart> $part
+     * @var ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsPart>')]
-    public array $part;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsOptimizedForStreaming|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetLibraryItemsOptimizedForStreaming $optimizedForStreaming = null;
 
     /**
      * @param  int  $id
@@ -193,7 +193,7 @@ class GetLibraryItemsMedia
         $this->videoFrameRate = $videoFrameRate;
         $this->videoProfile = $videoProfile;
         $this->hasVoiceActivity = $hasVoiceActivity;
-        $this->optimizedForStreaming = $optimizedForStreaming;
         $this->has64bitOffsets = $has64bitOffsets;
+        $this->optimizedForStreaming = $optimizedForStreaming;
     }
 }

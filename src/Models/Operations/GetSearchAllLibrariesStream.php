@@ -27,6 +27,22 @@ class GetSearchAllLibrariesStream
     public int $streamType;
 
     /**
+     * Codec used by the stream
+     *
+     * @var string $codec
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('codec')]
+    public string $codec;
+
+    /**
+     * The index of the stream
+     *
+     * @var int $index
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    public int $index;
+
+    /**
      * Indicates if this is the default stream
      *
      * @var ?bool $default
@@ -43,22 +59,6 @@ class GetSearchAllLibrariesStream
     #[\Speakeasy\Serializer\Annotation\SerializedName('selected')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $selected = null;
-
-    /**
-     * Codec used by the stream
-     *
-     * @var string $codec
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('codec')]
-    public string $codec;
-
-    /**
-     * The index of the stream
-     *
-     * @var int $index
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
-    public int $index;
 
     /**
      * The bitrate of the stream in kbps

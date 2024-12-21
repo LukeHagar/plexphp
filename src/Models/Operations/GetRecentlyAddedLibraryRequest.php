@@ -12,6 +12,21 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetRecentlyAddedLibraryRequest
 {
     /**
+     * The type of media to retrieve.
+     *
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var QueryParamType $type
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    public QueryParamType $type;
+
+    /**
      *
      * @var ?int $contentDirectoryID
      */
@@ -33,21 +48,6 @@ class GetRecentlyAddedLibraryRequest
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=sectionID')]
     public ?int $sectionID = null;
-
-    /**
-     * The type of media to retrieve.
-     *
-     * 1 = movie
-     * 2 = show
-     * 3 = season
-     * 4 = episode
-     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
-     *
-     *
-     * @var QueryParamType $type
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public QueryParamType $type;
 
     /**
      * Adds the Meta object to the response

@@ -17,26 +17,6 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetLibraryItemsMediaContainer
 {
     /**
-     * $type
-     *
-     * @var ?array<GetLibraryItemsType> $type
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Type')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $type = null;
-
-    /**
-     * $fieldType
-     *
-     * @var ?array<GetLibraryItemsFieldType> $fieldType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('FieldType')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $fieldType = null;
-
-    /**
      *
      * @var int $size
      */
@@ -70,14 +50,6 @@ class GetLibraryItemsMediaContainer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
     public bool $allowSync;
-
-    /**
-     *
-     * @var ?bool $nocache
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('nocache')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $nocache = null;
 
     /**
      *
@@ -155,6 +127,34 @@ class GetLibraryItemsMediaContainer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('viewGroup')]
     public string $viewGroup;
+
+    /**
+     * $type
+     *
+     * @var ?array<GetLibraryItemsType> $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Type')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $type = null;
+
+    /**
+     * $fieldType
+     *
+     * @var ?array<GetLibraryItemsFieldType> $fieldType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('FieldType')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $fieldType = null;
+
+    /**
+     *
+     * @var ?bool $nocache
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nocache')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $nocache = null;
 
     /**
      *

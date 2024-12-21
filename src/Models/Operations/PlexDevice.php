@@ -34,27 +34,6 @@ class PlexDevice
 
     /**
      *
-     * @var ?string $platform
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
-    public ?string $platform;
-
-    /**
-     *
-     * @var ?string $platformVersion
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('platformVersion')]
-    public ?string $platformVersion;
-
-    /**
-     *
-     * @var ?string $device
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('device')]
-    public ?string $device;
-
-    /**
-     *
      * @var string $clientIdentifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('clientIdentifier')]
@@ -80,21 +59,6 @@ class PlexDevice
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('provides')]
     public string $provides;
-
-    /**
-     * ownerId is null when the device is owned by the token used to send the request
-     *
-     * @var ?int $ownerId
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('ownerId')]
-    public ?int $ownerId;
-
-    /**
-     *
-     * @var ?string $sourceTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('sourceTitle')]
-    public ?string $sourceTitle;
 
     /**
      *
@@ -181,6 +145,42 @@ class PlexDevice
     #[\Speakeasy\Serializer\Annotation\SerializedName('connections')]
     #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Connections>')]
     public array $connections;
+
+    /**
+     *
+     * @var ?string $platform
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platform')]
+    public ?string $platform;
+
+    /**
+     *
+     * @var ?string $platformVersion
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('platformVersion')]
+    public ?string $platformVersion;
+
+    /**
+     *
+     * @var ?string $device
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('device')]
+    public ?string $device;
+
+    /**
+     * ownerId is null when the device is owned by the token used to send the request
+     *
+     * @var ?int $ownerId
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ownerId')]
+    public ?int $ownerId;
+
+    /**
+     *
+     * @var ?string $sourceTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('sourceTitle')]
+    public ?string $sourceTitle;
 
     /**
      * @param  string  $name

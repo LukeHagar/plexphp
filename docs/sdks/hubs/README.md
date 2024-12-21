@@ -8,65 +8,9 @@ Hubs are a structured two-dimensional container for media, generally represented
 
 ### Available Operations
 
-* [getGlobalHubs](#getglobalhubs) - Get Global Hubs
 * [getRecentlyAdded](#getrecentlyadded) - Get Recently Added
+* [getGlobalHubs](#getglobalhubs) - Get Global Hubs
 * [getLibraryHubs](#getlibraryhubs) - Get library specific hubs
-
-## getGlobalHubs
-
-Get Global Hubs filtered by the parameters provided.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->hubs->getGlobalHubs(
-    count: 1262.49,
-    onlyTransient: Operations\OnlyTransient::One
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                                             | Type                                                                                                                                                  | Required                                                                                                                                              | Description                                                                                                                                           |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `count`                                                                                                                                               | *?float*                                                                                                                                              | :heavy_minus_sign:                                                                                                                                    | The number of items to return with each hub.                                                                                                          |
-| `onlyTransient`                                                                                                                                       | [?Operations\OnlyTransient](../../Models/Operations/OnlyTransient.md)                                                                                 | :heavy_minus_sign:                                                                                                                                    | Only return hubs which are "transient", meaning those which are prone to changing after media playback or addition (e.g. On Deck, or Recently Added). |
-
-### Response
-
-**[?Operations\GetGlobalHubsResponse](../../Models/Operations/GetGlobalHubsResponse.md)**
-
-### Errors
-
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| Errors\GetGlobalHubsBadRequest   | 400                              | application/json                 |
-| Errors\GetGlobalHubsUnauthorized | 401                              | application/json                 |
-| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## getRecentlyAdded
 
@@ -85,13 +29,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 $request = new Operations\GetRecentlyAddedRequest(
     contentDirectoryID: 470161,
@@ -127,6 +65,56 @@ if ($response->object !== null) {
 | ------------------- | ------------------- | ------------------- |
 | Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
+## getGlobalHubs
+
+Get Global Hubs filtered by the parameters provided.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->hubs->getGlobalHubs(
+    count: 1262.49,
+    onlyTransient: Operations\OnlyTransient::One
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                             | Type                                                                                                                                                  | Required                                                                                                                                              | Description                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `count`                                                                                                                                               | *?float*                                                                                                                                              | :heavy_minus_sign:                                                                                                                                    | The number of items to return with each hub.                                                                                                          |
+| `onlyTransient`                                                                                                                                       | [?Operations\OnlyTransient](../../Models/Operations/OnlyTransient.md)                                                                                 | :heavy_minus_sign:                                                                                                                                    | Only return hubs which are "transient", meaning those which are prone to changing after media playback or addition (e.g. On Deck, or Recently Added). |
+
+### Response
+
+**[?Operations\GetGlobalHubsResponse](../../Models/Operations/GetGlobalHubsResponse.md)**
+
+### Errors
+
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\GetGlobalHubsBadRequest   | 400                              | application/json                 |
+| Errors\GetGlobalHubsUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
+
 ## getLibraryHubs
 
 This endpoint will return a list of library specific hubs
@@ -144,13 +132,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 

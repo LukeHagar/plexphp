@@ -35,14 +35,6 @@ class GetTokenByPinIdAuthPinContainer
 
     /**
      *
-     * @var ?bool $trusted
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('trusted')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $trusted = null;
-
-    /**
-     *
      * @var string $qr
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('qr')]
@@ -64,15 +56,6 @@ class GetTokenByPinIdAuthPinContainer
     #[\Speakeasy\Serializer\Annotation\SerializedName('location')]
     #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetTokenByPinIdGeoData')]
     public GetTokenByPinIdGeoData $location;
-
-    /**
-     * The number of seconds this pin expires, by default 900 seconds
-     *
-     * @var ?int $expiresIn
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('expiresIn')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $expiresIn = null;
 
     /**
      *
@@ -106,6 +89,23 @@ class GetTokenByPinIdAuthPinContainer
     public mixed $newRegistration = null;
 
     /**
+     *
+     * @var ?bool $trusted
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('trusted')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $trusted = null;
+
+    /**
+     * The number of seconds this pin expires, by default 900 seconds
+     *
+     * @var ?int $expiresIn
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('expiresIn')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $expiresIn = null;
+
+    /**
      * @param  int  $id
      * @param  string  $code
      * @param  string  $product
@@ -129,9 +129,9 @@ class GetTokenByPinIdAuthPinContainer
         $this->location = $location;
         $this->createdAt = $createdAt;
         $this->expiresAt = $expiresAt;
-        $this->trusted = $trusted;
-        $this->expiresIn = $expiresIn;
         $this->authToken = $authToken;
         $this->newRegistration = $newRegistration;
+        $this->trusted = $trusted;
+        $this->expiresIn = $expiresIn;
     }
 }

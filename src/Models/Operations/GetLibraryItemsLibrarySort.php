@@ -13,6 +13,20 @@ class GetLibraryItemsLibrarySort
 {
     /**
      *
+     * @var string $key
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    public string $key;
+
+    /**
+     *
+     * @var string $title
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    public string $title;
+
+    /**
+     *
      * @var ?string $default
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('default')]
@@ -26,6 +40,22 @@ class GetLibraryItemsLibrarySort
     #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $active = null;
+
+    /**
+     *
+     * @var ?string $descKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('descKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $descKey = null;
+
+    /**
+     *
+     * @var ?string $firstCharacterKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('firstCharacterKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $firstCharacterKey = null;
 
     /**
      * The direction of the sort. Can be either `asc` or `desc`.
@@ -52,36 +82,6 @@ class GetLibraryItemsLibrarySort
     public ?GetLibraryItemsLibraryDefaultDirection $defaultDirection = null;
 
     /**
-     *
-     * @var ?string $descKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('descKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $descKey = null;
-
-    /**
-     *
-     * @var ?string $firstCharacterKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('firstCharacterKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $firstCharacterKey = null;
-
-    /**
-     *
-     * @var string $key
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
-    public string $key;
-
-    /**
-     *
-     * @var string $title
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
-    public string $title;
-
-    /**
      * @param  string  $key
      * @param  string  $title
      * @param  ?string  $default
@@ -97,9 +97,9 @@ class GetLibraryItemsLibrarySort
         $this->title = $title;
         $this->default = $default;
         $this->active = $active;
-        $this->activeDirection = $activeDirection;
-        $this->defaultDirection = $defaultDirection;
         $this->descKey = $descKey;
         $this->firstCharacterKey = $firstCharacterKey;
+        $this->activeDirection = $activeDirection;
+        $this->defaultDirection = $defaultDirection;
     }
 }

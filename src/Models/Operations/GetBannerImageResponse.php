@@ -33,18 +33,18 @@ class GetBannerImageResponse
     public \Psr\Http\Message\ResponseInterface $rawResponse;
 
     /**
-     * Successful response returning an image
-     *
-     * @var ?string $bytes
-     */
-    public ?string $bytes = null;
-
-    /**
      * $headers
      *
      * @var array<string, array<string>> $headers
      */
     public array $headers;
+
+    /**
+     * Successful response returning an image
+     *
+     * @var ?string $bytes
+     */
+    public ?string $bytes = null;
 
     /**
      * @param  string  $contentType

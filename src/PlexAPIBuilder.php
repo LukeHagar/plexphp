@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API;
 
+use LukeHagar\Plex_API\Utils\Retry;
+
 /**
  * PlexAPIBuilder is used to configure and build an instance of the SDK.
  */
@@ -26,7 +28,7 @@ class PlexAPIBuilder
      */
     public function setClient(\GuzzleHttp\ClientInterface $client): PlexAPIBuilder
     {
-        $this->sdkConfig->defaultClient = $client;
+        $this->sdkConfig->client = $client;
 
         return $this;
     }
@@ -141,83 +143,10 @@ class PlexAPIBuilder
 
         return $this;
     }
-    /**
-     * setClientID is used to configure the ClientID parameter for the SDK.
-     *
-     * @param  string  $clientID
-     * @return PlexAPIBuilder
-     */
-    public function setClientID(string $clientID): PlexAPIBuilder
+
+    public function setRetryConfig(Retry\RetryConfig $config): PlexAPIBuilder
     {
-        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['header'] = [];
-        }
-
-        $this->sdkConfig->globals['parameters']['header']['clientID'] = $clientID;
-
-        return $this;
-    }
-    /**
-     * setClientName is used to configure the ClientName parameter for the SDK.
-     *
-     * @param  string  $clientName
-     * @return PlexAPIBuilder
-     */
-    public function setClientName(string $clientName): PlexAPIBuilder
-    {
-        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['header'] = [];
-        }
-
-        $this->sdkConfig->globals['parameters']['header']['clientName'] = $clientName;
-
-        return $this;
-    }
-    /**
-     * setClientVersion is used to configure the ClientVersion parameter for the SDK.
-     *
-     * @param  string  $clientVersion
-     * @return PlexAPIBuilder
-     */
-    public function setClientVersion(string $clientVersion): PlexAPIBuilder
-    {
-        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['header'] = [];
-        }
-
-        $this->sdkConfig->globals['parameters']['header']['clientVersion'] = $clientVersion;
-
-        return $this;
-    }
-    /**
-     * setPlatform is used to configure the Platform parameter for the SDK.
-     *
-     * @param  string  $platform
-     * @return PlexAPIBuilder
-     */
-    public function setPlatform(string $platform): PlexAPIBuilder
-    {
-        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['header'] = [];
-        }
-
-        $this->sdkConfig->globals['parameters']['header']['platform'] = $platform;
-
-        return $this;
-    }
-    /**
-     * setDeviceNickname is used to configure the DeviceNickname parameter for the SDK.
-     *
-     * @param  string  $deviceNickname
-     * @return PlexAPIBuilder
-     */
-    public function setDeviceNickname(string $deviceNickname): PlexAPIBuilder
-    {
-        if (! array_key_exists('header', $this->sdkConfig->globals['parameters'])) {
-            $this->sdkConfig->globals['parameters']['header'] = [];
-        }
-
-        $this->sdkConfig->globals['parameters']['header']['deviceNickname'] = $deviceNickname;
+        $this->sdkConfig->retryConfig = $config;
 
         return $this;
     }
@@ -229,16 +158,13 @@ class PlexAPIBuilder
      */
     public function build(): PlexAPI
     {
-        if ($this->sdkConfig->defaultClient === null) {
-            $this->sdkConfig->defaultClient = new \GuzzleHttp\Client([
+        if ($this->sdkConfig->client === null) {
+            $this->sdkConfig->client = new \GuzzleHttp\Client([
                 'timeout' => 60,
             ]);
         }
         if ($this->sdkConfig->hasSecurity()) {
-            $this->sdkConfig->securityClient = Utils\Utils::configureSecurityClient($this->sdkConfig->defaultClient, $this->sdkConfig->getSecurity());
-        }
-        if ($this->sdkConfig->securityClient === null) {
-            $this->sdkConfig->securityClient = $this->sdkConfig->defaultClient;
+            $this->sdkConfig->client = Utils\Utils::configureSecurityClient($this->sdkConfig->client, $this->sdkConfig->getSecurity());
         }
 
         return new PlexAPI($this->sdkConfig);

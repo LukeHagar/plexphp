@@ -45,15 +45,6 @@ class GetGeoDataGeoData
     public string $city;
 
     /**
-     * Indicates if the country is a member of the European Union.
-     *
-     * @var ?bool $europeanUnionMember
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('european_union_member')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $europeanUnionMember = null;
-
-    /**
      * The time zone of the country.
      *
      * @var string $timeZone
@@ -68,6 +59,31 @@ class GetGeoDataGeoData
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('postal_code')]
     public string $postalCode;
+
+    /**
+     * The name of the primary administrative subdivision.
+     *
+     * @var string $subdivisions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subdivisions')]
+    public string $subdivisions;
+
+    /**
+     * The geographical coordinates (latitude, longitude) of the location.
+     *
+     * @var string $coordinates
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('coordinates')]
+    public string $coordinates;
+
+    /**
+     * Indicates if the country is a member of the European Union.
+     *
+     * @var ?bool $europeanUnionMember
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('european_union_member')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $europeanUnionMember = null;
 
     /**
      * Indicates if the country has privacy restrictions.
@@ -86,22 +102,6 @@ class GetGeoDataGeoData
     #[\Speakeasy\Serializer\Annotation\SerializedName('in_privacy_restricted_region')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $inPrivacyRestrictedRegion = null;
-
-    /**
-     * The name of the primary administrative subdivision.
-     *
-     * @var string $subdivisions
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('subdivisions')]
-    public string $subdivisions;
-
-    /**
-     * The geographical coordinates (latitude, longitude) of the location.
-     *
-     * @var string $coordinates
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('coordinates')]
-    public string $coordinates;
 
     /**
      * @param  string  $code

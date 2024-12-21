@@ -31,15 +31,6 @@ class PostUsersSignInDataAuthenticationSubscription
     public ?bool $active = null;
 
     /**
-     * Date the account subscribed to Plex Pass
-     *
-     * @var ?string $subscribedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('subscribedAt')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $subscribedAt = null;
-
-    /**
      * String representation of subscriptionActive
      *
      * @var ?PostUsersSignInDataAuthenticationResponseStatus $status
@@ -48,6 +39,15 @@ class PostUsersSignInDataAuthenticationSubscription
     #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataAuthenticationResponseStatus|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?PostUsersSignInDataAuthenticationResponseStatus $status = null;
+
+    /**
+     * Date the account subscribed to Plex Pass
+     *
+     * @var ?string $subscribedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscribedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $subscribedAt = null;
 
     /**
      * Payment service used for your Plex Pass subscription

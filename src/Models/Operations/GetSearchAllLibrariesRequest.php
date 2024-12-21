@@ -22,10 +22,10 @@ class GetSearchAllLibrariesRequest
     /**
      * An opaque identifier unique to the client (UUID, serial number, or other unique device ID)
      *
-     * @var ?string $clientID
+     * @var string $clientID
      */
     #[SpeakeasyMetadata('header:style=simple,explode=false,name=X-Plex-Client-Identifier')]
-    public ?string $clientID = null;
+    public string $clientID;
 
     /**
      * Limit the number of results returned.
@@ -63,13 +63,13 @@ class GetSearchAllLibrariesRequest
 
     /**
      * @param  string  $query
-     * @param  ?string  $clientID
+     * @param  string  $clientID
      * @param  ?int  $limit
      * @param  ?array<SearchTypes>  $searchTypes
      * @param  ?QueryParamIncludeCollections  $includeCollections
      * @param  ?QueryParamIncludeExternalMedia  $includeExternalMedia
      */
-    public function __construct(string $query, ?string $clientID = null, ?int $limit = null, ?array $searchTypes = null, ?QueryParamIncludeCollections $includeCollections = QueryParamIncludeCollections::Disable, ?QueryParamIncludeExternalMedia $includeExternalMedia = QueryParamIncludeExternalMedia::Disable)
+    public function __construct(string $query, string $clientID, ?int $limit = null, ?array $searchTypes = null, ?QueryParamIncludeCollections $includeCollections = QueryParamIncludeCollections::Disable, ?QueryParamIncludeExternalMedia $includeExternalMedia = QueryParamIncludeExternalMedia::Disable)
     {
         $this->query = $query;
         $this->clientID = $clientID;

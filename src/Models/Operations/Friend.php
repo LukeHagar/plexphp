@@ -20,14 +20,6 @@ class Friend
     public string $email;
 
     /**
-     * The account full name
-     *
-     * @var ?string $friendlyName
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('friendlyName')]
-    public ?string $friendlyName;
-
-    /**
      * If the account is a Plex Home user
      *
      * @var bool $home
@@ -42,15 +34,6 @@ class Friend
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
     public int $id;
-
-    /**
-     * If the account is a Plex Home managed user
-     *
-     * @var ?bool $restricted
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('restricted')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $restricted = null;
 
     /**
      * $sharedServers
@@ -110,6 +93,23 @@ class Friend
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('uuid')]
     public string $uuid;
+
+    /**
+     * The account full name
+     *
+     * @var ?string $friendlyName
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('friendlyName')]
+    public ?string $friendlyName;
+
+    /**
+     * If the account is a Plex Home managed user
+     *
+     * @var ?bool $restricted
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('restricted')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $restricted = null;
 
     /**
      * @param  string  $email

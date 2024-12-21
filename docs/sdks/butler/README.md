@@ -10,8 +10,8 @@ Butler is the task manager of the Plex Media Server Ecosystem.
 
 * [getButlerTasks](#getbutlertasks) - Get Butler tasks
 * [startAllTasks](#startalltasks) - Start all Butler tasks
-* [stopAllTasks](#stopalltasks) - Stop all Butler tasks
 * [startTask](#starttask) - Start a single Butler task
+* [stopAllTasks](#stopalltasks) - Stop all Butler tasks
 * [stopTask](#stoptask) - Stop a single Butler task
 
 ## getButlerTasks
@@ -29,13 +29,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -80,13 +74,7 @@ use LukeHagar\Plex_API;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -111,53 +99,6 @@ if ($response->statusCode === 200) {
 | Errors\StartAllTasksUnauthorized | 401                              | application/json                 |
 | Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
-## stopAllTasks
-
-This endpoint will stop all currently running tasks and remove any scheduled tasks from the queue.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
-
-
-
-$response = $sdk->butler->stopAllTasks(
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\StopAllTasksResponse](../../Models/Operations/StopAllTasksResponse.md)**
-
-### Errors
-
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| Errors\StopAllTasksBadRequest   | 400                             | application/json                |
-| Errors\StopAllTasksUnauthorized | 401                             | application/json                |
-| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
-
 ## startTask
 
 This endpoint will attempt to start a single Butler task that is enabled in the settings. Butler tasks normally run automatically during a time window configured on the server's Settings page but can be manually started using this endpoint. Tasks will run with the following criteria:
@@ -179,13 +120,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
@@ -216,6 +151,47 @@ if ($response->statusCode === 200) {
 | Errors\StartTaskUnauthorized | 401                          | application/json             |
 | Errors\SDKException          | 4XX, 5XX                     | \*/\*                        |
 
+## stopAllTasks
+
+This endpoint will stop all currently running tasks and remove any scheduled tasks from the queue.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$security = '<YOUR_API_KEY_HERE>';
+
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+
+
+
+$response = $sdk->butler->stopAllTasks(
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\StopAllTasksResponse](../../Models/Operations/StopAllTasksResponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\StopAllTasksBadRequest   | 400                             | application/json                |
+| Errors\StopAllTasksUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
+
 ## stopTask
 
 This endpoint will stop a currently running task by name, or remove it from the list of scheduled tasks if it exists. See the section above for a list of task names for this endpoint.
@@ -233,13 +209,7 @@ use LukeHagar\Plex_API\Models\Operations;
 
 $security = '<YOUR_API_KEY_HERE>';
 
-$sdk = Plex_API\PlexAPI::builder()
-    ->setClientID('3381b62b-9ab7-4e37-827b-203e9809eb58')
-    ->setClientName('Plex for Roku')
-    ->setClientVersion('2.4.1')
-    ->setPlatform('Roku')
-    ->setDeviceNickname('Roku 3')
-    ->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
 
 
 
