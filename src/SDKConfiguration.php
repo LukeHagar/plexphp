@@ -35,11 +35,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.0.3';
 
-    public string $sdkVersion = '0.12.0';
+    public string $sdkVersion = '0.12.1';
 
     public string $genVersion = '2.483.1';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.12.0 2.483.1 0.0.3 lukehagar/plex-api';
+    public string $userAgent = 'speakeasy-sdk/php 0.12.1 2.483.1 0.0.3 lukehagar/plex-api';
 
     public ?RetryConfig $retryConfig = null;
 

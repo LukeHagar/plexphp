@@ -723,3 +723,13 @@ Based on:
 - [php v0.12.0] .
 ### Releases
 - [Composer v0.12.0] https://packagist.org/packages/lukehagar/plex-api#v0.12.0 - .
+
+## 2024-12-23 00:10:04
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.459.2 (2.483.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.12.1] .
+### Releases
+- [Composer v0.12.1] https://packagist.org/packages/lukehagar/plex-api#v0.12.1 - .

@@ -140,6 +140,15 @@ class GetSessionsMetadata
     public ?string $musicAnalysisVersion = null;
 
     /**
+     * The original untranslated name of the media item when non-english, or the track artist if an audio Item has an album artist
+     *
+     * @var ?string $originalTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originalTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $originalTitle = null;
+
+    /**
      *
      * @var ?string $parentGuid
      */
@@ -329,6 +338,7 @@ class GetSessionsMetadata
      * @param  ?string  $librarySectionKey
      * @param  ?string  $librarySectionTitle
      * @param  ?string  $musicAnalysisVersion
+     * @param  ?string  $originalTitle
      * @param  ?string  $parentGuid
      * @param  ?int  $parentIndex
      * @param  ?string  $parentKey
@@ -351,7 +361,7 @@ class GetSessionsMetadata
      * @param  ?Player  $player
      * @param  ?Session  $session
      */
-    public function __construct(?int $addedAt = null, ?string $art = null, ?int $duration = null, ?string $grandparentArt = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentRatingKey = null, ?string $grandparentThumb = null, ?string $grandparentTitle = null, ?string $guid = null, ?int $index = null, ?string $key = null, ?string $librarySectionID = null, ?string $librarySectionKey = null, ?string $librarySectionTitle = null, ?string $musicAnalysisVersion = null, ?string $parentGuid = null, ?int $parentIndex = null, ?string $parentKey = null, ?string $parentRatingKey = null, ?string $parentStudio = null, ?string $parentThumb = null, ?string $parentTitle = null, ?int $parentYear = null, ?int $ratingCount = null, ?string $ratingKey = null, ?string $sessionKey = null, ?string $thumb = null, ?string $title = null, ?string $titleSort = null, ?string $type = null, ?int $updatedAt = null, ?int $viewOffset = null, ?array $media = null, ?GetSessionsUser $user = null, ?Player $player = null, ?Session $session = null)
+    public function __construct(?int $addedAt = null, ?string $art = null, ?int $duration = null, ?string $grandparentArt = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentRatingKey = null, ?string $grandparentThumb = null, ?string $grandparentTitle = null, ?string $guid = null, ?int $index = null, ?string $key = null, ?string $librarySectionID = null, ?string $librarySectionKey = null, ?string $librarySectionTitle = null, ?string $musicAnalysisVersion = null, ?string $originalTitle = null, ?string $parentGuid = null, ?int $parentIndex = null, ?string $parentKey = null, ?string $parentRatingKey = null, ?string $parentStudio = null, ?string $parentThumb = null, ?string $parentTitle = null, ?int $parentYear = null, ?int $ratingCount = null, ?string $ratingKey = null, ?string $sessionKey = null, ?string $thumb = null, ?string $title = null, ?string $titleSort = null, ?string $type = null, ?int $updatedAt = null, ?int $viewOffset = null, ?array $media = null, ?GetSessionsUser $user = null, ?Player $player = null, ?Session $session = null)
     {
         $this->addedAt = $addedAt;
         $this->art = $art;
@@ -369,6 +379,7 @@ class GetSessionsMetadata
         $this->librarySectionKey = $librarySectionKey;
         $this->librarySectionTitle = $librarySectionTitle;
         $this->musicAnalysisVersion = $musicAnalysisVersion;
+        $this->originalTitle = $originalTitle;
         $this->parentGuid = $parentGuid;
         $this->parentIndex = $parentIndex;
         $this->parentKey = $parentKey;
