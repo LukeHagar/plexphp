@@ -47,6 +47,7 @@ The following SDKs are generated from the OpenAPI Specification. They are automa
   * [SDKs](#sdks)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
@@ -94,6 +95,43 @@ if ($response->object !== null) {
 }
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name          | Type   | Scheme  |
+| ------------- | ------ | ------- |
+| `accessToken` | apiKey | API key |
+
+To authenticate with the API the `accessToken` parameter must be set when initializing the SDK. For example:
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->server->getMediaProviders(
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations

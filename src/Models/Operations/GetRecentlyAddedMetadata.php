@@ -166,6 +166,36 @@ class GetRecentlyAddedMetadata
     public ?string $tagline = null;
 
     /**
+     * Setting that indicates if seasons are set to hidden for the show. (-1 = Library default, 0 = Hide, 1 = Show).
+     *
+     * @var ?FlattenSeasons $flattenSeasons
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('flattenSeasons')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\FlattenSeasons|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?FlattenSeasons $flattenSeasons = null;
+
+    /**
+     * Setting that indicates how episodes are sorted for the show. (-1 = Library default, 0 = Oldest first, 1 = Newest first).
+     *
+     * @var ?EpisodeSort $episodeSort
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('episodeSort')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\EpisodeSort|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?EpisodeSort $episodeSort = null;
+
+    /**
+     * Setting that indicates if credits markers detection is enabled. (-1 = Library default, 0 = Disabled).
+     *
+     * @var ?EnableCreditsMarkerGeneration $enableCreditsMarkerGeneration
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('enableCreditsMarkerGeneration')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\EnableCreditsMarkerGeneration|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?EnableCreditsMarkerGeneration $enableCreditsMarkerGeneration = null;
+
+    /**
      * Setting that indicates the episode ordering for the show
      *
      * None = Library default,
@@ -638,15 +668,6 @@ class GetRecentlyAddedMetadata
     public ?string $parentTheme = null;
 
     /**
-     *
-     * @var ?FlattenSeasons $flattenSeasons
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('flattenSeasons')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\FlattenSeasons|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?FlattenSeasons $flattenSeasons = null;
-
-    /**
      * @param  string  $ratingKey
      * @param  string  $key
      * @param  string  $guid
@@ -667,6 +688,8 @@ class GetRecentlyAddedMetadata
      * @param  ?int  $seasonCount
      * @param  ?string  $tagline
      * @param  ?FlattenSeasons  $flattenSeasons
+     * @param  ?EpisodeSort  $episodeSort
+     * @param  ?EnableCreditsMarkerGeneration  $enableCreditsMarkerGeneration
      * @param  ?ShowOrdering  $showOrdering
      * @param  ?string  $thumb
      * @param  ?string  $art
@@ -722,7 +745,7 @@ class GetRecentlyAddedMetadata
      * @param  ?string  $parentThumb
      * @param  ?string  $parentTheme
      */
-    public function __construct(string $ratingKey, string $key, string $guid, GetRecentlyAddedHubsType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?ShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $location = null, ?array $mediaGuid = null, ?UltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null, ?FlattenSeasons $flattenSeasons = FlattenSeasons::False)
+    public function __construct(string $ratingKey, string $key, string $guid, GetRecentlyAddedHubsType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?FlattenSeasons $flattenSeasons = null, ?EpisodeSort $episodeSort = null, ?EnableCreditsMarkerGeneration $enableCreditsMarkerGeneration = null, ?ShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $location = null, ?array $mediaGuid = null, ?UltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -743,6 +766,9 @@ class GetRecentlyAddedMetadata
         $this->year = $year;
         $this->seasonCount = $seasonCount;
         $this->tagline = $tagline;
+        $this->flattenSeasons = $flattenSeasons;
+        $this->episodeSort = $episodeSort;
+        $this->enableCreditsMarkerGeneration = $enableCreditsMarkerGeneration;
         $this->showOrdering = $showOrdering;
         $this->thumb = $thumb;
         $this->art = $art;
@@ -797,6 +823,5 @@ class GetRecentlyAddedMetadata
         $this->parentYear = $parentYear;
         $this->parentThumb = $parentThumb;
         $this->parentTheme = $parentTheme;
-        $this->flattenSeasons = $flattenSeasons;
     }
 }

@@ -9,10 +9,9 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Setting that indicates if seasons are set to hidden for the show. (-1 = Library default, 0 = Hide, 1 = Show). */
-enum FlattenSeasons: string
+/** Setting that indicates if credits markers detection is enabled. (-1 = Library default, 0 = Disabled). */
+enum GetLibraryItemsEnableCreditsMarkerGeneration: string
 {
     case LibraryDefault = '-1';
-    case Hide = '0';
-    case Show = '1';
+    case Disabled = '0';
 }
