@@ -102,6 +102,7 @@ class GetRecentlyAddedLibraryPart
      * @param  ?float  $hasThumbnail
      * @param  ?bool  $optimizedForStreaming
      * @param  ?string  $videoProfile
+     * @phpstan-pure
      */
     public function __construct(?float $id = null, ?string $key = null, ?float $duration = null, ?string $file = null, ?float $size = null, ?string $container = null, ?bool $has64bitOffsets = null, ?float $hasThumbnail = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null)
     {

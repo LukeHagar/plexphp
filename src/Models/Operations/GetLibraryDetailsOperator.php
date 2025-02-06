@@ -30,6 +30,7 @@ class GetLibraryDetailsOperator
     /**
      * @param  ?string  $key
      * @param  ?string  $title
+     * @phpstan-pure
      */
     public function __construct(?string $key = null, ?string $title = null)
     {

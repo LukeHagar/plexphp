@@ -37,6 +37,7 @@ class GetRecentlyAddedImage
      * @param  string  $alt
      * @param  GetRecentlyAddedHubsResponseType  $type
      * @param  string  $url
+     * @phpstan-pure
      */
     public function __construct(string $alt, GetRecentlyAddedHubsResponseType $type, string $url)
     {

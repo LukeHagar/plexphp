@@ -23,6 +23,7 @@ class GetGlobalHubsResponseBody
 
     /**
      * @param  ?GetGlobalHubsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetGlobalHubsMediaContainer $mediaContainer = null)
     {

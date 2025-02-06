@@ -23,6 +23,7 @@ class GetOnDeckResponseBody
 
     /**
      * @param  ?GetOnDeckMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetOnDeckMediaContainer $mediaContainer = null)
     {

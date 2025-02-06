@@ -66,6 +66,7 @@ class Pivot
      * @param  ?string  $title
      * @param  ?string  $context
      * @param  ?string  $symbol
+     * @phpstan-pure
      */
     public function __construct(?string $id = null, ?string $key = null, ?string $type = null, ?string $title = null, ?string $context = null, ?string $symbol = null)
     {

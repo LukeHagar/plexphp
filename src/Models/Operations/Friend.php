@@ -124,6 +124,7 @@ class Friend
      * @param  string  $uuid
      * @param  ?string  $friendlyName
      * @param  ?bool  $restricted
+     * @phpstan-pure
      */
     public function __construct(string $email, bool $home, int $id, array $sharedServers, array $sharedSources, Status $status, string $thumb, string $title, string $username, string $uuid, ?string $friendlyName = null, ?bool $restricted = false)
     {

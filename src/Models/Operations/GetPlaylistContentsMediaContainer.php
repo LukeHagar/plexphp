@@ -95,6 +95,7 @@ class GetPlaylistContentsMediaContainer
      * @param  ?bool  $smart
      * @param  ?string  $title
      * @param  ?array<GetPlaylistContentsMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?string $composite = null, ?int $duration = null, ?int $leafCount = null, ?string $playlistType = null, ?string $ratingKey = null, ?bool $smart = null, ?string $title = null, ?array $metadata = null)
     {

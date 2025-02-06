@@ -24,6 +24,7 @@ class GetBandwidthStatisticsRequest
 
     /**
      * @param  ?int  $timespan
+     * @phpstan-pure
      */
     public function __construct(?int $timespan = null)
     {

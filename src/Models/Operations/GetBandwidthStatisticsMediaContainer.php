@@ -54,6 +54,7 @@ class GetBandwidthStatisticsMediaContainer
      * @param  ?array<GetBandwidthStatisticsDevice>  $device
      * @param  ?array<GetBandwidthStatisticsAccount>  $account
      * @param  ?array<StatisticsBandwidth>  $statisticsBandwidth
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?array $device = null, ?array $account = null, ?array $statisticsBandwidth = null)
     {

@@ -44,6 +44,7 @@ class GetTopWatchedContentResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetTopWatchedContentResponseBody  $object
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetTopWatchedContentResponseBody $object = null)
     {

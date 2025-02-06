@@ -40,6 +40,7 @@ class GetSearchLibraryRequest
     /**
      * @param  int  $sectionKey
      * @param  GetSearchLibraryQueryParamType  $type
+     * @phpstan-pure
      */
     public function __construct(int $sectionKey, GetSearchLibraryQueryParamType $type)
     {

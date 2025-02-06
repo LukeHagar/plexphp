@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Errors;
 
-
 use LukeHagar\Plex_API\Utils;
 /** GetTokenByPinIdResponseBody - Not Found or Expired */
 class GetTokenByPinIdResponseBody
@@ -35,6 +34,7 @@ class GetTokenByPinIdResponseBody
     /**
      * @param  ?array<GetTokenByPinIdPlexErrors>  $errors
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(?array $errors = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

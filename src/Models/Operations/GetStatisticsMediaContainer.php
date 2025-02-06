@@ -54,6 +54,7 @@ class GetStatisticsMediaContainer
      * @param  ?array<GetStatisticsDevice>  $device
      * @param  ?array<Account>  $account
      * @param  ?array<StatisticsMedia>  $statisticsMedia
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?array $device = null, ?array $account = null, ?array $statisticsMedia = null)
     {

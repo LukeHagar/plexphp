@@ -115,6 +115,7 @@ class GeoData
      * @param  ?bool  $europeanUnionMember
      * @param  ?bool  $inPrivacyRestrictedCountry
      * @param  ?bool  $inPrivacyRestrictedRegion
+     * @phpstan-pure
      */
     public function __construct(string $code, string $continentCode, string $country, string $city, string $timeZone, string $postalCode, string $subdivisions, string $coordinates, ?bool $europeanUnionMember = false, ?bool $inPrivacyRestrictedCountry = false, ?bool $inPrivacyRestrictedRegion = false)
     {

@@ -21,6 +21,7 @@ class CheckForUpdatesRequest
 
     /**
      * @param  ?Download  $download
+     * @phpstan-pure
      */
     public function __construct(?Download $download = null)
     {

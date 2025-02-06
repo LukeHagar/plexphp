@@ -32,6 +32,7 @@ class GetTranscodeSessionsMediaContainer
     /**
      * @param  ?int  $size
      * @param  ?array<TranscodeSession>  $transcodeSession
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?array $transcodeSession = null)
     {

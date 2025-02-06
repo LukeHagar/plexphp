@@ -32,6 +32,7 @@ class GetLibraryDetailsFieldType
     /**
      * @param  ?string  $type
      * @param  ?array<GetLibraryDetailsOperator>  $operator
+     * @phpstan-pure
      */
     public function __construct(?string $type = null, ?array $operator = null)
     {

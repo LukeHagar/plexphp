@@ -52,6 +52,7 @@ class GetRecentlyAddedFilter
      * @param  string  $key
      * @param  string  $title
      * @param  string  $type
+     * @phpstan-pure
      */
     public function __construct(string $filter, string $filterType, string $key, string $title, string $type)
     {

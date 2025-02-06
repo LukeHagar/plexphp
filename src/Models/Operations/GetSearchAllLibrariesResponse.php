@@ -44,6 +44,7 @@ class GetSearchAllLibrariesResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetSearchAllLibrariesResponseBody  $object
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetSearchAllLibrariesResponseBody $object = null)
     {

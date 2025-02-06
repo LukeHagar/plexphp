@@ -23,6 +23,7 @@ class GetServerPreferencesResponseBody
 
     /**
      * @param  ?GetServerPreferencesMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetServerPreferencesMediaContainer $mediaContainer = null)
     {

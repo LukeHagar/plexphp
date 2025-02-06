@@ -21,6 +21,7 @@ class GetMediaProvidersRequest
 
     /**
      * @param  string  $xPlexToken
+     * @phpstan-pure
      */
     public function __construct(string $xPlexToken)
     {

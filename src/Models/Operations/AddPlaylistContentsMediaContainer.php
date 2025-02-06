@@ -50,6 +50,7 @@ class AddPlaylistContentsMediaContainer
      * @param  ?int  $leafCountAdded
      * @param  ?int  $leafCountRequested
      * @param  ?array<AddPlaylistContentsMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?int $leafCountAdded = null, ?int $leafCountRequested = null, ?array $metadata = null)
     {

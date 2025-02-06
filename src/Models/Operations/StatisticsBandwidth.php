@@ -66,6 +66,7 @@ class StatisticsBandwidth
      * @param  ?int  $at
      * @param  ?bool  $lan
      * @param  ?int  $bytes
+     * @phpstan-pure
      */
     public function __construct(?int $accountID = null, ?int $deviceID = null, ?int $timespan = null, ?int $at = null, ?bool $lan = null, ?int $bytes = null)
     {

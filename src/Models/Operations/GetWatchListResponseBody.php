@@ -78,6 +78,7 @@ class GetWatchListResponseBody
      * @param  ?string  $identifier
      * @param  ?int  $size
      * @param  ?array<Metadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?string $librarySectionID = null, ?string $librarySectionTitle = null, ?int $offset = null, ?int $totalSize = null, ?string $identifier = null, ?int $size = null, ?array $metadata = null)
     {

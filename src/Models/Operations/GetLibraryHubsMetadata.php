@@ -330,6 +330,7 @@ class GetLibraryHubsMetadata
      * @param  ?array<GetLibraryHubsWriter>  $writer
      * @param  ?int  $skipCount
      * @param  ?string  $chapterSource
+     * @phpstan-pure
      */
     public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $librarySectionTitle = null, ?int $librarySectionID = null, ?string $librarySectionKey = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?int $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $addedAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $role = null, ?array $writer = null, ?int $skipCount = null, ?string $chapterSource = null)
     {

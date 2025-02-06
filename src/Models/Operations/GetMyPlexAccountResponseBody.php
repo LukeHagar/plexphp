@@ -23,6 +23,7 @@ class GetMyPlexAccountResponseBody
 
     /**
      * @param  ?MyPlex  $myPlex
+     * @phpstan-pure
      */
     public function __construct(?MyPlex $myPlex = null)
     {

@@ -111,6 +111,7 @@ class Server
      * @param  ?string  $deviceClass
      * @param  ?float  $protocolVersion
      * @param  ?string  $protocolCapabilities
+     * @phpstan-pure
      */
     public function __construct(?string $name = null, ?string $host = null, ?string $address = null, ?float $port = null, ?string $machineIdentifier = null, ?string $version = null, ?string $protocol = null, ?string $product = null, ?string $deviceClass = null, ?float $protocolVersion = null, ?string $protocolCapabilities = null)
     {

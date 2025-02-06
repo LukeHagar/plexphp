@@ -70,6 +70,7 @@ class GetSearchResultsMediaContainer
      * @param  ?float  $mediaTagVersion
      * @param  ?array<GetSearchResultsMetadata>  $metadata
      * @param  ?array<Provider>  $provider
+     * @phpstan-pure
      */
     public function __construct(?float $size = null, ?string $identifier = null, ?string $mediaTagPrefix = null, ?float $mediaTagVersion = null, ?array $metadata = null, ?array $provider = null)
     {

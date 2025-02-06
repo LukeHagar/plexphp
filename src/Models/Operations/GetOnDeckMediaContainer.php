@@ -77,6 +77,7 @@ class GetOnDeckMediaContainer
      * @param  ?float  $mediaTagVersion
      * @param  ?bool  $mixedParents
      * @param  ?array<GetOnDeckMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?float $size = null, ?bool $allowSync = null, ?string $identifier = null, ?string $mediaTagPrefix = null, ?float $mediaTagVersion = null, ?bool $mixedParents = null, ?array $metadata = null)
     {

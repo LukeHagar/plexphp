@@ -25,9 +25,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -83,15 +85,17 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
 $response = $sdk->search->performSearch(
     query: 'dylan',
-    sectionId: 9372.69,
+    sectionId: 9372.7,
     limit: 5
 
 );
@@ -138,15 +142,17 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
 $response = $sdk->search->performVoiceSearch(
     query: 'dead+poop',
-    sectionId: 4094.80,
+    sectionId: 4094.8,
     limit: 5
 
 );

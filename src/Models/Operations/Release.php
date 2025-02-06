@@ -66,6 +66,7 @@ class Release
      * @param  ?string  $fixed
      * @param  ?string  $downloadURL
      * @param  ?string  $state
+     * @phpstan-pure
      */
     public function __construct(?string $key = null, ?string $version = null, ?string $added = null, ?string $fixed = null, ?string $downloadURL = null, ?string $state = null)
     {

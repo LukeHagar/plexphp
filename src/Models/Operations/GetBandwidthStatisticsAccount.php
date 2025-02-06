@@ -84,6 +84,7 @@ class GetBandwidthStatisticsAccount
      * @param  ?string  $defaultSubtitleLanguage
      * @param  ?int  $subtitleMode
      * @param  ?string  $thumb
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?string $key = null, ?string $name = null, ?string $defaultAudioLanguage = null, ?bool $autoSelectAudio = null, ?string $defaultSubtitleLanguage = null, ?int $subtitleMode = null, ?string $thumb = null)
     {

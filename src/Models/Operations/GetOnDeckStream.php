@@ -219,6 +219,7 @@ class GetOnDeckStream
      * @param  ?float  $width
      * @param  ?string  $displayTitle
      * @param  ?string  $extendedDisplayTitle
+     * @phpstan-pure
      */
     public function __construct(?float $id = null, ?float $streamType = null, ?bool $default = null, ?string $codec = null, ?float $index = null, ?float $bitrate = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?float $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?float $codedHeight = null, ?float $codedWidth = null, ?string $colorRange = null, ?float $frameRate = null, ?float $height = null, ?float $level = null, ?string $profile = null, ?float $refFrames = null, ?float $width = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null)
     {

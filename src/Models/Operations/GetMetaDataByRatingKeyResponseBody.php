@@ -23,6 +23,7 @@ class GetMetaDataByRatingKeyResponseBody
 
     /**
      * @param  ?GetMetaDataByRatingKeyMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetMetaDataByRatingKeyMediaContainer $mediaContainer = null)
     {

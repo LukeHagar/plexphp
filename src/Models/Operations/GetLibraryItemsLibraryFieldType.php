@@ -30,6 +30,7 @@ class GetLibraryItemsLibraryFieldType
     /**
      * @param  string  $type
      * @param  array<GetLibraryItemsLibraryOperator>  $operator
+     * @phpstan-pure
      */
     public function __construct(string $type, array $operator)
     {

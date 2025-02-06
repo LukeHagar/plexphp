@@ -36,14 +36,16 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
 $response = $sdk->playlists->addPlaylistContents(
-    playlistID: 8502.00,
+    playlistID: 8502.01,
     uri: 'server://12345/com.plexapp.plugins.library/library/metadata/1',
     playQueueID: 123
 
@@ -88,9 +90,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -138,9 +142,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 $request = new Operations\CreatePlaylistRequest(
     title: '<value>',
@@ -190,9 +196,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -238,9 +246,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -289,9 +299,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -339,9 +351,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -389,14 +403,16 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
 $response = $sdk->playlists->updatePlaylist(
-    playlistID: 3915.00,
+    playlistID: 3915,
     title: '<value>',
     summary: '<value>'
 
@@ -442,9 +458,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 

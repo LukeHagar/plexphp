@@ -37,6 +37,7 @@ class GetSearchAllLibrariesImage
      * @param  string  $alt
      * @param  GetSearchAllLibrariesLibraryType  $type
      * @param  string  $url
+     * @phpstan-pure
      */
     public function __construct(string $alt, GetSearchAllLibrariesLibraryType $type, string $url)
     {

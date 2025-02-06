@@ -72,6 +72,7 @@ class Role
      * @param  ?string  $tag
      * @param  ?string  $tagKey
      * @param  ?string  $role
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?string $filter = null, ?string $thumb = null, ?string $tag = null, ?string $tagKey = null, ?string $role = null)
     {

@@ -23,6 +23,7 @@ class GetRecentlyAddedLibraryResponseBody
 
     /**
      * @param  ?GetRecentlyAddedLibraryMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetRecentlyAddedLibraryMediaContainer $mediaContainer = null)
     {

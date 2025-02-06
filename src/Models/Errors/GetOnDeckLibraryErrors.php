@@ -39,6 +39,7 @@ class GetOnDeckLibraryErrors
      * @param  ?int  $code
      * @param  ?string  $message
      * @param  ?int  $status
+     * @phpstan-pure
      */
     public function __construct(?int $code = null, ?string $message = null, ?int $status = null)
     {

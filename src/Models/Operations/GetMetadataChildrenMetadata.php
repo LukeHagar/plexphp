@@ -255,6 +255,7 @@ class GetMetadataChildrenMetadata
      * @param  ?int  $userRating
      * @param  ?int  $skipCount
      * @param  ?int  $lastRatedAt
+     * @phpstan-pure
      */
     public function __construct(?string $ratingKey = null, ?string $key = null, ?string $parentRatingKey = null, ?string $guid = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $type = null, ?string $title = null, ?string $parentKey = null, ?string $parentTitle = null, ?string $summary = null, ?int $index = null, ?int $parentIndex = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?int $parentYear = null, ?string $thumb = null, ?string $art = null, ?string $parentThumb = null, ?string $parentTheme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $addedAt = null, ?int $updatedAt = null, ?int $userRating = null, ?int $skipCount = null, ?int $lastRatedAt = null)
     {

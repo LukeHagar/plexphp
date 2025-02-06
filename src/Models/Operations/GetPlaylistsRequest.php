@@ -30,6 +30,7 @@ class GetPlaylistsRequest
     /**
      * @param  ?PlaylistType  $playlistType
      * @param  ?QueryParamSmart  $smart
+     * @phpstan-pure
      */
     public function __construct(?PlaylistType $playlistType = null, ?QueryParamSmart $smart = null)
     {

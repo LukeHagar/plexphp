@@ -141,6 +141,7 @@ class PastSubscription
      * @param  ?bool  $canDowngrade
      * @param  ?bool  $canConvert
      * @param  ?string  $transfer
+     * @phpstan-pure
      */
     public function __construct(string $type, PostUsersSignInDataState $state, Billing $billing, ?string $id = null, ?string $mode = null, ?int $renewsAt = null, ?int $endsAt = null, ?string $transfer = null, ?bool $canceled = false, ?bool $gracePeriod = false, ?bool $onHold = false, ?bool $canReactivate = false, ?bool $canUpgrade = false, ?bool $canDowngrade = false, ?bool $canConvert = false)
     {

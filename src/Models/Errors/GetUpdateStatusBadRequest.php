@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Errors;
 
-
 use LukeHagar\Plex_API\Utils;
 /** GetUpdateStatusBadRequest - Bad Request - A parameter was not specified, or was specified incorrectly. */
 class GetUpdateStatusBadRequest
@@ -35,6 +34,7 @@ class GetUpdateStatusBadRequest
     /**
      * @param  ?array<GetUpdateStatusErrors>  $errors
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(?array $errors = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

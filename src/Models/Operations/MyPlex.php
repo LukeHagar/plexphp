@@ -120,6 +120,7 @@ class MyPlex
      * @param  ?string  $subscriptionFeatures
      * @param  ?bool  $subscriptionActive
      * @param  ?string  $subscriptionState
+     * @phpstan-pure
      */
     public function __construct(?string $authToken = null, ?string $username = null, ?string $mappingState = null, ?string $mappingError = null, ?string $signInState = null, ?string $publicAddress = null, ?float $publicPort = null, ?string $privateAddress = null, ?float $privatePort = null, ?string $subscriptionFeatures = null, ?bool $subscriptionActive = null, ?string $subscriptionState = null)
     {

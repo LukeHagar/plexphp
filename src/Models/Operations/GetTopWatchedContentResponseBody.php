@@ -23,6 +23,7 @@ class GetTopWatchedContentResponseBody
 
     /**
      * @param  ?GetTopWatchedContentMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetTopWatchedContentMediaContainer $mediaContainer = null)
     {

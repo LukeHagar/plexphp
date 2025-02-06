@@ -28,6 +28,7 @@ class GetAllLibrariesLocation
     /**
      * @param  int  $id
      * @param  string  $path
+     * @phpstan-pure
      */
     public function __construct(int $id, string $path)
     {

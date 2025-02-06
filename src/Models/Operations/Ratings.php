@@ -39,6 +39,7 @@ class Ratings
      * @param  ?string  $image
      * @param  ?float  $value
      * @param  ?string  $type
+     * @phpstan-pure
      */
     public function __construct(?string $image = null, ?float $value = null, ?string $type = null)
     {

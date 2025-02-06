@@ -218,6 +218,7 @@ class GetLibraryItemsMediaContainer
      * @param  ?bool  $mixedParents
      * @param  ?array<GetLibraryItemsMetadata>  $metadata
      * @param  ?GetLibraryItemsMeta  $meta
+     * @phpstan-pure
      */
     public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, string $art, string $identifier, int $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, ?array $type = null, ?array $fieldType = null, ?bool $nocache = null, ?int $viewMode = null, ?bool $mixedParents = null, ?array $metadata = null, ?GetLibraryItemsMeta $meta = null)
     {

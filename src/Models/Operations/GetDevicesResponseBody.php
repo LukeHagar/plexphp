@@ -23,6 +23,7 @@ class GetDevicesResponseBody
 
     /**
      * @param  ?GetDevicesMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetDevicesMediaContainer $mediaContainer = null)
     {

@@ -102,6 +102,7 @@ class Setting
      * @param  ?bool  $advanced
      * @param  ?string  $group
      * @param  ?string  $enumValues
+     * @phpstan-pure
      */
     public function __construct(?string $id = null, ?string $label = null, ?string $summary = null, ?string $type = null, ?bool $default = null, ?bool $value = null, ?bool $hidden = null, ?bool $advanced = null, ?string $group = null, ?string $enumValues = null)
     {

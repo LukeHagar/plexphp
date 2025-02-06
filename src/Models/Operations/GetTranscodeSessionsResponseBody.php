@@ -23,6 +23,7 @@ class GetTranscodeSessionsResponseBody
 
     /**
      * @param  ?GetTranscodeSessionsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetTranscodeSessionsMediaContainer $mediaContainer = null)
     {

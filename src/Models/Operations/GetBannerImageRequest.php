@@ -62,6 +62,7 @@ class GetBannerImageRequest
      * @param  int  $minSize
      * @param  int  $upscale
      * @param  string  $xPlexToken
+     * @phpstan-pure
      */
     public function __construct(int $ratingKey, int $width, int $height, int $minSize, int $upscale, string $xPlexToken)
     {

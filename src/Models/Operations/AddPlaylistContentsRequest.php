@@ -39,6 +39,7 @@ class AddPlaylistContentsRequest
      * @param  float  $playlistID
      * @param  string  $uri
      * @param  ?float  $playQueueID
+     * @phpstan-pure
      */
     public function __construct(float $playlistID, string $uri, ?float $playQueueID = null)
     {

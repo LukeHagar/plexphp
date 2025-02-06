@@ -32,6 +32,7 @@ class GetResourcesStatisticsMediaContainer
     /**
      * @param  ?int  $size
      * @param  ?array<StatisticsResources>  $statisticsResources
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?array $statisticsResources = null)
     {

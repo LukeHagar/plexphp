@@ -104,6 +104,7 @@ class GetSessionsPart
      * @param  ?string  $decision
      * @param  ?bool  $selected
      * @param  ?array<GetSessionsStream>  $stream
+     * @phpstan-pure
      */
     public function __construct(?string $container = null, ?int $duration = null, ?string $file = null, ?string $hasThumbnail = null, ?string $id = null, ?string $key = null, ?int $size = null, ?string $decision = null, ?bool $selected = null, ?array $stream = null)
     {

@@ -32,6 +32,7 @@ class GetMetadataChildrenRequest
     /**
      * @param  float  $ratingKey
      * @param  ?string  $includeElements
+     * @phpstan-pure
      */
     public function __construct(float $ratingKey, ?string $includeElements = null)
     {

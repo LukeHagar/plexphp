@@ -300,6 +300,7 @@ class GetMetaDataByRatingKeyStream
      * @param  ?string  $languageTag
      * @param  ?string  $languageCode
      * @param  ?int  $samplingRate
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?int $streamType = null, ?bool $default = null, ?string $codec = null, ?int $index = null, ?int $bitrate = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?int $frameRate = null, ?bool $hasScalingMatrix = null, ?int $height = null, ?int $level = null, ?string $profile = null, ?int $refFrames = null, ?string $scanType = null, ?string $streamIdentifier = null, ?int $width = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null, ?bool $selected = null, ?int $channels = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?int $samplingRate = null)
     {

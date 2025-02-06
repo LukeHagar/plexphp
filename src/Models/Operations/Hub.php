@@ -113,6 +113,7 @@ class Hub
      * @param  ?string  $style
      * @param  ?bool  $promoted
      * @param  ?array<GetGlobalHubsMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?string $hubKey = null, ?string $key = null, ?string $title = null, ?string $type = null, ?string $hubIdentifier = null, ?string $context = null, ?int $size = null, ?bool $more = null, ?string $style = null, ?bool $promoted = null, ?array $metadata = null)
     {

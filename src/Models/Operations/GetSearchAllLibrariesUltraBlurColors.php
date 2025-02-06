@@ -44,6 +44,7 @@ class GetSearchAllLibrariesUltraBlurColors
      * @param  string  $topRight
      * @param  string  $bottomRight
      * @param  string  $bottomLeft
+     * @phpstan-pure
      */
     public function __construct(string $topLeft, string $topRight, string $bottomRight, string $bottomLeft)
     {

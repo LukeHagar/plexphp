@@ -32,6 +32,7 @@ class GetSessionHistoryMediaContainer
     /**
      * @param  ?int  $size
      * @param  ?array<GetSessionHistoryMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?array $metadata = null)
     {

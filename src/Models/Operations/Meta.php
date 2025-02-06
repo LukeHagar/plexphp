@@ -39,6 +39,7 @@ class Meta
     /**
      * @param  ?array<GetRecentlyAddedType>  $type
      * @param  ?array<GetRecentlyAddedFieldType>  $fieldType
+     * @phpstan-pure
      */
     public function __construct(?array $type = null, ?array $fieldType = null)
     {

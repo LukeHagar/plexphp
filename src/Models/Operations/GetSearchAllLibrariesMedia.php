@@ -174,6 +174,7 @@ class GetSearchAllLibrariesMedia
      * @param  ?bool  $hasVoiceActivity
      * @param  ?GetSearchAllLibrariesOptimizedForStreaming  $optimizedForStreaming
      * @param  ?bool  $has64bitOffsets
+     * @phpstan-pure
      */
     public function __construct(int $id, string $container, array $part, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?string $audioProfile = null, ?int $audioChannels = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?bool $hasVoiceActivity = null, ?bool $has64bitOffsets = null, ?GetSearchAllLibrariesOptimizedForStreaming $optimizedForStreaming = GetSearchAllLibrariesOptimizedForStreaming::Disable)
     {

@@ -21,6 +21,7 @@ class MarkUnplayedRequest
 
     /**
      * @param  float  $key
+     * @phpstan-pure
      */
     public function __construct(float $key)
     {

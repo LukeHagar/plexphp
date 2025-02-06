@@ -66,6 +66,7 @@ class GetTokenByPinIdRequest
      * @param  ?string  $deviceNickname
      * @param  ?string  $clientVersion
      * @param  ?string  $platform
+     * @phpstan-pure
      */
     public function __construct(int $pinID, string $clientID, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null)
     {

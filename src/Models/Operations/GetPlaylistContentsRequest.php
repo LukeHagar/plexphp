@@ -37,6 +37,7 @@ class GetPlaylistContentsRequest
     /**
      * @param  float  $playlistID
      * @param  GetPlaylistContentsQueryParamType  $type
+     * @phpstan-pure
      */
     public function __construct(float $playlistID, GetPlaylistContentsQueryParamType $type)
     {

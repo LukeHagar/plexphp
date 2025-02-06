@@ -30,6 +30,7 @@ class FieldType
     /**
      * @param  string  $type
      * @param  array<Operator>  $operator
+     * @phpstan-pure
      */
     public function __construct(string $type, array $operator)
     {

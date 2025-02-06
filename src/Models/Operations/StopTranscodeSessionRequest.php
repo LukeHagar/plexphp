@@ -21,6 +21,7 @@ class StopTranscodeSessionRequest
 
     /**
      * @param  string  $sessionKey
+     * @phpstan-pure
      */
     public function __construct(string $sessionKey)
     {

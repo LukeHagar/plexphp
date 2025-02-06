@@ -24,15 +24,15 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 $request = new Operations\GetWatchListRequest(
     filter: Operations\Filter::Available,
     xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
-    xPlexContainerStart: 0,
-    xPlexContainerSize: 50,
 );
 
 $response = $sdk->watchlist->getWatchList(

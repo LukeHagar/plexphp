@@ -41,6 +41,7 @@ class GetDevicesMediaContainer
      * @param  ?float  $size
      * @param  ?string  $identifier
      * @param  ?array<Device>  $device
+     * @phpstan-pure
      */
     public function __construct(?float $size = null, ?string $identifier = null, ?array $device = null)
     {

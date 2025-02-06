@@ -77,6 +77,7 @@ class GetRecentlyAddedType
      * @param  ?array<GetRecentlyAddedFilter>  $filter
      * @param  ?array<GetRecentlyAddedSort>  $sort
      * @param  ?array<GetRecentlyAddedField>  $field
+     * @phpstan-pure
      */
     public function __construct(string $key, string $type, string $title, bool $active, ?array $filter = null, ?array $sort = null, ?array $field = null)
     {

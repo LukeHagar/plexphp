@@ -310,6 +310,7 @@ class GetTopWatchedContentMetadata
      * @param  ?array<GetTopWatchedContentGuids>  $guids
      * @param  ?array<GetTopWatchedContentRole>  $role
      * @param  ?array<User>  $user
+     * @phpstan-pure
      */
     public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $slug = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $librarySectionTitle = null, ?int $librarySectionID = null, ?string $librarySectionKey = null, ?string $contentRating = null, ?string $summary = null, ?int $index = null, ?float $audienceRating = null, ?int $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?int $addedAt = null, ?int $updatedAt = null, ?int $globalViewCount = null, ?string $audienceRatingImage = null, ?array $genre = null, ?array $country = null, ?array $guids = null, ?array $role = null, ?array $user = null)
     {

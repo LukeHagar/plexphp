@@ -77,6 +77,7 @@ class GetLibraryItemsLibraryResponseType
      * @param  ?array<GetLibraryItemsLibraryFilter>  $filter
      * @param  ?array<GetLibraryItemsLibrarySort>  $sort
      * @param  ?array<GetLibraryItemsLibraryField>  $field
+     * @phpstan-pure
      */
     public function __construct(string $key, string $type, string $title, bool $active, ?array $filter = null, ?array $sort = null, ?array $field = null)
     {

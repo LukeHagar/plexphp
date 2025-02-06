@@ -114,6 +114,7 @@ class GetWatchListRequest
      * @param  ?IncludeExternalMedia  $includeExternalMedia
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
+     * @phpstan-pure
      */
     public function __construct(Filter $filter, string $xPlexToken, ?string $sort = null, ?Libtype $libtype = null, ?int $maxresults = null, ?IncludeCollections $includeCollections = null, ?IncludeExternalMedia $includeExternalMedia = null, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {

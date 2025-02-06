@@ -39,6 +39,7 @@ class GetTopWatchedContentGenre
      * @param  ?int  $id
      * @param  ?string  $filter
      * @param  ?string  $tag
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?string $filter = null, ?string $tag = null)
     {

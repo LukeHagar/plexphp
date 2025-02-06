@@ -57,6 +57,7 @@ class Device
      * @param  ?string  $platform
      * @param  ?string  $clientIdentifier
      * @param  ?float  $createdAt
+     * @phpstan-pure
      */
     public function __construct(?float $id = null, ?string $name = null, ?string $platform = null, ?string $clientIdentifier = null, ?float $createdAt = null)
     {

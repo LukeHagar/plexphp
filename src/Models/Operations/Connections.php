@@ -76,6 +76,7 @@ class Connections
      * @param  bool  $local
      * @param  bool  $relay
      * @param  bool  $iPv6
+     * @phpstan-pure
      */
     public function __construct(Protocol $protocol, string $address, int $port, string $uri, bool $local, bool $relay, bool $iPv6)
     {

@@ -39,6 +39,7 @@ class PerformSearchRequest
      * @param  string  $query
      * @param  ?float  $sectionId
      * @param  ?float  $limit
+     * @phpstan-pure
      */
     public function __construct(string $query, ?float $sectionId = null, ?float $limit = 3)
     {

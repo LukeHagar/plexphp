@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Errors;
 
 
-
 /** GetServerIdentityRequestTimeout - Request Timeout */
 class GetServerIdentityRequestTimeout
 {
@@ -42,6 +41,7 @@ class GetServerIdentityRequestTimeout
      * @param  ?int  $code
      * @param  ?string  $message
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(?int $code = null, ?string $message = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

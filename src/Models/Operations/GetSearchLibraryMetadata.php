@@ -192,6 +192,7 @@ class GetSearchLibraryMetadata
      * @param  ?string  $parentTheme
      * @param  ?int  $addedAt
      * @param  ?int  $updatedAt
+     * @phpstan-pure
      */
     public function __construct(?string $ratingKey = null, ?string $key = null, ?string $parentRatingKey = null, ?string $guid = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $type = null, ?string $title = null, ?string $parentKey = null, ?string $parentTitle = null, ?string $summary = null, ?int $index = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $thumb = null, ?string $art = null, ?string $parentThumb = null, ?string $parentTheme = null, ?int $addedAt = null, ?int $updatedAt = null)
     {

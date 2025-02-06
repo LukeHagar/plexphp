@@ -21,6 +21,7 @@ class GetPlaylistRequest
 
     /**
      * @param  float  $playlistID
+     * @phpstan-pure
      */
     public function __construct(float $playlistID)
     {

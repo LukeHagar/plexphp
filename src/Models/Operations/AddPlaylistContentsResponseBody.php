@@ -23,6 +23,7 @@ class AddPlaylistContentsResponseBody
 
     /**
      * @param  ?AddPlaylistContentsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?AddPlaylistContentsMediaContainer $mediaContainer = null)
     {

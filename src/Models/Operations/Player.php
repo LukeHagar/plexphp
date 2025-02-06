@@ -147,6 +147,7 @@ class Player
      * @param  ?bool  $relayed
      * @param  ?bool  $secure
      * @param  ?int  $userID
+     * @phpstan-pure
      */
     public function __construct(?string $address = null, ?string $machineIdentifier = null, ?string $model = null, ?string $platform = null, ?string $platformVersion = null, ?string $product = null, ?string $profile = null, ?string $remotePublicAddress = null, ?string $state = null, ?string $title = null, ?string $version = null, ?bool $local = null, ?bool $relayed = null, ?bool $secure = null, ?int $userID = null)
     {

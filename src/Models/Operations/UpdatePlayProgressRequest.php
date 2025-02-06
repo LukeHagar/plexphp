@@ -39,6 +39,7 @@ class UpdatePlayProgressRequest
      * @param  string  $key
      * @param  float  $time
      * @param  string  $state
+     * @phpstan-pure
      */
     public function __construct(string $key, float $time, string $state)
     {

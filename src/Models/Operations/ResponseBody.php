@@ -61,6 +61,7 @@ class ResponseBody
      * @param  string  $linkURL
      * @param  string  $provides
      * @param  string  $token
+     * @phpstan-pure
      */
     public function __construct(string $identifier, string $baseURL, string $title, string $linkURL, string $provides, string $token)
     {

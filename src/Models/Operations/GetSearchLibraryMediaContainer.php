@@ -131,6 +131,7 @@ class GetSearchLibraryMediaContainer
      * @param  ?string  $viewGroup
      * @param  ?int  $viewMode
      * @param  ?array<GetSearchLibraryMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $art = null, ?string $identifier = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?bool $nocache = null, ?string $thumb = null, ?string $title1 = null, ?string $title2 = null, ?string $viewGroup = null, ?int $viewMode = null, ?array $metadata = null)
     {

@@ -46,6 +46,7 @@ class LogLineRequest
      * @param  Level  $level
      * @param  string  $message
      * @param  string  $source
+     * @phpstan-pure
      */
     public function __construct(Level $level, string $message, string $source)
     {

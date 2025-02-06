@@ -80,9 +80,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -169,6 +171,8 @@ if ($response->object !== null) {
 
 * [deleteLibrary](docs/sdks/library/README.md#deletelibrary) - Delete Library Section
 * [getAllLibraries](docs/sdks/library/README.md#getalllibraries) - Get All Libraries
+* [getCountriesLibrary](docs/sdks/library/README.md#getcountrieslibrary) - Get Countries of library media
+* [getGenresLibrary](docs/sdks/library/README.md#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](docs/sdks/library/README.md#getlibrarydetails) - Get Library Details
 * [getLibraryItems](docs/sdks/library/README.md#getlibraryitems) - Get Library Items
 * [getMetaDataByRatingKey](docs/sdks/library/README.md#getmetadatabyratingkey) - Get Metadata by RatingKey
@@ -298,9 +302,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 try {
     $response = $sdk->server->getMediaProviders(
@@ -343,11 +349,12 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
 $sdk = Plex_API\PlexAPI::builder()
     ->setServerURL('https://10.10.10.47:32400')
-    ->setSecurity($security)->build();
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -371,9 +378,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 

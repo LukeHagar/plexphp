@@ -44,6 +44,7 @@ class GetRecentlyAddedLibraryResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetRecentlyAddedLibraryResponseBody  $object
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetRecentlyAddedLibraryResponseBody $object = null)
     {

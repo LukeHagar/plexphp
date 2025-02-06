@@ -48,6 +48,7 @@ class GetServerIdentityMediaContainer
      * @param  ?bool  $claimed
      * @param  ?string  $machineIdentifier
      * @param  ?string  $version
+     * @phpstan-pure
      */
     public function __construct(?float $size = null, ?bool $claimed = null, ?string $machineIdentifier = null, ?string $version = null)
     {

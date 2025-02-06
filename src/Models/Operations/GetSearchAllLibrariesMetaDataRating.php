@@ -39,6 +39,7 @@ class GetSearchAllLibrariesMetaDataRating
      * @param  string  $image
      * @param  float  $value
      * @param  string  $type
+     * @phpstan-pure
      */
     public function __construct(string $image, float $value, string $type)
     {

@@ -59,6 +59,7 @@ class MediaProvider
      * @param  ?string  $types
      * @param  ?string  $protocols
      * @param  ?array<Feature>  $feature
+     * @phpstan-pure
      */
     public function __construct(?string $identifier = null, ?string $title = null, ?string $types = null, ?string $protocols = null, ?array $feature = null)
     {

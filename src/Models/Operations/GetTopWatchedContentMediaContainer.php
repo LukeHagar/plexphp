@@ -68,6 +68,7 @@ class GetTopWatchedContentMediaContainer
      * @param  ?string  $mediaTagPrefix
      * @param  ?int  $mediaTagVersion
      * @param  ?array<GetTopWatchedContentMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $identifier = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?array $metadata = null)
     {

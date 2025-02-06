@@ -377,6 +377,7 @@ class GetMetaDataByRatingKeyMetadata
      * @param  ?array<GetMetaDataByRatingKeyWriter>  $writer
      * @param  ?array<GetMetaDataByRatingKeyRole>  $role
      * @param  ?array<Producer>  $producer
+     * @phpstan-pure
      */
     public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $librarySectionTitle = null, ?int $librarySectionID = null, ?string $librarySectionKey = null, ?string $grandparentTitle = null, ?string $parentTitle = null, ?string $originalTitle = null, ?int $index = null, ?int $parentIndex = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $addedAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $hasPremiumPrimaryExtra = null, ?string $ratingImage = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $guids = null, ?array $ratings = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $producer = null)
     {

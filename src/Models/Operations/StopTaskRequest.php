@@ -21,6 +21,7 @@ class StopTaskRequest
 
     /**
      * @param  PathParamTaskName  $taskName
+     * @phpstan-pure
      */
     public function __construct(PathParamTaskName $taskName)
     {

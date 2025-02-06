@@ -36,6 +36,7 @@ class GetLibraryDetailsRequest
     /**
      * @param  int  $sectionKey
      * @param  ?IncludeDetails  $includeDetails
+     * @phpstan-pure
      */
     public function __construct(int $sectionKey, ?IncludeDetails $includeDetails = IncludeDetails::Zero)
     {

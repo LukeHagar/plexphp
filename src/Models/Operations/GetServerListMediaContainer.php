@@ -32,6 +32,7 @@ class GetServerListMediaContainer
     /**
      * @param  ?float  $size
      * @param  ?array<GetServerListServer>  $server
+     * @phpstan-pure
      */
     public function __construct(?float $size = null, ?array $server = null)
     {

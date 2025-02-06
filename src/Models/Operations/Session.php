@@ -39,6 +39,7 @@ class Session
      * @param  ?string  $id
      * @param  ?int  $bandwidth
      * @param  ?string  $location
+     * @phpstan-pure
      */
     public function __construct(?string $id = null, ?int $bandwidth = null, ?string $location = null)
     {

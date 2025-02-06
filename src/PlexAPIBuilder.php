@@ -44,7 +44,7 @@ class PlexAPIBuilder
         $security = new Models\Components\Security(
             accessToken: $accessToken
         );
-        $this->sdkConfig->security = $security;
+        $this->sdkConfig->securitySource = fn () => $security;
 
         return $this;
     }
@@ -58,7 +58,7 @@ class PlexAPIBuilder
      */
     public function setSecuritySource(\Closure $securitySource): PlexAPIBuilder
     {
-        $this->sdkConfig->securitySource = $securitySource;
+        $this->sdkConfig->securitySource = fn () => new Models\Components\Security(accessToken: $securitySource());
 
         return $this;
     }

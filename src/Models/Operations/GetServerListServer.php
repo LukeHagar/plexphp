@@ -66,6 +66,7 @@ class GetServerListServer
      * @param  ?float  $port
      * @param  ?string  $machineIdentifier
      * @param  ?string  $version
+     * @phpstan-pure
      */
     public function __construct(?string $name = null, ?string $host = null, ?string $address = null, ?float $port = null, ?string $machineIdentifier = null, ?string $version = null)
     {

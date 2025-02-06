@@ -90,6 +90,7 @@ class PostUsersSignInDataUserProfile
      * @param  ?PostUsersSignInDataDefaultSubtitleForced  $defaultSubtitleForced
      * @param  ?PostUsersSignInDataWatchedIndicator  $watchedIndicator
      * @param  ?PostUsersSignInDataMediaReviewsVisibility  $mediaReviewsVisibility
+     * @phpstan-pure
      */
     public function __construct(?string $defaultAudioLanguage = null, ?string $defaultSubtitleLanguage = null, ?bool $autoSelectAudio = true, ?PostUsersSignInDataAutoSelectSubtitle $autoSelectSubtitle = PostUsersSignInDataAutoSelectSubtitle::Disable, ?PostUsersSignInDataDefaultSubtitleAccessibility $defaultSubtitleAccessibility = PostUsersSignInDataDefaultSubtitleAccessibility::Disable, ?PostUsersSignInDataDefaultSubtitleForced $defaultSubtitleForced = PostUsersSignInDataDefaultSubtitleForced::Disable, ?PostUsersSignInDataWatchedIndicator $watchedIndicator = PostUsersSignInDataWatchedIndicator::Disable, ?PostUsersSignInDataMediaReviewsVisibility $mediaReviewsVisibility = PostUsersSignInDataMediaReviewsVisibility::Disable)
     {

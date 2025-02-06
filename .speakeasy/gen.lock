@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: a643a64d282d705e3e24f61ed6f068c6
+  docChecksum: 14b35829d4be91a88269761c3ed01426
   docVersion: 0.0.3
-  speakeasyVersion: 1.459.2
-  generationVersion: 2.483.1
-  releaseVersion: 0.12.5
-  configChecksum: 2acdcb291a83a0328bb75df7f7a99505
+  speakeasyVersion: 1.484.1
+  generationVersion: 2.503.2
+  releaseVersion: 0.12.6
+  configChecksum: 0b21cc9558844e2166d52a79210c893d
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -14,13 +14,13 @@ management:
 features:
   php:
     constsAndDefaults: 0.2.0
-    core: 3.7.7
+    core: 3.7.13
     deprecations: 2.81.1
     enums: 2.81.1
     errors: 0.3.0
     flattening: 2.81.1
     globalSecurity: 2.81.7
-    globalSecurityFlattening: 0.1.1
+    globalSecurityFlattening: 0.1.2
     globalServerURLs: 2.82.1
     methodArguments: 0.1.0
     methodServerURLs: 2.82.1
@@ -93,6 +93,10 @@ generatedFiles:
   - docs/Models/Errors/GetCompanionsDataErrors.md
   - docs/Models/Errors/GetCompanionsDataPlexErrors.md
   - docs/Models/Errors/GetCompanionsDataUnauthorized.md
+  - docs/Models/Errors/GetCountriesLibraryBadRequest.md
+  - docs/Models/Errors/GetCountriesLibraryErrors.md
+  - docs/Models/Errors/GetCountriesLibraryLibraryErrors.md
+  - docs/Models/Errors/GetCountriesLibraryUnauthorized.md
   - docs/Models/Errors/GetDevicesBadRequest.md
   - docs/Models/Errors/GetDevicesErrors.md
   - docs/Models/Errors/GetDevicesServerErrors.md
@@ -101,6 +105,10 @@ generatedFiles:
   - docs/Models/Errors/GetFileHashErrors.md
   - docs/Models/Errors/GetFileHashLibraryErrors.md
   - docs/Models/Errors/GetFileHashUnauthorized.md
+  - docs/Models/Errors/GetGenresLibraryBadRequest.md
+  - docs/Models/Errors/GetGenresLibraryErrors.md
+  - docs/Models/Errors/GetGenresLibraryLibraryErrors.md
+  - docs/Models/Errors/GetGenresLibraryUnauthorized.md
   - docs/Models/Errors/GetGeoDataBadRequest.md
   - docs/Models/Errors/GetGeoDataErrors.md
   - docs/Models/Errors/GetGeoDataPlexErrors.md
@@ -400,11 +408,21 @@ generatedFiles:
   - docs/Models/Operations/GetButlerTasksResponse.md
   - docs/Models/Operations/GetButlerTasksResponseBody.md
   - docs/Models/Operations/GetCompanionsDataResponse.md
+  - docs/Models/Operations/GetCountriesLibraryDirectory.md
+  - docs/Models/Operations/GetCountriesLibraryMediaContainer.md
+  - docs/Models/Operations/GetCountriesLibraryRequest.md
+  - docs/Models/Operations/GetCountriesLibraryResponse.md
+  - docs/Models/Operations/GetCountriesLibraryResponseBody.md
   - docs/Models/Operations/GetDevicesMediaContainer.md
   - docs/Models/Operations/GetDevicesResponse.md
   - docs/Models/Operations/GetDevicesResponseBody.md
   - docs/Models/Operations/GetFileHashRequest.md
   - docs/Models/Operations/GetFileHashResponse.md
+  - docs/Models/Operations/GetGenresLibraryDirectory.md
+  - docs/Models/Operations/GetGenresLibraryMediaContainer.md
+  - docs/Models/Operations/GetGenresLibraryRequest.md
+  - docs/Models/Operations/GetGenresLibraryResponse.md
+  - docs/Models/Operations/GetGenresLibraryResponseBody.md
   - docs/Models/Operations/GetGeoDataGeoData.md
   - docs/Models/Operations/GetGeoDataResponse.md
   - docs/Models/Operations/GetGlobalHubsMediaContainer.md
@@ -966,6 +984,12 @@ generatedFiles:
   - src/Models/Errors/GetCompanionsDataPlexErrors.php
   - src/Models/Errors/GetCompanionsDataUnauthorized.php
   - src/Models/Errors/GetCompanionsDataUnauthorizedThrowable.php
+  - src/Models/Errors/GetCountriesLibraryBadRequest.php
+  - src/Models/Errors/GetCountriesLibraryBadRequestThrowable.php
+  - src/Models/Errors/GetCountriesLibraryErrors.php
+  - src/Models/Errors/GetCountriesLibraryLibraryErrors.php
+  - src/Models/Errors/GetCountriesLibraryUnauthorized.php
+  - src/Models/Errors/GetCountriesLibraryUnauthorizedThrowable.php
   - src/Models/Errors/GetDevicesBadRequest.php
   - src/Models/Errors/GetDevicesBadRequestThrowable.php
   - src/Models/Errors/GetDevicesErrors.php
@@ -978,6 +1002,12 @@ generatedFiles:
   - src/Models/Errors/GetFileHashLibraryErrors.php
   - src/Models/Errors/GetFileHashUnauthorized.php
   - src/Models/Errors/GetFileHashUnauthorizedThrowable.php
+  - src/Models/Errors/GetGenresLibraryBadRequest.php
+  - src/Models/Errors/GetGenresLibraryBadRequestThrowable.php
+  - src/Models/Errors/GetGenresLibraryErrors.php
+  - src/Models/Errors/GetGenresLibraryLibraryErrors.php
+  - src/Models/Errors/GetGenresLibraryUnauthorized.php
+  - src/Models/Errors/GetGenresLibraryUnauthorizedThrowable.php
   - src/Models/Errors/GetGeoDataBadRequest.php
   - src/Models/Errors/GetGeoDataBadRequestThrowable.php
   - src/Models/Errors/GetGeoDataErrors.php
@@ -1392,11 +1422,21 @@ generatedFiles:
   - src/Models/Operations/GetButlerTasksResponse.php
   - src/Models/Operations/GetButlerTasksResponseBody.php
   - src/Models/Operations/GetCompanionsDataResponse.php
+  - src/Models/Operations/GetCountriesLibraryDirectory.php
+  - src/Models/Operations/GetCountriesLibraryMediaContainer.php
+  - src/Models/Operations/GetCountriesLibraryRequest.php
+  - src/Models/Operations/GetCountriesLibraryResponse.php
+  - src/Models/Operations/GetCountriesLibraryResponseBody.php
   - src/Models/Operations/GetDevicesMediaContainer.php
   - src/Models/Operations/GetDevicesResponse.php
   - src/Models/Operations/GetDevicesResponseBody.php
   - src/Models/Operations/GetFileHashRequest.php
   - src/Models/Operations/GetFileHashResponse.php
+  - src/Models/Operations/GetGenresLibraryDirectory.php
+  - src/Models/Operations/GetGenresLibraryMediaContainer.php
+  - src/Models/Operations/GetGenresLibraryRequest.php
+  - src/Models/Operations/GetGenresLibraryResponse.php
+  - src/Models/Operations/GetGenresLibraryResponseBody.php
   - src/Models/Operations/GetGeoDataGeoData.php
   - src/Models/Operations/GetGeoDataResponse.php
   - src/Models/Operations/GetGlobalHubsMediaContainer.php
@@ -2856,5 +2896,29 @@ examples:
           application/json: {"errors": [{"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}, {"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}]}
         "401":
           application/json: {"errors": [{"code": 1001, "message": "User could not be authenticated", "status": 401}]}
-generatedTests: {}
+  get-genres-library:
+    speakeasy-default-get-genres-library:
+      parameters:
+        path:
+          sectionKey: 9518
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 50, "identifier": "com.plexapp.plugins.library", "allowSync": false, "art": "/:/resources/show-fanart.jpg", "content": "secondary", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1734362201, "nocache": true, "thumb": "/:/resources/show.png", "title1": "TV Shows (Reality)", "title2": "By Genre", "viewGroup": "secondary", "Directory": [{"fastKey": "/library/sections/10/all?genre=89", "key": "89", "title": "Action", "type": "genre"}]}}
+        "400":
+          application/json: {"errors": [{"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}]}
+        "401":
+          application/json: {"errors": [{"code": 1001, "message": "User could not be authenticated", "status": 401}, {"code": 1001, "message": "User could not be authenticated", "status": 401}, {"code": 1001, "message": "User could not be authenticated", "status": 401}]}
+  get-countries-library:
+    speakeasy-default-get-countries-library:
+      parameters:
+        path:
+          sectionKey: 9518
+      responses:
+        "200":
+          application/json: {"MediaContainer": {"size": 50, "identifier": "com.plexapp.plugins.library", "allowSync": false, "art": "/:/resources/show-fanart.jpg", "content": "secondary", "mediaTagPrefix": "/system/bundle/media/flags/", "mediaTagVersion": 1734362201, "nocache": true, "thumb": "/:/resources/show.png", "title1": "TV Series", "title2": "By Country", "viewGroup": "secondary", "Directory": [{"fastKey": "/library/sections/2/all?country=15491", "key": "15491", "title": "Japan"}]}}
+        "400":
+          application/json: {"errors": [{"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}, {"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}]}
+        "401":
+          application/json: {"errors": [{"code": 1001, "message": "User could not be authenticated", "status": 401}, {"code": 1001, "message": "User could not be authenticated", "status": 401}, {"code": 1001, "message": "User could not be authenticated", "status": 401}]}
 examplesVersion: 1.0.0
+generatedTests: {}

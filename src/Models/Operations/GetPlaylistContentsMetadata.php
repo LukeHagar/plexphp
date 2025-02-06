@@ -312,6 +312,7 @@ class GetPlaylistContentsMetadata
      * @param  ?array<GetPlaylistContentsDirector>  $director
      * @param  ?array<GetPlaylistContentsWriter>  $writer
      * @param  ?array<GetPlaylistContentsRole>  $role
+     * @phpstan-pure
      */
     public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $titleSort = null, ?string $librarySectionTitle = null, ?int $librarySectionID = null, ?string $librarySectionKey = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $addedAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $ratingImage = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null)
     {

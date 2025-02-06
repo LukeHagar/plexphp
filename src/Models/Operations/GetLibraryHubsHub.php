@@ -122,6 +122,7 @@ class GetLibraryHubsHub
      * @param  ?array<GetLibraryHubsMetadata>  $metadata
      * @param  ?bool  $promoted
      * @param  ?bool  $random
+     * @phpstan-pure
      */
     public function __construct(?string $key = null, ?string $title = null, ?string $type = null, ?string $hubIdentifier = null, ?string $context = null, ?int $size = null, ?bool $more = null, ?string $style = null, ?string $hubKey = null, ?array $metadata = null, ?bool $promoted = null, ?bool $random = null)
     {

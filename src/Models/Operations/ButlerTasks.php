@@ -23,6 +23,7 @@ class ButlerTasks
 
     /**
      * @param  ?array<ButlerTask>  $butlerTask
+     * @phpstan-pure
      */
     public function __construct(?array $butlerTask = null)
     {

@@ -23,6 +23,7 @@ class GetLibraryHubsResponseBody
 
     /**
      * @param  ?GetLibraryHubsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetLibraryHubsMediaContainer $mediaContainer = null)
     {

@@ -23,6 +23,7 @@ class GetAvailableClientsResponseBody
 
     /**
      * @param  ?GetAvailableClientsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetAvailableClientsMediaContainer $mediaContainer = null)
     {

@@ -104,6 +104,7 @@ class GetRecentlyAddedLibraryMediaContainer
      * @param  ?float  $mediaTagVersion
      * @param  ?bool  $mixedParents
      * @param  ?array<GetRecentlyAddedLibraryMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?array $type = null, ?array $fieldType = null, ?float $size = null, ?bool $allowSync = null, ?string $identifier = null, ?string $mediaTagPrefix = null, ?float $mediaTagVersion = null, ?bool $mixedParents = null, ?array $metadata = null)
     {

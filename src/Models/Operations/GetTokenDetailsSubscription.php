@@ -74,6 +74,7 @@ class GetTokenDetailsSubscription
      * @param  ?string  $subscribedAt
      * @param  ?string  $paymentService
      * @param  ?string  $plan
+     * @phpstan-pure
      */
     public function __construct(?array $features = null, ?bool $active = null, ?GetTokenDetailsAuthenticationResponseStatus $status = null, ?string $subscribedAt = null, ?string $paymentService = null, ?string $plan = null)
     {

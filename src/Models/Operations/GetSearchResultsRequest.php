@@ -21,6 +21,7 @@ class GetSearchResultsRequest
 
     /**
      * @param  string  $query
+     * @phpstan-pure
      */
     public function __construct(string $query)
     {

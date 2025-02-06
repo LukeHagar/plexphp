@@ -90,6 +90,7 @@ class Sort
      * @param  ?DefaultDirection  $defaultDirection
      * @param  ?string  $descKey
      * @param  ?string  $firstCharacterKey
+     * @phpstan-pure
      */
     public function __construct(string $key, string $title, ?string $default = null, ?bool $active = null, ?string $descKey = null, ?string $firstCharacterKey = null, ?ActiveDirection $activeDirection = ActiveDirection::Ascending, ?DefaultDirection $defaultDirection = DefaultDirection::Ascending)
     {

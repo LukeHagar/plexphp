@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Errors;
 
-
 use LukeHagar\Plex_API\Utils;
 /** GetPlaylistsBadRequest - Bad Request - A parameter was not specified, or was specified incorrectly. */
 class GetPlaylistsBadRequest
@@ -35,6 +34,7 @@ class GetPlaylistsBadRequest
     /**
      * @param  ?array<GetPlaylistsErrors>  $errors
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(?array $errors = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

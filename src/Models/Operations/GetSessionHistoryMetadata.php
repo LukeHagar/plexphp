@@ -183,6 +183,7 @@ class GetSessionHistoryMetadata
      * @param  ?int  $viewedAt
      * @param  ?int  $accountID
      * @param  ?int  $deviceID
+     * @phpstan-pure
      */
     public function __construct(?string $historyKey = null, ?string $key = null, ?string $ratingKey = null, ?string $librarySectionID = null, ?string $parentKey = null, ?string $grandparentKey = null, ?string $title = null, ?string $grandparentTitle = null, ?string $type = null, ?string $thumb = null, ?string $parentThumb = null, ?string $grandparentThumb = null, ?string $grandparentArt = null, ?int $index = null, ?int $parentIndex = null, ?LocalDate $originallyAvailableAt = null, ?int $viewedAt = null, ?int $accountID = null, ?int $deviceID = null)
     {

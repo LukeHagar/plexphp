@@ -30,6 +30,7 @@ class GetTransientTokenRequest
     /**
      * @param  GetTransientTokenQueryParamType  $type
      * @param  Scope  $scope
+     * @phpstan-pure
      */
     public function __construct(GetTransientTokenQueryParamType $type, Scope $scope)
     {

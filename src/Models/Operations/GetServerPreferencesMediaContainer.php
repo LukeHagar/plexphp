@@ -32,6 +32,7 @@ class GetServerPreferencesMediaContainer
     /**
      * @param  ?int  $size
      * @param  ?array<Setting>  $setting
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?array $setting = null)
     {

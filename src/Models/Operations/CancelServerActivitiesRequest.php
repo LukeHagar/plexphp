@@ -21,6 +21,7 @@ class CancelServerActivitiesRequest
 
     /**
      * @param  string  $activityUUID
+     * @phpstan-pure
      */
     public function __construct(string $activityUUID)
     {

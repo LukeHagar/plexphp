@@ -97,6 +97,7 @@ class GetLibraryItemsRequest
      * @param  ?GetLibraryItemsQueryParamIncludeMeta  $includeMeta
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
+     * @phpstan-pure
      */
     public function __construct(Tag $tag, int $sectionKey, ?GetLibraryItemsQueryParamType $type = null, ?IncludeGuids $includeGuids = IncludeGuids::Disable, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = GetLibraryItemsQueryParamIncludeMeta::Disable, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {

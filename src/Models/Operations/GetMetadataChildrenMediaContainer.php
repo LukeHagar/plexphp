@@ -223,6 +223,7 @@ class GetMetadataChildrenMediaContainer
      * @param  ?int  $viewMode
      * @param  ?array<GetMetadataChildrenDirectory>  $directory
      * @param  ?array<GetMetadataChildrenMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $art = null, ?string $identifier = null, ?string $key = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?bool $nocache = null, ?int $parentIndex = null, ?string $parentTitle = null, ?int $parentYear = null, ?string $summary = null, ?string $theme = null, ?string $thumb = null, ?string $title1 = null, ?string $title2 = null, ?string $viewGroup = null, ?int $viewMode = null, ?array $directory = null, ?array $metadata = null)
     {

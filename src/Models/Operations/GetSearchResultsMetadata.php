@@ -330,6 +330,7 @@ class GetSearchResultsMetadata
      * @param  ?array<GetSearchResultsWriter>  $writer
      * @param  ?array<GetSearchResultsCountry>  $country
      * @param  ?array<GetSearchResultsRole>  $role
+     * @phpstan-pure
      */
     public function __construct(?bool $allowSync = null, ?float $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?bool $personal = null, ?string $sourceTitle = null, ?float $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $studio = null, ?string $type = null, ?string $title = null, ?string $contentRating = null, ?string $summary = null, ?float $rating = null, ?float $audienceRating = null, ?float $year = null, ?string $tagline = null, ?string $thumb = null, ?string $art = null, ?float $duration = null, ?\DateTime $originallyAvailableAt = null, ?float $addedAt = null, ?float $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?array $media = null, ?array $genre = null, ?array $director = null, ?array $writer = null, ?array $country = null, ?array $role = null)
     {

@@ -95,6 +95,7 @@ class GetMetaDataByRatingKeyMediaContainer
      * @param  ?string  $mediaTagPrefix
      * @param  ?int  $mediaTagVersion
      * @param  ?array<GetMetaDataByRatingKeyMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $identifier = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?array $metadata = null)
     {

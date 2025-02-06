@@ -77,6 +77,7 @@ class GetLibraryHubsMediaContainer
      * @param  ?string  $librarySectionTitle
      * @param  ?string  $librarySectionUUID
      * @param  ?array<GetLibraryHubsHub>  $hub
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $identifier = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?array $hub = null)
     {

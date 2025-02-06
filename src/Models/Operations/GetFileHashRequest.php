@@ -30,6 +30,7 @@ class GetFileHashRequest
     /**
      * @param  string  $url
      * @param  ?float  $type
+     * @phpstan-pure
      */
     public function __construct(string $url, ?float $type = null)
     {

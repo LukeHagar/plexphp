@@ -45,6 +45,7 @@ class PostUsersSignInDataRequestBody
      * @param  string  $password
      * @param  ?bool  $rememberMe
      * @param  ?string  $verificationCode
+     * @phpstan-pure
      */
     public function __construct(string $login, string $password, ?string $verificationCode = null, ?bool $rememberMe = false)
     {

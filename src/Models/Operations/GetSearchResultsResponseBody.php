@@ -23,6 +23,7 @@ class GetSearchResultsResponseBody
 
     /**
      * @param  ?GetSearchResultsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetSearchResultsMediaContainer $mediaContainer = null)
     {

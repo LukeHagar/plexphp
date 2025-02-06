@@ -30,6 +30,7 @@ class ApplyUpdatesRequest
     /**
      * @param  ?Tonight  $tonight
      * @param  ?Skip  $skip
+     * @phpstan-pure
      */
     public function __construct(?Tonight $tonight = null, ?Skip $skip = null)
     {

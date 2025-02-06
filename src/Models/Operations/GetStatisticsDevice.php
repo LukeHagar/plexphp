@@ -57,6 +57,7 @@ class GetStatisticsDevice
      * @param  ?string  $platform
      * @param  ?string  $clientIdentifier
      * @param  ?int  $createdAt
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?string $name = null, ?string $platform = null, ?string $clientIdentifier = null, ?int $createdAt = null)
     {

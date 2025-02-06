@@ -21,6 +21,7 @@ class GetSearchAllLibrariesDirector
 
     /**
      * @param  ?string  $tag
+     * @phpstan-pure
      */
     public function __construct(?string $tag = null)
     {

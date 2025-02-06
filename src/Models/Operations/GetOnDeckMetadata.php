@@ -340,6 +340,7 @@ class GetOnDeckMetadata
      * @param  ?float  $updatedAt
      * @param  ?array<GetOnDeckMedia>  $media
      * @param  ?array<GetOnDeckGuids>  $guids
+     * @phpstan-pure
      */
     public function __construct(?bool $allowSync = null, ?float $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?float $ratingKey = null, ?string $key = null, ?float $parentRatingKey = null, ?float $grandparentRatingKey = null, ?string $guid = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $type = null, ?string $title = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $librarySectionKey = null, ?string $grandparentTitle = null, ?string $parentTitle = null, ?string $contentRating = null, ?string $summary = null, ?float $index = null, ?float $parentIndex = null, ?float $lastViewedAt = null, ?float $year = null, ?string $thumb = null, ?string $art = null, ?string $parentThumb = null, ?string $grandparentThumb = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?float $duration = null, ?\DateTime $originallyAvailableAt = null, ?float $addedAt = null, ?float $updatedAt = null, ?array $media = null, ?array $guids = null)
     {

@@ -329,6 +329,7 @@ class Metadata
      * @param  ?string  $availabilityId
      * @param  ?string  $streamingMediaId
      * @param  ?string  $playableKey
+     * @phpstan-pure
      */
     public function __construct(?string $art = null, ?string $guid = null, ?string $key = null, ?string $ratingKey = null, ?string $studio = null, ?string $tagline = null, ?string $type = null, ?string $thumb = null, ?int $addedAt = null, ?int $duration = null, ?string $publicPagesURL = null, ?string $slug = null, ?bool $userState = null, ?string $title = null, ?string $contentRating = null, ?LocalDate $originallyAvailableAt = null, ?int $year = null, ?array $image = null, ?string $banner = null, ?float $rating = null, ?int $expiresAt = null, ?string $originalTitle = null, ?float $audienceRating = null, ?string $audienceRatingImage = null, ?string $ratingImage = null, ?int $imdbRatingCount = null, ?string $subtype = null, ?string $theme = null, ?int $leafCount = null, ?int $childCount = null, ?bool $isContinuingSeries = null, ?bool $skipChildren = null, ?string $availabilityId = null, ?string $streamingMediaId = null, ?string $playableKey = null)
     {

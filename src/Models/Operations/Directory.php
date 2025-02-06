@@ -39,6 +39,7 @@ class Directory
      * @param  ?float  $count
      * @param  ?string  $key
      * @param  ?string  $title
+     * @phpstan-pure
      */
     public function __construct(?float $count = null, ?string $key = null, ?string $title = null)
     {

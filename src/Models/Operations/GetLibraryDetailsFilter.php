@@ -57,6 +57,7 @@ class GetLibraryDetailsFilter
      * @param  ?string  $key
      * @param  ?string  $title
      * @param  ?string  $type
+     * @phpstan-pure
      */
     public function __construct(?string $filter = null, ?string $filterType = null, ?string $key = null, ?string $title = null, ?string $type = null)
     {

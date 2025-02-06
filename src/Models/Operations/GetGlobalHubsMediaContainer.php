@@ -50,6 +50,7 @@ class GetGlobalHubsMediaContainer
      * @param  ?bool  $allowSync
      * @param  ?string  $identifier
      * @param  ?array<Hub>  $hub
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $identifier = null, ?array $hub = null)
     {

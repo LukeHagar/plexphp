@@ -66,6 +66,7 @@ class PostUsersSignInDataRequest
      * @param  ?string  $clientVersion
      * @param  ?string  $platform
      * @param  ?PostUsersSignInDataRequestBody  $requestBody
+     * @phpstan-pure
      */
     public function __construct(string $clientID, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null, ?PostUsersSignInDataRequestBody $requestBody = null)
     {

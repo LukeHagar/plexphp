@@ -130,6 +130,7 @@ class GetLibraryItemsPart
      * @param  ?string  $indexes
      * @param  ?GetLibraryItemsHasThumbnail  $hasThumbnail
      * @param  ?array<GetLibraryItemsStream>  $stream
+     * @phpstan-pure
      */
     public function __construct(int $id, string $key, string $file, int $size, string $container, ?int $duration = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null, ?string $indexes = null, ?array $stream = null, ?GetLibraryItemsHasThumbnail $hasThumbnail = GetLibraryItemsHasThumbnail::False)
     {

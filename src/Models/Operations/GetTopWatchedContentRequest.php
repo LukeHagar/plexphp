@@ -39,6 +39,7 @@ class GetTopWatchedContentRequest
     /**
      * @param  GetTopWatchedContentQueryParamType  $type
      * @param  ?int  $includeGuids
+     * @phpstan-pure
      */
     public function __construct(GetTopWatchedContentQueryParamType $type, ?int $includeGuids = null)
     {

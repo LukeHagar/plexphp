@@ -45,6 +45,7 @@ class GetLibraryItemsLibraryField
      * @param  string  $title
      * @param  string  $type
      * @param  ?string  $subType
+     * @phpstan-pure
      */
     public function __construct(string $key, string $title, string $type, ?string $subType = null)
     {

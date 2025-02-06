@@ -384,6 +384,7 @@ class GetSearchAllLibrariesStream
      * @param  ?int  $samplingRate
      * @param  ?string  $title
      * @param  ?bool  $canAutoSync
+     * @phpstan-pure
      */
     public function __construct(int $id, int $streamType, string $codec, int $index, ?bool $default = null, ?bool $selected = null, ?int $bitrate = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $streamIdentifier = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?float $frameRate = null, ?bool $hasScalingMatrix = null, ?bool $hearingImpaired = null, ?bool $closedCaptions = null, ?string $embeddedInVideo = null, ?int $height = null, ?int $level = null, ?string $profile = null, ?int $refFrames = null, ?string $scanType = null, ?int $width = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null, ?int $channels = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?string $title = null, ?bool $canAutoSync = null)
     {

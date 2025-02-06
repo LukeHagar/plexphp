@@ -156,6 +156,7 @@ class StartUniversalTranscodeRequest
      * @param  ?string  $session
      * @param  ?float  $addDebugOverlay
      * @param  ?float  $autoAdjustQuality
+     * @phpstan-pure
      */
     public function __construct(float $hasMDE, string $path, float $mediaIndex, float $partIndex, string $protocol, ?float $fastSeek = null, ?float $directPlay = null, ?float $directStream = null, ?float $subtitleSize = null, ?string $subtites = null, ?float $audioBoost = null, ?string $location = null, ?float $mediaBufferSize = null, ?string $session = null, ?float $addDebugOverlay = null, ?float $autoAdjustQuality = null)
     {

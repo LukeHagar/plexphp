@@ -78,6 +78,7 @@ class Feature
      * @param  ?string  $unscrobbleKey
      * @param  ?array<GetMediaProvidersDirectory>  $directory
      * @param  ?array<Action>  $action
+     * @phpstan-pure
      */
     public function __construct(string $type, ?string $key = null, ?string $flavor = null, ?string $scrobbleKey = null, ?string $unscrobbleKey = null, ?array $directory = null, ?array $action = null)
     {

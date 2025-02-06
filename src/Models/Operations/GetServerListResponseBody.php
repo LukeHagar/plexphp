@@ -23,6 +23,7 @@ class GetServerListResponseBody
 
     /**
      * @param  ?GetServerListMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetServerListMediaContainer $mediaContainer = null)
     {

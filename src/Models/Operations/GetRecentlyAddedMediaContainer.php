@@ -80,6 +80,7 @@ class GetRecentlyAddedMediaContainer
      * @param  ?bool  $allowSync
      * @param  ?Meta  $meta
      * @param  ?array<GetRecentlyAddedMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(float $size, ?int $offset = null, ?int $totalSize = null, ?string $identifier = null, ?bool $allowSync = null, ?Meta $meta = null, ?array $metadata = null)
     {

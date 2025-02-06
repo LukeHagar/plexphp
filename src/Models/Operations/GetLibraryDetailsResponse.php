@@ -44,6 +44,7 @@ class GetLibraryDetailsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetLibraryDetailsResponseBody  $object
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetLibraryDetailsResponseBody $object = null)
     {

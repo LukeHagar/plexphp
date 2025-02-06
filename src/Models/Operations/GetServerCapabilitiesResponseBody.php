@@ -23,6 +23,7 @@ class GetServerCapabilitiesResponseBody
 
     /**
      * @param  ?MediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?MediaContainer $mediaContainer = null)
     {

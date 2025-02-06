@@ -51,6 +51,7 @@ class UploadPlaylistRequest
      * @param  string  $path
      * @param  QueryParamForce  $force
      * @param  int  $sectionID
+     * @phpstan-pure
      */
     public function __construct(string $path, QueryParamForce $force, int $sectionID = 1)
     {

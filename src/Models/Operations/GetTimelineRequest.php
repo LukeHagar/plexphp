@@ -102,6 +102,7 @@ class GetTimelineRequest
      * @param  float  $playQueueItemID
      * @param  float  $playBackTime
      * @param  float  $row
+     * @phpstan-pure
      */
     public function __construct(float $ratingKey, string $key, State $state, float $hasMDE, float $time, float $duration, string $context, float $playQueueItemID, float $playBackTime, float $row)
     {

@@ -66,6 +66,7 @@ class StatisticsResources
      * @param  ?float  $processCpuUtilization
      * @param  ?float  $hostMemoryUtilization
      * @param  ?float  $processMemoryUtilization
+     * @phpstan-pure
      */
     public function __construct(?int $timespan = null, ?int $at = null, ?float $hostCpuUtilization = null, ?float $processCpuUtilization = null, ?float $hostMemoryUtilization = null, ?float $processMemoryUtilization = null)
     {

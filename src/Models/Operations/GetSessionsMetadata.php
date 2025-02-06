@@ -360,6 +360,7 @@ class GetSessionsMetadata
      * @param  ?GetSessionsUser  $user
      * @param  ?Player  $player
      * @param  ?Session  $session
+     * @phpstan-pure
      */
     public function __construct(?int $addedAt = null, ?string $art = null, ?int $duration = null, ?string $grandparentArt = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentRatingKey = null, ?string $grandparentThumb = null, ?string $grandparentTitle = null, ?string $guid = null, ?int $index = null, ?string $key = null, ?string $librarySectionID = null, ?string $librarySectionKey = null, ?string $librarySectionTitle = null, ?string $musicAnalysisVersion = null, ?string $originalTitle = null, ?string $parentGuid = null, ?int $parentIndex = null, ?string $parentKey = null, ?string $parentRatingKey = null, ?string $parentStudio = null, ?string $parentThumb = null, ?string $parentTitle = null, ?int $parentYear = null, ?int $ratingCount = null, ?string $ratingKey = null, ?string $sessionKey = null, ?string $thumb = null, ?string $title = null, ?string $titleSort = null, ?string $type = null, ?int $updatedAt = null, ?int $viewOffset = null, ?array $media = null, ?GetSessionsUser $user = null, ?Player $player = null, ?Session $session = null)
     {

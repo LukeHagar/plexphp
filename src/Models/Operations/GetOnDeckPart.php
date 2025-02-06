@@ -95,6 +95,7 @@ class GetOnDeckPart
      * @param  ?string  $container
      * @param  ?string  $videoProfile
      * @param  ?array<GetOnDeckStream>  $stream
+     * @phpstan-pure
      */
     public function __construct(?float $id = null, ?string $key = null, ?float $duration = null, ?string $file = null, ?float $size = null, ?string $audioProfile = null, ?string $container = null, ?string $videoProfile = null, ?array $stream = null)
     {

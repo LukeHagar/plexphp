@@ -207,6 +207,7 @@ class PlexDevice
      * @param  ?string  $device
      * @param  ?int  $ownerId
      * @param  ?string  $sourceTitle
+     * @phpstan-pure
      */
     public function __construct(string $name, string $product, string $productVersion, string $clientIdentifier, \DateTime $createdAt, \DateTime $lastSeenAt, string $provides, string $publicAddress, string $accessToken, bool $owned, bool $home, bool $synced, bool $relay, bool $presence, bool $httpsRequired, bool $publicAddressMatches, bool $dnsRebindingProtection, bool $natLoopbackSupported, array $connections, ?string $platform = null, ?string $platformVersion = null, ?string $device = null, ?int $ownerId = null, ?string $sourceTitle = null)
     {

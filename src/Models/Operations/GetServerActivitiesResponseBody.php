@@ -23,6 +23,7 @@ class GetServerActivitiesResponseBody
 
     /**
      * @param  ?GetServerActivitiesMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetServerActivitiesMediaContainer $mediaContainer = null)
     {

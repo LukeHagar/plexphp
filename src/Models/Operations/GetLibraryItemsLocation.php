@@ -21,6 +21,7 @@ class GetLibraryItemsLocation
 
     /**
      * @param  ?string  $path
+     * @phpstan-pure
      */
     public function __construct(?string $path = null)
     {

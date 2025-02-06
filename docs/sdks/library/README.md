@@ -10,6 +10,8 @@ API Calls interacting with Plex Media Server Libraries
 
 * [deleteLibrary](#deletelibrary) - Delete Library Section
 * [getAllLibraries](#getalllibraries) - Get All Libraries
+* [getCountriesLibrary](#getcountrieslibrary) - Get Countries of library media
+* [getGenresLibrary](#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](#getlibrarydetails) - Get Library Details
 * [getLibraryItems](#getlibraryitems) - Get Library Items
 * [getMetaDataByRatingKey](#getmetadatabyratingkey) - Get Metadata by RatingKey
@@ -35,9 +37,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -87,9 +91,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -113,6 +119,104 @@ if ($response->object !== null) {
 | Errors\GetAllLibrariesBadRequest   | 400                                | application/json                   |
 | Errors\GetAllLibrariesUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## getCountriesLibrary
+
+Retrieves a list of all the countries that are found for the media in this library.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getCountriesLibrary(
+    sectionKey: 9518
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
+
+### Response
+
+**[?Operations\GetCountriesLibraryResponse](../../Models/Operations/GetCountriesLibraryResponse.md)**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetCountriesLibraryBadRequest   | 400                                    | application/json                       |
+| Errors\GetCountriesLibraryUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
+
+## getGenresLibrary
+
+Retrieves a list of all the genres that are found for the media in this library.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getGenresLibrary(
+    sectionKey: 9518
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
+
+### Response
+
+**[?Operations\GetGenresLibraryResponse](../../Models/Operations/GetGenresLibraryResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetGenresLibraryBadRequest   | 400                                 | application/json                    |
+| Errors\GetGenresLibraryUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## getLibraryDetails
 
@@ -167,9 +271,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -238,18 +344,16 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 $request = new Operations\GetLibraryItemsRequest(
     tag: Operations\Tag::Edition,
     sectionKey: 9518,
-    includeGuids: Operations\IncludeGuids::Enable,
     type: Operations\GetLibraryItemsQueryParamType::TvShow,
-    includeMeta: Operations\GetLibraryItemsQueryParamIncludeMeta::Enable,
-    xPlexContainerStart: 0,
-    xPlexContainerSize: 50,
 );
 
 $response = $sdk->library->getLibraryItems(
@@ -293,9 +397,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -341,9 +447,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 $request = new Operations\GetRecentlyAddedLibraryRequest(
     type: Operations\QueryParamType::TvShow,
@@ -363,9 +471,6 @@ $request = new Operations\GetRecentlyAddedLibraryRequest(
         17,
     ],
     sectionID: 2,
-    includeMeta: Operations\QueryParamIncludeMeta::Enable,
-    xPlexContainerStart: 0,
-    xPlexContainerSize: 50,
 );
 
 $response = $sdk->library->getRecentlyAddedLibrary(
@@ -410,9 +515,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -461,9 +568,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 $request = new Operations\GetSearchAllLibrariesRequest(
     query: '<value>',
@@ -471,8 +580,6 @@ $request = new Operations\GetSearchAllLibrariesRequest(
     searchTypes: [
         Operations\SearchTypes::People,
     ],
-    includeCollections: Operations\QueryParamIncludeCollections::Enable,
-    includeExternalMedia: Operations\QueryParamIncludeExternalMedia::Enable,
 );
 
 $response = $sdk->library->getSearchAllLibraries(
@@ -534,9 +641,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -583,9 +692,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -633,14 +744,16 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
 $response = $sdk->library->getMetadataChildren(
-    ratingKey: 1539.15,
+    ratingKey: 1539.14,
     includeElements: '<value>'
 
 );
@@ -683,9 +796,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -725,9 +840,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 

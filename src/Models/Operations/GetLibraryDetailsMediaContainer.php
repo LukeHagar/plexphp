@@ -153,6 +153,7 @@ class GetLibraryDetailsMediaContainer
      * @param  ?array<GetLibraryDetailsDirectory>  $directory
      * @param  ?array<GetLibraryDetailsType>  $type
      * @param  ?array<GetLibraryDetailsFieldType>  $fieldType
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $allowSync = null, ?string $art = null, ?string $content = null, ?string $identifier = null, ?int $librarySectionID = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?string $thumb = null, ?string $title1 = null, ?string $viewGroup = null, ?int $viewMode = null, ?array $directory = null, ?array $type = null, ?array $fieldType = null)
     {

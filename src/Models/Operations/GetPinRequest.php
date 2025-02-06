@@ -70,6 +70,7 @@ class GetPinRequest
      * @param  ?string  $deviceNickname
      * @param  ?string  $clientVersion
      * @param  ?string  $platform
+     * @phpstan-pure
      */
     public function __construct(string $clientID, ?string $clientName = null, ?string $deviceNickname = null, ?string $clientVersion = null, ?string $platform = null, ?bool $strong = false)
     {

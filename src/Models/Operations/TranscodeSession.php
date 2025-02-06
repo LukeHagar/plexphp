@@ -228,6 +228,7 @@ class TranscodeSession
      * @param  ?float  $timeStamp
      * @param  ?float  $maxOffsetAvailable
      * @param  ?float  $minOffsetAvailable
+     * @phpstan-pure
      */
     public function __construct(?string $key = null, ?bool $throttled = null, ?bool $complete = null, ?float $progress = null, ?int $size = null, ?float $speed = null, ?bool $error = null, ?int $duration = null, ?int $remaining = null, ?string $context = null, ?string $sourceVideoCodec = null, ?string $sourceAudioCodec = null, ?string $videoDecision = null, ?string $audioDecision = null, ?string $subtitleDecision = null, ?string $protocol = null, ?string $container = null, ?string $videoCodec = null, ?string $audioCodec = null, ?int $audioChannels = null, ?bool $transcodeHwRequested = null, ?float $timeStamp = null, ?float $maxOffsetAvailable = null, ?float $minOffsetAvailable = null)
     {

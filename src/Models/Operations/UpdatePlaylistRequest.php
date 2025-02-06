@@ -39,6 +39,7 @@ class UpdatePlaylistRequest
      * @param  float  $playlistID
      * @param  ?string  $title
      * @param  ?string  $summary
+     * @phpstan-pure
      */
     public function __construct(float $playlistID, ?string $title = null, ?string $summary = null)
     {

@@ -57,6 +57,7 @@ class GetLibraryDetailsDirectory
      * @param  ?bool  $secondary
      * @param  ?string  $prompt
      * @param  ?bool  $search
+     * @phpstan-pure
      */
     public function __construct(?string $key = null, ?string $title = null, ?bool $secondary = null, ?string $prompt = null, ?bool $search = null)
     {

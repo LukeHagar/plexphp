@@ -118,6 +118,7 @@ class GetTokenByPinIdAuthPinContainer
      * @param  ?int  $expiresIn
      * @param  ?string  $authToken
      * @param  mixed  $newRegistration
+     * @phpstan-pure
      */
     public function __construct(int $id, string $code, string $product, string $qr, string $clientIdentifier, GetTokenByPinIdGeoData $location, \DateTime $createdAt, \DateTime $expiresAt, ?string $authToken = null, mixed $newRegistration = null, ?bool $trusted = false, ?int $expiresIn = 900)
     {

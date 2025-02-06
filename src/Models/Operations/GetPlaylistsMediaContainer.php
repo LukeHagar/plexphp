@@ -32,6 +32,7 @@ class GetPlaylistsMediaContainer
     /**
      * @param  ?int  $size
      * @param  ?array<GetPlaylistsMetadata>  $metadata
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?array $metadata = null)
     {

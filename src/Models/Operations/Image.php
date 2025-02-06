@@ -39,6 +39,7 @@ class Image
      * @param  ?string  $alt
      * @param  ?string  $type
      * @param  ?string  $url
+     * @phpstan-pure
      */
     public function __construct(?string $alt = null, ?string $type = null, ?string $url = null)
     {

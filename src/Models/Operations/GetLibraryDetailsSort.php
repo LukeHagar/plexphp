@@ -66,6 +66,7 @@ class GetLibraryDetailsSort
      * @param  ?string  $firstCharacterKey
      * @param  ?string  $key
      * @param  ?string  $title
+     * @phpstan-pure
      */
     public function __construct(?string $default = null, ?string $defaultDirection = null, ?string $descKey = null, ?string $firstCharacterKey = null, ?string $key = null, ?string $title = null)
     {

@@ -29,6 +29,7 @@ class Billing
     /**
      * @param  InternalPaymentMethod  $internalPaymentMethod
      * @param  ?int  $paymentMethodId
+     * @phpstan-pure
      */
     public function __construct(InternalPaymentMethod $internalPaymentMethod, ?int $paymentMethodId = null)
     {

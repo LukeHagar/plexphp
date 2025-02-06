@@ -28,6 +28,7 @@ class Action
     /**
      * @param  string  $id
      * @param  string  $key
+     * @phpstan-pure
      */
     public function __construct(string $id, string $key)
     {

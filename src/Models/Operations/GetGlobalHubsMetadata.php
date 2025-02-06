@@ -165,6 +165,7 @@ class GetGlobalHubsMetadata
      * @param  ?int  $leafCount
      * @param  ?int  $addedAt
      * @param  ?int  $updatedAt
+     * @phpstan-pure
      */
     public function __construct(?string $ratingKey = null, ?string $key = null, ?string $guid = null, ?string $type = null, ?string $title = null, ?string $titleSort = null, ?string $summary = null, ?bool $smart = null, ?string $playlistType = null, ?string $composite = null, ?string $icon = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?int $duration = null, ?int $leafCount = null, ?int $addedAt = null, ?int $updatedAt = null)
     {

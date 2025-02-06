@@ -57,6 +57,7 @@ class CreatePlaylistRequest
      * @param  Smart  $smart
      * @param  string  $uri
      * @param  ?float  $playQueueID
+     * @phpstan-pure
      */
     public function __construct(string $title, CreatePlaylistQueryParamType $type, Smart $smart, string $uri, ?float $playQueueID = null)
     {

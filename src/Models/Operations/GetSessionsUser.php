@@ -39,6 +39,7 @@ class GetSessionsUser
      * @param  ?string  $id
      * @param  ?string  $thumb
      * @param  ?string  $title
+     * @phpstan-pure
      */
     public function __construct(?string $id = null, ?string $thumb = null, ?string $title = null)
     {

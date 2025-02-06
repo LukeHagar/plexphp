@@ -21,6 +21,7 @@ class Context
 
     /**
      * @param  ?string  $librarySectionID
+     * @phpstan-pure
      */
     public function __construct(?string $librarySectionID = null)
     {

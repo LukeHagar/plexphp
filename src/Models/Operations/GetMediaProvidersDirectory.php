@@ -140,6 +140,7 @@ class GetMediaProvidersDirectory
      * @param  ?int  $updatedAt
      * @param  ?int  $scannedAt
      * @param  ?array<Pivot>  $pivot
+     * @phpstan-pure
      */
     public function __construct(?string $hubKey = null, ?string $title = null, ?string $agent = null, ?string $language = null, ?bool $refreshing = null, ?string $scanner = null, ?string $uuid = null, ?string $id = null, ?string $key = null, ?string $type = null, ?string $subtype = null, ?int $updatedAt = null, ?int $scannedAt = null, ?array $pivot = null)
     {

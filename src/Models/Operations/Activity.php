@@ -85,6 +85,7 @@ class Activity
      * @param  ?string  $subtitle
      * @param  ?float  $progress
      * @param  ?Context  $context
+     * @phpstan-pure
      */
     public function __construct(?string $uuid = null, ?string $type = null, ?bool $cancellable = null, ?float $userID = null, ?string $title = null, ?string $subtitle = null, ?float $progress = null, ?Context $context = null)
     {

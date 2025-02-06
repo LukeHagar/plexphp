@@ -26,9 +26,11 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -68,9 +70,11 @@ require 'vendor/autoload.php';
 use LukeHagar\Plex_API;
 use LukeHagar\Plex_API\Models\Operations;
 
-$security = '<YOUR_API_KEY_HERE>';
-
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
@@ -140,13 +144,15 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$security = '<YOUR_API_KEY_HERE>';
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
-$sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
-
-$request = 'level=4&message=Test%20message%201&source=postman
-level=3&message=Test%20message%202&source=postman
-level=1&message=Test%20message%203&source=postman';
+$request = 'level=4&message=Test%20message%201&source=postman\n' .
+'level=3&message=Test%20message%202&source=postman\n' .
+'level=1&message=Test%20message%203&source=postman';
 
 $response = $sdk->log->logMultiLine(
     request: $request

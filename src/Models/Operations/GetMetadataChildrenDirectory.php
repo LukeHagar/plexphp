@@ -57,6 +57,7 @@ class GetMetadataChildrenDirectory
      * @param  ?int  $viewedLeafCount
      * @param  ?string  $key
      * @param  ?string  $title
+     * @phpstan-pure
      */
     public function __construct(?int $leafCount = null, ?string $thumb = null, ?int $viewedLeafCount = null, ?string $key = null, ?string $title = null)
     {

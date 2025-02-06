@@ -24,6 +24,7 @@ class DeleteLibraryRequest
 
     /**
      * @param  int  $sectionKey
+     * @phpstan-pure
      */
     public function __construct(int $sectionKey)
     {

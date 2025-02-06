@@ -44,6 +44,7 @@ class GetGeoDataResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetGeoDataGeoData  $geoData
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetGeoDataGeoData $geoData = null)
     {

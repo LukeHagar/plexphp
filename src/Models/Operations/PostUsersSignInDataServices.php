@@ -53,6 +53,7 @@ class PostUsersSignInDataServices
      * @param  PostUsersSignInDataStatus  $status
      * @param  ?string  $token
      * @param  ?string  $secret
+     * @phpstan-pure
      */
     public function __construct(string $identifier, string $endpoint, PostUsersSignInDataStatus $status, ?string $token = null, ?string $secret = null)
     {

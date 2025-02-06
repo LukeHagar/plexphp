@@ -91,6 +91,7 @@ class GetRecentlyAddedLibraryRequest
      * @param  ?QueryParamIncludeMeta  $includeMeta
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
+     * @phpstan-pure
      */
     public function __construct(QueryParamType $type, ?int $contentDirectoryID = null, ?array $pinnedContentDirectoryID = null, ?int $sectionID = null, ?QueryParamIncludeMeta $includeMeta = QueryParamIncludeMeta::Disable, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {

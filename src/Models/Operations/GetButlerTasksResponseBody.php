@@ -23,6 +23,7 @@ class GetButlerTasksResponseBody
 
     /**
      * @param  ?ButlerTasks  $butlerTasks
+     * @phpstan-pure
      */
     public function __construct(?ButlerTasks $butlerTasks = null)
     {

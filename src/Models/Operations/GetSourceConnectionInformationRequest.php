@@ -21,6 +21,7 @@ class GetSourceConnectionInformationRequest
 
     /**
      * @param  string  $source
+     * @phpstan-pure
      */
     public function __construct(string $source)
     {

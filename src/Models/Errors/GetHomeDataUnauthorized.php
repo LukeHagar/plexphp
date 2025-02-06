@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Errors;
 
-
 use LukeHagar\Plex_API\Utils;
 /** GetHomeDataUnauthorized - Unauthorized - Returned if the X-Plex-Token is missing from the header or query. */
 class GetHomeDataUnauthorized
@@ -35,6 +34,7 @@ class GetHomeDataUnauthorized
     /**
      * @param  ?array<GetHomeDataPlexErrors>  $errors
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(?array $errors = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

@@ -30,6 +30,7 @@ class GetSearchAllLibrariesMediaContainer
     /**
      * @param  float  $size
      * @param  array<SearchResult>  $searchResult
+     * @phpstan-pure
      */
     public function __construct(float $size, array $searchResult)
     {

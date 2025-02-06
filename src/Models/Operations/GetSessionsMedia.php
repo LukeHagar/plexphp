@@ -86,6 +86,7 @@ class GetSessionsMedia
      * @param  ?string  $id
      * @param  ?bool  $selected
      * @param  ?array<GetSessionsPart>  $part
+     * @phpstan-pure
      */
     public function __construct(?int $audioChannels = null, ?string $audioCodec = null, ?int $bitrate = null, ?string $container = null, ?int $duration = null, ?string $id = null, ?bool $selected = null, ?array $part = null)
     {

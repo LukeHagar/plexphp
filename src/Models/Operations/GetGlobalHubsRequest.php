@@ -30,6 +30,7 @@ class GetGlobalHubsRequest
     /**
      * @param  ?float  $count
      * @param  ?OnlyTransient  $onlyTransient
+     * @phpstan-pure
      */
     public function __construct(?float $count = null, ?OnlyTransient $onlyTransient = null)
     {

@@ -67,6 +67,7 @@ class GetHomeDataResponseBody
      * @param  ?string  $guestUserUUID
      * @param  ?bool  $guestEnabled
      * @param  ?bool  $subscription
+     * @phpstan-pure
      */
     public function __construct(?float $id = null, ?string $name = null, ?float $guestUserID = null, ?string $guestUserUUID = null, ?bool $guestEnabled = null, ?bool $subscription = null)
     {

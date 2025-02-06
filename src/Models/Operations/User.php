@@ -21,6 +21,7 @@ class User
 
     /**
      * @param  ?int  $id
+     * @phpstan-pure
      */
     public function __construct(?int $id = null)
     {

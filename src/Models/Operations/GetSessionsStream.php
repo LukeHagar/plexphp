@@ -192,6 +192,7 @@ class GetSessionsStream
      * @param  ?bool  $selected
      * @param  ?int  $streamType
      * @param  ?string  $location
+     * @phpstan-pure
      */
     public function __construct(?string $albumGain = null, ?string $albumPeak = null, ?string $albumRange = null, ?string $audioChannelLayout = null, ?int $bitDepth = null, ?int $bitrate = null, ?int $channels = null, ?string $codec = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null, ?string $gain = null, ?string $id = null, ?int $index = null, ?string $loudness = null, ?string $lra = null, ?string $peak = null, ?int $samplingRate = null, ?bool $selected = null, ?int $streamType = null, ?string $location = null)
     {

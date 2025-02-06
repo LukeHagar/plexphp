@@ -158,6 +158,7 @@ class GetRecentlyAddedLibraryMedia
      * @param  ?bool  $has64bitOffsets
      * @param  ?string  $videoProfile
      * @param  ?array<GetRecentlyAddedLibraryPart>  $part
+     * @phpstan-pure
      */
     public function __construct(?float $id = null, ?float $duration = null, ?float $bitrate = null, ?float $width = null, ?float $height = null, ?float $aspectRatio = null, ?float $audioChannels = null, ?string $audioCodec = null, ?string $videoCodec = null, ?float $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?float $optimizedForStreaming = null, ?bool $has64bitOffsets = null, ?string $videoProfile = null, ?array $part = null)
     {

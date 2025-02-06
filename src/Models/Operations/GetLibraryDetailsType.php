@@ -81,6 +81,7 @@ class GetLibraryDetailsType
      * @param  ?array<GetLibraryDetailsFilter>  $filter
      * @param  ?array<GetLibraryDetailsSort>  $sort
      * @param  ?array<GetLibraryDetailsField>  $field
+     * @phpstan-pure
      */
     public function __construct(?string $key = null, ?string $type = null, ?string $title = null, ?bool $active = null, ?array $filter = null, ?array $sort = null, ?array $field = null)
     {

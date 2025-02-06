@@ -23,6 +23,7 @@ class GetMediaProvidersResponseBody
 
     /**
      * @param  ?GetMediaProvidersMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetMediaProvidersMediaContainer $mediaContainer = null)
     {

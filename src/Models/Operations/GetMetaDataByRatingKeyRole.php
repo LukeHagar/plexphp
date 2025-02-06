@@ -66,6 +66,7 @@ class GetMetaDataByRatingKeyRole
      * @param  ?string  $tagKey
      * @param  ?string  $role
      * @param  ?string  $thumb
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?string $filter = null, ?string $tag = null, ?string $tagKey = null, ?string $role = null, ?string $thumb = null)
     {

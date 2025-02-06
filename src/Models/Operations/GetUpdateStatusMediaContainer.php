@@ -68,6 +68,7 @@ class GetUpdateStatusMediaContainer
      * @param  ?string  $downloadURL
      * @param  ?int  $status
      * @param  ?array<Release>  $release
+     * @phpstan-pure
      */
     public function __construct(?int $size = null, ?bool $canInstall = null, ?int $checkedAt = null, ?string $downloadURL = null, ?int $status = null, ?array $release = null)
     {

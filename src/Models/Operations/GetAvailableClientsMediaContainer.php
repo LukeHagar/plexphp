@@ -32,6 +32,7 @@ class GetAvailableClientsMediaContainer
     /**
      * @param  ?float  $size
      * @param  ?array<Server>  $server
+     * @phpstan-pure
      */
     public function __construct(?float $size = null, ?array $server = null)
     {

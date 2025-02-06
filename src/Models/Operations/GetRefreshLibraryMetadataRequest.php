@@ -33,6 +33,7 @@ class GetRefreshLibraryMetadataRequest
     /**
      * @param  int  $sectionKey
      * @param  ?Force  $force
+     * @phpstan-pure
      */
     public function __construct(int $sectionKey, ?Force $force = null)
     {

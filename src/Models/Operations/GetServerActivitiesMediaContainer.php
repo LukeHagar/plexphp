@@ -32,6 +32,7 @@ class GetServerActivitiesMediaContainer
     /**
      * @param  ?float  $size
      * @param  ?array<Activity>  $activity
+     * @phpstan-pure
      */
     public function __construct(?float $size = null, ?array $activity = null)
     {

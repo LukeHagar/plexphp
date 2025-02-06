@@ -46,6 +46,7 @@ class GetAllLibrariesMediaContainer
      * @param  bool  $allowSync
      * @param  string  $title1
      * @param  array<GetAllLibrariesDirectory>  $directory
+     * @phpstan-pure
      */
     public function __construct(int $size, bool $allowSync, string $title1, array $directory)
     {

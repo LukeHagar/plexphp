@@ -23,6 +23,7 @@ class GetMetadataChildrenResponseBody
 
     /**
      * @param  ?GetMetadataChildrenMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetMetadataChildrenMediaContainer $mediaContainer = null)
     {

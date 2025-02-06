@@ -57,6 +57,7 @@ class GetMetaDataByRatingKeyWriter
      * @param  ?string  $tag
      * @param  ?string  $tagKey
      * @param  ?string  $thumb
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?string $filter = null, ?string $tag = null, ?string $tagKey = null, ?string $thumb = null)
     {

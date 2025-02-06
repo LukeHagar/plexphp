@@ -23,6 +23,7 @@ class GetSessionsResponseBody
 
     /**
      * @param  ?GetSessionsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetSessionsMediaContainer $mediaContainer = null)
     {

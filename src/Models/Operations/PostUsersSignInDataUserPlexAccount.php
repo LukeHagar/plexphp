@@ -421,6 +421,7 @@ class PostUsersSignInDataUserPlexAccount
      * @param  ?bool  $twoFactorEnabled
      * @param  ?string  $attributionPartner
      * @param  ?bool  $anonymous
+     * @phpstan-pure
      */
     public function __construct(string $authToken, string $country, string $email, string $friendlyName, array $entitlements, int $homeSize, int $id, int $joinedAt, PostUsersSignInDataMailingListStatus $mailingListStatus, int $maxHomeSize, PostUsersSignInDataUserProfile $profile, int $rememberExpiresAt, string $scrobbleTypes, array $services, PostUsersSignInDataSubscription $subscription, array $subscriptions, string $thumb, string $title, string $username, string $uuid, array $pastSubscriptions, array $trials, ?bool $adsConsent = null, ?int $adsConsentReminderAt = null, ?int $adsConsentSetAt = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?string $attributionPartner = null, ?bool $backupCodesCreated = false, ?bool $confirmed = false, ?bool $emailOnlyAuth = false, ?bool $experimentalFeatures = false, ?bool $guest = false, ?bool $hasPassword = true, ?bool $home = false, ?bool $homeAdmin = false, ?bool $mailingListActive = false, ?bool $protected = false, ?bool $restricted = false, ?bool $twoFactorEnabled = false, ?bool $anonymous = false)
     {

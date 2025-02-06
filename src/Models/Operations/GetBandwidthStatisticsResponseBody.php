@@ -23,6 +23,7 @@ class GetBandwidthStatisticsResponseBody
 
     /**
      * @param  ?GetBandwidthStatisticsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetBandwidthStatisticsMediaContainer $mediaContainer = null)
     {

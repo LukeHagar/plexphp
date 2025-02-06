@@ -39,6 +39,7 @@ class GetLibraryItemsMeta
     /**
      * @param  ?array<GetLibraryItemsLibraryResponseType>  $type
      * @param  ?array<GetLibraryItemsLibraryFieldType>  $fieldType
+     * @phpstan-pure
      */
     public function __construct(?array $type = null, ?array $fieldType = null)
     {

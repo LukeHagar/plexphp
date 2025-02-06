@@ -23,6 +23,7 @@ class GetServerIdentityResponseBody
 
     /**
      * @param  ?GetServerIdentityMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetServerIdentityMediaContainer $mediaContainer = null)
     {

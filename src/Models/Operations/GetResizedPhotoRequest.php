@@ -75,6 +75,7 @@ class GetResizedPhotoRequest
      * @param  MinSize  $minSize
      * @param  Upscale  $upscale
      * @param  string  $url
+     * @phpstan-pure
      */
     public function __construct(float $width, float $height, float $blur, MinSize $minSize, Upscale $upscale, string $url, int $opacity = 100)
     {

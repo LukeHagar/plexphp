@@ -28,6 +28,7 @@ class GetLibraryItemsOperator
     /**
      * @param  string  $key
      * @param  string  $title
+     * @phpstan-pure
      */
     public function __construct(string $key, string $title)
     {

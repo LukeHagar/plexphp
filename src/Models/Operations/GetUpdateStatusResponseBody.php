@@ -23,6 +23,7 @@ class GetUpdateStatusResponseBody
 
     /**
      * @param  ?GetUpdateStatusMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetUpdateStatusMediaContainer $mediaContainer = null)
     {

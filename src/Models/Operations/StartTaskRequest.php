@@ -21,6 +21,7 @@ class StartTaskRequest
 
     /**
      * @param  TaskName  $taskName
+     * @phpstan-pure
      */
     public function __construct(TaskName $taskName)
     {

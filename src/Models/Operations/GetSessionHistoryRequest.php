@@ -57,6 +57,7 @@ class GetSessionHistoryRequest
      * @param  ?int  $accountId
      * @param  ?QueryParamFilter  $filter
      * @param  ?int  $librarySectionID
+     * @phpstan-pure
      */
     public function __construct(?string $sort = null, ?int $accountId = null, ?QueryParamFilter $filter = null, ?int $librarySectionID = null)
     {

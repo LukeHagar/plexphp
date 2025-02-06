@@ -186,6 +186,7 @@ class GetAllLibrariesDirectory
      * @param  int  $contentChangedAt
      * @param  int  $hidden
      * @param  array<GetAllLibrariesLocation>  $location
+     * @phpstan-pure
      */
     public function __construct(bool $allowSync, string $art, string $composite, bool $filters, bool $refreshing, string $thumb, string $key, string $type, string $title, string $agent, string $scanner, string $language, string $uuid, int $updatedAt, int $createdAt, int $scannedAt, bool $content, bool $directory, int $contentChangedAt, int $hidden, array $location)
     {

@@ -90,6 +90,7 @@ class GetRecentlyAddedSort
      * @param  ?GetRecentlyAddedDefaultDirection  $defaultDirection
      * @param  ?string  $descKey
      * @param  ?string  $firstCharacterKey
+     * @phpstan-pure
      */
     public function __construct(string $key, string $title, ?string $default = null, ?bool $active = null, ?string $descKey = null, ?string $firstCharacterKey = null, ?GetRecentlyAddedActiveDirection $activeDirection = GetRecentlyAddedActiveDirection::Ascending, ?GetRecentlyAddedDefaultDirection $defaultDirection = GetRecentlyAddedDefaultDirection::Ascending)
     {

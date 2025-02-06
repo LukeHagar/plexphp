@@ -39,6 +39,7 @@ class Provider
      * @param  ?string  $key
      * @param  ?string  $title
      * @param  ?string  $type
+     * @phpstan-pure
      */
     public function __construct(?string $key = null, ?string $title = null, ?string $type = null)
     {

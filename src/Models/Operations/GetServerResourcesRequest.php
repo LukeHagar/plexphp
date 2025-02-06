@@ -51,6 +51,7 @@ class GetServerResourcesRequest
      * @param  ?IncludeHttps  $includeHttps
      * @param  ?IncludeRelay  $includeRelay
      * @param  ?IncludeIPv6  $includeIPv6
+     * @phpstan-pure
      */
     public function __construct(string $clientID, ?IncludeHttps $includeHttps = IncludeHttps::Disable, ?IncludeRelay $includeRelay = IncludeRelay::Disable, ?IncludeIPv6 $includeIPv6 = IncludeIPv6::Disable)
     {

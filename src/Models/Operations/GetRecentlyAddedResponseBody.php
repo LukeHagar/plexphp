@@ -23,6 +23,7 @@ class GetRecentlyAddedResponseBody
 
     /**
      * @param  ?GetRecentlyAddedMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetRecentlyAddedMediaContainer $mediaContainer = null)
     {

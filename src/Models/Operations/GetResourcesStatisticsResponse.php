@@ -44,6 +44,7 @@ class GetResourcesStatisticsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetResourcesStatisticsResponseBody  $object
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetResourcesStatisticsResponseBody $object = null)
     {

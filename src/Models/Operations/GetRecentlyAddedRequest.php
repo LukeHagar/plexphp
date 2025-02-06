@@ -92,6 +92,7 @@ class GetRecentlyAddedRequest
      * @param  ?IncludeMeta  $includeMeta
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
+     * @phpstan-pure
      */
     public function __construct(int $contentDirectoryID, Type $type, ?string $pinnedContentDirectoryID = null, ?int $sectionID = null, ?IncludeMeta $includeMeta = IncludeMeta::Disable, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {

@@ -23,6 +23,7 @@ class CreatePlaylistResponseBody
 
     /**
      * @param  ?CreatePlaylistMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?CreatePlaylistMediaContainer $mediaContainer = null)
     {

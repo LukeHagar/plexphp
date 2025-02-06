@@ -15,9 +15,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -40,9 +42,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -65,9 +69,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -93,9 +99,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -119,9 +127,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetTimelineRequest(
                 ratingKey: 23409,
@@ -155,9 +165,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -180,9 +192,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -205,9 +219,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -230,9 +246,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -255,9 +273,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -280,9 +300,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -306,9 +328,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -332,9 +356,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -357,9 +383,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -382,9 +410,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -407,9 +437,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -432,9 +464,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -480,9 +514,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -506,9 +542,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -534,17 +572,16 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetRecentlyAddedRequest(
                 contentDirectoryID: 470161,
                 sectionID: 2,
                 type: Operations\Type::TvShow,
-                includeMeta: Operations\IncludeMeta::Enable,
-                xPlexContainerStart: 0,
-                xPlexContainerSize: 50,
             );
 
             $response = $sdk->hubs->getRecentlyAdded(
@@ -566,15 +603,17 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
             $response = $sdk->search->performSearch(
                 query: 'dylan',
-                sectionId: 9372.69,
+                sectionId: 9372.7,
                 limit: 5
 
             );
@@ -594,15 +633,17 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
             $response = $sdk->search->performVoiceSearch(
                 query: 'dead+poop',
-                sectionId: 4094.80,
+                sectionId: 4094.8,
                 limit: 5
 
             );
@@ -623,9 +664,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -675,9 +718,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -702,9 +747,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -729,9 +776,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -755,9 +804,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetBannerImageRequest(
                 ratingKey: 9518,
@@ -787,14 +838,16 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
             $response = $sdk->library->getMetadataChildren(
-                ratingKey: 1539.15,
+                ratingKey: 1539.14,
                 includeElements: '<value>'
 
             );
@@ -815,9 +868,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetThumbImageRequest(
                 ratingKey: 9518,
@@ -847,9 +902,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -873,9 +930,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetRecentlyAddedLibraryRequest(
                 contentDirectoryID: 2,
@@ -895,9 +954,6 @@ actions:
                 ],
                 sectionID: 2,
                 type: Operations\QueryParamType::TvShow,
-                includeMeta: Operations\QueryParamIncludeMeta::Enable,
-                xPlexContainerStart: 0,
-                xPlexContainerSize: 50,
             );
 
             $response = $sdk->library->getRecentlyAddedLibrary(
@@ -920,9 +976,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetSearchAllLibrariesRequest(
                 query: '<value>',
@@ -930,8 +988,6 @@ actions:
                 searchTypes: [
                     Operations\SearchTypes::People,
                 ],
-                includeCollections: Operations\QueryParamIncludeCollections::Enable,
-                includeExternalMedia: Operations\QueryParamIncludeExternalMedia::Enable,
             );
 
             $response = $sdk->library->getSearchAllLibraries(
@@ -953,9 +1009,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -979,14 +1037,14 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetWatchListRequest(
                 filter: Operations\Filter::Available,
-                xPlexContainerStart: 0,
-                xPlexContainerSize: 50,
                 xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
             );
 
@@ -1009,9 +1067,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1035,9 +1095,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1045,6 +1107,60 @@ actions:
                 sectionKey: 9518,
                 includeDetails: Operations\IncludeDetails::Zero
 
+            );
+
+            if ($response->object !== null) {
+                // handle response
+            }
+  - target: $["paths"]["/library/sections/{sectionKey}/country"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: library
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use LukeHagar\Plex_API;
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
+
+
+
+            $response = $sdk->library->getCountriesLibrary(
+                sectionKey: 9518
+            );
+
+            if ($response->object !== null) {
+                // handle response
+            }
+  - target: $["paths"]["/library/sections/{sectionKey}/genre"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: library
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use LukeHagar\Plex_API;
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
+
+
+
+            $response = $sdk->library->getGenresLibrary(
+                sectionKey: 9518
             );
 
             if ($response->object !== null) {
@@ -1063,9 +1179,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1091,9 +1209,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1119,18 +1239,16 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetLibraryItemsRequest(
                 tag: Operations\Tag::Edition,
-                includeGuids: Operations\IncludeGuids::Enable,
                 type: Operations\GetLibraryItemsQueryParamType::TvShow,
                 sectionKey: 9518,
-                includeMeta: Operations\GetLibraryItemsQueryParamIncludeMeta::Enable,
-                xPlexContainerStart: 0,
-                xPlexContainerSize: 50,
             );
 
             $response = $sdk->library->getLibraryItems(
@@ -1153,9 +1271,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1181,13 +1301,15 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
-
-            $request = 'level=4&message=Test%20message%201&source=postman
-            level=3&message=Test%20message%202&source=postman
-            level=1&message=Test%20message%203&source=postman';
+            $request = 'level=4&message=Test%20message%201&source=postman\n' .
+            'level=3&message=Test%20message%202&source=postman\n' .
+            'level=1&message=Test%20message%203&source=postman';
 
             $response = $sdk->log->logMultiLine(
                 request: $request
@@ -1208,9 +1330,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1233,9 +1357,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1258,9 +1384,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1284,9 +1412,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\GetResizedPhotoRequest(
                 width: 110,
@@ -1379,9 +1509,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1407,9 +1539,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\CreatePlaylistRequest(
                 title: '<value>',
@@ -1438,9 +1572,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1466,9 +1602,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1491,9 +1629,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1516,14 +1656,16 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
             $response = $sdk->playlists->updatePlaylist(
-                playlistID: 3915.00,
+                playlistID: 3915,
                 title: '<value>',
                 summary: '<value>'
 
@@ -1544,9 +1686,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1570,9 +1714,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1597,14 +1743,16 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
             $response = $sdk->playlists->addPlaylistContents(
-                playlistID: 8502.00,
+                playlistID: 8502.01,
                 uri: 'server://12345/com.plexapp.plugins.library/library/metadata/1',
                 playQueueID: 123
 
@@ -1626,9 +1774,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1655,9 +1805,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1680,9 +1832,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1706,9 +1860,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1733,9 +1889,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1758,9 +1916,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1783,9 +1943,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1808,9 +1970,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1833,9 +1997,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1859,9 +2025,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $filter = new Operations\QueryParamFilter();
 
@@ -1888,9 +2056,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1913,9 +2083,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1939,9 +2111,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1967,9 +2141,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -1992,9 +2168,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -2017,9 +2195,11 @@ actions:
 
             use LukeHagar\Plex_API;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
 
 
@@ -2078,9 +2258,11 @@ actions:
             use LukeHagar\Plex_API;
             use LukeHagar\Plex_API\Models\Operations;
 
-            $security = '<YOUR_API_KEY_HERE>';
-
-            $sdk = Plex_API\PlexAPI::builder()->setSecurity($security)->build();
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
 
             $request = new Operations\StartUniversalTranscodeRequest(
                 hasMDE: 1,

@@ -39,6 +39,7 @@ class GetLibraryHubsRequest
      * @param  float  $sectionId
      * @param  ?float  $count
      * @param  ?QueryParamOnlyTransient  $onlyTransient
+     * @phpstan-pure
      */
     public function __construct(float $sectionId, ?float $count = null, ?QueryParamOnlyTransient $onlyTransient = null)
     {

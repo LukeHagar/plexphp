@@ -29,6 +29,7 @@ class SearchResult
     /**
      * @param  float  $score
      * @param  GetSearchAllLibrariesMetadata  $metadata
+     * @phpstan-pure
      */
     public function __construct(float $score, GetSearchAllLibrariesMetadata $metadata)
     {

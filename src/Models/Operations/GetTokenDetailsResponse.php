@@ -44,6 +44,7 @@ class GetTokenDetailsResponse
      * @param  int  $statusCode
      * @param  \Psr\Http\Message\ResponseInterface  $rawResponse
      * @param  ?GetTokenDetailsUserPlexAccount  $userPlexAccount
+     * @phpstan-pure
      */
     public function __construct(string $contentType, int $statusCode, \Psr\Http\Message\ResponseInterface $rawResponse, ?GetTokenDetailsUserPlexAccount $userPlexAccount = null)
     {

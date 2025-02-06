@@ -149,6 +149,7 @@ class GetSearchResultsMedia
      * @param  ?string  $audioProfile
      * @param  ?string  $videoProfile
      * @param  ?array<GetSearchResultsPart>  $part
+     * @phpstan-pure
      */
     public function __construct(?float $id = null, ?float $duration = null, ?float $bitrate = null, ?float $width = null, ?float $height = null, ?float $aspectRatio = null, ?float $audioChannels = null, ?string $audioCodec = null, ?string $videoCodec = null, ?float $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?string $audioProfile = null, ?string $videoProfile = null, ?array $part = null)
     {

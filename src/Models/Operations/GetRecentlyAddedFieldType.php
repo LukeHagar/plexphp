@@ -30,6 +30,7 @@ class GetRecentlyAddedFieldType
     /**
      * @param  string  $type
      * @param  array<GetRecentlyAddedOperator>  $operator
+     * @phpstan-pure
      */
     public function __construct(string $type, array $operator)
     {

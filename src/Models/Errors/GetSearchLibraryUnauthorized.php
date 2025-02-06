@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Errors;
 
-
 use LukeHagar\Plex_API\Utils;
 /** GetSearchLibraryUnauthorized - Unauthorized - Returned if the X-Plex-Token is missing from the header or query. */
 class GetSearchLibraryUnauthorized
@@ -35,6 +34,7 @@ class GetSearchLibraryUnauthorized
     /**
      * @param  ?array<GetSearchLibraryLibraryErrors>  $errors
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(?array $errors = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

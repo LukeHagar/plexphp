@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace LukeHagar\Plex_API\Models\Errors;
 
-
 use LukeHagar\Plex_API\Utils;
 /** EnablePaperTrailBadRequest - Bad Request - A parameter was not specified, or was specified incorrectly. */
 class EnablePaperTrailBadRequest
@@ -35,6 +34,7 @@ class EnablePaperTrailBadRequest
     /**
      * @param  ?array<EnablePaperTrailErrors>  $errors
      * @param  ?\Psr\Http\Message\ResponseInterface  $rawResponse
+     * @phpstan-pure
      */
     public function __construct(?array $errors = null, ?\Psr\Http\Message\ResponseInterface $rawResponse = null)
     {

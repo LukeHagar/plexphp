@@ -53,6 +53,7 @@ class Services
      * @param  GetTokenDetailsStatus  $status
      * @param  ?string  $token
      * @param  ?string  $secret
+     * @phpstan-pure
      */
     public function __construct(string $identifier, string $endpoint, GetTokenDetailsStatus $status, ?string $token = null, ?string $secret = null)
     {

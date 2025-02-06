@@ -21,6 +21,7 @@ class GetMetaDataByRatingKeyRequest
 
     /**
      * @param  int  $ratingKey
+     * @phpstan-pure
      */
     public function __construct(int $ratingKey)
     {

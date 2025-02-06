@@ -30,6 +30,7 @@ class GetTokenByPinIdPlexErrors
     /**
      * @param  ?int  $code
      * @param  ?string  $message
+     * @phpstan-pure
      */
     public function __construct(?int $code = null, ?string $message = null)
     {

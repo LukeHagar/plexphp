@@ -37,6 +37,7 @@ class GetLibraryItemsImage
      * @param  string  $alt
      * @param  GetLibraryItemsLibraryResponse200Type  $type
      * @param  string  $url
+     * @phpstan-pure
      */
     public function __construct(string $alt, GetLibraryItemsLibraryResponse200Type $type, string $url)
     {

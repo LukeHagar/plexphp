@@ -22,6 +22,7 @@ class GetSearchAllLibrariesResponseBody
 
     /**
      * @param  GetSearchAllLibrariesMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(GetSearchAllLibrariesMediaContainer $mediaContainer)
     {

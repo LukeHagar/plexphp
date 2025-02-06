@@ -90,6 +90,7 @@ class UserProfile
      * @param  ?DefaultSubtitleForced  $defaultSubtitleForced
      * @param  ?WatchedIndicator  $watchedIndicator
      * @param  ?MediaReviewsVisibility  $mediaReviewsVisibility
+     * @phpstan-pure
      */
     public function __construct(?string $defaultAudioLanguage = null, ?string $defaultSubtitleLanguage = null, ?bool $autoSelectAudio = true, ?AutoSelectSubtitle $autoSelectSubtitle = AutoSelectSubtitle::Disable, ?DefaultSubtitleAccessibility $defaultSubtitleAccessibility = DefaultSubtitleAccessibility::Disable, ?DefaultSubtitleForced $defaultSubtitleForced = DefaultSubtitleForced::Disable, ?WatchedIndicator $watchedIndicator = WatchedIndicator::Disable, ?MediaReviewsVisibility $mediaReviewsVisibility = MediaReviewsVisibility::Disable)
     {

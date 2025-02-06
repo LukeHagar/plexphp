@@ -23,6 +23,7 @@ class GetSessionHistoryResponseBody
 
     /**
      * @param  ?GetSessionHistoryMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetSessionHistoryMediaContainer $mediaContainer = null)
     {

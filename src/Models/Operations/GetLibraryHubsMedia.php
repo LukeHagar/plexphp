@@ -167,6 +167,7 @@ class GetLibraryHubsMedia
      * @param  ?bool  $has64bitOffsets
      * @param  ?string  $videoProfile
      * @param  ?array<GetLibraryHubsPart>  $part
+     * @phpstan-pure
      */
     public function __construct(?int $id = null, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?int $audioChannels = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?int $optimizedForStreaming = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?string $videoProfile = null, ?array $part = null)
     {

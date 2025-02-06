@@ -68,6 +68,7 @@ class GetSearchAllLibrariesRequest
      * @param  ?array<SearchTypes>  $searchTypes
      * @param  ?QueryParamIncludeCollections  $includeCollections
      * @param  ?QueryParamIncludeExternalMedia  $includeExternalMedia
+     * @phpstan-pure
      */
     public function __construct(string $query, string $clientID, ?int $limit = null, ?array $searchTypes = null, ?QueryParamIncludeCollections $includeCollections = QueryParamIncludeCollections::Disable, ?QueryParamIncludeExternalMedia $includeExternalMedia = QueryParamIncludeExternalMedia::Disable)
     {

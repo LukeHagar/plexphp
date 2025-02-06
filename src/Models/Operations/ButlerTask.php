@@ -66,6 +66,7 @@ class ButlerTask
      * @param  ?bool  $enabled
      * @param  ?string  $title
      * @param  ?string  $description
+     * @phpstan-pure
      */
     public function __construct(?string $name = null, ?float $interval = null, ?bool $scheduleRandomized = null, ?bool $enabled = null, ?string $title = null, ?string $description = null)
     {

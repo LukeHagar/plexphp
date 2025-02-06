@@ -75,6 +75,7 @@ class StatisticsMedia
      * @param  ?int  $metadataType
      * @param  ?int  $count
      * @param  ?int  $duration
+     * @phpstan-pure
      */
     public function __construct(?int $accountID = null, ?int $deviceID = null, ?int $timespan = null, ?int $at = null, ?int $metadataType = null, ?int $count = null, ?int $duration = null)
     {

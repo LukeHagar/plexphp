@@ -23,6 +23,7 @@ class GetResourcesStatisticsResponseBody
 
     /**
      * @param  ?GetResourcesStatisticsMediaContainer  $mediaContainer
+     * @phpstan-pure
      */
     public function __construct(?GetResourcesStatisticsMediaContainer $mediaContainer = null)
     {
