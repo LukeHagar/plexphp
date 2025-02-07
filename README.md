@@ -259,6 +259,10 @@ if ($response->object !== null) {
 * [checkForUpdates](docs/sdks/updater/README.md#checkforupdates) - Checking for updates
 * [getUpdateStatus](docs/sdks/updater/README.md#getupdatestatus) - Querying status of updates
 
+### [users](docs/sdks/users/README.md)
+
+* [getUsers](docs/sdks/users/README.md#getusers) - Get list of all connected users
+
 ### [video](docs/sdks/video/README.md)
 
 * [getTimeline](docs/sdks/video/README.md#gettimeline) - Get the timeline for a media item

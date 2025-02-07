@@ -200,6 +200,8 @@ class PlexAPI
      */
     public Updater $updater;
 
+    public Users $users;
+
     /**
      * Returns a new instance of the SDK builder used to configure and create the SDK instance.
      *
@@ -232,6 +234,7 @@ class PlexAPI
         $this->statistics = new Statistics($this->sdkConfiguration);
         $this->sessions = new Sessions($this->sdkConfiguration);
         $this->updater = new Updater($this->sdkConfiguration);
+        $this->users = new Users($this->sdkConfiguration);
         $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);
 
     }

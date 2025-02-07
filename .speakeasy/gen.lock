@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 01a51eb2-5d90-4a24-b154-68e491d02c36
 management:
-  docChecksum: 14b35829d4be91a88269761c3ed01426
+  docChecksum: 7dec92ab9151a1b5a35df5faa81811ba
   docVersion: 0.0.3
-  speakeasyVersion: 1.484.1
-  generationVersion: 2.503.2
-  releaseVersion: 0.12.6
-  configChecksum: 0b21cc9558844e2166d52a79210c893d
+  speakeasyVersion: 1.487.0
+  generationVersion: 2.506.0
+  releaseVersion: 0.12.7
+  configChecksum: a1e3ba7fcb508e0bcf094e7a0bbffe76
   repoURL: https://github.com/LukeHagar/plexphp.git
   repoSubDirectory: .
   installationURL: https://github.com/LukeHagar/plexphp
@@ -267,6 +267,10 @@ generatedFiles:
   - docs/Models/Errors/GetUserFriendsErrors.md
   - docs/Models/Errors/GetUserFriendsPlexErrors.md
   - docs/Models/Errors/GetUserFriendsUnauthorized.md
+  - docs/Models/Errors/GetUsersBadRequest.md
+  - docs/Models/Errors/GetUsersErrors.md
+  - docs/Models/Errors/GetUsersUnauthorized.md
+  - docs/Models/Errors/GetUsersUsersErrors.md
   - docs/Models/Errors/GetWatchListBadRequest.md
   - docs/Models/Errors/GetWatchListErrors.md
   - docs/Models/Errors/GetWatchListUnauthorized.md
@@ -344,6 +348,12 @@ generatedFiles:
   - docs/Models/Operations/AddPlaylistContentsRequest.md
   - docs/Models/Operations/AddPlaylistContentsResponse.md
   - docs/Models/Operations/AddPlaylistContentsResponseBody.md
+  - docs/Models/Operations/AllLibraries.md
+  - docs/Models/Operations/AllowCameraUpload.md
+  - docs/Models/Operations/AllowChannels.md
+  - docs/Models/Operations/AllowSubtitleAdmin.md
+  - docs/Models/Operations/AllowSync.md
+  - docs/Models/Operations/AllowTuners.md
   - docs/Models/Operations/ApplyUpdatesRequest.md
   - docs/Models/Operations/ApplyUpdatesResponse.md
   - docs/Models/Operations/AutoSelectSubtitle.md
@@ -706,6 +716,7 @@ generatedFiles:
   - docs/Models/Operations/GetTopWatchedContentResponse.md
   - docs/Models/Operations/GetTopWatchedContentResponseBody.md
   - docs/Models/Operations/GetTopWatchedContentRole.md
+  - docs/Models/Operations/GetTopWatchedContentUser.md
   - docs/Models/Operations/GetTranscodeSessionsMediaContainer.md
   - docs/Models/Operations/GetTranscodeSessionsResponse.md
   - docs/Models/Operations/GetTranscodeSessionsResponseBody.md
@@ -716,11 +727,17 @@ generatedFiles:
   - docs/Models/Operations/GetUpdateStatusResponse.md
   - docs/Models/Operations/GetUpdateStatusResponseBody.md
   - docs/Models/Operations/GetUserFriendsResponse.md
+  - docs/Models/Operations/GetUsersMediaContainer.md
+  - docs/Models/Operations/GetUsersRequest.md
+  - docs/Models/Operations/GetUsersResponse.md
+  - docs/Models/Operations/GetUsersResponseBody.md
+  - docs/Models/Operations/GetUsersServer.md
   - docs/Models/Operations/GetWatchListRequest.md
   - docs/Models/Operations/GetWatchListResponse.md
   - docs/Models/Operations/GetWatchListResponseBody.md
   - docs/Models/Operations/Guids.md
   - docs/Models/Operations/HasThumbnail.md
+  - docs/Models/Operations/Home.md
   - docs/Models/Operations/Hub.md
   - docs/Models/Operations/Image.md
   - docs/Models/Operations/IncludeCollections.md
@@ -756,9 +773,11 @@ generatedFiles:
   - docs/Models/Operations/OnlyTransient.md
   - docs/Models/Operations/Operator.md
   - docs/Models/Operations/OptimizedForStreaming.md
+  - docs/Models/Operations/Owned.md
   - docs/Models/Operations/Part.md
   - docs/Models/Operations/PastSubscription.md
   - docs/Models/Operations/PathParamTaskName.md
+  - docs/Models/Operations/Pending.md
   - docs/Models/Operations/PerformSearchRequest.md
   - docs/Models/Operations/PerformSearchResponse.md
   - docs/Models/Operations/PerformVoiceSearchRequest.md
@@ -786,6 +805,7 @@ generatedFiles:
   - docs/Models/Operations/PostUsersSignInDataUserProfile.md
   - docs/Models/Operations/PostUsersSignInDataWatchedIndicator.md
   - docs/Models/Operations/Producer.md
+  - docs/Models/Operations/ProtectedT.md
   - docs/Models/Operations/Protocol.md
   - docs/Models/Operations/Provider.md
   - docs/Models/Operations/QueryParamFilter.md
@@ -799,6 +819,7 @@ generatedFiles:
   - docs/Models/Operations/Ratings.md
   - docs/Models/Operations/Release.md
   - docs/Models/Operations/ResponseBody.md
+  - docs/Models/Operations/Restricted.md
   - docs/Models/Operations/Role.md
   - docs/Models/Operations/Scope.md
   - docs/Models/Operations/SearchResult.md
@@ -863,6 +884,7 @@ generatedFiles:
   - docs/sdks/sessions/README.md
   - docs/sdks/statistics/README.md
   - docs/sdks/updater/README.md
+  - docs/sdks/users/README.md
   - docs/sdks/video/README.md
   - docs/sdks/watchlist/README.md
   - phpstan.neon
@@ -1246,6 +1268,12 @@ generatedFiles:
   - src/Models/Errors/GetUserFriendsPlexErrors.php
   - src/Models/Errors/GetUserFriendsUnauthorized.php
   - src/Models/Errors/GetUserFriendsUnauthorizedThrowable.php
+  - src/Models/Errors/GetUsersBadRequest.php
+  - src/Models/Errors/GetUsersBadRequestThrowable.php
+  - src/Models/Errors/GetUsersErrors.php
+  - src/Models/Errors/GetUsersUnauthorized.php
+  - src/Models/Errors/GetUsersUnauthorizedThrowable.php
+  - src/Models/Errors/GetUsersUsersErrors.php
   - src/Models/Errors/GetWatchListBadRequest.php
   - src/Models/Errors/GetWatchListBadRequestThrowable.php
   - src/Models/Errors/GetWatchListErrors.php
@@ -1358,6 +1386,12 @@ generatedFiles:
   - src/Models/Operations/AddPlaylistContentsRequest.php
   - src/Models/Operations/AddPlaylistContentsResponse.php
   - src/Models/Operations/AddPlaylistContentsResponseBody.php
+  - src/Models/Operations/AllLibraries.php
+  - src/Models/Operations/AllowCameraUpload.php
+  - src/Models/Operations/AllowChannels.php
+  - src/Models/Operations/AllowSubtitleAdmin.php
+  - src/Models/Operations/AllowSync.php
+  - src/Models/Operations/AllowTuners.php
   - src/Models/Operations/ApplyUpdatesRequest.php
   - src/Models/Operations/ApplyUpdatesResponse.php
   - src/Models/Operations/AutoSelectSubtitle.php
@@ -1720,6 +1754,7 @@ generatedFiles:
   - src/Models/Operations/GetTopWatchedContentResponse.php
   - src/Models/Operations/GetTopWatchedContentResponseBody.php
   - src/Models/Operations/GetTopWatchedContentRole.php
+  - src/Models/Operations/GetTopWatchedContentUser.php
   - src/Models/Operations/GetTranscodeSessionsMediaContainer.php
   - src/Models/Operations/GetTranscodeSessionsResponse.php
   - src/Models/Operations/GetTranscodeSessionsResponseBody.php
@@ -1730,11 +1765,17 @@ generatedFiles:
   - src/Models/Operations/GetUpdateStatusResponse.php
   - src/Models/Operations/GetUpdateStatusResponseBody.php
   - src/Models/Operations/GetUserFriendsResponse.php
+  - src/Models/Operations/GetUsersMediaContainer.php
+  - src/Models/Operations/GetUsersRequest.php
+  - src/Models/Operations/GetUsersResponse.php
+  - src/Models/Operations/GetUsersResponseBody.php
+  - src/Models/Operations/GetUsersServer.php
   - src/Models/Operations/GetWatchListRequest.php
   - src/Models/Operations/GetWatchListResponse.php
   - src/Models/Operations/GetWatchListResponseBody.php
   - src/Models/Operations/Guids.php
   - src/Models/Operations/HasThumbnail.php
+  - src/Models/Operations/Home.php
   - src/Models/Operations/Hub.php
   - src/Models/Operations/Image.php
   - src/Models/Operations/IncludeCollections.php
@@ -1770,9 +1811,11 @@ generatedFiles:
   - src/Models/Operations/OnlyTransient.php
   - src/Models/Operations/Operator.php
   - src/Models/Operations/OptimizedForStreaming.php
+  - src/Models/Operations/Owned.php
   - src/Models/Operations/Part.php
   - src/Models/Operations/PastSubscription.php
   - src/Models/Operations/PathParamTaskName.php
+  - src/Models/Operations/Pending.php
   - src/Models/Operations/PerformSearchRequest.php
   - src/Models/Operations/PerformSearchResponse.php
   - src/Models/Operations/PerformVoiceSearchRequest.php
@@ -1800,6 +1843,7 @@ generatedFiles:
   - src/Models/Operations/PostUsersSignInDataUserProfile.php
   - src/Models/Operations/PostUsersSignInDataWatchedIndicator.php
   - src/Models/Operations/Producer.php
+  - src/Models/Operations/ProtectedT.php
   - src/Models/Operations/Protocol.php
   - src/Models/Operations/Provider.php
   - src/Models/Operations/QueryParamFilter.php
@@ -1813,6 +1857,7 @@ generatedFiles:
   - src/Models/Operations/Ratings.php
   - src/Models/Operations/Release.php
   - src/Models/Operations/ResponseBody.php
+  - src/Models/Operations/Restricted.php
   - src/Models/Operations/Role.php
   - src/Models/Operations/Scope.php
   - src/Models/Operations/SearchResult.php
@@ -1873,6 +1918,7 @@ generatedFiles:
   - src/Sessions.php
   - src/Statistics.php
   - src/Updater.php
+  - src/Users.php
   - src/Utils/BigDecimalHandler.php
   - src/Utils/BigIntHandler.php
   - src/Utils/DateHandler.php
@@ -2920,5 +2966,29 @@ examples:
           application/json: {"errors": [{"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}, {"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}]}
         "401":
           application/json: {"errors": [{"code": 1001, "message": "User could not be authenticated", "status": 401}, {"code": 1001, "message": "User could not be authenticated", "status": 401}, {"code": 1001, "message": "User could not be authenticated", "status": 401}]}
+  get-users:
+    "":
+      parameters:
+        header:
+          X-Plex-Client-Identifier: "3381b62b-9ab7-4e37-827b-203e9809eb58"
+          X-Plex-Product: "Plex for Roku"
+          X-Plex-Device: "Roku 3"
+          X-Plex-Device-Name: "Chrome"
+          X-Plex-Device-Screen-Resolution: "1487x1165,2560x1440"
+          X-Plex-Version: "2.4.1"
+          X-Plex-Platform: "Roku"
+          X-Plex-Features: "external-media,indirect-media,hub-style-list"
+          X-Plex-Model: "4200X"
+          X-Plex-Session-Id: "97e136ef-4ddd-4ff3-89a7-a5820c96c2ca"
+          X-Plex-Language: "en"
+          X-Plex-Platform-Version: "4.3 build 1057"
+          X-Plex-Token: "CV5xoxjTpFKUzBTShsaf"
+      responses:
+        "200":
+          application/xml: "0xa9CdebeF9E"
+        "400":
+          application/json: {"errors": [{"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}, {"code": 1000, "message": "X-Plex-Client-Identifier is missing", "status": 400}]}
+        "401":
+          application/json: {"errors": [{"code": 1001, "message": "User could not be authenticated", "status": 401}, {"code": 1001, "message": "User could not be authenticated", "status": 401}]}
 examplesVersion: 1.0.0
 generatedTests: {}

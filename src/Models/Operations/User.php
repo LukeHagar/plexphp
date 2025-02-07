@@ -12,19 +12,181 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class User
 {
     /**
+     * User's unique ID.
      *
-     * @var ?int $id
+     * @var int $id
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $id = null;
+    public int $id;
 
     /**
-     * @param  ?int  $id
+     * User's display name.
+     *
+     * @var string $title
+     */
+    public string $title;
+
+    /**
+     * User's username.
+     *
+     * @var string $username
+     */
+    public string $username;
+
+    /**
+     * User's email address.
+     *
+     * @var string $email
+     */
+    public string $email;
+
+    /**
+     * URL to the user's avatar image.
+     *
+     * @var string $thumb
+     */
+    public string $thumb;
+
+    /**
+     * List of servers owned by the user.
+     *
+     * @var array<GetUsersServer> $server
+     */
+    public array $server;
+
+    /**
+     * Filters applied for television.
+     *
+     * @var ?string $filterTelevision
+     */
+    public ?string $filterTelevision = null;
+
+    /**
+     * ID of the user's recommendation playlist.
+     *
+     * @var ?string $recommendationsPlaylistId
+     */
+    public ?string $recommendationsPlaylistId = null;
+
+    /**
+     * Filters applied for all content.
+     *
+     * @var ?string $filterAll
+     */
+    public ?string $filterAll = null;
+
+    /**
+     * Filters applied for movies.
+     *
+     * @var ?string $filterMovies
+     */
+    public ?string $filterMovies = null;
+
+    /**
+     * Filters applied for music.
+     *
+     * @var ?string $filterMusic
+     */
+    public ?string $filterMusic = null;
+
+    /**
+     * Filters applied for photos.
+     *
+     * @var ?string $filterPhotos
+     */
+    public ?string $filterPhotos = null;
+
+    /**
+     *
+     * @var ?ProtectedT $protected
+     */
+    public ?ProtectedT $protected = null;
+
+    /**
+     *
+     * @var ?Home $home
+     */
+    public ?Home $home = null;
+
+    /**
+     *
+     * @var ?AllowTuners $allowTuners
+     */
+    public ?AllowTuners $allowTuners = null;
+
+    /**
+     *
+     * @var ?AllowSync $allowSync
+     */
+    public ?AllowSync $allowSync = null;
+
+    /**
+     *
+     * @var ?AllowCameraUpload $allowCameraUpload
+     */
+    public ?AllowCameraUpload $allowCameraUpload = null;
+
+    /**
+     *
+     * @var ?AllowChannels $allowChannels
+     */
+    public ?AllowChannels $allowChannels = null;
+
+    /**
+     *
+     * @var ?AllowSubtitleAdmin $allowSubtitleAdmin
+     */
+    public ?AllowSubtitleAdmin $allowSubtitleAdmin = null;
+
+    /**
+     *
+     * @var ?Restricted $restricted
+     */
+    public ?Restricted $restricted = null;
+
+    /**
+     * @param  int  $id
+     * @param  string  $title
+     * @param  string  $username
+     * @param  string  $email
+     * @param  string  $thumb
+     * @param  array<GetUsersServer>  $server
+     * @param  ?ProtectedT  $protected
+     * @param  ?Home  $home
+     * @param  ?AllowTuners  $allowTuners
+     * @param  ?AllowSync  $allowSync
+     * @param  ?AllowCameraUpload  $allowCameraUpload
+     * @param  ?AllowChannels  $allowChannels
+     * @param  ?AllowSubtitleAdmin  $allowSubtitleAdmin
+     * @param  ?string  $filterTelevision
+     * @param  ?Restricted  $restricted
+     * @param  ?string  $recommendationsPlaylistId
+     * @param  ?string  $filterAll
+     * @param  ?string  $filterMovies
+     * @param  ?string  $filterMusic
+     * @param  ?string  $filterPhotos
      * @phpstan-pure
      */
-    public function __construct(?int $id = null)
+    public function __construct(int $id, string $title, string $username, string $email, string $thumb, array $server, ?string $filterTelevision = null, ?string $recommendationsPlaylistId = null, ?string $filterAll = null, ?string $filterMovies = null, ?string $filterMusic = null, ?string $filterPhotos = null, ?ProtectedT $protected = ProtectedT::Disable, ?Home $home = Home::Disable, ?AllowTuners $allowTuners = AllowTuners::Disable, ?AllowSync $allowSync = AllowSync::Disable, ?AllowCameraUpload $allowCameraUpload = AllowCameraUpload::Disable, ?AllowChannels $allowChannels = AllowChannels::Disable, ?AllowSubtitleAdmin $allowSubtitleAdmin = AllowSubtitleAdmin::Disable, ?Restricted $restricted = Restricted::Disable)
     {
         $this->id = $id;
+        $this->title = $title;
+        $this->username = $username;
+        $this->email = $email;
+        $this->thumb = $thumb;
+        $this->server = $server;
+        $this->filterTelevision = $filterTelevision;
+        $this->recommendationsPlaylistId = $recommendationsPlaylistId;
+        $this->filterAll = $filterAll;
+        $this->filterMovies = $filterMovies;
+        $this->filterMusic = $filterMusic;
+        $this->filterPhotos = $filterPhotos;
+        $this->protected = $protected;
+        $this->home = $home;
+        $this->allowTuners = $allowTuners;
+        $this->allowSync = $allowSync;
+        $this->allowCameraUpload = $allowCameraUpload;
+        $this->allowChannels = $allowChannels;
+        $this->allowSubtitleAdmin = $allowSubtitleAdmin;
+        $this->restricted = $restricted;
     }
 }
