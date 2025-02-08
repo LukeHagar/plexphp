@@ -23,11 +23,28 @@ class GetGenresLibraryRequest
     public int $sectionKey;
 
     /**
+     * The type of media to retrieve or filter by.
+     *
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var GetGenresLibraryQueryParamType $type
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    public GetGenresLibraryQueryParamType $type;
+
+    /**
      * @param  int  $sectionKey
+     * @param  GetGenresLibraryQueryParamType  $type
      * @phpstan-pure
      */
-    public function __construct(int $sectionKey)
+    public function __construct(int $sectionKey, GetGenresLibraryQueryParamType $type)
     {
         $this->sectionKey = $sectionKey;
+        $this->type = $type;
     }
 }

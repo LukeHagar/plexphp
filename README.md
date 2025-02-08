@@ -170,12 +170,13 @@ if ($response->object !== null) {
 ### [library](docs/sdks/library/README.md)
 
 * [deleteLibrary](docs/sdks/library/README.md#deletelibrary) - Delete Library Section
+* [getActorsLibrary](docs/sdks/library/README.md#getactorslibrary) - Get Actors of library media
 * [getAllLibraries](docs/sdks/library/README.md#getalllibraries) - Get All Libraries
 * [getCountriesLibrary](docs/sdks/library/README.md#getcountrieslibrary) - Get Countries of library media
 * [getGenresLibrary](docs/sdks/library/README.md#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](docs/sdks/library/README.md#getlibrarydetails) - Get Library Details
 * [getLibraryItems](docs/sdks/library/README.md#getlibraryitems) - Get Library Items
-* [getMetaDataByRatingKey](docs/sdks/library/README.md#getmetadatabyratingkey) - Get Metadata by RatingKey
+* [getMediaMetaData](docs/sdks/library/README.md#getmediametadata) - Get Media Metadata
 * [getRecentlyAddedLibrary](docs/sdks/library/README.md#getrecentlyaddedlibrary) - Get Recently Added
 * [getRefreshLibraryMetadata](docs/sdks/library/README.md#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
 * [getSearchAllLibraries](docs/sdks/library/README.md#getsearchalllibraries) - Search All Libraries

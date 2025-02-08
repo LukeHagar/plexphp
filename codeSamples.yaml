@@ -768,13 +768,14 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: key
+          label: data
           source: |-
             declare(strict_types=1);
 
             require 'vendor/autoload.php';
 
             use LukeHagar\Plex_API;
+            use LukeHagar\Plex_API\Models\Operations;
 
             $sdk = Plex_API\PlexAPI::builder()
                 ->setSecurity(
@@ -782,10 +783,25 @@ actions:
                 )
                 ->build();
 
+            $request = new Operations\GetMediaMetaDataRequest(
+                ratingKey: 9518,
+                includeConcerts: true,
+                includeExtras: true,
+                includeOnDeck: true,
+                includePopularLeaves: true,
+                includePreferences: true,
+                includeReviews: true,
+                includeChapters: true,
+                includeStations: true,
+                includeExternalMedia: true,
+                asyncAugmentMetadata: true,
+                asyncCheckFiles: true,
+                asyncRefreshAnalysis: true,
+                asyncRefreshLocalMediaAgent: true,
+            );
 
-
-            $response = $sdk->library->getMetaDataByRatingKey(
-                ratingKey: 9518
+            $response = $sdk->library->getMediaMetaData(
+                request: $request
             );
 
             if ($response->object !== null) {
@@ -1112,6 +1128,36 @@ actions:
             if ($response->object !== null) {
                 // handle response
             }
+  - target: $["paths"]["/library/sections/{sectionKey}/actor"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: library
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use LukeHagar\Plex_API;
+            use LukeHagar\Plex_API\Models\Operations;
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
+
+
+
+            $response = $sdk->library->getActorsLibrary(
+                sectionKey: 9518,
+                type: Operations\GetActorsLibraryQueryParamType::TvShow
+
+            );
+
+            if ($response->object !== null) {
+                // handle response
+            }
   - target: $["paths"]["/library/sections/{sectionKey}/country"]["get"]
     update:
       x-codeSamples:
@@ -1123,6 +1169,7 @@ actions:
             require 'vendor/autoload.php';
 
             use LukeHagar\Plex_API;
+            use LukeHagar\Plex_API\Models\Operations;
 
             $sdk = Plex_API\PlexAPI::builder()
                 ->setSecurity(
@@ -1133,7 +1180,9 @@ actions:
 
 
             $response = $sdk->library->getCountriesLibrary(
-                sectionKey: 9518
+                sectionKey: 9518,
+                type: Operations\GetCountriesLibraryQueryParamType::TvShow
+
             );
 
             if ($response->object !== null) {
@@ -1150,6 +1199,7 @@ actions:
             require 'vendor/autoload.php';
 
             use LukeHagar\Plex_API;
+            use LukeHagar\Plex_API\Models\Operations;
 
             $sdk = Plex_API\PlexAPI::builder()
                 ->setSecurity(
@@ -1160,7 +1210,9 @@ actions:
 
 
             $response = $sdk->library->getGenresLibrary(
-                sectionKey: 9518
+                sectionKey: 9518,
+                type: Operations\GetGenresLibraryQueryParamType::TvShow
+
             );
 
             if ($response->object !== null) {

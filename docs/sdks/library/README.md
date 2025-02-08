@@ -9,12 +9,13 @@ API Calls interacting with Plex Media Server Libraries
 ### Available Operations
 
 * [deleteLibrary](#deletelibrary) - Delete Library Section
+* [getActorsLibrary](#getactorslibrary) - Get Actors of library media
 * [getAllLibraries](#getalllibraries) - Get All Libraries
 * [getCountriesLibrary](#getcountrieslibrary) - Get Countries of library media
 * [getGenresLibrary](#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](#getlibrarydetails) - Get Library Details
 * [getLibraryItems](#getlibraryitems) - Get Library Items
-* [getMetaDataByRatingKey](#getmetadatabyratingkey) - Get Metadata by RatingKey
+* [getMediaMetaData](#getmediametadata) - Get Media Metadata
 * [getRecentlyAddedLibrary](#getrecentlyaddedlibrary) - Get Recently Added
 * [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
 * [getSearchAllLibraries](#getsearchalllibraries) - Search All Libraries
@@ -71,6 +72,59 @@ if ($response->statusCode === 200) {
 | Errors\DeleteLibraryBadRequest   | 400                              | application/json                 |
 | Errors\DeleteLibraryUnauthorized | 401                              | application/json                 |
 | Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
+
+## getActorsLibrary
+
+Retrieves a list of all the actors that are found for the media in this library.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getActorsLibrary(
+    sectionKey: 9518,
+    type: Operations\GetActorsLibraryQueryParamType::TvShow
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
+| `type`                                                                                                                                                                                       | [Operations\GetActorsLibraryQueryParamType](../../Models/Operations/GetActorsLibraryQueryParamType.md)                                                                                       | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
+
+### Response
+
+**[?Operations\GetActorsLibraryResponse](../../Models/Operations/GetActorsLibraryResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetActorsLibraryBadRequest   | 400                                 | application/json                    |
+| Errors\GetActorsLibraryUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## getAllLibraries
 
@@ -133,6 +187,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -143,7 +198,9 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->library->getCountriesLibrary(
-    sectionKey: 9518
+    sectionKey: 9518,
+    type: Operations\GetCountriesLibraryQueryParamType::TvShow
+
 );
 
 if ($response->object !== null) {
@@ -153,9 +210,10 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
+| `type`                                                                                                                                                                                       | [Operations\GetCountriesLibraryQueryParamType](../../Models/Operations/GetCountriesLibraryQueryParamType.md)                                                                                 | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
 
 ### Response
 
@@ -182,6 +240,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -192,7 +251,9 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->library->getGenresLibrary(
-    sectionKey: 9518
+    sectionKey: 9518,
+    type: Operations\GetGenresLibraryQueryParamType::TvShow
+
 );
 
 if ($response->object !== null) {
@@ -202,9 +263,10 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
+| `type`                                                                                                                                                                                       | [Operations\GetGenresLibraryQueryParamType](../../Models/Operations/GetGenresLibraryQueryParamType.md)                                                                                       | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
 
 ### Response
 
@@ -352,8 +414,8 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $request = new Operations\GetLibraryItemsRequest(
     tag: Operations\Tag::Edition,
-    sectionKey: 9518,
     type: Operations\GetLibraryItemsQueryParamType::TvShow,
+    sectionKey: 9518,
 );
 
 $response = $sdk->library->getLibraryItems(
@@ -383,9 +445,9 @@ if ($response->object !== null) {
 | Errors\GetLibraryItemsUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
-## getMetaDataByRatingKey
+## getMediaMetaData
 
-This endpoint will return the metadata of a library item specified with the ratingKey.
+This endpoint will return all the (meta)data of a library item specified with by the ratingKey.
 
 
 ### Example Usage
@@ -396,6 +458,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -403,10 +466,25 @@ $sdk = Plex_API\PlexAPI::builder()
     )
     ->build();
 
+$request = new Operations\GetMediaMetaDataRequest(
+    ratingKey: 9518,
+    includeConcerts: true,
+    includeExtras: true,
+    includeOnDeck: true,
+    includePopularLeaves: true,
+    includePreferences: true,
+    includeReviews: true,
+    includeChapters: true,
+    includeStations: true,
+    includeExternalMedia: true,
+    asyncAugmentMetadata: true,
+    asyncCheckFiles: true,
+    asyncRefreshAnalysis: true,
+    asyncRefreshLocalMediaAgent: true,
+);
 
-
-$response = $sdk->library->getMetaDataByRatingKey(
-    ratingKey: 9518
+$response = $sdk->library->getMediaMetaData(
+    request: $request
 );
 
 if ($response->object !== null) {
@@ -416,21 +494,21 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                             | Type                                                  | Required                                              | Description                                           | Example                                               |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `ratingKey`                                           | *int*                                                 | :heavy_check_mark:                                    | the id of the library item to return the children of. | 9518                                                  |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `$request`                                                                               | [Operations\GetMediaMetaDataRequest](../../Models/Operations/GetMediaMetaDataRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 ### Response
 
-**[?Operations\GetMetaDataByRatingKeyResponse](../../Models/Operations/GetMetaDataByRatingKeyResponse.md)**
+**[?Operations\GetMediaMetaDataResponse](../../Models/Operations/GetMediaMetaDataResponse.md)**
 
 ### Errors
 
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Errors\GetMetaDataByRatingKeyBadRequest   | 400                                       | application/json                          |
-| Errors\GetMetaDataByRatingKeyUnauthorized | 401                                       | application/json                          |
-| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetMediaMetaDataBadRequest   | 400                                 | application/json                    |
+| Errors\GetMediaMetaDataUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## getRecentlyAddedLibrary
 
@@ -662,10 +740,10 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                                                                                       | Type                                                                                                                                                                            | Required                                                                                                                                                                        | Description                                                                                                                                                                     | Example                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                                                                                                    | *int*                                                                                                                                                                           | :heavy_check_mark:                                                                                                                                                              | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                           | 9518                                                                                                                                                                            |
-| `type`                                                                                                                                                                          | [Operations\GetSearchLibraryQueryParamType](../../Models/Operations/GetSearchLibraryQueryParamType.md)                                                                          | :heavy_check_mark:                                                                                                                                                              | The type of media to retrieve.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                               |
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
+| `type`                                                                                                                                                                                       | [Operations\GetSearchLibraryQueryParamType](../../Models/Operations/GetSearchLibraryQueryParamType.md)                                                                                       | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
 
 ### Response
 
@@ -861,10 +939,10 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                                                                                       | Type                                                                                                                                                                            | Required                                                                                                                                                                        | Description                                                                                                                                                                     | Example                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                                                                                          | [Operations\GetTopWatchedContentQueryParamType](../../Models/Operations/GetTopWatchedContentQueryParamType.md)                                                                  | :heavy_check_mark:                                                                                                                                                              | The type of media to retrieve.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                               |
-| `includeGuids`                                                                                                                                                                  | *?int*                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                              | Adds the Guids object to the response<br/>                                                                                                                                      | 1                                                                                                                                                                               |
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                                                                       | [Operations\GetTopWatchedContentQueryParamType](../../Models/Operations/GetTopWatchedContentQueryParamType.md)                                                                               | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
+| `includeGuids`                                                                                                                                                                               | *?int*                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                           | Adds the Guids object to the response<br/>                                                                                                                                                   | 1                                                                                                                                                                                            |
 
 ### Response
 

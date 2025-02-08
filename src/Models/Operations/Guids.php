@@ -12,18 +12,18 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Guids
 {
     /**
+     * The GUID value.
      *
-     * @var ?string $id
+     * @var string $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $id = null;
+    public string $id;
 
     /**
-     * @param  ?string  $id
+     * @param  string  $id
      * @phpstan-pure
      */
-    public function __construct(?string $id = null)
+    public function __construct(string $id)
     {
         $this->id = $id;
     }

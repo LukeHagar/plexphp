@@ -20,6 +20,21 @@ class GetLibraryItemsRequest
     public Tag $tag;
 
     /**
+     * The type of media to retrieve or filter by.
+     *
+     * 1 = movie
+     * 2 = show
+     * 3 = season
+     * 4 = episode
+     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
+     *
+     *
+     * @var GetLibraryItemsQueryParamType $type
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
+    public GetLibraryItemsQueryParamType $type;
+
+    /**
      * The unique key of the Plex library. 
      *
      * Note: This is unique in the context of the Plex server.
@@ -29,21 +44,6 @@ class GetLibraryItemsRequest
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=sectionKey')]
     public int $sectionKey;
-
-    /**
-     * The type of media to retrieve.
-     *
-     * 1 = movie
-     * 2 = show
-     * 3 = season
-     * 4 = episode
-     * E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries
-     *
-     *
-     * @var ?GetLibraryItemsQueryParamType $type
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=type')]
-    public ?GetLibraryItemsQueryParamType $type = null;
 
     /**
      * Adds the Guids object to the response
@@ -91,19 +91,19 @@ class GetLibraryItemsRequest
 
     /**
      * @param  Tag  $tag
+     * @param  GetLibraryItemsQueryParamType  $type
      * @param  int  $sectionKey
      * @param  ?IncludeGuids  $includeGuids
-     * @param  ?GetLibraryItemsQueryParamType  $type
      * @param  ?GetLibraryItemsQueryParamIncludeMeta  $includeMeta
      * @param  ?int  $xPlexContainerStart
      * @param  ?int  $xPlexContainerSize
      * @phpstan-pure
      */
-    public function __construct(Tag $tag, int $sectionKey, ?GetLibraryItemsQueryParamType $type = null, ?IncludeGuids $includeGuids = IncludeGuids::Disable, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = GetLibraryItemsQueryParamIncludeMeta::Disable, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
+    public function __construct(Tag $tag, GetLibraryItemsQueryParamType $type, int $sectionKey, ?IncludeGuids $includeGuids = IncludeGuids::Disable, ?GetLibraryItemsQueryParamIncludeMeta $includeMeta = GetLibraryItemsQueryParamIncludeMeta::Disable, ?int $xPlexContainerStart = 0, ?int $xPlexContainerSize = 50)
     {
         $this->tag = $tag;
-        $this->sectionKey = $sectionKey;
         $this->type = $type;
+        $this->sectionKey = $sectionKey;
         $this->includeGuids = $includeGuids;
         $this->includeMeta = $includeMeta;
         $this->xPlexContainerStart = $xPlexContainerStart;

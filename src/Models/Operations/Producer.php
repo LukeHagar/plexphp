@@ -12,38 +12,48 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Producer
 {
     /**
+     * The unique role identifier.
      *
-     * @var ?int $id
+     * @var int $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $id = null;
+    public int $id;
 
     /**
+     * The filter string for the role.
      *
-     * @var ?string $filter
+     * @var string $filter
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $filter = null;
+    public string $filter;
 
     /**
+     * The actor's name.
      *
-     * @var ?string $tag
+     * @var string $tag
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tag = null;
+    public string $tag;
 
     /**
+     * A key associated with the actor tag.
      *
-     * @var ?string $tagKey
+     * @var string $tagKey
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tagKey = null;
+    public string $tagKey;
 
     /**
+     * The character name or role.
+     *
+     * @var ?string $role
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('role')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $role = null;
+
+    /**
+     * URL for the role thumbnail image.
      *
      * @var ?string $thumb
      */
@@ -52,19 +62,21 @@ class Producer
     public ?string $thumb = null;
 
     /**
-     * @param  ?int  $id
-     * @param  ?string  $filter
-     * @param  ?string  $tag
-     * @param  ?string  $tagKey
+     * @param  int  $id
+     * @param  string  $filter
+     * @param  string  $tag
+     * @param  string  $tagKey
+     * @param  ?string  $role
      * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(?int $id = null, ?string $filter = null, ?string $tag = null, ?string $tagKey = null, ?string $thumb = null)
+    public function __construct(int $id, string $filter, string $tag, string $tagKey, ?string $role = null, ?string $thumb = null)
     {
         $this->id = $id;
         $this->filter = $filter;
         $this->tag = $tag;
         $this->tagKey = $tagKey;
+        $this->role = $role;
         $this->thumb = $thumb;
     }
 }
