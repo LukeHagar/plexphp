@@ -12,18 +12,21 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Guids
 {
     /**
-     * The GUID value.
+     * The unique identifier for the Guid. Can be imdb://tt0286347, tmdb://1763, tvdb://2337
      *
-     * @var string $id
+     *
+     *
+     * @var ?string $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    public string $id;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $id = null;
 
     /**
-     * @param  string  $id
+     * @param  ?string  $id
      * @phpstan-pure
      */
-    public function __construct(string $id)
+    public function __construct(?string $id = null)
     {
         $this->id = $id;
     }

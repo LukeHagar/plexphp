@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Whether to include external media in the search results. */
+
 enum QueryParamIncludeExternalMedia: int
 {
     case Disable = 0;

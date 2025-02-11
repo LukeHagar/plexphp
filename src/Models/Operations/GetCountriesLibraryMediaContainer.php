@@ -12,20 +12,15 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetCountriesLibraryMediaContainer
 {
     /**
+     * Number of media items returned in this response.
      *
-     * @var float $size
+     * @var int $size
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    public float $size;
+    public int $size;
 
     /**
-     *
-     * @var string $identifier
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
-    public string $identifier;
-
-    /**
+     * Indicates whether syncing is allowed.
      *
      * @var bool $allowSync
      */
@@ -33,6 +28,7 @@ class GetCountriesLibraryMediaContainer
     public bool $allowSync;
 
     /**
+     * URL for the background artwork of the media container.
      *
      * @var string $art
      */
@@ -40,6 +36,7 @@ class GetCountriesLibraryMediaContainer
     public string $art;
 
     /**
+     * The content type or mode.
      *
      * @var string $content
      */
@@ -47,6 +44,15 @@ class GetCountriesLibraryMediaContainer
     public string $content;
 
     /**
+     * An plugin identifier for the media container.
+     *
+     * @var string $identifier
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
+    public string $identifier;
+
+    /**
+     * The prefix used for media tag resource paths.
      *
      * @var string $mediaTagPrefix
      */
@@ -54,6 +60,7 @@ class GetCountriesLibraryMediaContainer
     public string $mediaTagPrefix;
 
     /**
+     * The version number for media tags.
      *
      * @var int $mediaTagVersion
      */
@@ -61,6 +68,7 @@ class GetCountriesLibraryMediaContainer
     public int $mediaTagVersion;
 
     /**
+     * Specifies whether caching is disabled.
      *
      * @var bool $nocache
      */
@@ -68,6 +76,7 @@ class GetCountriesLibraryMediaContainer
     public bool $nocache;
 
     /**
+     * URL for the thumbnail image of the media container.
      *
      * @var string $thumb
      */
@@ -75,6 +84,7 @@ class GetCountriesLibraryMediaContainer
     public string $thumb;
 
     /**
+     * The primary title of the media container.
      *
      * @var string $title1
      */
@@ -82,6 +92,7 @@ class GetCountriesLibraryMediaContainer
     public string $title1;
 
     /**
+     * The secondary title of the media container.
      *
      * @var string $title2
      */
@@ -89,27 +100,12 @@ class GetCountriesLibraryMediaContainer
     public string $title2;
 
     /**
+     * Identifier for the view group layout.
      *
      * @var string $viewGroup
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('viewGroup')]
     public string $viewGroup;
-
-    /**
-     *
-     * @var ?int $offset
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('offset')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $offset = null;
-
-    /**
-     *
-     * @var ?int $totalSize
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('totalSize')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $totalSize = null;
 
     /**
      * $directory
@@ -122,11 +118,11 @@ class GetCountriesLibraryMediaContainer
     public ?array $directory = null;
 
     /**
-     * @param  float  $size
-     * @param  string  $identifier
+     * @param  int  $size
      * @param  bool  $allowSync
      * @param  string  $art
      * @param  string  $content
+     * @param  string  $identifier
      * @param  string  $mediaTagPrefix
      * @param  int  $mediaTagVersion
      * @param  bool  $nocache
@@ -134,18 +130,16 @@ class GetCountriesLibraryMediaContainer
      * @param  string  $title1
      * @param  string  $title2
      * @param  string  $viewGroup
-     * @param  ?int  $offset
-     * @param  ?int  $totalSize
      * @param  ?array<GetCountriesLibraryDirectory>  $directory
      * @phpstan-pure
      */
-    public function __construct(float $size, string $identifier, bool $allowSync, string $art, string $content, string $mediaTagPrefix, int $mediaTagVersion, bool $nocache, string $thumb, string $title1, string $title2, string $viewGroup, ?int $offset = null, ?int $totalSize = null, ?array $directory = null)
+    public function __construct(int $size, bool $allowSync, string $art, string $content, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, bool $nocache, string $thumb, string $title1, string $title2, string $viewGroup, ?array $directory = null)
     {
         $this->size = $size;
-        $this->identifier = $identifier;
         $this->allowSync = $allowSync;
         $this->art = $art;
         $this->content = $content;
+        $this->identifier = $identifier;
         $this->mediaTagPrefix = $mediaTagPrefix;
         $this->mediaTagVersion = $mediaTagVersion;
         $this->nocache = $nocache;
@@ -153,8 +147,6 @@ class GetCountriesLibraryMediaContainer
         $this->title1 = $title1;
         $this->title2 = $title2;
         $this->viewGroup = $viewGroup;
-        $this->offset = $offset;
-        $this->totalSize = $totalSize;
         $this->directory = $directory;
     }
 }

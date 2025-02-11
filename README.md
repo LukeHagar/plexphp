@@ -172,6 +172,7 @@ if ($response->object !== null) {
 * [deleteLibrary](docs/sdks/library/README.md#deletelibrary) - Delete Library Section
 * [getActorsLibrary](docs/sdks/library/README.md#getactorslibrary) - Get Actors of library media
 * [getAllLibraries](docs/sdks/library/README.md#getalllibraries) - Get All Libraries
+* [getAllMediaLibrary](docs/sdks/library/README.md#getallmedialibrary) - Get all media of library
 * [getCountriesLibrary](docs/sdks/library/README.md#getcountrieslibrary) - Get Countries of library media
 * [getGenresLibrary](docs/sdks/library/README.md#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](docs/sdks/library/README.md#getlibrarydetails) - Get Library Details

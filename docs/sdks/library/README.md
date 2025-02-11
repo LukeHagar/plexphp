@@ -11,6 +11,7 @@ API Calls interacting with Plex Media Server Libraries
 * [deleteLibrary](#deletelibrary) - Delete Library Section
 * [getActorsLibrary](#getactorslibrary) - Get Actors of library media
 * [getAllLibraries](#getalllibraries) - Get All Libraries
+* [getAllMediaLibrary](#getallmedialibrary) - Get all media of library
 * [getCountriesLibrary](#getcountrieslibrary) - Get Countries of library media
 * [getGenresLibrary](#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](#getlibrarydetails) - Get Library Details
@@ -173,6 +174,59 @@ if ($response->object !== null) {
 | Errors\GetAllLibrariesBadRequest   | 400                                | application/json                   |
 | Errors\GetAllLibrariesUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
+
+## getAllMediaLibrary
+
+Retrieves a list of all general media data for this library.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+$request = new Operations\GetAllMediaLibraryRequest(
+    sectionKey: 9518,
+    type: Operations\GetAllMediaLibraryQueryParamType::TvShow,
+);
+
+$response = $sdk->library->getAllMediaLibrary(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `$request`                                                                                   | [Operations\GetAllMediaLibraryRequest](../../Models/Operations/GetAllMediaLibraryRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+
+### Response
+
+**[?Operations\GetAllMediaLibraryResponse](../../Models/Operations/GetAllMediaLibraryResponse.md)**
+
+### Errors
+
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Errors\GetAllMediaLibraryBadRequest   | 400                                   | application/json                      |
+| Errors\GetAllMediaLibraryUnauthorized | 401                                   | application/json                      |
+| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
 
 ## getCountriesLibrary
 

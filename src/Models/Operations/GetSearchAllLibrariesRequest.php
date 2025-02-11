@@ -48,29 +48,29 @@ class GetSearchAllLibrariesRequest
     /**
      * Whether to include collections in the search results.
      *
-     * @var ?QueryParamIncludeCollections $includeCollections
+     * @var ?GetSearchAllLibrariesQueryParamIncludeCollections $includeCollections
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeCollections')]
-    public ?QueryParamIncludeCollections $includeCollections = null;
+    public ?GetSearchAllLibrariesQueryParamIncludeCollections $includeCollections = null;
 
     /**
      * Whether to include external media in the search results.
      *
-     * @var ?QueryParamIncludeExternalMedia $includeExternalMedia
+     * @var ?GetSearchAllLibrariesQueryParamIncludeExternalMedia $includeExternalMedia
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeExternalMedia')]
-    public ?QueryParamIncludeExternalMedia $includeExternalMedia = null;
+    public ?GetSearchAllLibrariesQueryParamIncludeExternalMedia $includeExternalMedia = null;
 
     /**
      * @param  string  $query
      * @param  string  $clientID
      * @param  ?int  $limit
      * @param  ?array<SearchTypes>  $searchTypes
-     * @param  ?QueryParamIncludeCollections  $includeCollections
-     * @param  ?QueryParamIncludeExternalMedia  $includeExternalMedia
+     * @param  ?GetSearchAllLibrariesQueryParamIncludeCollections  $includeCollections
+     * @param  ?GetSearchAllLibrariesQueryParamIncludeExternalMedia  $includeExternalMedia
      * @phpstan-pure
      */
-    public function __construct(string $query, string $clientID, ?int $limit = null, ?array $searchTypes = null, ?QueryParamIncludeCollections $includeCollections = QueryParamIncludeCollections::Disable, ?QueryParamIncludeExternalMedia $includeExternalMedia = QueryParamIncludeExternalMedia::Disable)
+    public function __construct(string $query, string $clientID, ?int $limit = null, ?array $searchTypes = null, ?GetSearchAllLibrariesQueryParamIncludeCollections $includeCollections = GetSearchAllLibrariesQueryParamIncludeCollections::Disable, ?GetSearchAllLibrariesQueryParamIncludeExternalMedia $includeExternalMedia = GetSearchAllLibrariesQueryParamIncludeExternalMedia::Disable)
     {
         $this->query = $query;
         $this->clientID = $clientID;

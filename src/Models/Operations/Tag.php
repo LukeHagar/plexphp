@@ -12,7 +12,6 @@ namespace LukeHagar\Plex_API\Models\Operations;
 /** A key representing a specific tag within the section. */
 enum Tag: string
 {
-    case All = 'all';
     case Unwatched = 'unwatched';
     case Newest = 'newest';
     case RecentlyAdded = 'recentlyAdded';
@@ -20,12 +19,9 @@ enum Tag: string
     case OnDeck = 'onDeck';
     case Collection = 'collection';
     case Edition = 'edition';
-    case Genre = 'genre';
     case Year = 'year';
     case Decade = 'decade';
     case Director = 'director';
-    case Actor = 'actor';
-    case Country = 'country';
     case ContentRating = 'contentRating';
     case Rating = 'rating';
     case Resolution = 'resolution';

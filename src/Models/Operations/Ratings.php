@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-class Rating
+class Ratings
 {
     /**
      * The image or reference for the rating.

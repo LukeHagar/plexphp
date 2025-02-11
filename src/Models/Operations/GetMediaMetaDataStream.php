@@ -44,14 +44,6 @@ class GetMediaMetaDataStream
     public int $index;
 
     /**
-     * Bitrate of the stream.
-     *
-     * @var int $bitrate
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('bitrate')]
-    public int $bitrate;
-
-    /**
      * Language of the stream.
      *
      * @var string $language
@@ -99,6 +91,24 @@ class GetMediaMetaDataStream
     #[\Speakeasy\Serializer\Annotation\SerializedName('default')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $default = null;
+
+    /**
+     * Bitrate of the stream.
+     *
+     * @var ?int $bitrate
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('bitrate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $bitrate = null;
+
+    /**
+     * Indicates whether header compression is enabled.
+     *
+     * @var ?bool $headerCompression
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('headerCompression')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $headerCompression = null;
 
     /**
      * Dolby Vision BL compatibility ID.
@@ -417,13 +427,14 @@ class GetMediaMetaDataStream
      * @param  int  $streamType
      * @param  string  $codec
      * @param  int  $index
-     * @param  int  $bitrate
      * @param  string  $language
      * @param  string  $languageTag
      * @param  string  $languageCode
      * @param  string  $displayTitle
      * @param  string  $extendedDisplayTitle
      * @param  ?bool  $default
+     * @param  ?int  $bitrate
+     * @param  ?bool  $headerCompression
      * @param  ?int  $doviblCompatID
      * @param  ?bool  $doviblPresent
      * @param  ?bool  $dovielPresent
@@ -461,19 +472,20 @@ class GetMediaMetaDataStream
      * @param  ?string  $title
      * @phpstan-pure
      */
-    public function __construct(int $id, int $streamType, string $codec, int $index, int $bitrate, string $language, string $languageTag, string $languageCode, string $displayTitle, string $extendedDisplayTitle, ?bool $default = null, ?int $doviblCompatID = null, ?bool $doviblPresent = null, ?bool $dovielPresent = null, ?int $doviLevel = null, ?bool $doviPresent = null, ?int $doviProfile = null, ?bool $dovirpuPresent = null, ?string $doviVersion = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?float $frameRate = null, ?int $height = null, ?int $level = null, ?bool $original = null, ?bool $hasScalingMatrix = null, ?string $profile = null, ?string $scanType = null, ?int $refFrames = null, ?int $width = null, ?bool $selected = null, ?bool $forced = null, ?int $channels = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?bool $canAutoSync = null, ?bool $hearingImpaired = null, ?bool $dub = null, ?string $title = null)
+    public function __construct(int $id, int $streamType, string $codec, int $index, string $language, string $languageTag, string $languageCode, string $displayTitle, string $extendedDisplayTitle, ?bool $default = null, ?int $bitrate = null, ?bool $headerCompression = null, ?int $doviblCompatID = null, ?bool $doviblPresent = null, ?bool $dovielPresent = null, ?int $doviLevel = null, ?bool $doviPresent = null, ?int $doviProfile = null, ?bool $dovirpuPresent = null, ?string $doviVersion = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?float $frameRate = null, ?int $height = null, ?int $level = null, ?bool $original = null, ?bool $hasScalingMatrix = null, ?string $profile = null, ?string $scanType = null, ?int $refFrames = null, ?int $width = null, ?bool $selected = null, ?bool $forced = null, ?int $channels = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?bool $canAutoSync = null, ?bool $hearingImpaired = null, ?bool $dub = null, ?string $title = null)
     {
         $this->id = $id;
         $this->streamType = $streamType;
         $this->codec = $codec;
         $this->index = $index;
-        $this->bitrate = $bitrate;
         $this->language = $language;
         $this->languageTag = $languageTag;
         $this->languageCode = $languageCode;
         $this->displayTitle = $displayTitle;
         $this->extendedDisplayTitle = $extendedDisplayTitle;
         $this->default = $default;
+        $this->bitrate = $bitrate;
+        $this->headerCompression = $headerCompression;
         $this->doviblCompatID = $doviblCompatID;
         $this->doviblPresent = $doviblPresent;
         $this->dovielPresent = $dovielPresent;

@@ -13,10 +13,10 @@ class GetRecentlyAddedMediaContainer
 {
     /**
      *
-     * @var float $size
+     * @var int $size
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    public float $size;
+    public int $size;
 
     /**
      *
@@ -73,7 +73,7 @@ class GetRecentlyAddedMediaContainer
     public ?array $metadata = null;
 
     /**
-     * @param  float  $size
+     * @param  int  $size
      * @param  ?int  $offset
      * @param  ?int  $totalSize
      * @param  ?string  $identifier
@@ -82,7 +82,7 @@ class GetRecentlyAddedMediaContainer
      * @param  ?array<GetRecentlyAddedMetadata>  $metadata
      * @phpstan-pure
      */
-    public function __construct(float $size, ?int $offset = null, ?int $totalSize = null, ?string $identifier = null, ?bool $allowSync = null, ?Meta $meta = null, ?array $metadata = null)
+    public function __construct(int $size, ?int $offset = null, ?int $totalSize = null, ?string $identifier = null, ?bool $allowSync = null, ?Meta $meta = null, ?array $metadata = null)
     {
         $this->size = $size;
         $this->offset = $offset;

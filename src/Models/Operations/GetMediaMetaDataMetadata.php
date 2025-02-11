@@ -76,28 +76,12 @@ class GetMediaMetaDataMetadata
     public string $librarySectionKey;
 
     /**
-     * The content rating (e.g., TV-MA).
-     *
-     * @var string $contentRating
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('contentRating')]
-    public string $contentRating;
-
-    /**
      * A summary of the content.
      *
      * @var string $summary
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
     public string $summary;
-
-    /**
-     * The audience rating for the content.
-     *
-     * @var float $audienceRating
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('audienceRating')]
-    public float $audienceRating;
 
     /**
      * The release year.
@@ -132,15 +116,6 @@ class GetMediaMetaDataMetadata
     public int $duration;
 
     /**
-     * The original release date.
-     *
-     * @var LocalDate $originallyAvailableAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    public LocalDate $originallyAvailableAt;
-
-    /**
-     * Unix timestamp when the item was added.
      *
      * @var int $addedAt
      */
@@ -148,20 +123,11 @@ class GetMediaMetaDataMetadata
     public int $addedAt;
 
     /**
-     * Unix timestamp when the item was last updated.
      *
      * @var int $updatedAt
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
     public int $updatedAt;
-
-    /**
-     * The URL for the audience rating image.
-     *
-     * @var string $audienceRatingImage
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('audienceRatingImage')]
-    public string $audienceRatingImage;
 
     /**
      * An array of image objects.
@@ -179,24 +145,6 @@ class GetMediaMetaDataMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('UltraBlurColors')]
     #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataUltraBlurColors')]
     public GetMediaMetaDataUltraBlurColors $ultraBlurColors;
-
-    /**
-     * An array of GUID objects.
-     *
-     * @var array<Guids> $guids
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Guids>')]
-    public array $guids;
-
-    /**
-     * An array of rating objects.
-     *
-     * @var array<Rating> $rating
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Rating')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Rating>')]
-    public array $rating;
 
     /**
      * The rating key of the parent of this metadata item.
@@ -289,6 +237,15 @@ class GetMediaMetaDataMetadata
     public ?string $originalTitle = null;
 
     /**
+     * The content rating (e.g., TV-MA).
+     *
+     * @var ?string $contentRating
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('contentRating')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $contentRating = null;
+
+    /**
      * The index or order of the item.
      *
      * @var ?int $index
@@ -316,6 +273,15 @@ class GetMediaMetaDataMetadata
     public ?string $parentTitle = null;
 
     /**
+     * The audience rating for the content.
+     *
+     * @var ?float $audienceRating
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audienceRating')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $audienceRating = null;
+
+    /**
      * The number of times the item has been viewed.
      *
      * @var ?int $viewCount
@@ -341,6 +307,24 @@ class GetMediaMetaDataMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('lastViewedAt')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $lastViewedAt = null;
+
+    /**
+     * The general rating
+     *
+     * @var ?float $rating
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('rating')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $rating = null;
+
+    /**
+     * The URL or identifier for the rating image (e.g., Rotten Tomatoes rating image).
+     *
+     * @var ?string $ratingImage
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ratingImage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $ratingImage = null;
 
     /**
      * The tagline of the content.
@@ -377,6 +361,15 @@ class GetMediaMetaDataMetadata
     public ?string $theme = null;
 
     /**
+     * The original release date.
+     *
+     * @var ?LocalDate $originallyAvailableAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?LocalDate $originallyAvailableAt = null;
+
+    /**
      * The total number of episodes (or leaves).
      *
      * @var ?int $leafCount
@@ -402,6 +395,15 @@ class GetMediaMetaDataMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('childCount')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $childCount = null;
+
+    /**
+     * The URL for the audience rating image.
+     *
+     * @var ?string $audienceRatingImage
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audienceRatingImage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $audienceRatingImage = null;
 
     /**
      * The index number of the parent entity, which could indicate its order or position.
@@ -468,6 +470,26 @@ class GetMediaMetaDataMetadata
     #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataCountry>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $country = null;
+
+    /**
+     * An array of GUID objects.
+     *
+     * @var ?array<GetMediaMetaDataGuids> $guids
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataGuids>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $guids = null;
+
+    /**
+     * An array of rating objects.
+     *
+     * @var ?array<Ratings> $ratings
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Rating')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Ratings>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $ratings = null;
 
     /**
      * An array of Actor roles.
@@ -538,21 +560,15 @@ class GetMediaMetaDataMetadata
      * @param  string  $librarySectionTitle
      * @param  int  $librarySectionID
      * @param  string  $librarySectionKey
-     * @param  string  $contentRating
      * @param  string  $summary
-     * @param  float  $audienceRating
      * @param  int  $year
      * @param  string  $thumb
      * @param  string  $art
      * @param  int  $duration
-     * @param  LocalDate  $originallyAvailableAt
      * @param  int  $addedAt
      * @param  int  $updatedAt
-     * @param  string  $audienceRatingImage
      * @param  array<GetMediaMetaDataImage>  $image
      * @param  GetMediaMetaDataUltraBlurColors  $ultraBlurColors
-     * @param  array<Guids>  $guids
-     * @param  array<Rating>  $rating
      * @param  ?string  $parentRatingKey
      * @param  ?string  $grandparentRatingKey
      * @param  ?string  $parentGuid
@@ -563,19 +579,25 @@ class GetMediaMetaDataMetadata
      * @param  ?string  $slug
      * @param  ?string  $studio
      * @param  ?string  $originalTitle
+     * @param  ?string  $contentRating
      * @param  ?int  $index
      * @param  ?string  $grandparentTitle
      * @param  ?string  $parentTitle
+     * @param  ?float  $audienceRating
      * @param  ?int  $viewCount
      * @param  ?int  $skipCount
      * @param  ?int  $lastViewedAt
+     * @param  ?float  $rating
+     * @param  ?string  $ratingImage
      * @param  ?string  $tagline
      * @param  ?string  $chapterSource
      * @param  ?string  $primaryExtraKey
      * @param  ?string  $theme
+     * @param  ?LocalDate  $originallyAvailableAt
      * @param  ?int  $leafCount
      * @param  ?int  $viewedLeafCount
      * @param  ?int  $childCount
+     * @param  ?string  $audienceRatingImage
      * @param  ?int  $parentIndex
      * @param  ?string  $parentThumb
      * @param  ?string  $grandparentThumb
@@ -583,6 +605,8 @@ class GetMediaMetaDataMetadata
      * @param  ?array<GetMediaMetaDataMedia>  $media
      * @param  ?array<GetMediaMetaDataGenre>  $genre
      * @param  ?array<GetMediaMetaDataCountry>  $country
+     * @param  ?array<GetMediaMetaDataGuids>  $guids
+     * @param  ?array<Ratings>  $ratings
      * @param  ?array<GetMediaMetaDataRole>  $role
      * @param  ?array<GetMediaMetaDataDirector>  $director
      * @param  ?array<GetMediaMetaDataWriter>  $writer
@@ -591,7 +615,7 @@ class GetMediaMetaDataMetadata
      * @param  ?array<GetMediaMetaDataLocation>  $location
      * @phpstan-pure
      */
-    public function __construct(string $ratingKey, string $key, string $guid, string $type, string $title, string $librarySectionTitle, int $librarySectionID, string $librarySectionKey, string $contentRating, string $summary, float $audienceRating, int $year, string $thumb, string $art, int $duration, LocalDate $originallyAvailableAt, int $addedAt, int $updatedAt, string $audienceRatingImage, array $image, GetMediaMetaDataUltraBlurColors $ultraBlurColors, array $guids, array $rating, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $slug = null, ?string $studio = null, ?string $originalTitle = null, ?int $index = null, ?string $grandparentTitle = null, ?string $parentTitle = null, ?int $viewCount = null, ?int $skipCount = null, ?int $lastViewedAt = null, ?string $tagline = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $grandparentThumb = null, ?string $grandparentArt = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $role = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $similar = null, ?array $location = null)
+    public function __construct(string $ratingKey, string $key, string $guid, string $type, string $title, string $librarySectionTitle, int $librarySectionID, string $librarySectionKey, string $summary, int $year, string $thumb, string $art, int $duration, int $addedAt, int $updatedAt, array $image, GetMediaMetaDataUltraBlurColors $ultraBlurColors, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $slug = null, ?string $studio = null, ?string $originalTitle = null, ?string $contentRating = null, ?int $index = null, ?string $grandparentTitle = null, ?string $parentTitle = null, ?float $audienceRating = null, ?int $viewCount = null, ?int $skipCount = null, ?int $lastViewedAt = null, ?float $rating = null, ?string $ratingImage = null, ?string $tagline = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $theme = null, ?LocalDate $originallyAvailableAt = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $audienceRatingImage = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $grandparentThumb = null, ?string $grandparentArt = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $guids = null, ?array $ratings = null, ?array $role = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $similar = null, ?array $location = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -601,21 +625,15 @@ class GetMediaMetaDataMetadata
         $this->librarySectionTitle = $librarySectionTitle;
         $this->librarySectionID = $librarySectionID;
         $this->librarySectionKey = $librarySectionKey;
-        $this->contentRating = $contentRating;
         $this->summary = $summary;
-        $this->audienceRating = $audienceRating;
         $this->year = $year;
         $this->thumb = $thumb;
         $this->art = $art;
         $this->duration = $duration;
-        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->addedAt = $addedAt;
         $this->updatedAt = $updatedAt;
-        $this->audienceRatingImage = $audienceRatingImage;
         $this->image = $image;
         $this->ultraBlurColors = $ultraBlurColors;
-        $this->guids = $guids;
-        $this->rating = $rating;
         $this->parentRatingKey = $parentRatingKey;
         $this->grandparentRatingKey = $grandparentRatingKey;
         $this->parentGuid = $parentGuid;
@@ -626,19 +644,25 @@ class GetMediaMetaDataMetadata
         $this->slug = $slug;
         $this->studio = $studio;
         $this->originalTitle = $originalTitle;
+        $this->contentRating = $contentRating;
         $this->index = $index;
         $this->grandparentTitle = $grandparentTitle;
         $this->parentTitle = $parentTitle;
+        $this->audienceRating = $audienceRating;
         $this->viewCount = $viewCount;
         $this->skipCount = $skipCount;
         $this->lastViewedAt = $lastViewedAt;
+        $this->rating = $rating;
+        $this->ratingImage = $ratingImage;
         $this->tagline = $tagline;
         $this->chapterSource = $chapterSource;
         $this->primaryExtraKey = $primaryExtraKey;
         $this->theme = $theme;
+        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->leafCount = $leafCount;
         $this->viewedLeafCount = $viewedLeafCount;
         $this->childCount = $childCount;
+        $this->audienceRatingImage = $audienceRatingImage;
         $this->parentIndex = $parentIndex;
         $this->parentThumb = $parentThumb;
         $this->grandparentThumb = $grandparentThumb;
@@ -646,6 +670,8 @@ class GetMediaMetaDataMetadata
         $this->media = $media;
         $this->genre = $genre;
         $this->country = $country;
+        $this->guids = $guids;
+        $this->ratings = $ratings;
         $this->role = $role;
         $this->director = $director;
         $this->writer = $writer;

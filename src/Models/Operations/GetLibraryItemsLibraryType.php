@@ -20,4 +20,6 @@ enum GetLibraryItemsLibraryType: string
     case TvShow = 'show';
     case Season = 'season';
     case Episode = 'episode';
+    case Artist = 'artist';
+    case Album = 'album';
 }

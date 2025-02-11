@@ -40,6 +40,14 @@ class GetLibraryItemsType
     public bool $active;
 
     /**
+     *
+     * @var ?string $subtype
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subtype')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $subtype = null;
+
+    /**
      * $filter
      *
      * @var ?array<GetLibraryItemsFilter> $filter
@@ -74,17 +82,19 @@ class GetLibraryItemsType
      * @param  string  $type
      * @param  string  $title
      * @param  bool  $active
+     * @param  ?string  $subtype
      * @param  ?array<GetLibraryItemsFilter>  $filter
      * @param  ?array<GetLibraryItemsSort>  $sort
      * @param  ?array<GetLibraryItemsField>  $field
      * @phpstan-pure
      */
-    public function __construct(string $key, string $type, string $title, bool $active, ?array $filter = null, ?array $sort = null, ?array $field = null)
+    public function __construct(string $key, string $type, string $title, bool $active, ?string $subtype = null, ?array $filter = null, ?array $sort = null, ?array $field = null)
     {
         $this->key = $key;
         $this->type = $type;
         $this->title = $title;
         $this->active = $active;
+        $this->subtype = $subtype;
         $this->filter = $filter;
         $this->sort = $sort;
         $this->field = $field;

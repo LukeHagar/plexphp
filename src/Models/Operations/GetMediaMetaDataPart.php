@@ -28,14 +28,6 @@ class GetMediaMetaDataPart
     public string $key;
 
     /**
-     * Duration of the part in milliseconds.
-     *
-     * @var int $duration
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
-    public int $duration;
-
-    /**
      * File path for the part.
      *
      * @var string $file
@@ -50,31 +42,6 @@ class GetMediaMetaDataPart
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
     public int $size;
-
-    /**
-     * Container format of the part.
-     *
-     * @var string $container
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
-    public string $container;
-
-    /**
-     * Video profile for the part.
-     *
-     * @var string $videoProfile
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
-    public string $videoProfile;
-
-    /**
-     * An array of streams for this part.
-     *
-     * @var array<GetMediaMetaDataStream> $stream
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Stream')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataStream>')]
-    public array $stream;
 
     /**
      * Indicates if the part is accessible.
@@ -103,31 +70,122 @@ class GetMediaMetaDataPart
     public ?string $indexes = null;
 
     /**
+     * Duration of the part in milliseconds.
+     *
+     * @var ?int $duration
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $duration = null;
+
+    /**
+     *
+     * @var ?int $packetLength
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('packetLength')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $packetLength = null;
+
+    /**
+     * Container format of the part.
+     *
+     * @var ?string $container
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $container = null;
+
+    /**
+     * Video profile for the part.
+     *
+     * @var ?string $videoProfile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoProfile = null;
+
+    /**
+     * The audio profile used for the media (e.g., DTS, Dolby Digital, etc.).
+     *
+     * @var ?string $audioProfile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $audioProfile = null;
+
+    /**
+     *
+     * @var ?bool $has64bitOffsets
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('has64bitOffsets')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $has64bitOffsets = null;
+
+    /**
+     * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
+     *
+     * @var GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataOptimizedForStreaming1|bool|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming = null;
+
+    /**
+     * An array of streams for this part.
+     *
+     * @var ?array<GetMediaMetaDataStream> $stream
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Stream')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataStream>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $stream = null;
+
+    /**
+     *
+     * @var ?GetMediaMetaDataHasThumbnail $hasThumbnail
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasThumbnail')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataHasThumbnail|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetMediaMetaDataHasThumbnail $hasThumbnail = null;
+
+    /**
      * @param  int  $id
      * @param  string  $key
-     * @param  int  $duration
      * @param  string  $file
      * @param  int  $size
-     * @param  string  $container
-     * @param  string  $videoProfile
-     * @param  array<GetMediaMetaDataStream>  $stream
      * @param  ?bool  $accessible
      * @param  ?bool  $exists
      * @param  ?string  $indexes
+     * @param  ?int  $duration
+     * @param  ?int  $packetLength
+     * @param  ?string  $container
+     * @param  ?string  $videoProfile
+     * @param  ?string  $audioProfile
+     * @param  ?bool  $has64bitOffsets
+     * @param  GetMediaMetaDataOptimizedForStreaming1|bool|null  $optimizedForStreaming
+     * @param  ?GetMediaMetaDataHasThumbnail  $hasThumbnail
+     * @param  ?array<GetMediaMetaDataStream>  $stream
      * @phpstan-pure
      */
-    public function __construct(int $id, string $key, int $duration, string $file, int $size, string $container, string $videoProfile, array $stream, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null)
+    public function __construct(int $id, string $key, string $file, int $size, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null, ?int $duration = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?GetMediaMetaDataHasThumbnail $hasThumbnail = GetMediaMetaDataHasThumbnail::False)
     {
         $this->id = $id;
         $this->key = $key;
-        $this->duration = $duration;
         $this->file = $file;
         $this->size = $size;
-        $this->container = $container;
-        $this->videoProfile = $videoProfile;
-        $this->stream = $stream;
         $this->accessible = $accessible;
         $this->exists = $exists;
         $this->indexes = $indexes;
+        $this->duration = $duration;
+        $this->packetLength = $packetLength;
+        $this->container = $container;
+        $this->videoProfile = $videoProfile;
+        $this->audioProfile = $audioProfile;
+        $this->has64bitOffsets = $has64bitOffsets;
+        $this->optimizedForStreaming = $optimizedForStreaming;
+        $this->stream = $stream;
+        $this->hasThumbnail = $hasThumbnail;
     }
 }

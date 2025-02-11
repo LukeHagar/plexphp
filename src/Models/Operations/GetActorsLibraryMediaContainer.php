@@ -12,11 +12,12 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetActorsLibraryMediaContainer
 {
     /**
+     * Number of media items returned in this response.
      *
-     * @var float $size
+     * @var int $size
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    public float $size;
+    public int $size;
 
     /**
      * Indicates whether syncing is allowed.
@@ -117,7 +118,7 @@ class GetActorsLibraryMediaContainer
     public ?array $directory = null;
 
     /**
-     * @param  float  $size
+     * @param  int  $size
      * @param  bool  $allowSync
      * @param  string  $art
      * @param  string  $identifier
@@ -132,7 +133,7 @@ class GetActorsLibraryMediaContainer
      * @param  ?array<GetActorsLibraryDirectory>  $directory
      * @phpstan-pure
      */
-    public function __construct(float $size, bool $allowSync, string $art, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, bool $nocache, string $thumb, string $title1, string $title2, string $viewGroup, string $viewMode, ?array $directory = null)
+    public function __construct(int $size, bool $allowSync, string $art, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, bool $nocache, string $thumb, string $title1, string $title2, string $viewGroup, string $viewMode, ?array $directory = null)
     {
         $this->size = $size;
         $this->allowSync = $allowSync;

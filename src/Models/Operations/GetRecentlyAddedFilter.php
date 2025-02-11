@@ -47,19 +47,29 @@ class GetRecentlyAddedFilter
     public string $type;
 
     /**
+     *
+     * @var ?bool $advanced
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('advanced')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $advanced = null;
+
+    /**
      * @param  string  $filter
      * @param  string  $filterType
      * @param  string  $key
      * @param  string  $title
      * @param  string  $type
+     * @param  ?bool  $advanced
      * @phpstan-pure
      */
-    public function __construct(string $filter, string $filterType, string $key, string $title, string $type)
+    public function __construct(string $filter, string $filterType, string $key, string $title, string $type, ?bool $advanced = null)
     {
         $this->filter = $filter;
         $this->filterType = $filterType;
         $this->key = $key;
         $this->title = $title;
         $this->type = $type;
+        $this->advanced = $advanced;
     }
 }

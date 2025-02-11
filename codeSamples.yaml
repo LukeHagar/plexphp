@@ -1158,6 +1158,37 @@ actions:
             if ($response->object !== null) {
                 // handle response
             }
+  - target: $["paths"]["/library/sections/{sectionKey}/all"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: library
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use LukeHagar\Plex_API;
+            use LukeHagar\Plex_API\Models\Operations;
+
+            $sdk = Plex_API\PlexAPI::builder()
+                ->setSecurity(
+                    '<YOUR_API_KEY_HERE>'
+                )
+                ->build();
+
+            $request = new Operations\GetAllMediaLibraryRequest(
+                sectionKey: 9518,
+                type: Operations\GetAllMediaLibraryQueryParamType::TvShow,
+            );
+
+            $response = $sdk->library->getAllMediaLibrary(
+                request: $request
+            );
+
+            if ($response->object !== null) {
+                // handle response
+            }
   - target: $["paths"]["/library/sections/{sectionKey}/country"]["get"]
     update:
       x-codeSamples:

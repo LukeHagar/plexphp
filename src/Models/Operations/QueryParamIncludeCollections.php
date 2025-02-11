@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Whether to include collections in the search results. */
+
 enum QueryParamIncludeCollections: int
 {
     case Disable = 0;

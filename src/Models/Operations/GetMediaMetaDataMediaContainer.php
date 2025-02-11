@@ -12,11 +12,12 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetMediaMetaDataMediaContainer
 {
     /**
+     * Number of media items returned in this response.
      *
-     * @var float $size
+     * @var int $size
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    public float $size;
+    public int $size;
 
     /**
      * Indicates whether syncing is allowed.
@@ -85,7 +86,7 @@ class GetMediaMetaDataMediaContainer
     public ?string $librarySectionUUID = null;
 
     /**
-     * @param  float  $size
+     * @param  int  $size
      * @param  bool  $allowSync
      * @param  string  $identifier
      * @param  int  $librarySectionID
@@ -96,7 +97,7 @@ class GetMediaMetaDataMediaContainer
      * @param  ?string  $librarySectionUUID
      * @phpstan-pure
      */
-    public function __construct(float $size, bool $allowSync, string $identifier, int $librarySectionID, string $librarySectionTitle, string $mediaTagPrefix, int $mediaTagVersion, array $metadata, ?string $librarySectionUUID = null)
+    public function __construct(int $size, bool $allowSync, string $identifier, int $librarySectionID, string $librarySectionTitle, string $mediaTagPrefix, int $mediaTagVersion, array $metadata, ?string $librarySectionUUID = null)
     {
         $this->size = $size;
         $this->allowSync = $allowSync;
