@@ -137,15 +137,6 @@ class PostUsersSignInDataUserPlexAccount
     public PostUsersSignInDataSubscription $subscription;
 
     /**
-     * $subscriptions
-     *
-     * @var array<PostUsersSignInDataAuthenticationSubscription> $subscriptions
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptions')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataAuthenticationSubscription>')]
-    public array $subscriptions;
-
-    /**
      * URL of the account thumbnail
      *
      * @var string $thumb
@@ -252,6 +243,16 @@ class PostUsersSignInDataUserPlexAccount
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptionDescription')]
     public ?string $subscriptionDescription;
+
+    /**
+     * $subscriptions
+     *
+     * @var ?array<PostUsersSignInDataAuthenticationSubscription> $subscriptions
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subscriptions')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\PostUsersSignInDataAuthenticationSubscription>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $subscriptions = null;
 
     /**
      *
@@ -393,7 +394,6 @@ class PostUsersSignInDataUserPlexAccount
      * @param  string  $scrobbleTypes
      * @param  array<PostUsersSignInDataServices>  $services
      * @param  PostUsersSignInDataSubscription  $subscription
-     * @param  array<PostUsersSignInDataAuthenticationSubscription>  $subscriptions
      * @param  string  $thumb
      * @param  string  $title
      * @param  string  $username
@@ -418,12 +418,13 @@ class PostUsersSignInDataUserPlexAccount
      * @param  ?bool  $restricted
      * @param  ?array<string>  $roles
      * @param  ?string  $subscriptionDescription
+     * @param  ?array<PostUsersSignInDataAuthenticationSubscription>  $subscriptions
      * @param  ?bool  $twoFactorEnabled
      * @param  ?string  $attributionPartner
      * @param  ?bool  $anonymous
      * @phpstan-pure
      */
-    public function __construct(string $authToken, string $country, string $email, string $friendlyName, array $entitlements, int $homeSize, int $id, int $joinedAt, PostUsersSignInDataMailingListStatus $mailingListStatus, int $maxHomeSize, PostUsersSignInDataUserProfile $profile, int $rememberExpiresAt, string $scrobbleTypes, array $services, PostUsersSignInDataSubscription $subscription, array $subscriptions, string $thumb, string $title, string $username, string $uuid, array $pastSubscriptions, array $trials, ?bool $adsConsent = null, ?int $adsConsentReminderAt = null, ?int $adsConsentSetAt = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?string $attributionPartner = null, ?bool $backupCodesCreated = false, ?bool $confirmed = false, ?bool $emailOnlyAuth = false, ?bool $experimentalFeatures = false, ?bool $guest = false, ?bool $hasPassword = true, ?bool $home = false, ?bool $homeAdmin = false, ?bool $mailingListActive = false, ?bool $protected = false, ?bool $restricted = false, ?bool $twoFactorEnabled = false, ?bool $anonymous = false)
+    public function __construct(string $authToken, string $country, string $email, string $friendlyName, array $entitlements, int $homeSize, int $id, int $joinedAt, PostUsersSignInDataMailingListStatus $mailingListStatus, int $maxHomeSize, PostUsersSignInDataUserProfile $profile, int $rememberExpiresAt, string $scrobbleTypes, array $services, PostUsersSignInDataSubscription $subscription, string $thumb, string $title, string $username, string $uuid, array $pastSubscriptions, array $trials, ?bool $adsConsent = null, ?int $adsConsentReminderAt = null, ?int $adsConsentSetAt = null, ?string $locale = null, ?string $pin = null, ?array $roles = null, ?string $subscriptionDescription = null, ?array $subscriptions = null, ?string $attributionPartner = null, ?bool $backupCodesCreated = false, ?bool $confirmed = false, ?bool $emailOnlyAuth = false, ?bool $experimentalFeatures = false, ?bool $guest = false, ?bool $hasPassword = true, ?bool $home = false, ?bool $homeAdmin = false, ?bool $mailingListActive = false, ?bool $protected = false, ?bool $restricted = false, ?bool $twoFactorEnabled = false, ?bool $anonymous = false)
     {
         $this->authToken = $authToken;
         $this->country = $country;
@@ -440,7 +441,6 @@ class PostUsersSignInDataUserPlexAccount
         $this->scrobbleTypes = $scrobbleTypes;
         $this->services = $services;
         $this->subscription = $subscription;
-        $this->subscriptions = $subscriptions;
         $this->thumb = $thumb;
         $this->title = $title;
         $this->username = $username;
@@ -454,6 +454,7 @@ class PostUsersSignInDataUserPlexAccount
         $this->pin = $pin;
         $this->roles = $roles;
         $this->subscriptionDescription = $subscriptionDescription;
+        $this->subscriptions = $subscriptions;
         $this->attributionPartner = $attributionPartner;
         $this->backupCodesCreated = $backupCodesCreated;
         $this->confirmed = $confirmed;

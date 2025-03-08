@@ -307,6 +307,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Errors;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -341,13 +342,45 @@ try {
 ### Server Variables
 
 The default server `{protocol}://{ip}:{port}` contains variables and is set to `https://10.10.10.47:32400` by default. To override default values, the following builder methods are available when initializing the SDK client instance:
- * `setProtocol(Plex_API\ServerProtocol protocol)`
- * `setIp(string ip)`
- * `setPort(string port)`
+
+| Variable   | BuilderMethod                                   | Supported Values           | Default         | Description                                    |
+| ---------- | ----------------------------------------------- | -------------------------- | --------------- | ---------------------------------------------- |
+| `protocol` | `setProtocol(Plex_API\ServerProtocol protocol)` | - `"http"`<br/>- `"https"` | `"https"`       | The protocol to use for the server connection  |
+| `ip`       | `setIp(string ip)`                              | string                     | `"10.10.10.47"` | The IP address or hostname of your Plex Server |
+| `port`     | `setPort(string port)`                          | string                     | `"32400"`       | The port of your Plex Server                   |
+
+#### Example
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setProtocol('https')
+    ->setIp('247.38.141.142')
+    ->setPort('6717')
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->server->getMediaProviders(
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally using the `setServerUrl(string $serverUrl)` builder method when initializing the SDK client instance. For example:
+The default server can be overridden globally using the `setServerUrl(string $serverUrl)` builder method when initializing the SDK client instance. For example:
 ```php
 declare(strict_types=1);
 

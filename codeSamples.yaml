@@ -563,7 +563,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: added
+          label: get-recently-added
           source: |-
             declare(strict_types=1);
 
@@ -686,7 +686,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: identity
+          label: get-server-identity
           source: |-
             declare(strict_types=1);
 
@@ -768,7 +768,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: data
+          label: get-media-meta-data
           source: |-
             declare(strict_types=1);
 
@@ -811,7 +811,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: image
+          label: get-banner-image
           source: |-
             declare(strict_types=1);
 
@@ -875,7 +875,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: image
+          label: get-thumb-image
           source: |-
             declare(strict_types=1);
 
@@ -937,7 +937,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: library
+          label: get-recently-added-library
           source: |-
             declare(strict_types=1);
 
@@ -983,7 +983,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: libraries
+          label: get-search-all-libraries
           source: |-
             declare(strict_types=1);
 
@@ -1017,7 +1017,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: libraries
+          label: get-all-libraries
           source: |-
             declare(strict_types=1);
 
@@ -1044,7 +1044,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: list
+          label: get-watch-list
           source: |-
             declare(strict_types=1);
 
@@ -1102,7 +1102,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: details
+          label: get-library-details
           source: |-
             declare(strict_types=1);
 
@@ -1132,7 +1132,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: library
+          label: get-actors-library
           source: |-
             declare(strict_types=1);
 
@@ -1162,7 +1162,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: library
+          label: get-all-media-library
           source: |-
             declare(strict_types=1);
 
@@ -1193,7 +1193,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: library
+          label: get-countries-library
           source: |-
             declare(strict_types=1);
 
@@ -1223,7 +1223,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: library
+          label: get-genres-library
           source: |-
             declare(strict_types=1);
 
@@ -1253,7 +1253,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: metadata
+          label: get-refresh-library-metadata
           source: |-
             declare(strict_types=1);
 
@@ -1283,7 +1283,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: library
+          label: get-search-library
           source: |-
             declare(strict_types=1);
 
@@ -1313,7 +1313,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: items
+          label: get-library-items
           source: |-
             declare(strict_types=1);
 
@@ -1432,7 +1432,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: providers
+          label: get-media-providers
           source: |-
             declare(strict_types=1);
 
@@ -1848,7 +1848,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: resources
+          label: get-server-resources
           source: |-
             declare(strict_types=1);
 
@@ -2297,7 +2297,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: users
+          label: get-users
           source: |-
             declare(strict_types=1);
 
@@ -2335,7 +2335,7 @@ actions:
     update:
       x-codeSamples:
         - lang: php
-          label: data
+          label: post-users-sign-in-data
           source: |-
             declare(strict_types=1);
 
