@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetRecentlyAddedMediaContainer
 {
     /**
+     * Number of media items returned in this response.
      *
      * @var int $size
      */
@@ -19,36 +20,36 @@ class GetRecentlyAddedMediaContainer
     public int $size;
 
     /**
+     * Total number of media items in the library.
      *
-     * @var ?int $offset
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('offset')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $offset = null;
-
-    /**
-     *
-     * @var ?int $totalSize
+     * @var int $totalSize
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('totalSize')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $totalSize = null;
+    public int $totalSize;
 
     /**
+     * Offset value for pagination.
      *
-     * @var ?string $identifier
+     * @var int $offset
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $identifier = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('offset')]
+    public int $offset;
 
     /**
+     * Indicates whether syncing is allowed.
      *
-     * @var ?bool $allowSync
+     * @var bool $allowSync
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $allowSync = null;
+    public bool $allowSync;
+
+    /**
+     * An plugin identifier for the media container.
+     *
+     * @var string $identifier
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
+    public string $identifier;
 
     /**
      * The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
@@ -63,7 +64,7 @@ class GetRecentlyAddedMediaContainer
     public ?Meta $meta = null;
 
     /**
-     * $metadata
+     * An array of metadata items.
      *
      * @var ?array<GetRecentlyAddedMetadata> $metadata
      */
@@ -74,21 +75,21 @@ class GetRecentlyAddedMediaContainer
 
     /**
      * @param  int  $size
-     * @param  ?int  $offset
-     * @param  ?int  $totalSize
-     * @param  ?string  $identifier
-     * @param  ?bool  $allowSync
+     * @param  int  $totalSize
+     * @param  int  $offset
+     * @param  bool  $allowSync
+     * @param  string  $identifier
      * @param  ?Meta  $meta
      * @param  ?array<GetRecentlyAddedMetadata>  $metadata
      * @phpstan-pure
      */
-    public function __construct(int $size, ?int $offset = null, ?int $totalSize = null, ?string $identifier = null, ?bool $allowSync = null, ?Meta $meta = null, ?array $metadata = null)
+    public function __construct(int $size, int $totalSize, int $offset, bool $allowSync, string $identifier, ?Meta $meta = null, ?array $metadata = null)
     {
         $this->size = $size;
-        $this->offset = $offset;
         $this->totalSize = $totalSize;
-        $this->identifier = $identifier;
+        $this->offset = $offset;
         $this->allowSync = $allowSync;
+        $this->identifier = $identifier;
         $this->meta = $meta;
         $this->metadata = $metadata;
     }

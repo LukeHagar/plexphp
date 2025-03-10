@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Stream
 {
     /**
+     * Unique stream identifier.
      *
      * @var int $id
      */
@@ -19,7 +20,7 @@ class Stream
     public int $id;
 
     /**
-     * Type of stream (1 = video, 2 = audio, 3 = subtitle)
+     * Stream type (1=video, 2=audio, 3=subtitle).
      *
      * @var int $streamType
      */
@@ -27,7 +28,7 @@ class Stream
     public int $streamType;
 
     /**
-     * Codec used by the stream
+     * Codec used by the stream.
      *
      * @var string $codec
      */
@@ -35,7 +36,7 @@ class Stream
     public string $codec;
 
     /**
-     * The index of the stream
+     * Index of the stream.
      *
      * @var int $index
      */
@@ -43,7 +44,23 @@ class Stream
     public int $index;
 
     /**
-     * Indicates if this is the default stream
+     * Display title for the stream.
+     *
+     * @var string $displayTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('displayTitle')]
+    public string $displayTitle;
+
+    /**
+     * Extended display title for the stream.
+     *
+     * @var string $extendedDisplayTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
+    public string $extendedDisplayTitle;
+
+    /**
+     * Indicates if this stream is default.
      *
      * @var ?bool $default
      */
@@ -52,16 +69,7 @@ class Stream
     public ?bool $default = null;
 
     /**
-     * Indicates if the stream is selected
-     *
-     * @var ?bool $selected
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('selected')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $selected = null;
-
-    /**
-     * The bitrate of the stream in kbps
+     * Bitrate of the stream.
      *
      * @var ?int $bitrate
      */
@@ -70,43 +78,115 @@ class Stream
     public ?int $bitrate = null;
 
     /**
-     * The color primaries of the video stream
+     * Language of the stream.
      *
-     * @var ?string $colorPrimaries
+     * @var ?string $language
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('colorPrimaries')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $colorPrimaries = null;
+    public ?string $language = null;
 
     /**
-     * The color range of the video stream
+     * Language tag (e.g., en).
      *
-     * @var ?string $colorRange
+     * @var ?string $languageTag
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('colorRange')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('languageTag')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $colorRange = null;
+    public ?string $languageTag = null;
 
     /**
-     * The color space of the video stream
+     * ISO language code.
      *
-     * @var ?string $colorSpace
+     * @var ?string $languageCode
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('colorSpace')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('languageCode')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $colorSpace = null;
+    public ?string $languageCode = null;
 
     /**
-     * The transfer characteristics (TRC) of the video stream
+     * Indicates whether header compression is enabled.
      *
-     * @var ?string $colorTrc
+     * @var ?bool $headerCompression
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('colorTrc')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('headerCompression')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $colorTrc = null;
+    public ?bool $headerCompression = null;
 
     /**
-     * The bit depth of the video stream
+     * Dolby Vision BL compatibility ID.
+     *
+     * @var ?int $doviblCompatID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVIBLCompatID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $doviblCompatID = null;
+
+    /**
+     * Indicates if Dolby Vision BL is present.
+     *
+     * @var ?bool $doviblPresent
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVIBLPresent')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $doviblPresent = null;
+
+    /**
+     * Indicates if Dolby Vision EL is present.
+     *
+     * @var ?bool $dovielPresent
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVIELPresent')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $dovielPresent = null;
+
+    /**
+     * Dolby Vision level.
+     *
+     * @var ?int $doviLevel
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVILevel')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $doviLevel = null;
+
+    /**
+     * Indicates if Dolby Vision is present.
+     *
+     * @var ?bool $doviPresent
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVIPresent')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $doviPresent = null;
+
+    /**
+     * Dolby Vision profile.
+     *
+     * @var ?int $doviProfile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVIProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $doviProfile = null;
+
+    /**
+     * Indicates if Dolby Vision RPU is present.
+     *
+     * @var ?bool $dovirpuPresent
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVIRPUPresent')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $dovirpuPresent = null;
+
+    /**
+     * Dolby Vision version.
+     *
+     * @var ?string $doviVersion
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('DOVIVersion')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $doviVersion = null;
+
+    /**
+     * Bit depth of the video stream.
      *
      * @var ?int $bitDepth
      */
@@ -115,7 +195,7 @@ class Stream
     public ?int $bitDepth = null;
 
     /**
-     * The chroma location of the video stream
+     * Chroma sample location.
      *
      * @var ?string $chromaLocation
      */
@@ -124,16 +204,7 @@ class Stream
     public ?string $chromaLocation = null;
 
     /**
-     * The identifier of the video stream
-     *
-     * @var ?string $streamIdentifier
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('streamIdentifier')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $streamIdentifier = null;
-
-    /**
-     * The chroma subsampling format
+     * Chroma subsampling format.
      *
      * @var ?string $chromaSubsampling
      */
@@ -142,7 +213,7 @@ class Stream
     public ?string $chromaSubsampling = null;
 
     /**
-     * The coded height of the video stream
+     * Coded video height.
      *
      * @var ?int $codedHeight
      */
@@ -151,39 +222,13 @@ class Stream
     public ?int $codedHeight = null;
 
     /**
-     * The coded width of the video stream
+     * Coded video width.
      *
      * @var ?int $codedWidth
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('codedWidth')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $codedWidth = null;
-
-    /**
-     * The frame rate of the video stream
-     *
-     * @var ?float $frameRate
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('frameRate')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?float $frameRate = null;
-
-    /**
-     * Indicates if the stream has a scaling matrix
-     *
-     * @var ?bool $hasScalingMatrix
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hasScalingMatrix')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $hasScalingMatrix = null;
-
-    /**
-     *
-     * @var ?bool $hearingImpaired
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hearingImpaired')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $hearingImpaired = null;
 
     /**
      *
@@ -194,15 +239,52 @@ class Stream
     public ?bool $closedCaptions = null;
 
     /**
+     * Color primaries used.
      *
-     * @var ?string $embeddedInVideo
+     * @var ?string $colorPrimaries
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('embeddedInVideo')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('colorPrimaries')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $embeddedInVideo = null;
+    public ?string $colorPrimaries = null;
 
     /**
-     * The height of the video stream
+     * Color range (e.g., tv).
+     *
+     * @var ?string $colorRange
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('colorRange')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $colorRange = null;
+
+    /**
+     * Color space.
+     *
+     * @var ?string $colorSpace
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('colorSpace')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $colorSpace = null;
+
+    /**
+     * Color transfer characteristics.
+     *
+     * @var ?string $colorTrc
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('colorTrc')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $colorTrc = null;
+
+    /**
+     * Frame rate of the stream.
+     *
+     * @var ?float $frameRate
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('frameRate')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $frameRate = null;
+
+    /**
+     * Height of the video stream.
      *
      * @var ?int $height
      */
@@ -211,7 +293,7 @@ class Stream
     public ?int $height = null;
 
     /**
-     * The level of the video codec
+     * Video level.
      *
      * @var ?int $level
      */
@@ -220,7 +302,24 @@ class Stream
     public ?int $level = null;
 
     /**
-     * The profile of the video codec
+     * Indicates if this is the original stream.
+     *
+     * @var ?bool $original
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('original')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $original = null;
+
+    /**
+     *
+     * @var ?bool $hasScalingMatrix
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasScalingMatrix')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $hasScalingMatrix = null;
+
+    /**
+     * Video profile.
      *
      * @var ?string $profile
      */
@@ -229,16 +328,6 @@ class Stream
     public ?string $profile = null;
 
     /**
-     * Number of reference frames
-     *
-     * @var ?int $refFrames
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('refFrames')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $refFrames = null;
-
-    /**
-     * The scan type (progressive or interlaced)
      *
      * @var ?string $scanType
      */
@@ -247,7 +336,24 @@ class Stream
     public ?string $scanType = null;
 
     /**
-     * The width of the video stream
+     *
+     * @var ?string $embeddedInVideo
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('embeddedInVideo')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $embeddedInVideo = null;
+
+    /**
+     * Number of reference frames.
+     *
+     * @var ?int $refFrames
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('refFrames')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $refFrames = null;
+
+    /**
+     * Width of the video stream.
      *
      * @var ?int $width
      */
@@ -256,25 +362,24 @@ class Stream
     public ?int $width = null;
 
     /**
-     * Display title of the stream
+     * Indicates if this stream is selected (applicable for audio streams).
      *
-     * @var ?string $displayTitle
+     * @var ?bool $selected
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('displayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('selected')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $displayTitle = null;
+    public ?bool $selected = null;
 
     /**
-     * Extended display title of the stream
      *
-     * @var ?string $extendedDisplayTitle
+     * @var ?bool $forced
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('forced')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $extendedDisplayTitle = null;
+    public ?bool $forced = null;
 
     /**
-     * Number of audio channels (for audio streams)
+     * Number of audio channels (for audio streams).
      *
      * @var ?int $channels
      */
@@ -283,34 +388,7 @@ class Stream
     public ?int $channels = null;
 
     /**
-     * The language of the stream (for audio/subtitle streams)
-     *
-     * @var ?string $language
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('language')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $language = null;
-
-    /**
-     * Language tag of the stream
-     *
-     * @var ?string $languageTag
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('languageTag')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $languageTag = null;
-
-    /**
-     * Language code of the stream
-     *
-     * @var ?string $languageCode
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('languageCode')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $languageCode = null;
-
-    /**
-     * The audio channel layout
+     * Audio channel layout.
      *
      * @var ?string $audioChannelLayout
      */
@@ -319,7 +397,7 @@ class Stream
     public ?string $audioChannelLayout = null;
 
     /**
-     * Sampling rate of the audio stream in Hz
+     * Sampling rate for the audio stream.
      *
      * @var ?int $samplingRate
      */
@@ -328,16 +406,7 @@ class Stream
     public ?int $samplingRate = null;
 
     /**
-     * Title of the subtitle track (for subtitle streams)
-     *
-     * @var ?string $title
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $title = null;
-
-    /**
-     * Indicates if the subtitle stream can auto-sync
+     * Indicates if the stream can auto-sync.
      *
      * @var ?bool $canAutoSync
      */
@@ -346,85 +415,134 @@ class Stream
     public ?bool $canAutoSync = null;
 
     /**
+     * Indicates if the stream is for the hearing impaired.
+     *
+     * @var ?bool $hearingImpaired
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hearingImpaired')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $hearingImpaired = null;
+
+    /**
+     * Indicates if the stream is a dub.
+     *
+     * @var ?bool $dub
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('dub')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $dub = null;
+
+    /**
+     * Optional title for the stream (e.g., language variant).
+     *
+     * @var ?string $title
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $title = null;
+
+    /**
      * @param  int  $id
      * @param  int  $streamType
      * @param  string  $codec
      * @param  int  $index
+     * @param  string  $displayTitle
+     * @param  string  $extendedDisplayTitle
      * @param  ?bool  $default
-     * @param  ?bool  $selected
      * @param  ?int  $bitrate
+     * @param  ?string  $language
+     * @param  ?string  $languageTag
+     * @param  ?string  $languageCode
+     * @param  ?bool  $headerCompression
+     * @param  ?int  $doviblCompatID
+     * @param  ?bool  $doviblPresent
+     * @param  ?bool  $dovielPresent
+     * @param  ?int  $doviLevel
+     * @param  ?bool  $doviPresent
+     * @param  ?int  $doviProfile
+     * @param  ?bool  $dovirpuPresent
+     * @param  ?string  $doviVersion
+     * @param  ?int  $bitDepth
+     * @param  ?string  $chromaLocation
+     * @param  ?string  $chromaSubsampling
+     * @param  ?int  $codedHeight
+     * @param  ?int  $codedWidth
+     * @param  ?bool  $closedCaptions
      * @param  ?string  $colorPrimaries
      * @param  ?string  $colorRange
      * @param  ?string  $colorSpace
      * @param  ?string  $colorTrc
-     * @param  ?int  $bitDepth
-     * @param  ?string  $chromaLocation
-     * @param  ?string  $streamIdentifier
-     * @param  ?string  $chromaSubsampling
-     * @param  ?int  $codedHeight
-     * @param  ?int  $codedWidth
      * @param  ?float  $frameRate
-     * @param  ?bool  $hasScalingMatrix
-     * @param  ?bool  $hearingImpaired
-     * @param  ?bool  $closedCaptions
-     * @param  ?string  $embeddedInVideo
      * @param  ?int  $height
      * @param  ?int  $level
+     * @param  ?bool  $original
+     * @param  ?bool  $hasScalingMatrix
      * @param  ?string  $profile
-     * @param  ?int  $refFrames
      * @param  ?string  $scanType
+     * @param  ?string  $embeddedInVideo
+     * @param  ?int  $refFrames
      * @param  ?int  $width
-     * @param  ?string  $displayTitle
-     * @param  ?string  $extendedDisplayTitle
+     * @param  ?bool  $selected
+     * @param  ?bool  $forced
      * @param  ?int  $channels
-     * @param  ?string  $language
-     * @param  ?string  $languageTag
-     * @param  ?string  $languageCode
      * @param  ?string  $audioChannelLayout
      * @param  ?int  $samplingRate
-     * @param  ?string  $title
      * @param  ?bool  $canAutoSync
+     * @param  ?bool  $hearingImpaired
+     * @param  ?bool  $dub
+     * @param  ?string  $title
      * @phpstan-pure
      */
-    public function __construct(int $id, int $streamType, string $codec, int $index, ?bool $default = null, ?bool $selected = null, ?int $bitrate = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $streamIdentifier = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?float $frameRate = null, ?bool $hasScalingMatrix = null, ?bool $hearingImpaired = null, ?bool $closedCaptions = null, ?string $embeddedInVideo = null, ?int $height = null, ?int $level = null, ?string $profile = null, ?int $refFrames = null, ?string $scanType = null, ?int $width = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null, ?int $channels = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?string $title = null, ?bool $canAutoSync = null)
+    public function __construct(int $id, int $streamType, string $codec, int $index, string $displayTitle, string $extendedDisplayTitle, ?bool $default = null, ?int $bitrate = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?bool $headerCompression = null, ?int $doviblCompatID = null, ?bool $doviblPresent = null, ?bool $dovielPresent = null, ?int $doviLevel = null, ?bool $doviPresent = null, ?int $doviProfile = null, ?bool $dovirpuPresent = null, ?string $doviVersion = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?bool $closedCaptions = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?float $frameRate = null, ?int $height = null, ?int $level = null, ?bool $original = null, ?bool $hasScalingMatrix = null, ?string $profile = null, ?string $scanType = null, ?string $embeddedInVideo = null, ?int $refFrames = null, ?int $width = null, ?bool $selected = null, ?bool $forced = null, ?int $channels = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?bool $canAutoSync = null, ?bool $hearingImpaired = null, ?bool $dub = null, ?string $title = null)
     {
         $this->id = $id;
         $this->streamType = $streamType;
         $this->codec = $codec;
         $this->index = $index;
+        $this->displayTitle = $displayTitle;
+        $this->extendedDisplayTitle = $extendedDisplayTitle;
         $this->default = $default;
-        $this->selected = $selected;
         $this->bitrate = $bitrate;
+        $this->language = $language;
+        $this->languageTag = $languageTag;
+        $this->languageCode = $languageCode;
+        $this->headerCompression = $headerCompression;
+        $this->doviblCompatID = $doviblCompatID;
+        $this->doviblPresent = $doviblPresent;
+        $this->dovielPresent = $dovielPresent;
+        $this->doviLevel = $doviLevel;
+        $this->doviPresent = $doviPresent;
+        $this->doviProfile = $doviProfile;
+        $this->dovirpuPresent = $dovirpuPresent;
+        $this->doviVersion = $doviVersion;
+        $this->bitDepth = $bitDepth;
+        $this->chromaLocation = $chromaLocation;
+        $this->chromaSubsampling = $chromaSubsampling;
+        $this->codedHeight = $codedHeight;
+        $this->codedWidth = $codedWidth;
+        $this->closedCaptions = $closedCaptions;
         $this->colorPrimaries = $colorPrimaries;
         $this->colorRange = $colorRange;
         $this->colorSpace = $colorSpace;
         $this->colorTrc = $colorTrc;
-        $this->bitDepth = $bitDepth;
-        $this->chromaLocation = $chromaLocation;
-        $this->streamIdentifier = $streamIdentifier;
-        $this->chromaSubsampling = $chromaSubsampling;
-        $this->codedHeight = $codedHeight;
-        $this->codedWidth = $codedWidth;
         $this->frameRate = $frameRate;
-        $this->hasScalingMatrix = $hasScalingMatrix;
-        $this->hearingImpaired = $hearingImpaired;
-        $this->closedCaptions = $closedCaptions;
-        $this->embeddedInVideo = $embeddedInVideo;
         $this->height = $height;
         $this->level = $level;
+        $this->original = $original;
+        $this->hasScalingMatrix = $hasScalingMatrix;
         $this->profile = $profile;
-        $this->refFrames = $refFrames;
         $this->scanType = $scanType;
+        $this->embeddedInVideo = $embeddedInVideo;
+        $this->refFrames = $refFrames;
         $this->width = $width;
-        $this->displayTitle = $displayTitle;
-        $this->extendedDisplayTitle = $extendedDisplayTitle;
+        $this->selected = $selected;
+        $this->forced = $forced;
         $this->channels = $channels;
-        $this->language = $language;
-        $this->languageTag = $languageTag;
-        $this->languageCode = $languageCode;
         $this->audioChannelLayout = $audioChannelLayout;
         $this->samplingRate = $samplingRate;
-        $this->title = $title;
         $this->canAutoSync = $canAutoSync;
+        $this->hearingImpaired = $hearingImpaired;
+        $this->dub = $dub;
+        $this->title = $title;
     }
 }

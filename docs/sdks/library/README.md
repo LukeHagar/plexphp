@@ -23,7 +23,6 @@ API Calls interacting with Plex Media Server Libraries
 * [getSearchLibrary](#getsearchlibrary) - Search Library
 * [getFileHash](#getfilehash) - Get Hash Value
 * [getMetadataChildren](#getmetadatachildren) - Get Items Children
-* [getOnDeck](#getondeck) - Get On Deck
 * [getTopWatchedContent](#gettopwatchedcontent) - Get Top Watched Content
 
 ## deleteLibrary
@@ -913,49 +912,6 @@ if ($response->object !== null) {
 | Errors\GetMetadataChildrenBadRequest   | 400                                    | application/json                       |
 | Errors\GetMetadataChildrenUnauthorized | 401                                    | application/json                       |
 | Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
-
-## getOnDeck
-
-This endpoint will return the on deck content.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->library->getOnDeck(
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetOnDeckResponse](../../Models/Operations/GetOnDeckResponse.md)**
-
-### Errors
-
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| Errors\GetOnDeckBadRequest   | 400                          | application/json             |
-| Errors\GetOnDeckUnauthorized | 401                          | application/json             |
-| Errors\SDKException          | 4XX, 5XX                     | \*/\*                        |
 
 ## getTopWatchedContent
 

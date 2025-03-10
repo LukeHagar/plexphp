@@ -168,32 +168,32 @@ class GetLibraryItemsMetadata
     /**
      * Setting that indicates if seasons are set to hidden for the show. (-1 = Library default, 0 = Hide, 1 = Show).
      *
-     * @var ?GetLibraryItemsFlattenSeasons $flattenSeasons
+     * @var ?FlattenSeasons $flattenSeasons
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('flattenSeasons')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFlattenSeasons|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\FlattenSeasons|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetLibraryItemsFlattenSeasons $flattenSeasons = null;
+    public ?FlattenSeasons $flattenSeasons = null;
 
     /**
      * Setting that indicates how episodes are sorted for the show. (-1 = Library default, 0 = Oldest first, 1 = Newest first).
      *
-     * @var ?GetLibraryItemsEpisodeSort $episodeSort
+     * @var ?EpisodeSort $episodeSort
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('episodeSort')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsEpisodeSort|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\EpisodeSort|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetLibraryItemsEpisodeSort $episodeSort = null;
+    public ?EpisodeSort $episodeSort = null;
 
     /**
      * Setting that indicates if credits markers detection is enabled. (-1 = Library default, 0 = Disabled).
      *
-     * @var ?GetLibraryItemsEnableCreditsMarkerGeneration $enableCreditsMarkerGeneration
+     * @var ?EnableCreditsMarkerGeneration $enableCreditsMarkerGeneration
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('enableCreditsMarkerGeneration')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsEnableCreditsMarkerGeneration|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\EnableCreditsMarkerGeneration|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetLibraryItemsEnableCreditsMarkerGeneration $enableCreditsMarkerGeneration = null;
+    public ?EnableCreditsMarkerGeneration $enableCreditsMarkerGeneration = null;
 
     /**
      * Setting that indicates the episode ordering for the show.
@@ -205,12 +205,12 @@ class GetLibraryItemsMetadata
      * absolute = TheTVDB (Absolute)).
      *
      *
-     * @var ?GetLibraryItemsShowOrdering $showOrdering
+     * @var ?ShowOrdering $showOrdering
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('showOrdering')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsShowOrdering|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\ShowOrdering|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?GetLibraryItemsShowOrdering $showOrdering = null;
+    public ?ShowOrdering $showOrdering = null;
 
     /**
      *
@@ -452,10 +452,10 @@ class GetLibraryItemsMetadata
      *
      *
      *
-     * @var ?array<GetLibraryItemsMediaGuid> $mediaGuid
+     * @var ?array<MediaGuid> $mediaGuid
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMediaGuid>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MediaGuid>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $mediaGuid = null;
 
@@ -471,10 +471,10 @@ class GetLibraryItemsMetadata
     /**
      * $metaDataRating
      *
-     * @var ?array<GetLibraryItemsMetaDataRating> $metaDataRating
+     * @var ?array<MetaDataRating> $metaDataRating
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Rating')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetaDataRating>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\MetaDataRating>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $metaDataRating = null;
 
@@ -687,10 +687,10 @@ class GetLibraryItemsMetadata
      * @param  ?int  $year
      * @param  ?int  $seasonCount
      * @param  ?string  $tagline
-     * @param  ?GetLibraryItemsFlattenSeasons  $flattenSeasons
-     * @param  ?GetLibraryItemsEpisodeSort  $episodeSort
-     * @param  ?GetLibraryItemsEnableCreditsMarkerGeneration  $enableCreditsMarkerGeneration
-     * @param  ?GetLibraryItemsShowOrdering  $showOrdering
+     * @param  ?FlattenSeasons  $flattenSeasons
+     * @param  ?EpisodeSort  $episodeSort
+     * @param  ?EnableCreditsMarkerGeneration  $enableCreditsMarkerGeneration
+     * @param  ?ShowOrdering  $showOrdering
      * @param  ?string  $thumb
      * @param  ?string  $art
      * @param  ?string  $banner
@@ -718,9 +718,9 @@ class GetLibraryItemsMetadata
      * @param  ?array<GetLibraryItemsCollection>  $collection
      * @param  ?array<GetLibraryItemsRole>  $role
      * @param  ?array<GetLibraryItemsLocation>  $location
-     * @param  ?array<GetLibraryItemsMediaGuid>  $mediaGuid
+     * @param  ?array<MediaGuid>  $mediaGuid
      * @param  ?GetLibraryItemsUltraBlurColors  $ultraBlurColors
-     * @param  ?array<GetLibraryItemsMetaDataRating>  $metaDataRating
+     * @param  ?array<MetaDataRating>  $metaDataRating
      * @param  ?array<GetLibraryItemsImage>  $image
      * @param  ?string  $titleSort
      * @param  ?int  $viewCount
@@ -746,7 +746,7 @@ class GetLibraryItemsMetadata
      * @param  ?string  $parentTheme
      * @phpstan-pure
      */
-    public function __construct(string $ratingKey, string $key, string $guid, GetLibraryItemsLibraryType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?GetLibraryItemsFlattenSeasons $flattenSeasons = null, ?GetLibraryItemsEpisodeSort $episodeSort = null, ?GetLibraryItemsEnableCreditsMarkerGeneration $enableCreditsMarkerGeneration = null, ?GetLibraryItemsShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $location = null, ?array $mediaGuid = null, ?GetLibraryItemsUltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
+    public function __construct(string $ratingKey, string $key, string $guid, GetLibraryItemsLibraryType $type, string $title, string $summary, int $addedAt, ?string $studio = null, ?bool $skipChildren = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?string $slug = null, ?string $contentRating = null, ?float $rating = null, ?float $audienceRating = null, ?int $year = null, ?int $seasonCount = null, ?string $tagline = null, ?FlattenSeasons $flattenSeasons = null, ?EpisodeSort $episodeSort = null, ?EnableCreditsMarkerGeneration $enableCreditsMarkerGeneration = null, ?ShowOrdering $showOrdering = null, ?string $thumb = null, ?string $art = null, ?string $banner = null, ?int $duration = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?string $grandparentRatingKey = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $parentSlug = null, ?string $grandparentSlug = null, ?string $grandparentArt = null, ?string $grandparentTheme = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $collection = null, ?array $role = null, ?array $location = null, ?array $mediaGuid = null, ?GetLibraryItemsUltraBlurColors $ultraBlurColors = null, ?array $metaDataRating = null, ?array $image = null, ?string $titleSort = null, ?int $viewCount = null, ?int $lastViewedAt = null, ?string $originalTitle = null, ?int $viewOffset = null, ?int $skipCount = null, ?int $index = null, ?string $theme = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $hasPremiumExtras = null, ?string $hasPremiumPrimaryExtra = null, ?string $parentRatingKey = null, ?string $parentGuid = null, ?string $parentStudio = null, ?string $parentKey = null, ?string $parentTitle = null, ?int $parentIndex = null, ?int $parentYear = null, ?string $parentThumb = null, ?string $parentTheme = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;

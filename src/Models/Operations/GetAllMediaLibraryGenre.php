@@ -12,7 +12,9 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetAllMediaLibraryGenre
 {
     /**
-     * The country of origin of this media item
+     * The genre name of this media-item
+     *
+     *
      *
      * @var string $tag
      */

@@ -9,9 +9,8 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Indicates if the part has a thumbnail. */
-enum HasThumbnail: string
+enum GetRecentlyAddedOptimizedForStreaming1: int
 {
-    case False = '0';
-    case True = '1';
+    case Zero = 0;
+    case One = 1;
 }

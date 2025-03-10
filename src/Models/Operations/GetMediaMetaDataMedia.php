@@ -20,23 +20,6 @@ class GetMediaMetaDataMedia
     public int $id;
 
     /**
-     * Indicates whether voice activity is detected.
-     *
-     * @var bool $hasVoiceActivity
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hasVoiceActivity')]
-    public bool $hasVoiceActivity;
-
-    /**
-     * An array of parts for this media item.
-     *
-     * @var array<GetMediaMetaDataPart> $part
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataPart>')]
-    public array $part;
-
-    /**
      * Duration of the media in milliseconds.
      *
      * @var ?int $duration
@@ -155,6 +138,15 @@ class GetMediaMetaDataMedia
     public ?string $videoProfile = null;
 
     /**
+     * Indicates whether voice activity is detected.
+     *
+     * @var ?bool $hasVoiceActivity
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hasVoiceActivity')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $hasVoiceActivity = null;
+
+    /**
      * The audio profile used for the media (e.g., DTS, Dolby Digital, etc.).
      *
      * @var ?string $audioProfile
@@ -166,12 +158,12 @@ class GetMediaMetaDataMedia
     /**
      * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
      *
-     * @var OptimizedForStreaming1|bool|null $optimizedForStreaming
+     * @var GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\OptimizedForStreaming1|bool|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataOptimizedForStreaming1|bool|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public OptimizedForStreaming1|bool|null $optimizedForStreaming = null;
+    public GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming = null;
 
     /**
      *
@@ -182,9 +174,17 @@ class GetMediaMetaDataMedia
     public ?bool $has64bitOffsets = null;
 
     /**
+     * An array of parts for this media item.
+     *
+     * @var ?array<GetMediaMetaDataPart> $part
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataPart>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $part = null;
+
+    /**
      * @param  int  $id
-     * @param  bool  $hasVoiceActivity
-     * @param  array<GetMediaMetaDataPart>  $part
      * @param  ?int  $duration
      * @param  ?int  $bitrate
      * @param  ?int  $width
@@ -198,16 +198,16 @@ class GetMediaMetaDataMedia
      * @param  ?string  $container
      * @param  ?string  $videoFrameRate
      * @param  ?string  $videoProfile
+     * @param  ?bool  $hasVoiceActivity
      * @param  ?string  $audioProfile
-     * @param  OptimizedForStreaming1|bool|null  $optimizedForStreaming
+     * @param  GetMediaMetaDataOptimizedForStreaming1|bool|null  $optimizedForStreaming
      * @param  ?bool  $has64bitOffsets
+     * @param  ?array<GetMediaMetaDataPart>  $part
      * @phpstan-pure
      */
-    public function __construct(int $id, bool $hasVoiceActivity, array $part, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?int $audioChannels = null, ?int $displayOffset = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?string $audioProfile = null, OptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?bool $has64bitOffsets = null)
+    public function __construct(int $id, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?int $audioChannels = null, ?int $displayOffset = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?bool $hasVoiceActivity = null, ?string $audioProfile = null, GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?bool $has64bitOffsets = null, ?array $part = null)
     {
         $this->id = $id;
-        $this->hasVoiceActivity = $hasVoiceActivity;
-        $this->part = $part;
         $this->duration = $duration;
         $this->bitrate = $bitrate;
         $this->width = $width;
@@ -221,8 +221,10 @@ class GetMediaMetaDataMedia
         $this->container = $container;
         $this->videoFrameRate = $videoFrameRate;
         $this->videoProfile = $videoProfile;
+        $this->hasVoiceActivity = $hasVoiceActivity;
         $this->audioProfile = $audioProfile;
         $this->optimizedForStreaming = $optimizedForStreaming;
         $this->has64bitOffsets = $has64bitOffsets;
+        $this->part = $part;
     }
 }

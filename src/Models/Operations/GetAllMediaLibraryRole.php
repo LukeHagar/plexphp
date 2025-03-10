@@ -12,7 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetAllMediaLibraryRole
 {
     /**
-     * The name of the actor for this role
+     * The display tag for the actor (typically the actor's name).
      *
      * @var string $tag
      */

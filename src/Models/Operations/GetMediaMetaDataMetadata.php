@@ -524,20 +524,20 @@ class GetMediaMetaDataMetadata
     /**
      * An array of Writer roles.
      *
-     * @var ?array<Producer> $producer
+     * @var ?array<GetMediaMetaDataProducer> $producer
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Producer')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Producer>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataProducer>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $producer = null;
 
     /**
      * An array of similar content objects.
      *
-     * @var ?array<Similar> $similar
+     * @var ?array<GetMediaMetaDataSimilar> $similar
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Similar')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Similar>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataSimilar>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $similar = null;
 
@@ -610,8 +610,8 @@ class GetMediaMetaDataMetadata
      * @param  ?array<GetMediaMetaDataRole>  $role
      * @param  ?array<GetMediaMetaDataDirector>  $director
      * @param  ?array<GetMediaMetaDataWriter>  $writer
-     * @param  ?array<Producer>  $producer
-     * @param  ?array<Similar>  $similar
+     * @param  ?array<GetMediaMetaDataProducer>  $producer
+     * @param  ?array<GetMediaMetaDataSimilar>  $similar
      * @param  ?array<GetMediaMetaDataLocation>  $location
      * @phpstan-pure
      */

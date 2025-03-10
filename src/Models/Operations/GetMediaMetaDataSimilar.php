@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Genre - The filter query string for similar items. */
-class Genre
+class GetMediaMetaDataSimilar
 {
     /**
+     * The unique similar item identifier.
      *
      * @var int $id
      */
@@ -20,6 +20,7 @@ class Genre
     public int $id;
 
     /**
+     * The filter string for similar items.
      *
      * @var string $filter
      */
@@ -27,9 +28,7 @@ class Genre
     public string $filter;
 
     /**
-     * The genre name of this media-item
-     *
-     *
+     * The tag or title of the similar content.
      *
      * @var string $tag
      */

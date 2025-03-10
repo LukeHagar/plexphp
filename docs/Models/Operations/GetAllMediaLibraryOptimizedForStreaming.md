@@ -5,13 +5,13 @@ Has this media been optimized for streaming. NOTE: This can be 0, 1, false or tr
 
 ## Supported Types
 
-### `Operations\One`
+### `Operations\OptimizedForStreaming1`
 
 ```php
 /**
-* @var Operations\One
+* @var Operations\OptimizedForStreaming1
 */
-Operations\One $value = /* values here */
+Operations\OptimizedForStreaming1 $value = /* values here */
 ```
 
 ### `bool`

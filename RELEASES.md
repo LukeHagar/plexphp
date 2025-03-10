@@ -803,3 +803,13 @@ Based on:
 - [php v0.14.0] .
 ### Releases
 - [Composer v0.14.0] https://packagist.org/packages/lukehagar/plex-api#v0.14.0 - .
+
+## 2025-03-10 00:08:50
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.513.4 (2.545.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [php v0.14.1] .
+### Releases
+- [Composer v0.14.1] https://packagist.org/packages/lukehagar/plex-api#v0.14.1 - .

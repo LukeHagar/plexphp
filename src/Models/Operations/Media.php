@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Media
 {
     /**
+     * Unique media identifier.
      *
      * @var int $id
      */
@@ -19,22 +20,7 @@ class Media
     public int $id;
 
     /**
-     *
-     * @var string $container
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
-    public string $container;
-
-    /**
-     * $part
-     *
-     * @var array<Part> $part
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Part>')]
-    public array $part;
-
-    /**
+     * Duration of the media in milliseconds.
      *
      * @var ?int $duration
      */
@@ -43,6 +29,7 @@ class Media
     public ?int $duration = null;
 
     /**
+     * Bitrate in bits per second.
      *
      * @var ?int $bitrate
      */
@@ -51,6 +38,7 @@ class Media
     public ?int $bitrate = null;
 
     /**
+     * Video width in pixels.
      *
      * @var ?int $width
      */
@@ -59,6 +47,7 @@ class Media
     public ?int $width = null;
 
     /**
+     * Video height in pixels.
      *
      * @var ?int $height
      */
@@ -67,6 +56,7 @@ class Media
     public ?int $height = null;
 
     /**
+     * Aspect ratio of the video.
      *
      * @var ?float $aspectRatio
      */
@@ -75,14 +65,7 @@ class Media
     public ?float $aspectRatio = null;
 
     /**
-     *
-     * @var ?string $audioProfile
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('audioProfile')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $audioProfile = null;
-
-    /**
+     * Number of audio channels.
      *
      * @var ?int $audioChannels
      */
@@ -92,6 +75,15 @@ class Media
 
     /**
      *
+     * @var ?int $displayOffset
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('displayOffset')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $displayOffset = null;
+
+    /**
+     * Audio codec used.
+     *
      * @var ?string $audioCodec
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('audioCodec')]
@@ -99,6 +91,7 @@ class Media
     public ?string $audioCodec = null;
 
     /**
+     * Video codec used.
      *
      * @var ?string $videoCodec
      */
@@ -107,6 +100,7 @@ class Media
     public ?string $videoCodec = null;
 
     /**
+     * Video resolution (e.g., 4k).
      *
      * @var ?string $videoResolution
      */
@@ -115,6 +109,18 @@ class Media
     public ?string $videoResolution = null;
 
     /**
+     * File container type.
+     *
+     * @var ?string $container
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $container = null;
+
+    /**
+     * Frame rate of the video. Values found include NTSC, PAL, 24p
+     *
+     *
      *
      * @var ?string $videoFrameRate
      */
@@ -123,6 +129,7 @@ class Media
     public ?string $videoFrameRate = null;
 
     /**
+     * Video profile (e.g., main 10).
      *
      * @var ?string $videoProfile
      */
@@ -131,12 +138,32 @@ class Media
     public ?string $videoProfile = null;
 
     /**
+     * Indicates whether voice activity is detected.
      *
      * @var ?bool $hasVoiceActivity
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('hasVoiceActivity')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $hasVoiceActivity = null;
+
+    /**
+     * The audio profile used for the media (e.g., DTS, Dolby Digital, etc.).
+     *
+     * @var ?string $audioProfile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audioProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $audioProfile = null;
+
+    /**
+     * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
+     *
+     * @var One|bool|null $optimizedForStreaming
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\One|bool|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public One|bool|null $optimizedForStreaming = null;
 
     /**
      *
@@ -147,54 +174,57 @@ class Media
     public ?bool $has64bitOffsets = null;
 
     /**
+     * An array of parts for this media item.
      *
-     * @var ?OptimizedForStreaming $optimizedForStreaming
+     * @var ?array<Part> $part
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\OptimizedForStreaming|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Part')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Part>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?OptimizedForStreaming $optimizedForStreaming = null;
+    public ?array $part = null;
 
     /**
      * @param  int  $id
-     * @param  string  $container
-     * @param  array<Part>  $part
      * @param  ?int  $duration
      * @param  ?int  $bitrate
      * @param  ?int  $width
      * @param  ?int  $height
      * @param  ?float  $aspectRatio
-     * @param  ?string  $audioProfile
      * @param  ?int  $audioChannels
+     * @param  ?int  $displayOffset
      * @param  ?string  $audioCodec
      * @param  ?string  $videoCodec
      * @param  ?string  $videoResolution
+     * @param  ?string  $container
      * @param  ?string  $videoFrameRate
      * @param  ?string  $videoProfile
      * @param  ?bool  $hasVoiceActivity
-     * @param  ?OptimizedForStreaming  $optimizedForStreaming
+     * @param  ?string  $audioProfile
+     * @param  One|bool|null  $optimizedForStreaming
      * @param  ?bool  $has64bitOffsets
+     * @param  ?array<Part>  $part
      * @phpstan-pure
      */
-    public function __construct(int $id, string $container, array $part, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?string $audioProfile = null, ?int $audioChannels = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?bool $hasVoiceActivity = null, ?bool $has64bitOffsets = null, ?OptimizedForStreaming $optimizedForStreaming = OptimizedForStreaming::Disable)
+    public function __construct(int $id, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?int $audioChannels = null, ?int $displayOffset = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?bool $hasVoiceActivity = null, ?string $audioProfile = null, One|bool|null $optimizedForStreaming = null, ?bool $has64bitOffsets = null, ?array $part = null)
     {
         $this->id = $id;
-        $this->container = $container;
-        $this->part = $part;
         $this->duration = $duration;
         $this->bitrate = $bitrate;
         $this->width = $width;
         $this->height = $height;
         $this->aspectRatio = $aspectRatio;
-        $this->audioProfile = $audioProfile;
         $this->audioChannels = $audioChannels;
+        $this->displayOffset = $displayOffset;
         $this->audioCodec = $audioCodec;
         $this->videoCodec = $videoCodec;
         $this->videoResolution = $videoResolution;
+        $this->container = $container;
         $this->videoFrameRate = $videoFrameRate;
         $this->videoProfile = $videoProfile;
         $this->hasVoiceActivity = $hasVoiceActivity;
-        $this->has64bitOffsets = $has64bitOffsets;
+        $this->audioProfile = $audioProfile;
         $this->optimizedForStreaming = $optimizedForStreaming;
+        $this->has64bitOffsets = $has64bitOffsets;
+        $this->part = $part;
     }
 }

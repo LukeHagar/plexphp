@@ -124,12 +124,12 @@ class GetMediaMetaDataPart
     /**
      * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
      *
-     * @var GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming
+     * @var GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataOptimizedForStreaming1|bool|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming = null;
+    public GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null;
 
     /**
      * An array of streams for this part.
@@ -164,12 +164,12 @@ class GetMediaMetaDataPart
      * @param  ?string  $videoProfile
      * @param  ?string  $audioProfile
      * @param  ?bool  $has64bitOffsets
-     * @param  GetMediaMetaDataOptimizedForStreaming1|bool|null  $optimizedForStreaming
+     * @param  GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null  $optimizedForStreaming
      * @param  ?GetMediaMetaDataHasThumbnail  $hasThumbnail
      * @param  ?array<GetMediaMetaDataStream>  $stream
      * @phpstan-pure
      */
-    public function __construct(int $id, string $key, string $file, int $size, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null, ?int $duration = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?GetMediaMetaDataHasThumbnail $hasThumbnail = GetMediaMetaDataHasThumbnail::False)
+    public function __construct(int $id, string $key, string $file, int $size, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null, ?int $duration = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?GetMediaMetaDataHasThumbnail $hasThumbnail = GetMediaMetaDataHasThumbnail::False)
     {
         $this->id = $id;
         $this->key = $key;

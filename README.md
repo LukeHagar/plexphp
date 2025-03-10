@@ -184,7 +184,6 @@ if ($response->object !== null) {
 * [getSearchLibrary](docs/sdks/library/README.md#getsearchlibrary) - Search Library
 * [getFileHash](docs/sdks/library/README.md#getfilehash) - Get Hash Value
 * [getMetadataChildren](docs/sdks/library/README.md#getmetadatachildren) - Get Items Children
-* [getOnDeck](docs/sdks/library/README.md#getondeck) - Get On Deck
 * [getTopWatchedContent](docs/sdks/library/README.md#gettopwatchedcontent) - Get Top Watched Content
 
 ### [log](docs/sdks/log/README.md)

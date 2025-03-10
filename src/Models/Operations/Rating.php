@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-class GetLibraryItemsMetaDataRating
+/** Rating - The type of rating, for example 'audience' or 'critic'. */
+class Rating
 {
     /**
-     * A URI or path to the rating image.
      *
      * @var string $image
      */
@@ -20,7 +20,6 @@ class GetLibraryItemsMetaDataRating
     public string $image;
 
     /**
-     * The value of the rating.
      *
      * @var float $value
      */
@@ -28,7 +27,6 @@ class GetLibraryItemsMetaDataRating
     public float $value;
 
     /**
-     * The type of rating (e.g., audience, critic).
      *
      * @var string $type
      */

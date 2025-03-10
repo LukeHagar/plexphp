@@ -906,33 +906,6 @@ actions:
             if ($response->bytes !== null) {
                 // handle response
             }
-  - target: $["paths"]["/library/onDeck"]["get"]
-    update:
-      x-codeSamples:
-        - lang: php
-          label: getOnDeck
-          source: |-
-            declare(strict_types=1);
-
-            require 'vendor/autoload.php';
-
-            use LukeHagar\Plex_API;
-
-            $sdk = Plex_API\PlexAPI::builder()
-                ->setSecurity(
-                    '<YOUR_API_KEY_HERE>'
-                )
-                ->build();
-
-
-
-            $response = $sdk->library->getOnDeck(
-
-            );
-
-            if ($response->object !== null) {
-                // handle response
-            }
   - target: $["paths"]["/library/recentlyAdded"]["get"]
     update:
       x-codeSamples:

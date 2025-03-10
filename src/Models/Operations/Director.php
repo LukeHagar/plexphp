@@ -12,18 +12,18 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Director
 {
     /**
+     * The role of Director
      *
-     * @var ?string $tag
+     * @var string $tag
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tag = null;
+    public string $tag;
 
     /**
-     * @param  ?string  $tag
+     * @param  string  $tag
      * @phpstan-pure
      */
-    public function __construct(?string $tag = null)
+    public function __construct(string $tag)
     {
         $this->tag = $tag;
     }

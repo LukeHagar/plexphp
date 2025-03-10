@@ -12,7 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Producer
 {
     /**
-     * The unique role identifier.
+     * Unique identifier for the producer.
      *
      * @var int $id
      */
@@ -20,7 +20,7 @@ class Producer
     public int $id;
 
     /**
-     * The filter string for the role.
+     * The filter string used to query this producer.
      *
      * @var string $filter
      */
@@ -28,7 +28,7 @@ class Producer
     public string $filter;
 
     /**
-     * The actor's name.
+     * The name of the producer
      *
      * @var string $tag
      */
@@ -36,24 +36,16 @@ class Producer
     public string $tag;
 
     /**
-     * A key associated with the actor tag.
+     * A unique key associated with the producer's tag, used for internal identification.
      *
-     * @var string $tagKey
+     * @var ?string $tagKey
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    public string $tagKey;
-
-    /**
-     * The character name or role.
-     *
-     * @var ?string $role
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('role')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $role = null;
+    public ?string $tagKey = null;
 
     /**
-     * URL for the role thumbnail image.
+     * The URL of the thumbnail image for the actor.
      *
      * @var ?string $thumb
      */
@@ -65,18 +57,16 @@ class Producer
      * @param  int  $id
      * @param  string  $filter
      * @param  string  $tag
-     * @param  string  $tagKey
-     * @param  ?string  $role
+     * @param  ?string  $tagKey
      * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag, string $tagKey, ?string $role = null, ?string $thumb = null)
+    public function __construct(int $id, string $filter, string $tag, ?string $tagKey = null, ?string $thumb = null)
     {
         $this->id = $id;
         $this->filter = $filter;
         $this->tag = $tag;
         $this->tagKey = $tagKey;
-        $this->role = $role;
         $this->thumb = $thumb;
     }
 }

@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Part
 {
     /**
+     * Unique part identifier.
      *
      * @var int $id
      */
@@ -19,6 +20,7 @@ class Part
     public int $id;
 
     /**
+     * Key to access this part.
      *
      * @var string $key
      */
@@ -26,6 +28,7 @@ class Part
     public string $key;
 
     /**
+     * File path for the part.
      *
      * @var string $file
      */
@@ -33,6 +36,7 @@ class Part
     public string $file;
 
     /**
+     * File size in bytes.
      *
      * @var int $size
      */
@@ -40,16 +44,33 @@ class Part
     public int $size;
 
     /**
-     * The container format of the media file.
+     * Indicates if the part is accessible.
      *
-     *
-     *
-     * @var string $container
+     * @var ?bool $accessible
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
-    public string $container;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accessible')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $accessible = null;
 
     /**
+     * Indicates if the part exists.
+     *
+     * @var ?bool $exists
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('exists')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $exists = null;
+
+    /**
+     *
+     * @var ?string $indexes
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('indexes')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $indexes = null;
+
+    /**
+     * Duration of the part in milliseconds.
      *
      * @var ?int $duration
      */
@@ -58,6 +79,33 @@ class Part
     public ?int $duration = null;
 
     /**
+     *
+     * @var ?int $packetLength
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('packetLength')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $packetLength = null;
+
+    /**
+     * Container format of the part.
+     *
+     * @var ?string $container
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $container = null;
+
+    /**
+     * Video profile for the part.
+     *
+     * @var ?string $videoProfile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoProfile = null;
+
+    /**
+     * The audio profile used for the media (e.g., DTS, Dolby Digital, etc.).
      *
      * @var ?string $audioProfile
      */
@@ -74,31 +122,17 @@ class Part
     public ?bool $has64bitOffsets = null;
 
     /**
+     * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
      *
-     * @var ?bool $optimizedForStreaming
+     * @var GetRecentlyAddedOptimizedForStreaming1|bool|null $optimizedForStreaming
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetRecentlyAddedOptimizedForStreaming1|bool|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $optimizedForStreaming = null;
+    public GetRecentlyAddedOptimizedForStreaming1|bool|null $optimizedForStreaming = null;
 
     /**
-     *
-     * @var ?string $videoProfile
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoProfile = null;
-
-    /**
-     *
-     * @var ?string $indexes
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('indexes')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $indexes = null;
-
-    /**
-     * $stream
+     * An array of streams for this part.
      *
      * @var ?array<Stream> $stream
      */
@@ -121,30 +155,36 @@ class Part
      * @param  string  $key
      * @param  string  $file
      * @param  int  $size
-     * @param  string  $container
+     * @param  ?bool  $accessible
+     * @param  ?bool  $exists
+     * @param  ?string  $indexes
      * @param  ?int  $duration
+     * @param  ?int  $packetLength
+     * @param  ?string  $container
+     * @param  ?string  $videoProfile
      * @param  ?string  $audioProfile
      * @param  ?bool  $has64bitOffsets
-     * @param  ?bool  $optimizedForStreaming
-     * @param  ?string  $videoProfile
-     * @param  ?string  $indexes
+     * @param  GetRecentlyAddedOptimizedForStreaming1|bool|null  $optimizedForStreaming
      * @param  ?HasThumbnail  $hasThumbnail
      * @param  ?array<Stream>  $stream
      * @phpstan-pure
      */
-    public function __construct(int $id, string $key, string $file, int $size, string $container, ?int $duration = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null, ?string $indexes = null, ?array $stream = null, ?HasThumbnail $hasThumbnail = HasThumbnail::False)
+    public function __construct(int $id, string $key, string $file, int $size, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null, ?int $duration = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetRecentlyAddedOptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?HasThumbnail $hasThumbnail = HasThumbnail::False)
     {
         $this->id = $id;
         $this->key = $key;
         $this->file = $file;
         $this->size = $size;
-        $this->container = $container;
+        $this->accessible = $accessible;
+        $this->exists = $exists;
+        $this->indexes = $indexes;
         $this->duration = $duration;
+        $this->packetLength = $packetLength;
+        $this->container = $container;
+        $this->videoProfile = $videoProfile;
         $this->audioProfile = $audioProfile;
         $this->has64bitOffsets = $has64bitOffsets;
         $this->optimizedForStreaming = $optimizedForStreaming;
-        $this->videoProfile = $videoProfile;
-        $this->indexes = $indexes;
         $this->stream = $stream;
         $this->hasThumbnail = $hasThumbnail;
     }

@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-enum OptimizedForStreaming: int
+enum GetMediaMetaDataOptimizedForStreamingLibrary1: int
 {
-    case Disable = 0;
-    case Enable = 1;
+    case Zero = 0;
+    case One = 1;
 }

@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/** Similar - The display tag for the similar item, typically the title. */
 class Similar
 {
     /**
-     * The unique similar item identifier.
      *
      * @var int $id
      */
@@ -20,7 +20,6 @@ class Similar
     public int $id;
 
     /**
-     * The filter string for similar items.
      *
      * @var string $filter
      */
@@ -28,7 +27,6 @@ class Similar
     public string $filter;
 
     /**
-     * The tag or title of the similar content.
      *
      * @var string $tag
      */

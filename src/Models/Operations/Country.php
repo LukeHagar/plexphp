@@ -9,22 +9,42 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/** Country - The filter query string for country media items. */
 class Country
 {
     /**
      *
-     * @var ?string $tag
+     * @var int $id
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tag = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public int $id;
 
     /**
-     * @param  ?string  $tag
+     * The country of origin of this media item
+     *
+     * @var string $tag
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
+    public string $tag;
+
+    /**
+     *
+     * @var ?string $filter
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $filter = null;
+
+    /**
+     * @param  int  $id
+     * @param  string  $tag
+     * @param  ?string  $filter
      * @phpstan-pure
      */
-    public function __construct(?string $tag = null)
+    public function __construct(int $id, string $tag, ?string $filter = null)
     {
+        $this->id = $id;
         $this->tag = $tag;
+        $this->filter = $filter;
     }
 }

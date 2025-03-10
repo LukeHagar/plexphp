@@ -97,14 +97,6 @@ class GetAllMediaLibraryMetadata
     public float $audienceRating;
 
     /**
-     * The release year of the media item.
-     *
-     * @var int $year
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('year')]
-    public int $year;
-
-    /**
      * A brief tagline for the media item.
      *
      * @var string $tagline
@@ -200,6 +192,15 @@ class GetAllMediaLibraryMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('contentRating')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $contentRating = null;
+
+    /**
+     * The release year of the media item.
+     *
+     * @var ?int $year
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('year')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $year = null;
 
     /**
      * The number of leaf items (end nodes) under this media item.
@@ -562,10 +563,10 @@ class GetAllMediaLibraryMetadata
     /**
      * $guids
      *
-     * @var ?array<Guids> $guids
+     * @var ?array<GetAllMediaLibraryGuids> $guids
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Guids>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetAllMediaLibraryGuids>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $guids = null;
 
@@ -590,7 +591,6 @@ class GetAllMediaLibraryMetadata
      * @param  string  $summary
      * @param  float  $rating
      * @param  float  $audienceRating
-     * @param  int  $year
      * @param  string  $tagline
      * @param  string  $thumb
      * @param  string  $art
@@ -603,6 +603,7 @@ class GetAllMediaLibraryMetadata
      * @param  int  $addedAt
      * @param  ?string  $studio
      * @param  ?string  $contentRating
+     * @param  ?int  $year
      * @param  ?int  $leafCount
      * @param  ?int  $viewedLeafCount
      * @param  ?int  $updatedAt
@@ -642,11 +643,11 @@ class GetAllMediaLibraryMetadata
      * @param  ?array<GetAllMediaLibraryDirector>  $director
      * @param  ?array<GetAllMediaLibraryWriter>  $writer
      * @param  ?array<GetAllMediaLibraryRole>  $role
-     * @param  ?array<Guids>  $guids
+     * @param  ?array<GetAllMediaLibraryGuids>  $guids
      * @param  ?array<GetAllMediaLibraryCollection>  $collection
      * @phpstan-pure
      */
-    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetAllMediaLibraryLibraryType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, int $year, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, LocalDate $originallyAvailableAt, int $addedAt, ?string $studio = null, ?string $contentRating = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetAllMediaLibraryUltraBlurColors $ultraBlurColors = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $guids = null, ?array $collection = null)
+    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetAllMediaLibraryLibraryType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, LocalDate $originallyAvailableAt, int $addedAt, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetAllMediaLibraryUltraBlurColors $ultraBlurColors = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $guids = null, ?array $collection = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -658,7 +659,6 @@ class GetAllMediaLibraryMetadata
         $this->summary = $summary;
         $this->rating = $rating;
         $this->audienceRating = $audienceRating;
-        $this->year = $year;
         $this->tagline = $tagline;
         $this->thumb = $thumb;
         $this->art = $art;
@@ -671,6 +671,7 @@ class GetAllMediaLibraryMetadata
         $this->addedAt = $addedAt;
         $this->studio = $studio;
         $this->contentRating = $contentRating;
+        $this->year = $year;
         $this->leafCount = $leafCount;
         $this->viewedLeafCount = $viewedLeafCount;
         $this->updatedAt = $updatedAt;
