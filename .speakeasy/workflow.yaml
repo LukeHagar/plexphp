@@ -13,8 +13,8 @@ targets:
                 username: lukehagar
                 token: $packagist_token
         codeSamples:
-            labelOverride: 
-                fixedValue: PlexPHP
             output: codeSamples.yaml
             registry:
                 location: registry.speakeasyapi.dev/plexapi/plexapi/code-samples-php-plexphp
+            labelOverride:
+                fixedValue: PlexPHP
