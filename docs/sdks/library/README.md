@@ -16,7 +16,9 @@ API Calls interacting with Plex Media Server Libraries
 * [getGenresLibrary](#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](#getlibrarydetails) - Get Library Details
 * [getLibraryItems](#getlibraryitems) - Get Library Items
+* [getMediaArts](#getmediaarts) - Get Media Background Artwork
 * [getMediaMetaData](#getmediametadata) - Get Media Metadata
+* [getMediaPosters](#getmediaposters) - Get Media Posters
 * [getRecentlyAddedLibrary](#getrecentlyaddedlibrary) - Get Recently Added
 * [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
 * [getSearchAllLibraries](#getsearchalllibraries) - Search All Libraries
@@ -24,6 +26,8 @@ API Calls interacting with Plex Media Server Libraries
 * [getFileHash](#getfilehash) - Get Hash Value
 * [getMetadataChildren](#getmetadatachildren) - Get Items Children
 * [getTopWatchedContent](#gettopwatchedcontent) - Get Top Watched Content
+* [postMediaArts](#postmediaarts) - Upload Media Background Artwork
+* [postMediaPoster](#postmediaposter) - Upload Media Poster
 
 ## deleteLibrary
 
@@ -498,6 +502,52 @@ if ($response->object !== null) {
 | Errors\GetLibraryItemsUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
+## getMediaArts
+
+Returns the background artwork for a library item.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getMediaArts(
+    ratingKey: 16099
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                            | Type                                                 | Required                                             | Description                                          | Example                                              |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `ratingKey`                                          | *int*                                                | :heavy_check_mark:                                   | the id of the library item to return the artwork of. | 16099                                                |
+
+### Response
+
+**[?Operations\GetMediaArtsResponse](../../Models/Operations/GetMediaArtsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
 ## getMediaMetaData
 
 This endpoint will return all the (meta)data of a library item specified with by the ratingKey.
@@ -562,6 +612,52 @@ if ($response->object !== null) {
 | Errors\GetMediaMetaDataBadRequest   | 400                                 | application/json                    |
 | Errors\GetMediaMetaDataUnauthorized | 401                                 | application/json                    |
 | Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
+
+## getMediaPosters
+
+Returns the available posters for a library item.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getMediaPosters(
+    ratingKey: 16099
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                            | Type                                                 | Required                                             | Description                                          | Example                                              |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `ratingKey`                                          | *int*                                                | :heavy_check_mark:                                   | the id of the library item to return the posters of. | 16099                                                |
+
+### Response
+
+**[?Operations\GetMediaPostersResponse](../../Models/Operations/GetMediaPostersResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
 ## getRecentlyAddedLibrary
 
@@ -965,3 +1061,105 @@ if ($response->object !== null) {
 | Errors\GetTopWatchedContentBadRequest   | 400                                     | application/json                        |
 | Errors\GetTopWatchedContentUnauthorized | 401                                     | application/json                        |
 | Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |
+
+## postMediaArts
+
+Uploads an image to use as the background artwork for a library item, either from a local file or a remote URL
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->postMediaArts(
+    ratingKey: 2268,
+    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
+    requestBody: '0xee51EFC6De'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ratingKey`                                                        | *int*                                                              | :heavy_check_mark:                                                 | the id of the library item to return the posters of.               | 2268                                                               |
+| `url`                                                              | *?string*                                                          | :heavy_minus_sign:                                                 | The URL of the image, if uploading a remote image                  | https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b |
+| `requestBody`                                                      | *?string*                                                          | :heavy_minus_sign:                                                 | The contents of the image, if uploading a local file               |                                                                    |
+
+### Response
+
+**[?Operations\PostMediaArtsResponse](../../Models/Operations/PostMediaArtsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## postMediaPoster
+
+Uploads a poster to a library item, either from a local file or a remote URL
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->postMediaPoster(
+    ratingKey: 2268,
+    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
+    requestBody: '0x7C3d45ad4B'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ratingKey`                                                        | *int*                                                              | :heavy_check_mark:                                                 | the id of the library item to return the posters of.               | 2268                                                               |
+| `url`                                                              | *?string*                                                          | :heavy_minus_sign:                                                 | The URL of the image, if uploading a remote image                  | https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b |
+| `requestBody`                                                      | *?string*                                                          | :heavy_minus_sign:                                                 | The contents of the image, if uploading a local file               |                                                                    |
+
+### Response
+
+**[?Operations\PostMediaPosterResponse](../../Models/Operations/PostMediaPosterResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |

@@ -177,7 +177,9 @@ if ($response->object !== null) {
 * [getGenresLibrary](docs/sdks/library/README.md#getgenreslibrary) - Get Genres of library media
 * [getLibraryDetails](docs/sdks/library/README.md#getlibrarydetails) - Get Library Details
 * [getLibraryItems](docs/sdks/library/README.md#getlibraryitems) - Get Library Items
+* [getMediaArts](docs/sdks/library/README.md#getmediaarts) - Get Media Background Artwork
 * [getMediaMetaData](docs/sdks/library/README.md#getmediametadata) - Get Media Metadata
+* [getMediaPosters](docs/sdks/library/README.md#getmediaposters) - Get Media Posters
 * [getRecentlyAddedLibrary](docs/sdks/library/README.md#getrecentlyaddedlibrary) - Get Recently Added
 * [getRefreshLibraryMetadata](docs/sdks/library/README.md#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
 * [getSearchAllLibraries](docs/sdks/library/README.md#getsearchalllibraries) - Search All Libraries
@@ -185,6 +187,8 @@ if ($response->object !== null) {
 * [getFileHash](docs/sdks/library/README.md#getfilehash) - Get Hash Value
 * [getMetadataChildren](docs/sdks/library/README.md#getmetadatachildren) - Get Items Children
 * [getTopWatchedContent](docs/sdks/library/README.md#gettopwatchedcontent) - Get Top Watched Content
+* [postMediaArts](docs/sdks/library/README.md#postmediaarts) - Upload Media Background Artwork
+* [postMediaPoster](docs/sdks/library/README.md#postmediaposter) - Upload Media Poster
 
 ### [log](docs/sdks/log/README.md)
 
