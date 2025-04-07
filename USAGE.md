@@ -14,8 +14,8 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->server->getMediaProviders(
-    xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
+$response = $sdk->server->getServerCapabilities(
+
 );
 
 if ($response->object !== null) {

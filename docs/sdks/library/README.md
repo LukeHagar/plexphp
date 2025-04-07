@@ -8,30 +8,30 @@ API Calls interacting with Plex Media Server Libraries
 
 ### Available Operations
 
-* [deleteLibrary](#deletelibrary) - Delete Library Section
-* [getActorsLibrary](#getactorslibrary) - Get Actors of library media
-* [getAllLibraries](#getalllibraries) - Get All Libraries
-* [getAllMediaLibrary](#getallmedialibrary) - Get all media of library
-* [getCountriesLibrary](#getcountrieslibrary) - Get Countries of library media
-* [getGenresLibrary](#getgenreslibrary) - Get Genres of library media
-* [getLibraryDetails](#getlibrarydetails) - Get Library Details
-* [getLibraryItems](#getlibraryitems) - Get Library Items
-* [getMediaArts](#getmediaarts) - Get Media Background Artwork
-* [getMediaMetaData](#getmediametadata) - Get Media Metadata
-* [getMediaPosters](#getmediaposters) - Get Media Posters
-* [getRecentlyAddedLibrary](#getrecentlyaddedlibrary) - Get Recently Added
-* [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
-* [getSearchAllLibraries](#getsearchalllibraries) - Search All Libraries
-* [getSearchLibrary](#getsearchlibrary) - Search Library
 * [getFileHash](#getfilehash) - Get Hash Value
+* [getRecentlyAddedLibrary](#getrecentlyaddedlibrary) - Get Recently Added
+* [getAllLibraries](#getalllibraries) - Get All Libraries
+* [getLibraryDetails](#getlibrarydetails) - Get Library Details
+* [deleteLibrary](#deletelibrary) - Delete Library Section
+* [getLibraryItems](#getlibraryitems) - Get Library Items
+* [getAllMediaLibrary](#getallmedialibrary) - Get all media of library
+* [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
+* [getSearchLibrary](#getsearchlibrary) - Search Library
+* [getGenresLibrary](#getgenreslibrary) - Get Genres of library media
+* [getCountriesLibrary](#getcountrieslibrary) - Get Countries of library media
+* [getActorsLibrary](#getactorslibrary) - Get Actors of library media
+* [getSearchAllLibraries](#getsearchalllibraries) - Search All Libraries
+* [getMediaMetaData](#getmediametadata) - Get Media Metadata
+* [getMediaArts](#getmediaarts) - Get Media Background Artwork
+* [postMediaArts](#postmediaarts) - Upload Media Background Artwork
+* [getMediaPosters](#getmediaposters) - Get Media Posters
+* [postMediaPoster](#postmediaposter) - Upload Media Poster
 * [getMetadataChildren](#getmetadatachildren) - Get Items Children
 * [getTopWatchedContent](#gettopwatchedcontent) - Get Top Watched Content
-* [postMediaArts](#postmediaarts) - Upload Media Background Artwork
-* [postMediaPoster](#postmediaposter) - Upload Media Poster
 
-## deleteLibrary
+## getFileHash
 
-Delete a library using a specific section id
+This resource returns hash values for local files
 
 ### Example Usage
 
@@ -50,8 +50,10 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->library->deleteLibrary(
-    sectionKey: 9518
+$response = $sdk->library->getFileHash(
+    url: 'file://C:\Image.png&type=13',
+    type: 4462.17
+
 );
 
 if ($response->statusCode === 200) {
@@ -61,25 +63,26 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `url`                                                             | *string*                                                          | :heavy_check_mark:                                                | This is the path to the local file, must be prefixed by `file://` | file://C:\Image.png&type=13                                       |
+| `type`                                                            | *?float*                                                          | :heavy_minus_sign:                                                | Item type                                                         |                                                                   |
 
 ### Response
 
-**[?Operations\DeleteLibraryResponse](../../Models/Operations/DeleteLibraryResponse.md)**
+**[?Operations\GetFileHashResponse](../../Models/Operations/GetFileHashResponse.md)**
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| Errors\DeleteLibraryBadRequest   | 400                              | application/json                 |
-| Errors\DeleteLibraryUnauthorized | 401                              | application/json                 |
-| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetFileHashBadRequest   | 400                            | application/json               |
+| Errors\GetFileHashUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
-## getActorsLibrary
+## getRecentlyAddedLibrary
 
-Retrieves a list of all the actors that are found for the media in this library.
+This endpoint will return the recently added content.
 
 
 ### Example Usage
@@ -98,12 +101,28 @@ $sdk = Plex_API\PlexAPI::builder()
     )
     ->build();
 
+$request = new Operations\GetRecentlyAddedLibraryRequest(
+    contentDirectoryID: 2,
+    pinnedContentDirectoryID: [
+        3,
+        5,
+        7,
+        13,
+        12,
+        1,
+        6,
+        14,
+        2,
+        10,
+        16,
+        17,
+    ],
+    sectionID: 2,
+    type: Operations\QueryParamType::TvShow,
+);
 
-
-$response = $sdk->library->getActorsLibrary(
-    sectionKey: 9518,
-    type: Operations\GetActorsLibraryQueryParamType::TvShow
-
+$response = $sdk->library->getRecentlyAddedLibrary(
+    request: $request
 );
 
 if ($response->object !== null) {
@@ -113,22 +132,21 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
-| `type`                                                                                                                                                                                       | [Operations\GetActorsLibraryQueryParamType](../../Models/Operations/GetActorsLibraryQueryParamType.md)                                                                                       | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `$request`                                                                                             | [Operations\GetRecentlyAddedLibraryRequest](../../Models/Operations/GetRecentlyAddedLibraryRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 ### Response
 
-**[?Operations\GetActorsLibraryResponse](../../Models/Operations/GetActorsLibraryResponse.md)**
+**[?Operations\GetRecentlyAddedLibraryResponse](../../Models/Operations/GetRecentlyAddedLibraryResponse.md)**
 
 ### Errors
 
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Errors\GetActorsLibraryBadRequest   | 400                                 | application/json                    |
-| Errors\GetActorsLibraryUnauthorized | 401                                 | application/json                    |
-| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Errors\GetRecentlyAddedLibraryBadRequest   | 400                                        | application/json                           |
+| Errors\GetRecentlyAddedLibraryUnauthorized | 401                                        | application/json                           |
+| Errors\SDKException                        | 4XX, 5XX                                   | \*/\*                                      |
 
 ## getAllLibraries
 
@@ -177,165 +195,6 @@ if ($response->object !== null) {
 | Errors\GetAllLibrariesBadRequest   | 400                                | application/json                   |
 | Errors\GetAllLibrariesUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
-
-## getAllMediaLibrary
-
-Retrieves a list of all general media data for this library.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-$request = new Operations\GetAllMediaLibraryRequest(
-    sectionKey: 9518,
-    type: Operations\GetAllMediaLibraryQueryParamType::TvShow,
-);
-
-$response = $sdk->library->getAllMediaLibrary(
-    request: $request
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `$request`                                                                                   | [Operations\GetAllMediaLibraryRequest](../../Models/Operations/GetAllMediaLibraryRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-
-### Response
-
-**[?Operations\GetAllMediaLibraryResponse](../../Models/Operations/GetAllMediaLibraryResponse.md)**
-
-### Errors
-
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Errors\GetAllMediaLibraryBadRequest   | 400                                   | application/json                      |
-| Errors\GetAllMediaLibraryUnauthorized | 401                                   | application/json                      |
-| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
-
-## getCountriesLibrary
-
-Retrieves a list of all the countries that are found for the media in this library.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->library->getCountriesLibrary(
-    sectionKey: 9518,
-    type: Operations\GetCountriesLibraryQueryParamType::TvShow
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
-| `type`                                                                                                                                                                                       | [Operations\GetCountriesLibraryQueryParamType](../../Models/Operations/GetCountriesLibraryQueryParamType.md)                                                                                 | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
-
-### Response
-
-**[?Operations\GetCountriesLibraryResponse](../../Models/Operations/GetCountriesLibraryResponse.md)**
-
-### Errors
-
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Errors\GetCountriesLibraryBadRequest   | 400                                    | application/json                       |
-| Errors\GetCountriesLibraryUnauthorized | 401                                    | application/json                       |
-| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
-
-## getGenresLibrary
-
-Retrieves a list of all the genres that are found for the media in this library.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->library->getGenresLibrary(
-    sectionKey: 9518,
-    type: Operations\GetGenresLibraryQueryParamType::TvShow
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
-| `type`                                                                                                                                                                                       | [Operations\GetGenresLibraryQueryParamType](../../Models/Operations/GetGenresLibraryQueryParamType.md)                                                                                       | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
-
-### Response
-
-**[?Operations\GetGenresLibraryResponse](../../Models/Operations/GetGenresLibraryResponse.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Errors\GetGenresLibraryBadRequest   | 400                                 | application/json                    |
-| Errors\GetGenresLibraryUnauthorized | 401                                 | application/json                    |
-| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
 ## getLibraryDetails
 
@@ -428,6 +287,54 @@ if ($response->object !== null) {
 | Errors\GetLibraryDetailsUnauthorized | 401                                  | application/json                     |
 | Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
+## deleteLibrary
+
+Delete a library using a specific section id
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->deleteLibrary(
+    sectionKey: 9518
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                  | *int*                                                                                         | :heavy_check_mark:                                                                            | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/> | 9518                                                                                          |
+
+### Response
+
+**[?Operations\DeleteLibraryResponse](../../Models/Operations/DeleteLibraryResponse.md)**
+
+### Errors
+
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\DeleteLibraryBadRequest   | 400                              | application/json                 |
+| Errors\DeleteLibraryUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
+
 ## getLibraryItems
 
 Fetches details from a specific section of the library identified by a section key and a tag. The tag parameter accepts the following values:
@@ -502,55 +409,9 @@ if ($response->object !== null) {
 | Errors\GetLibraryItemsUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
-## getMediaArts
+## getAllMediaLibrary
 
-Returns the background artwork for a library item.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->library->getMediaArts(
-    ratingKey: 16099
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                            | Type                                                 | Required                                             | Description                                          | Example                                              |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `ratingKey`                                          | *int*                                                | :heavy_check_mark:                                   | the id of the library item to return the artwork of. | 16099                                                |
-
-### Response
-
-**[?Operations\GetMediaArtsResponse](../../Models/Operations/GetMediaArtsResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\SDKException | 4XX, 5XX            | \*/\*               |
-
-## getMediaMetaData
-
-This endpoint will return all the (meta)data of a library item specified with by the ratingKey.
+Retrieves a list of all general media data for this library.
 
 
 ### Example Usage
@@ -569,24 +430,12 @@ $sdk = Plex_API\PlexAPI::builder()
     )
     ->build();
 
-$request = new Operations\GetMediaMetaDataRequest(
-    ratingKey: 9518,
-    includeConcerts: true,
-    includeExtras: true,
-    includeOnDeck: true,
-    includePopularLeaves: true,
-    includePreferences: true,
-    includeReviews: true,
-    includeChapters: true,
-    includeStations: true,
-    includeExternalMedia: true,
-    asyncAugmentMetadata: true,
-    asyncCheckFiles: true,
-    asyncRefreshAnalysis: true,
-    asyncRefreshLocalMediaAgent: true,
+$request = new Operations\GetAllMediaLibraryRequest(
+    sectionKey: 9518,
+    type: Operations\GetAllMediaLibraryQueryParamType::TvShow,
 );
 
-$response = $sdk->library->getMediaMetaData(
+$response = $sdk->library->getAllMediaLibrary(
     request: $request
 );
 
@@ -597,135 +446,21 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `$request`                                                                               | [Operations\GetMediaMetaDataRequest](../../Models/Operations/GetMediaMetaDataRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `$request`                                                                                   | [Operations\GetAllMediaLibraryRequest](../../Models/Operations/GetAllMediaLibraryRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 ### Response
 
-**[?Operations\GetMediaMetaDataResponse](../../Models/Operations/GetMediaMetaDataResponse.md)**
+**[?Operations\GetAllMediaLibraryResponse](../../Models/Operations/GetAllMediaLibraryResponse.md)**
 
 ### Errors
 
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Errors\GetMediaMetaDataBadRequest   | 400                                 | application/json                    |
-| Errors\GetMediaMetaDataUnauthorized | 401                                 | application/json                    |
-| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
-
-## getMediaPosters
-
-Returns the available posters for a library item.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->library->getMediaPosters(
-    ratingKey: 16099
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                            | Type                                                 | Required                                             | Description                                          | Example                                              |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `ratingKey`                                          | *int*                                                | :heavy_check_mark:                                   | the id of the library item to return the posters of. | 16099                                                |
-
-### Response
-
-**[?Operations\GetMediaPostersResponse](../../Models/Operations/GetMediaPostersResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\SDKException | 4XX, 5XX            | \*/\*               |
-
-## getRecentlyAddedLibrary
-
-This endpoint will return the recently added content.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-$request = new Operations\GetRecentlyAddedLibraryRequest(
-    type: Operations\QueryParamType::TvShow,
-    contentDirectoryID: 2,
-    pinnedContentDirectoryID: [
-        3,
-        5,
-        7,
-        13,
-        12,
-        1,
-        6,
-        14,
-        2,
-        10,
-        16,
-        17,
-    ],
-    sectionID: 2,
-);
-
-$response = $sdk->library->getRecentlyAddedLibrary(
-    request: $request
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `$request`                                                                                             | [Operations\GetRecentlyAddedLibraryRequest](../../Models/Operations/GetRecentlyAddedLibraryRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-
-### Response
-
-**[?Operations\GetRecentlyAddedLibraryResponse](../../Models/Operations/GetRecentlyAddedLibraryResponse.md)**
-
-### Errors
-
-| Error Type                                 | Status Code                                | Content Type                               |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Errors\GetRecentlyAddedLibraryBadRequest   | 400                                        | application/json                           |
-| Errors\GetRecentlyAddedLibraryUnauthorized | 401                                        | application/json                           |
-| Errors\SDKException                        | 4XX, 5XX                                   | \*/\*                                      |
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Errors\GetAllMediaLibraryBadRequest   | 400                                   | application/json                      |
+| Errors\GetAllMediaLibraryUnauthorized | 401                                   | application/json                      |
+| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
 
 ## getRefreshLibraryMetadata
 
@@ -779,62 +514,6 @@ if ($response->statusCode === 200) {
 | Errors\GetRefreshLibraryMetadataBadRequest   | 400                                          | application/json                             |
 | Errors\GetRefreshLibraryMetadataUnauthorized | 401                                          | application/json                             |
 | Errors\SDKException                          | 4XX, 5XX                                     | \*/\*                                        |
-
-## getSearchAllLibraries
-
-Search the provided query across all library sections, or a single section, and return matches as hubs, split up by type.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-$request = new Operations\GetSearchAllLibrariesRequest(
-    query: '<value>',
-    clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
-    searchTypes: [
-        Operations\SearchTypes::People,
-    ],
-);
-
-$response = $sdk->library->getSearchAllLibraries(
-    request: $request
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `$request`                                                                                         | [Operations\GetSearchAllLibrariesRequest](../../Models/Operations/GetSearchAllLibrariesRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-
-### Response
-
-**[?Operations\GetSearchAllLibrariesResponse](../../Models/Operations/GetSearchAllLibrariesResponse.md)**
-
-### Errors
-
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Errors\GetSearchAllLibrariesBadRequest   | 400                                      | application/json                         |
-| Errors\GetSearchAllLibrariesUnauthorized | 401                                      | application/json                         |
-| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
 ## getSearchLibrary
 
@@ -906,9 +585,289 @@ if ($response->object !== null) {
 | Errors\GetSearchLibraryUnauthorized | 401                                 | application/json                    |
 | Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
 
-## getFileHash
+## getGenresLibrary
 
-This resource returns hash values for local files
+Retrieves a list of all the genres that are found for the media in this library.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getGenresLibrary(
+    sectionKey: 9518,
+    type: Operations\GetGenresLibraryQueryParamType::TvShow
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
+| `type`                                                                                                                                                                                       | [Operations\GetGenresLibraryQueryParamType](../../Models/Operations/GetGenresLibraryQueryParamType.md)                                                                                       | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
+
+### Response
+
+**[?Operations\GetGenresLibraryResponse](../../Models/Operations/GetGenresLibraryResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetGenresLibraryBadRequest   | 400                                 | application/json                    |
+| Errors\GetGenresLibraryUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
+
+## getCountriesLibrary
+
+Retrieves a list of all the countries that are found for the media in this library.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getCountriesLibrary(
+    sectionKey: 9518,
+    type: Operations\GetCountriesLibraryQueryParamType::TvShow
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
+| `type`                                                                                                                                                                                       | [Operations\GetCountriesLibraryQueryParamType](../../Models/Operations/GetCountriesLibraryQueryParamType.md)                                                                                 | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
+
+### Response
+
+**[?Operations\GetCountriesLibraryResponse](../../Models/Operations/GetCountriesLibraryResponse.md)**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetCountriesLibraryBadRequest   | 400                                    | application/json                       |
+| Errors\GetCountriesLibraryUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
+
+## getActorsLibrary
+
+Retrieves a list of all the actors that are found for the media in this library.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getActorsLibrary(
+    sectionKey: 9518,
+    type: Operations\GetActorsLibraryQueryParamType::TvShow
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sectionKey`                                                                                                                                                                                 | *int*                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                           | The unique key of the Plex library. <br/>Note: This is unique in the context of the Plex server.<br/>                                                                                        | 9518                                                                                                                                                                                         |
+| `type`                                                                                                                                                                                       | [Operations\GetActorsLibraryQueryParamType](../../Models/Operations/GetActorsLibraryQueryParamType.md)                                                                                       | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
+
+### Response
+
+**[?Operations\GetActorsLibraryResponse](../../Models/Operations/GetActorsLibraryResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetActorsLibraryBadRequest   | 400                                 | application/json                    |
+| Errors\GetActorsLibraryUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
+
+## getSearchAllLibraries
+
+Search the provided query across all library sections, or a single section, and return matches as hubs, split up by type.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+$request = new Operations\GetSearchAllLibrariesRequest(
+    query: '<value>',
+    clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
+    searchTypes: [
+        Operations\SearchTypes::People,
+    ],
+);
+
+$response = $sdk->library->getSearchAllLibraries(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                         | [Operations\GetSearchAllLibrariesRequest](../../Models/Operations/GetSearchAllLibrariesRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+
+### Response
+
+**[?Operations\GetSearchAllLibrariesResponse](../../Models/Operations/GetSearchAllLibrariesResponse.md)**
+
+### Errors
+
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\GetSearchAllLibrariesBadRequest   | 400                                      | application/json                         |
+| Errors\GetSearchAllLibrariesUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
+
+## getMediaMetaData
+
+This endpoint will return all the (meta)data of a library item specified with by the ratingKey.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+$request = new Operations\GetMediaMetaDataRequest(
+    ratingKey: 9518,
+    includeConcerts: true,
+    includeExtras: true,
+    includeOnDeck: true,
+    includePopularLeaves: true,
+    includePreferences: true,
+    includeReviews: true,
+    includeChapters: true,
+    includeStations: true,
+    includeExternalMedia: true,
+    asyncAugmentMetadata: true,
+    asyncCheckFiles: true,
+    asyncRefreshAnalysis: true,
+    asyncRefreshLocalMediaAgent: true,
+);
+
+$response = $sdk->library->getMediaMetaData(
+    request: $request
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `$request`                                                                               | [Operations\GetMediaMetaDataRequest](../../Models/Operations/GetMediaMetaDataRequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+
+### Response
+
+**[?Operations\GetMediaMetaDataResponse](../../Models/Operations/GetMediaMetaDataResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\GetMediaMetaDataBadRequest   | 400                                 | application/json                    |
+| Errors\GetMediaMetaDataUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
+
+## getMediaArts
+
+Returns the background artwork for a library item.
 
 ### Example Usage
 
@@ -927,9 +886,56 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->library->getFileHash(
-    url: 'file://C:\Image.png&type=13',
-    type: 4462.17
+$response = $sdk->library->getMediaArts(
+    ratingKey: 16099
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                            | Type                                                 | Required                                             | Description                                          | Example                                              |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `ratingKey`                                          | *int*                                                | :heavy_check_mark:                                   | the id of the library item to return the artwork of. | 16099                                                |
+
+### Response
+
+**[?Operations\GetMediaArtsResponse](../../Models/Operations/GetMediaArtsResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## postMediaArts
+
+Uploads an image to use as the background artwork for a library item, either from a local file or a remote URL
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->postMediaArts(
+    ratingKey: 2268,
+    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
+    requestBody: '0xee51EFC6De'
 
 );
 
@@ -940,22 +946,118 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `url`                                                             | *string*                                                          | :heavy_check_mark:                                                | This is the path to the local file, must be prefixed by `file://` | file://C:\Image.png&type=13                                       |
-| `type`                                                            | *?float*                                                          | :heavy_minus_sign:                                                | Item type                                                         |                                                                   |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ratingKey`                                                        | *int*                                                              | :heavy_check_mark:                                                 | the id of the library item to return the posters of.               | 2268                                                               |
+| `url`                                                              | *?string*                                                          | :heavy_minus_sign:                                                 | The URL of the image, if uploading a remote image                  | https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b |
+| `requestBody`                                                      | *?string*                                                          | :heavy_minus_sign:                                                 | The contents of the image, if uploading a local file               |                                                                    |
 
 ### Response
 
-**[?Operations\GetFileHashResponse](../../Models/Operations/GetFileHashResponse.md)**
+**[?Operations\PostMediaArtsResponse](../../Models/Operations/PostMediaArtsResponse.md)**
 
 ### Errors
 
-| Error Type                     | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\GetFileHashBadRequest   | 400                            | application/json               |
-| Errors\GetFileHashUnauthorized | 401                            | application/json               |
-| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## getMediaPosters
+
+Returns the available posters for a library item.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->getMediaPosters(
+    ratingKey: 16099
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                            | Type                                                 | Required                                             | Description                                          | Example                                              |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `ratingKey`                                          | *int*                                                | :heavy_check_mark:                                   | the id of the library item to return the posters of. | 16099                                                |
+
+### Response
+
+**[?Operations\GetMediaPostersResponse](../../Models/Operations/GetMediaPostersResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
+
+## postMediaPoster
+
+Uploads a poster to a library item, either from a local file or a remote URL
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->library->postMediaPoster(
+    ratingKey: 2268,
+    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
+    requestBody: '0x7C3d45ad4B'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ratingKey`                                                        | *int*                                                              | :heavy_check_mark:                                                 | the id of the library item to return the posters of.               | 2268                                                               |
+| `url`                                                              | *?string*                                                          | :heavy_minus_sign:                                                 | The URL of the image, if uploading a remote image                  | https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b |
+| `requestBody`                                                      | *?string*                                                          | :heavy_minus_sign:                                                 | The contents of the image, if uploading a local file               |                                                                    |
+
+### Response
+
+**[?Operations\PostMediaPosterResponse](../../Models/Operations/PostMediaPosterResponse.md)**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| Errors\SDKException | 4XX, 5XX            | \*/\*               |
 
 ## getMetadataChildren
 
@@ -1061,105 +1163,3 @@ if ($response->object !== null) {
 | Errors\GetTopWatchedContentBadRequest   | 400                                     | application/json                        |
 | Errors\GetTopWatchedContentUnauthorized | 401                                     | application/json                        |
 | Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |
-
-## postMediaArts
-
-Uploads an image to use as the background artwork for a library item, either from a local file or a remote URL
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->library->postMediaArts(
-    ratingKey: 2268,
-    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
-    requestBody: '0xee51EFC6De'
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `ratingKey`                                                        | *int*                                                              | :heavy_check_mark:                                                 | the id of the library item to return the posters of.               | 2268                                                               |
-| `url`                                                              | *?string*                                                          | :heavy_minus_sign:                                                 | The URL of the image, if uploading a remote image                  | https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b |
-| `requestBody`                                                      | *?string*                                                          | :heavy_minus_sign:                                                 | The contents of the image, if uploading a local file               |                                                                    |
-
-### Response
-
-**[?Operations\PostMediaArtsResponse](../../Models/Operations/PostMediaArtsResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\SDKException | 4XX, 5XX            | \*/\*               |
-
-## postMediaPoster
-
-Uploads a poster to a library item, either from a local file or a remote URL
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->library->postMediaPoster(
-    ratingKey: 2268,
-    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
-    requestBody: '0x7C3d45ad4B'
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `ratingKey`                                                        | *int*                                                              | :heavy_check_mark:                                                 | the id of the library item to return the posters of.               | 2268                                                               |
-| `url`                                                              | *?string*                                                          | :heavy_minus_sign:                                                 | The URL of the image, if uploading a remote image                  | https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b |
-| `requestBody`                                                      | *?string*                                                          | :heavy_minus_sign:                                                 | The contents of the image, if uploading a local file               |                                                                    |
-
-### Response
-
-**[?Operations\PostMediaPosterResponse](../../Models/Operations/PostMediaPosterResponse.md)**
-
-### Errors
-
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| Errors\SDKException | 4XX, 5XX            | \*/\*               |

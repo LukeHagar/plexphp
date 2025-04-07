@@ -8,19 +8,19 @@ Operations against the Plex Media Server System.
 
 ### Available Operations
 
-* [getMediaProviders](#getmediaproviders) - Get Media Providers
-* [getServerIdentity](#getserveridentity) - Get Server Identity
+* [getServerCapabilities](#getservercapabilities) - Get Server Capabilities
+* [getServerPreferences](#getserverpreferences) - Get Server Preferences
 * [getAvailableClients](#getavailableclients) - Get Available Clients
 * [getDevices](#getdevices) - Get Devices
+* [getServerIdentity](#getserveridentity) - Get Server Identity
 * [getMyPlexAccount](#getmyplexaccount) - Get MyPlex Account
 * [getResizedPhoto](#getresizedphoto) - Get a Resized Photo
-* [getServerCapabilities](#getservercapabilities) - Get Server Capabilities
+* [getMediaProviders](#getmediaproviders) - Get Media Providers
 * [getServerList](#getserverlist) - Get Server List
-* [getServerPreferences](#getserverpreferences) - Get Server Preferences
 
-## getMediaProviders
+## getServerCapabilities
 
-Retrieves media providers and their features from the Plex server.
+Get Server Capabilities
 
 ### Example Usage
 
@@ -39,8 +39,8 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->server->getMediaProviders(
-    xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
+$response = $sdk->server->getServerCapabilities(
+
 );
 
 if ($response->object !== null) {
@@ -48,27 +48,21 @@ if ($response->object !== null) {
 }
 ```
 
-### Parameters
-
-| Parameter                                      | Type                                           | Required                                       | Description                                    | Example                                        |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| `xPlexToken`                                   | *string*                                       | :heavy_check_mark:                             | An authentication token, obtained from plex.tv | CV5xoxjTpFKUzBTShsaf                           |
-
 ### Response
 
-**[?Operations\GetMediaProvidersResponse](../../Models/Operations/GetMediaProvidersResponse.md)**
+**[?Operations\GetServerCapabilitiesResponse](../../Models/Operations/GetServerCapabilitiesResponse.md)**
 
 ### Errors
 
-| Error Type                           | Status Code                          | Content Type                         |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Errors\GetMediaProvidersBadRequest   | 400                                  | application/json                     |
-| Errors\GetMediaProvidersUnauthorized | 401                                  | application/json                     |
-| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\GetServerCapabilitiesBadRequest   | 400                                      | application/json                         |
+| Errors\GetServerCapabilitiesUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
-## getServerIdentity
+## getServerPreferences
 
-This request is useful to determine if the server is online or offline
+Get Server Preferences
 
 ### Example Usage
 
@@ -79,11 +73,15 @@ require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
 
-$sdk = Plex_API\PlexAPI::builder()->build();
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
 
 
 
-$response = $sdk->server->getServerIdentity(
+$response = $sdk->server->getServerPreferences(
 
 );
 
@@ -94,14 +92,15 @@ if ($response->object !== null) {
 
 ### Response
 
-**[?Operations\GetServerIdentityResponse](../../Models/Operations/GetServerIdentityResponse.md)**
+**[?Operations\GetServerPreferencesResponse](../../Models/Operations/GetServerPreferencesResponse.md)**
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Errors\GetServerIdentityRequestTimeout | 408                                    | application/json                       |
-| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Errors\GetServerPreferencesBadRequest   | 400                                     | application/json                        |
+| Errors\GetServerPreferencesUnauthorized | 401                                     | application/json                        |
+| Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |
 
 ## getAvailableClients
 
@@ -186,6 +185,43 @@ if ($response->object !== null) {
 | Errors\GetDevicesBadRequest   | 400                           | application/json              |
 | Errors\GetDevicesUnauthorized | 401                           | application/json              |
 | Errors\SDKException           | 4XX, 5XX                      | \*/\*                         |
+
+## getServerIdentity
+
+This request is useful to determine if the server is online or offline
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()->build();
+
+
+
+$response = $sdk->server->getServerIdentity(
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetServerIdentityResponse](../../Models/Operations/GetServerIdentityResponse.md)**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetServerIdentityRequestTimeout | 408                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## getMyPlexAccount
 
@@ -287,9 +323,9 @@ if ($response->statusCode === 200) {
 | Errors\GetResizedPhotoUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
-## getServerCapabilities
+## getMediaProviders
 
-Get Server Capabilities
+Retrieves media providers and their features from the Plex server.
 
 ### Example Usage
 
@@ -308,8 +344,8 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->server->getServerCapabilities(
-
+$response = $sdk->server->getMediaProviders(
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf'
 );
 
 if ($response->object !== null) {
@@ -317,17 +353,23 @@ if ($response->object !== null) {
 }
 ```
 
+### Parameters
+
+| Parameter                                      | Type                                           | Required                                       | Description                                    | Example                                        |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `xPlexToken`                                   | *string*                                       | :heavy_check_mark:                             | An authentication token, obtained from plex.tv | CV5xoxjTpFKUzBTShsaf                           |
+
 ### Response
 
-**[?Operations\GetServerCapabilitiesResponse](../../Models/Operations/GetServerCapabilitiesResponse.md)**
+**[?Operations\GetMediaProvidersResponse](../../Models/Operations/GetMediaProvidersResponse.md)**
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Errors\GetServerCapabilitiesBadRequest   | 400                                      | application/json                         |
-| Errors\GetServerCapabilitiesUnauthorized | 401                                      | application/json                         |
-| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetMediaProvidersBadRequest   | 400                                  | application/json                     |
+| Errors\GetMediaProvidersUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## getServerList
 
@@ -370,45 +412,3 @@ if ($response->object !== null) {
 | Errors\GetServerListBadRequest   | 400                              | application/json                 |
 | Errors\GetServerListUnauthorized | 401                              | application/json                 |
 | Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
-
-## getServerPreferences
-
-Get Server Preferences
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->server->getServerPreferences(
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetServerPreferencesResponse](../../Models/Operations/GetServerPreferencesResponse.md)**
-
-### Errors
-
-| Error Type                              | Status Code                             | Content Type                            |
-| --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Errors\GetServerPreferencesBadRequest   | 400                                     | application/json                        |
-| Errors\GetServerPreferencesUnauthorized | 401                                     | application/json                        |
-| Errors\SDKException                     | 4XX, 5XX                                | \*/\*                                   |

@@ -25,7 +25,6 @@ $sdk = Plex_API\PlexAPI::builder()->build();
 
 $request = new Operations\GetUsersRequest(
     clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
-    xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
     clientName: 'Plex for Roku',
     deviceNickname: 'Roku 3',
     deviceName: 'Chrome',
@@ -37,6 +36,7 @@ $request = new Operations\GetUsersRequest(
     xPlexSessionId: '97e136ef-4ddd-4ff3-89a7-a5820c96c2ca',
     xPlexLanguage: 'en',
     platformVersion: '4.3 build 1057',
+    xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
 );
 
 $response = $sdk->users->getUsers(

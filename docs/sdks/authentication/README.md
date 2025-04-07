@@ -8,10 +8,63 @@ API Calls regarding authentication for Plex Media Server
 
 ### Available Operations
 
+* [getTransientToken](#gettransienttoken) - Get a Transient Token
 * [getSourceConnectionInformation](#getsourceconnectioninformation) - Get Source Connection Information
 * [getTokenDetails](#gettokendetails) - Get Token Details
-* [getTransientToken](#gettransienttoken) - Get a Transient Token
 * [postUsersSignInData](#postuserssignindata) - Get User Sign In Data
+
+## getTransientToken
+
+This endpoint provides the caller with a temporary token with the same access level as the caller's token. These tokens are valid for up to 48 hours and are destroyed if the server instance is restarted.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->authentication->getTransientToken(
+    type: Operations\GetTransientTokenQueryParamType::Delegation,
+    scope: Operations\Scope::All
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                   | [Operations\GetTransientTokenQueryParamType](../../Models/Operations/GetTransientTokenQueryParamType.md) | :heavy_check_mark:                                                                                       | `delegation` - This is the only supported `type` parameter.                                              |
+| `scope`                                                                                                  | [Operations\Scope](../../Models/Operations/Scope.md)                                                     | :heavy_check_mark:                                                                                       | `all` - This is the only supported `scope` parameter.                                                    |
+
+### Response
+
+**[?Operations\GetTransientTokenResponse](../../Models/Operations/GetTransientTokenResponse.md)**
+
+### Errors
+
+| Error Type                           | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Errors\GetTransientTokenBadRequest   | 400                                  | application/json                     |
+| Errors\GetTransientTokenUnauthorized | 401                                  | application/json                     |
+| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## getSourceConnectionInformation
 
@@ -110,59 +163,6 @@ if ($response->userPlexAccount !== null) {
 | Errors\GetTokenDetailsBadRequest   | 400                                | application/json                   |
 | Errors\GetTokenDetailsUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
-
-## getTransientToken
-
-This endpoint provides the caller with a temporary token with the same access level as the caller's token. These tokens are valid for up to 48 hours and are destroyed if the server instance is restarted.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->authentication->getTransientToken(
-    type: Operations\GetTransientTokenQueryParamType::Delegation,
-    scope: Operations\Scope::All
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                   | [Operations\GetTransientTokenQueryParamType](../../Models/Operations/GetTransientTokenQueryParamType.md) | :heavy_check_mark:                                                                                       | `delegation` - This is the only supported `type` parameter.                                              |
-| `scope`                                                                                                  | [Operations\Scope](../../Models/Operations/Scope.md)                                                     | :heavy_check_mark:                                                                                       | `all` - This is the only supported `scope` parameter.                                                    |
-
-### Response
-
-**[?Operations\GetTransientTokenResponse](../../Models/Operations/GetTransientTokenResponse.md)**
-
-### Errors
-
-| Error Type                           | Status Code                          | Content Type                         |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| Errors\GetTransientTokenBadRequest   | 400                                  | application/json                     |
-| Errors\GetTransientTokenUnauthorized | 401                                  | application/json                     |
-| Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
 
 ## postUsersSignInData
 

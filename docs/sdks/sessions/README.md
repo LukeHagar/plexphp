@@ -8,10 +8,52 @@ API Calls that perform search operations with Plex Media Server Sessions
 
 ### Available Operations
 
-* [getSessionHistory](#getsessionhistory) - Get Session History
 * [getSessions](#getsessions) - Get Active Sessions
+* [getSessionHistory](#getsessionhistory) - Get Session History
 * [getTranscodeSessions](#gettranscodesessions) - Get Transcode Sessions
 * [stopTranscodeSession](#stoptranscodesession) - Stop a Transcode Session
+
+## getSessions
+
+This will retrieve the "Now Playing" Information of the PMS.
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->sessions->getSessions(
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetSessionsResponse](../../Models/Operations/GetSessionsResponse.md)**
+
+### Errors
+
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| Errors\GetSessionsBadRequest   | 400                            | application/json               |
+| Errors\GetSessionsUnauthorized | 401                            | application/json               |
+| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## getSessionHistory
 
@@ -68,48 +110,6 @@ if ($response->object !== null) {
 | Errors\GetSessionHistoryBadRequest   | 400                                  | application/json                     |
 | Errors\GetSessionHistoryUnauthorized | 401                                  | application/json                     |
 | Errors\SDKException                  | 4XX, 5XX                             | \*/\*                                |
-
-## getSessions
-
-This will retrieve the "Now Playing" Information of the PMS.
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->sessions->getSessions(
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetSessionsResponse](../../Models/Operations/GetSessionsResponse.md)**
-
-### Errors
-
-| Error Type                     | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| Errors\GetSessionsBadRequest   | 400                            | application/json               |
-| Errors\GetSessionsUnauthorized | 401                            | application/json               |
-| Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
 
 ## getTranscodeSessions
 

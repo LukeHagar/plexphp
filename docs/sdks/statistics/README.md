@@ -8,13 +8,13 @@ API Calls that perform operations with Plex Media Server Statistics
 
 ### Available Operations
 
-* [getBandwidthStatistics](#getbandwidthstatistics) - Get Bandwidth Statistics
-* [getResourcesStatistics](#getresourcesstatistics) - Get Resources Statistics
 * [getStatistics](#getstatistics) - Get Media Statistics
+* [getResourcesStatistics](#getresourcesstatistics) - Get Resources Statistics
+* [getBandwidthStatistics](#getbandwidthstatistics) - Get Bandwidth Statistics
 
-## getBandwidthStatistics
+## getStatistics
 
-This will return the bandwidth statistics for the server
+This will return the media statistics for the server
 
 ### Example Usage
 
@@ -33,7 +33,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->statistics->getBandwidthStatistics(
+$response = $sdk->statistics->getStatistics(
     timespan: 4
 );
 
@@ -50,15 +50,15 @@ if ($response->object !== null) {
 
 ### Response
 
-**[?Operations\GetBandwidthStatisticsResponse](../../Models/Operations/GetBandwidthStatisticsResponse.md)**
+**[?Operations\GetStatisticsResponse](../../Models/Operations/GetStatisticsResponse.md)**
 
 ### Errors
 
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Errors\GetBandwidthStatisticsBadRequest   | 400                                       | application/json                          |
-| Errors\GetBandwidthStatisticsUnauthorized | 401                                       | application/json                          |
-| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
+| Error Type                       | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| Errors\GetStatisticsBadRequest   | 400                              | application/json                 |
+| Errors\GetStatisticsUnauthorized | 401                              | application/json                 |
+| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
 ## getResourcesStatistics
 
@@ -108,9 +108,9 @@ if ($response->object !== null) {
 | Errors\GetResourcesStatisticsUnauthorized | 401                                       | application/json                          |
 | Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
 
-## getStatistics
+## getBandwidthStatistics
 
-This will return the media statistics for the server
+This will return the bandwidth statistics for the server
 
 ### Example Usage
 
@@ -129,7 +129,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->statistics->getStatistics(
+$response = $sdk->statistics->getBandwidthStatistics(
     timespan: 4
 );
 
@@ -146,12 +146,12 @@ if ($response->object !== null) {
 
 ### Response
 
-**[?Operations\GetStatisticsResponse](../../Models/Operations/GetStatisticsResponse.md)**
+**[?Operations\GetBandwidthStatisticsResponse](../../Models/Operations/GetBandwidthStatisticsResponse.md)**
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| Errors\GetStatisticsBadRequest   | 400                              | application/json                 |
-| Errors\GetStatisticsUnauthorized | 401                              | application/json                 |
-| Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Errors\GetBandwidthStatisticsBadRequest   | 400                                       | application/json                          |
+| Errors\GetBandwidthStatisticsUnauthorized | 401                                       | application/json                          |
+| Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |

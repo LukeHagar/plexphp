@@ -14,8 +14,50 @@ Activities are optional cancellable. If cancellable, they may be cancelled via t
 
 ### Available Operations
 
-* [cancelServerActivities](#cancelserveractivities) - Cancel Server Activities
 * [getServerActivities](#getserveractivities) - Get Server Activities
+* [cancelServerActivities](#cancelserveractivities) - Cancel Server Activities
+
+## getServerActivities
+
+Get Server Activities
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->activities->getServerActivities(
+
+);
+
+if ($response->object !== null) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\GetServerActivitiesResponse](../../Models/Operations/GetServerActivitiesResponse.md)**
+
+### Errors
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\GetServerActivitiesBadRequest   | 400                                    | application/json                       |
+| Errors\GetServerActivitiesUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## cancelServerActivities
 
@@ -64,45 +106,3 @@ if ($response->statusCode === 200) {
 | Errors\CancelServerActivitiesBadRequest   | 400                                       | application/json                          |
 | Errors\CancelServerActivitiesUnauthorized | 401                                       | application/json                          |
 | Errors\SDKException                       | 4XX, 5XX                                  | \*/\*                                     |
-
-## getServerActivities
-
-Get Server Activities
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->activities->getServerActivities(
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\GetServerActivitiesResponse](../../Models/Operations/GetServerActivitiesResponse.md)**
-
-### Errors
-
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Errors\GetServerActivitiesBadRequest   | 400                                    | application/json                       |
-| Errors\GetServerActivitiesUnauthorized | 401                                    | application/json                       |
-| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |

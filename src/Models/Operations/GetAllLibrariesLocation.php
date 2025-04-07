@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetAllLibrariesLocation
 {
     /**
+     * The ID of the location.
      *
      * @var int $id
      */
@@ -19,6 +20,7 @@ class GetAllLibrariesLocation
     public int $id;
 
     /**
+     * The path to the media item.
      *
      * @var string $path
      */

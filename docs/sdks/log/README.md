@@ -8,52 +8,9 @@ Submit logs to the Log Handler for Plex Media Server
 
 ### Available Operations
 
-* [enablePaperTrail](#enablepapertrail) - Enabling Papertrail
 * [logLine](#logline) - Logging a single line message.
 * [logMultiLine](#logmultiline) - Logging a multi-line message
-
-## enablePaperTrail
-
-This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail networked logging site for a period of time.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->log->enablePaperTrail(
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\EnablePaperTrailResponse](../../Models/Operations/EnablePaperTrailResponse.md)**
-
-### Errors
-
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Errors\EnablePaperTrailBadRequest   | 400                                 | application/json                    |
-| Errors\EnablePaperTrailUnauthorized | 401                                 | application/json                    |
-| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |
+* [enablePaperTrail](#enablepapertrail) - Enabling Papertrail
 
 ## logLine
 
@@ -180,3 +137,46 @@ if ($response->statusCode === 200) {
 | Errors\LogMultiLineBadRequest   | 400                             | application/json                |
 | Errors\LogMultiLineUnauthorized | 401                             | application/json                |
 | Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
+
+## enablePaperTrail
+
+This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail networked logging site for a period of time.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->log->enablePaperTrail(
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\EnablePaperTrailResponse](../../Models/Operations/EnablePaperTrailResponse.md)**
+
+### Errors
+
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Errors\EnablePaperTrailBadRequest   | 400                                 | application/json                    |
+| Errors\EnablePaperTrailUnauthorized | 401                                 | application/json                    |
+| Errors\SDKException                 | 4XX, 5XX                            | \*/\*                               |

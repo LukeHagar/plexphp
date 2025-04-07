@@ -11,119 +11,15 @@ This may cause the duration and number of items to change.
 
 ### Available Operations
 
-* [addPlaylistContents](#addplaylistcontents) - Adding to a Playlist
-* [clearPlaylistContents](#clearplaylistcontents) - Delete Playlist Contents
 * [createPlaylist](#createplaylist) - Create a Playlist
-* [deletePlaylist](#deleteplaylist) - Deletes a Playlist
-* [getPlaylist](#getplaylist) - Retrieve Playlist
-* [getPlaylistContents](#getplaylistcontents) - Retrieve Playlist Contents
 * [getPlaylists](#getplaylists) - Get All Playlists
+* [getPlaylist](#getplaylist) - Retrieve Playlist
+* [deletePlaylist](#deleteplaylist) - Deletes a Playlist
 * [updatePlaylist](#updateplaylist) - Update a Playlist
+* [getPlaylistContents](#getplaylistcontents) - Retrieve Playlist Contents
+* [clearPlaylistContents](#clearplaylistcontents) - Delete Playlist Contents
+* [addPlaylistContents](#addplaylistcontents) - Adding to a Playlist
 * [uploadPlaylist](#uploadplaylist) - Upload Playlist
-
-## addPlaylistContents
-
-Adds a generator to a playlist, same parameters as the POST to create. With a dumb playlist, this adds the specified items to the playlist.
-With a smart playlist, passing a new `uri` parameter replaces the rules for the playlist. Returns the playlist.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->playlists->addPlaylistContents(
-    playlistID: 8502.01,
-    uri: 'server://12345/com.plexapp.plugins.library/library/metadata/1',
-    playQueueID: 123
-
-);
-
-if ($response->object !== null) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `playlistID`                                                  | *float*                                                       | :heavy_check_mark:                                            | the ID of the playlist                                        |                                                               |
-| `uri`                                                         | *string*                                                      | :heavy_check_mark:                                            | the content URI for the playlist                              | server://12345/com.plexapp.plugins.library/library/metadata/1 |
-| `playQueueID`                                                 | *?float*                                                      | :heavy_minus_sign:                                            | the play queue to add to a playlist                           | 123                                                           |
-
-### Response
-
-**[?Operations\AddPlaylistContentsResponse](../../Models/Operations/AddPlaylistContentsResponse.md)**
-
-### Errors
-
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Errors\AddPlaylistContentsBadRequest   | 400                                    | application/json                       |
-| Errors\AddPlaylistContentsUnauthorized | 401                                    | application/json                       |
-| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
-
-## clearPlaylistContents
-
-Clears a playlist, only works with dumb playlists. Returns the playlist.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->playlists->clearPlaylistContents(
-    playlistID: 1893.18
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `playlistID`           | *float*                | :heavy_check_mark:     | the ID of the playlist |
-
-### Response
-
-**[?Operations\ClearPlaylistContentsResponse](../../Models/Operations/ClearPlaylistContentsResponse.md)**
-
-### Errors
-
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Errors\ClearPlaylistContentsBadRequest   | 400                                      | application/json                         |
-| Errors\ClearPlaylistContentsUnauthorized | 401                                      | application/json                         |
-| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
 ## createPlaylist
 
@@ -182,10 +78,9 @@ if ($response->object !== null) {
 | Errors\CreatePlaylistUnauthorized | 401                               | application/json                  |
 | Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
-## deletePlaylist
+## getPlaylists
 
-This endpoint will delete a playlist
-
+Get All Playlists given the specified filters.
 
 ### Example Usage
 
@@ -195,6 +90,7 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
+use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -204,32 +100,35 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->playlists->deletePlaylist(
-    playlistID: 216.22
+$response = $sdk->playlists->getPlaylists(
+    playlistType: Operations\PlaylistType::Audio,
+    smart: Operations\QueryParamSmart::Zero
+
 );
 
-if ($response->statusCode === 200) {
+if ($response->object !== null) {
     // handle response
 }
 ```
 
 ### Parameters
 
-| Parameter              | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `playlistID`           | *float*                | :heavy_check_mark:     | the ID of the playlist |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `playlistType`                                                            | [?Operations\PlaylistType](../../Models/Operations/PlaylistType.md)       | :heavy_minus_sign:                                                        | limit to a type of playlist.                                              |
+| `smart`                                                                   | [?Operations\QueryParamSmart](../../Models/Operations/QueryParamSmart.md) | :heavy_minus_sign:                                                        | type of playlists to return (default is all).                             |
 
 ### Response
 
-**[?Operations\DeletePlaylistResponse](../../Models/Operations/DeletePlaylistResponse.md)**
+**[?Operations\GetPlaylistsResponse](../../Models/Operations/GetPlaylistsResponse.md)**
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| Errors\DeletePlaylistBadRequest   | 400                               | application/json                  |
-| Errors\DeletePlaylistUnauthorized | 401                               | application/json                  |
-| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\GetPlaylistsBadRequest   | 400                             | application/json                |
+| Errors\GetPlaylistsUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
 
 ## getPlaylist
 
@@ -280,6 +179,109 @@ if ($response->object !== null) {
 | Errors\GetPlaylistBadRequest   | 400                            | application/json               |
 | Errors\GetPlaylistUnauthorized | 401                            | application/json               |
 | Errors\SDKException            | 4XX, 5XX                       | \*/\*                          |
+
+## deletePlaylist
+
+This endpoint will delete a playlist
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->playlists->deletePlaylist(
+    playlistID: 216.22
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `playlistID`           | *float*                | :heavy_check_mark:     | the ID of the playlist |
+
+### Response
+
+**[?Operations\DeletePlaylistResponse](../../Models/Operations/DeletePlaylistResponse.md)**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\DeletePlaylistBadRequest   | 400                               | application/json                  |
+| Errors\DeletePlaylistUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
+
+## updatePlaylist
+
+From PMS version 1.9.1 clients can also edit playlist metadata using this endpoint as they would via `PUT /library/metadata/{playlistID}`
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->playlists->updatePlaylist(
+    playlistID: 3915,
+    title: '<value>',
+    summary: '<value>'
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter                           | Type                                | Required                            | Description                         |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| `playlistID`                        | *float*                             | :heavy_check_mark:                  | the ID of the playlist              |
+| `title`                             | *?string*                           | :heavy_minus_sign:                  | name of the playlist                |
+| `summary`                           | *?string*                           | :heavy_minus_sign:                  | summary description of the playlist |
+
+### Response
+
+**[?Operations\UpdatePlaylistResponse](../../Models/Operations/UpdatePlaylistResponse.md)**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| Errors\UpdatePlaylistBadRequest   | 400                               | application/json                  |
+| Errors\UpdatePlaylistUnauthorized | 401                               | application/json                  |
+| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
 
 ## getPlaylistContents
 
@@ -337,9 +339,10 @@ if ($response->object !== null) {
 | Errors\GetPlaylistContentsUnauthorized | 401                                    | application/json                       |
 | Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
-## getPlaylists
+## clearPlaylistContents
 
-Get All Playlists given the specified filters.
+Clears a playlist, only works with dumb playlists. Returns the playlist.
+
 
 ### Example Usage
 
@@ -349,7 +352,6 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -359,9 +361,60 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 
-$response = $sdk->playlists->getPlaylists(
-    playlistType: Operations\PlaylistType::Audio,
-    smart: Operations\QueryParamSmart::Zero
+$response = $sdk->playlists->clearPlaylistContents(
+    playlistID: 1893.18
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Parameters
+
+| Parameter              | Type                   | Required               | Description            |
+| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
+| `playlistID`           | *float*                | :heavy_check_mark:     | the ID of the playlist |
+
+### Response
+
+**[?Operations\ClearPlaylistContentsResponse](../../Models/Operations/ClearPlaylistContentsResponse.md)**
+
+### Errors
+
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\ClearPlaylistContentsBadRequest   | 400                                      | application/json                         |
+| Errors\ClearPlaylistContentsUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
+
+## addPlaylistContents
+
+Adds a generator to a playlist, same parameters as the POST to create. With a dumb playlist, this adds the specified items to the playlist.
+With a smart playlist, passing a new `uri` parameter replaces the rules for the playlist. Returns the playlist.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->playlists->addPlaylistContents(
+    playlistID: 8502.01,
+    uri: 'server://12345/com.plexapp.plugins.library/library/metadata/1',
+    playQueueID: 123
 
 );
 
@@ -372,76 +425,23 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `playlistType`                                                            | [?Operations\PlaylistType](../../Models/Operations/PlaylistType.md)       | :heavy_minus_sign:                                                        | limit to a type of playlist.                                              |
-| `smart`                                                                   | [?Operations\QueryParamSmart](../../Models/Operations/QueryParamSmart.md) | :heavy_minus_sign:                                                        | type of playlists to return (default is all).                             |
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `playlistID`                                                  | *float*                                                       | :heavy_check_mark:                                            | the ID of the playlist                                        |                                                               |
+| `uri`                                                         | *string*                                                      | :heavy_check_mark:                                            | the content URI for the playlist                              | server://12345/com.plexapp.plugins.library/library/metadata/1 |
+| `playQueueID`                                                 | *?float*                                                      | :heavy_minus_sign:                                            | the play queue to add to a playlist                           | 123                                                           |
 
 ### Response
 
-**[?Operations\GetPlaylistsResponse](../../Models/Operations/GetPlaylistsResponse.md)**
+**[?Operations\AddPlaylistContentsResponse](../../Models/Operations/AddPlaylistContentsResponse.md)**
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| Errors\GetPlaylistsBadRequest   | 400                             | application/json                |
-| Errors\GetPlaylistsUnauthorized | 401                             | application/json                |
-| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
-
-## updatePlaylist
-
-From PMS version 1.9.1 clients can also edit playlist metadata using this endpoint as they would via `PUT /library/metadata/{playlistID}`
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->playlists->updatePlaylist(
-    playlistID: 3915,
-    title: '<value>',
-    summary: '<value>'
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Parameters
-
-| Parameter                           | Type                                | Required                            | Description                         |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| `playlistID`                        | *float*                             | :heavy_check_mark:                  | the ID of the playlist              |
-| `title`                             | *?string*                           | :heavy_minus_sign:                  | name of the playlist                |
-| `summary`                           | *?string*                           | :heavy_minus_sign:                  | summary description of the playlist |
-
-### Response
-
-**[?Operations\UpdatePlaylistResponse](../../Models/Operations/UpdatePlaylistResponse.md)**
-
-### Errors
-
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| Errors\UpdatePlaylistBadRequest   | 400                               | application/json                  |
-| Errors\UpdatePlaylistUnauthorized | 401                               | application/json                  |
-| Errors\SDKException               | 4XX, 5XX                          | \*/\*                             |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Errors\AddPlaylistContentsBadRequest   | 400                                    | application/json                       |
+| Errors\AddPlaylistContentsUnauthorized | 401                                    | application/json                       |
+| Errors\SDKException                    | 4XX, 5XX                               | \*/\*                                  |
 
 ## uploadPlaylist
 

@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetAllLibrariesDirectory
 {
     /**
+     * Indicates whether syncing is allowed.
      *
      * @var bool $allowSync
      */
@@ -19,6 +20,7 @@ class GetAllLibrariesDirectory
     public bool $allowSync;
 
     /**
+     * URL for the background artwork of the media container.
      *
      * @var string $art
      */
@@ -26,6 +28,7 @@ class GetAllLibrariesDirectory
     public string $art;
 
     /**
+     * The relative path to the composite media item.
      *
      * @var string $composite
      */
@@ -33,6 +36,7 @@ class GetAllLibrariesDirectory
     public string $composite;
 
     /**
+     * UNKNOWN
      *
      * @var bool $filters
      */
@@ -40,6 +44,7 @@ class GetAllLibrariesDirectory
     public bool $filters;
 
     /**
+     * Indicates whether the library is currently being refreshed or updated
      *
      * @var bool $refreshing
      */
@@ -47,6 +52,7 @@ class GetAllLibrariesDirectory
     public bool $refreshing;
 
     /**
+     * URL for the thumbnail image of the media container.
      *
      * @var string $thumb
      */
@@ -54,6 +60,7 @@ class GetAllLibrariesDirectory
     public string $thumb;
 
     /**
+     * The library key representing the unique identifier
      *
      * @var string $key
      */
@@ -62,12 +69,14 @@ class GetAllLibrariesDirectory
 
     /**
      *
-     * @var string $type
+     * @var GetAllLibrariesType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    public string $type;
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetAllLibrariesType')]
+    public GetAllLibrariesType $type;
 
     /**
+     * The title of the library
      *
      * @var string $title
      */
@@ -75,6 +84,7 @@ class GetAllLibrariesDirectory
     public string $title;
 
     /**
+     * The Plex agent used to match and retrieve media metadata.
      *
      * @var string $agent
      */
@@ -82,6 +92,7 @@ class GetAllLibrariesDirectory
     public string $agent;
 
     /**
+     * UNKNOWN
      *
      * @var string $scanner
      */
@@ -89,6 +100,7 @@ class GetAllLibrariesDirectory
     public string $scanner;
 
     /**
+     * The Plex library language that has been set
      *
      * @var string $language
      */
@@ -96,6 +108,7 @@ class GetAllLibrariesDirectory
     public string $language;
 
     /**
+     * The universally unique identifier for the library.
      *
      * @var string $uuid
      */
@@ -113,20 +126,13 @@ class GetAllLibrariesDirectory
     /**
      * Unix epoch datetime in seconds
      *
-     * @var int $createdAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAt')]
-    public int $createdAt;
-
-    /**
-     * Unix epoch datetime in seconds
-     *
      * @var int $scannedAt
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('scannedAt')]
     public int $scannedAt;
 
     /**
+     * UNKNOWN
      *
      * @var bool $content
      */
@@ -134,6 +140,7 @@ class GetAllLibrariesDirectory
     public bool $content;
 
     /**
+     * UNKNOWN
      *
      * @var bool $directory
      */
@@ -141,19 +148,12 @@ class GetAllLibrariesDirectory
     public bool $directory;
 
     /**
-     * Unix epoch datetime in seconds
+     * The number of seconds since the content was last changed relative to now.
      *
      * @var int $contentChangedAt
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('contentChangedAt')]
     public int $contentChangedAt;
-
-    /**
-     *
-     * @var int $hidden
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('hidden')]
-    public int $hidden;
 
     /**
      * $location
@@ -165,6 +165,23 @@ class GetAllLibrariesDirectory
     public array $location;
 
     /**
+     *
+     * @var ?int $createdAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $createdAt = null;
+
+    /**
+     *
+     * @var ?Hidden $hidden
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('hidden')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Hidden|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Hidden $hidden = null;
+
+    /**
      * @param  bool  $allowSync
      * @param  string  $art
      * @param  string  $composite
@@ -172,23 +189,23 @@ class GetAllLibrariesDirectory
      * @param  bool  $refreshing
      * @param  string  $thumb
      * @param  string  $key
-     * @param  string  $type
+     * @param  GetAllLibrariesType  $type
      * @param  string  $title
      * @param  string  $agent
      * @param  string  $scanner
      * @param  string  $language
      * @param  string  $uuid
      * @param  int  $updatedAt
-     * @param  int  $createdAt
      * @param  int  $scannedAt
      * @param  bool  $content
      * @param  bool  $directory
      * @param  int  $contentChangedAt
-     * @param  int  $hidden
      * @param  array<GetAllLibrariesLocation>  $location
+     * @param  ?int  $createdAt
+     * @param  ?Hidden  $hidden
      * @phpstan-pure
      */
-    public function __construct(bool $allowSync, string $art, string $composite, bool $filters, bool $refreshing, string $thumb, string $key, string $type, string $title, string $agent, string $scanner, string $language, string $uuid, int $updatedAt, int $createdAt, int $scannedAt, bool $content, bool $directory, int $contentChangedAt, int $hidden, array $location)
+    public function __construct(bool $allowSync, string $art, string $composite, bool $filters, bool $refreshing, string $thumb, string $key, GetAllLibrariesType $type, string $title, string $agent, string $scanner, string $language, string $uuid, int $updatedAt, int $scannedAt, bool $content, bool $directory, int $contentChangedAt, array $location, ?int $createdAt = null, ?Hidden $hidden = Hidden::Disable)
     {
         $this->allowSync = $allowSync;
         $this->art = $art;
@@ -204,12 +221,12 @@ class GetAllLibrariesDirectory
         $this->language = $language;
         $this->uuid = $uuid;
         $this->updatedAt = $updatedAt;
-        $this->createdAt = $createdAt;
         $this->scannedAt = $scannedAt;
         $this->content = $content;
         $this->directory = $directory;
         $this->contentChangedAt = $contentChangedAt;
-        $this->hidden = $hidden;
         $this->location = $location;
+        $this->createdAt = $createdAt;
+        $this->hidden = $hidden;
     }
 }

@@ -10,8 +10,8 @@ Butler is the task manager of the Plex Media Server Ecosystem.
 
 * [getButlerTasks](#getbutlertasks) - Get Butler tasks
 * [startAllTasks](#startalltasks) - Start all Butler tasks
-* [startTask](#starttask) - Start a single Butler task
 * [stopAllTasks](#stopalltasks) - Stop all Butler tasks
+* [startTask](#starttask) - Start a single Butler task
 * [stopTask](#stoptask) - Stop a single Butler task
 
 ## getButlerTasks
@@ -103,6 +103,49 @@ if ($response->statusCode === 200) {
 | Errors\StartAllTasksUnauthorized | 401                              | application/json                 |
 | Errors\SDKException              | 4XX, 5XX                         | \*/\*                            |
 
+## stopAllTasks
+
+This endpoint will stop all currently running tasks and remove any scheduled tasks from the queue.
+
+
+### Example Usage
+
+```php
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use LukeHagar\Plex_API;
+
+$sdk = Plex_API\PlexAPI::builder()
+    ->setSecurity(
+        '<YOUR_API_KEY_HERE>'
+    )
+    ->build();
+
+
+
+$response = $sdk->butler->stopAllTasks(
+
+);
+
+if ($response->statusCode === 200) {
+    // handle response
+}
+```
+
+### Response
+
+**[?Operations\StopAllTasksResponse](../../Models/Operations/StopAllTasksResponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| Errors\StopAllTasksBadRequest   | 400                             | application/json                |
+| Errors\StopAllTasksUnauthorized | 401                             | application/json                |
+| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
+
 ## startTask
 
 This endpoint will attempt to start a single Butler task that is enabled in the settings. Butler tasks normally run automatically during a time window configured on the server's Settings page but can be manually started using this endpoint. Tasks will run with the following criteria:
@@ -156,49 +199,6 @@ if ($response->statusCode === 200) {
 | Errors\StartTaskBadRequest   | 400                          | application/json             |
 | Errors\StartTaskUnauthorized | 401                          | application/json             |
 | Errors\SDKException          | 4XX, 5XX                     | \*/\*                        |
-
-## stopAllTasks
-
-This endpoint will stop all currently running tasks and remove any scheduled tasks from the queue.
-
-
-### Example Usage
-
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use LukeHagar\Plex_API;
-
-$sdk = Plex_API\PlexAPI::builder()
-    ->setSecurity(
-        '<YOUR_API_KEY_HERE>'
-    )
-    ->build();
-
-
-
-$response = $sdk->butler->stopAllTasks(
-
-);
-
-if ($response->statusCode === 200) {
-    // handle response
-}
-```
-
-### Response
-
-**[?Operations\StopAllTasksResponse](../../Models/Operations/StopAllTasksResponse.md)**
-
-### Errors
-
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| Errors\StopAllTasksBadRequest   | 400                             | application/json                |
-| Errors\StopAllTasksUnauthorized | 401                             | application/json                |
-| Errors\SDKException             | 4XX, 5XX                        | \*/\*                           |
 
 ## stopTask
 
