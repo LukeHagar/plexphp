@@ -49,11 +49,11 @@ if ($response->statusCode === 200) {
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   | Example                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `level`                                                                                                       | [Operations\Level](../../Models/Operations/Level.md)                                                          | :heavy_check_mark:                                                                                            | An integer log level to write to the PMS log with.  <br/>0: Error  <br/>1: Warning  <br/>2: Info  <br/>3: Debug  <br/>4: Verbose<br/> |                                                                                                               |
-| `message`                                                                                                     | *string*                                                                                                      | :heavy_check_mark:                                                                                            | The text of the message to write to the log.                                                                  | Test log message                                                                                              |
-| `source`                                                                                                      | *string*                                                                                                      | :heavy_check_mark:                                                                                            | a string indicating the source of the message.                                                                | Postman                                                                                                       |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         | Example                                                                                             |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `level`                                                                                             | [Operations\Level](../../Models/Operations/Level.md)                                                | :heavy_check_mark:                                                                                  | An integer log level to write to the PMS log with.<br/>0: Error<br/>1: Warning<br/>2: Info<br/>3: Debug<br/>4: Verbose<br/> |                                                                                                     |
+| `message`                                                                                           | *string*                                                                                            | :heavy_check_mark:                                                                                  | The text of the message to write to the log.                                                        | Test log message                                                                                    |
+| `source`                                                                                            | *string*                                                                                            | :heavy_check_mark:                                                                                  | a string indicating the source of the message.                                                      | Postman                                                                                             |
 
 ### Response
 
@@ -69,13 +69,13 @@ if ($response->statusCode === 200) {
 
 ## logMultiLine
 
-This endpoint allows for the batch addition of log entries to the main Plex Media Server log.  
-It accepts a text/plain request body, where each line represents a distinct log entry.  
-Each log entry consists of URL-encoded key-value pairs, specifying log attributes such as 'level', 'message', and 'source'.  
+This endpoint allows for the batch addition of log entries to the main Plex Media Server log.
+It accepts a text/plain request body, where each line represents a distinct log entry.
+Each log entry consists of URL-encoded key-value pairs, specifying log attributes such as 'level', 'message', and 'source'.
 
-Log entries are separated by a newline character (`\n`).  
-Each entry's parameters should be URL-encoded to ensure accurate parsing and handling of special characters.  
-This method is efficient for logging multiple entries in a single API call, reducing the overhead of multiple individual requests.  
+Log entries are separated by a newline character (`\n`).
+Each entry's parameters should be URL-encoded to ensure accurate parsing and handling of special characters.
+This method is efficient for logging multiple entries in a single API call, reducing the overhead of multiple individual requests.
 
 The 'level' parameter specifies the log entry's severity or importance, with the following integer values:
 - `0`: Error - Critical issues that require immediate attention.
