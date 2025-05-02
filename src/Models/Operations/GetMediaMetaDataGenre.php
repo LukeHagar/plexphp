@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/** GetMediaMetaDataGenre - The filter query string for similar items. */
 class GetMediaMetaDataGenre
 {
     /**
-     * The unique genre identifier.
      *
      * @var int $id
      */
@@ -20,15 +20,9 @@ class GetMediaMetaDataGenre
     public int $id;
 
     /**
-     * The filter string for the genre.
+     * The genre name of this media-item
      *
-     * @var string $filter
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
-    public string $filter;
-
-    /**
-     * The genre name.
+     *
      *
      * @var string $tag
      */
@@ -36,15 +30,22 @@ class GetMediaMetaDataGenre
     public string $tag;
 
     /**
+     *
+     * @var string $filter
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    public string $filter;
+
+    /**
      * @param  int  $id
-     * @param  string  $filter
      * @param  string  $tag
+     * @param  string  $filter
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag)
+    public function __construct(int $id, string $tag, string $filter)
     {
         $this->id = $id;
-        $this->filter = $filter;
         $this->tag = $tag;
+        $this->filter = $filter;
     }
 }

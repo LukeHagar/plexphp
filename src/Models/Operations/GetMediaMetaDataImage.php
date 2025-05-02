@@ -12,7 +12,6 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetMediaMetaDataImage
 {
     /**
-     * Alternate text for the image.
      *
      * @var string $alt
      */
@@ -20,15 +19,14 @@ class GetMediaMetaDataImage
     public string $alt;
 
     /**
-     * The type of image (e.g., coverPoster, background, clearLogo).
      *
-     * @var string $type
+     * @var GetMediaMetaDataLibraryType $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    public string $type;
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataLibraryType')]
+    public GetMediaMetaDataLibraryType $type;
 
     /**
-     * The URL of the image.
      *
      * @var string $url
      */
@@ -37,11 +35,11 @@ class GetMediaMetaDataImage
 
     /**
      * @param  string  $alt
-     * @param  string  $type
+     * @param  GetMediaMetaDataLibraryType  $type
      * @param  string  $url
      * @phpstan-pure
      */
-    public function __construct(string $alt, string $type, string $url)
+    public function __construct(string $alt, GetMediaMetaDataLibraryType $type, string $url)
     {
         $this->alt = $alt;
         $this->type = $type;

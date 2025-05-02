@@ -12,7 +12,6 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetMediaMetaDataUltraBlurColors
 {
     /**
-     * The top-left color value.
      *
      * @var string $topLeft
      */
@@ -20,7 +19,6 @@ class GetMediaMetaDataUltraBlurColors
     public string $topLeft;
 
     /**
-     * The top-right color value.
      *
      * @var string $topRight
      */
@@ -28,7 +26,6 @@ class GetMediaMetaDataUltraBlurColors
     public string $topRight;
 
     /**
-     * The bottom-right color value.
      *
      * @var string $bottomRight
      */
@@ -36,7 +33,6 @@ class GetMediaMetaDataUltraBlurColors
     public string $bottomRight;
 
     /**
-     * The bottom-left color value.
      *
      * @var string $bottomLeft
      */

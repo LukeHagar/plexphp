@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/** GetMediaMetaDataCountry - The filter query string for country media items. */
 class GetMediaMetaDataCountry
 {
     /**
-     * The unique country identifier.
      *
      * @var int $id
      */
@@ -20,15 +20,7 @@ class GetMediaMetaDataCountry
     public int $id;
 
     /**
-     * The filter string for the country.
-     *
-     * @var string $filter
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
-    public string $filter;
-
-    /**
-     * The country name.
+     * The country of origin of this media item
      *
      * @var string $tag
      */
@@ -36,15 +28,23 @@ class GetMediaMetaDataCountry
     public string $tag;
 
     /**
+     *
+     * @var ?string $filter
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $filter = null;
+
+    /**
      * @param  int  $id
-     * @param  string  $filter
      * @param  string  $tag
+     * @param  ?string  $filter
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag)
+    public function __construct(int $id, string $tag, ?string $filter = null)
     {
         $this->id = $id;
-        $this->filter = $filter;
         $this->tag = $tag;
+        $this->filter = $filter;
     }
 }

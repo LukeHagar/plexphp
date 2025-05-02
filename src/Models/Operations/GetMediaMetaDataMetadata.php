@@ -9,10 +9,15 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 use Brick\DateTime\LocalDate;
+/**
+ * GetMediaMetaDataMetadata - Unknown
+ *
+ *
+ */
 class GetMediaMetaDataMetadata
 {
     /**
-     * The rating key of the metadata item.
+     * The rating key (Media ID) of this media item. Note: Although this is always an integer, it is represented as a string in the API.
      *
      * @var string $ratingKey
      */
@@ -20,7 +25,7 @@ class GetMediaMetaDataMetadata
     public string $ratingKey;
 
     /**
-     * The API key to access metadata details.
+     * The unique key for the media item.
      *
      * @var string $key
      */
@@ -28,7 +33,7 @@ class GetMediaMetaDataMetadata
     public string $key;
 
     /**
-     * The globally unique identifier for the item.
+     * The globally unique identifier for the media item.
      *
      * @var string $guid
      */
@@ -36,20 +41,147 @@ class GetMediaMetaDataMetadata
     public string $guid;
 
     /**
-     * The type of content (e.g., show, movie).
+     * A URL‐friendly version of the media title.
      *
-     * @var string $type
+     * @var string $slug
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    public string $type;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('slug')]
+    public string $slug;
 
     /**
-     * The title of the content.
+     *
+     * @var GetMediaMetaDataType $type
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataType')]
+    public GetMediaMetaDataType $type;
+
+    /**
+     * The title of the media item.
      *
      * @var string $title
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
     public string $title;
+
+    /**
+     * The sort title used for ordering media items.
+     *
+     * @var string $titleSort
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('titleSort')]
+    public string $titleSort;
+
+    /**
+     * A synopsis of the media item.
+     *
+     * @var string $summary
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
+    public string $summary;
+
+    /**
+     * The critic rating for the media item.
+     *
+     * @var float $rating
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('rating')]
+    public float $rating;
+
+    /**
+     * The audience rating for the media item.
+     *
+     * @var float $audienceRating
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('audienceRating')]
+    public float $audienceRating;
+
+    /**
+     * A brief tagline for the media item.
+     *
+     * @var string $tagline
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tagline')]
+    public string $tagline;
+
+    /**
+     * The thumbnail image URL for the media item.
+     *
+     * @var string $thumb
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    public string $thumb;
+
+    /**
+     * The art image URL for the media item.
+     *
+     * @var string $art
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('art')]
+    public string $art;
+
+    /**
+     * The theme URL for the media item.
+     *
+     * @var string $theme
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('theme')]
+    public string $theme;
+
+    /**
+     * The index position of the media item.
+     *
+     * @var int $index
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    public int $index;
+
+    /**
+     * The number of child items associated with this media item.
+     *
+     * @var int $childCount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('childCount')]
+    public int $childCount;
+
+    /**
+     * The total number of seasons (for TV shows).
+     *
+     * @var int $seasonCount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('seasonCount')]
+    public int $seasonCount;
+
+    /**
+     * The duration of the media item in milliseconds.
+     *
+     * @var int $duration
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
+    public int $duration;
+
+    /**
+     * The original release date of the media item.
+     *
+     * @var LocalDate $originallyAvailableAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
+    public LocalDate $originallyAvailableAt;
+
+    /**
+     *
+     * @var int $addedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('addedAt')]
+    public int $addedAt;
+
+    /**
+     * The identifier for the library section.
+     *
+     * @var int $librarySectionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    public int $librarySectionID;
 
     /**
      * The title of the library section.
@@ -60,15 +192,7 @@ class GetMediaMetaDataMetadata
     public string $librarySectionTitle;
 
     /**
-     * The ID of the library section.
-     *
-     * @var int $librarySectionID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
-    public int $librarySectionID;
-
-    /**
-     * The key of the library section.
+     * The key corresponding to the library section.
      *
      * @var string $librarySectionKey
      */
@@ -76,150 +200,7 @@ class GetMediaMetaDataMetadata
     public string $librarySectionKey;
 
     /**
-     * A summary of the content.
-     *
-     * @var string $summary
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('summary')]
-    public string $summary;
-
-    /**
-     * The release year.
-     *
-     * @var int $year
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('year')]
-    public int $year;
-
-    /**
-     * URL of the thumbnail image.
-     *
-     * @var string $thumb
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
-    public string $thumb;
-
-    /**
-     * URL of the art image.
-     *
-     * @var string $art
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('art')]
-    public string $art;
-
-    /**
-     * Duration of the content in milliseconds.
-     *
-     * @var int $duration
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
-    public int $duration;
-
-    /**
-     *
-     * @var int $addedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('addedAt')]
-    public int $addedAt;
-
-    /**
-     *
-     * @var int $updatedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
-    public int $updatedAt;
-
-    /**
-     * An array of image objects.
-     *
-     * @var array<GetMediaMetaDataImage> $image
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Image')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataImage>')]
-    public array $image;
-
-    /**
-     *
-     * @var GetMediaMetaDataUltraBlurColors $ultraBlurColors
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('UltraBlurColors')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataUltraBlurColors')]
-    public GetMediaMetaDataUltraBlurColors $ultraBlurColors;
-
-    /**
-     * The rating key of the parent of this metadata item.
-     *
-     * @var ?string $parentRatingKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('parentRatingKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $parentRatingKey = null;
-
-    /**
-     * The rating key of the grandparent of this metadata item.
-     *
-     * @var ?string $grandparentRatingKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentRatingKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $grandparentRatingKey = null;
-
-    /**
-     * A GUID identifying the parent entity (e.g., season) for the item.
-     *
-     * @var ?string $parentGuid
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('parentGuid')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $parentGuid = null;
-
-    /**
-     * A GUID identifying the grandparent entity (e.g., show).
-     *
-     * @var ?string $grandparentGuid
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentGuid')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $grandparentGuid = null;
-
-    /**
-     * A URL-friendly identifier (slug) for the grandparent entity.
-     *
-     * @var ?string $grandparentSlug
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentSlug')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $grandparentSlug = null;
-
-    /**
-     * A key identifying the grandparent metadata in the library.
-     *
-     * @var ?string $grandparentKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $grandparentKey = null;
-
-    /**
-     * A key identifying the parent metadata in the library.
-     *
-     * @var ?string $parentKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('parentKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $parentKey = null;
-
-    /**
-     * A URL-friendly identifier for the item.
-     *
-     * @var ?string $slug
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('slug')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $slug = null;
-
-    /**
-     * The studio that produced the content.
+     * The studio that produced the media item.
      *
      * @var ?string $studio
      */
@@ -228,16 +209,7 @@ class GetMediaMetaDataMetadata
     public ?string $studio = null;
 
     /**
-     * The original title of the content.
-     *
-     * @var ?string $originalTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('originalTitle')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $originalTitle = null;
-
-    /**
-     * The content rating (e.g., TV-MA).
+     * The content rating for the media item.
      *
      * @var ?string $contentRating
      */
@@ -246,131 +218,16 @@ class GetMediaMetaDataMetadata
     public ?string $contentRating = null;
 
     /**
-     * The index or order of the item.
+     * The release year of the media item.
      *
-     * @var ?int $index
+     * @var ?int $year
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('index')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('year')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $index = null;
+    public ?int $year = null;
 
     /**
-     * The title of the grandparent entity (typically the show's title).
-     *
-     * @var ?string $grandparentTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentTitle')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $grandparentTitle = null;
-
-    /**
-     * The title of the parent entity (typically the season's title).
-     *
-     * @var ?string $parentTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('parentTitle')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $parentTitle = null;
-
-    /**
-     * The audience rating for the content.
-     *
-     * @var ?float $audienceRating
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('audienceRating')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?float $audienceRating = null;
-
-    /**
-     * The number of times the item has been viewed.
-     *
-     * @var ?int $viewCount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('viewCount')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $viewCount = null;
-
-    /**
-     * The number of times the item has been skipped.
-     *
-     * @var ?int $skipCount
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('skipCount')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $skipCount = null;
-
-    /**
-     * Unix timestamp of when the item was last viewed.
-     *
-     * @var ?int $lastViewedAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('lastViewedAt')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $lastViewedAt = null;
-
-    /**
-     * The general rating
-     *
-     * @var ?float $rating
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('rating')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?float $rating = null;
-
-    /**
-     * The URL or identifier for the rating image (e.g., Rotten Tomatoes rating image).
-     *
-     * @var ?string $ratingImage
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('ratingImage')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $ratingImage = null;
-
-    /**
-     * The tagline of the content.
-     *
-     * @var ?string $tagline
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tagline')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tagline = null;
-
-    /**
-     *
-     * @var ?string $chapterSource
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('chapterSource')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $chapterSource = null;
-
-    /**
-     *
-     * @var ?string $primaryExtraKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('primaryExtraKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $primaryExtraKey = null;
-
-    /**
-     * URL of the theme image.
-     *
-     * @var ?string $theme
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('theme')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $theme = null;
-
-    /**
-     * The original release date.
-     *
-     * @var ?LocalDate $originallyAvailableAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?LocalDate $originallyAvailableAt = null;
-
-    /**
-     * The total number of episodes (or leaves).
+     * The number of leaf items (end nodes) under this media item.
      *
      * @var ?int $leafCount
      */
@@ -379,7 +236,7 @@ class GetMediaMetaDataMetadata
     public ?int $leafCount = null;
 
     /**
-     * The number of episodes that have been viewed.
+     * The number of leaf items that have been viewed.
      *
      * @var ?int $viewedLeafCount
      */
@@ -388,13 +245,13 @@ class GetMediaMetaDataMetadata
     public ?int $viewedLeafCount = null;
 
     /**
-     * The number of child items.
+     * Unix epoch datetime in seconds
      *
-     * @var ?int $childCount
+     * @var ?int $updatedAt
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('childCount')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('updatedAt')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $childCount = null;
+    public ?int $updatedAt = null;
 
     /**
      * The URL for the audience rating image.
@@ -406,25 +263,106 @@ class GetMediaMetaDataMetadata
     public ?string $audienceRatingImage = null;
 
     /**
-     * The index number of the parent entity, which could indicate its order or position.
+     * The source from which chapter data is derived.
      *
-     * @var ?int $parentIndex
+     * @var ?string $chapterSource
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('parentIndex')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('chapterSource')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $parentIndex = null;
+    public ?string $chapterSource = null;
 
     /**
-     * The URL of the parent's thumbnail image.
+     * The primary extra key associated with this media item.
      *
-     * @var ?string $parentThumb
+     * @var ?string $primaryExtraKey
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('parentThumb')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('primaryExtraKey')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $parentThumb = null;
+    public ?string $primaryExtraKey = null;
 
     /**
-     * The URL of the grandparent's thumbnail image.
+     * The original title of the media item (if different).
+     *
+     * @var ?string $originalTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originalTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $originalTitle = null;
+
+    /**
+     * The rating key of the parent media item.
+     *
+     * @var ?string $parentRatingKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentRatingKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentRatingKey = null;
+
+    /**
+     * The rating key of the grandparent media item.
+     *
+     * @var ?string $grandparentRatingKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentRatingKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentRatingKey = null;
+
+    /**
+     * The GUID of the parent media item.
+     *
+     * @var ?string $parentGuid
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentGuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentGuid = null;
+
+    /**
+     * The GUID of the grandparent media item.
+     *
+     * @var ?string $grandparentGuid
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentGuid')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentGuid = null;
+
+    /**
+     * The slug for the grandparent media item.
+     *
+     * @var ?string $grandparentSlug
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentSlug')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentSlug = null;
+
+    /**
+     * The key of the grandparent media item.
+     *
+     * @var ?string $grandparentKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentKey = null;
+
+    /**
+     * The key of the parent media item.
+     *
+     * @var ?string $parentKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentKey = null;
+
+    /**
+     * The title of the grandparent media item.
+     *
+     * @var ?string $grandparentTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentTitle = null;
+
+    /**
+     * The thumbnail URL for the grandparent media item.
      *
      * @var ?string $grandparentThumb
      */
@@ -433,13 +371,158 @@ class GetMediaMetaDataMetadata
     public ?string $grandparentThumb = null;
 
     /**
-     * The URL of the grandparent's art image.
+     * The theme URL for the grandparent media item.
+     *
+     * @var ?string $grandparentTheme
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentTheme')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $grandparentTheme = null;
+
+    /**
+     * The art URL for the grandparent media item.
      *
      * @var ?string $grandparentArt
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('grandparentArt')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $grandparentArt = null;
+
+    /**
+     * The title of the parent media item.
+     *
+     * @var ?string $parentTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentTitle = null;
+
+    /**
+     * The index position of the parent media item.
+     *
+     * @var ?int $parentIndex
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentIndex')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $parentIndex = null;
+
+    /**
+     * The thumbnail URL for the parent media item.
+     *
+     * @var ?string $parentThumb
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('parentThumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $parentThumb = null;
+
+    /**
+     * The URL for the rating image.
+     *
+     * @var ?string $ratingImage
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('ratingImage')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $ratingImage = null;
+
+    /**
+     * The number of times this media item has been viewed.
+     *
+     * @var ?int $viewCount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('viewCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $viewCount = null;
+
+    /**
+     * The current playback offset (in milliseconds).
+     *
+     * @var ?int $viewOffset
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('viewOffset')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $viewOffset = null;
+
+    /**
+     * The number of times this media item has been skipped.
+     *
+     * @var ?int $skipCount
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('skipCount')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $skipCount = null;
+
+    /**
+     * A classification that further describes the type of media item. For example, 'clip' indicates that the item is a short video clip.
+     *
+     * @var ?string $subtype
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('subtype')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $subtype = null;
+
+    /**
+     * The Unix timestamp representing the last time the item was rated.
+     *
+     * @var ?int $lastRatedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lastRatedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $lastRatedAt = null;
+
+    /**
+     * The accuracy of the creation timestamp. This value indicates the format(s) provided (for example, 'epoch,local' means both epoch and local time formats are available).
+     *
+     * @var ?string $createdAtAccuracy
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAtAccuracy')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $createdAtAccuracy = null;
+
+    /**
+     * The time zone offset for the creation timestamp, represented as a string. This offset indicates the difference from UTC.
+     *
+     * @var ?string $createdAtTZOffset
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('createdAtTZOffset')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $createdAtTZOffset = null;
+
+    /**
+     * Unix timestamp for when the media item was last viewed.
+     *
+     * @var ?int $lastViewedAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('lastViewedAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $lastViewedAt = null;
+
+    /**
+     * The rating provided by a user for the item. This value is expressed as a decimal number.
+     *
+     * @var ?float $userRating
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('userRating')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?float $userRating = null;
+
+    /**
+     * $image
+     *
+     * @var ?array<GetMediaMetaDataImage> $image
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Image')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataImage>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $image = null;
+
+    /**
+     *
+     * @var ?GetMediaMetaDataUltraBlurColors $ultraBlurColors
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('UltraBlurColors')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataUltraBlurColors|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null;
 
     /**
      * $media
@@ -452,7 +535,7 @@ class GetMediaMetaDataMetadata
     public ?array $media = null;
 
     /**
-     * An array of genre tags.
+     * $genre
      *
      * @var ?array<GetMediaMetaDataGenre> $genre
      */
@@ -462,7 +545,7 @@ class GetMediaMetaDataMetadata
     public ?array $genre = null;
 
     /**
-     * An array of country tags.
+     * $country
      *
      * @var ?array<GetMediaMetaDataCountry> $country
      */
@@ -472,37 +555,7 @@ class GetMediaMetaDataMetadata
     public ?array $country = null;
 
     /**
-     * An array of GUID objects.
-     *
-     * @var ?array<GetMediaMetaDataGuids> $guids
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataGuids>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $guids = null;
-
-    /**
-     * An array of rating objects.
-     *
-     * @var ?array<Ratings> $ratings
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Rating')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Ratings>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $ratings = null;
-
-    /**
-     * An array of Actor roles.
-     *
-     * @var ?array<GetMediaMetaDataRole> $role
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Role')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataRole>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $role = null;
-
-    /**
-     * An array of Director roles.
+     * $director
      *
      * @var ?array<GetMediaMetaDataDirector> $director
      */
@@ -512,7 +565,7 @@ class GetMediaMetaDataMetadata
     public ?array $director = null;
 
     /**
-     * An array of Writer roles.
+     * $writer
      *
      * @var ?array<GetMediaMetaDataWriter> $writer
      */
@@ -522,7 +575,7 @@ class GetMediaMetaDataMetadata
     public ?array $writer = null;
 
     /**
-     * An array of Writer roles.
+     * $producer
      *
      * @var ?array<GetMediaMetaDataProducer> $producer
      */
@@ -532,7 +585,37 @@ class GetMediaMetaDataMetadata
     public ?array $producer = null;
 
     /**
-     * An array of similar content objects.
+     * $role
+     *
+     * @var ?array<GetMediaMetaDataRole> $role
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Role')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataRole>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $role = null;
+
+    /**
+     * $guids
+     *
+     * @var ?array<GetMediaMetaDataGuids> $guids
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataGuids>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $guids = null;
+
+    /**
+     * $ratings
+     *
+     * @var ?array<Ratings> $ratings
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Rating')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Ratings>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $ratings = null;
+
+    /**
+     * $similar
      *
      * @var ?array<GetMediaMetaDataSimilar> $similar
      */
@@ -542,7 +625,7 @@ class GetMediaMetaDataMetadata
     public ?array $similar = null;
 
     /**
-     * An array of location objects.
+     * $location
      *
      * @var ?array<GetMediaMetaDataLocation> $location
      */
@@ -552,23 +635,68 @@ class GetMediaMetaDataMetadata
     public ?array $location = null;
 
     /**
+     * $chapter
+     *
+     * @var ?array<Chapter> $chapter
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Chapter')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Chapter>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $chapter = null;
+
+    /**
+     * $marker
+     *
+     * @var ?array<Marker> $marker
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Marker')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Marker>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $marker = null;
+
+    /**
+     *
+     * @var ?Extras $extras
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Extras')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Extras|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?Extras $extras = null;
+
+    /**
      * @param  string  $ratingKey
      * @param  string  $key
      * @param  string  $guid
-     * @param  string  $type
+     * @param  string  $slug
+     * @param  GetMediaMetaDataType  $type
      * @param  string  $title
-     * @param  string  $librarySectionTitle
-     * @param  int  $librarySectionID
-     * @param  string  $librarySectionKey
+     * @param  string  $titleSort
      * @param  string  $summary
-     * @param  int  $year
+     * @param  float  $rating
+     * @param  float  $audienceRating
+     * @param  string  $tagline
      * @param  string  $thumb
      * @param  string  $art
+     * @param  string  $theme
+     * @param  int  $index
+     * @param  int  $childCount
+     * @param  int  $seasonCount
      * @param  int  $duration
+     * @param  LocalDate  $originallyAvailableAt
      * @param  int  $addedAt
-     * @param  int  $updatedAt
-     * @param  array<GetMediaMetaDataImage>  $image
-     * @param  GetMediaMetaDataUltraBlurColors  $ultraBlurColors
+     * @param  int  $librarySectionID
+     * @param  string  $librarySectionTitle
+     * @param  string  $librarySectionKey
+     * @param  ?string  $studio
+     * @param  ?string  $contentRating
+     * @param  ?int  $year
+     * @param  ?int  $leafCount
+     * @param  ?int  $viewedLeafCount
+     * @param  ?int  $updatedAt
+     * @param  ?string  $audienceRatingImage
+     * @param  ?string  $chapterSource
+     * @param  ?string  $primaryExtraKey
+     * @param  ?string  $originalTitle
      * @param  ?string  $parentRatingKey
      * @param  ?string  $grandparentRatingKey
      * @param  ?string  $parentGuid
@@ -576,64 +704,76 @@ class GetMediaMetaDataMetadata
      * @param  ?string  $grandparentSlug
      * @param  ?string  $grandparentKey
      * @param  ?string  $parentKey
-     * @param  ?string  $slug
-     * @param  ?string  $studio
-     * @param  ?string  $originalTitle
-     * @param  ?string  $contentRating
-     * @param  ?int  $index
      * @param  ?string  $grandparentTitle
+     * @param  ?string  $grandparentThumb
+     * @param  ?string  $grandparentTheme
+     * @param  ?string  $grandparentArt
      * @param  ?string  $parentTitle
-     * @param  ?float  $audienceRating
-     * @param  ?int  $viewCount
-     * @param  ?int  $skipCount
-     * @param  ?int  $lastViewedAt
-     * @param  ?float  $rating
-     * @param  ?string  $ratingImage
-     * @param  ?string  $tagline
-     * @param  ?string  $chapterSource
-     * @param  ?string  $primaryExtraKey
-     * @param  ?string  $theme
-     * @param  ?LocalDate  $originallyAvailableAt
-     * @param  ?int  $leafCount
-     * @param  ?int  $viewedLeafCount
-     * @param  ?int  $childCount
-     * @param  ?string  $audienceRatingImage
      * @param  ?int  $parentIndex
      * @param  ?string  $parentThumb
-     * @param  ?string  $grandparentThumb
-     * @param  ?string  $grandparentArt
+     * @param  ?string  $ratingImage
+     * @param  ?int  $viewCount
+     * @param  ?int  $viewOffset
+     * @param  ?int  $skipCount
+     * @param  ?string  $subtype
+     * @param  ?int  $lastRatedAt
+     * @param  ?string  $createdAtAccuracy
+     * @param  ?string  $createdAtTZOffset
+     * @param  ?int  $lastViewedAt
+     * @param  ?float  $userRating
+     * @param  ?array<GetMediaMetaDataImage>  $image
+     * @param  ?GetMediaMetaDataUltraBlurColors  $ultraBlurColors
      * @param  ?array<GetMediaMetaDataMedia>  $media
      * @param  ?array<GetMediaMetaDataGenre>  $genre
      * @param  ?array<GetMediaMetaDataCountry>  $country
-     * @param  ?array<GetMediaMetaDataGuids>  $guids
-     * @param  ?array<Ratings>  $ratings
-     * @param  ?array<GetMediaMetaDataRole>  $role
      * @param  ?array<GetMediaMetaDataDirector>  $director
      * @param  ?array<GetMediaMetaDataWriter>  $writer
      * @param  ?array<GetMediaMetaDataProducer>  $producer
+     * @param  ?array<GetMediaMetaDataRole>  $role
+     * @param  ?array<GetMediaMetaDataGuids>  $guids
+     * @param  ?array<Ratings>  $ratings
      * @param  ?array<GetMediaMetaDataSimilar>  $similar
      * @param  ?array<GetMediaMetaDataLocation>  $location
+     * @param  ?array<Chapter>  $chapter
+     * @param  ?array<Marker>  $marker
+     * @param  ?Extras  $extras
      * @phpstan-pure
      */
-    public function __construct(string $ratingKey, string $key, string $guid, string $type, string $title, string $librarySectionTitle, int $librarySectionID, string $librarySectionKey, string $summary, int $year, string $thumb, string $art, int $duration, int $addedAt, int $updatedAt, array $image, GetMediaMetaDataUltraBlurColors $ultraBlurColors, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $slug = null, ?string $studio = null, ?string $originalTitle = null, ?string $contentRating = null, ?int $index = null, ?string $grandparentTitle = null, ?string $parentTitle = null, ?float $audienceRating = null, ?int $viewCount = null, ?int $skipCount = null, ?int $lastViewedAt = null, ?float $rating = null, ?string $ratingImage = null, ?string $tagline = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $theme = null, ?LocalDate $originallyAvailableAt = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $childCount = null, ?string $audienceRatingImage = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $grandparentThumb = null, ?string $grandparentArt = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $guids = null, ?array $ratings = null, ?array $role = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $similar = null, ?array $location = null)
+    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetMediaMetaDataType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, LocalDate $originallyAvailableAt, int $addedAt, int $librarySectionID, string $librarySectionTitle, string $librarySectionKey, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $role = null, ?array $guids = null, ?array $ratings = null, ?array $similar = null, ?array $location = null, ?array $chapter = null, ?array $marker = null, ?Extras $extras = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
         $this->guid = $guid;
+        $this->slug = $slug;
         $this->type = $type;
         $this->title = $title;
-        $this->librarySectionTitle = $librarySectionTitle;
-        $this->librarySectionID = $librarySectionID;
-        $this->librarySectionKey = $librarySectionKey;
+        $this->titleSort = $titleSort;
         $this->summary = $summary;
-        $this->year = $year;
+        $this->rating = $rating;
+        $this->audienceRating = $audienceRating;
+        $this->tagline = $tagline;
         $this->thumb = $thumb;
         $this->art = $art;
+        $this->theme = $theme;
+        $this->index = $index;
+        $this->childCount = $childCount;
+        $this->seasonCount = $seasonCount;
         $this->duration = $duration;
+        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->addedAt = $addedAt;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
+        $this->librarySectionKey = $librarySectionKey;
+        $this->studio = $studio;
+        $this->contentRating = $contentRating;
+        $this->year = $year;
+        $this->leafCount = $leafCount;
+        $this->viewedLeafCount = $viewedLeafCount;
         $this->updatedAt = $updatedAt;
-        $this->image = $image;
-        $this->ultraBlurColors = $ultraBlurColors;
+        $this->audienceRatingImage = $audienceRatingImage;
+        $this->chapterSource = $chapterSource;
+        $this->primaryExtraKey = $primaryExtraKey;
+        $this->originalTitle = $originalTitle;
         $this->parentRatingKey = $parentRatingKey;
         $this->grandparentRatingKey = $grandparentRatingKey;
         $this->parentGuid = $parentGuid;
@@ -641,42 +781,38 @@ class GetMediaMetaDataMetadata
         $this->grandparentSlug = $grandparentSlug;
         $this->grandparentKey = $grandparentKey;
         $this->parentKey = $parentKey;
-        $this->slug = $slug;
-        $this->studio = $studio;
-        $this->originalTitle = $originalTitle;
-        $this->contentRating = $contentRating;
-        $this->index = $index;
         $this->grandparentTitle = $grandparentTitle;
+        $this->grandparentThumb = $grandparentThumb;
+        $this->grandparentTheme = $grandparentTheme;
+        $this->grandparentArt = $grandparentArt;
         $this->parentTitle = $parentTitle;
-        $this->audienceRating = $audienceRating;
-        $this->viewCount = $viewCount;
-        $this->skipCount = $skipCount;
-        $this->lastViewedAt = $lastViewedAt;
-        $this->rating = $rating;
-        $this->ratingImage = $ratingImage;
-        $this->tagline = $tagline;
-        $this->chapterSource = $chapterSource;
-        $this->primaryExtraKey = $primaryExtraKey;
-        $this->theme = $theme;
-        $this->originallyAvailableAt = $originallyAvailableAt;
-        $this->leafCount = $leafCount;
-        $this->viewedLeafCount = $viewedLeafCount;
-        $this->childCount = $childCount;
-        $this->audienceRatingImage = $audienceRatingImage;
         $this->parentIndex = $parentIndex;
         $this->parentThumb = $parentThumb;
-        $this->grandparentThumb = $grandparentThumb;
-        $this->grandparentArt = $grandparentArt;
+        $this->ratingImage = $ratingImage;
+        $this->viewCount = $viewCount;
+        $this->viewOffset = $viewOffset;
+        $this->skipCount = $skipCount;
+        $this->subtype = $subtype;
+        $this->lastRatedAt = $lastRatedAt;
+        $this->createdAtAccuracy = $createdAtAccuracy;
+        $this->createdAtTZOffset = $createdAtTZOffset;
+        $this->lastViewedAt = $lastViewedAt;
+        $this->userRating = $userRating;
+        $this->image = $image;
+        $this->ultraBlurColors = $ultraBlurColors;
         $this->media = $media;
         $this->genre = $genre;
         $this->country = $country;
-        $this->guids = $guids;
-        $this->ratings = $ratings;
-        $this->role = $role;
         $this->director = $director;
         $this->writer = $writer;
         $this->producer = $producer;
+        $this->role = $role;
+        $this->guids = $guids;
+        $this->ratings = $ratings;
         $this->similar = $similar;
         $this->location = $location;
+        $this->chapter = $chapter;
+        $this->marker = $marker;
+        $this->extras = $extras;
     }
 }

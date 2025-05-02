@@ -12,7 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetMediaMetaDataWriter
 {
     /**
-     * The unique role identifier.
+     * Unique identifier for the writer.
      *
      * @var int $id
      */
@@ -20,15 +20,7 @@ class GetMediaMetaDataWriter
     public int $id;
 
     /**
-     * The filter string for the role.
-     *
-     * @var string $filter
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
-    public string $filter;
-
-    /**
-     * The actor's name.
+     * The role of Writer
      *
      * @var string $tag
      */
@@ -36,24 +28,15 @@ class GetMediaMetaDataWriter
     public string $tag;
 
     /**
-     * A key associated with the actor tag.
+     * The filter string used to query this writer.
      *
-     * @var string $tagKey
+     * @var string $filter
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    public string $tagKey;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    public string $filter;
 
     /**
-     * The character name or role.
-     *
-     * @var ?string $role
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('role')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $role = null;
-
-    /**
-     * URL for the role thumbnail image.
+     * The URL of the thumbnail image for the writer.
      *
      * @var ?string $thumb
      */
@@ -62,21 +45,28 @@ class GetMediaMetaDataWriter
     public ?string $thumb = null;
 
     /**
+     * A unique key associated with the writers tag, used for internal identification.
+     *
+     * @var ?string $tagKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $tagKey = null;
+
+    /**
      * @param  int  $id
-     * @param  string  $filter
      * @param  string  $tag
-     * @param  string  $tagKey
-     * @param  ?string  $role
+     * @param  string  $filter
      * @param  ?string  $thumb
+     * @param  ?string  $tagKey
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag, string $tagKey, ?string $role = null, ?string $thumb = null)
+    public function __construct(int $id, string $tag, string $filter, ?string $thumb = null, ?string $tagKey = null)
     {
         $this->id = $id;
-        $this->filter = $filter;
         $this->tag = $tag;
-        $this->tagKey = $tagKey;
-        $this->role = $role;
+        $this->filter = $filter;
         $this->thumb = $thumb;
+        $this->tagKey = $tagKey;
     }
 }

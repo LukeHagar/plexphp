@@ -12,7 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetMediaMetaDataRole
 {
     /**
-     * The unique role identifier.
+     * Unique identifier for the actor or role.
      *
      * @var int $id
      */
@@ -20,15 +20,7 @@ class GetMediaMetaDataRole
     public int $id;
 
     /**
-     * The filter string for the role.
-     *
-     * @var string $filter
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
-    public string $filter;
-
-    /**
-     * The actor's name.
+     * The display tag for the actor (typically the actor's name).
      *
      * @var string $tag
      */
@@ -36,15 +28,15 @@ class GetMediaMetaDataRole
     public string $tag;
 
     /**
-     * A key associated with the actor tag.
+     * The filter string used to query this actor. For example, it may indicate that this is an actor with a given key.
      *
-     * @var string $tagKey
+     * @var string $filter
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    public string $tagKey;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    public string $filter;
 
     /**
-     * The character name or role.
+     * The role played by the actor in the media item.
      *
      * @var ?string $role
      */
@@ -53,7 +45,16 @@ class GetMediaMetaDataRole
     public ?string $role = null;
 
     /**
-     * URL for the role thumbnail image.
+     * A unique key associated with the actor's tag, used for internal identification.
+     *
+     * @var ?string $tagKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $tagKey = null;
+
+    /**
+     * The URL of the thumbnail image for the actor.
      *
      * @var ?string $thumb
      */
@@ -63,20 +64,20 @@ class GetMediaMetaDataRole
 
     /**
      * @param  int  $id
-     * @param  string  $filter
      * @param  string  $tag
-     * @param  string  $tagKey
+     * @param  string  $filter
      * @param  ?string  $role
+     * @param  ?string  $tagKey
      * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag, string $tagKey, ?string $role = null, ?string $thumb = null)
+    public function __construct(int $id, string $tag, string $filter, ?string $role = null, ?string $tagKey = null, ?string $thumb = null)
     {
         $this->id = $id;
-        $this->filter = $filter;
         $this->tag = $tag;
-        $this->tagKey = $tagKey;
+        $this->filter = $filter;
         $this->role = $role;
+        $this->tagKey = $tagKey;
         $this->thumb = $thumb;
     }
 }
