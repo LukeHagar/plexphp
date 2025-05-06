@@ -176,6 +176,7 @@ class GetAllLibrariesDirectory
     public ?int $createdAt = null;
 
     /**
+     * The Plex library visibility setting
      *
      * @var ?Hidden $hidden
      */
@@ -208,7 +209,7 @@ class GetAllLibrariesDirectory
      * @param  ?Hidden  $hidden
      * @phpstan-pure
      */
-    public function __construct(bool $allowSync, string $art, string $composite, bool $filters, bool $refreshing, string $thumb, string $key, GetAllLibrariesType $type, string $title, string $agent, string $scanner, string $language, string $uuid, int $updatedAt, int $scannedAt, bool $content, bool $directory, int $contentChangedAt, array $location, ?int $createdAt = null, ?Hidden $hidden = Hidden::Disable)
+    public function __construct(bool $allowSync, string $art, string $composite, bool $filters, bool $refreshing, string $thumb, string $key, GetAllLibrariesType $type, string $title, string $agent, string $scanner, string $language, string $uuid, int $updatedAt, int $scannedAt, bool $content, bool $directory, int $contentChangedAt, array $location, ?int $createdAt = null, ?Hidden $hidden = Hidden::Visible)
     {
         $this->allowSync = $allowSync;
         $this->art = $art;

@@ -1,4 +1,4 @@
-speakeasyVersion: 1.542.0
+speakeasyVersion: 1.542.3
 sources:
     my-source:
         sourceNamespace: my-source
@@ -9,19 +9,19 @@ sources:
             - main
     plexapi:
         sourceNamespace: plexapi
-        sourceRevisionDigest: sha256:31ab7b2e65ccf1e0349bcd8b35791d1ce80091313481874749163fc0c80fd8ed
-        sourceBlobDigest: sha256:d971fff9723c626fe70403a2a83d813c396a20b06ccd6b899263762038cfdbb0
+        sourceRevisionDigest: sha256:37adc934a79841fb00cfe6ed569f5b1c88534b20202ecbde64b4e84828cee22a
+        sourceBlobDigest: sha256:ffb5b8d288111a763e4d035c8c9e37f5c89690d146b7297493b43a71d8298e6c
         tags:
             - latest
-            - speakeasy-sdk-regen-1746144664
+            - speakeasy-sdk-regen-1746490278
 targets:
     plexphp:
         source: plexapi
         sourceNamespace: plexapi
-        sourceRevisionDigest: sha256:31ab7b2e65ccf1e0349bcd8b35791d1ce80091313481874749163fc0c80fd8ed
-        sourceBlobDigest: sha256:d971fff9723c626fe70403a2a83d813c396a20b06ccd6b899263762038cfdbb0
+        sourceRevisionDigest: sha256:37adc934a79841fb00cfe6ed569f5b1c88534b20202ecbde64b4e84828cee22a
+        sourceBlobDigest: sha256:ffb5b8d288111a763e4d035c8c9e37f5c89690d146b7297493b43a71d8298e6c
         codeSamplesNamespace: code-samples-php-plexphp
-        codeSamplesRevisionDigest: sha256:90168ceaa14c73e5fd26bb98d37a26459253c51cc4f866eb76274be1dd8a6a33
+        codeSamplesRevisionDigest: sha256:d68f139a4c5678d2a46aad679423268b5f5cc548378be4c9f1fe1f820feed44f
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

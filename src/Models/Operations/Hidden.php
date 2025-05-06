@@ -9,9 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** UNKNOWN */
+/** The Plex library visibility setting */
 enum Hidden: int
 {
-    case Disable = 0;
-    case Enable = 1;
+    case Visible = 0;
+    case ExcludeHomeScreen = 1;
+    case ExcludeHomeScreenAndGlobalSearch = 2;
 }
