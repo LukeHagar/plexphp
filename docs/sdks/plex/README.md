@@ -323,7 +323,7 @@ use LukeHagar\Plex_API\Models\Operations;
 $sdk = Plex_API\PlexAPI::builder()->build();
 
 $request = new Operations\GetTokenByPinIdRequest(
-    pinID: 408895,
+    pinID: 232248,
     clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
     clientName: 'Plex for Roku',
     deviceNickname: 'Roku 3',

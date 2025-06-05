@@ -10,7 +10,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 
 
 /**
- * The type of media content
+ * The type of media content in the Plex library. This can represent videos, music, or photos.
  *
  *
  */
@@ -22,4 +22,8 @@ enum GetMediaMetaDataType: string
     case Episode = 'episode';
     case Artist = 'artist';
     case Album = 'album';
+    case Track = 'track';
+    case PhotoAlbum = 'photoalbum';
+    case Photo = 'photo';
+    case Collection = 'collection';
 }

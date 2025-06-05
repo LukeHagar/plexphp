@@ -175,7 +175,7 @@ if ($response->object !== null) {
 * [getLibraryDetails](docs/sdks/library/README.md#getlibrarydetails) - Get Library Details
 * [deleteLibrary](docs/sdks/library/README.md#deletelibrary) - Delete Library Section
 * [getLibraryItems](docs/sdks/library/README.md#getlibraryitems) - Get Library Items
-* [getAllMediaLibrary](docs/sdks/library/README.md#getallmedialibrary) - Get all media of library
+* [getLibrarySectionsAll](docs/sdks/library/README.md#getlibrarysectionsall) - Get Library section media by tag ALL
 * [getRefreshLibraryMetadata](docs/sdks/library/README.md#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
 * [getSearchLibrary](docs/sdks/library/README.md#getsearchlibrary) - Search Library
 * [getGenresLibrary](docs/sdks/library/README.md#getgenreslibrary) - Get Genres of library media
@@ -363,8 +363,8 @@ use LukeHagar\Plex_API;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setProtocol('https')
-    ->setIp('e0c3:bcc0:6bac:dccc:c4ec:34b1:ca98:4cb9')
-    ->setPort('40311')
+    ->setIp('4982:bc2a:b4f8:efb5:2394:5bc3:ab4f:0e6d')
+    ->setPort('44765')
     ->setSecurity(
         '<YOUR_API_KEY_HERE>'
     )

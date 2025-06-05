@@ -98,11 +98,11 @@ class PlexAPIBuilder
      */
     public function setProtocol(ServerProtocol $protocol): PlexAPIBuilder
     {
-        foreach ($this->sdkConfig->serverDefaults as $idx => $serverDefaults) {
-            if (! array_key_exists('protocol', $serverDefaults)) {
+        foreach ($this->sdkConfig->serverVariables as $idx => $serverVariables) {
+            if (! array_key_exists('protocol', $serverVariables)) {
                 continue;
             }
-            $this->sdkConfig->serverDefaults[$idx]['protocol'] = $protocol->value;
+            $this->sdkConfig->serverVariables[$idx]['protocol'] = $protocol->value;
         }
 
         return $this;
@@ -116,11 +116,11 @@ class PlexAPIBuilder
      */
     public function setIp(string $ip): PlexAPIBuilder
     {
-        foreach ($this->sdkConfig->serverDefaults as $idx => $serverDefaults) {
-            if (! array_key_exists('ip', $serverDefaults)) {
+        foreach ($this->sdkConfig->serverVariables as $idx => $serverVariables) {
+            if (! array_key_exists('ip', $serverVariables)) {
                 continue;
             }
-            $this->sdkConfig->serverDefaults[$idx]['ip'] = $ip;
+            $this->sdkConfig->serverVariables[$idx]['ip'] = $ip;
         }
 
         return $this;
@@ -134,11 +134,11 @@ class PlexAPIBuilder
      */
     public function setPort(string $port): PlexAPIBuilder
     {
-        foreach ($this->sdkConfig->serverDefaults as $idx => $serverDefaults) {
-            if (! array_key_exists('port', $serverDefaults)) {
+        foreach ($this->sdkConfig->serverVariables as $idx => $serverVariables) {
+            if (! array_key_exists('port', $serverVariables)) {
                 continue;
             }
-            $this->sdkConfig->serverDefaults[$idx]['port'] = $port;
+            $this->sdkConfig->serverVariables[$idx]['port'] = $port;
         }
 
         return $this;

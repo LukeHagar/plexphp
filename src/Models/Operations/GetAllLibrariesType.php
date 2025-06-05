@@ -18,4 +18,8 @@ enum GetAllLibrariesType: string
     case Episode = 'episode';
     case Artist = 'artist';
     case Album = 'album';
+    case Track = 'track';
+    case PhotoAlbum = 'photoalbum';
+    case Photo = 'photo';
+    case Collection = 'collection';
 }

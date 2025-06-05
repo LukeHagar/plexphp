@@ -289,10 +289,9 @@ $sdk = Plex_API\PlexAPI::builder()
 $request = new Operations\GetResizedPhotoRequest(
     width: 110,
     height: 165,
-    opacity: 100,
-    blur: 20,
+    blur: 0,
     minSize: Operations\MinSize::Zero,
-    upscale: Operations\Upscale::One,
+    upscale: Operations\Upscale::Zero,
     url: '/library/metadata/49564/thumb/1654258204',
 );
 

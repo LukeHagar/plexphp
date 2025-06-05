@@ -43,7 +43,7 @@ class PlexAPI
 {
     public const SERVERS = [
         /** The full address of your Plex Server */
-        'https://10.10.10.47:32400',
+        '{protocol}://{ip}:{port}',
     ];
 
     /**
@@ -235,7 +235,16 @@ class PlexAPI
         $this->sessions = new Sessions($this->sdkConfiguration);
         $this->updater = new Updater($this->sdkConfiguration);
         $this->users = new Users($this->sdkConfiguration);
-        $this->sdkConfiguration->client = $this->sdkConfiguration->initHooks($this->sdkConfiguration->client);
+        $this->initHooks();
 
+    }
+
+    private function initHooks(): void
+    {
+        $preHooksUrl = $this->sdkConfiguration->getTemplatedServerUrl();
+        $ret = $this->sdkConfiguration->hooks->sdkInit($preHooksUrl, $this->sdkConfiguration->client);
+        if ($preHooksUrl != $ret->url) {
+            $this->sdkConfiguration->serverUrl = $ret->url;
+        }
     }
 }

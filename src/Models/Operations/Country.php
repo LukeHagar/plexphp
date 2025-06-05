@@ -13,6 +13,10 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Country
 {
     /**
+     * The unique identifier for the country.
+     *
+     * NOTE: This is different for each Plex server and is not globally unique.
+     *
      *
      * @var int $id
      */
@@ -29,19 +33,18 @@ class Country
 
     /**
      *
-     * @var ?string $filter
+     * @var string $filter
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $filter = null;
+    public string $filter;
 
     /**
      * @param  int  $id
      * @param  string  $tag
-     * @param  ?string  $filter
+     * @param  string  $filter
      * @phpstan-pure
      */
-    public function __construct(int $id, string $tag, ?string $filter = null)
+    public function __construct(int $id, string $tag, string $filter)
     {
         $this->id = $id;
         $this->tag = $tag;

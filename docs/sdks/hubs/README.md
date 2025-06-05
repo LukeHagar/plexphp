@@ -24,7 +24,6 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -35,8 +34,6 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->hubs->getGlobalHubs(
-    count: 1262.49,
-    onlyTransient: Operations\OnlyTransient::One
 
 );
 
@@ -86,9 +83,10 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 $request = new Operations\GetRecentlyAddedRequest(
-    contentDirectoryID: 470161,
+    contentDirectoryID: 39486,
     sectionID: 2,
     type: Operations\Type::TvShow,
+    includeMeta: Operations\IncludeMeta::Enable,
 );
 
 $response = $sdk->hubs->getRecentlyAdded(
@@ -129,7 +127,6 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -140,10 +137,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->hubs->getLibraryHubs(
-    sectionId: 6728.76,
-    count: 639.24,
-    onlyTransient: Operations\QueryParamOnlyTransient::One
-
+    sectionId: 492.74
 );
 
 if ($response->object !== null) {

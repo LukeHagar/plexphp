@@ -37,7 +37,7 @@ class GetLibraryItemsMetadata
     public string $guid;
 
     /**
-     * The type of media content
+     * The type of media content in the Plex library. This can represent videos, music, or photos.
      *
      *
      *

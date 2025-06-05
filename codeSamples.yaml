@@ -337,7 +337,7 @@ actions:
 
 
             $response = $sdk->butler->stopTask(
-                taskName: Operations\PathParamTaskName::BackupDatabase
+                taskName: Operations\PathParamTaskName::CleanOldCacheFiles
             );
 
             if ($response->statusCode === 200) {
@@ -365,7 +365,7 @@ actions:
 
 
             $response = $sdk->butler->startTask(
-                taskName: Operations\TaskName::CleanOldBundles
+                taskName: Operations\TaskName::RefreshPeriodicMetadata
             );
 
             if ($response->statusCode === 200) {
@@ -540,7 +540,6 @@ actions:
             require 'vendor/autoload.php';
 
             use LukeHagar\Plex_API;
-            use LukeHagar\Plex_API\Models\Operations;
 
             $sdk = Plex_API\PlexAPI::builder()
                 ->setSecurity(
@@ -551,8 +550,6 @@ actions:
 
 
             $response = $sdk->hubs->getGlobalHubs(
-                count: 1262.49,
-                onlyTransient: Operations\OnlyTransient::One
 
             );
 
@@ -579,9 +576,10 @@ actions:
                 ->build();
 
             $request = new Operations\GetRecentlyAddedRequest(
-                contentDirectoryID: 470161,
+                contentDirectoryID: 39486,
                 sectionID: 2,
                 type: Operations\Type::TvShow,
+                includeMeta: Operations\IncludeMeta::Enable,
             );
 
             $response = $sdk->hubs->getRecentlyAdded(
@@ -612,8 +610,7 @@ actions:
 
 
             $response = $sdk->search->performSearch(
-                query: 'dylan',
-                sectionId: 9372.7,
+                query: 'arnold',
                 limit: 5
 
             );
@@ -643,7 +640,6 @@ actions:
 
             $response = $sdk->search->performVoiceSearch(
                 query: 'dead+poop',
-                sectionId: 4094.8,
                 limit: 5
 
             );
@@ -662,7 +658,6 @@ actions:
             require 'vendor/autoload.php';
 
             use LukeHagar\Plex_API;
-            use LukeHagar\Plex_API\Models\Operations;
 
             $sdk = Plex_API\PlexAPI::builder()
                 ->setSecurity(
@@ -673,10 +668,7 @@ actions:
 
 
             $response = $sdk->hubs->getLibraryHubs(
-                sectionId: 6728.76,
-                count: 639.24,
-                onlyTransient: Operations\QueryParamOnlyTransient::One
-
+                sectionId: 492.74
             );
 
             if ($response->object !== null) {
@@ -728,7 +720,7 @@ actions:
 
             $response = $sdk->library->getTopWatchedContent(
                 type: Operations\GetTopWatchedContentQueryParamType::TvShow,
-                includeGuids: 1
+                includeGuids: Operations\GetTopWatchedContentQueryParamIncludeGuids::Enable
 
             );
 
@@ -756,9 +748,7 @@ actions:
 
 
             $response = $sdk->library->getFileHash(
-                url: 'file://C:\Image.png&type=13',
-                type: 4462.17
-
+                url: 'file://C:\Image.png&type=13'
             );
 
             if ($response->statusCode === 200) {
@@ -784,7 +774,7 @@ actions:
                 ->build();
 
             $request = new Operations\GetMediaMetaDataRequest(
-                ratingKey: 9518,
+                ratingKey: '21119,21617',
                 includeConcerts: true,
                 includeExtras: true,
                 includeOnDeck: true,
@@ -856,8 +846,7 @@ actions:
 
             $response = $sdk->library->postMediaArts(
                 ratingKey: 2268,
-                url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
-                requestBody: '0xee51EFC6De'
+                url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b'
 
             );
 
@@ -920,8 +909,8 @@ actions:
 
 
             $response = $sdk->library->getMetadataChildren(
-                ratingKey: 1539.14,
-                includeElements: '<value>'
+                ratingKey: 2403.67,
+                includeElements: 'Stream'
 
             );
 
@@ -977,8 +966,7 @@ actions:
 
             $response = $sdk->library->postMediaPoster(
                 ratingKey: 2268,
-                url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
-                requestBody: '0x7C3d45ad4B'
+                url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b'
 
             );
 
@@ -1057,6 +1045,7 @@ actions:
                 ],
                 sectionID: 2,
                 type: Operations\QueryParamType::TvShow,
+                includeMeta: Operations\QueryParamIncludeMeta::Enable,
             );
 
             $response = $sdk->library->getRecentlyAddedLibrary(
@@ -1091,6 +1080,8 @@ actions:
                 searchTypes: [
                     Operations\SearchTypes::People,
                 ],
+                includeCollections: Operations\GetSearchAllLibrariesQueryParamIncludeCollections::Enable,
+                includeExternalMedia: Operations\GetSearchAllLibrariesQueryParamIncludeExternalMedia::Enable,
             );
 
             $response = $sdk->library->getSearchAllLibraries(
@@ -1147,7 +1138,7 @@ actions:
                 ->build();
 
             $request = new Operations\GetWatchListRequest(
-                filter: Operations\Filter::Available,
+                filter: Operations\Filter::Released,
                 xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
             );
 
@@ -1264,12 +1255,17 @@ actions:
                 )
                 ->build();
 
-            $request = new Operations\GetAllMediaLibraryRequest(
+            $request = new Operations\GetLibrarySectionsAllRequest(
                 sectionKey: 9518,
-                type: Operations\GetAllMediaLibraryQueryParamType::TvShow,
+                type: Operations\GetLibrarySectionsAllQueryParamType::TvShow,
+                includeMeta: Operations\GetLibrarySectionsAllQueryParamIncludeMeta::Enable,
+                includeGuids: Operations\QueryParamIncludeGuids::Enable,
+                includeAdvanced: Operations\IncludeAdvanced::Enable,
+                includeCollections: Operations\QueryParamIncludeCollections::Enable,
+                includeExternalMedia: Operations\QueryParamIncludeExternalMedia::Enable,
             );
 
-            $response = $sdk->library->getAllMediaLibrary(
+            $response = $sdk->library->getLibrarySectionsAll(
                 request: $request
             );
 
@@ -1359,7 +1355,7 @@ actions:
 
             $response = $sdk->library->getRefreshLibraryMetadata(
                 sectionKey: 9518,
-                force: Operations\Force::One
+                force: Operations\Force::Zero
 
             );
 
@@ -1416,9 +1412,11 @@ actions:
                 ->build();
 
             $request = new Operations\GetLibraryItemsRequest(
-                tag: Operations\Tag::Edition,
+                tag: Operations\Tag::Newest,
+                includeGuids: Operations\IncludeGuids::Enable,
                 type: Operations\GetLibraryItemsQueryParamType::TvShow,
                 sectionKey: 9518,
+                includeMeta: Operations\GetLibraryItemsQueryParamIncludeMeta::Enable,
             );
 
             $response = $sdk->library->getLibraryItems(
@@ -1591,10 +1589,9 @@ actions:
             $request = new Operations\GetResizedPhotoRequest(
                 width: 110,
                 height: 165,
-                opacity: 100,
-                blur: 20,
+                blur: 0,
                 minSize: Operations\MinSize::Zero,
-                upscale: Operations\Upscale::One,
+                upscale: Operations\Upscale::Zero,
                 url: '/library/metadata/49564/thumb/1654258204',
             );
 
@@ -1651,7 +1648,7 @@ actions:
             $sdk = Plex_API\PlexAPI::builder()->build();
 
             $request = new Operations\GetTokenByPinIdRequest(
-                pinID: 408895,
+                pinID: 232248,
                 clientID: '3381b62b-9ab7-4e37-827b-203e9809eb58',
                 clientName: 'Plex for Roku',
                 deviceNickname: 'Roku 3',
@@ -1677,7 +1674,6 @@ actions:
             require 'vendor/autoload.php';
 
             use LukeHagar\Plex_API;
-            use LukeHagar\Plex_API\Models\Operations;
 
             $sdk = Plex_API\PlexAPI::builder()
                 ->setSecurity(
@@ -1688,8 +1684,6 @@ actions:
 
 
             $response = $sdk->playlists->getPlaylists(
-                playlistType: Operations\PlaylistType::Audio,
-                smart: Operations\QueryParamSmart::Zero
 
             );
 
@@ -1717,9 +1711,9 @@ actions:
 
             $request = new Operations\CreatePlaylistRequest(
                 title: '<value>',
-                type: Operations\CreatePlaylistQueryParamType::Photo,
+                type: Operations\CreatePlaylistQueryParamType::Audio,
                 smart: Operations\Smart::One,
-                uri: 'https://hoarse-testing.info/',
+                uri: 'https://short-term-disconnection.name/',
             );
 
             $response = $sdk->playlists->createPlaylist(
@@ -1752,7 +1746,7 @@ actions:
 
             $response = $sdk->playlists->uploadPlaylist(
                 path: '/home/barkley/playlist.m3u',
-                force: Operations\QueryParamForce::Zero,
+                force: Operations\QueryParamForce::One,
                 sectionID: 1
 
             );
@@ -1781,7 +1775,7 @@ actions:
 
 
             $response = $sdk->playlists->deletePlaylist(
-                playlistID: 216.22
+                playlistID: 3432.93
             );
 
             if ($response->statusCode === 200) {
@@ -1808,7 +1802,7 @@ actions:
 
 
             $response = $sdk->playlists->getPlaylist(
-                playlistID: 4109.48
+                playlistID: 8419.53
             );
 
             if ($response->object !== null) {
@@ -1835,10 +1829,7 @@ actions:
 
 
             $response = $sdk->playlists->updatePlaylist(
-                playlistID: 3915,
-                title: '<value>',
-                summary: '<value>'
-
+                playlistID: 1579.66
             );
 
             if ($response->statusCode === 200) {
@@ -1865,7 +1856,7 @@ actions:
 
 
             $response = $sdk->playlists->clearPlaylistContents(
-                playlistID: 1893.18
+                playlistID: 4137.37
             );
 
             if ($response->statusCode === 200) {
@@ -1893,7 +1884,7 @@ actions:
 
 
             $response = $sdk->playlists->getPlaylistContents(
-                playlistID: 5004.46,
+                playlistID: 5535.42,
                 type: Operations\GetPlaylistContentsQueryParamType::TvShow
 
             );
@@ -1922,7 +1913,7 @@ actions:
 
 
             $response = $sdk->playlists->addPlaylistContents(
-                playlistID: 8502.01,
+                playlistID: 7013.44,
                 uri: 'server://12345/com.plexapp.plugins.library/library/metadata/1',
                 playQueueID: 123
 
@@ -2204,7 +2195,7 @@ actions:
             $filter = new Operations\QueryParamFilter();
 
             $response = $sdk->sessions->getSessionHistory(
-                sort: '<value>',
+                sort: 'viewedAt:desc',
                 accountId: 1,
                 filter: $filter,
                 librarySectionID: 12

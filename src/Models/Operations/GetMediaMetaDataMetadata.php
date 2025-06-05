@@ -525,6 +525,16 @@ class GetMediaMetaDataMetadata
     public ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null;
 
     /**
+     * $guids
+     *
+     * @var ?array<GetMediaMetaDataGuids> $guids
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataGuids>|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?array $guids = null;
+
+    /**
      * $media
      *
      * @var ?array<GetMediaMetaDataMedia> $media
@@ -593,16 +603,6 @@ class GetMediaMetaDataMetadata
     #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataRole>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $role = null;
-
-    /**
-     * $guids
-     *
-     * @var ?array<GetMediaMetaDataGuids> $guids
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Guid')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataGuids>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $guids = null;
 
     /**
      * $ratings
@@ -723,6 +723,7 @@ class GetMediaMetaDataMetadata
      * @param  ?float  $userRating
      * @param  ?array<GetMediaMetaDataImage>  $image
      * @param  ?GetMediaMetaDataUltraBlurColors  $ultraBlurColors
+     * @param  ?array<GetMediaMetaDataGuids>  $guids
      * @param  ?array<GetMediaMetaDataMedia>  $media
      * @param  ?array<GetMediaMetaDataGenre>  $genre
      * @param  ?array<GetMediaMetaDataCountry>  $country
@@ -730,7 +731,6 @@ class GetMediaMetaDataMetadata
      * @param  ?array<GetMediaMetaDataWriter>  $writer
      * @param  ?array<GetMediaMetaDataProducer>  $producer
      * @param  ?array<GetMediaMetaDataRole>  $role
-     * @param  ?array<GetMediaMetaDataGuids>  $guids
      * @param  ?array<Ratings>  $ratings
      * @param  ?array<GetMediaMetaDataSimilar>  $similar
      * @param  ?array<GetMediaMetaDataLocation>  $location
@@ -739,7 +739,7 @@ class GetMediaMetaDataMetadata
      * @param  ?Extras  $extras
      * @phpstan-pure
      */
-    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetMediaMetaDataType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, LocalDate $originallyAvailableAt, int $addedAt, int $librarySectionID, string $librarySectionTitle, string $librarySectionKey, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $role = null, ?array $guids = null, ?array $ratings = null, ?array $similar = null, ?array $location = null, ?array $chapter = null, ?array $marker = null, ?Extras $extras = null)
+    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetMediaMetaDataType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, LocalDate $originallyAvailableAt, int $addedAt, int $librarySectionID, string $librarySectionTitle, string $librarySectionKey, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null, ?array $guids = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $role = null, ?array $ratings = null, ?array $similar = null, ?array $location = null, ?array $chapter = null, ?array $marker = null, ?Extras $extras = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -800,6 +800,7 @@ class GetMediaMetaDataMetadata
         $this->userRating = $userRating;
         $this->image = $image;
         $this->ultraBlurColors = $ultraBlurColors;
+        $this->guids = $guids;
         $this->media = $media;
         $this->genre = $genre;
         $this->country = $country;
@@ -807,7 +808,6 @@ class GetMediaMetaDataMetadata
         $this->writer = $writer;
         $this->producer = $producer;
         $this->role = $role;
-        $this->guids = $guids;
         $this->ratings = $ratings;
         $this->similar = $similar;
         $this->location = $location;

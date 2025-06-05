@@ -12,12 +12,12 @@ use LukeHagar\Plex_API\Utils\SpeakeasyMetadata;
 class GetMediaMetaDataRequest
 {
     /**
-     * the id of the library item to return the children of.
+     * The id(s) of the library item(s) to return metadata for. Can be a single ID or comma-separated list of IDs.
      *
-     * @var int $ratingKey
+     * @var string $ratingKey
      */
     #[SpeakeasyMetadata('pathParam:style=simple,explode=false,name=ratingKey')]
-    public int $ratingKey;
+    public string $ratingKey;
 
     /**
      * Include concerts data if set to true.
@@ -124,7 +124,7 @@ class GetMediaMetaDataRequest
     public ?bool $asyncRefreshLocalMediaAgent = null;
 
     /**
-     * @param  int  $ratingKey
+     * @param  string  $ratingKey
      * @param  ?bool  $includeConcerts
      * @param  ?bool  $includeExtras
      * @param  ?bool  $includeOnDeck
@@ -140,7 +140,7 @@ class GetMediaMetaDataRequest
      * @param  ?bool  $asyncRefreshLocalMediaAgent
      * @phpstan-pure
      */
-    public function __construct(int $ratingKey, ?bool $includeConcerts = null, ?bool $includeExtras = null, ?bool $includeOnDeck = null, ?bool $includePopularLeaves = null, ?bool $includePreferences = null, ?bool $includeReviews = null, ?bool $includeChapters = null, ?bool $includeStations = null, ?bool $includeExternalMedia = null, ?bool $asyncAugmentMetadata = null, ?bool $asyncCheckFiles = null, ?bool $asyncRefreshAnalysis = null, ?bool $asyncRefreshLocalMediaAgent = null)
+    public function __construct(string $ratingKey, ?bool $includeConcerts = null, ?bool $includeExtras = null, ?bool $includeOnDeck = null, ?bool $includePopularLeaves = null, ?bool $includePreferences = null, ?bool $includeReviews = null, ?bool $includeChapters = null, ?bool $includeStations = null, ?bool $includeExternalMedia = null, ?bool $asyncAugmentMetadata = null, ?bool $asyncCheckFiles = null, ?bool $asyncRefreshAnalysis = null, ?bool $asyncRefreshLocalMediaAgent = null)
     {
         $this->ratingKey = $ratingKey;
         $this->includeConcerts = $includeConcerts;

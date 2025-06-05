@@ -12,7 +12,9 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetMediaMetaDataGuids
 {
     /**
-     * The GUID value.
+     * The unique identifier for the Guid. Can be prefixed with imdb://, tmdb://, tvdb://
+     *
+     *
      *
      * @var string $id
      */

@@ -46,9 +46,9 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $request = new Operations\CreatePlaylistRequest(
     title: '<value>',
-    type: Operations\CreatePlaylistQueryParamType::Photo,
+    type: Operations\CreatePlaylistQueryParamType::Audio,
     smart: Operations\Smart::One,
-    uri: 'https://hoarse-testing.info/',
+    uri: 'https://short-term-disconnection.name/',
 );
 
 $response = $sdk->playlists->createPlaylist(
@@ -90,7 +90,6 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use LukeHagar\Plex_API;
-use LukeHagar\Plex_API\Models\Operations;
 
 $sdk = Plex_API\PlexAPI::builder()
     ->setSecurity(
@@ -101,8 +100,6 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->playlists->getPlaylists(
-    playlistType: Operations\PlaylistType::Audio,
-    smart: Operations\QueryParamSmart::Zero
 
 );
 
@@ -154,7 +151,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->playlists->getPlaylist(
-    playlistID: 4109.48
+    playlistID: 8419.53
 );
 
 if ($response->object !== null) {
@@ -203,7 +200,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->playlists->deletePlaylist(
-    playlistID: 216.22
+    playlistID: 3432.93
 );
 
 if ($response->statusCode === 200) {
@@ -252,10 +249,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->playlists->updatePlaylist(
-    playlistID: 3915,
-    title: '<value>',
-    summary: '<value>'
-
+    playlistID: 1579.66
 );
 
 if ($response->statusCode === 200) {
@@ -310,7 +304,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->playlists->getPlaylistContents(
-    playlistID: 5004.46,
+    playlistID: 5535.42,
     type: Operations\GetPlaylistContentsQueryParamType::TvShow
 
 );
@@ -362,7 +356,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->playlists->clearPlaylistContents(
-    playlistID: 1893.18
+    playlistID: 4137.37
 );
 
 if ($response->statusCode === 200) {
@@ -412,7 +406,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->playlists->addPlaylistContents(
-    playlistID: 8502.01,
+    playlistID: 7013.44,
     uri: 'server://12345/com.plexapp.plugins.library/library/metadata/1',
     playQueueID: 123
 
@@ -468,7 +462,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $response = $sdk->playlists->uploadPlaylist(
     path: '/home/barkley/playlist.m3u',
-    force: Operations\QueryParamForce::Zero,
+    force: Operations\QueryParamForce::One,
     sectionID: 1
 
 );

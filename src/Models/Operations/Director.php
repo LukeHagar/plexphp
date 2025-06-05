@@ -12,6 +12,22 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Director
 {
     /**
+     * Unique identifier for the director.
+     *
+     * @var int $id
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public int $id;
+
+    /**
+     * The filter string used to query this director.
+     *
+     * @var string $filter
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
+    public string $filter;
+
+    /**
      * The role of Director
      *
      * @var string $tag
@@ -20,11 +36,36 @@ class Director
     public string $tag;
 
     /**
+     * A unique 24-character hexadecimal key associated with the director's tag, used for internal identification.
+     *
+     * @var string $tagKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
+    public string $tagKey;
+
+    /**
+     * The absolute URL of the thumbnail image for the director.
+     *
+     * @var ?string $thumb
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $thumb = null;
+
+    /**
+     * @param  int  $id
+     * @param  string  $filter
      * @param  string  $tag
+     * @param  string  $tagKey
+     * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(string $tag)
+    public function __construct(int $id, string $filter, string $tag, string $tagKey, ?string $thumb = null)
     {
+        $this->id = $id;
+        $this->filter = $filter;
         $this->tag = $tag;
+        $this->tagKey = $tagKey;
+        $this->thumb = $thumb;
     }
 }

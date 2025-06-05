@@ -25,7 +25,9 @@ enum GetLibraryItemsQueryParamType: int
     case TvShow = 2;
     case Season = 3;
     case Episode = 4;
-    case Audio = 8;
-    case Album = 9;
-    case Track = 10;
+    case Artist = 5;
+    case Album = 6;
+    case Track = 7;
+    case PhotoAlbum = 8;
+    case Photo = 9;
 }

@@ -21,7 +21,7 @@ class SDKConfiguration
     public int $serverIndex = 0;
 
     /** @var array<array<string, string>> */
-    public ?array $serverDefaults = [
+    public ?array $serverVariables = [
         [
             'protocol' => 'https',
             'ip' => '10.10.10.47',
@@ -33,11 +33,11 @@ class SDKConfiguration
 
     public string $openapiDocVersion = '0.0.3';
 
-    public string $sdkVersion = '0.14.8';
+    public string $sdkVersion = '0.14.9';
 
-    public string $genVersion = '2.597.9';
+    public string $genVersion = '2.620.2';
 
-    public string $userAgent = 'speakeasy-sdk/php 0.14.8 2.597.9 0.0.3 lukehagar/plex-api';
+    public string $userAgent = 'speakeasy-sdk/php 0.14.9 2.620.2 0.0.3 lukehagar/plex-api';
 
     public ?RetryConfig $retryConfig = null;
 
@@ -63,9 +63,9 @@ class SDKConfiguration
     /**
      * @return array<string, string>
      */
-    public function getServerDefaults(): ?array
+    public function getServerVariables(): ?array
     {
-        return $this->serverDefaults[$this->serverIndex];
+        return $this->serverVariables[$this->serverIndex];
     }
     public function hasSecurity(): bool
     {
@@ -89,7 +89,7 @@ class SDKConfiguration
             $this->serverIndex = 0;
         }
 
-        return new Utils\ServerDetails(PlexAPI::SERVERS[$this->serverIndex], $this->serverDefaults[$this->serverIndex]);
+        return new Utils\ServerDetails(PlexAPI::SERVERS[$this->serverIndex], $this->serverVariables[$this->serverIndex]);
 
     }
 
@@ -99,17 +99,6 @@ class SDKConfiguration
             return Utils\Utils::templateUrl($this->serverUrl.trim('/'), []);
         }
 
-        return Utils\Utils::templateUrl($this->getServerUrl(), $this->getServerDefaults());
-    }
-
-    public function initHooks(\GuzzleHttp\ClientInterface $client): \GuzzleHttp\ClientInterface
-    {
-        $preHooksUrl = $this->getTemplatedServerUrl();
-        $ret = $this->hooks->sdkInit($preHooksUrl, $client);
-        if ($preHooksUrl != $ret->url) {
-            $this->serverUrl = $ret->url;
-        }
-
-        return $ret->client;
+        return Utils\Utils::templateUrl($this->getServerUrl(), $this->getServerVariables());
     }
 }

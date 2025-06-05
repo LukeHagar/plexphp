@@ -27,21 +27,21 @@ class GetTopWatchedContentRequest
     public GetTopWatchedContentQueryParamType $type;
 
     /**
-     * Adds the Guids object to the response
+     * Adds the Guid object to the response
      *
      *
      *
-     * @var ?int $includeGuids
+     * @var ?GetTopWatchedContentQueryParamIncludeGuids $includeGuids
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=includeGuids')]
-    public ?int $includeGuids = null;
+    public ?GetTopWatchedContentQueryParamIncludeGuids $includeGuids = null;
 
     /**
      * @param  GetTopWatchedContentQueryParamType  $type
-     * @param  ?int  $includeGuids
+     * @param  ?GetTopWatchedContentQueryParamIncludeGuids  $includeGuids
      * @phpstan-pure
      */
-    public function __construct(GetTopWatchedContentQueryParamType $type, ?int $includeGuids = null)
+    public function __construct(GetTopWatchedContentQueryParamType $type, ?GetTopWatchedContentQueryParamIncludeGuids $includeGuids = GetTopWatchedContentQueryParamIncludeGuids::Disable)
     {
         $this->type = $type;
         $this->includeGuids = $includeGuids;

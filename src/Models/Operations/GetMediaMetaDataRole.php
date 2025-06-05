@@ -12,7 +12,10 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetMediaMetaDataRole
 {
     /**
-     * Unique identifier for the actor or role.
+     * The unique identifier for the role.
+     *
+     * NOTE: This is different for each Plex server and is not globally unique.
+     *
      *
      * @var int $id
      */
@@ -36,6 +39,17 @@ class GetMediaMetaDataRole
     public string $filter;
 
     /**
+     * A 24-character hexadecimal unique key associated with the actor's tag, used for internal identification.
+     *
+     * NOTE: This is globally unique across all Plex Servers.
+     *
+     *
+     * @var string $tagKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
+    public string $tagKey;
+
+    /**
      * The role played by the actor in the media item.
      *
      * @var ?string $role
@@ -45,16 +59,7 @@ class GetMediaMetaDataRole
     public ?string $role = null;
 
     /**
-     * A unique key associated with the actor's tag, used for internal identification.
-     *
-     * @var ?string $tagKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tagKey = null;
-
-    /**
-     * The URL of the thumbnail image for the actor.
+     * The absolute URL of the thumbnail image for the actor.
      *
      * @var ?string $thumb
      */
@@ -66,18 +71,18 @@ class GetMediaMetaDataRole
      * @param  int  $id
      * @param  string  $tag
      * @param  string  $filter
+     * @param  string  $tagKey
      * @param  ?string  $role
-     * @param  ?string  $tagKey
      * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(int $id, string $tag, string $filter, ?string $role = null, ?string $tagKey = null, ?string $thumb = null)
+    public function __construct(int $id, string $tag, string $filter, string $tagKey, ?string $role = null, ?string $thumb = null)
     {
         $this->id = $id;
         $this->tag = $tag;
         $this->filter = $filter;
-        $this->role = $role;
         $this->tagKey = $tagKey;
+        $this->role = $role;
         $this->thumb = $thumb;
     }
 }

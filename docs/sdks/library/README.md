@@ -14,7 +14,7 @@ API Calls interacting with Plex Media Server Libraries
 * [getLibraryDetails](#getlibrarydetails) - Get Library Details
 * [deleteLibrary](#deletelibrary) - Delete Library Section
 * [getLibraryItems](#getlibraryitems) - Get Library Items
-* [getAllMediaLibrary](#getallmedialibrary) - Get all media of library
+* [getLibrarySectionsAll](#getlibrarysectionsall) - Get Library section media by tag ALL
 * [getRefreshLibraryMetadata](#getrefreshlibrarymetadata) - Refresh Metadata Of The Library
 * [getSearchLibrary](#getsearchlibrary) - Search Library
 * [getGenresLibrary](#getgenreslibrary) - Get Genres of library media
@@ -51,9 +51,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->library->getFileHash(
-    url: 'file://C:\Image.png&type=13',
-    type: 4462.17
-
+    url: 'file://C:\Image.png&type=13'
 );
 
 if ($response->statusCode === 200) {
@@ -119,6 +117,7 @@ $request = new Operations\GetRecentlyAddedLibraryRequest(
     ],
     sectionID: 2,
     type: Operations\QueryParamType::TvShow,
+    includeMeta: Operations\QueryParamIncludeMeta::Enable,
 );
 
 $response = $sdk->library->getRecentlyAddedLibrary(
@@ -377,9 +376,11 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 $request = new Operations\GetLibraryItemsRequest(
-    tag: Operations\Tag::Edition,
+    tag: Operations\Tag::Newest,
+    includeGuids: Operations\IncludeGuids::Enable,
     type: Operations\GetLibraryItemsQueryParamType::TvShow,
     sectionKey: 9518,
+    includeMeta: Operations\GetLibraryItemsQueryParamIncludeMeta::Enable,
 );
 
 $response = $sdk->library->getLibraryItems(
@@ -409,7 +410,7 @@ if ($response->object !== null) {
 | Errors\GetLibraryItemsUnauthorized | 401                                | application/json                   |
 | Errors\SDKException                | 4XX, 5XX                           | \*/\*                              |
 
-## getAllMediaLibrary
+## getLibrarySectionsAll
 
 Retrieves a list of all general media data for this library.
 
@@ -430,12 +431,17 @@ $sdk = Plex_API\PlexAPI::builder()
     )
     ->build();
 
-$request = new Operations\GetAllMediaLibraryRequest(
+$request = new Operations\GetLibrarySectionsAllRequest(
     sectionKey: 9518,
-    type: Operations\GetAllMediaLibraryQueryParamType::TvShow,
+    type: Operations\GetLibrarySectionsAllQueryParamType::TvShow,
+    includeMeta: Operations\GetLibrarySectionsAllQueryParamIncludeMeta::Enable,
+    includeGuids: Operations\QueryParamIncludeGuids::Enable,
+    includeAdvanced: Operations\IncludeAdvanced::Enable,
+    includeCollections: Operations\QueryParamIncludeCollections::Enable,
+    includeExternalMedia: Operations\QueryParamIncludeExternalMedia::Enable,
 );
 
-$response = $sdk->library->getAllMediaLibrary(
+$response = $sdk->library->getLibrarySectionsAll(
     request: $request
 );
 
@@ -446,21 +452,21 @@ if ($response->object !== null) {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `$request`                                                                                   | [Operations\GetAllMediaLibraryRequest](../../Models/Operations/GetAllMediaLibraryRequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `$request`                                                                                         | [Operations\GetLibrarySectionsAllRequest](../../Models/Operations/GetLibrarySectionsAllRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 ### Response
 
-**[?Operations\GetAllMediaLibraryResponse](../../Models/Operations/GetAllMediaLibraryResponse.md)**
+**[?Operations\GetLibrarySectionsAllResponse](../../Models/Operations/GetLibrarySectionsAllResponse.md)**
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Errors\GetAllMediaLibraryBadRequest   | 400                                   | application/json                      |
-| Errors\GetAllMediaLibraryUnauthorized | 401                                   | application/json                      |
-| Errors\SDKException                   | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Errors\GetLibrarySectionsAllBadRequest   | 400                                      | application/json                         |
+| Errors\GetLibrarySectionsAllUnauthorized | 401                                      | application/json                         |
+| Errors\SDKException                      | 4XX, 5XX                                 | \*/\*                                    |
 
 ## getRefreshLibraryMetadata
 
@@ -487,7 +493,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $response = $sdk->library->getRefreshLibraryMetadata(
     sectionKey: 9518,
-    force: Operations\Force::One
+    force: Operations\Force::Zero
 
 );
 
@@ -771,6 +777,8 @@ $request = new Operations\GetSearchAllLibrariesRequest(
     searchTypes: [
         Operations\SearchTypes::People,
     ],
+    includeCollections: Operations\GetSearchAllLibrariesQueryParamIncludeCollections::Enable,
+    includeExternalMedia: Operations\GetSearchAllLibrariesQueryParamIncludeExternalMedia::Enable,
 );
 
 $response = $sdk->library->getSearchAllLibraries(
@@ -802,7 +810,8 @@ if ($response->object !== null) {
 
 ## getMediaMetaData
 
-This endpoint will return all the (meta)data of a library item specified with by the ratingKey.
+This endpoint will return all the (meta)data of one or more library items specified by the ratingKey.
+Multiple rating keys can be provided as a comma-separated list (e.g., "21119,21617").
 
 
 ### Example Usage
@@ -822,7 +831,7 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 $request = new Operations\GetMediaMetaDataRequest(
-    ratingKey: 9518,
+    ratingKey: '21119,21617',
     includeConcerts: true,
     includeExtras: true,
     includeOnDeck: true,
@@ -934,8 +943,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $response = $sdk->library->postMediaArts(
     ratingKey: 2268,
-    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
-    requestBody: '0xee51EFC6De'
+    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b'
 
 );
 
@@ -1031,8 +1039,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $response = $sdk->library->postMediaPoster(
     ratingKey: 2268,
-    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b',
-    requestBody: '0x7C3d45ad4B'
+    url: 'https://api.mediux.pro/assets/fcfdc487-dd07-4993-a0c1-0a3015362e5b'
 
 );
 
@@ -1082,8 +1089,8 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->library->getMetadataChildren(
-    ratingKey: 1539.14,
-    includeElements: '<value>'
+    ratingKey: 2403.67,
+    includeElements: 'Stream'
 
 );
 
@@ -1136,7 +1143,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $response = $sdk->library->getTopWatchedContent(
     type: Operations\GetTopWatchedContentQueryParamType::TvShow,
-    includeGuids: 1
+    includeGuids: Operations\GetTopWatchedContentQueryParamIncludeGuids::Enable
 
 );
 
@@ -1150,7 +1157,7 @@ if ($response->object !== null) {
 | Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  | Example                                                                                                                                                                                      |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                                                                                                       | [Operations\GetTopWatchedContentQueryParamType](../../Models/Operations/GetTopWatchedContentQueryParamType.md)                                                                               | :heavy_check_mark:                                                                                                                                                                           | The type of media to retrieve or filter by.<br/>1 = movie<br/>2 = show<br/>3 = season<br/>4 = episode<br/>E.g. A movie library will not return anything with type 3 as there are no seasons for movie libraries<br/> | 2                                                                                                                                                                                            |
-| `includeGuids`                                                                                                                                                                               | *?int*                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                           | Adds the Guids object to the response<br/>                                                                                                                                                   | 1                                                                                                                                                                                            |
+| `includeGuids`                                                                                                                                                                               | [?Operations\GetTopWatchedContentQueryParamIncludeGuids](../../Models/Operations/GetTopWatchedContentQueryParamIncludeGuids.md)                                                              | :heavy_minus_sign:                                                                                                                                                                           | Adds the Guid object to the response<br/>                                                                                                                                                    | 1                                                                                                                                                                                            |
 
 ### Response
 

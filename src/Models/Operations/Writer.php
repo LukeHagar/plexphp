@@ -36,7 +36,7 @@ class Writer
     public string $tag;
 
     /**
-     * A unique key associated with the writers tag, used for internal identification.
+     * A 24-character hexadecimal unique key associated with the writer’s tag, used for internal identification.
      *
      * @var ?string $tagKey
      */
@@ -45,17 +45,28 @@ class Writer
     public ?string $tagKey = null;
 
     /**
+     * The absolute URL of the thumbnail image for the writer.
+     *
+     * @var ?string $thumb
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $thumb = null;
+
+    /**
      * @param  int  $id
      * @param  string  $filter
      * @param  string  $tag
      * @param  ?string  $tagKey
+     * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag, ?string $tagKey = null)
+    public function __construct(int $id, string $filter, string $tag, ?string $tagKey = null, ?string $thumb = null)
     {
         $this->id = $id;
         $this->filter = $filter;
         $this->tag = $tag;
         $this->tagKey = $tagKey;
+        $this->thumb = $thumb;
     }
 }

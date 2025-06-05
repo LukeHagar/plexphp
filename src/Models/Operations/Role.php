@@ -12,7 +12,10 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Role
 {
     /**
-     * Unique identifier for the actor or role.
+     * The unique identifier for the role.
+     *
+     * NOTE: This is different for each Plex server and is not globally unique.
+     *
      *
      * @var int $id
      */
@@ -36,13 +39,15 @@ class Role
     public string $tag;
 
     /**
-     * A unique key associated with the actor's tag, used for internal identification.
+     * A 24-character hexadecimal unique key associated with the actor's tag, used for internal identification.
      *
-     * @var ?string $tagKey
+     * NOTE: This is globally unique across all Plex Servers.
+     *
+     *
+     * @var string $tagKey
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tagKey = null;
+    public string $tagKey;
 
     /**
      * The role played by the actor in the media item.
@@ -54,7 +59,7 @@ class Role
     public ?string $role = null;
 
     /**
-     * The URL of the thumbnail image for the actor.
+     * The absolute URL of the thumbnail image for the actor.
      *
      * @var ?string $thumb
      */
@@ -66,12 +71,12 @@ class Role
      * @param  int  $id
      * @param  string  $filter
      * @param  string  $tag
-     * @param  ?string  $tagKey
+     * @param  string  $tagKey
      * @param  ?string  $role
      * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag, ?string $tagKey = null, ?string $role = null, ?string $thumb = null)
+    public function __construct(int $id, string $filter, string $tag, string $tagKey, ?string $role = null, ?string $thumb = null)
     {
         $this->id = $id;
         $this->filter = $filter;

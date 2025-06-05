@@ -13,6 +13,10 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Genre
 {
     /**
+     * The unique identifier for the genre.
+     *
+     * NOTE: This is different for each Plex server and is not globally unique.
+     *
      *
      * @var int $id
      */

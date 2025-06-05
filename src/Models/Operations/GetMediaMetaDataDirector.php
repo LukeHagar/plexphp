@@ -36,16 +36,15 @@ class GetMediaMetaDataDirector
     public string $filter;
 
     /**
-     * A unique key associated with the director's tag, used for internal identification.
+     * A unique 24-character hexadecimal key associated with the director's tag, used for internal identification.
      *
-     * @var ?string $tagKey
+     * @var string $tagKey
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tagKey = null;
+    public string $tagKey;
 
     /**
-     * The URL of the thumbnail image for the director.
+     * The absolute URL of the thumbnail image for the director.
      *
      * @var ?string $thumb
      */
@@ -57,11 +56,11 @@ class GetMediaMetaDataDirector
      * @param  int  $id
      * @param  string  $tag
      * @param  string  $filter
-     * @param  ?string  $tagKey
+     * @param  string  $tagKey
      * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(int $id, string $tag, string $filter, ?string $tagKey = null, ?string $thumb = null)
+    public function __construct(int $id, string $tag, string $filter, string $tagKey, ?string $thumb = null)
     {
         $this->id = $id;
         $this->tag = $tag;

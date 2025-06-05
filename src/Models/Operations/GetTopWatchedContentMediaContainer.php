@@ -12,44 +12,44 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetTopWatchedContentMediaContainer
 {
     /**
+     * Number of media items returned in this response.
      *
-     * @var ?int $size
+     * @var int $size
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $size = null;
+    public int $size;
 
     /**
+     * Indicates whether syncing is allowed.
      *
-     * @var ?bool $allowSync
+     * @var bool $allowSync
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $allowSync = null;
+    public bool $allowSync;
 
     /**
+     * An plugin identifier for the media container.
      *
-     * @var ?string $identifier
+     * @var string $identifier
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $identifier = null;
+    public string $identifier;
 
     /**
+     * The prefix used for media tag resource paths.
      *
-     * @var ?string $mediaTagPrefix
+     * @var string $mediaTagPrefix
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagPrefix')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $mediaTagPrefix = null;
+    public string $mediaTagPrefix;
 
     /**
+     * The version number for media tags.
      *
-     * @var ?int $mediaTagVersion
+     * @var int $mediaTagVersion
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagVersion')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $mediaTagVersion = null;
+    public int $mediaTagVersion;
 
     /**
      * $metadata
@@ -62,15 +62,15 @@ class GetTopWatchedContentMediaContainer
     public ?array $metadata = null;
 
     /**
-     * @param  ?int  $size
-     * @param  ?bool  $allowSync
-     * @param  ?string  $identifier
-     * @param  ?string  $mediaTagPrefix
-     * @param  ?int  $mediaTagVersion
+     * @param  int  $size
+     * @param  bool  $allowSync
+     * @param  string  $identifier
+     * @param  string  $mediaTagPrefix
+     * @param  int  $mediaTagVersion
      * @param  ?array<GetTopWatchedContentMetadata>  $metadata
      * @phpstan-pure
      */
-    public function __construct(?int $size = null, ?bool $allowSync = null, ?string $identifier = null, ?string $mediaTagPrefix = null, ?int $mediaTagVersion = null, ?array $metadata = null)
+    public function __construct(int $size, bool $allowSync, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, ?array $metadata = null)
     {
         $this->size = $size;
         $this->allowSync = $allowSync;

@@ -174,7 +174,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->butler->startTask(
-    taskName: Operations\TaskName::CleanOldBundles
+    taskName: Operations\TaskName::RefreshPeriodicMetadata
 );
 
 if ($response->statusCode === 200) {
@@ -224,7 +224,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->butler->stopTask(
-    taskName: Operations\PathParamTaskName::BackupDatabase
+    taskName: Operations\PathParamTaskName::CleanOldCacheFiles
 );
 
 if ($response->statusCode === 200) {

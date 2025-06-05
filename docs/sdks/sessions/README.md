@@ -78,7 +78,7 @@ $sdk = Plex_API\PlexAPI::builder()
 $filter = new Operations\QueryParamFilter();
 
 $response = $sdk->sessions->getSessionHistory(
-    sort: '<value>',
+    sort: 'viewedAt:desc',
     accountId: 1,
     filter: $filter,
     librarySectionID: 12

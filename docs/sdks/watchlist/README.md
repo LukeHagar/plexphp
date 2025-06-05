@@ -31,7 +31,7 @@ $sdk = Plex_API\PlexAPI::builder()
     ->build();
 
 $request = new Operations\GetWatchListRequest(
-    filter: Operations\Filter::Available,
+    filter: Operations\Filter::Released,
     xPlexToken: 'CV5xoxjTpFKUzBTShsaf',
 );
 

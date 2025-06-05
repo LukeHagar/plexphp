@@ -36,16 +36,17 @@ class Producer
     public string $tag;
 
     /**
-     * A unique key associated with the producer's tag, used for internal identification.
+     * A 24-character hexadecimal unique key associated with the producer's tag, used for internal identification.
      *
-     * @var ?string $tagKey
+     *
+     *
+     * @var string $tagKey
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tagKey = null;
+    public string $tagKey;
 
     /**
-     * The URL of the thumbnail image for the actor.
+     * The absolute URL of the thumbnail image for the producer.
      *
      * @var ?string $thumb
      */
@@ -57,11 +58,11 @@ class Producer
      * @param  int  $id
      * @param  string  $filter
      * @param  string  $tag
-     * @param  ?string  $tagKey
+     * @param  string  $tagKey
      * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(int $id, string $filter, string $tag, ?string $tagKey = null, ?string $thumb = null)
+    public function __construct(int $id, string $filter, string $tag, string $tagKey, ?string $thumb = null)
     {
         $this->id = $id;
         $this->filter = $filter;

@@ -36,7 +36,7 @@ class GetMediaMetaDataWriter
     public string $filter;
 
     /**
-     * The URL of the thumbnail image for the writer.
+     * The absolute URL of the thumbnail image for the writer.
      *
      * @var ?string $thumb
      */
@@ -45,7 +45,7 @@ class GetMediaMetaDataWriter
     public ?string $thumb = null;
 
     /**
-     * A unique key associated with the writers tag, used for internal identification.
+     * A 24-character hexadecimal unique key associated with the writer’s tag, used for internal identification.
      *
      * @var ?string $tagKey
      */

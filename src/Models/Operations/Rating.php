@@ -13,6 +13,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class Rating
 {
     /**
+     * The URL for the rating image, for example from IMDb.
      *
      * @var string $image
      */

@@ -46,8 +46,7 @@ $sdk = Plex_API\PlexAPI::builder()
 
 
 $response = $sdk->search->performSearch(
-    query: 'dylan',
-    sectionId: 9372.7,
+    query: 'arnold',
     limit: 5
 
 );
@@ -104,7 +103,6 @@ $sdk = Plex_API\PlexAPI::builder()
 
 $response = $sdk->search->performVoiceSearch(
     query: 'dead+poop',
-    sectionId: 4094.8,
     limit: 5
 
 );
