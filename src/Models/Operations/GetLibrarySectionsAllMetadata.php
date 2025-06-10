@@ -161,14 +161,6 @@ class GetLibrarySectionsAllMetadata
     public int $duration;
 
     /**
-     * The original release date of the media item.
-     *
-     * @var LocalDate $originallyAvailableAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    public LocalDate $originallyAvailableAt;
-
-    /**
      *
      * @var int $addedAt
      */
@@ -219,6 +211,15 @@ class GetLibrarySectionsAllMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('viewedLeafCount')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $viewedLeafCount = null;
+
+    /**
+     * The original release date of the media item.
+     *
+     * @var ?LocalDate $originallyAvailableAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?LocalDate $originallyAvailableAt = null;
 
     /**
      * Unix epoch datetime in seconds
@@ -599,13 +600,13 @@ class GetLibrarySectionsAllMetadata
      * @param  int  $childCount
      * @param  int  $seasonCount
      * @param  int  $duration
-     * @param  LocalDate  $originallyAvailableAt
      * @param  int  $addedAt
      * @param  ?string  $studio
      * @param  ?string  $contentRating
      * @param  ?int  $year
      * @param  ?int  $leafCount
      * @param  ?int  $viewedLeafCount
+     * @param  ?LocalDate  $originallyAvailableAt
      * @param  ?int  $updatedAt
      * @param  ?string  $audienceRatingImage
      * @param  ?string  $chapterSource
@@ -647,7 +648,7 @@ class GetLibrarySectionsAllMetadata
      * @param  ?array<GetLibrarySectionsAllCollection>  $collection
      * @phpstan-pure
      */
-    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetLibrarySectionsAllLibraryType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, LocalDate $originallyAvailableAt, int $addedAt, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetLibrarySectionsAllUltraBlurColors $ultraBlurColors = null, ?array $guids = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $collection = null)
+    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetLibrarySectionsAllLibraryType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, int $addedAt, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetLibrarySectionsAllUltraBlurColors $ultraBlurColors = null, ?array $guids = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $collection = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -667,13 +668,13 @@ class GetLibrarySectionsAllMetadata
         $this->childCount = $childCount;
         $this->seasonCount = $seasonCount;
         $this->duration = $duration;
-        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->addedAt = $addedAt;
         $this->studio = $studio;
         $this->contentRating = $contentRating;
         $this->year = $year;
         $this->leafCount = $leafCount;
         $this->viewedLeafCount = $viewedLeafCount;
+        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->updatedAt = $updatedAt;
         $this->audienceRatingImage = $audienceRatingImage;
         $this->chapterSource = $chapterSource;

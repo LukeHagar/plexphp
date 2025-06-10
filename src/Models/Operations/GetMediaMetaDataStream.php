@@ -20,44 +20,6 @@ class GetMediaMetaDataStream
     public int $id;
 
     /**
-     * Stream type:
-     *
-     *   - 1 = video
-     *   - 2 = audio
-     *   - 3 = subtitle
-     *
-     *
-     * @var GetMediaMetaDataStreamType $streamType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('streamType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataStreamType')]
-    public GetMediaMetaDataStreamType $streamType;
-
-    /**
-     * Codec used by the stream.
-     *
-     * @var string $codec
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('codec')]
-    public string $codec;
-
-    /**
-     * Display title for the stream.
-     *
-     * @var string $displayTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('displayTitle')]
-    public string $displayTitle;
-
-    /**
-     * Extended display title for the stream.
-     *
-     * @var string $extendedDisplayTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
-    public string $extendedDisplayTitle;
-
-    /**
      * Format of the stream (e.g., srt).
      *
      * @var ?string $format
@@ -74,6 +36,15 @@ class GetMediaMetaDataStream
     #[\Speakeasy\Serializer\Annotation\SerializedName('default')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $default = null;
+
+    /**
+     * Codec used by the stream.
+     *
+     * @var ?string $codec
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('codec')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $codec = null;
 
     /**
      * Index of the stream.
@@ -387,6 +358,24 @@ class GetMediaMetaDataStream
     public ?int $width = null;
 
     /**
+     * Display title for the stream.
+     *
+     * @var ?string $displayTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('displayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $displayTitle = null;
+
+    /**
+     * Extended display title for the stream.
+     *
+     * @var ?string $extendedDisplayTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('extendedDisplayTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $extendedDisplayTitle = null;
+
+    /**
      * Indicates if this stream is selected (applicable for audio streams).
      *
      * @var ?bool $selected
@@ -467,13 +456,24 @@ class GetMediaMetaDataStream
     public ?string $title = null;
 
     /**
+     * Stream type:
+     *
+     *   - VIDEO = 1
+     *   - AUDIO = 2
+     *   - SUBTITLE = 3
+     *
+     *
+     * @var int $streamType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('streamType')]
+    public int $streamType;
+
+    /**
      * @param  int  $id
-     * @param  GetMediaMetaDataStreamType  $streamType
-     * @param  string  $codec
-     * @param  string  $displayTitle
-     * @param  string  $extendedDisplayTitle
+     * @param  int  $streamType
      * @param  ?string  $format
      * @param  ?bool  $default
+     * @param  ?string  $codec
      * @param  ?int  $index
      * @param  ?int  $bitrate
      * @param  ?string  $language
@@ -509,6 +509,8 @@ class GetMediaMetaDataStream
      * @param  ?string  $embeddedInVideo
      * @param  ?int  $refFrames
      * @param  ?int  $width
+     * @param  ?string  $displayTitle
+     * @param  ?string  $extendedDisplayTitle
      * @param  ?bool  $selected
      * @param  ?bool  $forced
      * @param  ?int  $channels
@@ -520,15 +522,12 @@ class GetMediaMetaDataStream
      * @param  ?string  $title
      * @phpstan-pure
      */
-    public function __construct(int $id, GetMediaMetaDataStreamType $streamType, string $codec, string $displayTitle, string $extendedDisplayTitle, ?string $format = null, ?bool $default = null, ?int $index = null, ?int $bitrate = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?bool $headerCompression = null, ?int $doviblCompatID = null, ?bool $doviblPresent = null, ?bool $dovielPresent = null, ?int $doviLevel = null, ?bool $doviPresent = null, ?int $doviProfile = null, ?bool $dovirpuPresent = null, ?string $doviVersion = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?bool $closedCaptions = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?float $frameRate = null, ?string $key = null, ?int $height = null, ?int $level = null, ?bool $original = null, ?bool $hasScalingMatrix = null, ?string $profile = null, ?string $scanType = null, ?string $embeddedInVideo = null, ?int $refFrames = null, ?int $width = null, ?bool $selected = null, ?bool $forced = null, ?int $channels = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?bool $canAutoSync = null, ?bool $hearingImpaired = null, ?bool $dub = null, ?string $title = null)
+    public function __construct(int $id, ?string $format = null, ?bool $default = null, ?string $codec = null, ?int $index = null, ?int $bitrate = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?bool $headerCompression = null, ?int $doviblCompatID = null, ?bool $doviblPresent = null, ?bool $dovielPresent = null, ?int $doviLevel = null, ?bool $doviPresent = null, ?int $doviProfile = null, ?bool $dovirpuPresent = null, ?string $doviVersion = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?bool $closedCaptions = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?float $frameRate = null, ?string $key = null, ?int $height = null, ?int $level = null, ?bool $original = null, ?bool $hasScalingMatrix = null, ?string $profile = null, ?string $scanType = null, ?string $embeddedInVideo = null, ?int $refFrames = null, ?int $width = null, ?string $displayTitle = null, ?string $extendedDisplayTitle = null, ?bool $selected = null, ?bool $forced = null, ?int $channels = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?bool $canAutoSync = null, ?bool $hearingImpaired = null, ?bool $dub = null, ?string $title = null, int $streamType = 1)
     {
         $this->id = $id;
-        $this->streamType = $streamType;
-        $this->codec = $codec;
-        $this->displayTitle = $displayTitle;
-        $this->extendedDisplayTitle = $extendedDisplayTitle;
         $this->format = $format;
         $this->default = $default;
+        $this->codec = $codec;
         $this->index = $index;
         $this->bitrate = $bitrate;
         $this->language = $language;
@@ -564,6 +563,8 @@ class GetMediaMetaDataStream
         $this->embeddedInVideo = $embeddedInVideo;
         $this->refFrames = $refFrames;
         $this->width = $width;
+        $this->displayTitle = $displayTitle;
+        $this->extendedDisplayTitle = $extendedDisplayTitle;
         $this->selected = $selected;
         $this->forced = $forced;
         $this->channels = $channels;
@@ -573,5 +574,6 @@ class GetMediaMetaDataStream
         $this->hearingImpaired = $hearingImpaired;
         $this->dub = $dub;
         $this->title = $title;
+        $this->streamType = $streamType;
     }
 }

@@ -12,11 +12,44 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetSearchAllLibrariesMediaContainer
 {
     /**
+     * Number of media items returned in this response.
      *
-     * @var float $size
+     * @var int $size
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    public float $size;
+    public int $size;
+
+    /**
+     * Indicates whether syncing is allowed.
+     *
+     * @var bool $allowSync
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('allowSync')]
+    public bool $allowSync;
+
+    /**
+     * An plugin identifier for the media container.
+     *
+     * @var string $identifier
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('identifier')]
+    public string $identifier;
+
+    /**
+     * The prefix used for media tag resource paths.
+     *
+     * @var string $mediaTagPrefix
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagPrefix')]
+    public string $mediaTagPrefix;
+
+    /**
+     * The version number for media tags.
+     *
+     * @var int $mediaTagVersion
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('mediaTagVersion')]
+    public int $mediaTagVersion;
 
     /**
      * $searchResult
@@ -28,13 +61,54 @@ class GetSearchAllLibrariesMediaContainer
     public array $searchResult;
 
     /**
-     * @param  float  $size
+     * The unique identifier for the library section.
+     *
+     * @var ?int $librarySectionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $librarySectionID = null;
+
+    /**
+     * The title of the library section.
+     *
+     * @var ?string $librarySectionTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionTitle = null;
+
+    /**
+     * The universally unique identifier for the library section.
+     *
+     * @var ?string $librarySectionUUID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionUUID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionUUID = null;
+
+    /**
+     * @param  int  $size
+     * @param  bool  $allowSync
+     * @param  string  $identifier
+     * @param  string  $mediaTagPrefix
+     * @param  int  $mediaTagVersion
      * @param  array<SearchResult>  $searchResult
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionTitle
+     * @param  ?string  $librarySectionUUID
      * @phpstan-pure
      */
-    public function __construct(float $size, array $searchResult)
+    public function __construct(int $size, bool $allowSync, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, array $searchResult, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null)
     {
         $this->size = $size;
+        $this->allowSync = $allowSync;
+        $this->identifier = $identifier;
+        $this->mediaTagPrefix = $mediaTagPrefix;
+        $this->mediaTagVersion = $mediaTagVersion;
         $this->searchResult = $searchResult;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
+        $this->librarySectionUUID = $librarySectionUUID;
     }
 }

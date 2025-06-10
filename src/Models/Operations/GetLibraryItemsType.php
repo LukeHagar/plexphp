@@ -9,94 +9,21 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-class GetLibraryItemsType
+/**
+ * The type of media content in the Plex library. This can represent videos, music, or photos.
+ *
+ *
+ */
+enum GetLibraryItemsType: string
 {
-    /**
-     *
-     * @var string $key
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
-    public string $key;
-
-    /**
-     *
-     * @var string $type
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('type')]
-    public string $type;
-
-    /**
-     *
-     * @var string $title
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('title')]
-    public string $title;
-
-    /**
-     *
-     * @var bool $active
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('active')]
-    public bool $active;
-
-    /**
-     *
-     * @var ?string $subtype
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('subtype')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $subtype = null;
-
-    /**
-     * $filter
-     *
-     * @var ?array<GetLibraryItemsFilter> $filter
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Filter')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFilter>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $filter = null;
-
-    /**
-     * $sort
-     *
-     * @var ?array<GetLibraryItemsSort> $sort
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Sort')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsSort>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $sort = null;
-
-    /**
-     * $field
-     *
-     * @var ?array<GetLibraryItemsField> $field
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Field')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsField>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $field = null;
-
-    /**
-     * @param  string  $key
-     * @param  string  $type
-     * @param  string  $title
-     * @param  bool  $active
-     * @param  ?string  $subtype
-     * @param  ?array<GetLibraryItemsFilter>  $filter
-     * @param  ?array<GetLibraryItemsSort>  $sort
-     * @param  ?array<GetLibraryItemsField>  $field
-     * @phpstan-pure
-     */
-    public function __construct(string $key, string $type, string $title, bool $active, ?string $subtype = null, ?array $filter = null, ?array $sort = null, ?array $field = null)
-    {
-        $this->key = $key;
-        $this->type = $type;
-        $this->title = $title;
-        $this->active = $active;
-        $this->subtype = $subtype;
-        $this->filter = $filter;
-        $this->sort = $sort;
-        $this->field = $field;
-    }
+    case Movie = 'movie';
+    case TvShow = 'show';
+    case Season = 'season';
+    case Episode = 'episode';
+    case Artist = 'artist';
+    case Album = 'album';
+    case Track = 'track';
+    case PhotoAlbum = 'photoalbum';
+    case Photo = 'photo';
+    case Collection = 'collection';
 }

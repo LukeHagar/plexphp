@@ -19,26 +19,26 @@ class GetLibraryItemsMeta
     /**
      * $type
      *
-     * @var ?array<GetLibraryItemsLibraryResponseType> $type
+     * @var ?array<GetLibraryItemsLibraryType> $type
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Type')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryResponseType>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryType>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $type = null;
 
     /**
      * $fieldType
      *
-     * @var ?array<GetLibraryItemsLibraryFieldType> $fieldType
+     * @var ?array<GetLibraryItemsFieldType> $fieldType
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('FieldType')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsLibraryFieldType>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $fieldType = null;
 
     /**
-     * @param  ?array<GetLibraryItemsLibraryResponseType>  $type
-     * @param  ?array<GetLibraryItemsLibraryFieldType>  $fieldType
+     * @param  ?array<GetLibraryItemsLibraryType>  $type
+     * @param  ?array<GetLibraryItemsFieldType>  $fieldType
      * @phpstan-pure
      */
     public function __construct(?array $type = null, ?array $fieldType = null)

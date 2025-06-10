@@ -109,7 +109,7 @@ class GetMediaMetaDataMedia
     public ?string $videoResolution = null;
 
     /**
-     * File container type.
+     * Container format of the media.
      *
      * @var ?string $container
      */
@@ -166,6 +166,10 @@ class GetMediaMetaDataMedia
     public GetMediaMetaDataOptimizedForStreaming1|bool|null $optimizedForStreaming = null;
 
     /**
+     * Indicates whether the media has 64-bit offsets.
+     *
+     * This is relevant for media files that may require larger offsets than what 32-bit integers can provide.
+     *
      *
      * @var ?bool $has64bitOffsets
      */
@@ -174,7 +178,7 @@ class GetMediaMetaDataMedia
     public ?bool $has64bitOffsets = null;
 
     /**
-     * An array of parts for this media item.
+     * $part
      *
      * @var ?array<GetMediaMetaDataPart> $part
      */

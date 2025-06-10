@@ -12,19 +12,34 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetLibraryItemsGenre
 {
     /**
+     * The unique identifier for the genre.
      *
-     * @var ?string $tag
+     * NOTE: This is different for each Plex server and is not globally unique.
+     *
+     *
+     * @var int $id
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tag = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public int $id;
 
     /**
-     * @param  ?string  $tag
+     * The genre name of this media-item
+     *
+     *
+     *
+     * @var string $tag
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
+    public string $tag;
+
+    /**
+     * @param  int  $id
+     * @param  string  $tag
      * @phpstan-pure
      */
-    public function __construct(?string $tag = null)
+    public function __construct(int $id, string $tag)
     {
+        $this->id = $id;
         $this->tag = $tag;
     }
 }

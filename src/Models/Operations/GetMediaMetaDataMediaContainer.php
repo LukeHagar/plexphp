@@ -36,22 +36,6 @@ class GetMediaMetaDataMediaContainer
     public string $identifier;
 
     /**
-     * The unique identifier for the library section.
-     *
-     * @var int $librarySectionID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
-    public int $librarySectionID;
-
-    /**
-     * The title of the library section.
-     *
-     * @var string $librarySectionTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    public string $librarySectionTitle;
-
-    /**
      * The prefix used for media tag resource paths.
      *
      * @var string $mediaTagPrefix
@@ -77,6 +61,24 @@ class GetMediaMetaDataMediaContainer
     public array $metadata;
 
     /**
+     * The unique identifier for the library section.
+     *
+     * @var ?int $librarySectionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $librarySectionID = null;
+
+    /**
+     * The title of the library section.
+     *
+     * @var ?string $librarySectionTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionTitle = null;
+
+    /**
      * The universally unique identifier for the library section.
      *
      * @var ?string $librarySectionUUID
@@ -89,24 +91,24 @@ class GetMediaMetaDataMediaContainer
      * @param  int  $size
      * @param  bool  $allowSync
      * @param  string  $identifier
-     * @param  int  $librarySectionID
-     * @param  string  $librarySectionTitle
      * @param  string  $mediaTagPrefix
      * @param  int  $mediaTagVersion
      * @param  array<GetMediaMetaDataMetadata>  $metadata
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionTitle
      * @param  ?string  $librarySectionUUID
      * @phpstan-pure
      */
-    public function __construct(int $size, bool $allowSync, string $identifier, int $librarySectionID, string $librarySectionTitle, string $mediaTagPrefix, int $mediaTagVersion, array $metadata, ?string $librarySectionUUID = null)
+    public function __construct(int $size, bool $allowSync, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, array $metadata, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null)
     {
         $this->size = $size;
         $this->allowSync = $allowSync;
         $this->identifier = $identifier;
-        $this->librarySectionID = $librarySectionID;
-        $this->librarySectionTitle = $librarySectionTitle;
         $this->mediaTagPrefix = $mediaTagPrefix;
         $this->mediaTagVersion = $mediaTagVersion;
         $this->metadata = $metadata;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
         $this->librarySectionUUID = $librarySectionUUID;
     }
 }

@@ -161,43 +161,11 @@ class GetMediaMetaDataMetadata
     public int $duration;
 
     /**
-     * The original release date of the media item.
-     *
-     * @var LocalDate $originallyAvailableAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    public LocalDate $originallyAvailableAt;
-
-    /**
      *
      * @var int $addedAt
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('addedAt')]
     public int $addedAt;
-
-    /**
-     * The identifier for the library section.
-     *
-     * @var int $librarySectionID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
-    public int $librarySectionID;
-
-    /**
-     * The title of the library section.
-     *
-     * @var string $librarySectionTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    public string $librarySectionTitle;
-
-    /**
-     * The key corresponding to the library section.
-     *
-     * @var string $librarySectionKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionKey')]
-    public string $librarySectionKey;
 
     /**
      * The studio that produced the media item.
@@ -243,6 +211,15 @@ class GetMediaMetaDataMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('viewedLeafCount')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $viewedLeafCount = null;
+
+    /**
+     * The original release date of the media item.
+     *
+     * @var ?LocalDate $originallyAvailableAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?LocalDate $originallyAvailableAt = null;
 
     /**
      * Unix epoch datetime in seconds
@@ -525,6 +502,33 @@ class GetMediaMetaDataMetadata
     public ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null;
 
     /**
+     * The identifier for the library section.
+     *
+     * @var ?int $librarySectionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $librarySectionID = null;
+
+    /**
+     * The title of the library section.
+     *
+     * @var ?string $librarySectionTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionTitle = null;
+
+    /**
+     * The key corresponding to the library section.
+     *
+     * @var ?string $librarySectionKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionKey = null;
+
+    /**
      * $guids
      *
      * @var ?array<GetMediaMetaDataGuids> $guids
@@ -607,10 +611,10 @@ class GetMediaMetaDataMetadata
     /**
      * $ratings
      *
-     * @var ?array<Ratings> $ratings
+     * @var ?array<GetMediaMetaDataRatings> $ratings
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Rating')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Ratings>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataRatings>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $ratings = null;
 
@@ -637,31 +641,31 @@ class GetMediaMetaDataMetadata
     /**
      * $chapter
      *
-     * @var ?array<Chapter> $chapter
+     * @var ?array<GetMediaMetaDataChapter> $chapter
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Chapter')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Chapter>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataChapter>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $chapter = null;
 
     /**
      * $marker
      *
-     * @var ?array<Marker> $marker
+     * @var ?array<GetMediaMetaDataMarker> $marker
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Marker')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\Marker>|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataMarker>|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?array $marker = null;
 
     /**
      *
-     * @var ?Extras $extras
+     * @var ?GetMediaMetaDataExtras $extras
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Extras')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\Extras|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetMediaMetaDataExtras|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?Extras $extras = null;
+    public ?GetMediaMetaDataExtras $extras = null;
 
     /**
      * @param  string  $ratingKey
@@ -682,16 +686,13 @@ class GetMediaMetaDataMetadata
      * @param  int  $childCount
      * @param  int  $seasonCount
      * @param  int  $duration
-     * @param  LocalDate  $originallyAvailableAt
      * @param  int  $addedAt
-     * @param  int  $librarySectionID
-     * @param  string  $librarySectionTitle
-     * @param  string  $librarySectionKey
      * @param  ?string  $studio
      * @param  ?string  $contentRating
      * @param  ?int  $year
      * @param  ?int  $leafCount
      * @param  ?int  $viewedLeafCount
+     * @param  ?LocalDate  $originallyAvailableAt
      * @param  ?int  $updatedAt
      * @param  ?string  $audienceRatingImage
      * @param  ?string  $chapterSource
@@ -723,6 +724,9 @@ class GetMediaMetaDataMetadata
      * @param  ?float  $userRating
      * @param  ?array<GetMediaMetaDataImage>  $image
      * @param  ?GetMediaMetaDataUltraBlurColors  $ultraBlurColors
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionTitle
+     * @param  ?string  $librarySectionKey
      * @param  ?array<GetMediaMetaDataGuids>  $guids
      * @param  ?array<GetMediaMetaDataMedia>  $media
      * @param  ?array<GetMediaMetaDataGenre>  $genre
@@ -731,15 +735,15 @@ class GetMediaMetaDataMetadata
      * @param  ?array<GetMediaMetaDataWriter>  $writer
      * @param  ?array<GetMediaMetaDataProducer>  $producer
      * @param  ?array<GetMediaMetaDataRole>  $role
-     * @param  ?array<Ratings>  $ratings
+     * @param  ?array<GetMediaMetaDataRatings>  $ratings
      * @param  ?array<GetMediaMetaDataSimilar>  $similar
      * @param  ?array<GetMediaMetaDataLocation>  $location
-     * @param  ?array<Chapter>  $chapter
-     * @param  ?array<Marker>  $marker
-     * @param  ?Extras  $extras
+     * @param  ?array<GetMediaMetaDataChapter>  $chapter
+     * @param  ?array<GetMediaMetaDataMarker>  $marker
+     * @param  ?GetMediaMetaDataExtras  $extras
      * @phpstan-pure
      */
-    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetMediaMetaDataType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, LocalDate $originallyAvailableAt, int $addedAt, int $librarySectionID, string $librarySectionTitle, string $librarySectionKey, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null, ?array $guids = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $role = null, ?array $ratings = null, ?array $similar = null, ?array $location = null, ?array $chapter = null, ?array $marker = null, ?Extras $extras = null)
+    public function __construct(string $ratingKey, string $key, string $guid, string $slug, GetMediaMetaDataType $type, string $title, string $titleSort, string $summary, float $rating, float $audienceRating, string $tagline, string $thumb, string $art, string $theme, int $index, int $childCount, int $seasonCount, int $duration, int $addedAt, ?string $studio = null, ?string $contentRating = null, ?int $year = null, ?int $leafCount = null, ?int $viewedLeafCount = null, ?LocalDate $originallyAvailableAt = null, ?int $updatedAt = null, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $primaryExtraKey = null, ?string $originalTitle = null, ?string $parentRatingKey = null, ?string $grandparentRatingKey = null, ?string $parentGuid = null, ?string $grandparentGuid = null, ?string $grandparentSlug = null, ?string $grandparentKey = null, ?string $parentKey = null, ?string $grandparentTitle = null, ?string $grandparentThumb = null, ?string $grandparentTheme = null, ?string $grandparentArt = null, ?string $parentTitle = null, ?int $parentIndex = null, ?string $parentThumb = null, ?string $ratingImage = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $skipCount = null, ?string $subtype = null, ?int $lastRatedAt = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?int $lastViewedAt = null, ?float $userRating = null, ?array $image = null, ?GetMediaMetaDataUltraBlurColors $ultraBlurColors = null, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionKey = null, ?array $guids = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $producer = null, ?array $role = null, ?array $ratings = null, ?array $similar = null, ?array $location = null, ?array $chapter = null, ?array $marker = null, ?GetMediaMetaDataExtras $extras = null)
     {
         $this->ratingKey = $ratingKey;
         $this->key = $key;
@@ -759,16 +763,13 @@ class GetMediaMetaDataMetadata
         $this->childCount = $childCount;
         $this->seasonCount = $seasonCount;
         $this->duration = $duration;
-        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->addedAt = $addedAt;
-        $this->librarySectionID = $librarySectionID;
-        $this->librarySectionTitle = $librarySectionTitle;
-        $this->librarySectionKey = $librarySectionKey;
         $this->studio = $studio;
         $this->contentRating = $contentRating;
         $this->year = $year;
         $this->leafCount = $leafCount;
         $this->viewedLeafCount = $viewedLeafCount;
+        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->updatedAt = $updatedAt;
         $this->audienceRatingImage = $audienceRatingImage;
         $this->chapterSource = $chapterSource;
@@ -800,6 +801,9 @@ class GetMediaMetaDataMetadata
         $this->userRating = $userRating;
         $this->image = $image;
         $this->ultraBlurColors = $ultraBlurColors;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
+        $this->librarySectionKey = $librarySectionKey;
         $this->guids = $guids;
         $this->media = $media;
         $this->genre = $genre;

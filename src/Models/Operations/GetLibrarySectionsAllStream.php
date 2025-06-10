@@ -20,20 +20,6 @@ class GetLibrarySectionsAllStream
     public int $id;
 
     /**
-     * Stream type:
-     *
-     *   - 1 = video
-     *   - 2 = audio
-     *   - 3 = subtitle
-     *
-     *
-     * @var GetLibrarySectionsAllStreamType $streamType
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('streamType')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibrarySectionsAllStreamType')]
-    public GetLibrarySectionsAllStreamType $streamType;
-
-    /**
      * Codec used by the stream.
      *
      * @var string $codec
@@ -467,8 +453,21 @@ class GetLibrarySectionsAllStream
     public ?string $title = null;
 
     /**
+     * Stream type:
+     *
+     *   - VIDEO = 1
+     *   - AUDIO = 2
+     *   - SUBTITLE = 3
+     *
+     *
+     * @var int $streamType
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('streamType')]
+    public int $streamType;
+
+    /**
      * @param  int  $id
-     * @param  GetLibrarySectionsAllStreamType  $streamType
+     * @param  int  $streamType
      * @param  string  $codec
      * @param  string  $displayTitle
      * @param  string  $extendedDisplayTitle
@@ -520,10 +519,9 @@ class GetLibrarySectionsAllStream
      * @param  ?string  $title
      * @phpstan-pure
      */
-    public function __construct(int $id, GetLibrarySectionsAllStreamType $streamType, string $codec, string $displayTitle, string $extendedDisplayTitle, ?string $format = null, ?bool $default = null, ?int $index = null, ?int $bitrate = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?bool $headerCompression = null, ?int $doviblCompatID = null, ?bool $doviblPresent = null, ?bool $dovielPresent = null, ?int $doviLevel = null, ?bool $doviPresent = null, ?int $doviProfile = null, ?bool $dovirpuPresent = null, ?string $doviVersion = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?bool $closedCaptions = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?float $frameRate = null, ?string $key = null, ?int $height = null, ?int $level = null, ?bool $original = null, ?bool $hasScalingMatrix = null, ?string $profile = null, ?string $scanType = null, ?string $embeddedInVideo = null, ?int $refFrames = null, ?int $width = null, ?bool $selected = null, ?bool $forced = null, ?int $channels = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?bool $canAutoSync = null, ?bool $hearingImpaired = null, ?bool $dub = null, ?string $title = null)
+    public function __construct(int $id, string $codec, string $displayTitle, string $extendedDisplayTitle, ?string $format = null, ?bool $default = null, ?int $index = null, ?int $bitrate = null, ?string $language = null, ?string $languageTag = null, ?string $languageCode = null, ?bool $headerCompression = null, ?int $doviblCompatID = null, ?bool $doviblPresent = null, ?bool $dovielPresent = null, ?int $doviLevel = null, ?bool $doviPresent = null, ?int $doviProfile = null, ?bool $dovirpuPresent = null, ?string $doviVersion = null, ?int $bitDepth = null, ?string $chromaLocation = null, ?string $chromaSubsampling = null, ?int $codedHeight = null, ?int $codedWidth = null, ?bool $closedCaptions = null, ?string $colorPrimaries = null, ?string $colorRange = null, ?string $colorSpace = null, ?string $colorTrc = null, ?float $frameRate = null, ?string $key = null, ?int $height = null, ?int $level = null, ?bool $original = null, ?bool $hasScalingMatrix = null, ?string $profile = null, ?string $scanType = null, ?string $embeddedInVideo = null, ?int $refFrames = null, ?int $width = null, ?bool $selected = null, ?bool $forced = null, ?int $channels = null, ?string $audioChannelLayout = null, ?int $samplingRate = null, ?bool $canAutoSync = null, ?bool $hearingImpaired = null, ?bool $dub = null, ?string $title = null, int $streamType = 1)
     {
         $this->id = $id;
-        $this->streamType = $streamType;
         $this->codec = $codec;
         $this->displayTitle = $displayTitle;
         $this->extendedDisplayTitle = $extendedDisplayTitle;
@@ -573,5 +571,6 @@ class GetLibrarySectionsAllStream
         $this->hearingImpaired = $hearingImpaired;
         $this->dub = $dub;
         $this->title = $title;
+        $this->streamType = $streamType;
     }
 }

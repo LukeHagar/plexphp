@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/**
+ * Indicates if the part has a thumbnail.
+ *
+ *
+ */
 enum GetLibraryItemsHasThumbnail: string
 {
     case False = '0';

@@ -158,12 +158,12 @@ class GetLibrarySectionsAllMedia
     /**
      * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
      *
-     * @var OptimizedForStreaming1|bool|null $optimizedForStreaming
+     * @var GetLibrarySectionsAllOptimizedForStreaming1|bool|null $optimizedForStreaming
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\OptimizedForStreaming1|bool|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibrarySectionsAllOptimizedForStreaming1|bool|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public OptimizedForStreaming1|bool|null $optimizedForStreaming = null;
+    public GetLibrarySectionsAllOptimizedForStreaming1|bool|null $optimizedForStreaming = null;
 
     /**
      *
@@ -200,12 +200,12 @@ class GetLibrarySectionsAllMedia
      * @param  ?string  $videoProfile
      * @param  ?bool  $hasVoiceActivity
      * @param  ?string  $audioProfile
-     * @param  OptimizedForStreaming1|bool|null  $optimizedForStreaming
+     * @param  GetLibrarySectionsAllOptimizedForStreaming1|bool|null  $optimizedForStreaming
      * @param  ?bool  $has64bitOffsets
      * @param  ?array<GetLibrarySectionsAllPart>  $part
      * @phpstan-pure
      */
-    public function __construct(int $id, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?int $audioChannels = null, ?int $displayOffset = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?bool $hasVoiceActivity = null, ?string $audioProfile = null, OptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?bool $has64bitOffsets = null, ?array $part = null)
+    public function __construct(int $id, ?int $duration = null, ?int $bitrate = null, ?int $width = null, ?int $height = null, ?float $aspectRatio = null, ?int $audioChannels = null, ?int $displayOffset = null, ?string $audioCodec = null, ?string $videoCodec = null, ?string $videoResolution = null, ?string $container = null, ?string $videoFrameRate = null, ?string $videoProfile = null, ?bool $hasVoiceActivity = null, ?string $audioProfile = null, GetLibrarySectionsAllOptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?bool $has64bitOffsets = null, ?array $part = null)
     {
         $this->id = $id;
         $this->duration = $duration;

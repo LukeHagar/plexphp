@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
+/** GetLibraryItemsLocation - The folder path for the media item. */
 class GetLibraryItemsLocation
 {
     /**
      *
-     * @var ?string $path
+     * @var string $path
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('path')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $path = null;
+    public string $path;
 
     /**
-     * @param  ?string  $path
+     * @param  string  $path
      * @phpstan-pure
      */
-    public function __construct(?string $path = null)
+    public function __construct(string $path)
     {
         $this->path = $path;
     }

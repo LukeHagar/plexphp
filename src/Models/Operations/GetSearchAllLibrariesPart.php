@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetSearchAllLibrariesPart
 {
     /**
+     * Unique part identifier.
      *
      * @var int $id
      */
@@ -19,37 +20,42 @@ class GetSearchAllLibrariesPart
     public int $id;
 
     /**
+     * Indicates if the part is accessible.
      *
-     * @var string $key
+     * @var ?bool $accessible
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('accessible')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $accessible = null;
+
+    /**
+     * Indicates if the part exists.
+     *
+     * @var ?bool $exists
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('exists')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?bool $exists = null;
+
+    /**
+     * Key to access this part.
+     *
+     * @var ?string $key
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
-    public string $key;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $key = null;
 
     /**
      *
-     * @var string $file
+     * @var ?string $indexes
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
-    public string $file;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('indexes')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $indexes = null;
 
     /**
-     *
-     * @var int $size
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    public int $size;
-
-    /**
-     * The container format of the media file.
-     *
-     *
-     *
-     * @var string $container
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
-    public string $container;
-
-    /**
+     * Duration of the part in milliseconds.
      *
      * @var ?int $duration
      */
@@ -58,6 +64,51 @@ class GetSearchAllLibrariesPart
     public ?int $duration = null;
 
     /**
+     * File path for the part.
+     *
+     * @var ?string $file
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $file = null;
+
+    /**
+     * File size in bytes.
+     *
+     * @var ?int $size
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $size = null;
+
+    /**
+     *
+     * @var ?int $packetLength
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('packetLength')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $packetLength = null;
+
+    /**
+     * Container format of the part.
+     *
+     * @var ?string $container
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('container')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $container = null;
+
+    /**
+     * Video profile for the part.
+     *
+     * @var ?string $videoProfile
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $videoProfile = null;
+
+    /**
+     * The audio profile used for the media (e.g., DTS, Dolby Digital, etc.).
      *
      * @var ?string $audioProfile
      */
@@ -74,38 +125,16 @@ class GetSearchAllLibrariesPart
     public ?bool $has64bitOffsets = null;
 
     /**
+     * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
      *
-     * @var ?bool $optimizedForStreaming
+     *
+     *
+     * @var GetSearchAllLibrariesOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesOptimizedForStreamingLibrary1|bool|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $optimizedForStreaming = null;
-
-    /**
-     *
-     * @var ?string $videoProfile
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('videoProfile')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $videoProfile = null;
-
-    /**
-     *
-     * @var ?string $indexes
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('indexes')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $indexes = null;
-
-    /**
-     * $stream
-     *
-     * @var ?array<GetSearchAllLibrariesStream> $stream
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Stream')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesStream>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $stream = null;
+    public GetSearchAllLibrariesOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null;
 
     /**
      *
@@ -118,34 +147,38 @@ class GetSearchAllLibrariesPart
 
     /**
      * @param  int  $id
-     * @param  string  $key
-     * @param  string  $file
-     * @param  int  $size
-     * @param  string  $container
+     * @param  ?bool  $accessible
+     * @param  ?bool  $exists
+     * @param  ?string  $key
+     * @param  ?string  $indexes
      * @param  ?int  $duration
+     * @param  ?string  $file
+     * @param  ?int  $size
+     * @param  ?int  $packetLength
+     * @param  ?string  $container
+     * @param  ?string  $videoProfile
      * @param  ?string  $audioProfile
      * @param  ?bool  $has64bitOffsets
-     * @param  ?bool  $optimizedForStreaming
-     * @param  ?string  $videoProfile
-     * @param  ?string  $indexes
+     * @param  GetSearchAllLibrariesOptimizedForStreamingLibrary1|bool|null  $optimizedForStreaming
      * @param  ?GetSearchAllLibrariesHasThumbnail  $hasThumbnail
-     * @param  ?array<GetSearchAllLibrariesStream>  $stream
      * @phpstan-pure
      */
-    public function __construct(int $id, string $key, string $file, int $size, string $container, ?int $duration = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, ?bool $optimizedForStreaming = null, ?string $videoProfile = null, ?string $indexes = null, ?array $stream = null, ?GetSearchAllLibrariesHasThumbnail $hasThumbnail = GetSearchAllLibrariesHasThumbnail::False)
+    public function __construct(int $id, ?bool $accessible = null, ?bool $exists = null, ?string $key = null, ?string $indexes = null, ?int $duration = null, ?string $file = null, ?int $size = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetSearchAllLibrariesOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null, ?GetSearchAllLibrariesHasThumbnail $hasThumbnail = GetSearchAllLibrariesHasThumbnail::False)
     {
         $this->id = $id;
+        $this->accessible = $accessible;
+        $this->exists = $exists;
         $this->key = $key;
+        $this->indexes = $indexes;
+        $this->duration = $duration;
         $this->file = $file;
         $this->size = $size;
+        $this->packetLength = $packetLength;
         $this->container = $container;
-        $this->duration = $duration;
+        $this->videoProfile = $videoProfile;
         $this->audioProfile = $audioProfile;
         $this->has64bitOffsets = $has64bitOffsets;
         $this->optimizedForStreaming = $optimizedForStreaming;
-        $this->videoProfile = $videoProfile;
-        $this->indexes = $indexes;
-        $this->stream = $stream;
         $this->hasThumbnail = $hasThumbnail;
     }
 }

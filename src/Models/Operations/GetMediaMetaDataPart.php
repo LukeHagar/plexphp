@@ -20,30 +20,6 @@ class GetMediaMetaDataPart
     public int $id;
 
     /**
-     * Key to access this part.
-     *
-     * @var string $key
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
-    public string $key;
-
-    /**
-     * File path for the part.
-     *
-     * @var string $file
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
-    public string $file;
-
-    /**
-     * File size in bytes.
-     *
-     * @var int $size
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
-    public int $size;
-
-    /**
      * Indicates if the part is accessible.
      *
      * @var ?bool $accessible
@@ -62,6 +38,15 @@ class GetMediaMetaDataPart
     public ?bool $exists = null;
 
     /**
+     * Key to access this part.
+     *
+     * @var ?string $key
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('key')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $key = null;
+
+    /**
      *
      * @var ?string $indexes
      */
@@ -77,6 +62,24 @@ class GetMediaMetaDataPart
     #[\Speakeasy\Serializer\Annotation\SerializedName('duration')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?int $duration = null;
+
+    /**
+     * File path for the part.
+     *
+     * @var ?string $file
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('file')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $file = null;
+
+    /**
+     * File size in bytes.
+     *
+     * @var ?int $size
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('size')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $size = null;
 
     /**
      *
@@ -124,6 +127,8 @@ class GetMediaMetaDataPart
     /**
      * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
      *
+     *
+     *
      * @var GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
@@ -132,7 +137,7 @@ class GetMediaMetaDataPart
     public GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null;
 
     /**
-     * An array of streams for this part.
+     * $stream
      *
      * @var ?array<GetMediaMetaDataStream> $stream
      */
@@ -152,13 +157,13 @@ class GetMediaMetaDataPart
 
     /**
      * @param  int  $id
-     * @param  string  $key
-     * @param  string  $file
-     * @param  int  $size
      * @param  ?bool  $accessible
      * @param  ?bool  $exists
+     * @param  ?string  $key
      * @param  ?string  $indexes
      * @param  ?int  $duration
+     * @param  ?string  $file
+     * @param  ?int  $size
      * @param  ?int  $packetLength
      * @param  ?string  $container
      * @param  ?string  $videoProfile
@@ -169,16 +174,16 @@ class GetMediaMetaDataPart
      * @param  ?array<GetMediaMetaDataStream>  $stream
      * @phpstan-pure
      */
-    public function __construct(int $id, string $key, string $file, int $size, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null, ?int $duration = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?GetMediaMetaDataHasThumbnail $hasThumbnail = GetMediaMetaDataHasThumbnail::False)
+    public function __construct(int $id, ?bool $accessible = null, ?bool $exists = null, ?string $key = null, ?string $indexes = null, ?int $duration = null, ?string $file = null, ?int $size = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetMediaMetaDataOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?GetMediaMetaDataHasThumbnail $hasThumbnail = GetMediaMetaDataHasThumbnail::False)
     {
         $this->id = $id;
-        $this->key = $key;
-        $this->file = $file;
-        $this->size = $size;
         $this->accessible = $accessible;
         $this->exists = $exists;
+        $this->key = $key;
         $this->indexes = $indexes;
         $this->duration = $duration;
+        $this->file = $file;
+        $this->size = $size;
         $this->packetLength = $packetLength;
         $this->container = $container;
         $this->videoProfile = $videoProfile;

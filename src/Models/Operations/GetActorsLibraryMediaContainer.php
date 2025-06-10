@@ -102,10 +102,11 @@ class GetActorsLibraryMediaContainer
     /**
      * Identifier for the view mode.
      *
-     * @var string $viewMode
+     * @var ?string $viewMode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('viewMode')]
-    public string $viewMode;
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $viewMode = null;
 
     /**
      * An array of actor entries for media items.
@@ -129,11 +130,11 @@ class GetActorsLibraryMediaContainer
      * @param  string  $title1
      * @param  string  $title2
      * @param  string  $viewGroup
-     * @param  string  $viewMode
+     * @param  ?string  $viewMode
      * @param  ?array<GetActorsLibraryDirectory>  $directory
      * @phpstan-pure
      */
-    public function __construct(int $size, bool $allowSync, string $art, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, bool $nocache, string $thumb, string $title1, string $title2, string $viewGroup, string $viewMode, ?array $directory = null)
+    public function __construct(int $size, bool $allowSync, string $art, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, bool $nocache, string $thumb, string $title1, string $title2, string $viewGroup, ?string $viewMode = null, ?array $directory = null)
     {
         $this->size = $size;
         $this->allowSync = $allowSync;

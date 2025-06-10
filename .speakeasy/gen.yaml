@@ -17,12 +17,13 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 php:
-  version: 0.14.9
+  version: 0.14.10
   additionalDependencies:
     autoload: {}
     autoload-dev: {}
     require: {}
     require-dev: {}
+  baseErrorName: PlexAPIError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKException
   flattenGlobalSecurity: true

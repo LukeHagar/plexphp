@@ -9,14 +9,10 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/**
- * GetLibraryItemsMediaContainer - The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
- *
- *
- */
 class GetLibraryItemsMediaContainer
 {
     /**
+     * Number of media items returned in this response.
      *
      * @var int $size
      */
@@ -24,6 +20,7 @@ class GetLibraryItemsMediaContainer
     public int $size;
 
     /**
+     * Total number of media items in the library.
      *
      * @var int $totalSize
      */
@@ -31,6 +28,7 @@ class GetLibraryItemsMediaContainer
     public int $totalSize;
 
     /**
+     * Offset value for pagination.
      *
      * @var int $offset
      */
@@ -38,6 +36,7 @@ class GetLibraryItemsMediaContainer
     public int $offset;
 
     /**
+     * The content type or mode.
      *
      * @var string $content
      */
@@ -45,6 +44,7 @@ class GetLibraryItemsMediaContainer
     public string $content;
 
     /**
+     * Indicates whether syncing is allowed.
      *
      * @var bool $allowSync
      */
@@ -52,6 +52,15 @@ class GetLibraryItemsMediaContainer
     public bool $allowSync;
 
     /**
+     * Specifies whether caching is disabled.
+     *
+     * @var bool $nocache
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('nocache')]
+    public bool $nocache;
+
+    /**
+     * URL for the background artwork of the media container.
      *
      * @var string $art
      */
@@ -59,6 +68,7 @@ class GetLibraryItemsMediaContainer
     public string $art;
 
     /**
+     * An plugin identifier for the media container.
      *
      * @var string $identifier
      */
@@ -66,27 +76,7 @@ class GetLibraryItemsMediaContainer
     public string $identifier;
 
     /**
-     *
-     * @var int $librarySectionID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
-    public int $librarySectionID;
-
-    /**
-     *
-     * @var string $librarySectionTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    public string $librarySectionTitle;
-
-    /**
-     *
-     * @var string $librarySectionUUID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionUUID')]
-    public string $librarySectionUUID;
-
-    /**
+     * The prefix used for media tag resource paths.
      *
      * @var string $mediaTagPrefix
      */
@@ -94,6 +84,7 @@ class GetLibraryItemsMediaContainer
     public string $mediaTagPrefix;
 
     /**
+     * The version number for media tags.
      *
      * @var int $mediaTagVersion
      */
@@ -101,6 +92,7 @@ class GetLibraryItemsMediaContainer
     public int $mediaTagVersion;
 
     /**
+     * URL for the thumbnail image of the media container.
      *
      * @var string $thumb
      */
@@ -108,6 +100,7 @@ class GetLibraryItemsMediaContainer
     public string $thumb;
 
     /**
+     * The primary title of the media container.
      *
      * @var string $title1
      */
@@ -115,6 +108,7 @@ class GetLibraryItemsMediaContainer
     public string $title1;
 
     /**
+     * The secondary title of the media container.
      *
      * @var string $title2
      */
@@ -122,6 +116,7 @@ class GetLibraryItemsMediaContainer
     public string $title2;
 
     /**
+     * Identifier for the view group layout.
      *
      * @var string $viewGroup
      */
@@ -129,58 +124,58 @@ class GetLibraryItemsMediaContainer
     public string $viewGroup;
 
     /**
-     * $type
+     * An array of metadata items.
      *
-     * @var ?array<GetLibraryItemsType> $type
+     * @var array<GetLibraryItemsMetadata> $metadata
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Type')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsType>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $type = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
+    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>')]
+    public array $metadata;
 
     /**
-     * $fieldType
+     * The unique identifier for the library section.
      *
-     * @var ?array<GetLibraryItemsFieldType> $fieldType
+     * @var ?int $librarySectionID
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('FieldType')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsFieldType>|null')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $fieldType = null;
+    public ?int $librarySectionID = null;
 
     /**
+     * The title of the library section.
      *
-     * @var ?bool $nocache
+     * @var ?string $librarySectionTitle
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('nocache')]
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?bool $nocache = null;
+    public ?string $librarySectionTitle = null;
 
     /**
+     * The universally unique identifier for the library section.
      *
-     * @var ?int $viewMode
+     * @var ?string $librarySectionUUID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionUUID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionUUID = null;
+
+    /**
+     * Identifier for the view mode.
+     *
+     * @var ?string $viewMode
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('viewMode')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $viewMode = null;
+    public ?string $viewMode = null;
 
     /**
+     * Indicates if the media container has mixed parents.
      *
      * @var ?bool $mixedParents
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('mixedParents')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?bool $mixedParents = null;
-
-    /**
-     * $metadata
-     *
-     * @var ?array<GetLibraryItemsMetadata> $metadata
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
-    #[\Speakeasy\Serializer\Annotation\Type('array<\LukeHagar\Plex_API\Models\Operations\GetLibraryItemsMetadata>|null')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?array $metadata = null;
 
     /**
      * The Meta object is only included in the response if the `includeMeta` parameter is set to `1`.
@@ -200,50 +195,46 @@ class GetLibraryItemsMediaContainer
      * @param  int  $offset
      * @param  string  $content
      * @param  bool  $allowSync
+     * @param  bool  $nocache
      * @param  string  $art
      * @param  string  $identifier
-     * @param  int  $librarySectionID
-     * @param  string  $librarySectionTitle
-     * @param  string  $librarySectionUUID
      * @param  string  $mediaTagPrefix
      * @param  int  $mediaTagVersion
      * @param  string  $thumb
      * @param  string  $title1
      * @param  string  $title2
      * @param  string  $viewGroup
-     * @param  ?array<GetLibraryItemsType>  $type
-     * @param  ?array<GetLibraryItemsFieldType>  $fieldType
-     * @param  ?bool  $nocache
-     * @param  ?int  $viewMode
+     * @param  array<GetLibraryItemsMetadata>  $metadata
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionTitle
+     * @param  ?string  $librarySectionUUID
+     * @param  ?string  $viewMode
      * @param  ?bool  $mixedParents
-     * @param  ?array<GetLibraryItemsMetadata>  $metadata
      * @param  ?GetLibraryItemsMeta  $meta
      * @phpstan-pure
      */
-    public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, string $art, string $identifier, int $librarySectionID, string $librarySectionTitle, string $librarySectionUUID, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, ?array $type = null, ?array $fieldType = null, ?bool $nocache = null, ?int $viewMode = null, ?bool $mixedParents = null, ?array $metadata = null, ?GetLibraryItemsMeta $meta = null)
+    public function __construct(int $size, int $totalSize, int $offset, string $content, bool $allowSync, bool $nocache, string $art, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, string $title1, string $title2, string $viewGroup, array $metadata, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?string $viewMode = null, ?bool $mixedParents = null, ?GetLibraryItemsMeta $meta = null)
     {
         $this->size = $size;
         $this->totalSize = $totalSize;
         $this->offset = $offset;
         $this->content = $content;
         $this->allowSync = $allowSync;
+        $this->nocache = $nocache;
         $this->art = $art;
         $this->identifier = $identifier;
-        $this->librarySectionID = $librarySectionID;
-        $this->librarySectionTitle = $librarySectionTitle;
-        $this->librarySectionUUID = $librarySectionUUID;
         $this->mediaTagPrefix = $mediaTagPrefix;
         $this->mediaTagVersion = $mediaTagVersion;
         $this->thumb = $thumb;
         $this->title1 = $title1;
         $this->title2 = $title2;
         $this->viewGroup = $viewGroup;
-        $this->type = $type;
-        $this->fieldType = $fieldType;
-        $this->nocache = $nocache;
+        $this->metadata = $metadata;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
+        $this->librarySectionUUID = $librarySectionUUID;
         $this->viewMode = $viewMode;
         $this->mixedParents = $mixedParents;
-        $this->metadata = $metadata;
         $this->meta = $meta;
     }
 }

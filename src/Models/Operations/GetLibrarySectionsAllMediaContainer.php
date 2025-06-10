@@ -68,22 +68,6 @@ class GetLibrarySectionsAllMediaContainer
     public string $identifier;
 
     /**
-     * The unique identifier for the library section.
-     *
-     * @var int $librarySectionID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
-    public int $librarySectionID;
-
-    /**
-     * The title of the library section.
-     *
-     * @var string $librarySectionTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    public string $librarySectionTitle;
-
-    /**
      * The prefix used for media tag resource paths.
      *
      * @var string $mediaTagPrefix
@@ -140,6 +124,24 @@ class GetLibrarySectionsAllMediaContainer
     public string $viewGroup;
 
     /**
+     * The unique identifier for the library section.
+     *
+     * @var ?int $librarySectionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $librarySectionID = null;
+
+    /**
+     * The title of the library section.
+     *
+     * @var ?string $librarySectionTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionTitle = null;
+
+    /**
      * The universally unique identifier for the library section.
      *
      * @var ?string $librarySectionUUID
@@ -178,8 +180,6 @@ class GetLibrarySectionsAllMediaContainer
      * @param  string  $art
      * @param  string  $content
      * @param  string  $identifier
-     * @param  int  $librarySectionID
-     * @param  string  $librarySectionTitle
      * @param  string  $mediaTagPrefix
      * @param  int  $mediaTagVersion
      * @param  string  $thumb
@@ -187,12 +187,14 @@ class GetLibrarySectionsAllMediaContainer
      * @param  string  $title1
      * @param  string  $title2
      * @param  string  $viewGroup
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionTitle
      * @param  ?string  $librarySectionUUID
      * @param  ?GetLibrarySectionsAllMeta  $meta
      * @param  ?array<GetLibrarySectionsAllMetadata>  $metadata
      * @phpstan-pure
      */
-    public function __construct(int $size, int $totalSize, int $offset, bool $allowSync, string $art, string $content, string $identifier, int $librarySectionID, string $librarySectionTitle, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, bool $nocache, string $title1, string $title2, string $viewGroup, ?string $librarySectionUUID = null, ?GetLibrarySectionsAllMeta $meta = null, ?array $metadata = null)
+    public function __construct(int $size, int $totalSize, int $offset, bool $allowSync, string $art, string $content, string $identifier, string $mediaTagPrefix, int $mediaTagVersion, string $thumb, bool $nocache, string $title1, string $title2, string $viewGroup, ?int $librarySectionID = null, ?string $librarySectionTitle = null, ?string $librarySectionUUID = null, ?GetLibrarySectionsAllMeta $meta = null, ?array $metadata = null)
     {
         $this->size = $size;
         $this->totalSize = $totalSize;
@@ -201,8 +203,6 @@ class GetLibrarySectionsAllMediaContainer
         $this->art = $art;
         $this->content = $content;
         $this->identifier = $identifier;
-        $this->librarySectionID = $librarySectionID;
-        $this->librarySectionTitle = $librarySectionTitle;
         $this->mediaTagPrefix = $mediaTagPrefix;
         $this->mediaTagVersion = $mediaTagVersion;
         $this->thumb = $thumb;
@@ -210,6 +210,8 @@ class GetLibrarySectionsAllMediaContainer
         $this->title1 = $title1;
         $this->title2 = $title2;
         $this->viewGroup = $viewGroup;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionTitle = $librarySectionTitle;
         $this->librarySectionUUID = $librarySectionUUID;
         $this->meta = $meta;
         $this->metadata = $metadata;

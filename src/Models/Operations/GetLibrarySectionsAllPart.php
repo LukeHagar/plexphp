@@ -124,12 +124,12 @@ class GetLibrarySectionsAllPart
     /**
      * Has this media been optimized for streaming. NOTE: This can be 0, 1, false or true
      *
-     * @var GetLibrarySectionsAllOptimizedForStreaming1|bool|null $optimizedForStreaming
+     * @var GetLibrarySectionsAllOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('optimizedForStreaming')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibrarySectionsAllOptimizedForStreaming1|bool|null')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetLibrarySectionsAllOptimizedForStreamingLibrary1|bool|null')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public GetLibrarySectionsAllOptimizedForStreaming1|bool|null $optimizedForStreaming = null;
+    public GetLibrarySectionsAllOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null;
 
     /**
      * An array of streams for this part.
@@ -164,12 +164,12 @@ class GetLibrarySectionsAllPart
      * @param  ?string  $videoProfile
      * @param  ?string  $audioProfile
      * @param  ?bool  $has64bitOffsets
-     * @param  GetLibrarySectionsAllOptimizedForStreaming1|bool|null  $optimizedForStreaming
+     * @param  GetLibrarySectionsAllOptimizedForStreamingLibrary1|bool|null  $optimizedForStreaming
      * @param  ?GetLibrarySectionsAllHasThumbnail  $hasThumbnail
      * @param  ?array<GetLibrarySectionsAllStream>  $stream
      * @phpstan-pure
      */
-    public function __construct(int $id, string $key, string $file, int $size, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null, ?int $duration = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetLibrarySectionsAllOptimizedForStreaming1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?GetLibrarySectionsAllHasThumbnail $hasThumbnail = GetLibrarySectionsAllHasThumbnail::False)
+    public function __construct(int $id, string $key, string $file, int $size, ?bool $accessible = null, ?bool $exists = null, ?string $indexes = null, ?int $duration = null, ?int $packetLength = null, ?string $container = null, ?string $videoProfile = null, ?string $audioProfile = null, ?bool $has64bitOffsets = null, GetLibrarySectionsAllOptimizedForStreamingLibrary1|bool|null $optimizedForStreaming = null, ?array $stream = null, ?GetLibrarySectionsAllHasThumbnail $hasThumbnail = GetLibrarySectionsAllHasThumbnail::False)
     {
         $this->id = $id;
         $this->key = $key;

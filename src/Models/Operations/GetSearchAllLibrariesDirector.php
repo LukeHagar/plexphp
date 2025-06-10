@@ -12,19 +12,40 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetSearchAllLibrariesDirector
 {
     /**
+     * Unique identifier for the director.
      *
-     * @var ?string $tag
+     * @var int $id
      */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tag = null;
+    #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
+    public int $id;
 
     /**
-     * @param  ?string  $tag
+     * The role of Director
+     *
+     * @var string $tag
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
+    public string $tag;
+
+    /**
+     * The absolute URL of the thumbnail image for the director.
+     *
+     * @var ?string $thumb
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $thumb = null;
+
+    /**
+     * @param  int  $id
+     * @param  string  $tag
+     * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(?string $tag = null)
+    public function __construct(int $id, string $tag, ?string $thumb = null)
     {
+        $this->id = $id;
         $this->tag = $tag;
+        $this->thumb = $thumb;
     }
 }

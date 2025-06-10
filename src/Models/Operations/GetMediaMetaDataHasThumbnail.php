@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Indicates if the part has a thumbnail. */
+/**
+ * Indicates if the part has a thumbnail.
+ *
+ *
+ */
 enum GetMediaMetaDataHasThumbnail: string
 {
     case False = '0';

@@ -12,6 +12,7 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class SearchResult
 {
     /**
+     * The score of the search result, typically a float value between 0 and 1.
      *
      * @var float $score
      */
@@ -20,20 +21,32 @@ class SearchResult
 
     /**
      *
-     * @var GetSearchAllLibrariesMetadata $metadata
+     * @var ?GetSearchAllLibrariesDirectory $directory
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('Directory')]
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesDirectory|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetSearchAllLibrariesDirectory $directory = null;
+
+    /**
+     *
+     * @var ?GetSearchAllLibrariesMetadata $metadata
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('Metadata')]
-    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesMetadata')]
-    public GetSearchAllLibrariesMetadata $metadata;
+    #[\Speakeasy\Serializer\Annotation\Type('\LukeHagar\Plex_API\Models\Operations\GetSearchAllLibrariesMetadata|null')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?GetSearchAllLibrariesMetadata $metadata = null;
 
     /**
      * @param  float  $score
-     * @param  GetSearchAllLibrariesMetadata  $metadata
+     * @param  ?GetSearchAllLibrariesDirectory  $directory
+     * @param  ?GetSearchAllLibrariesMetadata  $metadata
      * @phpstan-pure
      */
-    public function __construct(float $score, GetSearchAllLibrariesMetadata $metadata)
+    public function __construct(float $score, ?GetSearchAllLibrariesDirectory $directory = null, ?GetSearchAllLibrariesMetadata $metadata = null)
     {
         $this->score = $score;
+        $this->directory = $directory;
         $this->metadata = $metadata;
     }
 }

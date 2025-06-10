@@ -12,52 +12,26 @@ namespace LukeHagar\Plex_API\Models\Operations;
 class GetSearchAllLibrariesRole
 {
     /**
-     * The ID of the tag or actor.
+     * The unique identifier for the role.
      *
-     * @var ?int $id
+     * NOTE: This is different for each Plex server and is not globally unique.
+     *
+     *
+     * @var int $id
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('id')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?int $id = null;
+    public int $id;
 
     /**
-     * The filter used to find the actor or tag.
+     * The display tag for the actor (typically the actor's name).
      *
-     * @var ?string $filter
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('filter')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $filter = null;
-
-    /**
-     * The thumbnail of the actor
-     *
-     * @var ?string $thumb
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $thumb = null;
-
-    /**
-     * The name of the tag or actor.
-     *
-     * @var ?string $tag
+     * @var string $tag
      */
     #[\Speakeasy\Serializer\Annotation\SerializedName('tag')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tag = null;
+    public string $tag;
 
     /**
-     * Unique identifier for the tag.
-     *
-     * @var ?string $tagKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('tagKey')]
-    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
-    public ?string $tagKey = null;
-
-    /**
-     * The role of the actor or tag in the media.
+     * The role played by the actor in the media item.
      *
      * @var ?string $role
      */
@@ -66,21 +40,26 @@ class GetSearchAllLibrariesRole
     public ?string $role = null;
 
     /**
-     * @param  ?int  $id
-     * @param  ?string  $filter
-     * @param  ?string  $thumb
-     * @param  ?string  $tag
-     * @param  ?string  $tagKey
+     * The absolute URL of the thumbnail image for the actor.
+     *
+     * @var ?string $thumb
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('thumb')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $thumb = null;
+
+    /**
+     * @param  int  $id
+     * @param  string  $tag
      * @param  ?string  $role
+     * @param  ?string  $thumb
      * @phpstan-pure
      */
-    public function __construct(?int $id = null, ?string $filter = null, ?string $thumb = null, ?string $tag = null, ?string $tagKey = null, ?string $role = null)
+    public function __construct(int $id, string $tag, ?string $role = null, ?string $thumb = null)
     {
         $this->id = $id;
-        $this->filter = $filter;
-        $this->thumb = $thumb;
         $this->tag = $tag;
-        $this->tagKey = $tagKey;
         $this->role = $role;
+        $this->thumb = $thumb;
     }
 }

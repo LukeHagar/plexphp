@@ -80,38 +80,6 @@ class GetRecentlyAddedMetadata
     public string $key;
 
     /**
-     * The identifier for the library section.
-     *
-     * @var int $librarySectionID
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
-    public int $librarySectionID;
-
-    /**
-     * The key corresponding to the library section.
-     *
-     * @var string $librarySectionKey
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionKey')]
-    public string $librarySectionKey;
-
-    /**
-     * The title of the library section.
-     *
-     * @var string $librarySectionTitle
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
-    public string $librarySectionTitle;
-
-    /**
-     * The original release date of the media item.
-     *
-     * @var LocalDate $originallyAvailableAt
-     */
-    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
-    public LocalDate $originallyAvailableAt;
-
-    /**
      * The studio of the parent media item.
      *
      * @var string $parentStudio
@@ -360,6 +328,33 @@ class GetRecentlyAddedMetadata
     public ?int $leafCount = null;
 
     /**
+     * The identifier for the library section.
+     *
+     * @var ?int $librarySectionID
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionID')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?int $librarySectionID = null;
+
+    /**
+     * The key corresponding to the library section.
+     *
+     * @var ?string $librarySectionKey
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionKey')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionKey = null;
+
+    /**
+     * The title of the library section.
+     *
+     * @var ?string $librarySectionTitle
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('librarySectionTitle')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?string $librarySectionTitle = null;
+
+    /**
      * The original title of the media item (if different).
      *
      * @var ?string $originalTitle
@@ -367,6 +362,15 @@ class GetRecentlyAddedMetadata
     #[\Speakeasy\Serializer\Annotation\SerializedName('originalTitle')]
     #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
     public ?string $originalTitle = null;
+
+    /**
+     * The original release date of the media item.
+     *
+     * @var ?LocalDate $originallyAvailableAt
+     */
+    #[\Speakeasy\Serializer\Annotation\SerializedName('originallyAvailableAt')]
+    #[\Speakeasy\Serializer\Annotation\SkipWhenNull]
+    public ?LocalDate $originallyAvailableAt = null;
 
     /**
      * The GUID of the parent media item.
@@ -687,10 +691,6 @@ class GetRecentlyAddedMetadata
      * @param  string  $guid
      * @param  int  $index
      * @param  string  $key
-     * @param  int  $librarySectionID
-     * @param  string  $librarySectionKey
-     * @param  string  $librarySectionTitle
-     * @param  LocalDate  $originallyAvailableAt
      * @param  string  $parentStudio
      * @param  string  $parentTheme
      * @param  string  $ratingKey
@@ -720,7 +720,11 @@ class GetRecentlyAddedMetadata
      * @param  ?int  $lastRatedAt
      * @param  ?int  $lastViewedAt
      * @param  ?int  $leafCount
+     * @param  ?int  $librarySectionID
+     * @param  ?string  $librarySectionKey
+     * @param  ?string  $librarySectionTitle
      * @param  ?string  $originalTitle
+     * @param  ?LocalDate  $originallyAvailableAt
      * @param  ?string  $parentGuid
      * @param  ?int  $parentIndex
      * @param  ?string  $parentKey
@@ -756,7 +760,7 @@ class GetRecentlyAddedMetadata
      * @param  ?array<Collection>  $collection
      * @phpstan-pure
      */
-    public function __construct(int $addedAt, string $art, float $audienceRating, int $childCount, int $duration, string $guid, int $index, string $key, int $librarySectionID, string $librarySectionKey, string $librarySectionTitle, LocalDate $originallyAvailableAt, string $parentStudio, string $parentTheme, string $ratingKey, float $rating, int $seasonCount, string $slug, string $summary, string $tagline, string $theme, string $thumb, string $titleSort, string $title, GetRecentlyAddedHubsType $type, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $contentRating = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?string $grandparentArt = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentRatingKey = null, ?string $grandparentSlug = null, ?string $grandparentTheme = null, ?string $grandparentThumb = null, ?string $grandparentTitle = null, ?int $lastRatedAt = null, ?int $lastViewedAt = null, ?int $leafCount = null, ?string $originalTitle = null, ?string $parentGuid = null, ?int $parentIndex = null, ?string $parentKey = null, ?string $parentRatingKey = null, ?string $parentSlug = null, ?string $parentThumb = null, ?string $parentTitle = null, ?int $parentYear = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?int $skipCount = null, ?string $studio = null, ?string $subtype = null, ?int $updatedAt = null, ?float $userRating = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $viewedLeafCount = null, ?int $year = null, ?array $image = null, ?UltraBlurColors $ultraBlurColors = null, ?array $guids = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $producer = null, ?array $rating1 = null, ?array $similar = null, ?array $location = null, ?array $collection = null)
+    public function __construct(int $addedAt, string $art, float $audienceRating, int $childCount, int $duration, string $guid, int $index, string $key, string $parentStudio, string $parentTheme, string $ratingKey, float $rating, int $seasonCount, string $slug, string $summary, string $tagline, string $theme, string $thumb, string $titleSort, string $title, GetRecentlyAddedHubsType $type, ?string $audienceRatingImage = null, ?string $chapterSource = null, ?string $contentRating = null, ?string $createdAtAccuracy = null, ?string $createdAtTZOffset = null, ?string $grandparentArt = null, ?string $grandparentGuid = null, ?string $grandparentKey = null, ?string $grandparentRatingKey = null, ?string $grandparentSlug = null, ?string $grandparentTheme = null, ?string $grandparentThumb = null, ?string $grandparentTitle = null, ?int $lastRatedAt = null, ?int $lastViewedAt = null, ?int $leafCount = null, ?int $librarySectionID = null, ?string $librarySectionKey = null, ?string $librarySectionTitle = null, ?string $originalTitle = null, ?LocalDate $originallyAvailableAt = null, ?string $parentGuid = null, ?int $parentIndex = null, ?string $parentKey = null, ?string $parentRatingKey = null, ?string $parentSlug = null, ?string $parentThumb = null, ?string $parentTitle = null, ?int $parentYear = null, ?string $primaryExtraKey = null, ?string $ratingImage = null, ?int $skipCount = null, ?string $studio = null, ?string $subtype = null, ?int $updatedAt = null, ?float $userRating = null, ?int $viewCount = null, ?int $viewOffset = null, ?int $viewedLeafCount = null, ?int $year = null, ?array $image = null, ?UltraBlurColors $ultraBlurColors = null, ?array $guids = null, ?array $media = null, ?array $genre = null, ?array $country = null, ?array $director = null, ?array $writer = null, ?array $role = null, ?array $producer = null, ?array $rating1 = null, ?array $similar = null, ?array $location = null, ?array $collection = null)
     {
         $this->addedAt = $addedAt;
         $this->art = $art;
@@ -766,10 +770,6 @@ class GetRecentlyAddedMetadata
         $this->guid = $guid;
         $this->index = $index;
         $this->key = $key;
-        $this->librarySectionID = $librarySectionID;
-        $this->librarySectionKey = $librarySectionKey;
-        $this->librarySectionTitle = $librarySectionTitle;
-        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->parentStudio = $parentStudio;
         $this->parentTheme = $parentTheme;
         $this->ratingKey = $ratingKey;
@@ -799,7 +799,11 @@ class GetRecentlyAddedMetadata
         $this->lastRatedAt = $lastRatedAt;
         $this->lastViewedAt = $lastViewedAt;
         $this->leafCount = $leafCount;
+        $this->librarySectionID = $librarySectionID;
+        $this->librarySectionKey = $librarySectionKey;
+        $this->librarySectionTitle = $librarySectionTitle;
         $this->originalTitle = $originalTitle;
+        $this->originallyAvailableAt = $originallyAvailableAt;
         $this->parentGuid = $parentGuid;
         $this->parentIndex = $parentIndex;
         $this->parentKey = $parentKey;

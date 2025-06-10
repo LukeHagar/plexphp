@@ -5,13 +5,13 @@ Has this media been optimized for streaming. NOTE: This can be 0, 1, false or tr
 
 ## Supported Types
 
-### `Operations\OptimizedForStreaming1`
+### `Operations\GetLibrarySectionsAllOptimizedForStreaming1`
 
 ```php
 /**
-* @var Operations\OptimizedForStreaming1
+* @var Operations\GetLibrarySectionsAllOptimizedForStreaming1
 */
-Operations\OptimizedForStreaming1 $value = /* values here */
+Operations\GetLibrarySectionsAllOptimizedForStreaming1 $value = /* values here */
 ```
 
 ### `bool`

@@ -9,7 +9,11 @@ declare(strict_types=1);
 namespace LukeHagar\Plex_API\Models\Operations;
 
 
-/** Setting that indicates if seasons are set to hidden for the show. (-1 = Library default, 0 = Hide, 1 = Show). */
+/**
+ * Setting that indicates if seasons are set to hidden for the show. (-1 = Library default, 0 = Hide, 1 = Show).
+ *
+ *
+ */
 enum FlattenSeasons: string
 {
     case LibraryDefault = '-1';
