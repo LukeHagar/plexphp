@@ -19,6 +19,7 @@ Querying status of updates
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getUpdateStatus" method="get" path="/updater/status" -->
 ```php
 declare(strict_types=1);
 
@@ -61,6 +62,7 @@ Checking for updates
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="checkForUpdates" method="put" path="/updater/check" -->
 ```php
 declare(strict_types=1);
 
@@ -111,6 +113,7 @@ Note that these two parameters are effectively mutually exclusive. The `tonight`
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="applyUpdates" method="put" path="/updater/apply" -->
 ```php
 declare(strict_types=1);
 

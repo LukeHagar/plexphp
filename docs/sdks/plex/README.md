@@ -22,6 +22,7 @@ Get Companions Data
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getCompanionsData" method="get" path="/companions" -->
 ```php
 declare(strict_types=1);
 
@@ -70,6 +71,7 @@ Get friends of provided auth token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getUserFriends" method="get" path="/friends" -->
 ```php
 declare(strict_types=1);
 
@@ -118,6 +120,7 @@ Returns the geolocation and locale data of the caller
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getGeoData" method="get" path="/geoip" -->
 ```php
 declare(strict_types=1);
 
@@ -162,6 +165,7 @@ Retrieves the home data for the authenticated user, including details like home 
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getHomeData" method="get" path="/home" -->
 ```php
 declare(strict_types=1);
 
@@ -204,6 +208,7 @@ Get Plex server access tokens and server connections
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-server-resources" method="get" path="/resources" -->
 ```php
 declare(strict_types=1);
 
@@ -261,6 +266,7 @@ Retrieve a Pin ID from Plex.tv to use for authentication flows
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getPin" method="post" path="/pins" -->
 ```php
 declare(strict_types=1);
 
@@ -312,6 +318,7 @@ Retrieve an Access Token from Plex.tv after the Pin has been authenticated
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTokenByPinId" method="get" path="/pins/{pinID}" -->
 ```php
 declare(strict_types=1);
 

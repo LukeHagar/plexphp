@@ -35,6 +35,7 @@ This resource returns hash values for local files
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getFileHash" method="get" path="/library/hashes" -->
 ```php
 declare(strict_types=1);
 
@@ -85,6 +86,7 @@ This endpoint will return the recently added content.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-recently-added-library" method="get" path="/library/recentlyAdded" -->
 ```php
 declare(strict_types=1);
 
@@ -159,6 +161,7 @@ This allows a client to provide a rich interface around the media (e.g. allow so
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-all-libraries" method="get" path="/library/sections" -->
 ```php
 declare(strict_types=1);
 
@@ -240,6 +243,7 @@ Each type in the library comes with a set of filters and sorts, aiding in buildi
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-library-details" method="get" path="/library/sections/{sectionKey}" -->
 ```php
 declare(strict_types=1);
 
@@ -292,6 +296,7 @@ Delete a library using a specific section id
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="deleteLibrary" method="delete" path="/library/sections/{sectionKey}" -->
 ```php
 declare(strict_types=1);
 
@@ -361,6 +366,7 @@ Fetches details from a specific section of the library identified by a section k
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-library-items" method="get" path="/library/sections/{sectionKey}/{tag}" -->
 ```php
 declare(strict_types=1);
 
@@ -417,6 +423,7 @@ Retrieves a list of all general media data for this library.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-library-sections-all" method="get" path="/library/sections/{sectionKey}/all" -->
 ```php
 declare(strict_types=1);
 
@@ -475,6 +482,7 @@ This endpoint Refreshes all the Metadata of the library.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-refresh-library-metadata" method="get" path="/library/sections/{sectionKey}/refresh" -->
 ```php
 declare(strict_types=1);
 
@@ -545,6 +553,7 @@ Each type in the library comes with a set of filters and sorts, aiding in buildi
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-search-library" method="get" path="/library/sections/{sectionKey}/search" -->
 ```php
 declare(strict_types=1);
 
@@ -598,6 +607,7 @@ Retrieves a list of all the genres that are found for the media in this library.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-genres-library" method="get" path="/library/sections/{sectionKey}/genre" -->
 ```php
 declare(strict_types=1);
 
@@ -651,6 +661,7 @@ Retrieves a list of all the countries that are found for the media in this libra
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-countries-library" method="get" path="/library/sections/{sectionKey}/country" -->
 ```php
 declare(strict_types=1);
 
@@ -704,6 +715,7 @@ Retrieves a list of all the actors that are found for the media in this library.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-actors-library" method="get" path="/library/sections/{sectionKey}/actor" -->
 ```php
 declare(strict_types=1);
 
@@ -757,6 +769,7 @@ Search the provided query across all library sections, or a single section, and 
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-search-all-libraries" method="get" path="/library/search" -->
 ```php
 declare(strict_types=1);
 
@@ -816,6 +829,7 @@ Multiple rating keys can be provided as a comma-separated list (e.g., "21119,216
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-media-meta-data" method="get" path="/library/metadata/{ratingKey}" -->
 ```php
 declare(strict_types=1);
 
@@ -880,6 +894,7 @@ Returns the background artwork for a library item.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-media-arts" method="get" path="/library/metadata/{ratingKey}/arts" -->
 ```php
 declare(strict_types=1);
 
@@ -926,6 +941,7 @@ Uploads an image to use as the background artwork for a library item, either fro
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="post-media-arts" method="post" path="/library/metadata/{ratingKey}/arts" -->
 ```php
 declare(strict_types=1);
 
@@ -976,6 +992,7 @@ Returns the available posters for a library item.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-media-posters" method="get" path="/library/metadata/{ratingKey}/posters" -->
 ```php
 declare(strict_types=1);
 
@@ -1022,6 +1039,7 @@ Uploads a poster to a library item, either from a local file or a remote URL
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="post-media-poster" method="post" path="/library/metadata/{ratingKey}/posters" -->
 ```php
 declare(strict_types=1);
 
@@ -1073,6 +1091,7 @@ This endpoint will return the children of of a library item specified with the r
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getMetadataChildren" method="get" path="/library/metadata/{ratingKey}/children" -->
 ```php
 declare(strict_types=1);
 
@@ -1125,6 +1144,7 @@ This endpoint will return the top watched content from libraries of a certain ty
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTopWatchedContent" method="get" path="/library/all/top" -->
 ```php
 declare(strict_types=1);
 

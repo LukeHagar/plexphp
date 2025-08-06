@@ -16,6 +16,7 @@ Get User Watchlist
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-watch-list" method="get" path="/library/sections/watchlist/{filter}" -->
 ```php
 declare(strict_types=1);
 

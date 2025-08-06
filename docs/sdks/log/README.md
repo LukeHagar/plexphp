@@ -19,6 +19,7 @@ This endpoint will write a single-line log message, including a level and source
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="logLine" method="get" path="/log" -->
 ```php
 declare(strict_types=1);
 
@@ -94,6 +95,7 @@ Ensure each parameter is properly URL-encoded to avoid interpretation issues.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="logMultiLine" method="post" path="/log" -->
 ```php
 declare(strict_types=1);
 
@@ -145,6 +147,7 @@ This endpoint will enable all Plex Media Serverlogs to be sent to the Papertrail
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="enablePaperTrail" method="get" path="/log/networked" -->
 ```php
 declare(strict_types=1);
 

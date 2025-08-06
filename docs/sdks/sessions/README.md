@@ -19,6 +19,7 @@ This will retrieve the "Now Playing" Information of the PMS.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getSessions" method="get" path="/status/sessions" -->
 ```php
 declare(strict_types=1);
 
@@ -61,6 +62,7 @@ This will Retrieve a listing of all history views.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getSessionHistory" method="get" path="/status/sessions/history/all" -->
 ```php
 declare(strict_types=1);
 
@@ -117,6 +119,7 @@ Get Transcode Sessions
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTranscodeSessions" method="get" path="/transcode/sessions" -->
 ```php
 declare(strict_types=1);
 
@@ -159,6 +162,7 @@ Stop a Transcode Session
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="stopTranscodeSession" method="delete" path="/transcode/sessions/{sessionKey}" -->
 ```php
 declare(strict_types=1);
 

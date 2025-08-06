@@ -17,6 +17,7 @@ Get the timeline for a media item
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTimeline" method="get" path="/:/timeline" -->
 ```php
 declare(strict_types=1);
 
@@ -77,6 +78,7 @@ Begin a Universal Transcode Session
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="startUniversalTranscode" method="get" path="/video/:/transcode/universal/start.mpd" -->
 ```php
 declare(strict_types=1);
 

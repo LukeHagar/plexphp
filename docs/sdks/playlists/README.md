@@ -30,6 +30,7 @@ Create a new playlist. By default the playlist is blank. To create a playlist al
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="createPlaylist" method="post" path="/playlists" -->
 ```php
 declare(strict_types=1);
 
@@ -84,6 +85,7 @@ Get All Playlists given the specified filters.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getPlaylists" method="get" path="/playlists" -->
 ```php
 declare(strict_types=1);
 
@@ -135,6 +137,7 @@ Smart playlist details contain the `content` attribute. This is the content URI 
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getPlaylist" method="get" path="/playlists/{playlistID}" -->
 ```php
 declare(strict_types=1);
 
@@ -184,6 +187,7 @@ This endpoint will delete a playlist
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="deletePlaylist" method="delete" path="/playlists/{playlistID}" -->
 ```php
 declare(strict_types=1);
 
@@ -233,6 +237,7 @@ From PMS version 1.9.1 clients can also edit playlist metadata using this endpoi
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updatePlaylist" method="put" path="/playlists/{playlistID}" -->
 ```php
 declare(strict_types=1);
 
@@ -287,6 +292,7 @@ Note that for dumb playlists, items have a `playlistItemID` attribute which is u
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getPlaylistContents" method="get" path="/playlists/{playlistID}/items" -->
 ```php
 declare(strict_types=1);
 
@@ -340,6 +346,7 @@ Clears a playlist, only works with dumb playlists. Returns the playlist.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="clearPlaylistContents" method="delete" path="/playlists/{playlistID}/items" -->
 ```php
 declare(strict_types=1);
 
@@ -390,6 +397,7 @@ With a smart playlist, passing a new `uri` parameter replaces the rules for the 
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="addPlaylistContents" method="put" path="/playlists/{playlistID}/items" -->
 ```php
 declare(strict_types=1);
 
@@ -444,6 +452,7 @@ Imports m3u playlists by passing a path on the server to scan for m3u-formatted 
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="uploadPlaylist" method="post" path="/playlists/upload" -->
 ```php
 declare(strict_types=1);
 

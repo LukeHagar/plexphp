@@ -23,6 +23,7 @@ Get Server Activities
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getServerActivities" method="get" path="/activities" -->
 ```php
 declare(strict_types=1);
 
@@ -65,6 +66,7 @@ Cancel Server Activities
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="cancelServerActivities" method="delete" path="/activities/{activityUUID}" -->
 ```php
 declare(strict_types=1);
 

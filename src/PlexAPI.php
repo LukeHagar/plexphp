@@ -246,5 +246,6 @@ class PlexAPI
         if ($preHooksUrl != $ret->url) {
             $this->sdkConfiguration->serverUrl = $ret->url;
         }
+        $this->sdkConfiguration->client = $ret->client;
     }
 }

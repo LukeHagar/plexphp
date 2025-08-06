@@ -20,6 +20,7 @@ This endpoint provides the caller with a temporary token with the same access le
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTransientToken" method="get" path="/security/token" -->
 ```php
 declare(strict_types=1);
 
@@ -74,6 +75,7 @@ Note: requires Plex Media Server >= 1.15.4.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getSourceConnectionInformation" method="get" path="/security/resources" -->
 ```php
 declare(strict_types=1);
 
@@ -122,6 +124,7 @@ Get the User data from the provided X-Plex-Token
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getTokenDetails" method="get" path="/user" -->
 ```php
 declare(strict_types=1);
 
@@ -170,6 +173,7 @@ Sign in user with username and password and return user data with Plex authentic
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="post-users-sign-in-data" method="post" path="/users/signin" -->
 ```php
 declare(strict_types=1);
 

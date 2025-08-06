@@ -18,6 +18,7 @@ This will return the media statistics for the server
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getStatistics" method="get" path="/statistics/media" -->
 ```php
 declare(strict_types=1);
 
@@ -66,6 +67,7 @@ This will return the resources for the server
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getResourcesStatistics" method="get" path="/statistics/resources" -->
 ```php
 declare(strict_types=1);
 
@@ -114,6 +116,7 @@ This will return the bandwidth statistics for the server
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getBandwidthStatistics" method="get" path="/statistics/bandwidth" -->
 ```php
 declare(strict_types=1);
 

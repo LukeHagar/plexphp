@@ -13,6 +13,7 @@ Get list of all users that are friends and have library access with the provided
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-users" method="get" path="/users" -->
 ```php
 declare(strict_types=1);
 

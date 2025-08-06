@@ -20,6 +20,7 @@ This will mark the provided media key as Played.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="markPlayed" method="get" path="/:/scrobble" -->
 ```php
 declare(strict_types=1);
 
@@ -68,6 +69,7 @@ This will mark the provided media key as Unplayed.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="markUnplayed" method="get" path="/:/unscrobble" -->
 ```php
 declare(strict_types=1);
 
@@ -117,6 +119,7 @@ This API command can be used to update the play progress of a media item.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="updatePlayProgress" method="post" path="/:/progress" -->
 ```php
 declare(strict_types=1);
 
@@ -170,6 +173,7 @@ Gets the banner image of the media item
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-banner-image" method="get" path="/library/metadata/{ratingKey}/banner" -->
 ```php
 declare(strict_types=1);
 
@@ -226,6 +230,7 @@ Gets the thumbnail image of the media item
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-thumb-image" method="get" path="/library/metadata/{ratingKey}/thumb" -->
 ```php
 declare(strict_types=1);
 

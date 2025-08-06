@@ -30,6 +30,7 @@ This request is intended to be very fast, and called as the user types.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="performSearch" method="get" path="/hubs/search" -->
 ```php
 declare(strict_types=1);
 
@@ -86,6 +87,7 @@ Results, as well as their containing per-type hubs, contain a `distance` attribu
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="performVoiceSearch" method="get" path="/hubs/search/voice" -->
 ```php
 declare(strict_types=1);
 
@@ -138,6 +140,7 @@ This will search the database for the string provided.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getSearchResults" method="get" path="/search" -->
 ```php
 declare(strict_types=1);
 

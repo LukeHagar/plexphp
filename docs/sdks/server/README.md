@@ -24,6 +24,7 @@ Get Server Capabilities
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getServerCapabilities" method="get" path="/" -->
 ```php
 declare(strict_types=1);
 
@@ -66,6 +67,7 @@ Get Server Preferences
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getServerPreferences" method="get" path="/:/prefs" -->
 ```php
 declare(strict_types=1);
 
@@ -108,6 +110,7 @@ Get Available Clients
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getAvailableClients" method="get" path="/clients" -->
 ```php
 declare(strict_types=1);
 
@@ -150,6 +153,7 @@ Get Devices
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getDevices" method="get" path="/devices" -->
 ```php
 declare(strict_types=1);
 
@@ -192,6 +196,7 @@ This request is useful to determine if the server is online or offline
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-server-identity" method="get" path="/identity" -->
 ```php
 declare(strict_types=1);
 
@@ -229,6 +234,7 @@ Returns MyPlex Account Information
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getMyPlexAccount" method="get" path="/myplex/account" -->
 ```php
 declare(strict_types=1);
 
@@ -272,6 +278,7 @@ Plex's Photo transcoder is used throughout the service to serve images at specif
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getResizedPhoto" method="get" path="/photo/:/transcode" -->
 ```php
 declare(strict_types=1);
 
@@ -328,6 +335,7 @@ Retrieves media providers and their features from the Plex server.
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="get-media-providers" method="get" path="/media/providers" -->
 ```php
 declare(strict_types=1);
 
@@ -376,6 +384,7 @@ Get Server List
 
 ### Example Usage
 
+<!-- UsageSnippet language="php" operationID="getServerList" method="get" path="/servers" -->
 ```php
 declare(strict_types=1);
 
