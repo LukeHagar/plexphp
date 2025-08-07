@@ -1,4 +1,4 @@
-speakeasyVersion: 1.598.0
+speakeasyVersion: 1.598.3
 sources:
     my-source:
         sourceNamespace: my-source
@@ -13,7 +13,7 @@ sources:
         sourceBlobDigest: sha256:f84dd2bfdaea4074454cea3c7fbc6c9e05515c5e9e961abb4923b77f8faf48f1
         tags:
             - latest
-            - speakeasy-sdk-regen-1754439153
+            - speakeasy-sdk-regen-1754525568
 targets:
     plexphp:
         source: plexapi
@@ -21,7 +21,7 @@ targets:
         sourceRevisionDigest: sha256:b4fa89a3571fbdcb4228800772a5fe1c292170babcd3e055161ae54402f89577
         sourceBlobDigest: sha256:f84dd2bfdaea4074454cea3c7fbc6c9e05515c5e9e961abb4923b77f8faf48f1
         codeSamplesNamespace: code-samples-php-plexphp
-        codeSamplesRevisionDigest: sha256:0a147e595d40bba9781ed8f756616d61cdd52520e2d30d8e96de3c29812d0260
+        codeSamplesRevisionDigest: sha256:6ed633d85d92794c484db3082732e9b71793abb5fd0934975731d4be130d2a69
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
