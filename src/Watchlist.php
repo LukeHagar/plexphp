@@ -16,8 +16,8 @@ use Speakeasy\Serializer\DeserializationContext;
 class Watchlist
 {
     public const GET_WATCH_LIST_SERVERS = [
-        /** The plex metadata provider server */
-        'https://metadata.provider.plex.tv',
+        /** The plex discover provider server */
+        'https://discover.provider.plex.tv',
     ];
     private SDKConfiguration $sdkConfiguration;
     /**
